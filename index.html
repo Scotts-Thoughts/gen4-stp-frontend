@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scott's Thoughts Gen4 Frontend - [Alpha-v0.01]</title>
+    <link rel="stylesheet" href="style.css" id="cssStylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="ready == false">
+            Loading...
+        </div>
+        <div v-else>
+            <img src="images/sinnoh.png" id="texture" class="posAbs">
+            <img src="images/overlay-mockup.png" id="overlay" class="posAbs">
+            <img src="images/overlay/testing.png" id="overlay" class="posAbs">
+            
+            <div class="posAbs" style="font-family: play; top: 30px; left: 460px;">
+                <div>State: {{state}}</div>
+                <br>
+                <div>Accuracy: {{mapper.properties.battle.playerPokemon1.modifiers.accuracy.value}}</div>
+                <div>Evasion: {{mapper.properties.battle.playerPokemon1.modifiers.evasion.value}}</div>
+                <br>
+                <div>
+
+                </div>
+            </div>
+
+            <div class="posAbs" style="font-family: play; top: 242px; left: 30px;">
+
+            </div>
+
+            <div class="posAbs type_icons_boundingBox center">
+                <img 
+                    class="type_icons" 
+                    :src="`images/type-icons-rectangular/${getSoloMonType(starter, 'type1').toLowerCase()}.png`" />
+                <img 
+                    v-if="getSoloMonType(starter, 'type1') != getSoloMonType(starter, 'type2')" 
+                    class="type_icons" 
+                    :src="`images/type-icons-rectangular/${getSoloMonType(starter, 'type2').toLowerCase()}.png`" />
+            </div>
+            <div class="posAbs" style="font-family: play; top: 772px; left: 30px;">
+                <div>Species: {{solo_mon.species.value}}</div>
+                <div>Growth Rate: {{growth_rate}}</div>
+                <div>Lv: {{solo_mon.level}}</div>
+                <div>Exp: {{solo_mon.expPoints}}</div>
+                <div>Nature: {{mapper.properties.player.team[0].nature.value}}</div>
+                <div>- - - - -</div>
+                <div>{{stats_location}}:</div>
+                <div>Hp: {{solo_mon.stats.hp}}/{{solo_mon.stats.maxHp}}</div>
+                <div>Atk: {{getStat("attack")}}</div>
+                <div>Def: {{getStat("defense")}}</div>
+                <div>SpA: {{getStat("specialAttack")}}</div>
+                <div>SpD: {{getStat("specialDefense")}}</div>
+                <div>Spe: {{getStat("speed")}}</div>
+            </div>
+            <div class="posAbs" style="font-family: play; top: 885px; left: 190px;">
+                <div>Mods:</div>
+                <div>Hp: N/A</div>
+                <div>Atk: {{mapper.properties.battle.playerPokemon1.modifiers.attack.value}}</div>
+                <div>Def: {{mapper.properties.battle.playerPokemon1.modifiers.defense.value}}</div>
+                <div>SpA: {{mapper.properties.battle.playerPokemon1.modifiers.specialAttack.value}}</div>
+                <div>SpD: {{mapper.properties.battle.playerPokemon1.modifiers.specialDefense.value}}</div>
+                <div>Spe: {{mapper.properties.battle.playerPokemon1.modifiers.speed.value}}</div>
+            </div>
+            <div class="posAbs" style="font-family: play; top: 885px; left: 270px;">
+                <div>IVs:</div>
+                <div>Hp: {{mapper.properties.player.team[0].ivs.hp}}</div>
+                <div>Atk: {{mapper.properties.player.team[0].ivs.attack}}</div>
+                <div>Def: {{mapper.properties.player.team[0].ivs.defense}}</div>
+                <div>SpA: {{mapper.properties.player.team[0].ivs.specialAttack}}</div>
+                <div>SpD: {{mapper.properties.player.team[0].ivs.specialDefense}}</div>
+                <div>Spe: {{mapper.properties.player.team[0].ivs.speed}}</div>
+            </div>
+            <div class="posAbs" style="font-family: play; top: 885px; left: 355px;">
+                <div>EVs:</div>
+                <div>Hp: {{mapper.properties.player.team[0].evs.hp}}</div>
+                <div>Atk: {{mapper.properties.player.team[0].evs.attack}}</div>
+                <div>Def: {{mapper.properties.player.team[0].evs.defense}}</div>
+                <div>SpA: {{mapper.properties.player.team[0].evs.specialAttack}}</div>
+                <div>SpD: {{mapper.properties.player.team[0].evs.specialDefense}}</div>
+                <div>Spe: {{mapper.properties.player.team[0].evs.speed}}</div>
+            </div>
+
+            <!-- Stats -->
+            <div class="posAbs">
+                <div class="stats_table_header">Level {{solo_mon.level}}</div>
+                <table class="stats_table stats_table_borders">
+                    <tr>
+                        <th class="stats_table_borders">Hp:</th>
+                        <th class="stats_table_borders">{{solo_mon.stats.maxHp}}</th>
+                        <th class="stats_table_borders">SpA:</th>
+                        <th class="stats_table_borders">{{getStat("specialAttack")}}</th>
+                    </tr>
+                    <tr>
+                        <th class="stats_table_borders">Atk:</th>
+                        <th class="stats_table_borders">{{getStat("attack")}}</th>
+                        <th class="stats_table_borders">SpD:</th>
+                        <th class="stats_table_borders">{{getStat("specialDefense")}}</th>
+                    </tr>
+                    <tr>
+                        <th class="stats_table_borders">Def:</th>
+                        <th class="stats_table_borders">{{getStat("defense")}}</th>
+                        <th class="stats_table_borders">Spe:</th>
+                        <th class="stats_table_borders">{{getStat("speed")}}</th>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Misc -->
+            <div class="posAbs labelAbility" style="font-family: play; top: 813px; left: 496px;">
+                <div class="posAbs ">Ability:</div>
+                <div class="posAbs" style="left: 487px; width: 200px;">Held Item:</div>
+            </div>
+            <div class="ability">{{mapper.properties.player?.team[0]?.ability?.value}}</div>
+            <div  class="heldItem">{{mapper.properties.player?.team[0]?.heldItem?.value}}</div>
+            <div  class="labelEXP">Exp:</div>
+
+            <!-- Moveset -->
+            <table class="posAbs g4movepool" style="top: 890px; left: 460px;">
+                <tr class="g4movepool_header">
+                    <th class="align_left g4mp_type">type</th>
+                    <th class="align_left g4mp_move">move</th>
+                    <th class="align_right g4mp_power">power</th>
+                    <th class="align_right g4mp_accuracy">accuracy</th>
+                    <th class="align_right g4mp_pp">pp</th>
+                    <th class="align_left g4mp_type">type</th>
+                    <th class="align_left g4mp_move">move</th>
+                    <th class="align_right g4mp_power">power</th>
+                    <th class="align_right g4mp_accuracy">accuracy</th>
+                    <th class="align_right g4mp_pp">pp</th>
+                </tr>
+                <tr>
+                    <div v-if="getMove('1') != undefined">
+                        <th class="align_left g4mp_types">
+                            <img class="moveset_typeIcons" :src="`images/type-icons-circular/${g4MoveData[getMove('1')].Type.toLowerCase()}.png`" />
+                        </th>
+                        <th class="align_left g4mp_move">{{getMove("1")}}</th>
+                        <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting.move1.value)}}</th>
+                        <th class="align_right g4mp_accuracy">{{g4MoveData[getMove('1')].Accuracy}}%</th>
+                        <th class="align_right g4mp_pp">{{getPP("1")}}</th>
+                    </div>
+                    <div v-if="getMove('2') != undefined">
+                        <th class="align_left g4mp_type">
+                            <img class="moveset_typeIcons" :src="`images/type-icons-circular/${g4MoveData[getMove('2')].Type.toLowerCase()}.png`" />
+                        </th>
+                        <th class="align_left g4mp_move">{{getMove("2")}}</th>
+                        <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting.move2.value)}}</th>
+                        <th class="align_right g4mp_accuracy">{{g4MoveData[getMove("2")].Accuracy}}%</th>
+                        <th class="align_right g4mp_pp">{{getPP("2")}}</th>
+                    </div>
+                </tr>
+                <tr>
+                    <div v-if="getMove('3') != undefined">
+                        <th class="align_left g4mp_type">
+                            <img class="moveset_typeIcons" :src="`images/type-icons-circular/${g4MoveData[getMove('3')].Type.toLowerCase()}.png`" />
+                        </th>
+                        <th class="align_left g4mp_move">{{getMove("3")}}</th>
+                        <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting.move3.value)}}</th>
+                        <th class="align_right g4mp_accuracy">{{g4MoveData[getMove("3")].Accuracy}}%</th>
+                        <th class="align_right g4mp_pp">{{getPP("3")}}</th>
+                    </div>
+                    <!-- <div v-if="getMove('4') != undefined">
+                        <th class="align_left g4mp_type">
+                            <img class="moveset_typeIcons" :src="`images/type-icons-circular/${g4MoveData[getMove('4')].Type.toLowerCase()}.png`" />
+                        </th>
+                        <th class="align_left g4mp_move">{{getMove("4")}}</th>
+                        <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting.move4.value)}}</th>
+                        <th class="align_right g4mp_accuracy">{{g4MoveData[getMove("4")]?.Accuracy}}%</th>
+                        <th class="align_right g4mp_pp">{{getPP("4")}}</th>
+                    </div> -->
+                </tr>
+            </table>
+
+            <!-- Movepool -->
+            <div>
+                <table class="movepoolDemo" cellspacing="0">
+                    <tr>
+                    <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
+                        <th class="movepool_header movepool_way">Way</th>
+                        <th class="movepool_header movepool_move">Move</th>
+                        <th class="movepool_header movepool_type">Type</th>
+                        <th class="movepool_header movepool_type">Cat.</th>
+                        <th class="movepool_header movepool_tableC">Pwr.</th>
+                        <th class="movepool_header movepool_tableC">Acc.</th>
+                        <th class="movepool_header movepool_tableC">PP</th>
+                    </tr>
+                    <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).level">
+                        <td class="movepool_way">{{x.Level}}</td>
+                        <td class="movepool_move">{{x.Move}}</td>
+                        <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
+                        <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                        <td class="movepool_tableC">{{x.Power}}</td>
+                        <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                        <td class="movepool_tableC">{{x.PP}}</td>
+                    </tr>
+                    <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).tmhm">
+                        <td class="movepool_way">{{x.tmhm}}</td>
+                        <td class="movepool_move">{{x.Move}}</td>
+                        <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
+                        <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                        <td class="movepool_tableC">{{movepoolPower(x)}}</td>
+                        <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                        <td class="movepool_tableC">{{x.PP}}</td>
+                    </tr>
+                    <!-- <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).tutor">
+                        <td class="movepool_way">Tutor</td>
+                        <td class="movepool_move">{{x.Move}}</td>
+                        <td class="movepool_type">{{x.Type}}</td>
+                        <td class="movepool_type">{{x.Category}}</td>
+                        <td class="movepool_tableC">{{x.Power}}</td>
+                        <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                        <td class="movepool_tableC">{{x.PP}}</td>
+                    </tr> -->
+                    <!-- <tr v-for="x in getMovepool(g4MoveData, g4MoveData, g4tmhmMapping).egg">
+                        <td class="movepool_way">Egg</td>
+                        <td class="movepool_move">{{x.Move}}</td>
+                        <td class="movepool_type" :style="{'background-color': `var(--${x.Type?.toLowerCase()})`}">{{x.Type}}</td>
+                        <td class="movepool_tableC">{{x.Power}}</td>
+                        <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                        <td class="movepool_tableC">{{x.PP}}</td>
+                    </tr> -->
+                    <div class="posAbs movepoolLabel">Movepool</div>
+                </table>
+                <img src="images/movepool-border/testing.png" id="overlay" class="posAbs">
+            </div>
+        </div>
+    </div>
+
+<!--------------------------------------- JAVASCRIPT ------------------------------------------------->
+    <script src="packages/signalR.js"></script>
+    <script src="packages/vue.js"></script>
+    <script src="http://localhost:8085/dist/gameHookMapperClient.js"></script>
+    <!-- DATA -->
+    <script src="lib/g4MoveData.js"></script>
+    <script src="lib/g4tmhmMapping.js"></script>
+    <script src="lib/g4PokemonData.js"></script>
+    <script src="lib/stageModifiers.js"></script>
+    <script src="lib/type-effectiveness.js"></script>
+    <script src="lib/type effectiveness array.js"></script>
+    <!-- <script src="data/natures.js"></script> -->
+    <!-- <script src="data/gen3abilities.js"></script> -->
+    <!-- <script src="lib/emerald_trainers.js"></script> -->
+    <!-- <script src="lib/hiddenPowerTypeSelector.js"></script> -->
+    <!-- <script src="data/typeBoostingItems.js"></script> -->
+    <!-- VUE APP -->
+    <script type="text/javascript" src="vue.js"></script>
+</body>
