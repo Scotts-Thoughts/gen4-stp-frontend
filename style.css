@@ -192,26 +192,31 @@ canvas {  /* or some other selector */
     z-index: -100;
 }
 
-
 /* Gen4 Movepool CSS */
 .g4movepool {
-    display: block;
+    /* display: block; */
     position: absolute;
     /* border: 1px solid #00ff0d00; */
-    background-color: #ffffff00;
+    background-color: #e3212100;
     font-size: 25px;
-    line-height: 80px;
-    width: 425px;
-    height: 1071px;
+    width: 482px;
+    /* height: 160px; */
     font-family: play;
-    left: 1484px;
-    top: 20px;
     opacity: .9;
     border: none;
+    table-layout: fixed;
 }
 .g4movepool_header {
     font-size: 15px;
     line-height: 12px;
+}
+.g4movepool th, .g4movepool td {
+    border: 1px solid #b2111100;
+}
+
+.centered-content {
+    text-align: center;
+    vertical-align: middle;
 }
 .align_left {
     text-align: left;
@@ -224,71 +229,86 @@ canvas {  /* or some other selector */
     text-align: right;
 }
 .g4mp_type {
-    padding-left: 1px;
-    padding-right: 5px;
+    width: 60px;
 }
 .g4mp_move {
-    padding-left: 1px;
-    padding-right: 40px;
+    width: 145px;
 }
 .g4mp_category {
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 65px;
+    /* padding-left: 2px;
+    padding-right: 2px; */
 }
 .g4mp_power {
-    padding-left: 10px;
-    padding-right: 5px;
+    width: 55px;
 }
 .g4mp_accuracy {
-    padding-left: 15px;
-    padding-right: 5px;
+    width: 80px;
 }
 .g4mp_pp {
-    padding-left: 10px;
-    padding-right: 175px;
+    width: 50px;
+    padding-right: 
 }
+.g4mp_spacer {
+    width: 50px;
+    padding-right: 
+}
+
 .movepool_header {
     line-height: 17px;
 }
 .movepoolBorder {
     z-index: 1;
 }
-.g4movepool th:nth-child(1) {
-    width: 50px;
+/* .g4movepool th:nth-child(1) {
+    border: 1px solid #ff0000;
+    width: 70px;
 }
 .g4movepool th:nth-child(2) {
-    width: 124px;
+    border: 1px solid #ff0000;
+    width: 200px;
 }
 .g4movepool th:nth-child(3) {
+    border: 1px solid #ff0000;
     width: 71px;
 }
 .g4movepool th:nth-child(4) {
+    border: 1px solid #ff0000;
     width: 71px;
 }
 .g4movepool th:nth-child(5) {
+    border: 1px solid #ff0000;
     width: 40px;
 }
 .g4movepool th:nth-child(6) {
+    border: 1px solid #ff0000;
     width: 40px;
 }
 .g4movepool th:nth-child(7) {
+    border: 1px solid #ff0000;
     width: 50px;
 }
 .g4movepool th:nth-child(8) {
+    border: 1px solid #ff0000;
+
     width: 124px;
 }
 .g4movepool th:nth-child(9) {
+    border: 1px solid #ff0000;
     width: 71px;
 }
 .g4movepool th:nth-child(10) {
+    border: 1px solid #ff0000;
     width: 71px;
 }
 .g4movepool th:nth-child(11) {
+    border: 1px solid #ff0000;
     width: 40px;
 }
 .g4movepool th:nth-child(12) {
+    border: 1px solid #ff0000;
     width: 40px;
-}
+} */
 .movepoolTable {
     font-size: 17px;
 }
@@ -773,7 +793,74 @@ canvas {  /* or some other selector */
     font-weight: 700;
 }
 
+.ePkmnMoveStyle {
+    position: absolute;
+    /* border: 1px solid rgb(47, 0, 255); */
+    width: 190px;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    left: 190px;
+}
+.opacityTransition { transition: opacity 500ms ease-in-out;}
+.ePkmnMove1 { top: 12px; }
+.ePkmnMove2 { top: 48px; }
+.ePkmnMove3 { top: 84px; }
+.ePkmnMove4 { top: 119px; }
+.ePkmnRanges {
+    /* left: 148px;
+    width: 222px;
+    border: 1px solid #a8282800; */
+    left: 171px;
+    width: 199px;
+    border: 1px solid #a8282800;
+}
+.ePkmnPlayerRange { 
+    top: 13px; 
+}
+.ePkmnEnemyRange { 
+    top: 84px; 
+}
 
+.ePkmnStatsStyle {
+    position: absolute;
+    /* border: 1px solid rgb(255, 0, 0); */
+    width: 50px;
+    text-align: center;
+    left: 146.5px;
+}
+.ePkmnHp  { top: 11px; }
+.ePkmnAtk { top: 39px; }
+.ePkmnDef { top: 67px; }
+.ePkmnSpd { top: 124px; }
+.ePkmnSpc { top: 95px; }
+
+.enemyMods {
+    position: absolute;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    line-height: 24px;
+    /* border: 1px solid #000; */
+    text-align: center;
+    border-radius: 15px;
+    background: #a1a1a1;
+    filter: drop-shadow(0px 0px 2px);
+    left: 192px;
+    opacity: 1;
+}
+.attackMod {
+    top: 34px;
+}
+.defenseMod {
+    top: 63px;
+}
+.specialMod {
+    top: 92px;
+}
+.speedMod {
+    top: 124px;
+}
 
 .popup {
     position: absolute;
@@ -783,7 +870,18 @@ canvas {  /* or some other selector */
     scale: 15;
 }
 
-
+.trainerLabel {
+    position: absolute;
+    font-family: titan;
+    border: 1px solid rgba(255, 0, 0, 0);
+    font-size: 26px;
+    top: 26px;
+    left: 1486px;
+    text-align: center;
+    width: 420px;
+    /* text-transform: capitalize; */
+    z-index: 10001;
+}
 
 /* ENEMY STATS */
 .enemyGraphic {
@@ -796,14 +894,11 @@ canvas {  /* or some other selector */
     z-index: 0;
 }
 .enemyPng {
-    display: block;
     position: absolute;
     top: 0px;
     width: 1920px;
     object-fit: cover;
-    object-position: top right;
     height: 1080px;
-    z-index: -1;
 }
 .eAbilities {
     display: block;
@@ -1157,8 +1252,8 @@ canvas {  /* or some other selector */
     z-index: 3;
 }
 .moveset_typeIcons {
-    width: 32px;
-    height: 32px;
+    width: 60px;
+    height: 60px;
 }
 .movesetUI {
 	display: block;
@@ -2720,7 +2815,7 @@ canvas {  /* or some other selector */
     top: 466px;
     left: 21px;
     text-align: center;
-    height: 40px;
+    /* height: 42px; */
     font-family: play;
     font-size: 32px;
 }
@@ -2729,31 +2824,31 @@ canvas {  /* or some other selector */
 }
 .stats_table {
     position: absolute;
-    width: 402px;
-    height: 187px;
-    top: 536px;
-    left: 21px;
+    width: 200px;
+    height: 155px;
+    top: 533px;
     text-align: center;
     font-family: play;
-    font-size: 40px;
-    line-height: 36px;
+    font-size: 51px;
     transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
 }
 .stats_table th:nth-child(1) {
-    opacity: .7;
+    opacity: .6;
     padding-left: 5px;
     text-align: left;
-    width: 90px;
+    width: 65px;
+    font-size: 27px;
 }
 .stats_table th:nth-child(2) {
     text-align: right;
     padding-right: 12px;
 }
 .stats_table th:nth-child(3) {
-    opacity: .7;
+    opacity: .6;
     padding-left: 15px;
     text-align: left;
-    width: 90px;
+    width: 65px;
+    font-size: 27px;
 }
 .stats_table th:nth-child(4) {
     text-align: right;
