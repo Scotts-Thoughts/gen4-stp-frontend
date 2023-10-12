@@ -199,7 +199,7 @@ canvas {  /* or some other selector */
     /* border: 1px solid #00ff0d00; */
     background-color: #e3212100;
     font-size: 25px;
-    width: 482px;
+    width: 476px;
     /* height: 160px; */
     font-family: play;
     opacity: .9;
@@ -217,6 +217,9 @@ canvas {  /* or some other selector */
 .centered-content {
     text-align: center;
     vertical-align: middle;
+}
+.dropshadow {
+    filter: drop-shadow(0px 1px 2px #000);
 }
 .align_left {
     text-align: left;
@@ -240,18 +243,18 @@ canvas {  /* or some other selector */
     padding-right: 2px; */
 }
 .g4mp_power {
-    width: 55px;
+    width: 46px;
 }
 .g4mp_accuracy {
-    width: 80px;
+    width: 62px;
 }
 .g4mp_pp {
-    width: 50px;
-    padding-right: 
+    width: 42px;
+    padding-right; 
 }
 .g4mp_spacer {
     width: 50px;
-    padding-right: 
+    padding-right; 
 }
 
 .movepool_header {
@@ -468,16 +471,21 @@ canvas {  /* or some other selector */
     opacity: 0.6;
 }
 .labelEXP {
-    font-size: 20px;
+    position: absolute;
+    font-size: 19px;
+    border: 1px solid #ff000000;
     font-family: play;
-    position: fixed;
-    line-height: 37.3px;
-    top: 499px;
-    left: 32px;
+    line-height: 26px;
+    top: 504px;
+    left: 22px;
+    width: 62px;
+    height: 26px;
     opacity: .7;
     z-index: 30002;
-    text-align: left;
-    font-weight: 500
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .ability {
     position: absolute;
@@ -550,12 +558,12 @@ canvas {  /* or some other selector */
 }
 .expMeterOuter {
     position: absolute;
-    border-radius: 4px;
+    border-radius: 5px;
     background: linear-gradient(rgb(239, 239, 239), rgb(157, 157, 157));
-    width: 277px;
-    height: 14px;
-    top: 856px;
-    left: 68px;
+    width: 347px;
+    height: 9px;
+    top: 520px;
+    left: 76px;
     z-index: 0;
 }
 
@@ -563,10 +571,10 @@ canvas {  /* or some other selector */
     position: relative;
     border-radius: 4px;
     background: linear-gradient(90deg,hsl(189, 92%, 45%), hsl(187, 100%, 69%));
-    width: 277px;
+    width: 345px;
     top: -1px;
-    height: 16px;
-    border: 1px solid #000;
+    height: 10px;
+    /* border: 1px solid #000; */
     /* background:rgb(0, 217, 255); */
 }
 .statsLabelsColumn1 {
@@ -1754,6 +1762,20 @@ canvas {  /* or some other selector */
     font-family: osb;
     font-weight: 700
 } */
+.genericLabels {
+    position: absolute;
+    font-family: titan;
+    text-decoration: underline;
+    opacity: .72;
+}
+.timerLabel {
+    top: 24px;
+    left: 32px;
+}
+.resetsLabel {
+    top: 134px;
+    left: 30px;
+}
 .nature {
     font-size: 20px;
     position: absolute;
@@ -1772,20 +1794,21 @@ canvas {  /* or some other selector */
     font-weight: 700
 }
 .growthRate {
-    font-size: 20px;
+    font-size: 14px;
     position: absolute;
-    left: 14px;
-    width: 156px;
-    height: 32px;
+    /* left: 84px; */
+    left: 23px;
+    /* width: 340px; */
+    width: 400px;
+    height: 14px;
     border: 1px solid #ff000000;
-    top: 366px;
+    top: 502px;
     bottom: 0px;
     right: 0px;
     z-index: 5;
-    line-height: 34px;
     text-transform: capitalize;
     text-align: center;
-    font-family: osb;
+    font-family: play;
     font-weight: 700
 }
 
@@ -2841,7 +2864,7 @@ canvas {  /* or some other selector */
 }
 .stats_table th:nth-child(2) {
     text-align: right;
-    padding-right: 12px;
+    padding-right: 5px;
 }
 .stats_table th:nth-child(3) {
     opacity: .6;
