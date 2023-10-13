@@ -38,6 +38,7 @@ const app = Vue.createApp({
             platinumTrainers: platinumTrainers,
             hiddenPowerTypes: hiddenPowerTypes,
             g4PokemonData: g4PokemonData,
+            natures: natures,
 
             //LOOPS
             badges: ["badge1","badge2","badge3","badge4","badge5","badge6","badge7","badge8",],
@@ -314,36 +315,10 @@ const app = Vue.createApp({
         getTrainer(trainer) {
             return this.trainerData.find(x => x.trainer_name === trainer)
         },
-        calculateNature(pid) { //Pass ins the PID (Personality ID also known as the Personality Value)
-            const natures = {
-                0: "Hardy",
-                1: "Lonely",
-                2: "Brave",
-                3: "Adamant",
-                4: "Naughty",
-                5: "Bold",
-                6: "Docile",
-                7: "Relaxed",
-                8: "Impish",
-                9: "Lax",
-                10: "Timid",
-                11: "Hasty",
-                12: "Serious",
-                13: "Jolly",
-                14: "Naive",
-                15: "Modest",
-                16: "Mild",
-                17: "Quiet",
-                18: "Bashful",
-                19: "Rash",
-                20: "Calm",
-                21: "Gentle",
-                22: "Sassy",
-                23: "Careful",
-                24: "Quirky"
-            }
-            let key = pid.value % 25
-            return natures[key]
+        getNature(pid) { //Pass ins the PID (Personality ID also known as the Personality Value)
+            let index = pid.value % 25
+            nature = Object.values(this.natures).find(x => x.index === index)
+            return nature
         },
         countSetBits(byte) { //Used to determine the number of badges the player has
             let count = 0;
@@ -454,6 +429,7 @@ const app = Vue.createApp({
                 if (move_string.toLowerCase() == "selfdestruct") { return "Selfdestruct" }
                 if (move_string.toLowerCase() == "smokescreen")  { return "SmokeScreen" }
                 if (move_string.toLowerCase() == "sonicboom")    { return "SonicBoom" }
+                if (move_string.toLowerCase() == "will-o-wisp")  { return "Will-O-Wisp" }
                 else { return move_string }
             }
             else { return move_string }
@@ -1284,10 +1260,6 @@ const app = Vue.createApp({
                 return x.value.name
             else
                 return null
-        },
-        natureCalculation(x) {
-            var natureKey = (x % 25).toString()
-            return this.camelCase(this.natures[natureKey])
         },
         abilityDescription(y) {
             return gen3abilities[y]

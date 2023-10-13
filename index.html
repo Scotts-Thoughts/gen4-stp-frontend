@@ -66,7 +66,7 @@
                     <div>Growth Rate: {{growth_rate}}</div>
                     <div>Lv: {{solo_mon.level}}</div>
                     <div>Exp: {{solo_mon.expPoints}}/{{calcExpStats(g4PokemonData[this.starter].growth_rate, solo_mon.expPoints).nextLvlExp}} - {{decimalToPercentage(calcExpStats(g4PokemonData[this.starter].growth_rate, solo_mon.expPoints).percent)}}%</div>
-                    <div>Nature: {{calculateNature(mapper.properties.player.team[0].internals.personalityValue)}}</div>
+                    <div>Nature: {{getNature(mapper.properties.player.team[0].internals.personalityValue).nature}} (^ {{getNature(mapper.properties.player.team[0].internals.personalityValue).increased}} v {{getNature(mapper.properties.player.team[0].internals.personalityValue).decreased}})</div>
                     <div>EVs: {{effortValues.totalEvs}}/{{effortValues.maximumEvs}} - {{effortValues.percentage}}% full - {{effortValues.remaining}} remaining</div>
                     <div>- - - - -</div>
                     <div>{{stats_location}}:</div>
@@ -260,7 +260,7 @@
                         <div v-for="x in pkmnSlots">
                             <div v-show="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${oppA?.team[x]?.species?.value}.png`" />
-                                <div class="ePkmnLvlSpecies">Lv: {{oppA.team[x].level}} {{oppA.team[x].species}}</div>
+                                <div class="ePkmnLvlSpecies">L:{{oppA.team[x].level}} {{oppA.team[x].species}}</div>
                                 <!-- <div class="ePkmnSpecies">{{oppA.team[x].species}}</div>
                                 <div class="ePkmnLvl">Lv: {{oppA.team[x].level}}</div> -->
                                 <!-- <div class="">{{nullCheck(oppA.team[x].heldItem.value)}}</div> -->
@@ -387,6 +387,7 @@
     <script src="lib/platinumTrainers.js"></script>
     <script src="lib/hiddenPowerTypes.js"></script>
     <script src="lib/g4PokemonDataPlat.js"></script>
+    <script src="lib/natureDefinitions.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="vue.js"></script>
 </body>
