@@ -126,6 +126,15 @@
     --expBarExperience: linear-gradient(90deg,hsl(189, 92%, 45%), hsl(187, 100%, 69%));
 }
 
+.expBar {
+    /* border: 1px solid rgb(255, 0, 0); */
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    left: 0px;
+    top: 770px;
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -843,6 +852,89 @@ canvas {  /* or some other selector */
 .ePkmnSpd { top: 124px; }
 .ePkmnSpc { top: 95px; }
 
+.ePkmnStats {
+    position: absolute;
+    left: 145px;
+    width: 86px;
+    height: 145px;
+}
+.ePkmnMisc {
+    position: absolute;
+    width: 145px;
+    height: 145px;
+}
+.ePkmnTyping {
+    position: absolute;
+    top: 126px;
+    /* width: 150px;
+    height: 145px; */
+}
+img, span, div {
+    margin: 0;
+    padding: 0;
+}
+
+.ePkmnMoves {
+    top: -3px;
+    position: absolute;
+    left: 236px;
+    padding: 0;
+    margin: 0;
+}
+
+.moveWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+     /* Optional, if you want space between each move row. Adjust as needed. */
+}
+
+.enemyMovesetTable {
+    /* font-size: 18px; */
+    /* border: 1px solid #000; */
+    line-height: 35px;
+    padding: 1px;
+    width: 175px;
+    overflow: visible;
+}
+.ePkmnMoveType {
+    width: 30px;
+}
+.enemyMovesetTable .tr:nth-child(2) {
+    width: 90px;
+}
+.enemyMovesetTable .tr:nth-child(3) {
+    width: 20px;
+    padding-right: 4px;
+}
+
+.enemyStatTable {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.enemyStatTable th:nth-child(1) {
+    width: 58px;
+}
+
+.icons {
+    margin-right: 4px; /* space between the icon and move name */
+    transform-origin: top left;
+    display: inline-block; /* to ensure it's treated as an inline-level element */
+    vertical-align: middle; /* to align it with the text */
+    filter: drop-shadow(0px 0px 1px #000);
+
+}
+.typeIcon {
+    width: 60px;
+    height: 32px;
+}
+.moveIcon {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 2px;
+}
+
 .enemyMods {
     position: absolute;
     font-size: 20px;
@@ -894,10 +986,12 @@ canvas {  /* or some other selector */
 /* ENEMY STATS */
 .enemyGraphic {
     display: block;
-    position: absolute;
+    position: relative;
     font-family: play;
-    /* top: 1082px; */
-    left: 1540px;
+    top: 21px;
+    left: 1488px;
+    width: 417px;
+    height: 1038px;
     border: 1px solid rgba(255, 0, 0, 0);
     z-index: 0;
 }
@@ -907,6 +1001,8 @@ canvas {  /* or some other selector */
     width: 1920px;
     object-fit: cover;
     height: 1080px;
+    object-fit: cover;
+    object-position: top right;
 }
 .eAbilities {
     display: block;
@@ -1610,76 +1706,25 @@ canvas {  /* or some other selector */
 
 }
 
-.atkMod {
-    font-size: 28px;
-    color: rgb(0, 0, 0);
+
+.playerMods {
     position: absolute;
-    line-height: 37.3px;
-    z-index: 1000;
-    top: 946px;
-    left: 48px;
-    right: 1920px;
-    text-align: right;
+    border: 1px solid #ff000000;
     font-family: play;
-    font-weight: 500
+    font-size: 48px;
+    width: 65px;
+    text-align: center;
+    opacity: .7;
 }
+.modColumn1 { left: 23px; }
+.modColumn2 { left: 227px; }
+.atkMod { top: 600px; }
+.defMod { top: 663px; }
+.spAMod { top: 537px; }
+.spDMod { top: 600px; }
+.speMod { top: 663px; }
 
-.defMod {
-    font-size: 28px;
-    color: rgb(0, 0, 0);
-    position: absolute;
-    line-height: 37.3px;
-    z-index: 1000;
-    top: 1002px;
-    left: 58px;
-    right: 1920px;
-    text-align: right;
-    font-family: osb;
-    font-weight: 500
-    
-}
 
-.spcAMod {
-    font-size: 28px;
-    color: rgb(0, 0, 0);
-    position: absolute;
-    line-height: 37.3px;
-    z-index: 1000;
-    top: 946px;
-    left: 218px;
-    right: 1920px;
-    text-align: right;
-    font-family: osb;
-    font-weight: 500
-}
-
-.spcDMod {
-    font-size: 28px;
-    color: rgb(0, 0, 0);
-    position: absolute;
-    line-height: 37.3px;
-    z-index: 1000;
-    top: 1002px;
-    left: 218px;
-    right: 1920px;
-    text-align: right;
-    font-family: osb;
-    font-weight: 500
-}
-
-.spdMod {
-    font-size: 28px;
-    color: rgb(0, 0, 0);
-    position: fixed;
-    line-height: 37.3px;
-    z-index: 1000;
-    top: 886px;
-    left: 218px;
-    right: 1920px;
-    text-align: right;
-    font-family: osb;
-    font-weight: 500
-}
 .aDMods {
     font-size: 40px;
     color: rgb(54, 54, 54);
@@ -2330,64 +2375,51 @@ canvas {  /* or some other selector */
 .fadeMod-leave-active { transition: opacity 400ms ease-out; }
 
 .opacityTransition { transition: opacity 500ms ease-in-out;}
-.ePkmn1 {
+.border {
     border: 1px solid rgba(255, 102, 0, 0);
-    position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 69px;
 }
-.ePkmn2 {
-    border: 1px solid rgba(255, 102, 0, 0);
+.slots {
     position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 236px;
+    height: 153px;
 }
-.ePkmn3 {
-    border: 1px solid rgba(255, 102, 0, 0);
-    position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 403.5px;
-}
-.ePkmn4 {
-    border: 1px solid rgba(255, 102, 0, 0);
-    position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 570.5px;
-}
-.ePkmn5 {
-    border: 1px solid rgba(255, 102, 0, 0);
-    position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 737.5px;
-}
-.ePkmn6 {
-    border: 1px solid rgba(255, 102, 0, 0);
-    position: relative;
-    height: 160px;
-    width: 350px;
-    left: 24px;
-    top: 905px;
-}
+.ePkmn0 { top: 51px; }
+.ePkmn1 { top: 64px; }
+.ePkmn2 { top: 78px; }
+.ePkmn3 { top: 91px; }
+.ePkmn4 { top: 105px; }
+.ePkmn5 { top: 118px; }
 
 .ePkmnSpecies {
     position: absolute;
     border: 1px solid rgba(0, 255, 149, 0);
     font-size: 17px;
     font-family: titan;
-    width: 120px;
+    width: 130px;
     text-align: center;
-    top: 2px;
-    left: 12px;
+    top: -1px;
+    left: 11px;
+    opacity: .7;
+}
+.ePkmnLvlSpecies {
+    position: absolute;
+    border: 1px solid rgba(0, 255, 149, 0);
+    font-size: 14px;
+    font-family: titan;
+    width: 130px;
+    text-align: center;
+    top: -1px;
+    left: 11px;
+    opacity: .7;
+}
+.ePkmnLvl {
+    position: absolute;
+    border: 1px solid rgba(0, 255, 149, 0);
+    font-size: 17px;
+    width: 130px;
+    text-align: left;
+    top: 100px;
+    left: 0px;
+    opacity: .7;
 }
 .ePkmnLevel {
     position: absolute;
@@ -2405,13 +2437,23 @@ canvas {  /* or some other selector */
     filter: drop-shadow(0px 0px 5px)
 }
 .ePkmnSprite {
-    position: absolute;
+    /* position: absolute;
     border: 1px solid rgba(255, 0, 0, 0);
-    max-width: 104px;
-    max-height: 104px;
+    width: 104px;
+    height: 104px;
     left: 16px;
     top: 22px;
-    transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out, filter 500ms ease-in-out; */
+    position: absolute;
+    border: 1px solid rgba(255, 0, 0, 0);
+    transform-origin: top left;
+    display: inline-block; /* to ensure it's treated as an inline-level element */
+    vertical-align: middle; /* to align it with the text */
+    width: 134px;
+    height: 134px;
+    top: 9px;
+    left: 7px;
+    filter: drop-shadow(1px 1px 2px);
 }
 .ePkmnMove1 {
     position: absolute;
@@ -2518,14 +2560,13 @@ canvas {  /* or some other selector */
 }
 .ePkmnAbility {
     position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    text-align: center;
-    color:rgb(70, 70, 70);
+    text-align: right;
+    /* color:rgb(70, 70, 70); */
     font-size: 15px;
     line-height: 20px;
     width: 121px;
     top: 129px;
-    left: 8px;
+    left: 20px;
 }
 .seHp {
     position: absolute;
@@ -2682,8 +2723,8 @@ canvas {  /* or some other selector */
     position: absolute;
     /* border: 1px solid #00ff0d00; */
     background-color: #ffffff;
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 13px;
+    line-height: 16px;
     width: 403px;
     height: 1000px;
     font-family: play;
@@ -2854,6 +2895,24 @@ canvas {  /* or some other selector */
     font-family: play;
     font-size: 51px;
     transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+}
+.modifier_table {
+    border: 3px solid #1655a9;
+    position: absolute;
+    width: 402px;
+    height: 193px;
+    top: 533px;
+    text-align: center;
+    font-family: play;
+    font-size: 51px;
+    transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+}
+.modifier {
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    /* background: #f86e6e85; */
+    border-radius: 50px;
 }
 .stats_table th:nth-child(1) {
     opacity: .6;
