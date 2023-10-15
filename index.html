@@ -12,9 +12,7 @@
             Loading...
         </div>
         <div v-else>
-            <img src="images/sinnoh.png" id="texture" class="posAbs">
-            <img src="images/overlay-mockup.png" id="overlay" class="posAbs">
-            <img src="images/overlay/testing.png" id="overlay" class="posAbs">
+            <img :src="`images/overlay/${starter}.png`??`images/overlay/testing.png`" id="overlay" class="posAbs">
             
             <!-- Info Display (primary screen) -->
             <div class="posAbs" style="font-family: play; top: 30px; left: 460px;">
@@ -201,7 +199,7 @@
                     <th class="align_center g4mp_type">type</th>
                     <th class="align_left g4mp_move">move</th>
                     <th class="align_right g4mp_power">pwr.</th>
-                    <th class="align_right g4mp_category">dc</th>
+                    <th class="align_center g4mp_category">dc</th>
                     <th class="align_right g4mp_accuracy">acc.</th>
                     <th class="align_right g4mp_pp">pp</th>
                 </tr>
@@ -255,10 +253,10 @@
                 <!-- Enemy Team Display -->
                 <div v-if="mapper.properties.meta.state == `Battle` && mapper.properties.battle.type.value == `Trainer` && mapper.properties.battle.outcome.value != 1" style="position: absolute;">
                     <div class="trainerLabel">{{mapper.properties.battle.opponentA.trainer.value}}</div>
-                    <img src="images/enemy-area/testing.png" class="enemyPng" :style="battlePokemonCrop">
+                    <img :src="`images/enemy-area/${starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots">
-                            <div v-show="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
+                            <div v-if="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${oppA?.team[x]?.species?.value}.png`" />
                                 <div class="ePkmnLvlSpecies">L:{{oppA.team[x].level}} {{oppA.team[x].species}}</div>
                                 <!-- <div class="ePkmnSpecies">{{oppA.team[x].species}}</div>
@@ -358,7 +356,7 @@
                         </tr> -->
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <img src="images/movepool-border/testing.png" id="overlay" class="posAbs">
+                    <img :src="`images/movepool-border/${starter}.png`" id="overlay" class="posAbs">
                 </div>
             </transition>
 
