@@ -1,8 +1,17 @@
-//TODOs
-// 4) Solve retroarch capture issue
+//TODO Overlay
 // 5) Develop enemy trainer graphics
 // 7) Fix damage category icons in OBS
 // 8) Fix battle crop for teams of all number of Pokemon (only done for teams of 3)
+// 9) Add status condition graphics
+// 10) Add subtle shading graphic for timer, resets, and badges
+// 11) Create a badge container graphic
+// 12) Experiment with not showing the second screen
+//TODO GameHook
+// 1) Fix the issue with GameHook crashing when the cartridge is reset
+// 2) Do a test run to verify that everything is working as intended
+//TODO Setup
+// 1) Map reset button
+// 2) Ensure all controller bindings are correct
 
 const app = Vue.createApp({
     data() {
@@ -111,7 +120,6 @@ const app = Vue.createApp({
         },
         solo_mon() {
             if (this.mapper.properties.meta.state.value == `Battle`) {
-                
                 return this.mapper?.properties?.battle?.player?.activePokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.teamCount?.value == 0) {
@@ -312,6 +320,34 @@ const app = Vue.createApp({
         },
     },
     methods: { 
+        statusConditionConverter(statusCondition) {
+            if (statusCondition) {
+                if (this.mapper.properties.meta.generation.value == 1) {
+                    return
+                }
+                if (this.mapper.properties.meta.generation.value == 2) {
+                    return
+                }
+                if (this.mapper.properties.meta.generation.value == 3) {
+                    return
+                }
+                if (this.mapper.properties.meta.generation.value == 4) {
+                    switch (statusCondition) {
+                        case "Asleep":         return "SLP"
+                        case "Poisoned":       return "PSN"
+                        case "Burned":         return "BRN"
+                        case "Frozen":         return "FRZ"
+                        case "Paralyzed":      return "PAR"
+                        case "Badly Poisoned": return "PSN"
+                        default:               return ""
+                    }
+                }
+                if (this.mapper.properties.meta.generation.value == 5) {
+                    return
+                }
+            }
+            else return ""
+        },
         getTrainer(trainer) {
             return this.trainerData.find(x => x.trainer_name === trainer)
         },
@@ -1765,6 +1801,13 @@ const app = Vue.createApp({
             else if (this.mapper.properties.meta.state.value == "Battle")
                 if (modifier.value != 0)
                     return `opacity: ${this.statLabelOpacityValue};`
+            else
+                return
+        },
+        statusOpacityLabel(status) {
+            if (status) {
+                return `opacity: ${this.statLabelOpacityValue};`
+            }
             else
                 return
         },

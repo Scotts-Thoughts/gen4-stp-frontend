@@ -29,7 +29,7 @@
                 <div>Speed: {{play.activePokemon.modifiers.speed.value}}</div>
                 <div>Accuracy: {{mapper.properties.battle.player.activePokemon.modifiers.accuracy.value}}</div>
                 <div>Evasion: {{mapper.properties.battle.player.activePokemon.modifiers.evasion.value}}</div>
-                <br>
+                <!-- <br>
                 <div>Badges:</div>
                 <div>{{countSetBits(mapper.properties.player.badges.badge1.bytes)}}/8</div>
                 <div>Badge1: {{mapper.properties.player.badges.badge1.value}}</div>
@@ -39,7 +39,7 @@
                 <div>Badge5: {{mapper.properties.player.badges.badge5.value}}</div>
                 <div>Badge6: {{mapper.properties.player.badges.badge6.value}}</div>
                 <div>Badge7: {{mapper.properties.player.badges.badge7.value}}</div>
-                <div>Badge8: {{mapper.properties.player.badges.badge8.value}}</div>
+                <div>Badge8: {{mapper.properties.player.badges.badge8.value}}</div> -->
                 <br>
                 <div>Friendship: {{mapper.properties.player.team[0].friendship.value}}/255</div>
                 <br>
@@ -55,6 +55,9 @@
                 <br>
                 <div v-show="mapper.properties.meta.state.value == `Battle`">Enemy HP Test: {{mapper.properties.battle.opponentA.enemy_bar_synced_hp.value}}/{{mapper.properties.battle.opponentA.activePokemon.stats.maxHp.value}}</div>
                 <br>
+                <div>StatusConditionActv: {{statusConditionConverter(mapper.properties.battle.player.activePokemon.statusCondition.value)}}</div>
+                <div>StatusConditionPrty: {{statusConditionConverter(mapper.properties.player.team[0].statusCondition.value)}}</div>
+                <div>StatusConditionFunc: {{statusConditionConverter(solo_mon.statusCondition.value)}}</div>
             </div>
 
             <!-- Info Display (second screen) -->
@@ -121,7 +124,7 @@
                 <div class="stats_table_header">Level {{solo_mon.level}}</div>
                 <table class="stats_table stats_table_borders" style="left: 21px;">
                     <tr>
-                        <th class="stats_table_borders">Hp:</th>
+                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon.statusCondition.value))">Hp:</th>
                         <th class="stats_table_borders">{{solo_mon.stats.maxHp}}</th>
                     </tr>
                     <tr>
@@ -150,11 +153,12 @@
             </div>
             <!-- Stat modifiers -->
             <div v-if="mapper.properties.meta.state.value == 'Battle'">
-                <div v-show="play.activePokemon.modifiers.attack.value != 0"         class="playerMods modColumn1 atkMod">{{stageModifiers(play.activePokemon.modifiers.attack.value)}}</div>
-                <div v-show="play.activePokemon.modifiers.defense.value != 0"        class="playerMods modColumn1 defMod">{{stageModifiers(play.activePokemon.modifiers.defense.value)}}</div>
-                <div v-show="play.activePokemon.modifiers.specialAttack.value == 0"  class="playerMods modColumn2 spAMod">{{stageModifiers(play.activePokemon.modifiers.specialAttack.value)}}</div>
-                <div v-show="play.activePokemon.modifiers.specialDefense.value == 0" class="playerMods modColumn2 spDMod">{{stageModifiers(play.activePokemon.modifiers.specialDefense.value)}}</div>
-                <div v-show="play.activePokemon.modifiers.speed.value != 0"          class="playerMods modColumn2 speMod">{{stageModifiers(play.activePokemon.modifiers.speed.value)}}</div>
+                <div v-show="statusConditionConverter(solo_mon.statusCondition.value) != ``" class="statusConditions modColumn1 status">{{statusConditionConverter(solo_mon.statusCondition.value)}}</div>
+                <div v-show="play.activePokemon.modifiers.attack.value != 0"                 class="playerMods modColumn1 atkMod">{{stageModifiers(play.activePokemon.modifiers.attack.value)}}</div>
+                <div v-show="play.activePokemon.modifiers.defense.value != 0"                class="playerMods modColumn1 defMod">{{stageModifiers(play.activePokemon.modifiers.defense.value)}}</div>
+                <div v-show="play.activePokemon.modifiers.specialAttack.value == 0"          class="playerMods modColumn2 spAMod">{{stageModifiers(play.activePokemon.modifiers.specialAttack.value)}}</div>
+                <div v-show="play.activePokemon.modifiers.specialDefense.value == 0"         class="playerMods modColumn2 spDMod">{{stageModifiers(play.activePokemon.modifiers.specialDefense.value)}}</div>
+                <div v-show="play.activePokemon.modifiers.speed.value != 0"                  class="playerMods modColumn2 speMod">{{stageModifiers(play.activePokemon.modifiers.speed.value)}}</div>
             </div>
 
             <!-- Misc -->

@@ -1522,7 +1522,7 @@ img, span, div {
 }
 
 
-.status {
+/* .status {
     display: block;
     font-size: 100px;
     position: fixed;
@@ -1531,7 +1531,7 @@ img, span, div {
     text-align: center;
     font-family: osb;
     font-weight: 500
-}
+} */
 
 
 
@@ -1707,6 +1707,19 @@ img, span, div {
 }
 
 
+.statusConditions {
+    position: absolute;
+    border: 1px solid #ff000000;
+    font-family: play;
+    font-size: 28px;
+    width: 65px;
+    height: 59px;
+    vertical-align: middle;
+    text-align: center;
+    opacity: .7;
+    display: flex;
+    align-items: center;
+}
 .playerMods {
     position: absolute;
     border: 1px solid #ff000000;
@@ -1718,6 +1731,7 @@ img, span, div {
 }
 .modColumn1 { left: 23px; }
 .modColumn2 { left: 227px; }
+.status { top: 537px; }
 .atkMod { top: 600px; }
 .defMod { top: 663px; }
 .spAMod { top: 537px; }
