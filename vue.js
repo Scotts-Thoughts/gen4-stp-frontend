@@ -2,10 +2,11 @@
 // 5) Develop enemy trainer graphics
 // 7) Fix damage category icons in OBS
 // 8) Fix battle crop for teams of all number of Pokemon (only done for teams of 3)
-// 9) Add status condition graphics
 // 10) Add subtle shading graphic for timer, resets, and badges
 // 11) Create a badge container graphic
 // 12) Experiment with not showing the second screen
+// 13) Enemy modifiers
+// 14) Nature alterations
 //TODO GameHook
 // 1) Fix the issue with GameHook crashing when the cartridge is reset
 // 2) Do a test run to verify that everything is working as intended

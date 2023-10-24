@@ -891,10 +891,12 @@ img, span, div {
 
 .enemyMovesetTable {
     /* font-size: 18px; */
-    /* border: 1px solid #000; */
-    line-height: 35px;
+    position: absolute;
+    border: 1px solid #00000000;
+    line-height: 28px;
     padding: 1px;
     width: 175px;
+    top: 25px;
     overflow: visible;
 }
 .ePkmnMoveType {
@@ -2575,12 +2577,14 @@ img, span, div {
 .ePkmnAbility {
     position: absolute;
     text-align: right;
+    border: 1px solid rgba(255, 0, 0, 0);
     /* color:rgb(70, 70, 70); */
     font-size: 15px;
     line-height: 20px;
-    width: 121px;
-    top: 129px;
-    left: 20px;
+    text-align: center;
+    width: 170px;
+    top: 3px;
+    left: 240px;
 }
 .seHp {
     position: absolute;
@@ -2904,7 +2908,7 @@ img, span, div {
     position: absolute;
     width: 200px;
     height: 155px;
-    top: 533px;
+    top: 532px;
     text-align: center;
     font-family: play;
     font-size: 51px;

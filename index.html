@@ -262,11 +262,8 @@
                         <div v-for="x in pkmnSlots">
                             <div v-if="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${oppA?.team[x]?.species?.value}.png`" />
-                                <div class="ePkmnLvlSpecies">L:{{oppA.team[x].level}} {{oppA.team[x].species}}</div>
-                                <!-- <div class="ePkmnSpecies">{{oppA.team[x].species}}</div>
-                                <div class="ePkmnLvl">Lv: {{oppA.team[x].level}}</div> -->
-                                <!-- <div class="">{{nullCheck(oppA.team[x].heldItem.value)}}</div> -->
-                                <div class="ePkmnAbility">{{oppA.team[x].ability}}</div>
+                                <div class="ePkmnLvlSpecies">{{oppA.team[x].species}} L:{{oppA.team[x].level}}</div>
+                                <div class="ePkmnAbility">Ability: {{oppA.team[x].ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">
                                     <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_1?.toLowerCase()}.png`" />
                                     <img v-show="g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_1 != g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_2" 
