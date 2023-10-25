@@ -5,7 +5,9 @@
 //TODO GameHook
 // 2) Do a test run to verify that everything is working as intended
 // 3) Fix an issue where GameHook can't launch if the game is on the starting screen
+// 4) Find property to allow for enemy Pokemon to fade out when they faint
 //TODO Debugging
+// 1) Fix an issue where the solo Pokemon stats are glitched following a successful battle
 //TODO Setup
 
 const app = Vue.createApp({
@@ -17,11 +19,12 @@ const app = Vue.createApp({
 
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter: "Torterra",
+            overlayName: "",
             // nature: "Hardy",
             // ability: false, // false = ability 1, true = ability 2
             // gender: "Female",
             growth_rate: "Medium Slow",
-            hidden_power_type: "Normal",
+            hidden_power_type: "Dark",
 
             //BASE STATS
 
@@ -41,7 +44,6 @@ const app = Vue.createApp({
             typeBoostingItems: typeBoostingItems,
             platinumTrainers: platinumTrainers,
             hiddenPowerTypes: hiddenPowerTypes,
-            g4PokemonData: g4PokemonData,
             natures: natures,
 
             //LOOPS
@@ -315,6 +317,47 @@ const app = Vue.createApp({
         },
     },
     methods: { 
+        enemyFaint() {
+            let fainted = false
+            if (fainted == true) {
+                return "opacity: .5; filter: grayscale(100%);"
+            }
+            else {
+                return
+            }
+        },
+        getTrainerGraphic() {
+            if (this.mapper.properties.meta.state == `Battle`) {
+                let graphic = `images/trainers/roark.png`
+                let trainer = this.mapper.properties.battle.opponentA.trainer.value
+                switch (trainer) {
+                    case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
+                    case "Leader Gardenia":   graphic = `images/trainers/gardenia.png`;    break;
+                    case "Leader Fantina":    graphic = `images/trainers/fantina.png`;     break;
+                    case "Leader Wake":       graphic = `images/trainers/crasherwake.png`; break;
+                    case "Leader Maylene":    graphic = `images/trainers/maylene.png`;     break;
+                    case "Leader Candice":    graphic = `images/trainers/candice.png`;     break;
+                    case "Leader Volkner":    graphic = `images/trainers/volkner.png`;     break;
+                    case "Leader Byron":      graphic = `images/trainers/byron.png`;       break;
+                    case "Elite Four Aaron":  graphic = `images/trainers/aaron.png`;       break;
+                    case "Elite Four Bertha": graphic = `images/trainers/bertha.png`;      break;
+                    case "Elite Four Flint":  graphic = `images/trainers/flint.png`;       break;
+                    case "Elite Four Lucian": graphic = `images/trainers/lucian.png`;      break;
+                }
+                return {
+                    state: true,
+                    graphic: graphic,
+                    name: trainer,
+                }
+            }
+            else {
+                return {
+                    state: false,
+                    graphic: `images/trainers/roark.png`,
+                    name: "Error - there is no trainer graphic to display. Use 'v-if' to disable rendering of this code through the .state property of this object.",
+                }
+            }
+        },
         getSoloNature() {
             pid = this.mapper.properties.player.team[0].internals.personalityValue
             if (this.mapper.properties.meta.state.value == `No Pokemon`) {
@@ -393,7 +436,7 @@ const app = Vue.createApp({
         },
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             let currentStat = 0
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == 0) {
                 currentStat = this.mapper?.properties?.battle?.player?.activePokemon?.stats[stat].value
                 modifier = this.mapper?.properties?.battle?.player?.activePokemon?.modifiers[stat].value
                 stageModification = this.stageModifiersData.stats[modifier]
@@ -456,16 +499,22 @@ const app = Vue.createApp({
             }
         },
         getSoloMonType(pkmn, type) { //type == type_1 or type_2
-            if (this.mapper.properties.meta?.state?.value == `No Pokemon` || this.mapper.properties.meta?.state?.value == `Overworld`) {
+            if (this.mapper.properties.meta?.stateEnemy?.value == `Battle Finished`) {
                 return this.g4PokemonData[pkmn][type]
             }
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (this.mapper.properties.battle.outcome.value > 0) {
+                return this.g4PokemonData[pkmn][type]
+            }
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == 0) {
                 typeString = "type1"
                 if (type == "type_2") {
                     typeString = "type2"
                     return this.mapper.properties.battle?.player?.activePokemon[typeString]?.value
                 }
                 return this.mapper.properties.battle?.player?.activePokemon[typeString]?.value
+            }
+            if (this.mapper.properties.meta?.state?.value == `No Pokemon` || this.mapper.properties.meta?.state?.value == `Overworld`) {
+                return this.g4PokemonData[pkmn][type]
             }
         },
         move_name(move_string) { //converts move strings so that they are formatted correctly
@@ -2047,7 +2096,7 @@ const app = Vue.createApp({
 
         //EXP BAR ANIMATION FUNCTION
         var species = this.mapper.properties.player.team[0].species.value??this.starter;
-        var growthRate = this.growth_rate
+        var growthRate = this.g4PokemonData[this.starter].growth_rate;
         var expStats = this.calcExpStats(growthRate, this.mapper.properties.player.team[0].expPoints.value);
         this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
         this.prevSpecies = species
@@ -2059,6 +2108,57 @@ const app = Vue.createApp({
                 const newExpStats = this.calcExpStats(growthRate, newProp.value);
                 const animationMaxDuration = 500
                 var animationDuration = 200
+                debugger
+
+                if (oldProp.value == newProp.value) { return }
+                // did we switch out?
+                // there is still a bug here. what if we changed to the same species?
+                if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == "No Pokemon") {
+                    this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
+                    console.log((newExpStats.percent * 100) + "%")
+                }
+                else if (this.prevSpecies != currSpecies) {
+                    // update prevSpecies
+
+                    this.prevSpecies = currSpecies; 
+                    // dont animate, just set newExpStats.percent
+                    this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
+                } 
+                // same pokemon but exp changed
+                else {
+                    var diffExp1 = 1 - oldExpStats.percent
+                    var animationDuration = Math.ceil(diffExp1 * animationMaxDuration)
+                    if (oldExpStats.level == newExpStats.level) {
+                        // animate width to newExpStats.percent
+                        this.$refs.expBar.style.transition = `width ${animationDuration}ms ease-in-out`;
+                        this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
+                        await this.sleep(250);
+                    } else {
+                        // animate width to 100%
+                        this.$refs.expBar.style.transition = `width ${animationDuration}ms ease-in`;
+                        this.$refs.expBar.style.width = "100%";
+                        await this.sleep(250);
+                        // dont animate, set width to 0%
+                        this.$refs.expBar.style.transition = null;
+                        this.$refs.expBar.style.width = "0%";
+                        // await this.sleep(50);
+                        // // animate width from 0% to newExpStats.percent
+                        // this.$refs.expBar.style.transition = 'width 100ms ease-out';
+                        // this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
+                        // await this.sleep(150);
+                    }
+                }
+                this.$refs.expBar.style.transition = null;
+            }
+        })
+        this.mapper.properties.battle.player.activePokemon.expPoints.change(async (newProp, oldProp) => {
+            if (this.expBarAnimation == true) {
+                const currSpecies = this.mapper.properties.player.team[0].species.value;
+                const oldExpStats = this.calcExpStats(growthRate, oldProp.value);
+                const newExpStats = this.calcExpStats(growthRate, newProp.value);
+                const animationMaxDuration = 500
+                var animationDuration = 200
+                debugger
 
                 if (oldProp.value == newProp.value) { return }
                 // did we switch out?

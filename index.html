@@ -29,19 +29,6 @@
                 <div>Speed: {{play.activePokemon.modifiers.speed.value}}</div>
                 <div>Accuracy: {{mapper.properties.battle.player.activePokemon.modifiers.accuracy.value}}</div>
                 <div>Evasion: {{mapper.properties.battle.player.activePokemon.modifiers.evasion.value}}</div>
-                <!-- <br>
-                <div>Badges:</div>
-                <div>{{countSetBits(mapper.properties.player.badges.badge1.bytes)}}/8</div>
-                <div>Badge1: {{mapper.properties.player.badges.badge1.value}}</div>
-                <div>Badge2: {{mapper.properties.player.badges.badge2.value}}</div>
-                <div>Badge3: {{mapper.properties.player.badges.badge3.value}}</div>
-                <div>Badge4: {{mapper.properties.player.badges.badge4.value}}</div>
-                <div>Badge5: {{mapper.properties.player.badges.badge5.value}}</div>
-                <div>Badge6: {{mapper.properties.player.badges.badge6.value}}</div>
-                <div>Badge7: {{mapper.properties.player.badges.badge7.value}}</div>
-                <div>Badge8: {{mapper.properties.player.badges.badge8.value}}</div> -->
-                <br>
-                <div>Friendship: {{mapper.properties.player.team[0].friendship.value}}/255</div>
                 <br>
                 <div>Move Damage Categories:</div>
                 <div>Move1: {{moveCategory(mapper.properties.player.team[0].moves[0].move.value)}}</div>
@@ -49,15 +36,8 @@
                 <div>Move3: {{moveCategory(mapper.properties.player.team[0].moves[2].move.value)}}</div>
                 <div>Move4: {{moveCategory(mapper.properties.player.team[0].moves[3].move.value)}}</div>
                 <br>
-                <div>Hidden Power</div>
-                <div>Type: {{hiddenPowerTypeCalc(mapper.properties.player.team[0])}}</div>
-                <div>Power: {{hiddenPowerPowerCalc(mapper.properties.player.team[0])}}</div>
-                <br>
                 <div v-show="mapper.properties.meta.state.value == `Battle`">Enemy HP Test: {{mapper.properties.battle.opponentA.enemy_bar_synced_hp.value}}/{{mapper.properties.battle.opponentA.activePokemon.stats.maxHp.value}}</div>
                 <br>
-                <div>StatusConditionActv: {{statusConditionConverter(mapper.properties.battle.player.activePokemon.statusCondition.value)}}</div>
-                <div>StatusConditionPrty: {{statusConditionConverter(mapper.properties.player.team[0].statusCondition.value)}}</div>
-                <div>StatusConditionFunc: {{statusConditionConverter(solo_mon.statusCondition.value)}}</div>
             </div>
 
             <!-- Info Display (second screen) -->
@@ -152,7 +132,7 @@
                 </table>
             </div>
             <!-- Stat modifiers -->
-            <div v-if="mapper.properties.meta.state.value == 'Battle'">
+            <div v-if="mapper.properties.meta.state.value == 'Battle' && this.mapper.properties.battle.outcome.value == 0">
                 <div v-show="statusConditionConverter(solo_mon.statusCondition.value) != ``" class="statusConditions modColumn1 status">{{statusConditionConverter(solo_mon.statusCondition.value)}}</div>
                 <div v-show="play.activePokemon.modifiers.attack.value != 0"                 class="playerMods modColumn1 atkMod">{{stageModifiers(play.activePokemon.modifiers.attack.value)}}</div>
                 <div v-show="play.activePokemon.modifiers.defense.value != 0"                class="playerMods modColumn1 defMod">{{stageModifiers(play.activePokemon.modifiers.defense.value)}}</div>
@@ -254,7 +234,7 @@
                     <div class="trainerLabel">{{mapper.properties.battle.opponentA.trainer.value}}</div>
                     <img :src="`images/enemy-area/${starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
                     <div class="enemyGraphic">
-                        <div v-for="x in pkmnSlots">
+                        <div v-for="x in pkmnSlots" :style="enemyFaint()">
                             <div v-if="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${oppA?.team[x]?.species?.value}.png`" />
                                 <div class="ePkmnLvlSpecies">{{oppA.team[x].species}} L:{{oppA.team[x].level}}</div>
@@ -313,6 +293,7 @@
                             </div>
                         </div>
                     </div> 
+                    <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
                 <!-- Movepool -->
                 <div v-else key="2">
@@ -368,10 +349,28 @@
                 </div>
             </transition>
 
+            <!--------- BATTLE POP UPS -------------------------------------------------------------------------------------------------------------------->
+            <div style="position: absolute;">
+                <transition name="fade1">
+                    <div v-show="mapper.properties.battle.player.activePokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
+                        <img :src="`images/pop_ups/accuracy/${starter}${overlayName}.png`" style="position: absolute;">
+                        <div class="genericLabels accuracyModLabel">accuracy:</div>
+                        <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.activePokemon.modifiers.accuracy.value }}</div>
+                    </div>
+                </transition>
+                <transition name="fade1">
+                    <div v-show="mapper.properties.battle.player.activePokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
+                        <img :src="`images/pop_ups/evasion/${starter}${overlayName}.png`" style="position: absolute;">
+                        <div class="genericLabels evasionModLabel">evasion:</div>
+                        <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.activePokemon.modifiers.evasion.value }}</div>
+                    </div>
+                </transition>
+            </div>
+
             <!-- Exp bar -->
             <div>
                 <div class="growthRate">{{growth_rate}}</div>
-                <div  class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[this.starter].growth_rate, solo_mon.expPoints).percent)}}%</div>
+                <div  class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, solo_mon.expPoints).percent)}}%</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
                 <img src="images/misc/label.png" style="top: 298px; position: absolute;">
             </div>
@@ -401,7 +400,6 @@
     <!-- DATA -->
     <script src="lib/g4MoveData.js"></script>
     <script src="lib/g4tmhmMapping.js"></script>
-    <script src="lib/g4PokemonData.js"></script>
     <script src="lib/stageModifiers.js"></script>
     <script src="lib/type-effectiveness.js"></script>
     <script src="lib/type effectiveness array.js"></script>

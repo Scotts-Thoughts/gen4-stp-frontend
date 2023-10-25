@@ -1868,6 +1868,25 @@ img, span, div {
     top: 135px;
     left: 30px;
 }
+.accuracyModLabel {
+    position: absolute;
+    top: 245px;
+    left: 31px;
+}
+.evasionModLabel {
+    position: absolute;
+    top: 245px;
+    left: 158px;
+}
+.popUpsStyle {
+    position: absolute;
+    font-family: play;
+    font-size: 36px;
+    border: 1px solid #ff000000;
+    width: 108px;
+    height: 40px;
+    text-align: center;
+}
 .nature {
     font-size: 20px;
     position: absolute;
@@ -2929,8 +2948,8 @@ img, span, div {
     top: 380px;
 }
 .accuracyMod {
-    left: 10px;
-    top: 245px;
+    left: 13px;
+    top: 260px;
 }
 .evasionLabel {
     left: 137px;
@@ -2938,7 +2957,7 @@ img, span, div {
 }
 .evasionMod {
     left: 137px;
-    top: 245px;
+    top: 260px;
 }
 .playerFieldEffects {
     position: absolute;
