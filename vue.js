@@ -1,15 +1,12 @@
 //TODO Overlay
-// 8) Fix battle crop for teams of all number of Pokemon (only done for teams of 3)
 // 9) Enemy Pokemon fade out when they faint
 //TODO Graphics
-// 3) Nature alterations
 // 4) Exp bar bottom right corner
 //TODO GameHook
 // 2) Do a test run to verify that everything is working as intended
 // 3) Fix an issue where GameHook can't launch if the game is on the starting screen
 //TODO Debugging
 //TODO Setup
-// 1) Setup OBS gen4 profile
 
 const app = Vue.createApp({
     data() {
@@ -77,11 +74,11 @@ const app = Vue.createApp({
         battlePokemonCrop() {
             const totalPokemon = this.mapper.properties.battle.opponentA.teamCount.value;
             const heights = {
-              1: "242px",
-              2: "402px",
+              1: "233px",
+              2: "399px",
               3: "566px",
-              4: "726px",
-              5: "888px",
+              4: "733px",
+              5: "898px",
               6: "1080px"
             };
             return `height: ${heights[totalPokemon]};`;
