@@ -1,18 +1,15 @@
 //TODO Overlay
-// 5) Develop enemy trainer graphics
-// 7) Fix damage category icons in OBS
 // 8) Fix battle crop for teams of all number of Pokemon (only done for teams of 3)
-// 10) Add subtle shading graphic for timer, resets, and badges
-// 11) Create a badge container graphic
-// 12) Experiment with not showing the second screen
-// 13) Enemy modifiers
-// 14) Nature alterations
+// 9) Enemy Pokemon fade out when they faint
+//TODO Graphics
+// 3) Nature alterations
+// 4) Exp bar bottom right corner
 //TODO GameHook
-// 1) Fix the issue with GameHook crashing when the cartridge is reset
 // 2) Do a test run to verify that everything is working as intended
+// 3) Fix an issue where GameHook can't launch if the game is on the starting screen
+//TODO Debugging
 //TODO Setup
-// 1) Map reset button
-// 2) Ensure all controller bindings are correct
+// 1) Setup OBS gen4 profile
 
 const app = Vue.createApp({
     data() {
@@ -321,6 +318,24 @@ const app = Vue.createApp({
         },
     },
     methods: { 
+        getSoloNature() {
+            pid = this.mapper.properties.player.team[0].internals.personalityValue
+            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
+                return ""
+            }
+            else {
+                return this.getNature(pid)
+            }
+        },
+        getSoloFriendship() {
+            friendship = this.mapper.properties.player.team[0].friendship.value
+            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
+                return ""
+            }
+            else {
+                return friendship + "/255"
+            }
+        },
         statusConditionConverter(statusCondition) {
             if (statusCondition) {
                 if (this.mapper.properties.meta.generation.value == 1) {
@@ -392,6 +407,18 @@ const app = Vue.createApp({
             }
             else {
                 return this.mapper?.properties?.player?.team[0].stats[stat]
+            }
+        },
+        getEnemyStat(statName, statValue, slotIndex) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
+            let currentStat = 0
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.opponentA.partyPos == slotIndex) {
+                currentStat = this.mapper?.properties?.battle?.opponentA?.team[slotIndex].stats[statName].value
+                modifier = this.mapper?.properties?.battle?.opponentA?.activePokemon?.modifiers[statName].value
+                stageModification = this.stageModifiersData.stats[modifier]
+                return Math.floor(currentStat * stageModification)
+            }
+            else {
+                return this.mapper?.properties?.battle?.opponentA?.team[slotIndex].stats[statName].value
             }
         },
         enemyMove(slot, moveNumber) {
@@ -543,7 +570,7 @@ const app = Vue.createApp({
             return x
         },
         split(splitName, splits) {
-            console.log(splits)
+            // console.log(splits)
             var split = splits.find(x => x.trainer_name === splitName)
             if (split == undefined) return
             return split["realtime.end.hours"] + ":" + split["realtime.end.minutes"] + ":" + split["realtime.end.seconds"]
@@ -1619,7 +1646,7 @@ const app = Vue.createApp({
         moveCategoryIcon(move) { //move = move.value
             if (move) {
                 var move = this.g4MoveData[move]
-                if (move) return `/images/damageCategory/${move.Category}.png`
+                if (move) return `images/damageCategory/${move.Category.toLowerCase()}.png`
             }
             return ""
         },
@@ -1805,6 +1832,30 @@ const app = Vue.createApp({
             else
                 return
         },
+        enemyStatLabelOpacity(modifier, slot) {
+            if (this.mapper.properties.battle.opponentA.partyPos.value == slot) {
+                if (this.mapper.properties.battle.opponentA.team[0].internals.personalityValue.value == null)
+                    return
+                else if (this.mapper.properties.meta.state.value == "Battle") {
+                    if (modifier.value != 0)
+                        return `opacity: ${this.statLabelOpacityValue};`
+                }
+            }
+            else
+                return
+        },
+        enemyStatusLabelOpacity(status, slot) {
+            if (this.mapper.properties.battle.opponentA.partyPos.value == slot) {
+                if (this.mapper.properties.battle.opponentA.team[0].internals.personalityValue.value == null)
+                    return
+                else if (this.mapper.properties.meta.state.value == "Battle") {
+                    if (status.bytes != 0x00)
+                        return `opacity: ${this.statLabelOpacityValue};`
+                }
+            }
+            else
+                return
+        },
         statusOpacityLabel(status) {
             if (status) {
                 return `opacity: ${this.statLabelOpacityValue};`
@@ -1899,10 +1950,10 @@ const app = Vue.createApp({
             return basePower
         },
         determineSTAB(x) { //x = move1.value
-            var pkmnType1 = this.g4PokemonData[this.starter].type_1.value
-            var pkmnType2 = this.g4PokemonData[this.starter].type_2.value
+            var pkmnType1 = this.g4PokemonData[this.starter].type_1
+            var pkmnType2 = this.g4PokemonData[this.starter].type_2
             var moveType = this.moveType(x)
-            if (pkmnType1 == this.moveType(x) || pkmnType2 == this.moveType(x))
+            if (pkmnType1 == moveType || pkmnType2 == moveType)
                 return 1.5
             else
                 return 1
@@ -1973,8 +2024,8 @@ const app = Vue.createApp({
             var stabModifier = this.determineSTAB(x)
             var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType)
             var itemBoost = this.determineItemBoost(x)
-            var weatherBoost = 1
-            // var weatherBoost = this.weatherModifier(this.mapper.properties.battle.turnInfo.battleWeather.value, x, this.moveType(x))
+            // var weatherBoost = 1
+            var weatherBoost = this.weatherModifier(this.mapper.properties.battle.weather.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return power }
