@@ -618,27 +618,6 @@ const app = Vue.createApp({
         }, 
         
         // MOVE ACCURACY
-        moveAccuracyStatic(move) {
-            var moveObject = this.gen1moves.find(x => x.Move.toUpperCase() === move)
-            if (!moveObject) { return }
-            return moveObject.Accuracy
-        },
-        moveAccuracyDynamic(move) {
-            var moveObject = this.gen3moves.find(x => x.Move.toUpperCase() === move.toUpperCase())
-            if (!moveObject) { return }
-            var moveAccuracy = moveObject.Accuracy
-            var stageMods = this.stageModifiersData.find(x => x.modType === "accuracy")
-            var currentModStage = this.batt.yourPokemon.modStageAccuracy.value
-            if (moveAccuracy == `-`) {
-                return `-`
-            }
-            else if (this.mapper.properties.meta.state.value == `Battle`) {
-                return Math.floor(moveAccuracy * stageMods[currentModStage])
-            }
-            else {
-                return moveAccuracy
-            }
-        },
         getAccuracy(accuracy) {
             if (accuracy == `-`) {
                 return `-`
@@ -647,9 +626,11 @@ const app = Vue.createApp({
                 return `—`
             }
             if (this.mapper.properties.meta.state.value == `Battle`) {
-                let stage = this.mapper.properties.battle.player.activePokemon.modifiers.accuracy?.value.toString()
-                let modifier = this.stageModifiersData["accuracy"][stage]
-                return Math.floor(accuracy * modifier)
+                let playerStage = this.mapper.properties.battle.player.activePokemon.modifiers.accuracy?.value.toString()
+                let oppAStage = this.mapper.properties.battle.opponentA.activePokemon.modifiers.accuracy?.value.toString()
+                let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
+                let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
+                return Math.floor(accuracy * accuracyModifier * evasionModifier)
             }
             else return accuracy
         },
