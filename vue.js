@@ -1532,7 +1532,7 @@ const app = Vue.createApp({
                 // there is still a bug here. what if we changed to the same species?
                 if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == "No Pokemon") {
                     this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                    console.log((newExpStats.percent * 100) + "%")
+                    // console.log((newExpStats.percent * 100) + "%")
                 }
                 else if (this.prevSpecies != currSpecies) {
                     // update prevSpecies
@@ -1577,7 +1577,7 @@ const app = Vue.createApp({
                 // there is still a bug here. what if we changed to the same species?
                 if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == "No Pokemon") {
                     this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                    console.log((newExpStats.percent * 100) + "%")
+                    // console.log((newExpStats.percent * 100) + "%")
                 }
                 else if (this.prevSpecies != currSpecies) {
                     // update prevSpecies
