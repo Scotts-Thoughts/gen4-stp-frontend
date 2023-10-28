@@ -2867,6 +2867,9 @@ img, span, div {
 .movepool_header {
     line-height: 17px;
 }
+.eFaintTransition {
+    transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+}
 .movepoolDemo {
     display: block;
     position: absolute;

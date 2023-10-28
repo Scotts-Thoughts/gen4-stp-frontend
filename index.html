@@ -169,7 +169,7 @@
                     <th v-if="getMove('1') != undefined" class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('1'))" />
                     </th>
-                    <th v-if="getMove('1') != undefined" class="align_right g4mp_accuracy">{{g4MoveData[getMove('1')].Accuracy}}%</th>
+                    <th v-if="getMove('1') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('1')].Accuracy)}}%</th>
                     <th v-if="getMove('1') != undefined" class="align_right g4mp_pp">{{getPP("1")}}</th>
                 </tr>
             </table>    
@@ -192,7 +192,7 @@
                     <th v-if="getMove('2') != undefined" class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('2'))" />
                     </th>
-                    <th v-if="getMove('2') != undefined" class="align_right g4mp_accuracy">{{g4MoveData[getMove('2')].Accuracy}}%</th>
+                    <th v-if="getMove('2') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('2')].Accuracy)}}%</th>
                     <th v-if="getMove('2') != undefined" class="align_right g4mp_pp">{{getPP('2')}}</th>
                 </tr>
             </table>
@@ -207,7 +207,7 @@
                     <th v-if="getMove('3') != undefined" class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('3'))" />
                     </th>
-                    <th v-if="getMove('3') != undefined" class="align_right g4mp_accuracy">{{g4MoveData[getMove('3')].Accuracy}}%</th>
+                    <th v-if="getMove('3') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('3')].Accuracy)}}%</th>
                     <th v-if="getMove('3') != undefined" class="align_right g4mp_pp">{{getPP("3")}}</th>
                 </tr>
             </table>
@@ -222,7 +222,7 @@
                     <th v-if="getMove('4') != undefined" class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('4'))" />
                     </th>
-                    <th v-if="getMove('4') != undefined" class="align_right g4mp_accuracy">{{g4MoveData[getMove('4')].Accuracy}}%</th>
+                    <th v-if="getMove('4') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('4')].Accuracy)}}%</th>
                     <th v-if="getMove('4') != undefined" class="align_right g4mp_pp">{{getPP("4")}}</th>
                 </tr>
             </table>
@@ -233,8 +233,11 @@
                 <div v-if="mapper.properties.meta.state == `Battle` && mapper.properties.battle.opponentA.trainer.value != null" style="position: absolute;" key="1">
                     <div class="trainerLabel">{{mapper.properties.battle.opponentA.trainer.value}}</div>
                     <img :src="`images/enemy-area/${starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
+                    <div v-for="x in pkmnSlots">
+                        <img v-if="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
+                    </div>
                     <div class="enemyGraphic">
-                        <div v-for="x in pkmnSlots" :style="enemyFaint()">
+                        <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="getTrainer(mapper.properties.battle.opponentA.trainer.value).pokemon[x]?.species != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${oppA?.team[x]?.species?.value}.png`" />
                                 <div class="ePkmnLvlSpecies">{{oppA.team[x].species}} L:{{oppA.team[x].level}}</div>
@@ -386,7 +389,7 @@
             <div class="genericLabels resetsLabel">resets</div>
             <div class="growthRate">{{growth_rate}}</div>
             <div class="label_nature">Nature:</div>
-            <div class="value_nature">{{camelCase(getSoloNature().nature)}}</div>
+            <div class="value_nature">{{capitalization_format(getSoloNature().nature)}}</div>
             <div class="label_friendship">Friendship:</div>
             <div class="value_friendship">{{getSoloFriendship()}}</div>
 

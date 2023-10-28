@@ -1,13 +1,11 @@
 //TODO Overlay
-// 9) Enemy Pokemon fade out when they faint
 //TODO Graphics
 // 4) Exp bar bottom right corner
 //TODO GameHook
 // 2) Do a test run to verify that everything is working as intended
-// 3) Fix an issue where GameHook can't launch if the game is on the starting screen
-// 4) Find property to allow for enemy Pokemon to fade out when they faint
 //TODO Debugging
 // 1) Fix an issue where the solo Pokemon stats are glitched following a successful battle
+// 2) Fix an issue where the enemy Pokemon stats are glitched when the screen transitions back to the overworld
 //TODO Setup
 
 const app = Vue.createApp({
@@ -20,13 +18,8 @@ const app = Vue.createApp({
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter: "Torterra",
             overlayName: "",
-            // nature: "Hardy",
-            // ability: false, // false = ability 1, true = ability 2
-            // gender: "Female",
             growth_rate: "Medium Slow",
             hidden_power_type: "Dark",
-
-            //BASE STATS
 
             // USER CONFIG (components) ------------------------------------------------------------------------// 
             typeCalcs: true,
@@ -233,7 +226,7 @@ const app = Vue.createApp({
             var reflect = [this.batt.field.player?.reflectCount?.value, this.batt.field?.player?.statusReflect?.value, "Reflect"]
             var lightscreen = [this.batt.field?.player?.lightScreenCount?.value, this.batt.field?.player?.statusLightScreen?.value, "Light Screen"]
             var safeguard = [this.batt.field?.player?.safeguardCount?.value, this.batt.field?.player?.statusSafeguard?.value, "Safeguard"]
-            var weather = [this.batt.field?.weatherCount?.value, this.weather_boolean, this.pascalCaseSpace(this.camelCase(this.batt.field?.weather?.value?.toLowerCase()))]
+            var weather = [this.batt.field?.weatherCount?.value, this.weather_boolean, this.pascalCaseSpace(this.capitalization_format(this.batt.field?.weather?.value?.toLowerCase()))]
             var comparison = [reflect, lightscreen, safeguard, weather]
             var maxArr = [0, false, ""]
             for(var i = 0; i < comparison.length; i++) {
@@ -317,10 +310,13 @@ const app = Vue.createApp({
         },
     },
     methods: { 
-        enemyFaint() {
+        enemyFaint(slotIndex) {
             let fainted = false
+            if (this.mapper.properties.battle.opponentA.updatingTeam[slotIndex].stats.hp.value == 0) {
+                fainted = true
+            }
             if (fainted == true) {
-                return "opacity: .5; filter: grayscale(100%);"
+                return "opacity: .35; filter: grayscale(100%);"
             }
             else {
                 return
@@ -544,46 +540,6 @@ const app = Vue.createApp({
             }
             else { return move_string }
         },
-        getEnemyPkmnStyles(pkmnData) {
-            const isFainted = pkmnData.stats.hp.value == 0;
-            return {
-              faint: isFainted
-                ? "filter: drop-shadow(2px 2px 2px #000) saturate(1.3) grayscale(100%); opacity: .5;"
-                : "filter: drop-shadow(2px 2px 2px #000) saturate(1.3) grayscale(0%);",
-              faintStats: isFainted
-                ? "filter: grayscale(100%); opacity: .4;"
-                : "filter: grayscale(0%);",
-              text: isFainted ? "opacity: .3" : "",
-              species: isFainted ? "opacity: .3" : "opacity: .7"
-            };
-        },
-        // STAGE MULTIPLIERS
-        activeSlot(activePkmn, currentSlot, statLabel, stat) {
-            if (this.enemyState == "Pokemon Fainted" || this.mapper.properties.battle.outcome.value == 1) {
-                return stat 
-            }
-            else if (this.enemyState == "Pokemon in Battle") {
-                if (activePkmn == currentSlot && this.g1stateVariable == "Battle") {
-                    return this.mapper.properties.battle.opponentA.team[x].stats[statLabel].value
-                }
-                else { 
-                    return stat
-                }
-            }
-            else {
-                return stat
-            }
-        },
-        //ENEMY MOD STYLING
-        enemyMods(modValue) {
-            if (this.mapper.properties.meta.state.value != "Battle") { return this.enemyModColour }
-            var neutral = [0, "background: #a1a1a1;"]
-            var raised = [modValue, "background: #d84444;"]
-            var lowered = [modValue, "background: #21c500"]
-            if (modValue < 0) { this.enemyModColour = raised }
-            if (modValue > 0) { this.enemyModColour = lowered }
-            return this.enemyModColour 
-        },
         enemyDynamic(activePkmn, currentSlot) {
             if (activePkmn == currentSlot && this.mapper.properties.meta.state.value == "Battle") {
                 return this.mapper?.properties?.battle?.enemyPokemon
@@ -683,38 +639,19 @@ const app = Vue.createApp({
                 return moveAccuracy
             }
         },
-
-        // ENEMY TRAINER GRAPHIC
-        g3trainerEnemySelector(trainerClass) {
-            if (
-                trainerClass == "ELITE_FOUR_LORELEI" ||
-                trainerClass == "LEADER_BROCK" ||
-                trainerClass == "LEADER_MISTY" ||
-                trainerClass == "LEADER_LT_SURGE" ||
-                trainerClass == "LEADER_ERIKA" ||
-                trainerClass == "LEADER_KOGA" ||
-                trainerClass == "LEADER_BLAINE" ||
-                trainerClass == "LEADER_SABRINA" ||
-                trainerClass == "LEADER_GIOVANNI"
-                ) {
-                    return 1
-                }
-            else
-                return 0
-        },
-        specialTrainerGraphics() {
-            if (this.showSpecialTrainerGraphics == true) {
-                // if (this.batt.trainer.opponent.value == "ELITE_FOUR_LORELEI") return `images/trainers/LEADER_BROCK.png`
-                if (this.batt.trainer.opponent.value == "LEADER_BROCK") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_MISTY") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_LT_SURGE") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_ERIKA") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_KOGA") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_BLAINE") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_SABRINA") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                if (this.batt.trainer.opponent.value == "LEADER_GIOVANNI") return `images/trainers/${this.batt.trainer.opponentA.value}.png`
-                else return null;
+        getAccuracy(accuracy) {
+            if (accuracy == `-`) {
+                return `-`
             }
+            if (accuracy == `—`) {
+                return `—`
+            }
+            if (this.mapper.properties.meta.state.value == `Battle`) {
+                let stage = this.mapper.properties.battle.player.activePokemon.modifiers.accuracy?.value.toString()
+                let modifier = this.stageModifiersData["accuracy"][stage]
+                return Math.floor(accuracy * modifier)
+            }
+            else return accuracy
         },
         
         //DAMAGE CALCULATION
@@ -809,71 +746,7 @@ const app = Vue.createApp({
                 return "Underspeeds"
             }
         },
-        enemyPkmnFaintCheck(pkmnData) {
-            if (pkmnData.hp == 0) {
-                return false
-            }
-            else {
-                return true
-            }
-        },
-        enemyPkmnFaint(pkmnData) {
-            if (this.mapper.properties.meta.state.value != `Battle`) { return "filter: drop-shadow(2px 2px 2px #000) saturate(1.1) grayscale(0%);" }
-            if (pkmnData.hp == 0 || this.mapper.properties.meta.state.value == `From Battle`) {
-                return "filter: drop-shadow(2px 2px 2px #000) saturate(1.1) grayscale(100%); opacity: .3;"
-            }
-            else {
-                return "filter: drop-shadow(2px 2px 2px #000) saturate(1.1) grayscale(0%);"
-            }
-        },
-        enemyPkmnText(pkmnData) {
-            if (this.mapper.properties.meta.state.value != `Battle`) { return "opacity: 1" }
-            if (pkmnData.hp == 0 || this.mapper.properties.meta.state.value == `From Battle`) {
-                return "opacity: .3"
-            }
-            else {
-                return "opacity: 1"
-            }
-        },
-        enemyPkmnSpecies(pkmnData) {
-            if (this.mapper.properties.meta.state.value != `Battle`) { return "opacity: .7" }
-            if (pkmnData.hp == 0 || this.mapper.properties.meta.state.value == `From Battle`) {
-                return "opacity: .3"
-            }
-            else {
-                return "opacity: .7"
-            }
-        },
-        enemyPkmnFaintStats(pkmnData) {
-            if (this.mapper.properties.meta.state.value == `To Battle`) {
-                return "filter: grayscale(0%);"
-            }
-            else if (pkmnData.hp == 0 || this.mapper.properties.meta.state.value == `From Battle`) {
-                return "filter: grayscale(100%); opacity: .5;"
-            }
-            else {
-                return "filter: grayscale(0%);"
-            }
-        },
         
-        // STAGE MULTIPLIERS
-        activeSlot(activePkmn, currentSlot, stat, modifier) {
-            var modData = this.stageModifiersData.stats
-            if (this.enemyState == "Fainted" || this.mapper.properties.meta.state.value == "From Battle") {
-                return stat 
-            }
-            else if (this.enemyState == "Pokemon" || this.enemyState == "Fainting") {
-                if (activePkmn == currentSlot && this.mapper.properties.meta.state.value == "Battle") {
-                    return Math.floor(stat * modData[modifier])
-                }
-                else { 
-                    return stat
-                }
-            }
-            else {
-                return stat
-            }
-        },
         // STAGE MULTIPLIERS
         enemyStatModification(activePkmn, currentSlot, statLabel, stat, modifier, pkmnData) {
             var modData = this.stageModifiersData.find(x => x.modType === "stat")
@@ -922,18 +795,6 @@ const app = Vue.createApp({
             }
             return modified_stat
         },
-        overlay() {
-            if (this.mapper.properties.player.team[0].species.value == null || this.mapper.properties.player.team[0].species.value == undefined) {
-                return this.starterString
-            }
-            else if (this.mapper.properties.player.team[0].species.value != this.starterString) {
-                this.starterString = this.mapper.properties.player.team[0].species.value
-                return this.starterString
-            }
-            else {
-                return this.starterString
-            }
-        },
         paralysis(speed) {
             if (this.s1.statusCondition.value == `Paralyzed`) {
                 return Math.floor(speed * 0.25)
@@ -946,63 +807,6 @@ const app = Vue.createApp({
             if (this.mapper.properties.overworld.mapName.value == "CELADON_CITY - DEPARTMENT_STORE_5F") { return "EVs"}
             else {
                 return null }
-        },
-        setGamestate(state, number) {
-            if (this.gamestateLogging == true)
-            this.currentGameStateNew = string
-            return string
-        },
-        displayState(x = g3state()) {
-            if (x == "New Game") {
-                return "display-basestats"
-            }
-            else if (x == "New Game" ) {
-                return "display-overworld"
-            }
-            else if (x == "New Game" ) {
-                return "display-battle"
-            }
-            else if (x == "New Game" ) {
-                return "display-doublebattle"
-            }
-            else
-                return "display-default"
-        },
-        fixTrainerName(trainerName) {
-            if (trainerName == "Rival Early Terry" || trainerName == "Rival Early Terry 2" || trainerName == "Rival Early Terry 3") {
-                    return "rival1's team"
-            }
-            else if (trainerName == "Rival Early Terry 4" || trainerName == "Rival Early Terry 5" || trainerName == "Rival Early Terry 6") {
-                    return "rival1A's team"
-            }
-            else if (trainerName == "Rival Early Terry 7" || trainerName == "Rival Early Terry 8" || trainerName == "Rival Early Terry 9") {
-                    return "rival2's team"
-            }
-            else if (trainerName == "Rival Late Terry" || trainerName == "Rival Late Terry 2" || trainerName == "Rival Late Terry 3") {
-                    return "rival3's team"
-            }
-            else if (trainerName == "Rival Late Terry 4" || trainerName == "Rival Late Terry 5" || trainerName == "Rival Late Terry 6") {
-                    return "rival4's team"
-            }
-            else if (trainerName == "Rival Late Terry 7" || trainerName == "Rival Late Terry 8" || trainerName == "Rival Late Terry 9") {
-                    return "rival5's team"
-            }
-            else if (trainerName == "Rival Late Terry 10" || trainerName == "Rival Late Terry 11" || trainerName == "Rival Late Terry 12") {
-                    return "rival6's team"
-            }
-            else if (trainerName == "Champion Terry" || trainerName == "Champion Terry 2" || trainerName == "Champion Terry 3") {
-                return "champion's team"
-            }
-            else {
-                return trainerName.toLowerCase() + "'s team"
-            }
-        },
-        versionCheck() {
-            if (this.mapper.meta.gameName == "Pokemon Emerald")
-                return "emerald"
-            else if (this.mapper.meta.gameName == "Pokemon FireRed & LeafGreen")
-                return "remakes-scaled"
-            else return "Version Error"
         },
         ability(ability, statname, statValue) {
             if (ability == `Hustle` && statname == `attack`) {
@@ -1028,236 +832,12 @@ const app = Vue.createApp({
             }
         },
 
-        g3state() {
-            // NEW GAME
-            if (
-                this.gameStarted == false
-                )
-            {
-                string = "New Game"
-                gamestate = 1
-                return this.setGamestate(string, gamestate)
-            }
-            // NO POKEMON
-            else if (            
-                this.mapper.properties.player.name.bytes > 0 &&
-                this.mapper.properties.battle.player.teamCount.value == 0 &&
-                this.gameStarted == false
-                ) 
-            {
-                string = "No Pokemon"
-                gamestate = 2
-                return this.setGamestate(string, gamestate)
-            }      
-            // OVERWORLD
-            else if (
-                this.mapper.properties.player.name.bytes > 0 &&
-                this.mapper.properties.battle.player.teamCount.value > 0 &&
-                this.gameStarted == true
-                ||
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes > 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value == 0
-            ) 
-            {
-                string = "Overworld"
-                gamestate = 3
-                return this.setGamestate(string, gamestate)
-            }
-            // POST-RESET
-            else if (
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value == 0 &&
-                this.mapper.properties?.player?.teamCount > 0 &&
-                this.gameStarted == true 
-            ) 
-            {
-                string = "Post-Reset"
-                gamestate = 9
-                return this.setGamestate(string, gamestate)
-            }
-            // BATTLE
-            else if (
-                this.mapper.properties.battle.turnInfo.battleDialogue.value == 6 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0
-                ||
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.mapper.properties.battle.turnInfo.battleDialogue.value == 6 &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.currentGameStateNew == "To Battle"
-            ) 
-            {
-                string = "Battle"
-                gamestate = 5
-                this.gameStarted = true
-                return this.setGamestate(string, gamestate)
-            }
-            //  TO BATTLE
-            else if (
-                (this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 3 || this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 0) &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.currentGameStateNew == "New Game"
-                ||
-                (this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 3 || this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 0) &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.currentGameStateNew == "Overworld"
-                ||
-                (this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 3 || this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 0) &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.currentGameStateNew == "To Battle"
-                ||
-                (this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 3 || this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 0) &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.currentGameStateNew == "Post-Reset"
-                ||
-                (this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 3 || this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 0) &&
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.currentGameStateNew == "Error"
-            ) 
-            {
-                string = "To Battle"
-                gamestate = 4
-                return this.setGamestate(string, gamestate)
-            }
-            // DOUBLE-BATTLE
-            else if (
-                this.mapper.properties.battle.turnInfo.battleDialogue.bytes == 18 ||
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.currentGameStateNew == "Battle"
-            ) 
-            {
-                string = "Double-Battle"
-                gamestate = 6
-                return this.setGamestate(string, gamestate)
-            } 
-            // FROM BATTLE
-            else if (
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes > 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.currentGameStateNew == "Battle"
-                ||
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes > 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value > 0 &&
-                this.currentGameStateNew == "From Battle"
-            ) 
-            {
-
-                string = "From Battle"
-                gamestate = 7
-                return this.setGamestate(string, gamestate)
-            }
-            // RESET
-            else if (
-                this.mapper.properties.battle.turnInfo.battleOutcome.bytes == 0 && 
-                this.mapper.properties.battle.turnInfo.battleBackgroundTiles.value == 0 &&
-                this.mapper.properties?.player?.teamCount == 0 &&
-                this.gameStarted == true
-            ) 
-            {
-                string = "Reset"
-                gamestate = 8
-                return this.setGamestate(string, gamestate)
-            }
-            // ERROR
-            else {
-                string = "Overworld"
-                gamestate = 10
-                return this.setGamestate(string, gamestate)
-            }
-        },
-
-        //BADGE BOOSTS
-        bbAttack(x) {
-            if (this.mapper.properties.player.badges.badge1.value == true) {
-                statValue = Math.floor(x * 1.1)
-                if (statValue > 999) {
-                    return 999
-                }
-                else {
-                    return statValue
-                }
-            }
-            else
-                return x
-        },
-        bbSpeed(x) {
-            if (this.mapper.properties.player.badges.badge3.value == true) {
-                statValue = Math.floor(x * 1.1)
-                if (statValue > 999) {
-                    return 999
-                }
-                else {
-                    return statValue
-                }
-            }
-            else
-                return x
-        },
-        bbDefense(x) {
-            if (this.mapper.properties.player.badges.badge5.value == true) {
-                statValue = Math.floor(x * 1.1)
-                if (statValue > 999) {
-                    return 999
-                }
-                else {
-                    return statValue
-                }
-            }
-            else
-                return x
-        },
-        bbSpecialAttack(x) {
-            if (this.mapper.properties.player.badges.badge7.value == true) {
-                statValue = Math.floor(x * 1.1)
-                if (statValue > 999) {
-                    return 999
-                }
-                else {
-                    return statValue
-                }
-            }
-            else
-                return x
-        },
-        bbSpecialDefense(x) {
-            if (this.mapper.properties.player.badges.badge7.value == true) {
-                statValue = Math.floor(x * 1.1)
-                if (statValue > 999) {
-                    return 999
-                }
-                else {
-                    return statValue
-                }
-            }
-            else
-                return x
-        },
-        badgeBoost(badge, stat) {
-            if (badge == true) {
-                boostedStat = Math.floor(stat * 1.1)
-                if (boostedStat > 999) {
-                    return 999
-                }
-                else {
-                    return boostedStat
-                }
-            }
-            else
-                return stat
-        },
-
         //REMOVES CAPITALIZATION (TACKLE -> Tackle) OR (Tail Whip -> Tail whip)
-        camelCase: function (str) {
-            if (!str || !str.toString()) { return '' }
-            return str.toString().replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-                return index == 0 ? word.toUpperCase() : word.toLowerCase();
-            })
+        capitalization_format(str) {
+            if (str == null) { return "" }
+            return str.toLowerCase().replace(/(^|\s|\-|\.)(\w)/g, function(match, p1, p2) {
+              return p1 + p2.toUpperCase();
+            });
         },
         getPokemonImageUrl: function (x) {
             if (x != null)
@@ -1324,20 +904,6 @@ const app = Vue.createApp({
             }
         },
         
-        //STATUS CONDITION FUNCTIONS
-        statusHealedFix(y) { //this function fixes the status so that when " " is returned it says "cured"
-            if (y == " " || y == null || y == undefined)
-                return "Cured"
-            else
-                return y
-        },
-        statusCheck(y) {
-            if (y == null || y == undefined)
-                return ""
-            else
-                return y
-        },
-        
         //GENERAL FUNCTIONS
         nullCheck(y) {
             if (y != null || y != undefined || y != "null")
@@ -1373,29 +939,6 @@ const app = Vue.createApp({
         },
         abilityDescription(y) {
             return gen3abilities[y]
-        },
-        
-        //BATTLE STATE
-        currentBattleState() {
-            //BATTLE
-            if (this.mapper.properties.battle.turnInfo.battleStart.value >= 1 && this.mapper.properties.battle.type.bytes >= 1) {
-                return 4
-            }
-            //START OF BATTLE
-            else if (this.mapper.properties.battle.turnInfo.battleStart.value === 0 && this.mapper.properties.battle.type.bytes >= 1) {
-                return 2
-            }
-            //OVERWORLD
-            else if (this.mapper.properties.player.team[0].level > 0 && this.mapper.properties.battle.type.value === `None`) {
-                return 2
-            }
-            //OAK CATCHING STARTER
-            else if (this.mapper.properties.battle.specialType.value === `Oak Catching Starter`) {
-                return 0
-            }
-            //BASE STATS
-            else
-                return 0
         },
         
         //DAMAGE CALCULATIONS
@@ -1512,111 +1055,6 @@ const app = Vue.createApp({
                 nextLvlExp: nextLvlExp,
             };
         }, 
-        expPercent(x) {
-            if (this.mapper.properties?.player?.team[0]?.species?.value != null) {
-                if (this.growthRate() == "Slow") {
-                    return this.expPercentSlow(x)
-                }
-                else if (this.growthRate() == "Medium Slow") {
-                    return this.expPercentMediumSlow(x)
-                }
-                else if (this.growthRate() == "Medium Fast") {
-                    return this.expPercentMediumFast(x)
-                }
-                else if (this.growthRate() == "Fast") {
-                    return this.expPercentFast(x)
-                }
-                else if (this.growthRate() == "Fluctuating") {
-                    return this.expPercentFluctuating(x)
-                }
-                else if (this.growthRate() == "Erratic") {
-                    return this.expPercentErratic(x)
-                }
-                else    
-                    return 0
-            }
-            return 0
-        },
-        expPercentFast(x) { //x = mapper.properties.player.team[0]
-            expBar = ((x.expPoints.value) - ((4 * (Math.pow(x.level.value, 3))) / 5)) / (((4 * (Math.pow(x.level.value + 1, 3))) / 5) - ((4 * (Math.pow(x.level.value, 3))) / 5))
-            if ((expBar*100) > 100)
-                return 100
-            else if ((expBar*100) < 0)
-                return 0
-            else
-                return expBar * 100
-        },
-        expPercentMediumFast(x) { //x = mapper.properties.player.team[0]
-            expBar = (((x.expPoints.value) - (Math.pow(x.level.value, 3))) / ((Math.pow(x.level.value + 1, 3)) - (Math.pow(x.level.value, 3))))
-            if ((expBar*100) > 100)
-                return 100
-            else if ((expBar*100) < 0)
-                return 0
-            else
-                return expBar * 100
-        },
-        expPercentMediumSlow(x) { //x = mapper.properties.player.team[0]
-            var medSlow = (((((6 / 5) * (Math.pow(x.level.value, 3))) - (15 * (Math.pow(x.level.value, 2))) + (100 * x.level.value) - 140)))
-            expBar = (((x.expPoints.value) - medSlow) / ((((((6 / 5) * (Math.pow((x.level.value + 1), 3))) - (15 * (Math.pow((x.level.value + 1), 2))) + (100 * (x.level.value + 1)) - 140))) - medSlow))
-            if ((expBar*100) > 100)
-                return 100
-            else if ((expBar*100) < 0)
-                return 0
-            else
-                return expBar * 100
-        },
-        expPercentSlow(x) { //x = mapper.properties.player.team[0]
-            expBar = (((x.expPoints.value) - (Math.floor((5 * (Math.pow(x.level.value, 3))) / 4))) / ((Math.floor((5 * (Math.pow(x.level.value + 1, 3))) / 4)) - (Math.floor((5 * (Math.pow(x.level.value, 3))) / 4))))
-            if ((expBar*100) > 100)
-                return 100
-            else if ((expBar*100) < 0)
-                return 0
-            else
-                return expBar * 100
-        },
-        expPercentFluctuating(x) { //x = mapper.properties.player.team[0]
-            var lvl = x.level.value
-            var currentExp = x.expPoints.value
-            if (lvl < 15) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(((lvl+1)/3)+24))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*((((lvl+1)+1)/3)+24))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-            else if (lvl <= 15 && lvl < 36) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(lvl+14))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*((lvl+1)+14))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-            else if (lvl <= 36 && lvl < 100) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*((lvl/3)+32))/50
-                var nextLvlRequiredExp = (Math.pow(lvl, 3)*(((lvl+1)/3)+32))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-        },
-        expPercentErratic(x) { //x = mapper.properties.player.team[0]
-            var lvl = x.level.value
-            var currentExp = x.expPoints.value
-            if (lvl < 50) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(100 - lvl))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*(100 - (lvl+1)))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-            else if (lvl <= 50 && lvl < 68) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(100 - lvl))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*(100 - (lvl+1)))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-            else if (lvl <= 68 && lvl < 98) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(100 - lvl))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*(100 - (lvl+1)))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-            else if (lvl <= 98 && lvl < 100) {
-                var currentLvlRequiredExp = (Math.pow(lvl, 3)*(100 - lvl))/50
-                var nextLvlRequiredExp = (Math.pow((lvl+1), 3)*(100 - (lvl+1)))/50
-                return expPercentageCalculation(((currentExp - currentLvlRequiredExp)/(nextLvlRequiredExp - currentLvlRequiredExp)))
-            }
-        },
         expPercentageCalculation(x) {
             if ((x*100) > 100)
                 return 100
@@ -2038,7 +1476,6 @@ const app = Vue.createApp({
         },
         burnModifier(x) {
             var attackingCategory = this.moveCategory(x)
-            return 1
             if (attackingCategory == "Physical" && this.solo_mon.statusCondition.value == `Burned` && this.mapper.properties.player.team[0].ability.value != `Guts`) {
                 return 0.5
                 }
@@ -2070,7 +1507,6 @@ const app = Vue.createApp({
             var stabModifier = this.determineSTAB(x)
             var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType)
             var itemBoost = this.determineItemBoost(x)
-            // var weatherBoost = 1
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.weather.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle") { //Handles type effectiveness calculations in battle
@@ -2141,11 +1577,6 @@ const app = Vue.createApp({
                         // dont animate, set width to 0%
                         this.$refs.expBar.style.transition = null;
                         this.$refs.expBar.style.width = "0%";
-                        // await this.sleep(50);
-                        // // animate width from 0% to newExpStats.percent
-                        // this.$refs.expBar.style.transition = 'width 100ms ease-out';
-                        // this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                        // await this.sleep(150);
                     }
                 }
                 this.$refs.expBar.style.transition = null;
@@ -2191,11 +1622,6 @@ const app = Vue.createApp({
                         // dont animate, set width to 0%
                         this.$refs.expBar.style.transition = null;
                         this.$refs.expBar.style.width = "0%";
-                        // await this.sleep(50);
-                        // // animate width from 0% to newExpStats.percent
-                        // this.$refs.expBar.style.transition = 'width 100ms ease-out';
-                        // this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                        // await this.sleep(150);
                     }
                 }
                 this.$refs.expBar.style.transition = null;
