@@ -203,7 +203,7 @@
                                 <!-- Stat -->
                                 <div v-if="mapper.properties.meta.state.value == 'Battle'" class="border ePkmnStats">
                                     <table class="enemyStatTable">
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponentA.activePokemon.statusCondition, x)">Hp:</span></th> <th class="align_right">{{oppA.team[x].stats.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponentA.activePokemon.statusCondition, x)">Hp:</span></th> <th class="align_right">{{oppA.team[x].stats.maxHp}}</th></tr>
                                         <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", oppA.team[x].stats.attack, x)}}</th></tr>
                                         <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", oppA.team[x].stats.defense, x)}}</th></tr>
                                         <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.specialAttack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("specialAttack", oppA.team[x].stats.specialAttack, x)}}</th></tr>
@@ -225,22 +225,22 @@
                                 <div class="border ePkmnMoves">
                                     <table class="enemyMovesetTable">
                                         <tr v-show="oppA.team[x].moves[0].move">
-                                            <th class="ePkmnMoveType"><img class="icons moveIcon" :src="`images/type-icons-circular/${g4MoveData[enemyMove(x, 0)]?.Type?.toLowerCase()}.png`" /></th>
+                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 0)]?.Type?.toLowerCase(), enemyMove(x, 0), x)}.png`" /></th>
                                             <th class="align_left">{{oppA.team[x].moves[0].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[0].pp}}</th>
                                         </tr>
                                         <tr v-show="oppA.team[x].moves[0].move">
-                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${g4MoveData[enemyMove(x, 1)]?.Type?.toLowerCase()}.png`" /></th>
+                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 1)]?.Type?.toLowerCase(), enemyMove(x, 1), x)}.png`" /></th>
                                             <th class="align_left">{{oppA.team[x].moves[1].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[1].pp}}</th>
                                         </tr>
                                         <tr v-show="oppA.team[x].moves[0].move">
-                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${g4MoveData[enemyMove(x, 2)]?.Type?.toLowerCase()}.png`" /></th>
+                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 2)]?.Type?.toLowerCase(), enemyMove(x, 2), x)}.png`" /></th>
                                             <th class="align_left">{{oppA.team[x].moves[2].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[2].pp}}</th>
                                         </tr>
                                         <tr v-show="oppA.team[x].moves[0].move">
-                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${g4MoveData[enemyMove(x, 3)]?.Type?.toLowerCase()}.png`" /></th>
+                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 3)]?.Type?.toLowerCase(), enemyMove(x, 3), x)}.png`" /></th>
                                             <th class="align_left">{{oppA.team[x].moves[3].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[3].pp}}</th>
                                         </tr>

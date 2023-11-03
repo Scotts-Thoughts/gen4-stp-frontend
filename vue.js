@@ -130,7 +130,7 @@ const app = Vue.createApp({
             }
         },
         moveRouting() {
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == 0) {
                 return this.mapper.properties.battle.player.activePokemon.moves
             }
             if (this.mapper.properties.meta.state.value == `Overworld`) {
@@ -315,6 +315,14 @@ const app = Vue.createApp({
         },
     },
     methods: { 
+        eHPType(valueToReturn, moveValue, slotIndex) {
+            if (moveValue == "Hidden Power") {
+                return this.hiddenPowerTypeCalc(this.mapper.properties.battle.opponentA.team[slotIndex])
+            }
+            else {
+                return valueToReturn
+            }
+        },
         enemyGraphic() {
             let battle = false
             let trainer = false
@@ -339,7 +347,7 @@ const app = Vue.createApp({
         },
         enemyFaint(slotIndex) {
             let fainted = false
-            if (this.mapper.properties.battle.opponentA.updatingTeam[slotIndex].stats.hp.value == 0) {
+            if (this.mapper.properties.battle.opponentA.team[slotIndex].stats.hp.value == 0) {
                 fainted = true
             }
             if (fainted == true) {
