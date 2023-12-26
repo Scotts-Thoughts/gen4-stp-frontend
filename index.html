@@ -12,7 +12,7 @@
             Loading...
         </div>
         <div v-else>
-            <img :src="`images/overlay/${starter}.png`??`images/overlay/testing.png`" id="overlay" class="posAbs">
+            <img :src="`images/overlay/${mapper.properties.player.team[0].species.value??starter}.png`??`images/overlay/testing.png`" id="overlay" class="posAbs">
             
             <!-- Info Display (primary screen) -->
             <div class="posAbs" style="font-family: play; top: 30px; left: 460px;">
@@ -38,6 +38,7 @@
                 <div>- SpA: {{mapper.properties.player.team[0].ivs.specialAttack}}</div>
                 <div>- SpD: {{mapper.properties.player.team[0].ivs.specialDefense}}</div>
                 <div>- Spe: {{mapper.properties.player.team[0].ivs.speed}}</div>
+                <br>
             </div>
 
             <!-- OVERLAY COMPONENTS -->
@@ -45,11 +46,11 @@
             <div class="posAbs type_icons_boundingBox center">
                 <img 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(starter, 'type_1')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1')?.toLowerCase()}.png`" />
                 <img 
-                    v-if="getSoloMonType(starter, 'type1') != getSoloMonType(starter, 'type_2')" 
+                    v-if="getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1') != getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_2')" 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(starter, 'type_2')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_2')?.toLowerCase()}.png`" />
             </div>
 
             <!-- Stats -->
@@ -57,30 +58,30 @@
                 <div class="stats_table_header">Level {{solo_mon.level}}</div>
                 <table class="stats_table stats_table_borders" style="left: 21px;">
                     <tr>
-                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon.statusCondition.value))">Hp:</th>
-                        <th class="stats_table_borders">{{solo_mon.stats.maxHp}}</th>
+                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.statusCondition?.value))">Hp:</th>
+                        <th class="stats_table_borders">{{solo_mon?.stats?.maxHp ?? g4PokemonData[starter].base_hp}}</th>
                     </tr>
                     <tr>
                         <th class="stats_table_borders" :style="statLabelOpacity(play.activePokemon.modifiers.attack)">Atk:</th>
-                        <th class="stats_table_borders">{{getStat("attack")}}</th>
+                        <th class="stats_table_borders">{{getStat("attack") ?? g4PokemonData[starter].base_atk}}</th>
                     </tr>
                     <tr>
                         <th class="stats_table_borders" :style="statLabelOpacity(play.activePokemon.modifiers.defense)">Def:</th>
-                        <th class="stats_table_borders">{{getStat("defense")}}</th>
+                        <th class="stats_table_borders">{{getStat("defense" ?? g4PokemonData[starter].base_def)}}</th>
                     </tr>
                 </table>
                 <table class="stats_table stats_table_borders" style="left: 225px;">
                     <tr>
                         <th class="stats_table_borders" :style="statLabelOpacity(play.activePokemon.modifiers.specialAttack)">SpA:</th>
-                        <th class="stats_table_borders">{{getStat("specialAttack")}}</th>
+                        <th class="stats_table_borders">{{getStat("specialAttack" ?? g4PokemonData[starter].base_spc_atk)}}</th>
                     </tr>
                     <tr>
                         <th class="stats_table_borders" :style="statLabelOpacity(play.activePokemon.modifiers.specialDefense)">SpD:</th>
-                        <th class="stats_table_borders">{{getStat("specialDefense")}}</th>
+                        <th class="stats_table_borders">{{getStat("specialDefense" ?? g4PokemonData[starter].base_spc_def)}}</th>
                     </tr>
                     <tr>
                         <th class="stats_table_borders" :style="statLabelOpacity(play.activePokemon.modifiers.speed)">Spe:</th>
-                        <th class="stats_table_borders">{{getStat("speed")}}</th>
+                        <th class="stats_table_borders">{{getStat("speed" ?? g4PokemonData[starter].base_spd)}}</th>
                     </tr>
                 </table>
             </div>
@@ -112,18 +113,18 @@
                     <th class="align_right g4mp_accuracy">acc.</th>
                     <th class="align_right g4mp_pp">pp</th>
                 </tr>
-                <tr>
+                <tr v-if="getMoveObject('1')?.move.value != null">
                     <!-- Move1 -->
-                    <th v-if="getMove('1') != undefined" class="align_left g4mp_types">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('1')].Type.toLowerCase()}.png`" />
+                    <th class="align_left g4mp_types">
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('1')]?.Type.toLowerCase()}.png`" />
                     </th>
-                    <th v-if="getMove('1') != undefined" class="align_left g4mp_move">{{getMove("1")}}</th>
-                    <th v-if="getMove('1') != undefined" class="align_right g4mp_power">{{typeEffectiveness(moveRouting[0].move)}}</th>
-                    <th v-if="getMove('1') != undefined" class="align_right g4mp_category">
+                    <th class="align_left g4mp_move">{{getMove("1")}}</th>
+                    <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting[0]?.move?.value)}}</th>
+                    <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('1'))" />
                     </th>
-                    <th v-if="getMove('1') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('1')].Accuracy)}}%</th>
-                    <th v-if="getMove('1') != undefined" class="align_right g4mp_pp">{{getPP("1")}}</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('1')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_pp">{{getPP("1")}}</th>
                 </tr>
             </table>    
             <table class="posAbs g4movepool" style="top: 900px; left: 966px;">
@@ -135,57 +136,57 @@
                     <th class="align_right g4mp_accuracy">acc.</th>
                     <th class="align_right g4mp_pp">pp</th>
                 </tr>
-                <tr>
+                <tr v-if="getMoveObject('2')?.move.value != null">
                     <!-- Move2 -->
-                    <th v-if="getMove('2') != undefined" class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('2')].Type.toLowerCase()}.png`" />
+                    <th class="align_left g4mp_type">
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('2')]?.Type.toLowerCase()}.png`" />
                     </th>
-                    <th v-if="getMove('2') != undefined" class="align_left g4mp_move">{{getMove('2')}}</th>
-                    <th v-if="getMove('2') != undefined" class="align_right g4mp_power">{{typeEffectiveness(moveRouting[1].move)}}</th>
-                    <th v-if="getMove('2') != undefined" class="align_right g4mp_category">
+                    <th class="align_left g4mp_move">{{getMove('2')}}</th>
+                    <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting[1]?.move?.value)}}</th>
+                    <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('2'))" />
                     </th>
-                    <th v-if="getMove('2') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('2')].Accuracy)}}%</th>
-                    <th v-if="getMove('2') != undefined" class="align_right g4mp_pp">{{getPP('2')}}</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('2')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_pp">{{getPP('2')}}</th>
                 </tr>
             </table>
             <table class="posAbs g4movepool" style="top: 986px; left: 457px;">
-                <tr>
+                <tr v-if="getMoveObject('3')?.move.value != null">
                     <!-- Move3 -->
-                    <th v-if="getMove('3') != undefined" class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('3')].Type.toLowerCase()}.png`" />
+                    <th class="align_left g4mp_type">
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('3')]?.Type.toLowerCase()}.png`" />
                     </th>
-                    <th v-if="getMove('3') != undefined" class="align_left g4mp_move">{{getMove("3")}}</th>
-                    <th v-if="getMove('3') != undefined" class="align_right g4mp_power">{{typeEffectiveness(moveRouting[2].move)}}</th>
-                    <th v-if="getMove('3') != undefined" class="align_right g4mp_category">
+                    <th class="align_left g4mp_move">{{getMove("3")}}</th>
+                    <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting[2]?.move?.value)}}</th>
+                    <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('3'))" />
                     </th>
-                    <th v-if="getMove('3') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('3')].Accuracy)}}%</th>
-                    <th v-if="getMove('3') != undefined" class="align_right g4mp_pp">{{getPP("3")}}</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('3')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_pp">{{getPP("3")}}</th>
                 </tr>
             </table>
             <table class="posAbs g4movepool" style="top: 986px; left: 966px;">
-                <tr>
+                <tr v-if="getMoveObject('4')?.move.value != null">
                     <!-- Move4 -->
-                    <th v-if="getMove('4') != undefined" class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('4')].Type.toLowerCase()}.png`" />
+                    <th class="align_left g4mp_type">
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${g4MoveData[getMove('4')]?.Type.toLowerCase()}.png`" />
                     </th>
-                    <th v-if="getMove('4') != undefined" class="align_left g4mp_move">{{getMove("4")}}</th>
-                    <th v-if="getMove('4') != undefined" class="align_right g4mp_power">{{typeEffectiveness(moveRouting[3].move)}}</th>
-                    <th v-if="getMove('4') != undefined" class="align_right g4mp_category">
+                    <th class="align_left g4mp_move">{{getMove("4")}}</th>
+                    <th class="align_right g4mp_power">{{typeEffectiveness(moveRouting[3]?.move?.value)}}</th>
+                    <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('4'))" />
                     </th>
-                    <th v-if="getMove('4') != undefined" class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('4')].Accuracy)}}%</th>
-                    <th v-if="getMove('4') != undefined" class="align_right g4mp_pp">{{getPP("4")}}</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(g4MoveData[getMove('4')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_pp">{{getPP("4")}}</th>
                 </tr>
             </table>
 
             <!-- Right Hand Information Area -->
             <transition name="fade1">
                 <!-- Enemy Team Display -->
-                <div v-if="enemyGraphic() == true" style="position: absolute;" key="1">
+                <div v-if="enemyGraphic == true" style="position: absolute;" key="1">
                     <div class="trainerLabel">{{mapper.properties.battle.opponentA.trainer.value}}</div>
-                    <img :src="`images/enemy-area/${starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
+                    <img :src="`images/enemy-area/${mapper.properties.player.team[0].species.value??starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
                     <div v-for="x in pkmnSlots">
                         <img v-if="mapper.properties.battle.opponentA.team[x].species.value != undefined" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
@@ -224,24 +225,24 @@
                                 </div>
                                 <div class="border ePkmnMoves">
                                     <table class="enemyMovesetTable">
-                                        <tr v-show="oppA.team[x].moves[0].move">
+                                        <tr v-show="oppA.team[x].moves[0].move.value != null">
                                             <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 0)]?.Type?.toLowerCase(), enemyMove(x, 0), x)}.png`" /></th>
-                                            <th class="align_left">{{oppA.team[x].moves[0].move}}</th>
+                                            <th class="align_left" style="font-size: 15px;">{{oppA.team[x].moves[0].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[0].pp}}</th>
                                         </tr>
-                                        <tr v-show="oppA.team[x].moves[0].move">
+                                        <tr v-show="oppA.team[x].moves[1].move.value != null">
                                             <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 1)]?.Type?.toLowerCase(), enemyMove(x, 1), x)}.png`" /></th>
-                                            <th class="align_left">{{oppA.team[x].moves[1].move}}</th>
+                                            <th class="align_left" style="font-size: 15px;">{{oppA.team[x].moves[1].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[1].pp}}</th>
                                         </tr>
-                                        <tr v-show="oppA.team[x].moves[0].move">
+                                        <tr v-show="oppA.team[x].moves[2].move.value != null">
                                             <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 2)]?.Type?.toLowerCase(), enemyMove(x, 2), x)}.png`" /></th>
-                                            <th class="align_left">{{oppA.team[x].moves[2].move}}</th>
+                                            <th class="align_left" style="font-size: 15px;">{{oppA.team[x].moves[2].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[2].pp}}</th>
                                         </tr>
-                                        <tr v-show="oppA.team[x].moves[0].move">
+                                        <tr v-show="oppA.team[x].moves[3].move.value != null">
                                             <th><img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(g4MoveData[enemyMove(x, 3)]?.Type?.toLowerCase(), enemyMove(x, 3), x)}.png`" /></th>
-                                            <th class="align_left">{{oppA.team[x].moves[3].move}}</th>
+                                            <th class="align_left" style="font-size: 15px;">{{oppA.team[x].moves[3].move}}</th>
                                             <th style="opacity: .6;" class="align_right">{{oppA.team[x].moves[3].pp}}</th>
                                         </tr>
                                     </table>
@@ -264,25 +265,25 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).level">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).level">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
-                            <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
                             <td class="movepool_tableC">{{x.Power}}</td>
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).tmhm">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).tmhm">
                             <td class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
-                            <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
                             <td class="movepool_tableC">{{movepoolPower(x)}}</td>
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <!-- <tr v-for="x in getMovepool(g4PokemonData, g4MoveData, g4tmhmMapping, starter).tutor">
+                        <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).tutor">
                             <td class="movepool_way">Tutor</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type">{{x.Type}}</td>
@@ -291,7 +292,7 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr> -->
-                        <!-- <tr v-for="x in getMovepool(g4MoveData, g4MoveData, g4tmhmMapping).egg">
+                        <!-- <tr v-for="x in getMovepool(g4MoveData, platinum_moves, g4tmhmMapping).egg">
                             <td class="movepool_way">Egg</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${x.Type?.toLowerCase()})`}">{{x.Type}}</td>
@@ -301,7 +302,7 @@
                         </tr> -->
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <img :src="`images/movepool-border/${starter}.png`" id="overlay" class="posAbs">
+                    <img :src="`images/movepool-border/${mapper.properties.player.team[0].species.value??starter}.png`" id="overlay" class="posAbs">
                 </div>
             </transition>
 
@@ -309,14 +310,14 @@
             <div style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.activePokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <img :src="`images/pop_ups/accuracy/${starter}${overlayName}.png`" style="position: absolute;">
+                        <img :src="`images/pop_ups/accuracy/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;">
                         <div class="genericLabels accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.activePokemon.modifiers.accuracy.value }}</div>
                     </div>
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.activePokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <img :src="`images/pop_ups/evasion/${starter}${overlayName}.png`" style="position: absolute;">
+                        <img :src="`images/pop_ups/evasion/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;">
                         <div class="genericLabels evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.activePokemon.modifiers.evasion.value }}</div>
                     </div>
@@ -325,8 +326,12 @@
 
             <!-- Exp bar -->
             <div>
-                <div class="growthRate">{{growth_rate}}</div>
-                <div  class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, solo_mon.expPoints).percent)}}%</div>
+                <div class="growthRate">{{g4PokemonData[starter].growth_rate}}</div>
+                <div v-show="mapper.properties.player.team[0].species.value != null" class="labelEXP">
+                    <span v-show="mapper.properties.meta.state.value == 'Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.battle.player.activePokemon.expPoints).percent)}}%</span>
+                    <span v-show="mapper.properties.meta.state.value == 'Overworld'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.player.team[0].expPoints).percent)}}%</span>
+                </div>
+                <div v-show="mapper.properties.player.team[0].species.value == null"class="labelEXP">Exp:</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
                 <img src="images/misc/label.png" style="top: 298px; position: absolute;">
             </div>
@@ -337,7 +342,7 @@
                 <div class="posAbs" style="left: 487px; width: 200px;">Held Item:</div>
             </div>
             <div class="ability">{{mapper.properties.player?.team[0]?.ability?.value}}</div>
-            <div class="heldItem">{{mapper.properties.player?.team[0]?.heldItem?.value}}</div>
+            <div class="heldItem">{{heldItem}}</div>
             <div class="genericLabels timerLabel">time played at 4x game speed</div>
             <div class="genericLabels resetsLabel">resets</div>
             <div class="growthRate">{{growth_rate}}</div>
@@ -364,6 +369,7 @@
     <script src="lib/hiddenPowerTypes.js"></script>
     <script src="lib/g4PokemonDataPlat.js"></script>
     <script src="lib/natureDefinitions.js"></script>
+    <script src="lib/platinum_moves.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="vue.js"></script>
 </body>

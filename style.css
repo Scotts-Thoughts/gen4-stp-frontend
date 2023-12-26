@@ -207,7 +207,7 @@ canvas {  /* or some other selector */
     position: absolute;
     /* border: 1px solid #00ff0d00; */
     background-color: #e3212100;
-    font-size: 25px;
+    font-size: 22px;
     width: 476px;
     /* height: 160px; */
     font-family: play;
@@ -916,6 +916,9 @@ img, span, div {
     width: 10px;
     padding-right: 2px;
 }
+/* .enemyMovesetTable .th:nth-child(1) {
+    width: 26px;
+} */
 
 .enemyStatTable {
     position: absolute;
