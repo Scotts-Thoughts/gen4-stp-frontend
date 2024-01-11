@@ -185,42 +185,42 @@
             <transition name="fade1">
                 <!-- Enemy Team Display -->
                 <div v-if="enemyGraphic == true" style="position: absolute;" key="1">
-                    <div class="trainerLabel">{{mapper.properties.battle.opponentA.trainer.value}}</div>
+                    <div class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
                     <img :src="`images/enemy-area/${mapper.properties.player.team[0].species.value??starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop">
                     <div v-for="x in pkmnSlots">
-                        <img v-if="mapper.properties.battle.opponentA.team[x].species.value != undefined" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
+                        <img v-if="mapper.properties.battle.opponent.team[x].species.value != undefined" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
-                            <div v-if="mapper.properties.battle.opponentA.team[x].species.value != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
+                            <div v-if="mapper.properties.battle.opponent.team[x].species.value != undefined" :class="`border slots ePkmnStyle ePkmn${x}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(oppA?.team[x]?.species?.value)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{oppA.team[x].species}} L:{{oppA.team[x].level}}</div>
                                 <div class="ePkmnAbility" style="opacity: .7;">{{oppA.team[x].ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">
-                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_1?.toLowerCase()}.png`" />
-                                    <img v-show="g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_1 != g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_2" 
-                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[mapper.properties.battle.opponentA.team[x].species.value]?.type_2?.toLowerCase()}.png`" />
+                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[mapper.properties.battle.opponent.team[x].species.value]?.type_1?.toLowerCase()}.png`" />
+                                    <img v-show="g4PokemonData[mapper.properties.battle.opponent.team[x].species.value]?.type_1 != g4PokemonData[mapper.properties.battle.opponent.team[x].species.value]?.type_2" 
+                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[mapper.properties.battle.opponent.team[x].species.value]?.type_2?.toLowerCase()}.png`" />
                                 </div>
                                 <!-- Stat -->
                                 <div v-if="mapper.properties.meta.state.value == 'Battle'" class="border ePkmnStats">
                                     <table class="enemyStatTable">
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponentA.activePokemon.statusCondition, x)">Hp:</span></th> <th class="align_right">{{oppA.team[x].stats.maxHp}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", oppA.team[x].stats.attack, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", oppA.team[x].stats.defense, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.specialAttack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("specialAttack", oppA.team[x].stats.specialAttack, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.specialDefense, x)">SpD:</span></th><th class="align_right">{{getEnemyStat("specialDefense", oppA.team[x].stats.specialDefense, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponentA.activePokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{getEnemyStat("speed", oppA.team[x].stats.speed, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.activePokemon.statusCondition, x)">Hp:</span></th> <th class="align_right">{{oppA.team[x].stats.maxHp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.activePokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", oppA.team[x].stats.attack, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.activePokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", oppA.team[x].stats.defense, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.activePokemon.modifiers?.specialAttack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("specialAttack", oppA.team[x].stats.specialAttack, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.activePokemon.modifiers?.specialDefense, x)">SpD:</span></th><th class="align_right">{{getEnemyStat("specialDefense", oppA.team[x].stats.specialDefense, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.activePokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{getEnemyStat("speed", oppA.team[x].stats.speed, x)}}</th></tr>
                                     </table>
                                 </div>
                                 <!-- Stat modifiers -->
-                                <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponentA.partyPos.value == x" class="ePkmnStats">
+                                <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.partyPos.value == x" class="ePkmnStats">
                                     <div class="enemyStatModTable">
-                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponentA.activePokemon.statusCondition?.value) != ``" class="enemyMod stcd">BRN</div>
-                                        <div v-show="mapper.properties.battle.opponentA.activePokemon.modifiers?.attack.value != 0"         class="enemyMod eAtk">{{stageModifiers(mapper.properties.battle.opponentA.activePokemon.modifiers?.attack.value)}}</div>
-                                        <div v-show="mapper.properties.battle.opponentA.activePokemon.modifiers?.defense.value != 0"        class="enemyMod eDef">{{stageModifiers(mapper.properties.battle.opponentA.activePokemon.modifiers?.defense.value)}}</div>
-                                        <div v-show="mapper.properties.battle.opponentA.activePokemon.modifiers?.specialAttack.value != 0"  class="enemyMod eSpA">{{stageModifiers(mapper.properties.battle.opponentA.activePokemon.modifiers?.specialAttack.value)}}</div>
-                                        <div v-show="mapper.properties.battle.opponentA.activePokemon.modifiers?.specialDefense.value != 0" class="enemyMod eSpD">{{stageModifiers(mapper.properties.battle.opponentA.activePokemon.modifiers?.specialDefense.value)}}</div>
-                                        <div v-show="mapper.properties.battle.opponentA.activePokemon.modifiers?.speed.value != 0"          class="enemyMod eSpe">{{stageModifiers(mapper.properties.battle.opponentA.activePokemon.modifiers?.speed.value)}}</div>
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.activePokemon.statusCondition?.value) != ``" class="enemyMod stcd">BRN</div>
+                                        <div v-show="mapper.properties.battle.opponent.activePokemon.modifiers?.attack.value != 0"         class="enemyMod eAtk">{{stageModifiers(mapper.properties.battle.opponent.activePokemon.modifiers?.attack.value)}}</div>
+                                        <div v-show="mapper.properties.battle.opponent.activePokemon.modifiers?.defense.value != 0"        class="enemyMod eDef">{{stageModifiers(mapper.properties.battle.opponent.activePokemon.modifiers?.defense.value)}}</div>
+                                        <div v-show="mapper.properties.battle.opponent.activePokemon.modifiers?.specialAttack.value != 0"  class="enemyMod eSpA">{{stageModifiers(mapper.properties.battle.opponent.activePokemon.modifiers?.specialAttack.value)}}</div>
+                                        <div v-show="mapper.properties.battle.opponent.activePokemon.modifiers?.specialDefense.value != 0" class="enemyMod eSpD">{{stageModifiers(mapper.properties.battle.opponent.activePokemon.modifiers?.specialDefense.value)}}</div>
+                                        <div v-show="mapper.properties.battle.opponent.activePokemon.modifiers?.speed.value != 0"          class="enemyMod eSpe">{{stageModifiers(mapper.properties.battle.opponent.activePokemon.modifiers?.speed.value)}}</div>
                                     </div>
                                 </div>
                                 <div class="border ePkmnMoves">
