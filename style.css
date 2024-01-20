@@ -1754,19 +1754,20 @@ img, span, div {
     position: absolute;
     border: 1px solid #ff000000;
     font-family: play;
-    font-size: 48px;
+    font-size: 38px;
     width: 65px;
+    height: 58px;
     text-align: center;
     opacity: .7;
 }
 .modColumn1 { left: 23px; }
 .modColumn2 { left: 227px; }
 .status { top: 866px; left: 30px; }
-.atkMod { top: 929px; }
-.defMod { top: 992px; }
-.spAMod { top: 866px; }
-.spDMod { top: 929px; }
-.speMod { top: 992px; }
+.atkMod { top: 934px; }
+.defMod { top: 997px; }
+.spAMod { top: 871px; }
+.spDMod { top: 934px; }
+.speMod { top: 997px; }
 /* .status { top: 537px; }
 .atkMod { top: 600px; }
 .defMod { top: 663px; }
@@ -3020,11 +3021,11 @@ img, span, div {
     text-align: center;
 }
 .stcd { top: -18px; width: 42px; height: 18px; left: -5px; font-size: 14px; }
-.eAtk { top: 2px; }
-.eDef { top: 26px; }
-.eSpA { top: 50px; }
-.eSpD { top: 75px; }
-.eSpe { top: 98px; }
+.e_attack { top: 2px; }
+.e_defense { top: 26px; }
+.e_special_attack { top: 50px; }
+.e_special_defense { top: 75px; }
+.e_speed { top: 98px; }
 
 .attackMod {
     top: 32px;
