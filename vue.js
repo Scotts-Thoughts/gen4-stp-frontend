@@ -1221,6 +1221,7 @@ const app = Vue.createApp({
         movePower(y) { //y = move1.value
             if (y) {
                 var move = this.g4MoveData[y]
+                if (move.Power == "—") { return "—"}
                 if (move.Power == 0) { return "-"}
                 if (y == "Return") {
                     if (this.mapper.properties.player.team[0].friendship.value < 2.5)

@@ -120,7 +120,7 @@
                     </th>
                     <th class="align_left g4mp_move">{{getMove("1")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[0].move.value)}}</th>
-                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{g4MoveData[mapper.properties.player.team[0].moves[0].move.value].Power}}</th>
+                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.player.team[0].moves[0].move.value)}}</th>
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('1'))" />
                     </th>
@@ -144,7 +144,7 @@
                     </th>
                     <th class="align_left g4mp_move">{{getMove('2')}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[1].move.value)}}</th>
-                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{g4MoveData[mapper.properties.player.team[0].moves[1].move.value].Power}}</th>
+                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.player.team[0].moves[1].move.value)}}</th>
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('2'))" />
                     </th>
@@ -160,7 +160,7 @@
                     </th>
                     <th class="align_left g4mp_move">{{getMove("3")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[2].move.value)}}</th>
-                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{g4MoveData[mapper.properties.player.team[0].moves[2].move.value].Power}}</th>
+                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.player.team[0].moves[2].move.value)}}</th>
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('3'))" />
                     </th>
@@ -176,7 +176,7 @@
                     </th>
                     <th class="align_left g4mp_move">{{getMove("4")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[3].move.value)}}</th>
-                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{g4MoveData[mapper.properties.player.team[0].moves[3].move.value].Power}}</th>
+                    <th v-if="mapper.properties.meta.state.value != 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.player.team[0].moves[3].move.value)}}</th>
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('4'))" />
                     </th>
