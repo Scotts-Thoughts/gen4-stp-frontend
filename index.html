@@ -39,6 +39,8 @@
                 <div>- SpD: {{mapper.properties.player.team[0].ivs.special_defense}}</div>
                 <div>- Spe: {{mapper.properties.player.team[0].ivs.speed}}</div>
                 <br>
+                <div>- Spe: {{mapper.properties.player.team[0].stats.speed}}</div>
+                <div>- Spe: {{getStat("speed" ?? g4PokemonData[starter].base_spd)}}</div>
             </div>
 
             <!-- OVERLAY COMPONENTS -->
@@ -55,7 +57,8 @@
 
             <!-- Stats -->
             <div class="posAbs">
-                <div class="stats_table_header">Level {{solo_mon.level}}</div>
+                <div v-if="mapper.properties.meta.state != 'No Pokemon'" class="stats_table_header">Level {{solo_mon.level}}</div>
+                <div v-if="mapper.properties.meta.state == 'No Pokemon'" class="stats_table_header">Base Stats</div>
                 <table class="stats_table stats_table_borders" style="left: 21px;">
                     <tr>
                         <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.status_condition?.value))">Hp:</th>
