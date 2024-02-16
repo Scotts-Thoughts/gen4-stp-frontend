@@ -1,13 +1,13 @@
 {
-  "name": "stp-layout-app",
-  "version": "1.0.0",
+  "name": "gen4-overlay-app",
+  "version": "0.1.0",
   "description": "A minimal Electron application",
   "main": "./main.js",
   "build": {
     "appId": "com.stp.layout-app",
-    "productName": "stp-layout-app",
+    "productName": "gen4-overlay-app",
     "win": {
-      "executableName": "stp-layout-app",
+      "executableName": "gen4-overlay-app",
       "target": "zip",
       "icon": "./icon.png"
     },
