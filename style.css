@@ -147,9 +147,88 @@ body {
     background-color: #ffffff;
 }
 
-canvas {  /* or some other selector */
+.canvas {  /* or some other selector */
+    position: absolute;
+    top: 0px;
+    left: 0px;
     width: 1920px;
     height: 1080px;
+}
+.ui1 {
+    font-size: 16px;
+    position: fixed;
+    left: 462px;
+    top: 30px;
+    width: 350px;
+    z-index: 5;
+    height: 780px;
+    line-height: 18px;
+    text-transform: capitalize;
+    text-align: left;
+    font-family: play;
+    font-weight: 700;
+    z-index: 20000;
+    border: 1px solid #ff000000;
+}
+.ui2 {
+    font-size: 16px;
+    position: fixed;
+    left: 742px;
+    top: 30px;
+    width: 350px;
+    z-index: 5;
+    height: 780px;
+    line-height: 18px;
+    text-transform: capitalize;
+    text-align: left;
+    font-family: play;
+    font-weight: 700;
+    z-index: 20000;
+    border: 1px solid #ff000000;
+}
+.ui3 {
+    font-size: 16px;
+    position: fixed;
+    left: 1112px;
+    top: 30px;
+    width: 435px;
+    z-index: 5;
+    height: 780px;
+    line-height: 18px;
+    text-transform: capitalize;
+    text-align: left;
+    font-family: play;
+    font-weight: 700;
+    z-index: 20000;
+    border: 1px solid #ff000000;
+}
+.dropdownMenu {
+    pointer-events: auto; 
+    position: relative; 
+    width: 300px; 
+    height: 30px; 
+    font-size: 20px; 
+    background: #72fd4f; 
+    font-family: Play;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 2px #000000c5);
+}
+.dropdownMenu:hover {
+    background: #11ce18; 
+}
+.buttonStyle {
+    pointer-events: auto; 
+    position: relative; 
+    width: 280px; 
+    height: 26px; 
+    font-size: 18px; 
+    background: #72fd4f; 
+    font-family: Play;
+    border-radius: 10px;
+    /* filter: drop-shadow(0px 0px 1px #000000c5); */
+}
+.buttonStyle:hover {
+    background: #14d61a; 
 }
 .border {
     border: 1px solid #ff0000;
@@ -259,11 +338,33 @@ canvas {  /* or some other selector */
 }
 .g4mp_pp {
     width: 42px;
-    padding-right; 
 }
 .g4mp_spacer {
     width: 50px;
-    padding-right; 
+}
+
+.gametimeClock {
+    font-size: 68px;
+    display: block;
+    position: absolute;
+    text-align: right;
+    right: 1550px;
+    top: 46px;
+    line-height: 60px;
+    font-family: oseb;
+    font-weight: 700;
+    /* filter: drop-shadow(1px 1px 1px #000000) */
+}
+.gametimeFrames {
+    font-size: 35px;
+    top: 60px;
+    right: 1500px;
+    position: absolute;
+    text-align: right;
+    line-height: 60px;
+    font-family: oseb;
+    font-weight: 700;
+    /* filter: drop-shadow(1px 1px 1px #000000) */
 }
 
 .movepool_header {
@@ -272,55 +373,48 @@ canvas {  /* or some other selector */
 .movepoolBorder {
     z-index: 1;
 }
-/* .g4movepool th:nth-child(1) {
-    border: 1px solid #ff0000;
-    width: 70px;
+.pokemon_art {
+    display: block;
+    border: 4px solid #ff000000;
+    padding: 8px;
+    position: absolute;
+    font-family: play;
+    font-size: 24px;
+    line-height: 26px;
+    top: 360px;
+    left: -10px;
+    width: 420px;
+    height: 420px;
 }
-.g4movepool th:nth-child(2) {
-    border: 1px solid #ff0000;
-    width: 200px;
+.colored-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    opacity: 0.9;
+    background-image: var(--url);
+    background-size: 1920px 1080px;
+    /* filter: drop-shadow(1px 1px 1px #000000c5); */
+    /* background-image: url(images/enemy_area/Electric.png); */
+    pointer-events: none; /* optional: this makes the image not clickable, so you can click the elements behind it */
+    isolation: isolate; /* optional: this restricts the color blending only to this layer, just to be safe */
 }
-.g4movepool th:nth-child(3) {
-    border: 1px solid #ff0000;
-    width: 71px;
+.colored-image::after { /* ::after generates a pseudo element inside the div */
+    content: ''; /* content of the pseudo element, needs to be provided */
+    position: absolute;
+    inset: 0; /* sets top/left/bottom/right to 0 */
+    background-color: var(--overlay-color);
+    filter: saturate(.6);
+    background-size: 1920px 1080px;
+    -webkit-mask-size: 1920px 1080px;
+    -webkit-mask-image: var(--url); /* fallback, just to be safe */
+    mask-image: var(--url); /* use the alpha channel of provided image as a mask of this layer */
+    mix-blend-mode: color; /* color blend mode, I'm not sure if 'color' is the right one - might need to be changed */
 }
-.g4movepool th:nth-child(4) {
-    border: 1px solid #ff0000;
-    width: 71px;
+.ds {
+    filter: drop-shadow(0px 0px 1px #000000c5);
 }
-.g4movepool th:nth-child(5) {
-    border: 1px solid #ff0000;
-    width: 40px;
-}
-.g4movepool th:nth-child(6) {
-    border: 1px solid #ff0000;
-    width: 40px;
-}
-.g4movepool th:nth-child(7) {
-    border: 1px solid #ff0000;
-    width: 50px;
-}
-.g4movepool th:nth-child(8) {
-    border: 1px solid #ff0000;
-
-    width: 124px;
-}
-.g4movepool th:nth-child(9) {
-    border: 1px solid #ff0000;
-    width: 71px;
-}
-.g4movepool th:nth-child(10) {
-    border: 1px solid #ff0000;
-    width: 71px;
-}
-.g4movepool th:nth-child(11) {
-    border: 1px solid #ff0000;
-    width: 40px;
-}
-.g4movepool th:nth-child(12) {
-    border: 1px solid #ff0000;
-    width: 40px;
-} */
 .movepoolTable {
     font-size: 17px;
 }
@@ -800,20 +894,21 @@ canvas {  /* or some other selector */
 
 .resets {
     display: block;
-    font-family: Titan;
     max-width: 250;
     position: fixed;
     max-height: 250;
-    font-size: 78px;
+    font-size: 68px;
     z-index: 5;
     /* top: 195px;
     left: 295px; old coordinates*/
-    top: 379px;
-    left: 31px;
+    top: 158px;
+    left: 13px;
     line-height: 60px;
     text-align: center;
     font-family: oseb;
     font-weight: 700;
+    width: 102px;
+    /* border: 1px solid #000; */
 }
 
 .ePkmnMoveStyle {
@@ -1349,29 +1444,6 @@ img, span, div {
     text-align: right;
     position: relative;
 }
-
-
-.gametimeClock {
-    font-size: 65px;
-    display:block;
-    position: absolute;
-    top: 64px;
-    left: 77px;
-    line-height: 60px;
-    font-family: oseb;
-    font-weight: 700;
-}
-
-.gametimeFrames {
-    font-size: 35px;
-    position: absolute;
-    top: 78px;
-    left: 304px;
-    line-height: 60px;
-    font-family: oseb;
-    font-weight: 700;
-}
-
 
 /* UI ELEMENTS */
 .timerUI {

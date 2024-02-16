@@ -7,6 +7,25 @@
 // 1) Fix an issue where the solo Pokemon stats are glitched following a successful battle
 // 2) Fix an issue where the enemy Pokemon stats are glitched when the screen transitions back to the overworld
 //TODO Setup
+const MyStorage = new Proxy({}, {
+    set: (_, prop, value) => {
+        if (value === undefined || value === null)
+            localStorage.removeItem(prop);
+        else
+            localStorage.setItem(prop, JSON.stringify(value));
+    },
+    get: (_, prop) => {
+        if (prop === "clear")
+            return () => localStorage.clear();
+        if (prop === "entries")
+            return () => Object.entries(localStorage);
+        if (prop === "keys")
+            return () => Object.keys(localStorage);
+        if (prop === "has")
+            return (key) => localStorage.getItem(key) == null;
+        return JSON.parse(localStorage.getItem(prop));
+    }
+});
 
 const app = Vue.createApp({
     data() {
@@ -22,6 +41,9 @@ const app = Vue.createApp({
             hidden_power_type: "Dark",
             overlayNew: "Chimchar",
             overlayOld: "Chimchar",
+
+            testStatus:     MyStorage['testStatus']     ?? false,
+
 
             customMovepool: {
                 "Torterra": "line-height: 16px;",
@@ -50,6 +72,7 @@ const app = Vue.createApp({
             hiddenPowerTypes: hiddenPowerTypes,
             natures: natures,
             generation4_moves_new: generation4_moves_new,
+            textures: textures,
 
             //LOOPS
             badges: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -76,6 +99,258 @@ const app = Vue.createApp({
             enemyState: "Pokemon",
             field_array: ["Reflect", 0],
             last_initiated_field_effect: "Reflect",
+
+            //Pokemon settings for local storage
+            overlay_color: MyStorage["overlay_color"] ?? "#000000",
+            imageXOffset:  MyStorage["imageXOffset"] ?? 0,
+            imageYOffset:  MyStorage["imageYOffset"] ?? 0,
+            imageScale:    MyStorage["imageScale"] ?? 1,
+            imageFlip:     MyStorage["imageFlip"] ?? false,
+            imageSat:      MyStorage["imageSat"] ?? 100,
+            imageRotation: MyStorage["imageRotation"] ?? 0,
+
+            //background texture settings
+            backgroundBlur:        MyStorage["backgroundBlur"] ?? 0,
+            backgroundScale:       MyStorage["backgroundScale"] ?? 100,
+            backgroundUrl:         MyStorage["backgroundUrl"] ?? "",
+            backgroundFlip:        MyStorage["backgroundFlip"] ?? false,
+            use_custom_background: MyStorage["use_custom_background"] ?? false,
+            backgroundXOffset:     MyStorage["backgroundXOffset"] ?? 0,
+            backgroundYOffset:     MyStorage["backgroundYOffset"] ?? 0,
+            backgroundTexture:     MyStorage["backgroundTexture"] ?? 'Bug 1',
+            backgroundBrightness:  MyStorage["backgroundBrightness"] ?? 100,
+            backgroundContrast:    MyStorage["backgroundContrast"] ?? 100,
+            backgroundSaturation:  MyStorage["backgroundSaturation"] ?? 100,
+
+            //backed up pokemon specific settings
+            pokemon_settings: [
+                "overlay_color",
+                "imageXOffset",
+                "imageYOffset",
+                "imageScale",
+                "imageFlip",
+                "imageSat",
+                "imageRotation",
+                "backgroundBlur",
+                "backgroundScale",
+                "backgroundUrl",
+                "use_custom_background",
+                "attempt_number",
+                "pb_time",
+                "backgroundXOffset",
+                "backgroundYOffset",
+                "backgroundTexture",
+                "backgroundBrightness",
+                "backgroundContrast",
+                "backgroundSaturation",
+                "backgroundFlip",
+                "pkmnNature",
+                "pkmn_ability",
+                "hidden_power_type",
+                "pkmn_gender",
+                "finished_run_count",
+            ],
+            //timer variables
+            timer_startTime:      MyStorage["timer_startTime"]      ?? 0,
+            timer_pause:          MyStorage["timer_pause"]          ?? true,
+            timer_formatted_time: MyStorage["timer_formatted_time"] ?? ["0", ".00"],
+            timer_pause_time:     MyStorage["timer_pause_time"]     ?? 0,
+            time_h:               MyStorage['time_h']               ?? 0,
+            time_m:               MyStorage['time_m']               ?? 0,
+            time_s:               MyStorage['time_s']               ?? 0,
+            time_ms:              MyStorage['time_ms']              ?? 0,
+            time_split_start:     MyStorage['time_split_start']     ?? "00:00:00:00",
+            battle_start:         MyStorage['battle_start']         ?? 0,
+
+            //resets
+            playerId: MyStorage["playerId"] ?? 0,
+            playerName: "",
+            resetCatcher: "NINTEN",
+            playerResets: MyStorage["playerResets"] ?? 0,
+            blackout_counter: MyStorage["blackout_counter"] ?? 0,
+            resetCounter: true,
+            game_over: false,
+            hallOfFameReset: false,
+            finished_logs: false,
+            pb_time: "None",
+            split_logStr: "",
+            attempt_number:     0,
+            finished_run_count: 0,
+            split_data: MyStorage["split_data"] ?? [],
+            simple_data_str:     MyStorage["simple_data_str"]     ?? "",
+            full_data_str:       MyStorage["full_data_str"]       ?? "",
+            deprecated_data_str: MyStorage["deprecated_data_str"] ?? "",
+            simple_data:         MyStorage["simple_data"]         ?? "",
+            testRun:             MyStorage['testRun']             ?? false,
+
+            auto_save: [
+                "graphicOverlay",
+                "frame",
+                "gameArea",
+                "pokeballFloor",
+                "dynamicOverlay",
+                "gametime",
+                "pick",
+                "typeCalcs",
+                "moveset",
+                "dynamicPower",
+                "resets",
+                "stats",
+                "movepool",
+                "inventory",
+                "battleStats",
+                "battleInfo",
+                "conditions",
+                "expBar",
+                "splits",
+                "tooltips",
+                "btcInfo",
+                "returnPower",
+                "gamestate",
+                "labels",
+                "tutor_moves",
+                "showSpecialTrainerGraphics",
+                "route_101",
+                "route_102",
+                "route_103",
+                "testRun",
+                "simple_data_str",
+                "full_data_str",
+                "deprecated_data_str",
+                "simple_data",
+                "timer_startTime",
+                "timer_pause",
+                "timer_formatted_time",
+                "timer_pause_time",
+                "time_h",
+                "time_m",
+                "time_s",
+                "time_ms",
+                "time_split_start",
+                "battle_start",
+                "testStatus",
+                "autosplitter_toggle",
+                "gameSelection"
+            ],
+        }
+    },
+    created() {
+        if (MyStorage[this.starter]) {
+            this.overlay_color = MyStorage[this.starter].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset = MyStorage[this.starter].imageXOffset ?? 0;
+            this.imageYOffset = MyStorage[this.starter].imageYOffset ?? 0;
+            this.imageScale = MyStorage[this.starter].imageScale ?? 1;
+            this.imageFlip = MyStorage[this.starter].imageFlip ?? false;
+            this.imageSat = MyStorage[this.starter].imageSat ?? 100
+            this.imageRotation = MyStorage[this.starter].imageRotation ?? 0
+            this.backgroundBlur = MyStorage[this.starter].backgroundBlur ?? 0
+            this.backgroundScale = MyStorage[this.starter].backgroundScale ?? 100
+            this.backgroundUrl = MyStorage[this.starter].backgroundUrl ?? ""
+            this.use_custom_background = MyStorage[this.starter].use_custom_background ?? false
+            this.backgroundXOffset = MyStorage[this.starter].backgroundXOffset ?? 0
+            this.backgroundYOffset = MyStorage[this.starter].backgroundYOffset ?? 0
+            this.backgroundTexture = MyStorage[this.starter].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.pkmn_ability = MyStorage[this.starter]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
+            this.attempt_number = MyStorage[this.starter]?.attempt_number ?? 0
+            this.finished_run_count = MyStorage[this.starter]?.finished_run_count ?? 0
+        }
+
+        for (let i = 0; i < this.pokemon_settings.length; i++) {
+            let propName = this.pokemon_settings[i];
+            this.$watch(
+                () => this[propName],
+                (newValue) => {
+                    // Ensure that MyStorage[this.starter] is an object
+                    if (!MyStorage[this.starter]) {
+                        MyStorage[this.starter] = {};
+                    }
+
+                    // Set the new value
+                    MyStorage[this.starter] = {
+                            ...MyStorage[this.starter],
+                            [propName]: newValue
+                        };
+                }
+            );
+        }
+        for (let i = 0; i < this.auto_save.length; i++) {
+            let propName = this.auto_save[i];
+            this.$watch(
+                () => this[propName], // Using a function to return the property's value
+                (newValue) => {
+                    MyStorage[`${propName}`] = newValue;
+                }
+            );
+        }
+    },
+    watch: {
+        starterString(newValue, oldValue) {
+            //background texture settings
+            this.overlay_color =         MyStorage[`${newValue}`]?.overlay_color ?? this.default_colors[dexDataRubySapphireEmerald[newValue].type_1]
+            this.backgroundTexture =     MyStorage[`${newValue}`]?.backgroundTexture ?? `${this.dexData[newValue].type_1}`
+            this.backgroundBlur =        MyStorage[`${newValue}`]?.backgroundBlur ?? 0,
+            this.backgroundScale =       MyStorage[`${newValue}`]?.backgroundScale ?? 100,
+            this.backgroundUrl =         MyStorage[`${newValue}`]?.backgroundUrl ?? "",
+            this.backgroundFlip =        MyStorage[`${newValue}`]?.backgroundFlip ?? false,
+            this.use_custom_background = MyStorage[`${newValue}`]?.use_custom_background ?? false,
+            this.backgroundXOffset =     MyStorage[`${newValue}`]?.backgroundXOffset ?? 0,
+            this.backgroundYOffset =     MyStorage[`${newValue}`]?.backgroundYOffset ?? 0,
+            this.backgroundBrightness =  MyStorage[`${newValue}`]?.backgroundBrightness ?? 100,
+            this.backgroundContrast =    MyStorage[`${newValue}`]?.backgroundContrast ?? 100,
+            this.backgroundSaturation =  MyStorage[`${newValue}`]?.backgroundSaturation ?? 100,
+            //Attempts and finishes
+            this.attempt_number =        MyStorage[`${newValue}`]?.attempt_number ?? 0,
+            this.finished_run_count =    MyStorage[`${newValue}`]?.finished_run_count ?? 0,
+            //main pokemon settings
+            MyStorage['starterString'] = newValue
+            this.pkmnNature =            MyStorage[`${newValue}`]?.pkmnNature ?? "Hardy",
+            this.pkmn_ability =          MyStorage[`${newValue}`]?.pkmn_ability ?? dexDataRubySapphireEmerald[newValue].abilities[0],
+            this.hidden_power_type =     MyStorage[`${newValue}`]?.hidden_power_type ?? "Dark",
+            this.pkmn_gender =           MyStorage[`${newValue}`]?.pkmn_gender ?? "Female"
+            this.movepoolResize();
+        },
+        playerId(newValue) {
+            MyStorage["playerId"] = newValue
+            this.game_over = false;
+            MyStorage["playerResets"] = 0
+            this.playerResets = 0;
+            this.finished_logs == false;
+            MyStorage["blackout_counter"] = 0
+            this.blackout_counter = 0;
+        },    
+        overlay_color(newColor) {
+            document.documentElement.style.setProperty('--overlay-color', newColor);
+        }, 
+        playerResets(newProp) {
+            if (newProp.toString().length == 1) {
+                document.getElementById("reset_counter").style.fontSize = "68px"
+            }
+            if (newProp.toString().length == 3) {
+                document.getElementById("reset_counter").style.fontSize = "54px"
+            }
+            if (newProp.toString().length == 4) {
+                document.getElementById("reset_counter").style.fontSize = "40px"
+            }
+            
+            if (this.playerResets < 0) {
+                this.playerResets = 0;
+            }
+            // this.blackout == false
+            MyStorage["playerResets"] = this.playerResets
+        },
+        blackout_counter(newProp) {
+            if (this.blackout_counter < 0) {
+                this.blackout_counter = 0;
+            }
+            MyStorage["blackout_counter"] = this.blackout_counter
+        },
+        playerNameChoice() {
+            this.overlay_color = `lch(75% 100 ${hash(this.playerNameChoice) % 360})`
+            MyStorage["playerNameChoice"] = this.playerNameChoice
+            MyStorage["overlay_color"] = this.overlay_color
+        },
+        playerName(newName) {
+            MyStorage['playerName'] = newName;
         }
     },
     computed: {
@@ -178,7 +453,7 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.dexDataRubySapphireEmerald[this.starterString]
+                // var data = this.dexDataRubySapphireEmerald[this.starter]
                 // return {
                 //     species: { value: data["name"] },
                 //     ...data
@@ -194,7 +469,7 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.dexDataRubySapphireEmerald[this.starterString]
+                // var data = this.dexDataRubySapphireEmerald[this.starter]
                 // return {
                 //     species: { value: data["name"] },
                 //     ...data
@@ -263,9 +538,9 @@ const app = Vue.createApp({
             return
             // if (this.mapper.properties.meta.state.value == `Battle`) { return this.mapper.properties.battle.yourPokemon.type2.value }
             // if (this.mapper.properties.meta.state.value == `Overworld`) { return this.dexDataRubySapphireEmerald[this.mapper.properties.player.team[0].species.value].type_2 }
-            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.dexDataRubySapphireEmerald[this.starterString].type_2}
+            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.dexDataRubySapphireEmerald[this.starter].type_2}
             // else { return }
-            // else { return this.dexDataRubySapphireEmerald[this.starterString].type_2}
+            // else { return this.dexDataRubySapphireEmerald[this.starter].type_2}
         },
         //BATTLE FADE
         battle_fade() {
@@ -337,12 +612,12 @@ const app = Vue.createApp({
             }
         },
         pkmnGrowthRate() {
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_SLOW`) { return "Slow" }
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_FAST`) { return "Fast" }
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
-            if (this.dexDataRubySapphireEmerald[this.starterString].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_SLOW`) { return "Slow" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FAST`) { return "Fast" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
+            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
         },
         field_effect_array() {
             var effect_array = [
@@ -398,9 +673,155 @@ const app = Vue.createApp({
                 percentage: this.decimalToPercentage(sum/510)
             }
         },
+        dropdownDownMenuKeys() {
+            return {
+                textures: Object.keys(this.textures)
+            }
+        },
     },
 
     methods: { 
+        load_all_settings() {
+            this.starter = MyStorage["starter"] ?? "Rayquaza"
+
+            this.graphicOverlay =             MyStorage['graphicOverlay']             ?? true
+            this.frame =                      MyStorage['frame']                      ?? false
+            this.gameArea =                   MyStorage['gameArea']                   ?? false
+            this.pokeballFloor =              MyStorage['pokeballFloor']              ?? false
+            this.dynamicOverlay =             MyStorage['dynamicOverlay']             ?? false
+            this.gametime =                   MyStorage['gametime']                   ?? false
+            this.pick =                       MyStorage['pick']                       ?? true
+            this.typeCalcs =                  MyStorage['typeCalcs']                  ?? true
+            this.moveset =                    MyStorage['moveset']                    ?? true
+            this.dynamicPower =               MyStorage['dynamicPower']               ?? false
+            this.resets =                     MyStorage['resets']                     ?? false
+            this.stats =                      MyStorage['stats']                      ?? true
+            this.movepool =                   MyStorage['movepool']                   ?? false
+            this.inventory =                  MyStorage['inventory']                  ?? false
+            this.battleStats =                MyStorage['battleStats']                ?? false
+            this.battleInfo =                 MyStorage['battleInfo']                 ?? false
+            this.conditions =                 MyStorage['conditions']                 ?? false
+            this.expBar =                     MyStorage['expBar']                     ?? false
+            this.splits =                     MyStorage['splits']                     ?? false
+            this.tooltips =                   MyStorage['tooltips']                   ?? false
+            this.btcInfo =                    MyStorage['btcInfo']                    ?? false
+            this.returnPower =                MyStorage['returnPower']                ?? true
+            this.gamestate =                  MyStorage['gamestate']                  ?? true
+            this.labels =                     MyStorage['labels']                     ?? true
+            this.tutor_moves =                MyStorage['tutor_moves']                ?? false
+            this.showSpecialTrainerGraphics = MyStorage['showSpecialTrainerGraphics'] ?? true
+            this.route_101 =                  MyStorage['route_101']                  ?? true
+            this.route_102 =                  MyStorage['route_102']                  ?? true
+            this.route_103 =                  MyStorage['route_103']                  ?? true
+            this.hm_102_zigzagoon =           MyStorage['hm_102_zigzagoon']           ?? true
+            this.hm_104_marill =              MyStorage['hm_104_marill']              ?? true
+            this.hm_104_taillow =             MyStorage['hm_104_taillow']             ?? true
+            this.testRun =                    MyStorage['testRun']                    ?? false
+            this.simple_data_str =            MyStorage['simple_data_str']            ?? ""
+            this.full_data_str =              MyStorage['full_data_str']              ?? ""
+            this.deprecated_data_str =        MyStorage['deprecated_data_str']        ?? ""
+            this.simple_data =                MyStorage['simple_data']                ?? ""
+            this.timer_startTime =            MyStorage['timer_startTime']            ?? 0
+            this.timer_pause =                MyStorage['timer_pause']                ?? true
+            this.timer_formatted_time =       MyStorage['timer_formatted_time']       ?? ["0", ".00"]
+            this.timer_pause_time =           MyStorage['timer_pause_time']           ?? 0
+            this.time_h =                     MyStorage['time_h']                     ?? 0
+            this.time_m =                     MyStorage['time_m']                     ?? 0
+            this.time_s =                     MyStorage['time_s']                     ?? 0
+            this.time_ms =                    MyStorage['time_ms']                    ?? 0
+            this.time_split_start =           MyStorage['time_split_start']           ?? "00:00:00:00"
+            this.battle_start =               MyStorage['battle_start']               ?? 0
+
+            //Pokemon settings for local storage
+            this.overlay_color = MyStorage[this.starter]?.overlay_color ?? this.default_colors[`${dexDataRubySapphireEmerald[this.starter].type_1}`]
+            this.imageXOffset =  MyStorage[this.starter]?.imageXOffset ?? 0
+            this.imageYOffset =  MyStorage[this.starter]?.imageYOffset ?? 0
+            this.imageScale =    MyStorage[this.starter]?.imageScale ?? 1
+            this.imageFlip =     MyStorage[this.starter]?.imageFlip ?? false
+            this.imageSat =      MyStorage[this.starter]?.imageSat ?? 100
+            this.imageRotation = MyStorage[this.starter]?.imageRotation ?? 0
+
+            //background texture settings
+            this.backgroundBlur =        MyStorage[this.starter]?.backgroundBlur ?? 0
+            this.backgroundScale =       MyStorage[this.starter]?.backgroundScale ?? 100
+            this.backgroundUrl =         MyStorage[this.starter]?.backgroundUrl ?? ""
+            this.backgroundFlip =        MyStorage[this.starter]?.backgroundFlip ?? false
+            this.use_custom_background = MyStorage[this.starter]?.use_custom_background ?? false
+            this.backgroundXOffset =     MyStorage[this.starter]?.backgroundXOffset ?? 0
+            this.backgroundYOffset =     MyStorage[this.starter]?.backgroundYOffset ?? 0
+            this.backgroundTexture =     MyStorage[this.starter]?.backgroundTexture ?? `${this.dexData[this.starter].type_1}`
+            this.backgroundBrightness =  MyStorage[this.starter]?.backgroundBrightness ?? 100
+            this.backgroundContrast =    MyStorage[this.starter]?.backgroundContrast ?? 100
+            this.backgroundSaturation =  MyStorage[this.starter]?.backgroundSaturation ?? 100
+        },
+        reset() {
+            this.backgroundBlur =        0,
+            this.backgroundScale =       100,
+            this.backgroundUrl =         "",
+            this.use_custom_background = false,
+            this.backgroundXOffset =     0,
+            this.backgroundYOffset =     0,
+            this.backgroundTexture =     this.dexData[this.starter]?.type_1?.toLowerCase(),
+            this.backgroundBrightness =  100,
+            this.backgroundContrast =    100,
+            this.backgroundSaturation =  100
+        },
+        resetPokemon() {
+            this.imageXOffset =  0
+            this.imageYOffset =  0
+            this.imageScale =    1
+            this.imageFlip =     false
+            this.imageSat =      100
+            this.imageRotation = 0
+        },
+        increment(property) {
+            this[property]++;
+        },
+        decrement(property) {
+            if (this[property] == 0) {
+                return 0
+            }
+            this[property]--;
+        },
+        async colorPick() {
+            return new EyeDropper().open().then(res => res.sRGBHex)
+        },
+        async color_picker() {
+            var color = await this.colorPick()
+            this.set_pokemon_prop("overlay_color", color)
+            this.overlay_color = color
+            // console.log(MyStorage.entries())
+        },
+        clear_overlay_color() {
+            starterType = this.dexData[this.starter].type_1;
+            newColor = getComputedStyle(document.documentElement).getPropertyValue("--"+starterType.toLowerCase());
+            this.set_pokemon_prop("overlay_color", newColor)
+            this.overlay_color = newColor;
+            // this.load_pokemon_sprite_settings()
+        },
+        set_pokemon_prop(property_name, value) {
+            MyStorage[this.starter] = {
+                ...MyStorage[this.starter],
+                [property_name]: value,
+            }
+        },
+        newRun() {
+            this.timer_pause = true
+            this.timer_startTime = 0
+            this.timer_pause_time = 0
+            this.timer_formatted_time = [ "0", ".00" ]
+            this.playerResets = 0
+            this.finished_logs = false
+            this.blackout_counter = 0
+            this.playerId = 0
+            // this.playerName = "NINTEN"
+        },
+        keys_function(object) {
+            return Object.keys(object)
+        },
+        values_function(object) {
+            return Object.values(object)
+        },
         eHPType(valueToReturn, moveValue, slotIndex) {
             if (moveValue == "Hidden Power") {
                 return this.hiddenPowerTypeCalc(this.mapper.properties.battle.opponent.team[slotIndex])
@@ -426,6 +847,66 @@ const app = Vue.createApp({
             }
             else {
                 return
+            }
+        },
+                //*timer methods
+        //start the timer
+        startTime() {
+            if (this.timer_pause == false) {
+                return
+            }
+            this.timer_startTime = Date.now()
+            this.timer_pause = false
+            this.updateTime()
+        },
+        //stop the timer
+        stopTime() {
+            this.timer_pause_time = Date.now()
+            this.timer_pause = true
+        },
+        padTime(time) {
+            return time.toString().padStart(2, "0")
+        },
+        //animate the timer
+        updateTime() {
+            var time = Date.now() - this.timer_startTime
+            if (this.timer_pause == true) {
+                time = this.timer_pause_time - this.timer_startTime
+            }
+            var f = (x) => x.toString().padStart(2, "0")
+            var c = (Math.floor(time / 10) % 100)
+            var s = (Math.floor(time / 1000) % 60)
+            var m = (Math.floor(time / 60000) % 60)
+            var h = (Math.floor(time / 3600000))
+            this.time_h = h
+            this.time_m = m
+            this.time_s = s
+            this.time_ms = c
+            if (h != 0) {
+                this.timer_formatted_time = [ h + ":" + f(m) + ":" + f(s), "." + f(c), h + "h" + m + "m" + s + "s", ]
+            }
+            else if (m != 0) {
+                this.timer_formatted_time = [ m + ":" + f(s), "." + f(c), h + "h" + m + "m" + s + "s", ]
+            }
+            else {
+                this.timer_formatted_time = [ s, "." + f(c), h + "h" + m + "m" + s + "s", ]
+            }
+            if (this.timer_pause == false) {
+                requestAnimationFrame(this.updateTime)
+            }
+        },
+        //pause the timer
+        pauseUnpauseTime() {
+            if (this.timer_pause == true) {
+                this.timer_pause = false
+                this.timer_startTime += Date.now() - this.timer_pause_time
+                this.updateTime()
+                retro.resume()
+            }
+            else {
+                this.timer_pause = true
+                this.timer_pause_time = Date.now()
+                retro.pause()
             }
         },
         //fixes species that contain special characters in their names
@@ -1037,12 +1518,12 @@ const app = Vue.createApp({
         },
         getStarterType1() {
             if (this.pick == true)
-                var type = this.dexDataRubySapphireEmerald[this.starterString].type_1
+                var type = this.dexDataRubySapphireEmerald[this.starter].type_1
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
         getStarterType2() {
             if (this.pick == true)
-                var type = this.dexDataRubySapphireEmerald[this.starterString].type_2
+                var type = this.dexDataRubySapphireEmerald[this.starter].type_2
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
 
@@ -1159,7 +1640,7 @@ const app = Vue.createApp({
         
         //EXPERIENCE FUNCTIONS
         growthRate() {
-            var growthRate = this.dexDataRubySapphireEmerald[this.starterString].growth_rate
+            var growthRate = this.dexDataRubySapphireEmerald[this.starter].growth_rate
             if (growthRate == "GROWTH_MEDIUM_SLOW") {
                 return "Medium Slow"
             }
@@ -1179,7 +1660,7 @@ const app = Vue.createApp({
                 return "Erratic"
             }
             else {
-                return this.dexDataRubySapphireEmerald[starterString].growth_rate
+                return this.dexDataRubySapphireEmerald[starter].growth_rate
             }
         },
         calcExpStats(growthRate, exp) {
@@ -1661,6 +2142,12 @@ const app = Vue.createApp({
         var expStats = this.calcExpStats(growthRate, this.mapper.properties.player.team[0].exp.value);
         this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
         this.prevSpecies = species
+
+        this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
+            if (newProp.value == true) {
+                this.startTime()
+            }
+        })
 
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
