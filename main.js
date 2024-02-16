@@ -11,8 +11,10 @@ function createWindow() {
     show: false,
     autoHideMenuBar: true,
     webPreferences: {
-      sandbox: false
-    }
+      sandbox: false,
+      contextIsolation: false,
+      nodeIntegration: true
+    },
   })
 
   mainWindow.on('ready-to-show', () => {
