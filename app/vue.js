@@ -617,6 +617,7 @@ const app = Vue.createApp({
                 "finished_run_count",
             ],
             //timer variables
+            timer_startTimeOffset: "",
             timer_startTime:      MyStorage["timer_startTime"]      ?? 0,
             timer_pause:          MyStorage["timer_pause"]          ?? true,
             timer_formatted_time: MyStorage["timer_formatted_time"] ?? ["0", ".00"],
@@ -1332,7 +1333,11 @@ const app = Vue.createApp({
             if (this.timer_pause == false) {
                 return
             }
-            this.timer_startTime = Date.now()
+            const timeRegex = /(\d+):(\d{2}):(\d{2}).(\d{3})/;
+            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
+            const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3];
+
+            this.timer_startTime = Date.now() - timeOffset
             this.timer_pause = false
             this.updateTime()
         },

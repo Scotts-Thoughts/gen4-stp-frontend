@@ -65,7 +65,8 @@
                     </select>
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
-                    <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button>
+                    <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button><br>
+                    Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.000"/><br>
                     <br>
                     <table>
                         <tr>
