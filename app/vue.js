@@ -492,27 +492,27 @@ function transition(fn, ms) {
 const app = Vue.createApp({
     data() {
         return {
-            ready: false,
-            mapper: null,
-            state: "No Pokemon",
-            game_variables: null,
+            ready:               false,
+            mapper:              null,
+            state:               "No Pokemon",
+            game_variables:      null,
             autosplitter_toggle: true,
 
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
-            starter: "Heatran",
-            growth_rate: "Slow",
+            starter:           "Heatran",
+            growth_rate:       "Slow",
             hidden_power_type: "Dark",
-            overlayNew: "Chimchar",
-            overlayOld: "Chimchar",
-            scott_mode: true,
-            testStatus: MyStorage['testStatus'] ?? false,
+            overlayNew:        "Chimchar",
+            overlayOld:        "Chimchar",
+            scott_mode:        true,
+            testStatus:        MyStorage['testStatus'] ?? false,
 
             customMovepool: {
-                "Torterra": "line-height: 16px;",
+                "Torterra":  "line-height: 16px;",
                 "Infernape": "line-height: 15px;",
-                "Empoleon": "line-height: 15px;",
+                "Empoleon":  "line-height: 15px;",
                 "Cresselia": "line-height: 18px;",
-                "Heatran": "line-height: 18px;",
+                "Heatran":   "line-height: 18px;",
             },
 
             // USER CONFIG (components) ------------------------------------------------------------------------// 
@@ -522,71 +522,71 @@ const app = Vue.createApp({
             statLabelOpacityValue: 0.1, //used when a stage modifier is applied
 
             //DATA ---------------------------------------------------------------------------------------------//
-            g4MoveData: g4MoveData,
-            g4tmhmMapping: g4tmhmMapping,
-            g4PokemonData: g4PokemonData,
-            stageModifiersData: stageModifiersData,
+            g4MoveData:             g4MoveData,
+            g4tmhmMapping:          g4tmhmMapping,
+            g4PokemonData:          g4PokemonData,
+            stageModifiersData:     stageModifiersData,
             typeEffectivenessArray: typeEffectivenessArray,
-            typeData: typeData,
-            typeBoostingItems: typeBoostingItems,
-            platinumTrainers: platinumTrainers,
-            platinum_moves: platinum_moves,
-            hiddenPowerTypes: hiddenPowerTypes,
-            natures: natures,
-            generation4_moves_new: generation4_moves_new,
-            textures: textures,
-            default_colors: default_colors,
-            game_variables: game_variables,
-            autosplitter: autosplitter,
+            typeData:               typeData,
+            typeBoostingItems:      typeBoostingItems,
+            platinumTrainers:       platinumTrainers,
+            platinum_moves:         platinum_moves,
+            hiddenPowerTypes:       hiddenPowerTypes,
+            natures:                natures,
+            generation4_moves_new:  generation4_moves_new,
+            textures:               textures,
+            default_colors:         default_colors,
+            game_variables:         game_variables,
+            autosplitter:           autosplitter,
 
             //LOOPS
-            badges: [0, 1, 2, 3, 4, 5, 6, 7],
-            badgeBoosts: ["badge1", "badge3", "badge5", "badge7"],
-            moves: ["move1","move2","move3","move4",],
-            pkmnSlots: [0, 1, 2, 3, 4, 5],
+            badges:          [0, 1, 2, 3, 4, 5, 6, 7],
+            badgeBoosts:     ["badge1", "badge3", "badge5", "badge7"],
+            moves:           ["move1","move2","move3","move4",],
+            pkmnSlots:       [0, 1, 2, 3, 4, 5],
             modifier_values: ["attack","defense","special_attack","special_defense","speed"],
 
             //VARIABLES THAT TRACK IN GAME PROGRESS ------------------------------------------------------------//
-            playerId: -1,
-            resets:   0,
+            playerId:       -1,
+            resets:         0,
             trainerBattles: 0,
             wildEncounters: 0,
 
             //STATE MANAGEMENT ---------------------------------------------------------------------------------//
             gameStarted:  true, //tracks if the player has a save game or not
-            playerID: 999,
+            playerID:     999,
             expBarState: {
-                species: "",
+                species:   "",
                 expPoints: 0,
             },
             expBarAnimation: true,
-            slotTimingFix: false,
-            enemyModColour: [0, "background: #d84444;"],
-            enemyState: "Pokemon",
-            field_array: ["Reflect", 0],
+            slotTimingFix:   false,
+            enemyModColour:  [0, "background: #d84444;"],
+            enemyState:      "Pokemon",
+            field_array:     ["Reflect", 0],
             last_initiated_field_effect: "Reflect",
 
             //Pokemon settings for local storage
             overlay_color: MyStorage["overlay_color"] ?? "#000000",
-            imageXOffset:  MyStorage["imageXOffset"] ?? 0,
-            imageYOffset:  MyStorage["imageYOffset"] ?? 0,
-            imageScale:    MyStorage["imageScale"] ?? 1,
-            imageFlip:     MyStorage["imageFlip"] ?? false,
-            imageSat:      MyStorage["imageSat"] ?? 100,
+            imageXOffset:  MyStorage["imageXOffset"]  ?? 0,
+            imageYOffset:  MyStorage["imageYOffset"]  ?? 0,
+            imageScale:    MyStorage["imageScale"]    ?? 1,
+            imageFlip:     MyStorage["imageFlip"]     ?? false,
+            imageSat:      MyStorage["imageSat"]      ?? 100,
             imageRotation: MyStorage["imageRotation"] ?? 0,
 
             //background texture settings
-            backgroundBlur:        MyStorage["backgroundBlur"] ?? 0,
-            backgroundScale:       MyStorage["backgroundScale"] ?? 100,
-            backgroundUrl:         MyStorage["backgroundUrl"] ?? "",
-            backgroundFlip:        MyStorage["backgroundFlip"] ?? false,
+            backgroundBlur:        MyStorage["backgroundBlur"]        ?? 0,
+            backgroundScale:       MyStorage["backgroundScale"]       ?? 100,
+            backgroundUrl:         MyStorage["backgroundUrl"]         ?? "",
+            backgroundFlip:        MyStorage["backgroundFlip"]        ?? false,
             use_custom_background: MyStorage["use_custom_background"] ?? false,
-            backgroundXOffset:     MyStorage["backgroundXOffset"] ?? 0,
-            backgroundYOffset:     MyStorage["backgroundYOffset"] ?? 0,
-            backgroundTexture:     MyStorage["backgroundTexture"] ?? 'Bug 1',
-            backgroundBrightness:  MyStorage["backgroundBrightness"] ?? 100,
-            backgroundContrast:    MyStorage["backgroundContrast"] ?? 100,
-            backgroundSaturation:  MyStorage["backgroundSaturation"] ?? 100,
+            backgroundXOffset:     MyStorage["backgroundXOffset"]     ?? 0,
+            backgroundYOffset:     MyStorage["backgroundYOffset"]     ?? 0,
+            backgroundTexture:     MyStorage["backgroundTexture"]     ?? 'Bug 1',
+            backgroundBrightness:  MyStorage["backgroundBrightness"]  ?? 100,
+            backgroundContrast:    MyStorage["backgroundContrast"]    ?? 100,
+            backgroundSaturation:  MyStorage["backgroundSaturation"]  ?? 100,
 
             //backed up pokemon specific settings
             pokemon_settings: [
@@ -630,20 +630,20 @@ const app = Vue.createApp({
             battle_start:          MyStorage['battle_start']          ?? 0,
 
             //resets
-            playerId: MyStorage["playerId"] ?? 0,
-            playerName: "",
-            resetCatcher: "NINTEN",
-            playerResets: MyStorage["playerResets"] ?? 0,
-            blackout_counter: MyStorage["blackout_counter"] ?? 0,
-            resetCounter: true,
-            game_over: false,
-            hallOfFameReset: false,
-            finished_logs: false,
-            pb_time: "None",
-            split_logStr: "",
-            attempt_number: 0,
-            finished_run_count: 0,
-            split_data: MyStorage["split_data"] ?? [],
+            playerId:            MyStorage["playerId"] ?? 0,
+            playerName:          "",
+            resetCatcher:        "NINTEN",
+            playerResets:        MyStorage["playerResets"] ?? 0,
+            blackout_counter:    MyStorage["blackout_counter"] ?? 0,
+            resetCounter:        true,
+            game_over:           false,
+            hallOfFameReset:     false,
+            finished_logs:       false,
+            pb_time:             "None",
+            split_logStr:        "",
+            attempt_number:      0,
+            finished_run_count:  0,
+            split_data:          MyStorage["split_data"] ?? [],
             simple_data_str:     MyStorage["simple_data_str"]     ?? "",
             full_data_str:       MyStorage["full_data_str"]       ?? "",
             deprecated_data_str: MyStorage["deprecated_data_str"] ?? "",
@@ -1303,7 +1303,7 @@ const app = Vue.createApp({
         },
         newRun() {
             const timeRegex = /(\d+:\d{2}:\d{2})(\.\d{2})/;
-            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,3);
+            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5);
             
             this.timer_pause = true
             this.timer_startTime = 0
