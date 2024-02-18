@@ -416,7 +416,7 @@
             <!-- Exp bar -->
             <div>
                 <div class="growthRate">{{g4PokemonData[starter].growth_rate}}</div>
-                <div class="labelEXP">{{exp_percentage}}%</div>
+                <div class="labelEXP">%</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
                 <img src="images/misc/label.png" style="top: 298px; position: absolute;">
             </div>
@@ -441,7 +441,7 @@
 <!--------------------------------------- JAVASCRIPT ------------------------------------------------->
     <script src="packages/signalR.js"></script>
     <script src="packages/vue.js"></script>
-    <script src="http://localhost:8085/dist/gameHookMapperClient.js"></script>
+    <script src="packages/gameHookMapperClient.js"></script>
     <!-- DATA -->
     <script src="lib/g4MoveData.js"></script>
     <script src="lib/g4tmhmMapping.js"></script>
