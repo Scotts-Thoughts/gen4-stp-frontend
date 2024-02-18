@@ -193,7 +193,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -608,7 +608,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -775,7 +775,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -926,7 +926,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -1220,7 +1220,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -1499,7 +1499,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -1557,7 +1557,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 120,
             "friendship": 100,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -2285,7 +2285,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -2563,7 +2563,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -2979,7 +2979,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -3557,7 +3557,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -3734,7 +3734,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -4006,7 +4006,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -4181,7 +4181,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -4342,7 +4342,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -4515,7 +4515,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -4976,7 +4976,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -5101,7 +5101,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -5573,7 +5573,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -5750,7 +5750,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -5902,7 +5902,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -6062,7 +6062,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -6226,7 +6226,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -6360,7 +6360,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -6505,7 +6505,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -6651,7 +6651,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Ditto",
             "egg_group_2": "Ditto",
             "abilities": [
@@ -6693,7 +6693,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -6876,7 +6876,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -7073,7 +7073,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Grass",
             "abilities": [
@@ -7225,7 +7225,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -7552,7 +7552,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -7708,7 +7708,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -7876,7 +7876,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -8205,7 +8205,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -8555,7 +8555,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 30,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water3",
             "abilities": [
@@ -8696,7 +8696,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -9062,7 +9062,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -9655,7 +9655,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -9997,7 +9997,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -10610,7 +10610,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -10777,7 +10777,7 @@ const g4PokemonData =
             "gender_ratio": "191",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -10891,7 +10891,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -11539,7 +11539,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -11688,7 +11688,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -11826,7 +11826,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -11964,7 +11964,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -12110,7 +12110,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -12248,7 +12248,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water2",
             "egg_group_2": "Water2",
             "abilities": [
@@ -12554,7 +12554,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -12727,7 +12727,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -12876,7 +12876,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -12929,7 +12929,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -13091,7 +13091,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 140,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -13421,7 +13421,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -13566,7 +13566,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -13743,7 +13743,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -13920,7 +13920,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -14106,7 +14106,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -14384,7 +14384,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -14526,7 +14526,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -14687,7 +14687,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -14849,7 +14849,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -14996,7 +14996,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -15054,7 +15054,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -15213,7 +15213,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -15347,7 +15347,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -15732,7 +15732,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -15917,7 +15917,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -16063,7 +16063,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water2",
             "egg_group_2": "Water2",
             "abilities": [
@@ -16707,7 +16707,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -16871,7 +16871,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -17149,7 +17149,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -17290,7 +17290,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -17449,7 +17449,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water3",
             "egg_group_2": "Water3",
             "abilities": [
@@ -17767,7 +17767,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -17929,7 +17929,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -18252,7 +18252,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -18379,7 +18379,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -18543,7 +18543,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -18687,7 +18687,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -18809,7 +18809,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -19269,7 +19269,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -20054,7 +20054,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Monster",
             "abilities": [
@@ -20231,7 +20231,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -20548,7 +20548,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -20722,7 +20722,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -20999,7 +20999,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -21486,7 +21486,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -21767,7 +21767,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -21902,7 +21902,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -22066,7 +22066,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -22557,7 +22557,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -22607,7 +22607,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -22919,7 +22919,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -23106,7 +23106,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -23258,7 +23258,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Grass",
             "abilities": [
@@ -23404,7 +23404,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 30,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water3",
             "abilities": [
@@ -23561,7 +23561,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -23833,7 +23833,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -23976,7 +23976,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -24185,7 +24185,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -24588,7 +24588,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -24855,7 +24855,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -24983,7 +24983,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -25919,7 +25919,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -26654,7 +26654,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -26970,7 +26970,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Grass",
             "abilities": [
@@ -27083,7 +27083,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -27215,7 +27215,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -27366,7 +27366,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -27531,7 +27531,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -27666,7 +27666,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -27822,7 +27822,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -27959,7 +27959,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -28103,7 +28103,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -28399,7 +28399,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -29063,7 +29063,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 30,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water3",
             "abilities": [
@@ -29382,7 +29382,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -29537,7 +29537,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -29997,7 +29997,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water3",
             "egg_group_2": "Water3",
             "abilities": [
@@ -30316,7 +30316,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -30491,7 +30491,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -30637,7 +30637,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -30754,7 +30754,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 10,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -30866,7 +30866,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Water1",
             "abilities": [
@@ -31001,7 +31001,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -31143,7 +31143,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -31291,7 +31291,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -31589,7 +31589,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Water1",
             "abilities": [
@@ -31740,7 +31740,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -32189,7 +32189,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -32330,7 +32330,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -32455,7 +32455,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -32614,7 +32614,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -32735,7 +32735,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -32901,7 +32901,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -33173,7 +33173,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -33672,7 +33672,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -34267,7 +34267,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -34685,7 +34685,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -34824,7 +34824,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -34984,7 +34984,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -35394,7 +35394,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -35532,7 +35532,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -35753,7 +35753,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -36050,7 +36050,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -36168,7 +36168,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -36465,7 +36465,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -36899,7 +36899,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Fairy",
             "abilities": [
@@ -37046,7 +37046,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -37189,7 +37189,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -37376,7 +37376,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -37767,7 +37767,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -37817,7 +37817,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Flying",
             "abilities": [
@@ -37982,7 +37982,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water2",
             "abilities": [
@@ -38119,7 +38119,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -38439,7 +38439,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Flying",
             "abilities": [
@@ -38816,7 +38816,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -39296,7 +39296,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 40,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -39676,7 +39676,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -39787,7 +39787,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -39943,7 +39943,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 100,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -40245,7 +40245,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -40543,7 +40543,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -40679,7 +40679,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -40977,7 +40977,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 30,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -41264,7 +41264,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -41423,7 +41423,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -41553,7 +41553,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -41714,7 +41714,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water2",
             "egg_group_2": "Water2",
             "abilities": [
@@ -41878,7 +41878,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -42165,7 +42165,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -42341,7 +42341,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Grass",
             "abilities": [
@@ -42625,7 +42625,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -43388,7 +43388,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Monster",
             "abilities": [
@@ -43563,7 +43563,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -43712,7 +43712,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Grass",
             "abilities": [
@@ -43848,7 +43848,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -44503,7 +44503,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -45094,7 +45094,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -45274,7 +45274,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -45608,7 +45608,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -46069,7 +46069,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -46215,7 +46215,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Field",
             "abilities": [
@@ -46375,7 +46375,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -46513,7 +46513,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -46634,7 +46634,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -46783,7 +46783,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -46900,7 +46900,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -47200,7 +47200,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -47356,7 +47356,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -47530,7 +47530,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -47687,7 +47687,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -48173,7 +48173,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Monster",
             "abilities": [
@@ -48508,7 +48508,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -48657,7 +48657,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -48962,7 +48962,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -49142,7 +49142,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -49322,7 +49322,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -49717,7 +49717,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 10,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Fairy",
             "abilities": [
@@ -49863,7 +49863,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -50023,7 +50023,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 120,
             "friendship": 100,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -50136,7 +50136,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -50279,7 +50279,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -50420,7 +50420,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -50702,7 +50702,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -50849,7 +50849,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Monster",
             "abilities": [
@@ -51196,7 +51196,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -51342,7 +51342,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -51644,7 +51644,7 @@ const g4PokemonData =
             "gender_ratio": "191",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -51793,7 +51793,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -51946,7 +51946,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -52263,7 +52263,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -52407,7 +52407,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -52762,7 +52762,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -52933,7 +52933,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -53046,7 +53046,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -53153,7 +53153,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 0,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -53470,7 +53470,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -53755,7 +53755,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -53885,7 +53885,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -54195,7 +54195,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -54343,7 +54343,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -54664,7 +54664,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -54968,7 +54968,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -55110,7 +55110,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -55248,7 +55248,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -55406,7 +55406,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -55772,7 +55772,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -55936,7 +55936,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Grass",
             "abilities": [
@@ -56193,7 +56193,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -56322,7 +56322,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -56618,7 +56618,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -57209,7 +57209,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Monster",
             "abilities": [
@@ -57367,7 +57367,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -57543,7 +57543,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -57832,7 +57832,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -58002,7 +58002,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -58337,7 +58337,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -58525,7 +58525,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -58668,7 +58668,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 35,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -58816,7 +58816,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 30,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water3",
             "abilities": [
@@ -58961,7 +58961,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -59258,7 +59258,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Bug",
             "abilities": [
@@ -59528,7 +59528,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -59578,7 +59578,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -59741,7 +59741,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 10,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Fairy",
             "abilities": [
@@ -59855,7 +59855,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -59915,7 +59915,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -60389,7 +60389,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -60517,7 +60517,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -60901,7 +60901,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -61091,7 +61091,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -61232,7 +61232,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -61519,7 +61519,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -61797,7 +61797,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -62117,7 +62117,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -62483,7 +62483,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Grass",
             "abilities": [
@@ -62614,7 +62614,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -62786,7 +62786,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 10,
             "friendship": 100,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Fairy",
             "abilities": [
@@ -62922,7 +62922,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -63039,7 +63039,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -63200,7 +63200,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Fairy",
             "abilities": [
@@ -63347,7 +63347,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -63528,7 +63528,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Water2",
             "abilities": [
@@ -63694,7 +63694,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -63828,7 +63828,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -64000,7 +64000,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -64149,7 +64149,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -64893,7 +64893,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -65185,7 +65185,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Water1",
             "abilities": [
@@ -65438,7 +65438,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -65583,7 +65583,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Grass",
             "egg_group_2": "Grass",
             "abilities": [
@@ -65710,7 +65710,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Grass",
             "abilities": [
@@ -65844,7 +65844,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -65997,7 +65997,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -66136,7 +66136,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Flying",
             "egg_group_2": "Flying",
             "abilities": [
@@ -66264,7 +66264,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -66318,7 +66318,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -66500,7 +66500,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -66981,7 +66981,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -67122,7 +67122,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water2",
             "egg_group_2": "Water2",
             "abilities": [
@@ -67691,7 +67691,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water2",
             "egg_group_2": "Water2",
             "abilities": [
@@ -68030,7 +68030,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -68194,7 +68194,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -68524,7 +68524,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -68683,7 +68683,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 35,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -68866,7 +68866,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Field",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -69042,7 +69042,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -69194,7 +69194,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Monster",
             "egg_group_2": "Water1",
             "abilities": [
@@ -69476,7 +69476,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 35,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -70443,7 +70443,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 35,
             "friendship": 35,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -70597,7 +70597,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -70737,7 +70737,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -70902,7 +70902,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Grass",
             "abilities": [
@@ -71048,7 +71048,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Field",
             "abilities": [
@@ -71192,7 +71192,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -71332,7 +71332,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Water1",
             "egg_group_2": "Bug",
             "abilities": [
@@ -71758,7 +71758,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -71897,7 +71897,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 120,
             "friendship": 100,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -72055,7 +72055,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -72221,7 +72221,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Water1",
             "egg_group_2": "Water1",
             "abilities": [
@@ -72346,7 +72346,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Mineral",
             "egg_group_2": "Mineral",
             "abilities": [
@@ -72499,7 +72499,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 15,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Bug",
             "egg_group_2": "Bug",
             "abilities": [
@@ -72725,7 +72725,7 @@ const g4PokemonData =
             "gender_ratio": "63",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -72890,7 +72890,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -73069,7 +73069,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Field",
             "abilities": [
@@ -73252,7 +73252,7 @@ const g4PokemonData =
             "gender_ratio": "254",
             "egg_cycles": 25,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -73575,7 +73575,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Field",
             "egg_group_2": "Field",
             "abilities": [
@@ -73853,7 +73853,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Fairy",
             "egg_group_2": "Grass",
             "abilities": [
@@ -73981,7 +73981,7 @@ const g4PokemonData =
             "gender_ratio": "0",
             "egg_cycles": 0,
             "friendship": 0,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": null,
             "egg_group_2": null,
             "abilities": [],
@@ -74015,7 +74015,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 10,
             "friendship": 100,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Humanoid",
             "egg_group_2": "Humanoid",
             "abilities": [
@@ -74182,7 +74182,7 @@ const g4PokemonData =
             "gender_ratio": "127",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [
@@ -74335,7 +74335,7 @@ const g4PokemonData =
             "gender_ratio": "31",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "Monster",
             "egg_group_2": "Dragon",
             "abilities": [
@@ -74498,7 +74498,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 120,
             "friendship": 100,
-            "growth_rate": "MediumSlow",
+            "growth_rate": "Medium Slow",
             "egg_group_1": "NoBreed",
             "egg_group_2": "NoBreed",
             "abilities": [
@@ -74685,7 +74685,7 @@ const g4PokemonData =
             "gender_ratio": "255",
             "egg_cycles": 20,
             "friendship": 70,
-            "growth_rate": "MediumFast",
+            "growth_rate": "Medium Fast",
             "egg_group_1": "Amorphous",
             "egg_group_2": "Amorphous",
             "abilities": [

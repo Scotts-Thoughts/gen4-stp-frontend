@@ -555,9 +555,10 @@ const app = Vue.createApp({
             //STATE MANAGEMENT ---------------------------------------------------------------------------------//
             gameStarted:  true, //tracks if the player has a save game or not
             playerID: 999,
-            prevSpecies: undefined,
-            prevExpPoints: 0,
-            expDebounceTimeoutId: -1,
+            expBarState: {
+                species: "",
+                expPoints: 0,
+            },
             expBarAnimation: true,
             slotTimingFix: false,
             enemyModColour: [0, "background: #d84444;"],
@@ -2616,11 +2617,17 @@ const app = Vue.createApp({
         this.load_all_settings()
 
         //EXP BAR ANIMATION FUNCTION
-        var species = this.mapper.properties.player.team[0].species.value??this.starter;
-        var growthRate = this.g4PokemonData[this.starter].growth_rate;
-        var expStats = this.calcExpStats(growthRate, this.mapper.properties.player.team[0].exp.value);
-        this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
-        this.prevSpecies = species
+        /* exp bar initialization */ {
+            const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
+            const expPoints = this.mapper.properties.player.team[0].exp.value ?? 0;
+            const growthRate = this.g4PokemonData[species].growth_rate;
+            let expStats = this.calcExpStats(growthRate, expPoints);
+            this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
+
+            this.expBarState.species = species;
+            this.expBarState.expPoints = expPoints;
+        }
+
 
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
             if (newProp.value == true) {
@@ -2987,51 +2994,82 @@ const app = Vue.createApp({
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
                 if (this.expBarAnimation == true) {
-                    const newExpStats = this.calcExpStats(growthRate, newProp.value);
+                    const species = this.mapper.properties.player.team[0].species.value;
+                    const growthRate = this.g4PokemonData[species].growth_rate;
+                    const expPoints = newProp.value;
+                    const newExpStats = this.calcExpStats(growthRate, expPoints);
+
+                    this.expBarState.species = species;
+                    this.expBarState.expPoints = expPoints;
+
+                    // console.log("exp changed", {species, growthRate, expPoints})
+
                     this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                 }
             }
         })
         this.mapper.properties.battle.player.active_pokemon.exp.change(async (newProp, oldProp) => {
-            if (this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state.value == "From Battle") {
+            if (this.mapper.properties.meta.state.value == "Battle") {
                 if (this.expBarAnimation == true) {
-                    const currSpecies = this.mapper.properties.player.team[0].species.value;
-                    const oldExpStats = this.calcExpStats(growthRate, oldProp.value);
-                    const newExpStats = this.calcExpStats(growthRate, newProp.value);
-                    const animationMaxDuration = 500
-                    var animationDuration = 200
+                    const prevSpecies = this.expBarState.species;
+                    const prevExpPoints = this.expBarState.expPoints;
+                    const prevGrowthRate = this.g4PokemonData[prevSpecies].growth_rate;
+                    const prevExpStats = this.calcExpStats(prevGrowthRate, prevExpPoints);
+
+                    const newSpecies = this.mapper.properties.player.team[0].species.value;
+                    const newExpPoints = newProp.value;
+                    const newGrowthRate = this.g4PokemonData[newSpecies].growth_rate;
+                    const newExpStats = this.calcExpStats(newGrowthRate, newExpPoints);
+
+                    this.expBarState.species = newSpecies;
+                    this.expBarState.expPoints = newExpPoints;
+
+                    // console.log("battle exp changed", 
+                    //     {species: prevSpecies, expPoints: prevExpPoints, growthRate: prevGrowthRate},
+                    //     {species: newSpecies, expPoints: newExpPoints, growthRate: newGrowthRate}
+                    // )
+
+                    const animationMaxDuration = 500;
     
-                    if (oldProp.value == newProp.value) { return }
                     // did we switch out?
-                    // there is still a bug here. what if we changed to the same species?
-                    if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == "No Pokemon") {
-                        this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                        // console.log((newExpStats.percent * 100) + "%")
-                    }
-                    else if (this.prevSpecies != currSpecies) {
-                        // update prevSpecies
-    
-                        this.prevSpecies = currSpecies; 
+                    if (prevSpecies != newSpecies) {
+                        // console.log("switched out");
                         // dont animate, just set newExpStats.percent
                         this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                     } 
                     // same pokemon but exp changed
                     else {
-                        var diffExp1 = 1 - oldExpStats.percent
-                        var animationDuration = Math.ceil(diffExp1 * animationMaxDuration)
-                        if (oldExpStats.level == newExpStats.level) {
+                        if (prevExpPoints == newExpPoints) { 
+                            // console.log("exp unchanged", {prevExpPoints, newExpPoints});
+                            return
+                        }
+
+                        if (prevExpStats.level == newExpStats.level) {
+                            // console.log("same level", {prevExpStats, newExpStats});
+                            let diffExp = newExpStats.percent - prevExpStats.percent
+                            let animationDuration = Math.ceil(diffExp * animationMaxDuration)
                             // animate width to newExpStats.percent
                             this.$refs.expBar.style.transition = `width ${animationDuration}ms ease-in-out`;
                             this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                            await this.sleep(250);
+                            await this.sleep(animationDuration + 50);
                         } else {
+                            // console.log("level up", {prevExpStats, newExpStats});
+                            let diffExp1 = 1 - prevExpStats.percent
+                            let animationDuration1 = Math.ceil(diffExp1 * animationMaxDuration)
+                            let diffExp2 = newExpStats.percent
+                            let animationDuration2 = Math.ceil(diffExp2 * animationMaxDuration)
                             // animate width to 100%
-                            this.$refs.expBar.style.transition = `width ${animationDuration}ms ease-in`;
+                            this.$refs.expBar.style.transition = `width ${animationDuration1}ms ease-in`;
                             this.$refs.expBar.style.width = "100%";
-                            await this.sleep(250);
+                            await this.sleep(animationDuration1 + 50);
                             // dont animate, set width to 0%
                             this.$refs.expBar.style.transition = null;
                             this.$refs.expBar.style.width = "0%";
+                            await this.sleep(50);
+                            // animate width to newExpStats.percent
+                            this.$refs.expBar.style.transition = `width ${animationDuration2}ms ease-out`;
+                            this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
+                            await this.sleep(animationDuration2 + 50);
                         }
                     }
                     this.$refs.expBar.style.transition = null;
