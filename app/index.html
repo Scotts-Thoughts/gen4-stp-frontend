@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Scott's Thoughts Gen4 Frontend - [Alpha-v0.10]</title>
+    <title>Scott's Thoughts Gen4 Frontend - v0.1.0</title>
     <link rel="stylesheet" href="style.css" id="cssStylesheet">
 </head>
 
@@ -66,7 +66,8 @@
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
                     <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button><br>
-                    Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.00"/><br>
+                    <button @click="startTime()" class="buttonStyle" style="background-color: rgb(223, 138, 82);">Start Timer</button><br>
+                    Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.000"/><br>
                     <br>
                     <table>
                         <tr>
@@ -127,117 +128,7 @@
                     <button @click="reset()" class="buttonStyle">Reset Texture Settings</button><br>
                     <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
                 </div>
-                <div class="ui2">
-                    <div>GTH: {{mapper.properties.game_time.hours.value}}</div>
-                    <div>GTM: {{mapper.properties.game_time.minutes.value}}</div>
-                    <div>GTS: {{mapper.properties.game_time.seconds.value}}</div>
-                </div>
-                <!-- <div class="ui2">
-                    <div style="font-size: 24px;">Advanced Settings:</div>
-                    <br>
-                    <div>Game:</div>
-                    <select v-model="gameSelection" class="dropdownMenu">
-                        <option disabled value="">Select a species</option>
-                        <option>Emerald</option>
-                        <option>FireRed and LeafGreen</option>
-                    </select>
-                    <br>
-                    <br>
-                    <div>Encounters:</div>
-                    <table>
-                    <tr v-for="(isChecked, route) in this.game.encountersMap" :key="route">
-                        <td>{{ this.titleCaseNoUnderscores(route) }}:</td>
-                        <td><input class="checkBoxStyle" type="checkbox" v-model="this.game.encountersMap[route]" @click="this.checkedEncounters(route)" /><br></td>
-                    </tr>
-                    </table>
-                    <br>
-                    <div>Force HM Users Until Caught:</div>
-                    <table>
-                        <tr><td>Route 102 - Zigzagoon:</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_102_zigzagoon"/><br></td></tr>
-                        <tr><td>Route 104 - Marill:</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_104_marill"/><br></td></tr>
-                        <tr><td>Route 104 - Taillow:</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_104_taillow"/><br></td></tr>
-                    </table>
-                    <br>
-                    <div style="font-size: 12px;">If encounters are turned off, HM users will only appear after Roxanne's badge is obtained.</div>
-                    <br>
-                    Show Tutor Moves: <input class="checkBoxStyle" type="checkbox" v-model="tutor_moves"/><br>
-                </div> -->
-                <!-- <div class="ui3">
-                    <div style="font-size: 24px;">Scott Mode:</div>
-                    <br>
-                    Autosplitter: <input class="checkBoxStyle" type="checkbox" v-model="autosplitter_toggle"/>
-                    <br>
-                    <br>
-                    <div>Gender:</div>
-                    <select v-model="pkmn_gender" class="dropdownMenu">
-                        <option disabled value="">Select a gender</option>
-                        <option v-for="key in values_function(genders)" :value="`${key}`">{{key}}</option>
-                    </select><br>
-                    <br>
-                    <div>Abilities:</div>
-                    <select v-model="pkmn_ability" class="dropdownMenu">
-                        <option disabled value="">Select an ability</option>
-                        <option v-for="key in values_function(dexDataRubySapphireEmerald[starterString].abilities)" :value="`${key}`">{{key}}</option>
-                    </select><br>
-                    <div>Number of abilities that {{starterString}} has: {{dexDataRubySapphireEmerald[starterString].abilities.length}}</div>
-                    <div v-if="dexDataRubySapphireEmerald[starterString].abilities[0]">- {{dexDataRubySapphireEmerald[starterString].abilities[0]}}</div>
-                    <div v-if="dexDataRubySapphireEmerald[starterString].abilities[1]">- {{dexDataRubySapphireEmerald[starterString].abilities[1]}}</div>
-                    <br>
-                    <div>Nature:</div>
-                    <select v-model="pkmnNature" class="dropdownMenu">
-                        <option disabled value="">Select a Nature</option>
-                        <option v-for="key in values_function(simple_natures)" :value="`${key}`">{{natureLabels(`${key}`)}}</option>
-                    </select><br>
-                    <table style="font-size: 12px;">
-                        <tr><td>Raises:</td><td>{{natures[pkmnNature].raises}}</td></tr>
-                        <tr><td>Lowers:</td><td>{{natures[pkmnNature].lowers}}</td></tr>
-                    </table>
-                    <br>
-                    <div>Hidden Power:</div>
-                    <select v-model="hidden_power_type" class="dropdownMenu">
-                        <option disabled value="">Select a Hidden Power type</option>
-                        <option v-for="key in values_function(hiddenPowerTypes)" :value="`${key}`">{{key}}</option>
-                    </select><br>
-                    <table style="font-size: 12px;">
-                        <tr><td>Hp:</td> <td>{{hp_ivs[hidden_power_type][0]}}</td></tr>
-                        <tr><td>Atk:</td><td>{{hp_ivs[hidden_power_type][1]}}</td></tr>
-                        <tr><td>Def:</td><td>{{hp_ivs[hidden_power_type][2]}}</td></tr>
-                        <tr><td>Spe:</td><td>{{hp_ivs[hidden_power_type][3]}}</td></tr>
-                        <tr><td>SpA:</td><td>{{hp_ivs[hidden_power_type][4]}}</td></tr>
-                        <tr><td>SpD:</td><td>{{hp_ivs[hidden_power_type][5]}}</td></tr>
-                    </table>
-                    <br>
-                </div> -->
             </div>
-
-            <!-- Info Display (primary screen) -->
-            <!-- <div class="posAbs" style="font-family: play; top: 30px; left: 460px;">
-                <div>State: {{mapper.properties.meta.state}}</div>
-                <div>StateEnemy: {{mapper.properties.meta.stateEnemy}}</div>
-                <div>game_time: {{gameTimeHMS(mapper.properties.game_time.hours, mapper.properties.game_time.minutes, mapper.properties.game_time.seconds)}}</div>
-                <br>
-                <div>global_pointer decimal: {{mapper.properties.meta.global_pointer}}</div>
-                <br>
-                <div>Nature: {{getNature(mapper.properties.player.team[0].internals.personality_value).nature}} (^ {{getNature(mapper.properties.player.team[0].internals.personality_value).increased}} v {{getNature(mapper.properties.player.team[0].internals.personality_value).decreased}})</div>
-                <div>EVs: {{effortValues.totalEvs}}/{{effortValues.maximumEvs}} - {{effortValues.percentage}}% full - {{effortValues.remaining}} remaining</div>
-                <div>- Hp: {{mapper.properties.player.team[0].evs.hp}}</div>
-                <div>- Atk: {{mapper.properties.player.team[0].evs.attack}}</div>
-                <div>- Def: {{mapper.properties.player.team[0].evs.defense}}</div>
-                <div>- SpA: {{mapper.properties.player.team[0].evs.special_attack}}</div>
-                <div>- SpD: {{mapper.properties.player.team[0].evs.special_defense}}</div>
-                <div>- Spe: {{mapper.properties.player.team[0].evs.speed}}</div>
-                <br>
-                <div>IVs:</div>
-                <div>- Hp:  {{mapper.properties.player.team[0].ivs.hp}}</div>
-                <div>- Atk: {{mapper.properties.player.team[0].ivs.attack}}</div>
-                <div>- Def: {{mapper.properties.player.team[0].ivs.defense}}</div>
-                <div>- SpA: {{mapper.properties.player.team[0].ivs.special_attack}}</div>
-                <div>- SpD: {{mapper.properties.player.team[0].ivs.special_defense}}</div>
-                <div>- Spe: {{mapper.properties.player.team[0].ivs.speed}}</div>
-                <br>
-                <div>- Spe: {{mapper.properties.player.team[0].stats.speed}}</div>
-                <div>- Spe: {{getStat("speed" ?? g4PokemonData[starter].base_spd)}}</div>
-            </div> -->
 
             <!-- OVERLAY COMPONENTS -->
             <!-- Type Icons -->
@@ -389,7 +280,6 @@
                 <!-- Enemy Team Display -->
                 <div v-if="enemyGraphic == true" style="position: absolute;" key="1">
                     <div class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
-                    <!-- <img :src="`images/enemy-area/${mapper.properties.player.team[0].species.value??starter}.png`??`images/enemy-area/testing.png`" class="enemyPng" :style="battlePokemonCrop"> -->
                     <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
                     <div v-for="x in pkmnSlots">
                         <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
@@ -443,9 +333,6 @@
                                             <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right">
                                                 <div>{{generation4_moves_new["4"][`${enemy_mon_static[x].moves[move_index]}`].power}}</div>
                                             </th>
-                                            <!-- <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right">
-                                                {{oppA.team[x].moves[move_index].pp}}
-                                            </th> -->
                                         </tr>
                                     </table>
                                 </div>
@@ -512,7 +399,6 @@
             <div style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <!-- <img :src="`images/pop_ups/accuracy/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;"> -->
                         <div class="colored-image ds" style="--url: url(images/ui/accuracy.svg)"></div>
                         <div class="genericLabels accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value }}</div>
@@ -520,7 +406,6 @@
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <!-- <img :src="`images/pop_ups/evasion/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;"> -->
                         <div class="colored-image ds" style="--url: url(images/ui/evasion.svg)"></div>
                         <div class="genericLabels evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.evasion.value }}</div>
@@ -532,8 +417,8 @@
             <div>
                 <div class="growthRate">{{g4PokemonData[starter].growth_rate}}</div>
                 <div v-show="mapper.properties.player.team[0].species.value != null" class="labelEXP">
-                    <span v-show="mapper.properties.meta.state.value == 'Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.battle.player.active_pokemon.exp).percent)}}%</span>
-                    <span v-show="mapper.properties.meta.state.value == 'Overworld'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.player.team[0].exp).percent)}}%</span>
+                    <span v-show="mapper.properties.meta.state.value == 'Battle' || mapper.properties.meta.state.value == 'From Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.battle.player.active_pokemon.exp).percent)}}%</span>
+                    <span v-show="mapper.properties.meta.state.value == 'Overworld' || mapper.properties.meta.state.value == 'To Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.player.team[0].exp).percent)}}%</span>
                 </div>
                 <div v-show="mapper.properties.player.team[0].species.value == null"class="labelEXP">Exp:</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>

@@ -155,14 +155,14 @@ body {
     height: 1080px;
 }
 .ui1 {
-    font-size: 16px;
+    font-size: 12px;
     position: fixed;
     left: 462px;
     top: 30px;
     width: 350px;
     z-index: 5;
     height: 780px;
-    line-height: 18px;
+    line-height: 14x;
     text-transform: capitalize;
     text-align: left;
     font-family: play;

@@ -649,6 +649,7 @@ const app = Vue.createApp({
             deprecated_data_str: MyStorage["deprecated_data_str"] ?? "",
             simple_data:         MyStorage["simple_data"]         ?? "",
             testRun:             MyStorage['testRun']             ?? false,
+            exp_percentage: 0,
 
             auto_save: [
                 "graphicOverlay",
@@ -817,7 +818,7 @@ const app = Vue.createApp({
         },
         playerName(newName) {
             MyStorage['playerName'] = newName;
-        }
+        },
     },
     computed: {
         gametimeSplit() {
