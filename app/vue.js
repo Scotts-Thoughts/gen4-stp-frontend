@@ -1333,9 +1333,9 @@ const app = Vue.createApp({
             if (this.timer_pause == false) {
                 return
             }
-            const timeRegex = /(\d+):(\d{2}):(\d{2}).(\d{3})/;
+            const timeRegex = /(\d+):(\d{2}):(\d{2})\.(\d{2})/;
             const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
-            const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3];
+            const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
 
             this.timer_startTime = Date.now() - timeOffset
             this.timer_pause = false
