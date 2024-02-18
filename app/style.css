@@ -173,11 +173,11 @@ body {
 .ui2 {
     font-size: 16px;
     position: fixed;
-    left: 742px;
+    left: 772px;
     top: 30px;
     width: 350px;
     z-index: 5;
-    height: 780px;
+    height: 740px;
     line-height: 18px;
     text-transform: capitalize;
     text-align: left;
@@ -2092,7 +2092,7 @@ img, span, div {
     font-weight: 700
 }
 
-.gameTime {
+/* .gameTime {
     font-size: 20px;
     position: absolute;
     border: 1px solid #ff000000;
@@ -2108,7 +2108,7 @@ img, span, div {
     text-align: center;
     font-family: osb;
     font-weight: 700
-}
+} */
 
 
 

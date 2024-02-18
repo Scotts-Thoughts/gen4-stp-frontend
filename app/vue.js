@@ -32,444 +32,449 @@ function openFolder(folderName) {
     require('child_process').exec(`start .\\${folderName}\\`);
 }
 
-// const Keys = {
-//     "ESCAPE":         0x1B,
-//     "BACKSPACE":      0x08,
-//     "TAB":            0x09,
+const Keys = {
+    "ESCAPE":         0x1B,
+    "BACKSPACE":      0x08,
+    "TAB":            0x09,
     
-//     "LEFT":           0x25,
-//     "UP":             0x26,
-//     "RIGHT":          0x27,
-//     "DOWN":           0x28,
+    "LEFT":           0x25,
+    "UP":             0x26,
+    "RIGHT":          0x27,
+    "DOWN":           0x28,
     
-//     "CAPS_LOCK":      0x14,
-//     "NUM_LOCK":       0x90,
-//     "SCROLL_LOCK":    0x91,
+    "CAPS_LOCK":      0x14,
+    "NUM_LOCK":       0x90,
+    "SCROLL_LOCK":    0x91,
     
-//     "SHIFT":          0x10,
-//     "L_SHIFT":        0xA0,
-//     "R_SHIFT":        0xA1,
+    "SHIFT":          0x10,
+    "L_SHIFT":        0xA0,
+    "R_SHIFT":        0xA1,
 
-//     "CTRL":           0x11,
-//     "L_CTRL":         0xA2,
-//     "R_CTRL":         0xA3,
+    "CTRL":           0x11,
+    "L_CTRL":         0xA2,
+    "R_CTRL":         0xA3,
     
-//     "ALT":            0x12,
-//     "L_ALT":          0xA4,
-//     "R_ALT":          0xA5,
+    "ALT":            0x12,
+    "L_ALT":          0xA4,
+    "R_ALT":          0xA5,
     
-//     "L_WIN":          0x5B,
-//     "R_WIN":          0x5C,
+    "L_WIN":          0x5B,
+    "R_WIN":          0x5C,
 
-//     "0":              0x30,
-//     "1":              0x31,
-//     "2":              0x32,
-//     "3":              0x33,
-//     "4":              0x34,
-//     "5":              0x35,
-//     "6":              0x36,
-//     "7":              0x37,
-//     "8":              0x38,
-//     "9":              0x39,
+    "0":              0x30,
+    "1":              0x31,
+    "2":              0x32,
+    "3":              0x33,
+    "4":              0x34,
+    "5":              0x35,
+    "6":              0x36,
+    "7":              0x37,
+    "8":              0x38,
+    "9":              0x39,
 
-//     "A":              0x41,
-//     "B":              0x42,
-//     "C":              0x43,
-//     "D":              0x44,
-//     "E":              0x45,
-//     "F":              0x46,
-//     "G":              0x47,
-//     "H":              0x48,
-//     "I":              0x49,
-//     "J":              0x4A,
-//     "K":              0x4B,
-//     "L":              0x4C,
-//     "M":              0x4D,
-//     "N":              0x4E,
-//     "O":              0x4F,
-//     "P":              0x50,
-//     "Q":              0x51,
-//     "R":              0x52,
-//     "S":              0x53,
-//     "T":              0x54,
-//     "U":              0x55,
-//     "V":              0x56,
-//     "W":              0x57,
-//     "X":              0x58,
-//     "Y":              0x59,
-//     "Z":              0x5A,
+    "A":              0x41,
+    "B":              0x42,
+    "C":              0x43,
+    "D":              0x44,
+    "E":              0x45,
+    "F":              0x46,
+    "G":              0x47,
+    "H":              0x48,
+    "I":              0x49,
+    "J":              0x4A,
+    "K":              0x4B,
+    "L":              0x4C,
+    "M":              0x4D,
+    "N":              0x4E,
+    "O":              0x4F,
+    "P":              0x50,
+    "Q":              0x51,
+    "R":              0x52,
+    "S":              0x53,
+    "T":              0x54,
+    "U":              0x55,
+    "V":              0x56,
+    "W":              0x57,
+    "X":              0x58,
+    "Y":              0x59,
+    "Z":              0x5A,
 
-//     "NUMPAD0":        0x60,
-//     "NUMPAD1":        0x61,
-//     "NUMPAD2":        0x62,
-//     "NUMPAD3":        0x63,
-//     "NUMPAD4":        0x64,
-//     "NUMPAD5":        0x65,
-//     "NUMPAD6":        0x66,
-//     "NUMPAD7":        0x67,
-//     "NUMPAD8":        0x68,
-//     "NUMPAD9":        0x69,
-//     "SEPARATOR":      0x6C,
-//     "DECIMAL":        0x6E,
+    "NUMPAD0":        0x60,
+    "NUMPAD1":        0x61,
+    "NUMPAD2":        0x62,
+    "NUMPAD3":        0x63,
+    "NUMPAD4":        0x64,
+    "NUMPAD5":        0x65,
+    "NUMPAD6":        0x66,
+    "NUMPAD7":        0x67,
+    "NUMPAD8":        0x68,
+    "NUMPAD9":        0x69,
+    "SEPARATOR":      0x6C,
+    "DECIMAL":        0x6E,
 
-//     "MULTIPLY":       0x6A,
-//     "ADD":            0x6B,
-//     "SUBTRACT":       0x6D,
-//     "DIVIDE":         0x6F,
+    "MULTIPLY":       0x6A,
+    "ADD":            0x6B,
+    "SUBTRACT":       0x6D,
+    "DIVIDE":         0x6F,
     
-//     "F1":             0x70,
-//     "F2":             0x71,
-//     "F3":             0x72,
-//     "F4":             0x73,
-//     "F5":             0x74,
-//     "F6":             0x75,
-//     "F7":             0x76,
-//     "F8":             0x77,
-//     "F9":             0x78,
-//     "F10":            0x79,
-//     "F11":            0x7A,
-//     "F12":            0x7B,
-//     "F13":            0x7C,
-//     "F14":            0x7D,
-//     "F15":            0x7E,
-//     "F16":            0x7F,
-//     "F17":            0x80,
-//     "F18":            0x81,
-//     "F19":            0x82,
-//     "F20":            0x83,
-//     "F21":            0x84,
-//     "F22":            0x85,
-//     "F23":            0x86,
-//     "F24":            0x87,
+    "F1":             0x70,
+    "F2":             0x71,
+    "F3":             0x72,
+    "F4":             0x73,
+    "F5":             0x74,
+    "F6":             0x75,
+    "F7":             0x76,
+    "F8":             0x77,
+    "F9":             0x78,
+    "F10":            0x79,
+    "F11":            0x7A,
+    "F12":            0x7B,
+    "F13":            0x7C,
+    "F14":            0x7D,
+    "F15":            0x7E,
+    "F16":            0x7F,
+    "F17":            0x80,
+    "F18":            0x81,
+    "F19":            0x82,
+    "F20":            0x83,
+    "F21":            0x84,
+    "F22":            0x85,
+    "F23":            0x86,
+    "F24":            0x87,
 
 
-//     "APPS":           0x5D,
-//     "CLEAR":          0x0C,
-//     "RETURN":         0x0D,
-//     "PAUSE":          0x13,
+    "APPS":           0x5D,
+    "CLEAR":          0x0C,
+    "RETURN":         0x0D,
+    "PAUSE":          0x13,
 
-//     "CONVERT":        0x1C,
-//     "NONCONVERT":     0x1D,
-//     "ACCEPT":         0x1E,
-//     "MODECHANGE":     0x1F,
+    "CONVERT":        0x1C,
+    "NONCONVERT":     0x1D,
+    "ACCEPT":         0x1E,
+    "MODECHANGE":     0x1F,
 
-//     "SPACE":          0x20,
-//     "PRIOR":          0x21,
-//     "NEXT":           0x22,
-//     "END":            0x23,
-//     "HOME":           0x24,
-//     "SELECT":         0x29,
-//     "PRINT":          0x2A,
-//     "EXECUTE":        0x2B,
-//     "SNAPSHOT":       0x2C,
-//     "INSERT":         0x2D,
-//     "DELETE":         0x2E,
-//     "HELP":           0x2F,
-//     "SLEEP":          0x5F,
-// }
+    "SPACE":          0x20,
+    "PRIOR":          0x21,
+    "NEXT":           0x22,
+    "END":            0x23,
+    "HOME":           0x24,
+    "SELECT":         0x29,
+    "PRINT":          0x2A,
+    "EXECUTE":        0x2B,
+    "SNAPSHOT":       0x2C,
+    "INSERT":         0x2D,
+    "DELETE":         0x2E,
+    "HELP":           0x2F,
+    "SLEEP":          0x5F,
+}
 
-// Object.entries(Keys).forEach(([k, v]) => Keys[v] = k);
+Object.entries(Keys).forEach(([k, v]) => Keys[v] = k);
 
-// class KeyHook {
-//     constructor() {
-//         // start the keyboard hook
-//         this.process = require("child_process").spawn("keyhook.exe");
+class KeyHook {
+    constructor() {
+        // start the keyboard hook
+        this.process = require("child_process").spawn("keyhook.exe");
 
-//         // general logging
-//         this.process.on("spawn", () => console.log("Keyboard hook started!"));
-//         this.process.stderr.on("data", (data) => console.error(`${data}`));
+        // general logging
+        this.process.on("spawn", () => console.log("Keyboard hook started!"));
+        this.process.stderr.on("data", (data) => console.error(`${data}`));
         
-//         // handle output of the keyboard hook
-//         this.process.stdout.on("data", (data) => {
-//             for (const line of data.toString().split(/[\n\r]+/)) {
-//                 const parts = line.split(",").map(x => parseInt(x, 10));
-//                 const [down, key, time] = parts;
+        // handle output of the keyboard hook
+        this.process.stdout.on("data", (data) => {
+            for (const line of data.toString().split(/[\n\r]+/)) {
+                const parts = line.split(",").map(x => parseInt(x, 10));
+                const [down, key, time] = parts;
                 
-//                 if (parts.length !== 3 || parts.some(isNaN)) continue;
-//                 this._processKey(down === 1, key, time);
-//             }
-//         });  
+                if (parts.length !== 3 || parts.some(isNaN)) continue;
+                this._processKey(down === 1, key, time);
+            }
+        });  
     
-//         // general initialization
-//         for (let i=0; i<256; i++)
-//             this._keyState[i] = false;
-//     }
+        // general initialization
+        for (let i=0; i<256; i++)
+            this._keyState[i] = false;
+    }
         
-//     _listeners = {};
-//     _keyState = [];
-//     _processKey(down, keyCode, time) {
-//         const oldState = this._keyState[keyCode] == true;
-//         this._keyState[keyCode] = down;
-//         const key = Keys[keyCode];
-//         let type = "unknown";
+    _listeners = {};
+    _keyState = [];
+    _processKey(down, keyCode, time) {
+        const oldState = this._keyState[keyCode] == true;
+        this._keyState[keyCode] = down;
+        const key = Keys[keyCode];
+        let type = "unknown";
 
-//         if (oldState && down)
-//             type = "repeat";
-//         else if (down)
-//             type = "down";
-//         else
-//             type = "up";
+        if (oldState && down)
+            type = "repeat";
+        else if (down)
+            type = "down";
+        else
+            type = "up";
 
-//         if (!this._listeners[type]) return;
-//         for (const listener of this._listeners[type]) {
-//             listener({
-//                 type, 
-//                 keyCode, 
-//                 key, 
-//                 alt: this.isAltDown,
-//                 ctrl: this.isCtrlDown,
-//                 shift: this.isShiftDown,
-//                 time,
-//             });
-//         }
-//     }
+        if (!this._listeners[type]) return;
+        for (const listener of this._listeners[type]) {
+            listener({
+                type, 
+                keyCode, 
+                key, 
+                alt: this.isAltDown,
+                ctrl: this.isCtrlDown,
+                shift: this.isShiftDown,
+                time,
+            });
+        }
+    }
   
-//     get isShiftDown() { return this._keyState[Keys.L_SHIFT] || this._keyState[Keys.R_SHIFT] || this._keyState[Keys.SHIFT]; }
-//     get isCtrlDown()  { return this._keyState[Keys.L_CTRL]  || this._keyState[Keys.R_CTRL]  || this._keyState[Keys.CTRL]; }
-//     get isAltDown()   { return this._keyState[Keys.L_ALT]   || this._keyState[Keys.R_ALT]   || this._keyState[Keys.ALT]; }
+    get isShiftDown() { return this._keyState[Keys.L_SHIFT] || this._keyState[Keys.R_SHIFT] || this._keyState[Keys.SHIFT]; }
+    get isCtrlDown()  { return this._keyState[Keys.L_CTRL]  || this._keyState[Keys.R_CTRL]  || this._keyState[Keys.CTRL]; }
+    get isAltDown()   { return this._keyState[Keys.L_ALT]   || this._keyState[Keys.R_ALT]   || this._keyState[Keys.ALT]; }
 
-//     isKeyDown(key) { 
-//         if (typeof key === 'string') key = Keys[key.toUpperCase()];
-//         return this._keyState[key];
-//     }
+    isKeyDown(key) { 
+        if (typeof key === 'string') key = Keys[key.toUpperCase()];
+        return this._keyState[key];
+    }
     
-//     on(event, callback) {
-//         if (this._listeners[event] === undefined)
-//             this._listeners[event] = [];
-//         this._listeners[event].push(callback);
-//     }
+    on(event, callback) {
+        if (this._listeners[event] === undefined)
+            this._listeners[event] = [];
+        this._listeners[event].push(callback);
+    }
 
-//     registerShortCut(shortCut, callback) {
-//         // transform the shortcut into an array of key codes
-//         if (typeof shortCut === 'number')
-//             shortCut = [shortCut];
-//         if (typeof shortCut === 'string')
-//             shortCut = shortCut.toUpperCase().split("+").map(x => Keys[x.trim()]);
-//             shortCut = shortCut.map(x => {
-//             if (typeof x === 'string') x = Keys[x.toUpperCase()];
-//             if (x === Keys.L_SHIFT || x === Keys.R_SHIFT) x = Keys.SHIFT;
-//             if (x === Keys.L_CTRL || x === Keys.R_CTRL) x = Keys.CTRL;
-//             if (x === Keys.L_ALT || x === Keys.R_ALT) x = Keys.ALT;
-//             return x;
-//         });
+    registerShortCut(shortCut, callback) {
+        // transform the shortcut into an array of key codes
+        if (typeof shortCut === 'number')
+            shortCut = [shortCut];
+        if (typeof shortCut === 'string')
+            shortCut = shortCut.toUpperCase().split("+").map(x => Keys[x.trim()]);
+            shortCut = shortCut.map(x => {
+            if (typeof x === 'string') x = Keys[x.toUpperCase()];
+            if (x === Keys.L_SHIFT || x === Keys.R_SHIFT) x = Keys.SHIFT;
+            if (x === Keys.L_CTRL || x === Keys.R_CTRL) x = Keys.CTRL;
+            if (x === Keys.L_ALT || x === Keys.R_ALT) x = Keys.ALT;
+            return x;
+        });
 
-//         const checkAlt = shortCut.includes(Keys.ALT);
-//         const checkCtrl = shortCut.includes(Keys.CTRL);
-//         const checkShift = shortCut.includes(Keys.SHIFT);
-//         const checkKeys = shortCut.filter(x => x !== Keys.ALT && x !== Keys.CTRL && x !== Keys.SHIFT);
+        const checkAlt = shortCut.includes(Keys.ALT);
+        const checkCtrl = shortCut.includes(Keys.CTRL);
+        const checkShift = shortCut.includes(Keys.SHIFT);
+        const checkKeys = shortCut.filter(x => x !== Keys.ALT && x !== Keys.CTRL && x !== Keys.SHIFT);
 
-//         if (checkKeys.some(x => typeof x !== 'number')) 
-//             throw new Error("Invalid key code");
+        if (checkKeys.some(x => typeof x !== 'number')) 
+            throw new Error("Invalid key code");
 
-//         this.on("down", (data) => {
-//             if (
-//                 checkAlt === data.alt &&
-//                 checkCtrl === data.ctrl &&
-//                 checkShift === data.shift &&
-//                 checkKeys.every(x => this.isKeyDown(x))
-//             ) {
-//                 callback();
-//             }
-//         });
-//     }
+        this.on("down", (data) => {
+            if (
+                checkAlt === data.alt &&
+                checkCtrl === data.ctrl &&
+                checkShift === data.shift &&
+                checkKeys.every(x => this.isKeyDown(x))
+            ) {
+                callback();
+            }
+        });
+    }
 
-//     stop() {
-//         return this.process.kill();
-//     }
-// }
-// const keyhook = new KeyHook();
+    stop() {
+        return this.process.kill();
+    }
+}
+const keyhook = new KeyHook();
 
-// const fs = require("fs");
-// const path = require("path");
-// const { finished } = require('stream');
-// function logData(gameName, str, file_name, starter, log_type, testStatus, toggle) {
-//         return new Promise((resolve, reject) => {
-//         const dirPath = `./splits/${app.game.gameName}/${starter}/attempts/`;
-//         const testStatusText = testStatus ? "test_run_" : "";
-//         let filePath = path.join(dirPath, `${testStatusText}${starter}-${file_name}-simple.csv`);
-//         let header = "player_name," +
-//             "pokemon," +
-//             "trainer_name," +
-//             "real_time_hmmss," +
-//             "resets," +
-//             "blackouts," +
-//             "failures," +
-//             "level," +
-//             "game_time," +
-//             "battle_duration," +
-//             "move1," +
-//             "move2," +
-//             "move3," +
-//             "move4,\n"
-//         if (log_type == "Deprecated" && toggle == true) {
-//             filePath = path.join(dirPath, `${testStatusText}${starter}-${file_name}-deprecated.csv`);
-//             header = "ROM" +
-//                 "Species," +
-//                 "Trainer," +
-//                 "Start Time," +
-//                 "Real Time," +
-//                 "Game Time," +
-//                 "Level," +
-//                 "Resets," +
-//                 "RTHours," +
-//                 "RTMinutes," +
-//                 "RTSeconds," +
-//                 "RTMilliseconds," +
-//                 "Move 1," +
-//                 "Move 2," +
-//                 "Move 3," +
-//                 "Move 4," +
-//                 "Attack," +
-//                 "Defense," +
-//                 "Sp. Attack," +
-//                 "Sp. Defense," +
-//                 "Speed," +
-//                 "Attack Stage," +
-//                 "Defense Stage," +
-//                 "Sp. Attack Stage," +
-//                 "Sp. Defense Stage," +
-//                 "Speed Stage," +
-//                 "Accuracy Stage," +
-//                 "Evasion Stage," +
-//                 "Battle Attack," +
-//                 "Battle Defense," +
-//                 "Battle Sp. Attack," +
-//                 "Battle Sp. Defense," +
-//                 "Battle Speed," +
-//                 "Frame Count," +
-//                 "Overworld Frame Count," +
-//                 "Battle Frame Count," +
-//                 "Menu Frame Count," +
-//                 "Intro Frame Count," +
-//                 "Save Count," +
-//                 "Reload Count," +
-//                 "Clock Reset Count," +
-//                 "Steps Count," +
-//                 "Steps Count Walk," +
-//                 "Steps Count Bike," +
-//                 "Steps Count Surf," +
-//                 "Bonks," +
-//                 "Battles," +
-//                 "Trainer Battles," +
-//                 "Wild Battles," +
-//                 "Battles Fled," +
-//                 "Failed Runs," +
-//                 "Total Damage Dealt," +
-//                 "Actual Damage Dealt," +
-//                 "Total Damage Taken," +
-//                 "Actual Damage Taken," +
-//                 "Own Moves Hit," +
-//                 "Own Moves Missed," +
-//                 "Enemy Moves Hit," +
-//                 "Enemy Moves Missed," +
-//                 "Own Moves Super Effective," +
-//                 "Own Moves Not Very Effective," +
-//                 "Enemy Moves Super Effective," +
-//                 "Enemy Moves Not Very Effective," +
-//                 "Criticals Dealt," +
-//                 "OHKOs Dealt," +
-//                 "Criticals Taken," +
-//                 "OHKOs Taken," +
-//                 "Was Confused," +
-//                 "Enemy Became Confused," +
-//                 "Was Paralyzed," +
-//                 "Enemy Was Paralyzed," +
-//                 "Was Burned," +
-//                 "Enemy Was Burned," +
-//                 "Was Frozen," +
-//                 "Enemy Was Frozen," +
-//                 "Was Poisoned," +
-//                 "Enemy Was Poisoned," +
-//                 "Was Badly Poisoned," +
-//                 "Enemy Was Badly Poisoned," +
-//                 "Fell Asleep," +
-//                 "Enemy Fell Asleep," +
-//                 "Player Turns Confused," +
-//                 "Player Turns Confused Hit Self," +
-//                 "Player Turns Paralyzed," +
-//                 "Player Turns Paralyzed Fully," +
-//                 "Enemy Turns Confused," +
-//                 "Enemy Turns Confused Hit Self," +
-//                 "Enemy Turns Paralyzed," +
-//                 "Enemy Turns Paralyzed Fully," +
-//                 "Player HP Healed," +
-//                 "Enemy HP Healed," +
-//                 "Player Pokemon Fainted," +
-//                 "Enemy Pokemon Fainted," +
-//                 "Experience Gained," +
-//                 "Switchouts," +
-//                 "Money Made," +
-//                 "Money Spent," +
-//                 "Money Lost," +
-//                 "Items Picked Up," +
-//                 "Items Bought," +
-//                 "Items Sold," +
-//                 "Balls Thrown," +
-//                 "Pokemon Caught In Balls," +
-//                 "Moves Learnt," +
-//                 //new properties" +
-//                 "Blackouts," +
-//                 "Attempt Number," +
-//                 "Failures," +
-//                 "Rival's Team,\n"
-//         }
-//         if (log_type == "Full" && toggle == true) {
-//             filePath = path.join(dirPath, `${testStatusText}${starter}-${file_name}-full.csv`);
-//         }
-//         fs.mkdir(dirPath, { recursive: true }, (err) => {
-//             if (!fs.existsSync(filePath)) {
-//                 fs.writeFile(filePath, header, (err) => {
-//                     if (err) {
-//                         console.error(err);
-//                     } else {
-//                         fs.appendFile(filePath, str, (err) => {
-//                             if (err) {
-//                                 console.error(err);
-//                             }
-//                             resolve();
-//                         });
-//                     }
-//                 });
-//             } else {
-//                 fs.appendFile(filePath, str, (err) => {
-//                     if (err) {
-//                         console.error(err);
-//                     }
-//                     resolve();
+const { log } = require('console');
+const fs = require("fs");
+const path = require("path");
+const { finished } = require('stream');
+for (let folder of ['splits', 'splits/Platinum', 'splits/HGSS']) {
+    if (!fs.existsSync(folder)) {
+        fs.mkdirSync(folder);
+    }
+}
 
-//                 });   
-//             }
-//         });
-//     });
-// }
+function logData(gameName, str, file_name, starter, log_type, testStatus, toggle) {
+    return new Promise((resolve, reject) => {
+        console.log(testStatus);
+        const testStatusText = 'testrun_';
+        var dirPath = `./splits/${gameName}/${starter}/`;
+        var filePath = path.join(dirPath, `${starter}-${file_name}-simple.csv`);
+        var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "failures," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
+        if (testStatus == true) { 
+            dirPath = `./splits/${gameName}/${starter}/test_runs`; 
+            switch (log_type) {
+                case "Deprecated": filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-deprecated.csv`); break;
+                case "Full":       filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-full.csv`); break;
+                default:           filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-simple.csv`);
+            }
+        }
+        switch (log_type) {
+            case "Deprecated": filePath = path.join(dirPath, `${starter}-${file_name}-deprecated.csv`); break;
+            case "Full":       filePath = path.join(dirPath, `${starter}-${file_name}-full.csv`); break;
+            default:           filePath = path.join(dirPath, `${starter}-${file_name}-simple.csv`);
+        }
+        if (log_type == "Deprecated" && toggle == true) {
+            header = "ROM," +
+                "Species," +
+                "Trainer," +
+                "Start Time," +
+                "Real Time," +
+                "Game Time," +
+                "Level," +
+                "Resets," +
+                "RTHours," +
+                "RTMinutes," +
+                "RTSeconds," +
+                "RTMilliseconds," +
+                "Move 1," +
+                "Move 2," +
+                "Move 3," +
+                "Move 4," +
+                "Attack," +
+                "Defense," +
+                "Sp. Attack," +
+                "Sp. Defense," +
+                "Speed," +
+                "Attack Stage," +
+                "Defense Stage," +
+                "Sp. Attack Stage," +
+                "Sp. Defense Stage," +
+                "Speed Stage," +
+                "Accuracy Stage," +
+                "Evasion Stage," +
+                "Battle Attack," +
+                "Battle Defense," +
+                "Battle Sp. Attack," +
+                "Battle Sp. Defense," +
+                "Battle Speed," +
+                "Frame Count," +
+                "Overworld Frame Count," +
+                "Battle Frame Count," +
+                "Menu Frame Count," +
+                "Intro Frame Count," +
+                "Save Count," +
+                "Reload Count," +
+                "Clock Reset Count," +
+                "Steps Count," +
+                "Steps Count Walk," +
+                "Steps Count Bike," +
+                "Steps Count Surf," +
+                "Bonks," +
+                "Battles," +
+                "Trainer Battles," +
+                "Wild Battles," +
+                "Battles Fled," +
+                "Failed Runs," +
+                "Total Damage Dealt," +
+                "Actual Damage Dealt," +
+                "Total Damage Taken," +
+                "Actual Damage Taken," +
+                "Own Moves Hit," +
+                "Own Moves Missed," +
+                "Enemy Moves Hit," +
+                "Enemy Moves Missed," +
+                "Own Moves Super Effective," +
+                "Own Moves Not Very Effective," +
+                "Enemy Moves Super Effective," +
+                "Enemy Moves Not Very Effective," +
+                "Criticals Dealt," +
+                "OHKOs Dealt," +
+                "Criticals Taken," +
+                "OHKOs Taken," +
+                "Was Confused," +
+                "Enemy Became Confused," +
+                "Was Paralyzed," +
+                "Enemy Was Paralyzed," +
+                "Was Burned," +
+                "Enemy Was Burned," +
+                "Was Frozen," +
+                "Enemy Was Frozen," +
+                "Was Poisoned," +
+                "Enemy Was Poisoned," +
+                "Was Badly Poisoned," +
+                "Enemy Was Badly Poisoned," +
+                "Fell Asleep," +
+                "Enemy Fell Asleep," +
+                "Player Turns Confused," +
+                "Player Turns Confused Hit Self," +
+                "Player Turns Paralyzed," +
+                "Player Turns Paralyzed Fully," +
+                "Enemy Turns Confused," +
+                "Enemy Turns Confused Hit Self," +
+                "Enemy Turns Paralyzed," +
+                "Enemy Turns Paralyzed Fully," +
+                "Player HP Healed," +
+                "Enemy HP Healed," +
+                "Player Pokemon Fainted," +
+                "Enemy Pokemon Fainted," +
+                "Experience Gained," +
+                "Switchouts," +
+                "Money Made," +
+                "Money Spent," +
+                "Money Lost," +
+                "Items Picked Up," +
+                "Items Bought," +
+                "Items Sold," +
+                "Balls Thrown," +
+                "Pokemon Caught In Balls," +
+                "Moves Learnt," +
+                //new properties" +
+                "Blackouts," +
+                "Attempt Number," +
+                "Failures," +
+                "Rival's Team,\n"
+        }
+        fs.mkdir(dirPath, { recursive: true }, (err) => {
+            if (!fs.existsSync(filePath)) {
+                fs.writeFile(filePath, header, (err) => {
+                    if (err) {
+                        console.error(err);
+                    } else {
+                        fs.appendFile(filePath, str, (err) => {
+                            if (err) {
+                                console.error(err);
+                            }
+                            resolve();
+                        });
+                    }
+                });
+            } else {
+                fs.appendFile(filePath, str, (err) => {
+                    if (err) {
+                        console.error(err);
+                    }
+                    resolve();
 
-// function logCopy(gameName, file_name, starterName, finished_run_count) {
-//     var dirPathAttempts = `./splits/${gameName}/${starterName}/attempts/`;
-//     var dirPathFinishes = `./splits/${gameName}/${starterName}/finishes/`;
-//     fs.mkdir(dirPathFinishes, { recursive: true }, (err) => {
-//         fs.copyFile(
-//             path.join(dirPathAttempts, `${starterName}-${file_name}-simple.csv`), 
-//             path.join(dirPathFinishes, `${starterName}-${finished_run_count}-simple.csv`), (err) => {
-//             if (err) {
-//                 console.error(err);
-//             }
-//         });
-//         fs.copyFile(
-//             path.join(dirPathAttempts, `${starterName}-${file_name}-full.csv`), 
-//             path.join(dirPathFinishes, `${starterName}-${finished_run_count}-full.csv`), (err) => {
-//             if (err) {
-//                 console.error(err);
-//             }
-//         });
-//         fs.copyFile(
-//             path.join(dirPathAttempts, `${starterName}-${file_name}-deprecated.csv`), 
-//             path.join(dirPathFinishes, `${starterName}-${finished_run_count}-deprecated.csv`), (err) => {
-//             if (err) {
-//                 console.error(err);
-//             }
-//         });
-//     });
-// }
+                });   
+            }
+        });
+        }
+    );
+}
+
+function logCopy(gameName, file_name, starterName, finished_run_count) {
+    var dirPathAttempts = `./splits/${gameName}/${starterName}`;
+    var dirPathFinishes = `./splits/${gameName}/${starterName}/${starterName}_${finished_run_count}/`;
+    fs.mkdir(dirPathFinishes, { recursive: true }, (err) => {
+        fs.copyFile(
+            path.join(dirPathAttempts, `${starterName}-${file_name}-simple.csv`), 
+            path.join(dirPathFinishes, `${starterName}-${finished_run_count}-simple.csv`), (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+        fs.copyFile(
+            path.join(dirPathAttempts, `${starterName}-${file_name}-full.csv`), 
+            path.join(dirPathFinishes, `${starterName}-${finished_run_count}-full.csv`), (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+        fs.copyFile(
+            path.join(dirPathAttempts, `${starterName}-${file_name}-deprecated.csv`), 
+            path.join(dirPathFinishes, `${starterName}-${finished_run_count}-deprecated.csv`), (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+    });
+}
 
 function transition(fn, ms) {
     return new Promise((resolve) => {
@@ -490,16 +495,17 @@ const app = Vue.createApp({
             ready: false,
             mapper: null,
             state: "No Pokemon",
+            game_variables: null,
+            autosplitter_toggle: true,
 
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter: "Heatran",
-            overlayName: "",
             growth_rate: "Slow",
             hidden_power_type: "Dark",
             overlayNew: "Chimchar",
             overlayOld: "Chimchar",
-
-            testStatus:     MyStorage['testStatus']     ?? false,
+            scott_mode: true,
+            testStatus: MyStorage['testStatus'] ?? false,
 
             customMovepool: {
                 "Torterra": "line-height: 16px;",
@@ -530,6 +536,8 @@ const app = Vue.createApp({
             generation4_moves_new: generation4_moves_new,
             textures: textures,
             default_colors: default_colors,
+            game_variables: game_variables,
+            autosplitter: autosplitter,
 
             //LOOPS
             badges: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -631,7 +639,7 @@ const app = Vue.createApp({
             finished_logs: false,
             pb_time: "None",
             split_logStr: "",
-            attempt_number:     0,
+            attempt_number: 0,
             finished_run_count: 0,
             split_data: MyStorage["split_data"] ?? [],
             simple_data_str:     MyStorage["simple_data_str"]     ?? "",
@@ -692,39 +700,38 @@ const app = Vue.createApp({
         }
     },
     created() {
-        if (MyStorage[this.starter]) {
-            this.overlay_color = MyStorage[this.starter].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
-            this.imageXOffset = MyStorage[this.starter].imageXOffset ?? 0;
-            this.imageYOffset = MyStorage[this.starter].imageYOffset ?? 0;
-            this.imageScale = MyStorage[this.starter].imageScale ?? 1;
-            this.imageFlip = MyStorage[this.starter].imageFlip ?? false;
-            this.imageSat = MyStorage[this.starter].imageSat ?? 100
-            this.imageRotation = MyStorage[this.starter].imageRotation ?? 0
-            this.backgroundBlur = MyStorage[this.starter].backgroundBlur ?? 0
-            this.backgroundScale = MyStorage[this.starter].backgroundScale ?? 100
-            this.backgroundUrl = MyStorage[this.starter].backgroundUrl ?? ""
-            this.use_custom_background = MyStorage[this.starter].use_custom_background ?? false
-            this.backgroundXOffset = MyStorage[this.starter].backgroundXOffset ?? 0
-            this.backgroundYOffset = MyStorage[this.starter].backgroundYOffset ?? 0
-            this.backgroundTexture = MyStorage[this.starter].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
-            this.pkmn_ability = MyStorage[this.starter]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
-            this.attempt_number = MyStorage[this.starter]?.attempt_number ?? 0
-            this.finished_run_count = MyStorage[this.starter]?.finished_run_count ?? 0
+        if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
+            this.overlay_color         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
+            this.imageYOffset          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
+            this.imageScale            = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
+            this.imageFlip             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
+            this.imageSat              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
+            this.imageRotation         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
+            this.backgroundBlur        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur ?? 0
+            this.backgroundScale       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale ?? 100
+            this.backgroundUrl         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl ?? ""
+            this.use_custom_background = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background ?? false
+            this.backgroundXOffset     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset ?? 0
+            this.backgroundYOffset     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset ?? 0
+            this.backgroundTexture     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.pkmn_ability          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
+            this.attempt_number        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number ?? 0
+            this.finished_run_count    = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
         }
-
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
             this.$watch(
                 () => this[propName],
                 (newValue) => {
-                    // Ensure that MyStorage[this.starter] is an object
-                    if (!MyStorage[this.starter]) {
-                        MyStorage[this.starter] = {};
+                    // Ensure that MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] is an object
+                    if (!MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
+                        MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`] = {};
                     }
 
                     // Set the new value
-                    MyStorage[this.starter] = {
-                            ...MyStorage[this.starter],
+                    MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`] = {
+                            ...MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`],
                             [propName]: newValue
                         };
                 }
@@ -741,30 +748,30 @@ const app = Vue.createApp({
         }
     },
     watch: {
-        starterString(newValue, oldValue) {
+        starter(newValue, oldValue) {
+            MyStorage['starter'] = newValue
             //background texture settings
-            this.overlay_color =         MyStorage[`${newValue}`]?.overlay_color ?? this.default_colors[dexDataRubySapphireEmerald[newValue].type_1]
-            this.backgroundTexture =     MyStorage[`${newValue}`]?.backgroundTexture ?? `${this.dexData[newValue].type_1}`
-            this.backgroundBlur =        MyStorage[`${newValue}`]?.backgroundBlur ?? 0,
-            this.backgroundScale =       MyStorage[`${newValue}`]?.backgroundScale ?? 100,
-            this.backgroundUrl =         MyStorage[`${newValue}`]?.backgroundUrl ?? "",
-            this.backgroundFlip =        MyStorage[`${newValue}`]?.backgroundFlip ?? false,
-            this.use_custom_background = MyStorage[`${newValue}`]?.use_custom_background ?? false,
-            this.backgroundXOffset =     MyStorage[`${newValue}`]?.backgroundXOffset ?? 0,
-            this.backgroundYOffset =     MyStorage[`${newValue}`]?.backgroundYOffset ?? 0,
-            this.backgroundBrightness =  MyStorage[`${newValue}`]?.backgroundBrightness ?? 100,
-            this.backgroundContrast =    MyStorage[`${newValue}`]?.backgroundContrast ?? 100,
-            this.backgroundSaturation =  MyStorage[`${newValue}`]?.backgroundSaturation ?? 100,
+            this.overlay_color =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.overlay_color ?? this.default_colors[this.g4PokemonData[newValue].type_1]
+            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture ?? `${this.g4PokemonData[newValue].type_1}`
+            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur ?? 0,
+            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale ?? 100,
+            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl ?? "",
+            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip ?? false,
+            this.use_custom_background = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.use_custom_background ?? false,
+            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundXOffset ?? 0,
+            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundYOffset ?? 0,
+            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBrightness ?? 100,
+            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundContrast ?? 100,
+            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundSaturation ?? 100,
             //Attempts and finishes
-            this.attempt_number =        MyStorage[`${newValue}`]?.attempt_number ?? 0,
-            this.finished_run_count =    MyStorage[`${newValue}`]?.finished_run_count ?? 0,
+            this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number ?? 0,
+            this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count ?? 0,
             //main pokemon settings
-            MyStorage['starterString'] = newValue
-            this.pkmnNature =            MyStorage[`${newValue}`]?.pkmnNature ?? "Hardy",
-            this.pkmn_ability =          MyStorage[`${newValue}`]?.pkmn_ability ?? dexDataRubySapphireEmerald[newValue].abilities[0],
-            this.hidden_power_type =     MyStorage[`${newValue}`]?.hidden_power_type ?? "Dark",
-            this.pkmn_gender =           MyStorage[`${newValue}`]?.pkmn_gender ?? "Female"
-            this.movepoolResize();
+            this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature ?? "Hardy",
+            this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability ?? this.g4PokemonData[newValue].abilities[0],
+            this.hidden_power_type =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.hidden_power_type ?? "Dark",
+            this.pkmn_gender =           MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_gender ?? "Female"
+            // this.movepoolResize();
         },
         playerId(newValue) {
             MyStorage["playerId"] = newValue
@@ -811,6 +818,18 @@ const app = Vue.createApp({
         }
     },
     computed: {
+        gametimeSplit() {
+            h = this.mapper.properties.game_time.hours.value
+            m = this.mapper.properties.game_time.minutes.value
+            timecode = h + ":" + m.toString().padStart(2, "0")
+            return timecode
+        },
+        game() {
+            return this.game_variables['Platinum'];
+            // return this.gameVariables[this.mapper?.properties?.meta?.gameName];
+            // return "FireRed and LeafGreen";
+            // return(this.mapper?.properties.meta.gameName);
+        },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
             const object = this.platinumTrainers[opponent_id].pokemon
@@ -910,7 +929,7 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.dexDataRubySapphireEmerald[this.starter]
+                // var data = this.g4PokemonDataRubySapphireEmerald[this.starter]
                 // return {
                 //     species: { value: data["name"] },
                 //     ...data
@@ -926,7 +945,7 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.dexDataRubySapphireEmerald[this.starter]
+                // var data = this.g4PokemonDataRubySapphireEmerald[this.starter]
                 // return {
                 //     species: { value: data["name"] },
                 //     ...data
@@ -994,10 +1013,10 @@ const app = Vue.createApp({
         typeHeaderColor() {
             return
             // if (this.mapper.properties.meta.state.value == `Battle`) { return this.mapper.properties.battle.yourPokemon.type2.value }
-            // if (this.mapper.properties.meta.state.value == `Overworld`) { return this.dexDataRubySapphireEmerald[this.mapper.properties.player.team[0].species.value].type_2 }
-            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.dexDataRubySapphireEmerald[this.starter].type_2}
+            // if (this.mapper.properties.meta.state.value == `Overworld`) { return this.g4PokemonDataRubySapphireEmerald[this.mapper.properties.player.team[0].species.value].type_2 }
+            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.g4PokemonDataRubySapphireEmerald[this.starter].type_2}
             // else { return }
-            // else { return this.dexDataRubySapphireEmerald[this.starter].type_2}
+            // else { return this.g4PokemonDataRubySapphireEmerald[this.starter].type_2}
         },
         //BATTLE FADE
         battle_fade() {
@@ -1069,12 +1088,12 @@ const app = Vue.createApp({
             }
         },
         pkmnGrowthRate() {
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_SLOW`) { return "Slow" }
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FAST`) { return "Fast" }
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
-            if (this.dexDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_SLOW`) { return "Slow" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FAST`) { return "Fast" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
+            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
         },
         field_effect_array() {
             var effect_array = [
@@ -1116,7 +1135,7 @@ const app = Vue.createApp({
             }
         },
         effortValues() {
-            let evHp = this.mapper.properties.player.team[0].evs.hp.value
+            let evHp  = this.mapper.properties.player.team[0].evs.hp.value
             let evAtk = this.mapper.properties.player.team[0].evs.attack.value
             let evDef = this.mapper.properties.player.team[0].evs.defense.value
             let evSpe = this.mapper.properties.player.team[0].evs.speed.value
@@ -1190,26 +1209,26 @@ const app = Vue.createApp({
             this.battle_start =               MyStorage['battle_start']               ?? 0
 
             //Pokemon settings for local storage
-            this.overlay_color = MyStorage[this.starter]?.overlay_color ?? this.default_colors[`${dexDataRubySapphireEmerald[this.starter].type_1}`]
-            this.imageXOffset =  MyStorage[this.starter]?.imageXOffset ?? 0
-            this.imageYOffset =  MyStorage[this.starter]?.imageYOffset ?? 0
-            this.imageScale =    MyStorage[this.starter]?.imageScale ?? 1
-            this.imageFlip =     MyStorage[this.starter]?.imageFlip ?? false
-            this.imageSat =      MyStorage[this.starter]?.imageSat ?? 100
-            this.imageRotation = MyStorage[this.starter]?.imageRotation ?? 0
+            this.overlay_color = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.overlay_color ?? this.default_colors[`${this.g4PokemonData[this.starter].type_1}`]
+            this.imageXOffset =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageXOffset ?? 0
+            this.imageYOffset =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageYOffset ?? 0
+            this.imageScale =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageScale ?? 1
+            this.imageFlip =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageFlip ?? false
+            this.imageSat =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageSat ?? 100
+            this.imageRotation = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageRotation ?? 0
 
             //background texture settings
-            this.backgroundBlur =        MyStorage[this.starter]?.backgroundBlur ?? 0
-            this.backgroundScale =       MyStorage[this.starter]?.backgroundScale ?? 100
-            this.backgroundUrl =         MyStorage[this.starter]?.backgroundUrl ?? ""
-            this.backgroundFlip =        MyStorage[this.starter]?.backgroundFlip ?? false
-            this.use_custom_background = MyStorage[this.starter]?.use_custom_background ?? false
-            this.backgroundXOffset =     MyStorage[this.starter]?.backgroundXOffset ?? 0
-            this.backgroundYOffset =     MyStorage[this.starter]?.backgroundYOffset ?? 0
-            this.backgroundTexture =     MyStorage[this.starter]?.backgroundTexture ?? `${this.dexData[this.starter].type_1}`
-            this.backgroundBrightness =  MyStorage[this.starter]?.backgroundBrightness ?? 100
-            this.backgroundContrast =    MyStorage[this.starter]?.backgroundContrast ?? 100
-            this.backgroundSaturation =  MyStorage[this.starter]?.backgroundSaturation ?? 100
+            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundBlur ?? 0
+            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundScale ?? 100
+            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundUrl ?? ""
+            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundFlip ?? false
+            this.use_custom_background = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.use_custom_background ?? false
+            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundXOffset ?? 0
+            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundYOffset ?? 0
+            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundBrightness ?? 100
+            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundContrast ?? 100
+            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundSaturation ?? 100
         },
         reset() {
             this.backgroundBlur =        0,
@@ -1218,7 +1237,7 @@ const app = Vue.createApp({
             this.use_custom_background = false,
             this.backgroundXOffset =     0,
             this.backgroundYOffset =     0,
-            this.backgroundTexture =     this.dexData[this.starter]?.type_1?.toLowerCase(),
+            this.backgroundTexture =     this.g4PokemonData[this.starter]?.type_1?.toLowerCase(),
             this.backgroundBrightness =  100,
             this.backgroundContrast =    100,
             this.backgroundSaturation =  100
@@ -1250,15 +1269,15 @@ const app = Vue.createApp({
             // console.log(MyStorage.entries())
         },
         clear_overlay_color() {
-            starterType = this.dexData[this.starter].type_1;
+            starterType = this.g4PokemonData[this.starter].type_1;
             newColor = getComputedStyle(document.documentElement).getPropertyValue("--"+starterType.toLowerCase());
             this.set_pokemon_prop("overlay_color", newColor)
             this.overlay_color = newColor;
             // this.load_pokemon_sprite_settings()
         },
         set_pokemon_prop(property_name, value) {
-            MyStorage[this.starter] = {
-                ...MyStorage[this.starter],
+            MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
+                ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
                 [property_name]: value,
             }
         },
@@ -1975,12 +1994,12 @@ const app = Vue.createApp({
         },
         getStarterType1() {
             if (this.pick == true)
-                var type = this.dexDataRubySapphireEmerald[this.starter].type_1
+                var type = this.g4PokemonDataRubySapphireEmerald[this.starter].type_1
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
         getStarterType2() {
             if (this.pick == true)
-                var type = this.dexDataRubySapphireEmerald[this.starter].type_2
+                var type = this.g4PokemonDataRubySapphireEmerald[this.starter].type_2
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
 
@@ -2097,7 +2116,7 @@ const app = Vue.createApp({
         
         //EXPERIENCE FUNCTIONS
         growthRate() {
-            var growthRate = this.dexDataRubySapphireEmerald[this.starter].growth_rate
+            var growthRate = this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate
             if (growthRate == "GROWTH_MEDIUM_SLOW") {
                 return "Medium Slow"
             }
@@ -2117,7 +2136,7 @@ const app = Vue.createApp({
                 return "Erratic"
             }
             else {
-                return this.dexDataRubySapphireEmerald[starter].growth_rate
+                return this.g4PokemonDataRubySapphireEmerald[starter].growth_rate
             }
         },
         calcExpStats(growthRate, exp) {
@@ -2536,8 +2555,9 @@ const app = Vue.createApp({
             }
         },
         burnModifier(x) {
+            if (this.mapper.properties.meta.state.value == "No Pokemon") { return 1 }
             var attackingCategory = this.moveCategory(x)
-            if (attackingCategory == "Physical" && this.solo_mon.status_condition.value == `Burned` && this.mapper.properties.player.team[0].ability.value != `Guts`) {
+            if (attackingCategory == "Physical" && this.solo_mon.status_condition?.value == `Burned` && this.mapper.properties.player.team[0].ability?.value != `Guts`) {
                 return 0.5
                 }
             else {
@@ -2592,6 +2612,8 @@ const app = Vue.createApp({
         this.mapper.onConnected = (x) => this.ready = true
         this.mapper.onDisconnected = (x) => this.ready = false
         await this.mapper.connect()
+        this.updateTime()
+        this.load_all_settings()
 
         //EXP BAR ANIMATION FUNCTION
         var species = this.mapper.properties.player.team[0].species.value??this.starter;
@@ -2604,7 +2626,363 @@ const app = Vue.createApp({
             if (newProp.value == true) {
                 this.startTime()
             }
+            if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
+                this.playerResets++
+            }
         })
+
+        //*Autosplitter
+        const log_split = (x) => console.log(`Autosplitter - Battle Ended: Split: ${this.opponent} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
+        const autosplitter_process = () => {
+            console.log("Checking if autosplitter is on...")
+            if (this.autosplitter_toggle == true) {
+                console.log("Began Autosplitter Process")
+                d = new Date()
+                battle_end = Date.now()
+                //values
+                let gameTimeH = this.mapper.properties.game_time?.hours?.value
+                let gameTimeM = this.mapper.properties.game_time?.minutes?.value
+                let gameTimeS = this.mapper.properties.game_time?.seconds?.value
+                let gameTimeF = 0
+                
+                //data to be collected with the autosplitter
+                let date_string = (d.getMonth() + 1) + "-" + d.getDate().toString().padStart(2, "0")
+                let time_string = d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0") + ":" + d.getSeconds().toString().padStart(2, "0")
+                let player_name = this.mapper.properties.player.name.value
+                let pokemon = this.starter
+                console.log("opponent info: "+ this.opponent)
+                let trainer_name = this.mapper.properties.battle.opponent.name.value
+                // let trainer_name = this.format_trainer_name(this.mapper.properties.battle.trainer.class.value, this.mapper.properties.battle.trainer.number.value)
+                let trainer_id = this.mapper.properties.battle.opponent.id.value
+                let location = this.mapper.properties.overworld.map_name.value
+                let total_pokemon = this.mapper.properties.battle.opponent.team_count.value
+                let real_time_total = this.timer_formatted_time[0] + this.timer_formatted_time[1]
+                let real_time_hmmss = this.timer_formatted_time[0]
+                let real_time_file_label = this.timer_formatted_time[2]
+                let resets = this.playerResets.toString()
+                let blackouts = this.blackout_counter.toString()
+                let failures = this.playerResets + this.blackout_counter
+                let level = this.mapper.properties.player.team[0].level.value.toString()
+                let game_time = this.gametimeSplit.toString()
+                let battle_duration = (battle_end - this.battle_start)/1000 
+                let move1     = this.mapper.properties.player.team[0].moves[0].move.value
+                let move2     = this.mapper.properties.player.team[0].moves[1].move.value
+                let move3     = this.mapper.properties.player.team[0].moves[2].move.value
+                let move4     = this.mapper.properties.player.team[0].moves[3].move.value
+                let move1pp   = this.mapper.properties.player.team[0].moves[0].pp.value
+                let move2pp   = this.mapper.properties.player.team[0].moves[1].pp.value
+                let move3pp   = this.mapper.properties.player.team[0].moves[2].pp.value
+                let move4pp   = this.mapper.properties.player.team[0].moves[3].pp.value
+                let move1ppUp = this.mapper.properties.player.team[0].moves[0].pp_up.value
+                let move2ppUp = this.mapper.properties.player.team[0].moves[1].pp_up.value
+                let move3ppUp = this.mapper.properties.player.team[0].moves[2].pp_up.value
+                let move4ppUp = this.mapper.properties.player.team[0].moves[3].pp_up.value
+                let saves = 0
+                let steps = 0
+                let bonks = 0
+                let trainerBattles = 0
+                let wildBattles = 0
+                let battleTurns = 0
+                let playerTurns = 0
+                let enemyTurns  = 0
+                let itemsInBag  = 0
+                let money       = 0
+                let rivalTeam   = 0
+                let statusCondition = this.mapper.properties.player.team[0].status_condition.value
+                let type1 = this.g4PokemonData[this.starter].type_1
+                let type2 = this.g4PokemonData[this.starter].type_2
+                let experience = this.mapper.properties.player.team[0].exp.value
+                
+                //deprecated properties
+                let runIdentifier = this.starter.toString() + this.attempt_number.toString()
+                let trainerName = this.opponent
+                let RTHours = this.time_h
+                let RTMinutes = this.time_m
+                let RTSeconds = this.time_s
+                let RTMilliseconds = this.time_ms
+                let startTime = this.time_split_start
+                let realTime = this.padTime(this.time_h) + ":" + this.padTime(this.time_m) + ":" + this.padTime(this.time_s) + "." + this.padTime(this.time_ms)
+                let gameTime = this.padTime(gameTimeH) + ":" + this.padTime(gameTimeM) + ":" + this.padTime(gameTimeS) + "." + this.padTime(gameTimeF)
+
+                let hp    = this.mapper.properties.player.team[0].stats.hp.value
+                let maxHp = this.mapper.properties.player.team[0].stats.hp_max.value
+                let atk   = this.mapper.properties.player.team[0].stats.attack.value
+                let def   = this.mapper.properties.player.team[0].stats.defense.value
+                let spA   = this.mapper.properties.player.team[0].stats.special_attack.value
+                let spD   = this.mapper.properties.player.team[0].stats.special_defense.value
+                let spe   = this.mapper.properties.player.team[0].stats.speed.value
+
+                let statExp_hp  = this.mapper.properties.player.team[0].evs.hp.value
+                let statExp_atk = this.mapper.properties.player.team[0].evs.attack.value
+                let statExp_def = this.mapper.properties.player.team[0].evs.defense.value
+                let statExp_spA = this.mapper.properties.player.team[0].evs.special_attack.value
+                let statExp_spD = this.mapper.properties.player.team[0].evs.special_defense.value
+                let statExp_spe = this.mapper.properties.player.team[0].evs.speed.value
+
+                let iv_hp  = this.mapper.properties.player.team[0].ivs.hp.value
+                let iv_atk = this.mapper.properties.player.team[0].ivs.attack.value
+                let iv_def = this.mapper.properties.player.team[0].ivs.defense.value
+                let iv_spA = this.mapper.properties.player.team[0].ivs.special_attack.value
+                let iv_spD = this.mapper.properties.player.team[0].ivs.special_defense.value
+                let iv_spe = this.mapper.properties.player.team[0].ivs.speed.value
+
+                let mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
+                let mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
+                let mod_spA = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
+                let mod_spD = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
+                let mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
+                let mod_acc = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value
+                let mod_eva = this.mapper.properties.battle.player.active_pokemon.modifiers.evasion.value
+
+                let battle_atk = 0
+                let battle_def = 0
+                let battle_spA = 0
+                let battle_spD = 0
+                let battle_spe = 0
+                
+                //patch properties
+                let patch_frameCount                 = 0
+                let patch_oWFrameCount               = 0
+                let patch_battleFrameCount           = 0
+                let patch_menuFrameCount             = 0
+                let patch_introsFrameCount           = 0
+                let patch_saveCount                  = 0
+                let patch_reloadCount                = 0
+                let patch_clockResetCount            = 0
+                let patch_stepsCount                 = 0
+                let patch_stepsCountWalk             = 0
+                let patch_stepsCountBike             = 0
+                let patch_stepsCountSurf             = 0
+                let patch_bonks                      = 0
+                let patch_battles                    = 0
+                let patch_trainerBattles             = 0
+                let patch_wildBattles                = 0
+                let patch_battlesFled                = 0
+                let patch_failedRuns                 = 0
+                let patch_totalDamageDealt           = 0
+                let patch_actualDamageDealt          = 0
+                let patch_totalDamageTaken           = 0
+                let patch_actualDamageTaken          = 0
+                let patch_ownMovesHit                = 0
+                let patch_ownMovesMissed             = 0
+                let patch_enemyMovesHit              = 0
+                let patch_enemyMovesMissed           = 0
+                let patch_ownMovesSE                 = 0
+                let patch_ownMovesNVE                = 0
+                let patch_enemyMovesSE               = 0
+                let patch_enemyMovesNVE              = 0
+                let patch_criticalsDealt             = 0
+                let patch_oHKOsDealt                 = 0
+                let patch_criticalsTaken             = 0
+                let patch_oHKOsTaken                 = 0
+                let patch_wasConfused                = 0
+                let patch_enemyBecameConfused        = 0
+                let patch_wasParalyzed               = 0
+                let patch_enemyWasParalyzed          = 0
+                let patch_wasBurned                  = 0
+                let patch_enemyWasBurned             = 0
+                let patch_wasFrozen                  = 0
+                let patch_enemyWasFrozen             = 0
+                let patch_wasPoisoned                = 0
+                let patch_enemyWasPoisoned           = 0
+                let patch_wasPoisonedBadly           = 0
+                let patch_enemyWasPoisonedBadly      = 0
+                let patch_fellAsleep                 = 0
+                let patch_enemyFellAsleep            = 0
+                let patch_playerTurnsConfused        = 0
+                let patch_enemyTurnsConfused         = 0
+                let patch_playerTurnsConfusedHitSelf = 0
+                let patch_enemyTurnsConfusedHitSelf  = 0
+                let patch_playerTurnsParalyzed       = 0
+                let patch_enemyTurnsParalyzed        = 0
+                let patch_playerTurnsParalyzedFully  = 0
+                let patch_enemyTurnsParalyzedFully   = 0
+                let patch_PlayerTurnsAsleep          = 0
+                let patch_EnemyTurnsAsleep           = 0
+                let patch_playerHpHealed             = 0
+                let patch_enemyHpHealed              = 0
+                let patch_playerPokemonFainted       = 0
+                let patch_enemyPokemonFainted        = 0
+                let patch_experienceGained           = 0
+                let patch_switchout                  = 0
+                let patch_moneyMade                  = 0
+                let patch_moneySpent                 = 0
+                let patch_moneyLost                  = 0
+                let patch_itemsPickedUp              = 0
+                let patch_itemsBought                = 0
+                let patch_itemsSold                  = 0
+                let patch_ballsThrown                = 0
+                let patch_pokemonCaughtInBalls       = 0
+                let patch_movesLearnt                = 0
+
+                //definitions for what split data is logged to file
+                let simple_data = [
+                    player_name, pokemon, trainer_name, real_time_hmmss, 
+                    resets, blackouts, level, game_time, battle_duration, 
+                    move1, move2, move3, move4
+                ]
+                let full_data = simple_data
+                if (this.scott_mode == true) {
+                    full_data = [
+                        date_string, time_string, player_name, pokemon, trainer_name, 
+                        trainer_id, location, total_pokemon, real_time_total, 
+                        real_time_hmmss, real_time_file_label, resets, blackouts, failures, 
+                        level, game_time, battle_duration, move1, move2, move3, move4, 
+                        saves, steps, bonks, trainerBattles, wildBattles, battleTurns, 
+                        playerTurns, enemyTurns, itemsInBag, money, rivalTeam,
+                        statusCondition, type1, type2, experience,
+                        runIdentifier, this.starter, trainerName,
+                        startTime, realTime, gameTime, level, this.playerResets,
+                        RTHours, RTMinutes, RTSeconds, RTMilliseconds,
+                        move1, move2, move3, move4, move1pp, move2pp, move3pp, move4pp, move1ppUp, move2ppUp, move3ppUp, move4ppUp,
+                        hp, maxHp, atk, def, spA, spD, spe,
+                        statExp_hp, statExp_atk, statExp_def, statExp_spA, statExp_spD, statExp_spe,
+                        iv_hp, iv_atk, iv_def, iv_spA, iv_spD, iv_spe,
+                        mod_atk, mod_def, mod_spA, mod_spD, mod_spe, mod_acc, mod_eva,
+                        battle_atk, battle_def, battle_spA, battle_spD, battle_spe,
+                        patch_frameCount, patch_oWFrameCount, patch_battleFrameCount, patch_menuFrameCount, patch_introsFrameCount,
+                        patch_saveCount, patch_reloadCount, patch_clockResetCount,
+                        patch_stepsCount, patch_stepsCountWalk, patch_stepsCountBike, patch_stepsCountSurf, patch_bonks,
+                        patch_battles, patch_trainerBattles, patch_wildBattles, patch_battlesFled, patch_failedRuns,
+                        patch_totalDamageDealt, patch_actualDamageDealt, patch_totalDamageTaken, patch_actualDamageTaken,
+                        patch_ownMovesHit, patch_ownMovesMissed, patch_enemyMovesHit, patch_enemyMovesMissed, 
+                        patch_ownMovesSE, patch_ownMovesNVE, patch_enemyMovesSE, patch_enemyMovesNVE, 
+                        patch_criticalsDealt, patch_oHKOsDealt, patch_criticalsTaken, patch_oHKOsTaken,
+                        patch_wasConfused, patch_enemyBecameConfused, patch_wasParalyzed, patch_enemyWasParalyzed, 
+                        patch_wasBurned, patch_enemyWasBurned, patch_wasFrozen, patch_enemyWasFrozen,
+                        patch_wasPoisoned, patch_enemyWasPoisoned, patch_wasPoisonedBadly, patch_enemyWasPoisonedBadly,
+                        patch_fellAsleep, patch_enemyFellAsleep, patch_playerTurnsConfused, patch_playerTurnsConfusedHitSelf, 
+                        patch_playerTurnsParalyzed, patch_playerTurnsParalyzedFully, patch_enemyTurnsConfused, patch_enemyTurnsConfusedHitSelf, 
+                        patch_enemyTurnsParalyzed, patch_enemyTurnsParalyzedFully, patch_PlayerTurnsAsleep, patch_EnemyTurnsAsleep,
+                        patch_playerHpHealed, patch_enemyHpHealed, 
+                        patch_playerPokemonFainted, patch_enemyPokemonFainted, patch_experienceGained, patch_switchout,
+                        patch_moneyMade, patch_moneySpent, patch_moneyLost,
+                        patch_itemsPickedUp, patch_itemsBought, patch_itemsSold,
+                        patch_ballsThrown, patch_pokemonCaughtInBalls,
+                        patch_movesLearnt,
+                        //new properties
+                        blackouts, this.attempt_number, failures, rivalTeam
+                    ]
+                }
+
+                let deprecated_data = []
+                if (this.scott_mode == true) {
+                    deprecated_data = [
+                        runIdentifier, this.starter, trainerName,
+                        startTime, realTime, gameTime, level, this.playerResets,
+                        RTHours, RTMinutes, RTSeconds, RTMilliseconds,
+                        move1, move2, move3, move4,
+                        atk, def, spA, spD, spe,
+                        mod_atk, mod_def, mod_spA, mod_spD, mod_spe, mod_acc, mod_eva,
+                        battle_atk, battle_def, battle_spA, battle_spD, battle_spe,
+                        patch_frameCount, patch_oWFrameCount, patch_battleFrameCount, patch_menuFrameCount, patch_introsFrameCount,
+                        patch_saveCount, patch_reloadCount, patch_clockResetCount,
+                        patch_stepsCount, patch_stepsCountWalk, patch_stepsCountBike, patch_stepsCountSurf, patch_bonks,
+                        patch_battles, patch_trainerBattles, patch_wildBattles, patch_battlesFled, patch_failedRuns,
+                        patch_totalDamageDealt, patch_actualDamageDealt, patch_totalDamageTaken, patch_actualDamageTaken,
+                        patch_ownMovesHit, patch_ownMovesMissed, patch_enemyMovesHit, patch_enemyMovesMissed, 
+                        patch_ownMovesSE, patch_ownMovesNVE, patch_enemyMovesSE, patch_enemyMovesNVE, 
+                        patch_criticalsDealt, patch_oHKOsDealt, patch_criticalsTaken, patch_oHKOsTaken,
+                        patch_wasConfused, patch_enemyBecameConfused, patch_wasParalyzed, patch_enemyWasParalyzed, 
+                        patch_wasBurned, patch_enemyWasBurned, patch_wasFrozen, patch_enemyWasFrozen,
+                        patch_wasPoisoned, patch_enemyWasPoisoned, patch_wasPoisonedBadly, patch_enemyWasPoisonedBadly,
+                        patch_fellAsleep, patch_enemyFellAsleep, patch_playerTurnsConfused, patch_playerTurnsConfusedHitSelf, 
+                        patch_playerTurnsParalyzed, patch_playerTurnsParalyzedFully, patch_enemyTurnsConfused, patch_enemyTurnsConfusedHitSelf, 
+                        patch_enemyTurnsParalyzed, patch_enemyTurnsParalyzedFully,
+                        patch_playerHpHealed, patch_enemyHpHealed, 
+                        patch_playerPokemonFainted, patch_enemyPokemonFainted, patch_experienceGained, patch_switchout,
+                        patch_moneyMade, patch_moneySpent, patch_moneyLost,
+                        patch_itemsPickedUp, patch_itemsBought, patch_itemsSold,
+                        patch_ballsThrown, patch_pokemonCaughtInBalls,
+                        patch_movesLearnt,
+                        //new properties
+                        blackouts, this.attempt_number, failures, rivalTeam
+                    ]
+                }
+                
+                let simple_data_str = simple_data.join(",") + "\n";
+                let full_data_str = full_data.join(",") + "\n";
+                let deprecated_data_str = deprecated_data.join(",") + "\n";
+                MyStorage["simple_data_str"] = simple_data_str
+                MyStorage["full_data_str"] = full_data_str
+                MyStorage["simple_data"] = simple_data
+                MyStorage["deprecated_data_str"] = deprecated_data_str
+                this.simple_data_str = simple_data_str
+                this.full_data_str = full_data_str
+                this.simple_data = simple_data
+                this.deprecated_data_str = deprecated_data_str
+            }
+        }
+
+        //write to file at the end of a key battle
+        this.mapper.properties.meta.state.change(async (prop) => {
+            console.log(`State Changed to "${prop.value}"`)
+            if (prop.value != 'From Battle') { return  }
+            autosplitter_process()
+            console.log('Autosplitter Attempted to Run')
+            if (prop.value == 'From Battle') {
+                console.log('Starting split log process')
+                let trainer = this.mapper.properties.battle.opponent.name.value
+                let id = this.mapper.properties.battle.opponent.id.value
+                let gameName = 'Platinum'
+                if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
+                    gameName = 'HGSS'
+                }
+                
+                //write full split data
+                logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode)
+                
+                //write deprecated split data
+                if (this.autosplitter[this.game.gameName][trainer]) {
+                    logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode)
+                }
+                
+                //write simple split data
+                const simpleSplit = () => {
+                    log_split()
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode)
+                    this.split_data.push(this.simple_data)
+                    MyStorage["split_data"] = this.split_data
+                    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
+                        ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
+                        split_data: this.split_data
+                    }
+                }
+                if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
+                    simpleSplit();
+                }
+        
+                if (this.game.champion.includes(trainer)) {
+                    this.hallOfFameReset = true;
+                }
+
+                //stop timer
+                if (this.game.finalBattle.includes(trainer)) {
+                    this.stopTime()
+                    if (this.testRun == false) {
+                        this.finished_run_count++
+                    };
+                    log_split();
+                    
+                    //use then so that logCopy doesn't touch any files until logData finishes
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode)
+                    .then(() => {
+                            console.log("Run complete - moving attempt files to finished folder.")
+                            logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count);
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                    this.split_data.push(this.simple_data)
+                    MyStorage["split_data"] = this.split_data
+                    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
+                        ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
+                        split_data: this.split_data
+                    }
+                    console.log("Data transfer finished.")
+                }
+            }
+        });
 
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
@@ -2660,5 +3038,15 @@ const app = Vue.createApp({
                 }
             }
         })
+        // keybinds
+        keyhook.registerShortCut('F23', async () => {
+            this.newRun()
+        });
+        keyhook.registerShortCut('F12', async () => {
+            this.pauseUnpauseTime()
+        });
+        keyhook.registerShortCut('F24', async () => {
+            this.pauseUnpauseTime()
+        });
     },
 }).mount('#app')

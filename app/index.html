@@ -47,7 +47,7 @@
             <img class="canvas colored-image ds" src="images/ui/friendship_nature.svg" />
             <img class="canvas" :src="`images/ui/badges_unobtained.png`" />
             <img class="canvas" :src="`images/ui/move_backgrounds.png`" />
-            <div class="gametime">
+            <div>
                 <div class="gametimeClock">{{timer_formatted_time[0]}}</div>
                 <div class="gametimeFrames">{{timer_formatted_time[1]}}</div>
             </div>
@@ -93,7 +93,7 @@
                             <td><button @click="decrement('blackout_counter')" class="smallButtonStyle">v</button></td>
                         </tr>
                     </table>
-                    Test Run: <input class="checkBoxStyle" type="checkbox" v-model="testStatus"/>
+                    Test Run: <input class="checkBoxStyle" type="checkbox" v-model="testRun"/>
                     <br>
                     <br>
                     <div>Pokemon Image Settings</div>
@@ -101,7 +101,7 @@
                     Y-Offset: <input type="range" min="-400" max="400"v-model="imageYOffset"/><br>
                     Scale: <input type="range" min="0.2" max="2.5" step="0.01" v-model="imageScale"/><br>
                     Saturation: <input type="range" min="90" max="150" step="1" v-model="imageSat"/><br>
-                    Rotation: <input type="range" min="-180" max="180" step=".25" v-model="imageRotation"/><br>
+                    Rotation: <input type="range" min="-180" max="180" step=".01" v-model="imageRotation"/><br>
                     Flip: <input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/><br>
                     <button @click="resetPokemon()" class="buttonStyle">Reset Pokemon Settings</button><br>
                     <!-- <br> -->
@@ -125,6 +125,11 @@
                     Flip: <input class="checkBoxStyle" type="checkbox" v-model="backgroundFlip"/><br>
                     <button @click="reset()" class="buttonStyle">Reset Texture Settings</button><br>
                     <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
+                </div>
+                <div class="ui2">
+                    <div>GTH: {{mapper.properties.game_time.hours.value}}</div>
+                    <div>GTM: {{mapper.properties.game_time.minutes.value}}</div>
+                    <div>GTS: {{mapper.properties.game_time.seconds.value}}</div>
                 </div>
                 <!-- <div class="ui2">
                     <div style="font-size: 24px;">Advanced Settings:</div>
@@ -290,7 +295,7 @@
 
             <!--------- BADGE ICONS ---------------------------------------------------------------------------------------------------------------------->
             <div v-for="x in badges">
-                <div v-if="mapper.properties.player.badges[x].value == true && mapper.properties.meta.state != `No Pokemon`">
+                <div v-if="mapper.properties.player.badges[x].value == true && mapper.properties.meta.state != `No Pokemon` && mapper.properties.meta.global_pointer.value != 0">
                     <img class="badge" :src="`images/badges/${x}.png`"/>
                 </div>
             </div>
@@ -506,14 +511,16 @@
             <div style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <img :src="`images/pop_ups/accuracy/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;">
+                        <!-- <img :src="`images/pop_ups/accuracy/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;"> -->
+                        <div class="colored-image ds" style="--url: url(images/ui/accuracy.svg)"></div>
                         <div class="genericLabels accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value }}</div>
                     </div>
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <img :src="`images/pop_ups/evasion/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;">
+                        <!-- <img :src="`images/pop_ups/evasion/${mapper.properties.player.team[0].species.value??starter}${overlayName}.png`" style="position: absolute;"> -->
+                        <div class="colored-image ds" style="--url: url(images/ui/evasion.svg)"></div>
                         <div class="genericLabels evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.evasion.value }}</div>
                     </div>
@@ -569,6 +576,8 @@
     <script src="lib/moves.js"></script>
     <script src="lib/textures.js"></script>
     <script src="lib/default_colors.js"></script>
+    <script src="lib/game_variables.js"></script>
+    <script src="lib/autosplitter.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="vue.js"></script>
 </body>
