@@ -67,7 +67,7 @@
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
                     <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button><br>
                     <button @click="startTime()" class="buttonStyle" style="background-color: rgb(223, 138, 82);">Start Timer</button><br>
-                    Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.000"/><br>
+                    Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.00"/><br>
                     <br>
                     <table>
                         <tr>
@@ -416,11 +416,7 @@
             <!-- Exp bar -->
             <div>
                 <div class="growthRate">{{g4PokemonData[starter].growth_rate}}</div>
-                <div v-show="mapper.properties.player.team[0].species.value != null" class="labelEXP">
-                    <span v-show="mapper.properties.meta.state.value == 'Battle' || mapper.properties.meta.state.value == 'From Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.battle.player.active_pokemon.exp).percent)}}%</span>
-                    <span v-show="mapper.properties.meta.state.value == 'Overworld' || mapper.properties.meta.state.value == 'To Battle'">{{decimalToPercentage(calcExpStats(g4PokemonData[mapper.properties.player.team[0].species.value??starter].growth_rate, mapper.properties.player.team[0].exp).percent)}}%</span>
-                </div>
-                <div v-show="mapper.properties.player.team[0].species.value == null"class="labelEXP">Exp:</div>
+                <div class="labelEXP">{{exp_percentage}}%</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
                 <img src="images/misc/label.png" style="top: 298px; position: absolute;">
             </div>

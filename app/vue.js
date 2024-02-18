@@ -617,17 +617,17 @@ const app = Vue.createApp({
                 "finished_run_count",
             ],
             //timer variables
-            timer_startTimeOffset: "",
-            timer_startTime:      MyStorage["timer_startTime"]      ?? 0,
-            timer_pause:          MyStorage["timer_pause"]          ?? true,
-            timer_formatted_time: MyStorage["timer_formatted_time"] ?? ["0", ".00"],
-            timer_pause_time:     MyStorage["timer_pause_time"]     ?? 0,
-            time_h:               MyStorage['time_h']               ?? 0,
-            time_m:               MyStorage['time_m']               ?? 0,
-            time_s:               MyStorage['time_s']               ?? 0,
-            time_ms:              MyStorage['time_ms']              ?? 0,
-            time_split_start:     MyStorage['time_split_start']     ?? "00:00:00:00",
-            battle_start:         MyStorage['battle_start']         ?? 0,
+            timer_startTimeOffset: MyStorage["timer_startTimeOffset"] ?? "00:00:00.00",
+            timer_startTime:       MyStorage["timer_startTime"]       ?? 0,
+            timer_pause:           MyStorage["timer_pause"]           ?? true,
+            timer_formatted_time:  MyStorage["timer_formatted_time"]  ?? ["0", ".00"],
+            timer_pause_time:      MyStorage["timer_pause_time"]      ?? 0,
+            time_h:                MyStorage['time_h']                ?? 0,
+            time_m:                MyStorage['time_m']                ?? 0,
+            time_s:                MyStorage['time_s']                ?? 0,
+            time_ms:               MyStorage['time_ms']               ?? 0,
+            time_split_start:      MyStorage['time_split_start']      ?? "00:00:00:00",
+            battle_start:          MyStorage['battle_start']          ?? 0,
 
             //resets
             playerId: MyStorage["playerId"] ?? 0,
@@ -649,7 +649,6 @@ const app = Vue.createApp({
             deprecated_data_str: MyStorage["deprecated_data_str"] ?? "",
             simple_data:         MyStorage["simple_data"]         ?? "",
             testRun:             MyStorage['testRun']             ?? false,
-            exp_percentage: 0,
 
             auto_save: [
                 "graphicOverlay",
@@ -686,6 +685,7 @@ const app = Vue.createApp({
                 "full_data_str",
                 "deprecated_data_str",
                 "simple_data",
+                "timer_startTimeOffset",
                 "timer_startTime",
                 "timer_pause",
                 "timer_formatted_time",
@@ -821,6 +821,23 @@ const app = Vue.createApp({
         },
     },
     computed: {
+        state() {
+            this.mapper.properties.meta.state.value
+        },
+        exp_label_percentage() {
+            switch (this.state) {
+                case "No Pokemon":
+                    return "0%";
+                case "Battle":
+                    return "0%";
+                case "From Battle":
+                    return "0%";
+                case "To Battle":
+                    return "0%";
+                case "Overworld":
+                    return "0%";
+            }
+        },
         gametimeSplit() {
             h = this.mapper.properties.game_time.hours.value
             m = this.mapper.properties.game_time.minutes.value
@@ -2636,7 +2653,6 @@ const app = Vue.createApp({
             this.expBarState.species = species;
             this.expBarState.expPoints = expPoints;
         }
-
 
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
             if (newProp.value == true) {
