@@ -1284,10 +1284,13 @@ const app = Vue.createApp({
             }
         },
         newRun() {
+            const timeRegex = /(\d+:\d{2}:\d{2})(\.\d{2})/;
+            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,3);
+            
             this.timer_pause = true
             this.timer_startTime = 0
             this.timer_pause_time = 0
-            this.timer_formatted_time = [ "0", ".00" ]
+            this.timer_formatted_time = timeOffsetArray ?? [ "0", ".00" ]
             this.playerResets = 0
             this.finished_logs = false
             this.blackout_counter = 0
