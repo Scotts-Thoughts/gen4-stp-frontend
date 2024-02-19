@@ -355,7 +355,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).level">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).level">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -364,7 +364,7 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).tmhm">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tmhm">
                             <td class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>

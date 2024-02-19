@@ -1550,7 +1550,7 @@ const app = Vue.createApp({
         },
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             let currentStat = 0
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == null) {
+            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
                 currentStat = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
                 modifier = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
                 stageModification = this.stageModifiersData.stats[modifier]
@@ -2609,7 +2609,7 @@ const app = Vue.createApp({
             const user_type_2 = this.g4PokemonData[species].type_2
             const target_type_1 = this.mapper.properties.battle.player.active_pokemon.type_1.value
             const target_type_2 = this.mapper.properties.battle.player.active_pokemon.type_2.value
-            if (move_base_power == "—" || move_base_power == "-") { return "-" }
+            if (move_base_power == "—" || move_base_power == "-") { return "—" }
             var move_effective_power = move_base_power
             var modifier_effectiveness_1 = this.typeData.find(x => x.moveType == move_type)[target_type_1]
             var modifier_effectiveness_2 = target_type_2 && move_type && (target_type_1 != target_type_2) ? this.typeData.find(x => x.moveType == move_type)[target_type_2]
@@ -2681,6 +2681,11 @@ const app = Vue.createApp({
         this.mapper._debouceTimeout = 10
         this.mapper.deboucePath("battle.opponent.active_pokemon")
         this.mapper.deboucePath("battle.opponent.team")
+        this.mapper.deboucePath("player.team") // TODO: requires testing
+        this.mapper.deboucePath("battle.player.active_pokemon") // TODO: requires testing
+        this.mapper.deboucePath("battle.player.active_pokemon.type_1") // TODO: requires testing
+        this.mapper.deboucePath("battle.player.active_pokemon.type_2") // TODO: requires testing
+        this.mapper.deboucePath("player.team.0.species") // TODO: requires testing
         await this.mapper.connect()
         this.updateTime()
         this.load_all_settings()
