@@ -330,7 +330,8 @@
                                             <th v-if="enemy_mon_static[x].moves[move_index] != undefined"class="align_left" style="font-size: 15px;">
                                                 {{enemy_mon_static[x].moves[move_index]}}
                                             </th>
-                                            <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right">
+                                            <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: 1;" class="align_right">
+                                            <!-- <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
                                                 <div>{{enemy_effective_power(enemy_mon_static[x].moves[move_index], mapper.properties.battle.opponent.team[x])}}</div>
                                             </th>
                                         </tr>
