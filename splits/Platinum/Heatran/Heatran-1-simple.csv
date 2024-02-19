@@ -1,0 +1,11 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Heatran,Rival,9:23,0,0,8,0:27,1708374180.966,AncientPower,Return,,
+Dawn,Heatran,Leader Roark,21:19,2,0,14,1:00,1708374897.57,AncientPower,Return,Leer,
+Dawn,Heatran,Commander Mars,27:45,2,0,16,1:20,1708375283.276,AncientPower,Return,Leer,Rock Tomb
+Dawn,Heatran,Leader Gardenia,35:46,2,0,22,1:46,1708375764.269,Fire Fang,Return,AncientPower,Rock Tomb
+Dawn,Heatran,Commander Jupiter,37:55,2,0,23,1:52,1708375892.797,Fire Fang,Return,AncientPower,Rock Tomb
+Dawn,Heatran,Leader Fantina,51:35,2,0,26,2:32,1708376712.873,Fire Fang,Return,AncientPower,Earthquake
+Dawn,Heatran,Rival,54:39,4,0,28,2:39,1708376897.242,Fire Fang,Return,AncientPower,Earthquake
+Dawn,Heatran,Leader Maylene,1:07:04,6,0,32,3:12,1708377642.019,Fire Fang,Return,AncientPower,Earthquake
+Dawn,Heatran,Rival,1:15:34,6,0,36,3:38,1708378151.914,Fire Fang,Return,AncientPower,Earthquake
+Dawn,Heatran,Leader Wake,1:26:09,11,0,46,4:00,1708378786.706,Fire Fang,Return,AncientPower,Earthquake

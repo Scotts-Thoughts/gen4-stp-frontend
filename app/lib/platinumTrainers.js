@@ -7451,7 +7451,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Slash",
-                    "X-scissor",
+                    "X-Scissor",
                     "Quick Attack",
                     "Fury Cutter"
                 ],
@@ -14950,7 +14950,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Iron Head",
-                    "X-scissor",
+                    "X-Scissor",
                     "Night Slash",
                     "Quick Attack"
                 ],
@@ -15021,7 +15021,7 @@ const platinumTrainers = [
                 "spd": 100,
                 "held_item": "Sitrus Berry",
                 "moves": [
-                    "X-scissor",
+                    "X-Scissor",
                     "Cross Poison",
                     "Ice Fang",
                     "Aerial Ace"
@@ -16593,7 +16593,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Metal Claw",
-                    "X-scissor",
+                    "X-Scissor",
                     "Slash",
                     "Pursuit"
                 ],
@@ -17900,7 +17900,7 @@ const platinumTrainers = [
                     "Sing",
                     "Focus Energy",
                     "Slash",
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 "ability": "Swarm",
                 "xp": 1123,
@@ -23854,7 +23854,7 @@ const platinumTrainers = [
                     "Night Slash",
                     "Ice Punch",
                     "Fake Out",
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 "ability": "Pressure",
                 "xp": 2046,
@@ -24279,7 +24279,7 @@ const platinumTrainers = [
                 "moves": [
                     "Poison Jab",
                     "Brick Break",
-                    "X-scissor",
+                    "X-Scissor",
                     "Faint Attack"
                 ],
                 "ability": "Anticipation",
@@ -29920,7 +29920,7 @@ const platinumTrainers = [
                 "spd": 105,
                 "held_item": null,
                 "moves": [
-                    "X-scissor",
+                    "X-Scissor",
                     "Giga Drain",
                     "Spore",
                     "Slash"
@@ -34197,7 +34197,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Superpower",
-                    "X-scissor",
+                    "X-Scissor",
                     "Swords Dance",
                     "Rock Tomb"
                 ],
@@ -34709,7 +34709,7 @@ const platinumTrainers = [
                     "Slash",
                     "Gyro Ball",
                     "Dig",
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 "ability": "Sand Veil",
                 "xp": 1956,
@@ -35200,7 +35200,7 @@ const platinumTrainers = [
                 "moves": [
                     "Cross Poison",
                     "Crunch",
-                    "X-scissor",
+                    "X-Scissor",
                     "Aerial Ace"
                 ],
                 "ability": "Battle Armor",
@@ -35379,7 +35379,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Aerial Ace",
-                    "X-scissor",
+                    "X-Scissor",
                     "Earthquake",
                     "Quick Attack"
                 ],
@@ -35966,7 +35966,7 @@ const platinumTrainers = [
                 "moves": [
                     "Detect",
                     "False Swipe",
-                    "X-scissor",
+                    "X-Scissor",
                     "Close Combat"
                 ],
                 "ability": "Immunity",
@@ -41280,7 +41280,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Thunder Fang",
-                    "X-scissor",
+                    "X-Scissor",
                     "Quick Attack",
                     "Aerial Ace"
                 ],
@@ -41816,7 +41816,7 @@ const platinumTrainers = [
                     "Slash",
                     "Gyro Ball",
                     "Dig",
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 "ability": "Sand Veil",
                 "xp": 2059,
@@ -44514,7 +44514,7 @@ const platinumTrainers = [
                     "Sing",
                     "Focus Energy",
                     "Slash",
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 "ability": "Swarm",
                 "xp": 1089,
@@ -44623,7 +44623,7 @@ const platinumTrainers = [
                 "spd": 89,
                 "held_item": null,
                 "moves": [
-                    "X-scissor",
+                    "X-Scissor",
                     "Night Slash",
                     "Double Hit",
                     "Iron Head"
@@ -45847,7 +45847,7 @@ const platinumTrainers = [
                 "moves": [
                     "Detect",
                     "False Swipe",
-                    "X-scissor",
+                    "X-Scissor",
                     "Close Combat"
                 ],
                 "ability": "Immunity",
@@ -48746,7 +48746,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Baton Pass",
-                    "X-scissor",
+                    "X-Scissor",
                     "Swords Dance",
                     "Silver Wind"
                 ],
@@ -54575,7 +54575,7 @@ const platinumTrainers = [
                 "spd": 80,
                 "held_item": null,
                 "moves": [
-                    "X-scissor",
+                    "X-Scissor",
                     "Aerial Ace",
                     "Swords Dance",
                     "Slash"
@@ -55023,7 +55023,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Iron Head",
-                    "X-scissor",
+                    "X-Scissor",
                     "Night Slash",
                     "Quick Attack"
                 ],
@@ -55094,7 +55094,7 @@ const platinumTrainers = [
                 "spd": 129,
                 "held_item": "Sitrus Berry",
                 "moves": [
-                    "X-scissor",
+                    "X-Scissor",
                     "Cross Poison",
                     "Ice Fang",
                     "Aerial Ace"
@@ -56534,7 +56534,7 @@ const platinumTrainers = [
                 "moves": [
                     "Focus Energy",
                     "Slash",
-                    "X-scissor",
+                    "X-Scissor",
                     "Screech"
                 ],
                 "ability": "Swarm",

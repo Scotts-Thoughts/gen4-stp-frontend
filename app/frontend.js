@@ -3154,9 +3154,9 @@ const app = Vue.createApp({
         keyhook.registerShortCut('F23', async () => {
             this.newRun()
         });
-        // keyhook.registerShortCut('F12', async () => {
-        //     this.pauseUnpauseTime()
-        // });
+        keyhook.registerShortCut('F12', async () => {
+            this.pauseUnpauseTime()
+        });
         keyhook.registerShortCut('F24', async () => {
             this.pauseUnpauseTime()
         });

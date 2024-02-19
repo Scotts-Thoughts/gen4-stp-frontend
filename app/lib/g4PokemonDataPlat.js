@@ -1024,7 +1024,7 @@ const g4PokemonData =
                 "Giga Impact",
                 "Captivate",
                 "Dark Pulse",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -1167,7 +1167,7 @@ const g4PokemonData =
                 "Shadow Claw",
                 "Giga Impact",
                 "Flash",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Dream Eater",
@@ -1793,7 +1793,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -5957,7 +5957,7 @@ const g4PokemonData =
                 ],
                 [
                     42,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     45,
@@ -6001,7 +6001,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -6162,7 +6162,7 @@ const g4PokemonData =
                 "Psych Up",
                 "Captivate",
                 "Dark Pulse",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -7136,7 +7136,7 @@ const g4PokemonData =
                 ],
                 [
                     55,
-                    "X-scissor"
+                    "X-Scissor"
                 ]
             ],
             "tm_hm_learnset": [
@@ -7167,7 +7167,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -8335,7 +8335,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Dream Eater",
@@ -8994,7 +8994,7 @@ const g4PokemonData =
                 "Psych Up",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -9446,7 +9446,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -10223,7 +10223,7 @@ const g4PokemonData =
                 ],
                 [
                     32,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     36,
@@ -10506,7 +10506,7 @@ const g4PokemonData =
                 ],
                 [
                     55,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ]
             ],
             "tm_hm_learnset": [
@@ -12817,7 +12817,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -16253,7 +16253,7 @@ const g4PokemonData =
                 ],
                 [
                     37,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     41,
@@ -17546,7 +17546,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -19940,7 +19940,7 @@ const g4PokemonData =
                 ],
                 [
                     48,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     53,
@@ -19990,7 +19990,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -20603,7 +20603,7 @@ const g4PokemonData =
                 ],
                 [
                     28,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     33,
@@ -23646,7 +23646,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -25533,7 +25533,7 @@ const g4PokemonData =
                 ],
                 [
                     34,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     37,
@@ -25696,7 +25696,7 @@ const g4PokemonData =
                 ],
                 [
                     73,
-                    "X-scissor"
+                    "X-Scissor"
                 ]
             ],
             "tm_hm_learnset": [
@@ -25729,7 +25729,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -27472,7 +27472,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -27717,7 +27717,7 @@ const g4PokemonData =
                 ],
                 [
                     36,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     40,
@@ -28845,7 +28845,7 @@ const g4PokemonData =
                 "Psych Up",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -29174,7 +29174,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -30100,7 +30100,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -30917,7 +30917,7 @@ const g4PokemonData =
                 ],
                 [
                     35,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     38,
@@ -31648,7 +31648,7 @@ const g4PokemonData =
                 ],
                 [
                     43,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     48,
@@ -33600,7 +33600,7 @@ const g4PokemonData =
                 "Psych Up",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -34627,7 +34627,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -35344,7 +35344,7 @@ const g4PokemonData =
                 "False Swipe",
                 "Endure",
                 "Flash",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -38760,7 +38760,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Dark Pulse",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -40435,7 +40435,7 @@ const g4PokemonData =
                 ],
                 [
                     30,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     35,
@@ -40489,7 +40489,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -41315,7 +41315,7 @@ const g4PokemonData =
                 ],
                 [
                     36,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     40,
@@ -41600,7 +41600,7 @@ const g4PokemonData =
                 ],
                 [
                     28,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     31,
@@ -43780,7 +43780,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -45205,7 +45205,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -46166,7 +46166,7 @@ const g4PokemonData =
                 "Giga Impact",
                 "Flash",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -52203,7 +52203,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -52466,7 +52466,7 @@ const g4PokemonData =
                 ],
                 [
                     41,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     45,
@@ -52514,7 +52514,7 @@ const g4PokemonData =
                 "Giga Impact",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -52615,7 +52615,7 @@ const g4PokemonData =
                 ],
                 [
                     22,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     25,
@@ -53383,7 +53383,7 @@ const g4PokemonData =
                 ],
                 [
                     52,
-                    "X-scissor"
+                    "X-Scissor"
                 ]
             ],
             "tm_hm_learnset": [
@@ -53414,7 +53414,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -53793,7 +53793,7 @@ const g4PokemonData =
                 ],
                 [
                     30,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     34,
@@ -53839,7 +53839,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -54141,7 +54141,7 @@ const g4PokemonData =
                 "Payback",
                 "Captivate",
                 "Dark Pulse",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -58416,7 +58416,7 @@ const g4PokemonData =
                 ],
                 [
                     42,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     45,
@@ -58462,7 +58462,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -62035,7 +62035,7 @@ const g4PokemonData =
                 ],
                 [
                     61,
-                    "X-scissor"
+                    "X-Scissor"
                 ]
             ],
             "tm_hm_learnset": [
@@ -62063,7 +62063,7 @@ const g4PokemonData =
                 "Stealth Rock",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -62673,7 +62673,7 @@ const g4PokemonData =
                 ],
                 [
                     41,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     45,
@@ -62723,7 +62723,7 @@ const g4PokemonData =
                 "Giga Impact",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Swagger",
@@ -65757,7 +65757,7 @@ const g4PokemonData =
                 ],
                 [
                     43,
-                    "X-scissor"
+                    "X-Scissor"
                 ]
             ],
             "tm_hm_learnset": [
@@ -65786,7 +65786,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -67923,7 +67923,7 @@ const g4PokemonData =
                 ],
                 [
                     42,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     47,
@@ -68232,7 +68232,7 @@ const g4PokemonData =
                 ],
                 [
                     16,
-                    "X-scissor"
+                    "X-Scissor"
                 ],
                 [
                     17,
@@ -68305,7 +68305,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -68802,7 +68802,7 @@ const g4PokemonData =
                 "Psych Up",
                 "Captivate",
                 "Dark Pulse",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -69089,7 +69089,7 @@ const g4PokemonData =
                 ],
                 [
                     34,
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 [
                     37,
@@ -70537,7 +70537,7 @@ const g4PokemonData =
                 "Flash",
                 "Swords Dance",
                 "Captivate",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -74114,7 +74114,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",
@@ -74435,7 +74435,7 @@ const g4PokemonData =
                 "Swords Dance",
                 "Captivate",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Grass Knot",
@@ -74636,7 +74636,7 @@ const g4PokemonData =
                 "Captivate",
                 "Dark Pulse",
                 "Rock Slide",
-                "X-scissor",
+                "X-Scissor",
                 "Sleep Talk",
                 "Natural Gift",
                 "Poison Jab",

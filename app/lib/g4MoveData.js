@@ -1074,7 +1074,7 @@ const g4MoveData = {
         Accuracy: "100",
         Description: "The user lunges at the target at a speed that makes it almost invisible. This move always goes first."
     },
-    "Wake Up Slap":
+    "Wake-Up Slap":
     {
         Move: "Quick Attack",
         Type: "Fighting",
@@ -2184,9 +2184,9 @@ const g4MoveData = {
         Description: "The user strikes the target with a hard bone two to five times in a row."
     },
 
-    "Lock-On":
+    "Lock On":
     {
-        Move: "Lock-On",
+        Move: "Lock On",
         Type: "Normal",
         Category: "Status",
         PP: "5",

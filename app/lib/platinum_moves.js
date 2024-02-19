@@ -4180,7 +4180,7 @@ const platinum_moves =
         "AffectedByKingsRock": false,
         "Description": "The user creates a haze that eliminates every stat change among all the Pok\u00e9mon engaged in battle."
     },
-    "Wake Up Slap": {
+    "Wake-Up Slap": {
         "rom_id": 358,
         "Move": "Wake-Up Slap",
         "Type": "Fighting",
@@ -4660,9 +4660,9 @@ const platinum_moves =
         "AffectedByKingsRock": false,
         "Description": "The foe is attacked with an intense blast of all-consuming fire. It may also leave the target with a burn."
     },
-    "Lock-On": {
+    "Lock On": {
         "rom_id": 199,
-        "Move": "Lock-On",
+        "Move": "Lock On",
         "Type": "Normal",
         "Category": "Status",
         "PP": 5,
