@@ -943,10 +943,11 @@ const app = Vue.createApp({
             else { return }
         },
         solo_mon() {
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == null) {
+            const state = this.mapper.properties.meta.state.value
+            if (state == `Battle` || state == `From Battle`) {
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
-            else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
+            else if (state == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
                 // var data = this.g4PokemonDataRubySapphireEmerald[this.starter]
                 // return {
                 //     species: { value: data["name"] },
@@ -1545,31 +1546,34 @@ const app = Vue.createApp({
             var categoryText = category
             if (this.ready == false) { return ["", "",]}
             if (category == "Physical") { return [category, "Physical"] }
-            if (category == "Special") { return [category, "Special"] }
-            if (category == "Status") { return [category, "Status"] }
+            if (category == "Special")  { return [category, "Special"] }
+            if (category == "Status")   { return [category, "Status"] }
         },
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
-            let currentStat = 0
+            var currentStat = 0
+            var return_value = 0
             if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
-                currentStat = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
-                modifier = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
+                currentStat       = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
+                modifier          = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
                 stageModification = this.stageModifiersData.stats[modifier]
-                return Math.floor(currentStat * stageModification)
+                return_value      = Math.floor(currentStat * stageModification)
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
                 var statName = ""
                 switch (stat) {
-                    case "attack": statName = "base_atk"; break;
-                    case "defense": statName = "base_def"; break;
-                    case "speed": statName = "base_spd"; break;
-                    case "special_attack": statName = "base_spc_atk"; break;
+                    case "attack":          statName = "base_atk";     break;
+                    case "defense":         statName = "base_def";     break;
+                    case "speed":           statName = "base_spd";     break;
+                    case "special_attack":  statName = "base_spc_atk"; break;
                     case "special_defense": statName = "base_spc_def"; break;
                 }
-                return this.g4PokemonData[this.starter][statName]
+                return_value = this.g4PokemonData[this.starter][statName]
             }
             else {
-                return this.mapper?.properties?.player?.team[0].stats[stat]
+                return_value = this.mapper?.properties?.player?.team[0].stats[stat].value
             }
+            if (return_value == NaN || return_value == "NaN") { return "Err" }
+            return return_value
         },
         getEnemyStat(statName, statValue, slotIndex) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             let currentStat = 0
@@ -2238,15 +2242,15 @@ const app = Vue.createApp({
                     var specialMovePower = Math.floor(255-friendshipValue/2.5)
                     return specialMovePower
                 }
-                // else if (y == "Low Kick" || y == "Grass Knot") {
-                //     if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == `To Battle`) { return `-`}
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 10) { return 20 }
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 25) { return 40 }
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 50) { return 60 }
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 100) { return 80 }
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 200) { return 100 }
-                //     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight >= 200) { return 120 }
-                // }
+                else if (y == "Low Kick" || y == "Grass Knot") {
+                    if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == `To Battle`) { return `-`}
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 10) { return 20 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 25) { return 40 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 50) { return 60 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 100) { return 80 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 200) { return 100 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight >= 200) { return 120 }
+                }
                 else if (y == "Hidden Power") {
                     return this.hiddenPowerPowerCalc(this.mapper.properties.player.team[0])
                 }
@@ -2681,10 +2685,6 @@ const app = Vue.createApp({
         this.mapper._debouceTimeout = 10
         this.mapper.deboucePath("battle.opponent.active_pokemon")
         this.mapper.deboucePath("battle.opponent.team")
-        this.mapper.deboucePath("player.team") // TODO: requires testing
-        this.mapper.deboucePath("battle.player.active_pokemon") // TODO: requires testing
-        this.mapper.deboucePath("battle.player.active_pokemon.type_1") // TODO: requires testing
-        this.mapper.deboucePath("battle.player.active_pokemon.type_2") // TODO: requires testing
         this.mapper.deboucePath("player.team.0.species") // TODO: requires testing
         await this.mapper.connect()
         this.updateTime()
