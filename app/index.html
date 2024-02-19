@@ -287,7 +287,7 @@
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x].species)}.png`" />
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x].species ?? 'Piplup')}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_mon_static[x].species}} Lv: {{enemy_mon_static[x].level}}</div>
                                 <div class="ePkmnAbility" style="opacity: .7;">{{enemy_mon_static[x].ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">
@@ -331,7 +331,7 @@
                                                 {{enemy_mon_static[x].moves[move_index]}}
                                             </th>
                                             <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right">
-                                                <div>{{generation4_moves_new["4"][`${enemy_mon_static[x].moves[move_index]}`].power}}</div>
+                                                <div>{{enemy_effective_power(enemy_mon_static[x].moves[move_index], mapper.properties.battle.opponent.team[x])}}</div>
                                             </th>
                                         </tr>
                                     </table>
@@ -461,5 +461,5 @@
     <script src="lib/game_variables.js"></script>
     <script src="lib/autosplitter.js"></script>
     <!-- VUE APP -->
-    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="frontend.js"></script>
 </body>

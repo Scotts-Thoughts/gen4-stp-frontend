@@ -822,9 +822,6 @@ const app = Vue.createApp({
         },
     },
     computed: {
-        state() {
-            this.mapper.properties.meta.state.value
-        },
         exp_label_percentage() {
             switch (this.state) {
                 case "No Pokemon":
@@ -1178,6 +1175,7 @@ const app = Vue.createApp({
     },
 
     methods: { 
+
         load_all_settings() {
             this.starter = MyStorage["starter"] ?? "Rayquaza"
 
@@ -1396,7 +1394,9 @@ const app = Vue.createApp({
                 this.timer_formatted_time = [ s, "." + f(c), h + "h" + m + "m" + s + "s", ]
             }
             if (this.timer_pause == false) {
-                requestAnimationFrame(this.updateTime)
+                setImmediate(() => {
+                    requestAnimationFrame(this.updateTime)
+                })
             }
         },
         //pause the timer
@@ -1405,12 +1405,10 @@ const app = Vue.createApp({
                 this.timer_pause = false
                 this.timer_startTime += Date.now() - this.timer_pause_time
                 this.updateTime()
-                retro.resume()
             }
             else {
                 this.timer_pause = true
                 this.timer_pause_time = Date.now()
-                retro.pause()
             }
         },
         //fixes species that contain special characters in their names
@@ -2550,8 +2548,9 @@ const app = Vue.createApp({
             else
                 return 1
         }, 
-        determineItemBoost(x) { //x - move1.value
-            var heldItemValue = this.mapper.properties.player.team[0].held_item.value
+        determineItemBoost(x, pkmn_object) { //x - move1.value
+            if (pkmn_object.species.value == null) { return }
+            var heldItemValue = pkmn_object.held_item?.value
             var itemType = this.typeBoostingItems[heldItemValue]
             if (itemType == this.moveType(x)) {
                 return 1.2
@@ -2559,8 +2558,8 @@ const app = Vue.createApp({
             else   
                 return 1
         },
-        abilityModifier(ability, attackingType) {
-            var healthPercentage = this.mapper.properties.battle.player.active_pokemon.stats.hp / this.mapper.properties.battle.player.active_pokemon.stats.hp_max
+        abilityModifier(ability, attackingType, controller) {
+            var healthPercentage = this.mapper.properties.battle[controller].active_pokemon.stats.hp / this.mapper.properties.battle[controller].active_pokemon.stats.hp_max
             if (healthPercentage <= .3) {
                 if (ability == `Torrent` && attackingType == `Water`) {
                     return 1.5
@@ -2592,7 +2591,47 @@ const app = Vue.createApp({
                 return 1
             }
         },
-
+        enemy_effective_power(move_name, enemy_mon) {
+            if (this.mapper.properties.meta.state.value != 'Battle') { return }
+            if (enemy_mon.species?.value == null) { return }
+            switch(move_name) {
+                case "Curse": return "—";
+                case null: return;
+                case undefined: return;
+            }
+            const species = enemy_mon.species.value
+            const move_data = this.generation4_moves_new[move_name]
+            const move_type = move_data.type
+            const move_base_power = move_data.power
+            if (move_base_power == 1) { return "—" }
+            const move_category = move_data.category
+            const user_type_1 = this.g4PokemonData[species].type_1
+            const user_type_2 = this.g4PokemonData[species].type_2
+            const target_type_1 = this.mapper.properties.battle.player.active_pokemon.type_1.value
+            const target_type_2 = this.mapper.properties.battle.player.active_pokemon.type_2.value
+            if (move_base_power == "—" || move_base_power == "-") { return "-" }
+            var move_effective_power = move_base_power
+            var modifier_effectiveness_1 = this.typeData.find(x => x.moveType == move_type)[target_type_1]
+            var modifier_effectiveness_2 = target_type_2 && move_type && (target_type_1 != target_type_2) ? this.typeData.find(x => x.moveType == move_type)[target_type_2]
+                : 1
+            var modifier_stab = move_type == user_type_1 ? 1.5 
+                : move_type == user_type_2 ? 1.5 
+                : 1
+            var modifier_ability = this.abilityModifier(this.mapper.properties.battle.opponent.active_pokemon.ability.value, move_type, 'opponent')
+            var modifier_item = this.determineItemBoost(move_name, enemy_mon)
+            var modifier_weather = this.weatherModifier(this.mapper.properties.battle.field.weather.value, move_name, move_type)
+            var modifier_burn = 1
+            if (move_category == "Physical" && enemy_mon.status_condition?.value == `Burned` && enemy_mon.ability?.value != `Guts`) {
+                modifier_burn = 0.5
+                }
+            else {
+                modifier_burn = 1
+            }
+            //Calculate effective power
+            if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
+                return Math.floor(move_base_power * modifier_stab * modifier_effectiveness_1 * modifier_effectiveness_2 * modifier_ability * modifier_item * modifier_weather * modifier_burn)
+            }
+        },
         typeEffectiveness(x) { //x = move1.value
             if (x == "Curse") {
                 return "—"
@@ -2614,8 +2653,8 @@ const app = Vue.createApp({
                 var defendingType2Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType2]
             }
             var stabModifier = this.determineSTAB(x)
-            var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType)
-            var itemBoost = this.determineItemBoost(x)
+            var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType, 'player')
+            var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
@@ -3021,8 +3060,8 @@ const app = Vue.createApp({
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
                 if (this.expBarAnimation == true) {
-                    const species = this.mapper.properties.player.team[0].species.value;
-                    const growthRate = this.g4PokemonData[species].growth_rate;
+                    const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
+                    const growthRate = this.g4PokemonData[species]?.growth_rate ?? this.g4PokemonData[this.starter].growth_rate;
                     const expPoints = newProp.value;
                     const newExpStats = this.calcExpStats(growthRate, expPoints);
 
@@ -3107,9 +3146,9 @@ const app = Vue.createApp({
         keyhook.registerShortCut('F23', async () => {
             this.newRun()
         });
-        keyhook.registerShortCut('F12', async () => {
-            this.pauseUnpauseTime()
-        });
+        // keyhook.registerShortCut('F12', async () => {
+        //     this.pauseUnpauseTime()
+        // });
         keyhook.registerShortCut('F24', async () => {
             this.pauseUnpauseTime()
         });

@@ -7,7 +7,11 @@ const platinumTrainers = [
         "trainer_gender": "male",
         "battle_type": "Singles",
         "items": [],
-        "pokemon": [],
+        "pokemon": [ 
+            {
+                "species": "",
+            }
+        ],
         "trainer_location": null,
         "ai_flags": [],
         "money": -1
