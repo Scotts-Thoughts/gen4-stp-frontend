@@ -3066,7 +3066,7 @@ const platinumTrainers = [
                 "spd": 33,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Low Kick",
                     "Swift",
                     "Shock Wave"
@@ -3132,7 +3132,7 @@ const platinumTrainers = [
                 "moves": [
                     "Ember",
                     "SmokeScreen",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fire Spin"
                 ],
                 "ability": "Flame Body",
@@ -3494,7 +3494,7 @@ const platinumTrainers = [
                     "Defense Curl",
                     "Follow Me",
                     "Minimize",
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 "ability": "Cute Charm",
                 "xp": 334,
@@ -4186,7 +4186,7 @@ const platinumTrainers = [
                 "spd": 70,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -4530,7 +4530,7 @@ const platinumTrainers = [
                 "spd": 26,
                 "held_item": null,
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Revenge",
                     "Swagger",
                     "Mud Bomb"
@@ -5267,7 +5267,7 @@ const platinumTrainers = [
                     "Vine Whip",
                     "Sweet Scent",
                     "Ingrain",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Levitate",
                 "xp": 984,
@@ -7128,7 +7128,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Pursuit",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Revenge",
                     "Swagger"
                 ],
@@ -7171,7 +7171,7 @@ const platinumTrainers = [
                     "Poison Sting",
                     "Taunt",
                     "Pursuit",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 373,
@@ -7426,7 +7426,7 @@ const platinumTrainers = [
                 "spd": 97,
                 "held_item": null,
                 "moves": [
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Shadow Punch",
                     "Pursuit",
                     "Confuse Ray"
@@ -7561,7 +7561,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Take Down",
                     "Fury Attack",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 1603,
@@ -7881,9 +7881,9 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Flamethrower",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Smog",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Flame Body",
                 "xp": 1431,
@@ -8423,7 +8423,7 @@ const platinumTrainers = [
                     "Revenge",
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 "ability": "Guts",
                 "xp": 1156,
@@ -10402,7 +10402,7 @@ const platinumTrainers = [
                 "moves": [
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop"
                 ],
                 "ability": "Guts",
@@ -12742,7 +12742,7 @@ const platinumTrainers = [
                 "moves": [
                     "Wring Out",
                     "Crunch",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Ingrain"
                 ],
                 "ability": "Levitate",
@@ -12784,7 +12784,7 @@ const platinumTrainers = [
                 "moves": [
                     "Double-Edge",
                     "Sing",
-                    "SoftBoiled",
+                    "Softboiled",
                     "Light Screen"
                 ],
                 "ability": "Natural Cure",
@@ -13517,7 +13517,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Curse",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Shadow Punch",
                     "Mean Look"
                 ],
@@ -14757,7 +14757,7 @@ const platinumTrainers = [
                 "moves": [
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop"
                 ],
                 "ability": "Guts",
@@ -15234,7 +15234,7 @@ const platinumTrainers = [
                     "Overheat",
                     "Giga Impact",
                     "Quick Attack",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Flash Fire",
                 "xp": 2332,
@@ -15830,7 +15830,7 @@ const platinumTrainers = [
                 "moves": [
                     "Icy Wind",
                     "Slash",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Quick Attack"
                 ],
                 "ability": "Inner Focus",
@@ -16005,7 +16005,7 @@ const platinumTrainers = [
                     "Icy Wind",
                     "Slash",
                     "Screech",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Inner Focus",
                 "xp": 1131,
@@ -16029,7 +16029,7 @@ const platinumTrainers = [
                     "Icy Wind",
                     "Slash",
                     "Screech",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Inner Focus",
                 "xp": 1215,
@@ -16070,7 +16070,7 @@ const platinumTrainers = [
                 "moves": [
                     "Helping Hand",
                     "Sand-Attack",
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Quick Attack"
                 ],
                 "ability": "Volt Absorb",
@@ -16255,7 +16255,7 @@ const platinumTrainers = [
                     "Poison Sting",
                     "Taunt",
                     "Pursuit",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 373,
@@ -16503,7 +16503,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Screech",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Quick Attack",
                     "Poison Sting"
                 ],
@@ -16791,7 +16791,7 @@ const platinumTrainers = [
                 "moves": [
                     "Extrasensory",
                     "Fake Out",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Razor Leaf"
                 ],
                 "ability": "Chlorophyll",
@@ -17651,7 +17651,7 @@ const platinumTrainers = [
                 "spd": 27,
                 "held_item": "Oran Berry",
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Scratch",
                     "Fake Out"
                 ],
@@ -18575,7 +18575,7 @@ const platinumTrainers = [
                 "moves": [
                     "Swagger",
                     "Revenge",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 462,
@@ -19060,7 +19060,7 @@ const platinumTrainers = [
                 "spd": 51,
                 "held_item": null,
                 "moves": [
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Pursuit",
                     "Shadow Sneak",
                     "Future Sight"
@@ -19155,7 +19155,7 @@ const platinumTrainers = [
                 "moves": [
                     "Slash",
                     "Aerial Ace",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Ice Shard"
                 ],
                 "ability": "Inner Focus",
@@ -20166,7 +20166,7 @@ const platinumTrainers = [
                 "moves": [
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop"
                 ],
                 "ability": "Guts",
@@ -20765,7 +20765,7 @@ const platinumTrainers = [
                 "spd": 26,
                 "held_item": null,
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fury Swipes",
                     "Charm",
                     "Assist"
@@ -21673,7 +21673,7 @@ const platinumTrainers = [
                 "moves": [
                     "Follow Me",
                     "Minimize",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power"
                 ],
                 "ability": "Cute Charm",
@@ -21775,7 +21775,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metal Sound",
                     "Tackle",
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 "ability": "Magnet Pull",
                 "xp": 114,
@@ -21951,7 +21951,7 @@ const platinumTrainers = [
                 "moves": [
                     "Calm Mind",
                     "Force Palm",
-                    "High Jump Kick",
+                    "Hi Jump Kick",
                     "Psych Up"
                 ],
                 "ability": "Pure Power",
@@ -21991,7 +21991,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Taunt",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Mean Look",
                     "Sucker Punch"
                 ],
@@ -23047,7 +23047,7 @@ const platinumTrainers = [
                     "Feint",
                     "Calm Mind",
                     "Force Palm",
-                    "High Jump Kick"
+                    "Hi Jump Kick"
                 ],
                 "ability": "Pure Power",
                 "xp": 1147,
@@ -23176,7 +23176,7 @@ const platinumTrainers = [
                 "spd": 104,
                 "held_item": null,
                 "moves": [
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Flamethrower",
                     "Dark Pulse",
                     "Extrasensory"
@@ -23283,7 +23283,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Shadow Ball",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Sucker Punch",
                     "Confuse Ray"
                 ],
@@ -23713,7 +23713,7 @@ const platinumTrainers = [
                     "Drill Peck",
                     "Night Shade",
                     "Astonish",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 1842,
@@ -23757,7 +23757,7 @@ const platinumTrainers = [
                 "moves": [
                     "Flamethrower",
                     "Dark Pulse",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Thunder Fang"
                 ],
                 "ability": "Early Bird",
@@ -23942,7 +23942,7 @@ const platinumTrainers = [
                 "held_item": "Sitrus Berry",
                 "moves": [
                     "Slash",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Hypnosis",
                     "Fake Out"
                 ],
@@ -24190,7 +24190,7 @@ const platinumTrainers = [
                     "Poison Jab",
                     "Revenge",
                     "Mud Bomb",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 1551,
@@ -24280,7 +24280,7 @@ const platinumTrainers = [
                     "Poison Jab",
                     "Brick Break",
                     "X-scissor",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 1705,
@@ -24425,7 +24425,7 @@ const platinumTrainers = [
                     "Poison Sting",
                     "Taunt",
                     "Pursuit",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Anticipation",
                 "xp": 337,
@@ -24863,7 +24863,7 @@ const platinumTrainers = [
                     "Odor Sleuth",
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Early Bird",
                 "xp": 855,
@@ -24927,7 +24927,7 @@ const platinumTrainers = [
                     "Scratch",
                     "Growl",
                     "Hypnosis",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Limber",
                 "xp": 273,
@@ -24967,7 +24967,7 @@ const platinumTrainers = [
                     "Scratch",
                     "Growl",
                     "Hypnosis",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Limber",
                 "xp": 288,
@@ -25158,7 +25158,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 802,
@@ -25196,7 +25196,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Fury Swipes",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Growl",
                     "Fake Out"
                 ],
@@ -25243,7 +25243,7 @@ const platinumTrainers = [
                 "spd": 32,
                 "held_item": null,
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Night Shade",
                     "Wing Attack"
                 ],
@@ -25452,7 +25452,7 @@ const platinumTrainers = [
                     "Odor Sleuth",
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Early Bird",
                 "xp": 952,
@@ -26074,7 +26074,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face"
                 ],
@@ -26179,7 +26179,7 @@ const platinumTrainers = [
                 "spd": 70,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -26268,7 +26268,7 @@ const platinumTrainers = [
                 "spd": 98,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -26792,7 +26792,7 @@ const platinumTrainers = [
                 "spd": 64,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -27114,7 +27114,7 @@ const platinumTrainers = [
                 "spd": 7,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Charm"
                 ],
                 "ability": "Static",
@@ -27136,7 +27136,7 @@ const platinumTrainers = [
                 "spd": 7,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Charm"
                 ],
                 "ability": "Static",
@@ -27158,7 +27158,7 @@ const platinumTrainers = [
                 "spd": 7,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Charm"
                 ],
                 "ability": "Static",
@@ -28525,7 +28525,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 1933,
@@ -28849,7 +28849,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 1933,
@@ -28962,7 +28962,7 @@ const platinumTrainers = [
                 "moves": [
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop"
                 ],
                 "ability": "Guts",
@@ -30333,7 +30333,7 @@ const platinumTrainers = [
                     "Revenge",
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 "ability": "Guts",
                 "xp": 1125,
@@ -30397,7 +30397,7 @@ const platinumTrainers = [
                     "Revenge",
                     "Vital Throw",
                     "Submission",
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 "ability": "Guts",
                 "xp": 546,
@@ -30501,7 +30501,7 @@ const platinumTrainers = [
                     "Odor Sleuth",
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Early Bird",
                 "xp": 927,
@@ -30525,7 +30525,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 916,
@@ -30629,7 +30629,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 870,
@@ -30732,7 +30732,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 894,
@@ -30923,7 +30923,7 @@ const platinumTrainers = [
                 "moves": [
                     "Assurance",
                     "Taunt",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Mean Look"
                 ],
                 "ability": "Insomnia",
@@ -30963,7 +30963,7 @@ const platinumTrainers = [
                 "moves": [
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Embargo"
                 ],
                 "ability": "Early Bird",
@@ -31011,7 +31011,7 @@ const platinumTrainers = [
                 "moves": [
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Embargo"
                 ],
                 "ability": "Early Bird",
@@ -31500,7 +31500,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 894,
@@ -31548,7 +31548,7 @@ const platinumTrainers = [
                     "Night Shade",
                     "Assurance",
                     "Taunt",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 894,
@@ -31587,7 +31587,7 @@ const platinumTrainers = [
                 "moves": [
                     "Beat Up",
                     "Fire Fang",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Embargo"
                 ],
                 "ability": "Early Bird",
@@ -31699,7 +31699,7 @@ const platinumTrainers = [
                 "moves": [
                     "Assurance",
                     "Taunt",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Mean Look"
                 ],
                 "ability": "Insomnia",
@@ -32701,7 +32701,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Hypnosis",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fury Swipes",
                     "Charm"
                 ],
@@ -32874,7 +32874,7 @@ const platinumTrainers = [
                 "moves": [
                     "Follow Me",
                     "Minimize",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power"
                 ],
                 "ability": "Cute Charm",
@@ -33958,7 +33958,7 @@ const platinumTrainers = [
                 "moves": [
                     "DragonBreath",
                     "Earthquake",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Screech"
                 ],
                 "ability": "Levitate",
@@ -34133,7 +34133,7 @@ const platinumTrainers = [
                     "Shadow Sneak",
                     "Payback",
                     "Curse",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Pressure",
                 "xp": 2109,
@@ -34888,7 +34888,7 @@ const platinumTrainers = [
                 "moves": [
                     "Night Slash",
                     "Power Gem",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fake Out"
                 ],
                 "ability": "Limber",
@@ -34954,7 +34954,7 @@ const platinumTrainers = [
                 "moves": [
                     "Fake Out",
                     "Captivate",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Double-Edge"
                 ],
                 "ability": "Cute Charm",
@@ -35042,7 +35042,7 @@ const platinumTrainers = [
                 "spd": 94,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -35704,7 +35704,7 @@ const platinumTrainers = [
                 "spd": 39,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Endure",
                     "Close Combat",
                     "Reversal"
@@ -35728,7 +35728,7 @@ const platinumTrainers = [
                 "spd": 103,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -35795,7 +35795,7 @@ const platinumTrainers = [
                 "moves": [
                     "Detect",
                     "Psychic",
-                    "High Jump Kick",
+                    "Hi Jump Kick",
                     "Ice Punch"
                 ],
                 "ability": "Pure Power",
@@ -36433,7 +36433,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Belly Drum",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Hydro Pump",
                     "Mud Bomb"
                 ],
@@ -37077,7 +37077,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Leaf Storm",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Extrasensory",
                     "Quick Attack"
                 ],
@@ -37215,7 +37215,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Fire Blast",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Stomp",
                     "Take Down"
                 ],
@@ -37281,7 +37281,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Egg Bomb",
-                    "SoftBoiled",
+                    "Softboiled",
                     "Refresh"
                 ],
                 "ability": "Natural Cure",
@@ -37864,7 +37864,7 @@ const platinumTrainers = [
                     "Close Combat",
                     "Punishment",
                     "Flame Wheel",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Blaze",
                 "xp": 1969,
@@ -38000,7 +38000,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Fire Blast",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Stomp",
                     "Take Down"
                 ],
@@ -38067,7 +38067,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38157,7 +38157,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38247,7 +38247,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38337,7 +38337,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38427,7 +38427,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38517,7 +38517,7 @@ const platinumTrainers = [
                 "moves": [
                     "Metronome",
                     "Gravity",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Sing"
                 ],
                 "ability": "Cute Charm",
@@ -38753,7 +38753,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Block",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Rock Tomb",
                     "Rock Slide"
                 ],
@@ -39010,7 +39010,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Force Palm",
-                    "High Jump Kick",
+                    "Hi Jump Kick",
                     "Psych Up",
                     "Power Trick"
                 ],
@@ -39034,7 +39034,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face"
                 ],
@@ -39098,7 +39098,7 @@ const platinumTrainers = [
                 "spd": 108,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -39405,7 +39405,7 @@ const platinumTrainers = [
                 "moves": [
                     "Mimic",
                     "Block",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Rock Tomb"
                 ],
                 "ability": "Sturdy",
@@ -39566,7 +39566,7 @@ const platinumTrainers = [
                     "Pursuit",
                     "Quick Attack",
                     "Confuse Ray",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Synchronize",
                 "xp": 1773,
@@ -39651,7 +39651,7 @@ const platinumTrainers = [
                 "spd": 86,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -39676,7 +39676,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Confuse Ray",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Assurance",
                     "Last Resort"
                 ],
@@ -39763,7 +39763,7 @@ const platinumTrainers = [
                 "spd": 41,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power",
                     "Lucky Chant",
                     "Metronome"
@@ -40226,9 +40226,9 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Flamethrower",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Smog",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Flame Body",
                 "xp": 2302,
@@ -40731,7 +40731,7 @@ const platinumTrainers = [
                 "spd": 77,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -40819,7 +40819,7 @@ const platinumTrainers = [
                 "spd": 97,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -41190,7 +41190,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Screech",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Quick Attack",
                     "Poison Sting"
                 ],
@@ -41395,7 +41395,7 @@ const platinumTrainers = [
                 "moves": [
                     "Dragon Claw",
                     "Earthquake",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Screech"
                 ],
                 "ability": "Levitate",
@@ -41904,7 +41904,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Curse",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Shadow Punch",
                     "Mean Look"
                 ],
@@ -42016,7 +42016,7 @@ const platinumTrainers = [
                 "spd": 164,
                 "held_item": null,
                 "moves": [
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Shadow Punch",
                     "Mean Look",
                     "Payback"
@@ -42586,7 +42586,7 @@ const platinumTrainers = [
                     "Captivate",
                     "Gyro Ball",
                     "Heal Bell",
-                    "Wake Up Slap"
+                    "Wake-Up Slap"
                 ],
                 "ability": "Thick Fat",
                 "xp": 2442,
@@ -42967,7 +42967,7 @@ const platinumTrainers = [
                 "spd": 101,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -43302,7 +43302,7 @@ const platinumTrainers = [
                     "Safeguard",
                     "Gyro Ball",
                     "Future Sight",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Levitate",
                 "xp": 678,
@@ -43440,7 +43440,7 @@ const platinumTrainers = [
                     "Block",
                     "Gyro Ball",
                     "Future Sight",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Levitate",
                 "xp": 2134,
@@ -43607,7 +43607,7 @@ const platinumTrainers = [
                 "spd": 110,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -43672,7 +43672,7 @@ const platinumTrainers = [
                 "spd": 77,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Endure",
                     "Close Combat",
                     "Reversal"
@@ -43696,7 +43696,7 @@ const platinumTrainers = [
                 "spd": 96,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -45133,7 +45133,7 @@ const platinumTrainers = [
                 "spd": 80,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -45262,7 +45262,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face"
                 ],
@@ -45325,7 +45325,7 @@ const platinumTrainers = [
                 "spd": 85,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -45623,7 +45623,7 @@ const platinumTrainers = [
                 "spd": 56,
                 "held_item": null,
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Stockpile",
                     "Spit Up",
                     "Swallow"
@@ -46247,7 +46247,7 @@ const platinumTrainers = [
                 "spd": 67,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -46311,7 +46311,7 @@ const platinumTrainers = [
                 "spd": 74,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -46399,7 +46399,7 @@ const platinumTrainers = [
                 "spd": 107,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -50573,7 +50573,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Screech",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fury Swipes",
                     "Nasty Plot"
                 ],
@@ -51100,7 +51100,7 @@ const platinumTrainers = [
                 "moves": [
                     "Ice Shard",
                     "Slash",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Quick Attack"
                 ],
                 "ability": "Inner Focus",
@@ -51733,7 +51733,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2427,
@@ -52063,7 +52063,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2427,
@@ -52228,7 +52228,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Megahorn",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2838,
@@ -52558,7 +52558,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Megahorn",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2838,
@@ -52837,7 +52837,7 @@ const platinumTrainers = [
                 "spd": 64,
                 "held_item": null,
                 "moves": [
-                    "Feint Attack",
+                    "Faint Attack",
                     "Fire Spin",
                     "Confuse Ray",
                     "Fire Punch"
@@ -53006,7 +53006,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Pursuit",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Revenge",
                     "Swagger"
                 ],
@@ -53170,7 +53170,7 @@ const platinumTrainers = [
                 "moves": [
                     "Avalanche",
                     "Slash",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Taunt"
                 ],
                 "ability": "Pressure",
@@ -53333,7 +53333,7 @@ const platinumTrainers = [
                     "Fire Punch",
                     "Ice Punch",
                     "ThunderPunch",
-                    "High Jump Kick"
+                    "Hi Jump Kick"
                 ],
                 "ability": "Pure Power",
                 "xp": 2065,
@@ -54153,9 +54153,9 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Shadow Claw",
-                    "Feint Attack",
+                    "Faint Attack",
                     "Thunderbolt",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Insomnia",
                 "xp": 2338,
@@ -54483,7 +54483,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Earthquake",
-                    "Will-o-wisp",
+                    "Will-O-Wisp",
                     "Eruption",
                     "Protect"
                 ],
@@ -54953,7 +54953,7 @@ const platinumTrainers = [
                 "spd": 196,
                 "held_item": "Sitrus Berry",
                 "moves": [
-                    "SoftBoiled",
+                    "Softboiled",
                     "Counter",
                     "Psychic",
                     "Toxic"
@@ -55307,7 +55307,7 @@ const platinumTrainers = [
                     "Overheat",
                     "Giga Impact",
                     "Quick Attack",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Flash Fire",
                 "xp": 3012,
@@ -55807,7 +55807,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Megahorn",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 3249,
@@ -56141,7 +56141,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Megahorn",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 3249,
@@ -56453,7 +56453,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Submission",
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face"
                 ],
@@ -56676,7 +56676,7 @@ const platinumTrainers = [
                 "spd": 46,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power",
                     "Lucky Chant",
                     "Metronome"
@@ -56700,7 +56700,7 @@ const platinumTrainers = [
                 "spd": 47,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power",
                     "Lucky Chant",
                     "Metronome"
@@ -56724,7 +56724,7 @@ const platinumTrainers = [
                 "spd": 44,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cosmic Power",
                     "Lucky Chant",
                     "Metronome"
@@ -57569,7 +57569,7 @@ const platinumTrainers = [
                 "held_item": "Rare Candy",
                 "moves": [
                     "Fling",
-                    "SoftBoiled",
+                    "Softboiled",
                     "Egg Bomb",
                     "Psychic"
                 ],
@@ -58228,7 +58228,7 @@ const platinumTrainers = [
                 "spd": 81,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -58644,7 +58644,7 @@ const platinumTrainers = [
                 "spd": 91,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -58801,7 +58801,7 @@ const platinumTrainers = [
                     "Drill Peck",
                     "Night Shade",
                     "Astonish",
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 "ability": "Insomnia",
                 "xp": 825,
@@ -58912,7 +58912,7 @@ const platinumTrainers = [
                 "spd": 101,
                 "held_item": null,
                 "moves": [
-                    "Wake Up Slap",
+                    "Wake-Up Slap",
                     "Cross Chop",
                     "Scary Face",
                     "DynamicPunch"
@@ -59352,7 +59352,7 @@ const platinumTrainers = [
                 "spd": 93,
                 "held_item": null,
                 "moves": [
-                    "Thunder Shock",
+                    "ThunderShock",
                     "Tail Whip",
                     "Quick Attack",
                     "Thunderbolt"
@@ -59579,7 +59579,7 @@ const platinumTrainers = [
                     "Overheat",
                     "Giga Impact",
                     "Quick Attack",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Flash Fire",
                 "xp": 2376,
@@ -59717,7 +59717,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2139,
@@ -60041,7 +60041,7 @@ const platinumTrainers = [
                     "Fire Blast",
                     "Sunny Day",
                     "Bounce",
-                    "Will-o-wisp"
+                    "Will-O-Wisp"
                 ],
                 "ability": "Run Away",
                 "xp": 2139,

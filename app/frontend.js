@@ -2678,6 +2678,9 @@ const app = Vue.createApp({
         this.mapper = new GameHookMapperClient()
         this.mapper.onConnected = (x) => this.ready = true
         this.mapper.onDisconnected = (x) => this.ready = false
+        this.mapper._debouceTimeout = 10
+        this.mapper.deboucePath("battle.opponent.active_pokemon")
+        this.mapper.deboucePath("battle.opponent.team")
         await this.mapper.connect()
         this.updateTime()
         this.load_all_settings()
