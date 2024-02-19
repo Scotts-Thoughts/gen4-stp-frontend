@@ -514,7 +514,8 @@ const app = Vue.createApp({
                 "Cresselia": "line-height: 18px;",
                 "Heatran":   "line-height: 18px;",
             },
-
+            pokemon_list: [],
+            
             // USER CONFIG (components) ------------------------------------------------------------------------// 
             typeCalcs: true,
 
@@ -2641,6 +2642,7 @@ const app = Vue.createApp({
         await this.mapper.connect()
         this.updateTime()
         this.load_all_settings()
+        this.pokemon_list = this.keys_function(g4PokemonData)
 
         //EXP BAR ANIMATION FUNCTION
         /* exp bar initialization */ {

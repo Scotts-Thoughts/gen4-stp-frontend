@@ -21,9 +21,9 @@ const g4MoveData = {
         Description: "The target is attacked with a sharp chop. Critical hits land more easily."
     },
 
-    "Double Slap":
+    "DoubleSlap":
     {
-        Move: "Double Slap",
+        Move: "DoubleSlap",
         Type: "Normal",
         Category: "Physical",
         PP: "10",
