@@ -59,6 +59,9 @@ class GameHookMapperClient {
     _signalrClient
     _properties
     _propertiesMap
+    _debouceTimeout = 10
+    _debouceList = []
+    _debouceMap
 
     meta
     properties
@@ -109,13 +112,17 @@ class GameHookMapperClient {
         this.meta = null
         this._properties = null
         this._propertiesMap = null
+        this._debouceMap = null
         this.properties = null
         this.glossary = null
     }
 
     get(path) {
-        // TODO
-        return this._properties.find(x => x.path === path)
+        return that._propertiesMap.get(path)
+    }
+
+    deboucePath(path) {
+        this._debouceList.push(path)
     }
 
     async loadMapper() {
@@ -162,8 +169,21 @@ class GameHookMapperClient {
         this._properties = mapper.properties.map(x => new GameHookProperty(this, x))
         this._properties.forEach(x => assign(this.properties, x.path.split('.'), x))
 
-        this._propertiesMap = {}
-        this._properties.forEach(x => this._propertiesMap[x.path] = x)
+        this._propertiesMap = new Map()
+        this._properties.forEach(x => this._propertiesMap.set(x.path, x))
+
+        this._debouceMap = new Map()
+        this._debouceList.forEach(x => {
+            this._properties.forEach(y => {
+                if (y.path.startsWith(x)) {
+                    this._debouceMap.set(y.path, {
+                        property: y,
+                        timeoutFrames: -1,
+                        newProperty: null
+                    })
+                }
+            })
+        })
 
         setTimeout(() => this.loadMapper(), this._options.automaticRefreshMapperTimeMinutes * 60000)
 
@@ -216,74 +236,84 @@ class GameHookMapperClient {
             await this._establishConnection()
         })
 
+        function updateProperty(propertyChanged) {
+            let property = that._propertiesMap.get(propertyChanged.path)
+
+            let oldProperty = {
+                path: property.path,
+                memoryContainer: property.memoryContainer,
+                address: property.address,
+                length: property.length,
+                size: property.size,
+                reference: property.reference,
+                bits: property.bits,
+                description: property.description,
+                value: property.value,
+                bytes: property.bytes,
+                isFrozen: property.frozen,
+                isReadOnly: property.isReadOnly
+            }
+
+            property.memoryContainer = propertyChanged.memoryContainer
+            property.address = propertyChanged.address
+            property.length = propertyChanged.length
+            property.size = propertyChanged.size
+            property.reference = propertyChanged.reference
+            property.bits = propertyChanged.bits
+            property.description = propertyChanged.description
+            property.value = propertyChanged.value
+            property.bytes = propertyChanged.bytes
+            property.isFrozen = propertyChanged.isFrozen
+            property.isReadOnly = propertyChanged.isReadOnly
+
+            // Only trigger the property's change events when
+            // the value has changed.
+
+            // This is functionally 'weird', but users are really
+            // only interested in when the value changed.
+
+            // If they need to know about other fields changing,
+            // they can register to the global GameHook event handler.
+
+            if (propertyChanged.fieldsChanged.includes('value')) {
+                // Trigger the property.change events if any.
+                const changeArray = that._change[property.path]
+                if (changeArray && changeArray.length > 0) {
+                    changeArray.forEach(x => {
+                        x(property, oldProperty)
+                    })
+                }
+
+                // Trigger the property.once events if any.
+                const onceArray = that._once[property.path]
+                if (onceArray && onceArray.length > 0) {
+                    onceArray.forEach(x => {
+                        x(property, oldProperty)
+                    })
+
+                    that._once[property.path] = []
+                }
+            }
+
+            // Trigger the global property changed event.
+            if (that.onPropertyChanged) {
+                that.onPropertyChanged(property, oldProperty, propertyChanged.fieldsChanged)
+            }
+        }
+
         this._signalrClient.on('PropertiesChanged', (propertiesChanged) => {
             if (that._properties && that._properties.length > 0) {
                 for (const propertyChanged of propertiesChanged) {
-                    let property = that._propertiesMap[propertyChanged.path]
+                    let property = that._propertiesMap.get(propertyChanged.path)
                     if (!property) {
                         console.warn(`[GameHook Client] Could not find a related property in PropertyUpdated event for: ${propertyChanged.path}`)
                         return
                     }
-
-                    let oldProperty = {
-                        path: property.path,
-                        memoryContainer: property.memoryContainer,
-                        address: property.address,
-                        length: property.length,
-                        size: property.size,
-                        reference: property.reference,
-                        bits: property.bits,
-                        description: property.description,
-                        value: property.value,
-                        bytes: property.bytes,
-                        isFrozen: property.frozen,
-                        isReadOnly: property.isReadOnly
-                    }
-
-                    property.memoryContainer = propertyChanged.memoryContainer
-                    property.address = propertyChanged.address
-                    property.length = propertyChanged.length
-                    property.size = propertyChanged.size
-                    property.reference = propertyChanged.reference
-                    property.bits = propertyChanged.bits
-                    property.description = propertyChanged.description
-                    property.value = propertyChanged.value
-                    property.bytes = propertyChanged.bytes
-                    property.isFrozen = propertyChanged.isFrozen
-                    property.isReadOnly = propertyChanged.isReadOnly
-
-                    // Only trigger the property's change events when
-                    // the value has changed.
-
-                    // This is functionally 'weird', but users are really
-                    // only interested in when the value changed.
-
-                    // If they need to know about other fields changing,
-                    // they can register to the global GameHook event handler.
-
-                    if (propertyChanged.fieldsChanged.includes('value')) {
-                        // Trigger the property.change events if any.
-                        const changeArray = that._change[property.path]
-                        if (changeArray && changeArray.length > 0) {
-                            changeArray.forEach(x => {
-                                x(property, oldProperty)
-                            })
-                        }
-
-                        // Trigger the property.once events if any.
-                        const onceArray = that._once[property.path]
-                        if (onceArray && onceArray.length > 0) {
-                            onceArray.forEach(x => {
-                                x(property, oldProperty)
-                            })
-
-                            that._once[property.path] = []
-                        }
-                    }
-
-                    // Trigger the global property changed event.
-                    if (that.onPropertyChanged) {
-                        that.onPropertyChanged(property, oldProperty, propertyChanged.fieldsChanged)
+                    if (that._debouceMap.has(propertyChanged.path)) {
+                        this._debouceMap.get(propertyChanged.path).timeoutFrames = this._debouceTimeout
+                        this._debouceMap.get(propertyChanged.path).newProperty = propertyChanged
+                    } else {
+                        updateProperty(propertyChanged)
                     }
                 }
             } else {
@@ -291,13 +321,29 @@ class GameHookMapperClient {
             }
         })
 
+        function debouce() {
+            for (const value of that._debouceMap.values()) {
+                if (value.timeoutFrames > 0) {
+                    value.timeoutFrames--
+                } else if (value.timeoutFrames === 0) {
+                    updateProperty(value.newProperty)
+                    value.timeoutFrames = -1
+                }
+            }
+            if (that.connected === true)
+                requestAnimationFrame(debouce)
+        }
+
         this._signalrClient.on('MapperLoaded', async () => { await this.loadMapper(); this.onMapperLoaded() })
         this._signalrClient.on('GameHookError', (err) => { this.onGameHookError(err) })
         this._signalrClient.on('DriverError', (err) => { this.onDriverError(err) })
         this._signalrClient.on('SendDriverRecovered', () => { this.onDriverRecovered() })
         this._signalrClient.on('UiBuilderScreenSaved', (id) => { this.onUiBuilderScreenSaved(id) })
 
-        return (await this._establishConnection())
+
+        const result = await this._establishConnection()
+        if (result === true) debouce()
+        return result
     }
 
     async _editPropertyValue(path, value, freeze) {
