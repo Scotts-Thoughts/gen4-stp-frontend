@@ -834,7 +834,7 @@ const g4PokemonData =
                 ],
                 [
                     73,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     79,
@@ -4085,7 +4085,7 @@ const g4PokemonData =
                 ],
                 [
                     73,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     79,
@@ -20286,7 +20286,7 @@ const g4PokemonData =
                 ],
                 [
                     27,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     30,
@@ -23157,7 +23157,7 @@ const g4PokemonData =
                 ],
                 [
                     27,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     30,
@@ -26414,7 +26414,7 @@ const g4PokemonData =
                 ],
                 [
                     57,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     65,
@@ -31795,7 +31795,7 @@ const g4PokemonData =
                 ],
                 [
                     45,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     51,
@@ -33232,7 +33232,7 @@ const g4PokemonData =
                 ],
                 [
                     45,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     51,
@@ -37997,7 +37997,7 @@ const g4PokemonData =
                 ],
                 [
                     6,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     10,
@@ -44031,7 +44031,7 @@ const g4PokemonData =
                 ],
                 [
                     57,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     65,
@@ -46414,7 +46414,7 @@ const g4PokemonData =
                 ],
                 [
                     27,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     30,
@@ -47096,7 +47096,7 @@ const g4PokemonData =
                 ],
                 [
                     57,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     65,
@@ -57598,7 +57598,7 @@ const g4PokemonData =
                 ],
                 [
                     45,
-                    "Lock On"
+                    "Lock-On"
                 ],
                 [
                     51,

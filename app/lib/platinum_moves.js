@@ -4660,9 +4660,9 @@ const platinum_moves =
         "AffectedByKingsRock": false,
         "Description": "The foe is attacked with an intense blast of all-consuming fire. It may also leave the target with a burn."
     },
-    "Lock On": {
+    "Lock-On": {
         "rom_id": 199,
-        "Move": "Lock On",
+        "Move": "Lock-On",
         "Type": "Normal",
         "Category": "Status",
         "PP": 5,

@@ -175,7 +175,7 @@ body {
     position: fixed;
     left: 772px;
     top: 30px;
-    width: 350px;
+    width: 320px;
     z-index: 5;
     height: 740px;
     line-height: 18px;
@@ -1547,7 +1547,7 @@ img, span, div {
 	opacity: 1;
 }
 .fade1-enter-active {
-	transition: opacity .5s ease;
+	transition: opacity .8s ease;
 }
 .fade1-leave-from {
 	opacity: 1;
@@ -1556,7 +1556,7 @@ img, span, div {
 	opacity: 0;
 }
 .fade1-leave-active {
-	transition: opacity .2s ease;
+	transition: opacity 1s ease;
 }
 
 .fade1x-enter-from {

@@ -4659,9 +4659,9 @@ const generation4_moves_new = {
         "affected_by_kings_rock": false,
         "description": "The foe is attacked with an intense blast of all-consuming fire. It may also leave the target with a burn."
     },
-    "Lock On": {
+    "Lock-On": {
         "rom_id": 199,
-        "move": "Lock On",
+        "move": "Lock-On",
         "type": "Normal",
         "category": "Status",
         "pp": 5,

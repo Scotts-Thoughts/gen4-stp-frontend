@@ -17922,7 +17922,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],
@@ -30179,7 +30179,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],
@@ -30203,7 +30203,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],
@@ -30371,7 +30371,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],
@@ -46466,7 +46466,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],
@@ -52751,7 +52751,7 @@ const platinumTrainers = [
                 "moves": [
                     "Thunder Wave",
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb"
                 ],
                 "ability": "Magnet Pull",
@@ -52775,7 +52775,7 @@ const platinumTrainers = [
                 "moves": [
                     "Thunder Wave",
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb"
                 ],
                 "ability": "Magnet Pull",
@@ -52799,7 +52799,7 @@ const platinumTrainers = [
                 "moves": [
                     "Thunder Wave",
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb"
                 ],
                 "ability": "Magnet Pull",
@@ -56294,7 +56294,7 @@ const platinumTrainers = [
                 "moves": [
                     "Thunder Wave",
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb"
                 ],
                 "ability": "Magnet Pull",
@@ -56380,7 +56380,7 @@ const platinumTrainers = [
                 "spd": 45,
                 "held_item": null,
                 "moves": [
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech",
                     "Discharge"
@@ -56404,7 +56404,7 @@ const platinumTrainers = [
                 "spd": 69,
                 "held_item": null,
                 "moves": [
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech",
                     "Discharge"
@@ -56941,7 +56941,7 @@ const platinumTrainers = [
                 "held_item": null,
                 "moves": [
                     "Spark",
-                    "Lock On",
+                    "Lock-On",
                     "Magnet Bomb",
                     "Screech"
                 ],

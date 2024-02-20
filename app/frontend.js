@@ -291,7 +291,7 @@ for (let folder of ['splits', 'splits/Platinum', 'splits/HGSS']) {
 
 function logData(gameName, str, file_name, starter, log_type, testStatus, toggle) {
     return new Promise((resolve, reject) => {
-        console.log(testStatus);
+        // console.log(testStatus);
         const testStatusText = 'testrun_';
         var dirPath = `./splits/${gameName}/${starter}/`;
         var filePath = path.join(dirPath, `${starter}-${file_name}-simple.csv`);
@@ -497,7 +497,8 @@ const app = Vue.createApp({
             state:               "No Pokemon",
             game_variables:      null,
             autosplitter_toggle: true,
-
+            evolution:           false,
+            
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter:           "Heatran",
             growth_rate:       "Slow",
@@ -701,6 +702,15 @@ const app = Vue.createApp({
                 "autosplitter_toggle",
                 "gameSelection"
             ],
+
+            // buffer properties
+            buffer_battle_level:           0,
+            buffer_battle_exp:             0,
+            buffer_battle_attack:          0,
+            buffer_battle_defense:         0,
+            buffer_battle_speed:           0,
+            buffer_battle_special_attack:  0,
+            buffer_battle_special_defense: 0,
         }
     },
     created() {
@@ -1550,15 +1560,41 @@ const app = Vue.createApp({
             if (category == "Status")   { return [category, "Status"] }
         },
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
+            const state = this.mapper.properties.meta.state.value
+            const battle_ram = this.mapper.properties.battle.player.active_pokemon
             var currentStat = 0
+            var modifier = 0
+            var stageModification = 1
             var return_value = 0
-            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
-                currentStat       = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
-                modifier          = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
-                stageModification = this.stageModifiersData.stats[modifier]
-                return_value      = Math.floor(currentStat * stageModification)
+            if (state == `Battle`) {
+                currentStat = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
+                modifier = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value == null ? 0 
+                    : this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
+                stageModification = this.stageModifiersData.stats[modifier] == undefined ? 1 
+                    : this.stageModifiersData.stats[modifier]
+                return_value = Math.floor(currentStat * stageModification)
+                //assign buffer values
+                this.buffer_battle_level           = battle_ram.level.value
+                this.buffer_battle_exp             = battle_ram.exp.value
+                this.buffer_battle_hp              = battle_ram.stats.hp_max.value
+                switch (stat) {
+                    case 'attack':          this.buffer_battle_attack          = return_value; break;
+                    case 'defense':         this.buffer_battle_defense         = return_value; break;
+                    case 'speed':           this.buffer_battle_speed           = return_value; break;
+                    case 'special_attack':  this.buffer_battle_special_attack  = return_value; break;
+                    case 'special_defense': this.buffer_battle_special_defense = return_value; break;
+                }
             }
-            else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
+            else if (state == `From Battle`) {
+                switch (stat) {
+                    case 'attack':          return_value = this.buffer_battle_attack;          break;
+                    case 'defense':         return_value = this.buffer_battle_defense;         break;
+                    case 'speed':           return_value = this.buffer_battle_speed;           break;
+                    case 'special_attack':  return_value = this.buffer_battle_special_attack;  break;
+                    case 'special_defense': return_value = this.buffer_battle_special_defense; break;
+                }
+            }
+            else if (state == `No Pokemon`) {
                 var statName = ""
                 switch (stat) {
                     case "attack":          statName = "base_atk";     break;
@@ -1569,10 +1605,10 @@ const app = Vue.createApp({
                 }
                 return_value = this.g4PokemonData[this.starter][statName]
             }
-            else {
+            else if (state == `Overworld` || state == `To Battle`) {
                 return_value = this.mapper?.properties?.player?.team[0].stats[stat].value
             }
-            if (return_value == NaN || return_value == "NaN") { return "Err" }
+            // console.log(stat, state, currentStat, modifier, stageModification, return_value) 
             return return_value
         },
         getEnemyStat(statName, statValue, slotIndex) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
@@ -1654,11 +1690,13 @@ const app = Vue.createApp({
             }
         },
         getSoloMonType(pkmn, type) { //type == type_1 or type_2
+            // const species = pkmn
+            const species = this.starter
             if (this.mapper.properties.meta?.state?.value == `From Battle`) {
-                return this.g4PokemonData[pkmn][type]
+                return this.g4PokemonData[species][type]
             }
             if (this.mapper.properties.meta.state.value == `From Battle`) {
-                return this.g4PokemonData[pkmn][type]
+                return this.g4PokemonData[species][type]
             }
             if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == null) {
                 typeString = "type_1"
@@ -1669,7 +1707,7 @@ const app = Vue.createApp({
                 return this.mapper.properties.battle?.player?.active_pokemon[typeString]?.value
             }
             if (this.mapper.properties.meta?.state?.value == `No Pokemon` || this.mapper.properties.meta?.state?.value == `Overworld`) {
-                return this.g4PokemonData[pkmn][type]
+                return this.g4PokemonData[species][type]
             }
         },
         move_name(move_string) { //converts move strings so that they are formatted correctly
@@ -2715,9 +2753,9 @@ const app = Vue.createApp({
         //*Autosplitter
         const log_split = (x) => console.log(`Autosplitter - Battle Ended: Split: ${this.opponent} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
         const autosplitter_process = () => {
-            console.log("Checking if autosplitter is on...")
+            // console.log("Checking if autosplitter is on...")
             if (this.autosplitter_toggle == true) {
-                console.log("Began Autosplitter Process")
+                // console.log("Began Autosplitter Process")
                 d = new Date()
                 battle_end = Date.now()
                 //values
@@ -2731,7 +2769,7 @@ const app = Vue.createApp({
                 let time_string = d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0") + ":" + d.getSeconds().toString().padStart(2, "0")
                 let player_name = this.mapper.properties.player.name.value
                 let pokemon = this.starter
-                console.log("opponent info: "+ this.opponent)
+                // console.log("opponent info: "+ this.opponent)
                 let trainer_name = this.mapper.properties.battle.opponent.name.value
                 // let trainer_name = this.format_trainer_name(this.mapper.properties.battle.trainer.class.value, this.mapper.properties.battle.trainer.number.value)
                 let trainer_id = this.mapper.properties.battle.opponent.id.value
@@ -2997,12 +3035,12 @@ const app = Vue.createApp({
 
         //write to file at the end of a key battle
         this.mapper.properties.meta.state.change(async (prop) => {
-            console.log(`State Changed to "${prop.value}"`)
+            // console.log(`State Changed to "${prop.value}"`)
             if (prop.value != 'From Battle') { return  }
             autosplitter_process()
-            console.log('Autosplitter Attempted to Run')
+            // console.log('Autosplitter Attempted to Run')
             if (prop.value == 'From Battle') {
-                console.log('Starting split log process')
+                // console.log('Starting split log process')
                 let trainer = this.mapper.properties.battle.opponent.name.value
                 let id = this.mapper.properties.battle.opponent.id.value
                 let gameName = 'Platinum'
@@ -3048,7 +3086,7 @@ const app = Vue.createApp({
                     //use then so that logCopy doesn't touch any files until logData finishes
                     logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode)
                     .then(() => {
-                            console.log("Run complete - moving attempt files to finished folder.")
+                            // console.log("Run complete - moving attempt files to finished folder.")
                             logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count);
                         })
                         .catch(error => {
@@ -3060,7 +3098,7 @@ const app = Vue.createApp({
                         ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
                         split_data: this.split_data
                     }
-                    console.log("Data transfer finished.")
+                    // console.log("Data transfer finished.")
                 }
             }
         });

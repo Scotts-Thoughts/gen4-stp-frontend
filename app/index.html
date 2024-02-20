@@ -99,12 +99,12 @@
                     <br>
                     <br>
                     <div>Pokemon Image Settings</div>
-                    X-Offset: <input type="range" min="-400" max="400" v-model="imageXOffset"/><br>
-                    Y-Offset: <input type="range" min="-400" max="400"v-model="imageYOffset"/><br>
-                    Scale: <input type="range" min="0.2" max="2.5" step="0.01" v-model="imageScale"/><br>
-                    Saturation: <input type="range" min="90" max="150" step="1" v-model="imageSat"/><br>
-                    Rotation: <input type="range" min="-180" max="180" step=".01" v-model="imageRotation"/><br>
-                    Flip: <input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/><br>
+                    X-Offset:   <input type="range" min="-400" max="400" v-model="imageXOffset"/><br>
+                    Y-Offset:   <input type="range" min="-400" max="400" v-model="imageYOffset"/><br>
+                    Scale:      <input type="range" min="0.2"  max="2.5" step="0.01" v-model="imageScale"/><br>
+                    Saturation: <input type="range" min="90"   max="150" step="1"    v-model="imageSat"/><br>
+                    Rotation:   <input type="range" min="-180" max="180" step=".01"  v-model="imageRotation"/><br>
+                    Flip:       <input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/><br>
                     <button @click="resetPokemon()" class="buttonStyle">Reset Pokemon Settings</button><br>
                     <!-- <br> -->
                     <div>Overlay Color Selector:</div>
@@ -117,16 +117,21 @@
                             {{ key }}
                         </option>
                     </select><br>
-                    X-Offset: <input type="range" min="-125" max="125" v-model="backgroundXOffset"/><br>
-                    Y-Offset: <input type="range" min="-125" max="125"v-model="backgroundYOffset"/><br>
-                    Scale: <input type="range" min="100" max="200" v-model="backgroundScale"/><br>
-                    Brightness: <input type="range" min="0" max="200" v-model="backgroundBrightness"/><br>
-                    Contrast: <input type="range" min="0" max="200" v-model="backgroundContrast"/><br>
-                    Saturation: <input type="range" min="0" max="200" v-model="backgroundSaturation"/><br>
-                    Blur: <input type="range" min="0" max="10" v-model="backgroundBlur"/><br>
-                    Flip: <input class="checkBoxStyle" type="checkbox" v-model="backgroundFlip"/><br>
+                    X-Offset:   <input type="range" min="-125" max="125" v-model="backgroundXOffset"/><br>
+                    Y-Offset:   <input type="range" min="-125" max="125" v-model="backgroundYOffset"/><br>
+                    Scale:      <input type="range" min="100"  max="200" v-model="backgroundScale"/><br>
+                    Brightness: <input type="range" min="0"    max="200" v-model="backgroundBrightness"/><br>
+                    Contrast:   <input type="range" min="0"    max="200" v-model="backgroundContrast"/><br>
+                    Saturation: <input type="range" min="0"    max="200" v-model="backgroundSaturation"/><br>
+                    Blur:       <input type="range" min="0"    max="10"  v-model="backgroundBlur"/><br>
+                    Flip:       <input class="checkBoxStyle" type="checkbox" v-model="backgroundFlip"/><br>
                     <button @click="reset()" class="buttonStyle">Reset Texture Settings</button><br>
                     <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
+                </div>
+                <div class="ui2">
+                    <div>Advanced Options</div>
+                    <br>
+                    <div>Evolution: <input class="checkBoxStyle" type="checkbox" v-model="evolution"/></div>
                 </div>
             </div>
 
@@ -135,17 +140,27 @@
             <div class="posAbs type_icons_boundingBox center">
                 <img 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_1')?.toLowerCase()}.png`" />
                 <img 
-                    v-if="getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1') != getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_2')" 
+                    v-if="getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1') != getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_2')" 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_2')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_2')?.toLowerCase()}.png`" />
             </div>
 
             <!-- Stats -->
             <div class="posAbs">
-                <div v-if="mapper.properties.meta.state != 'No Pokemon'" class="stats_table_header">Level {{solo_mon.level}}</div>
-                <div v-if="mapper.properties.meta.state == 'No Pokemon'" class="stats_table_header">Base Stats</div>
+                <div v-if="mapper.properties.meta.state == 'Overworld' || mapper.properties.meta.state == 'Battle' || mapper.properties.meta.state == 'To Battle'" 
+                    class="stats_table_header">
+                    Level {{solo_mon.level}}
+                </div>
+                <div v-if="mapper.properties.meta.state =='From Battle'" 
+                    class="stats_table_header">
+                    Level {{buffer_battle_level}}
+                </div>
+                <div v-if="mapper.properties.meta.state == 'No Pokemon'" 
+                    class="stats_table_header">
+                    Base Stats
+                </div>
                 <table class="stats_table stats_table_borders" style="left: 21px;">
                     <tr>
                         <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.status_condition?.value))">Hp:</th>
@@ -287,30 +302,30 @@
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x].species ?? 'Piplup')}.png`" />
-                                <div class="ePkmnLvlSpecies">{{enemy_mon_static[x].species}} Lv: {{enemy_mon_static[x].level}}</div>
-                                <div class="ePkmnAbility" style="opacity: .7;">{{enemy_mon_static[x].ability}}</div>
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species ?? 'Piplup')}.png`" />
+                                <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}} Lv: {{enemy_mon_static[x]?.level}}</div>
+                                <div class="ePkmnAbility" style="opacity: .7;">{{enemy_mon_static[x]?.ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">
-                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_mon_static[x].species]?.type_1?.toLowerCase()}.png`" />
-                                    <img v-show="g4PokemonData[enemy_mon_static[x].species]?.type_1 != g4PokemonData[enemy_mon_static[x].species]?.type_2" 
-                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_mon_static[x].species]?.type_2?.toLowerCase()}.png`" />
+                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_mon_static[x]?.species]?.type_1?.toLowerCase()}.png`" />
+                                    <img v-show="g4PokemonData[enemy_mon_static[x]?.species]?.type_1 != g4PokemonData[enemy_mon_static[x]?.species]?.type_2" 
+                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_mon_static[x]?.species]?.type_2?.toLowerCase()}.png`" />
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle'" class="border ePkmnStats">
                                     <table v-if="mapper.properties.battle.player.active_pokemon.stats.hp.value > 0" class="enemyStatTable">
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_mon_static[x].hp}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", enemy_mon_static[x].atk, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", enemy_mon_static[x].def, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("special_attack", enemy_mon_static[x].spa, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{getEnemyStat("special_defense", enemy_mon_static[x].spd, x)}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{getEnemyStat("speed", enemy_mon_static[x].spe, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_mon_static[x]?.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", enemy_mon_static[x]?.atk, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", enemy_mon_static[x]?.def, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("special_attack", enemy_mon_static[x]?.spa, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{getEnemyStat("special_defense", enemy_mon_static[x]?.spd, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{getEnemyStat("speed", enemy_mon_static[x]?.spe, x)}}</th></tr>
                                     </table>
                                     <table v-else class="enemyStatTable">
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_mon_static[x].hp}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{enemy_mon_static[x].atk}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{enemy_mon_static[x].def}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{enemy_mon_static[x].spa}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{enemy_mon_static[x].spd}}</th></tr>
-                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{enemy_mon_static[x].spe}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_mon_static[x]?.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{enemy_mon_static[x]?.atk}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{enemy_mon_static[x]?.def}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{enemy_mon_static[x]?.spa}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{enemy_mon_static[x]?.spd}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{enemy_mon_static[x]?.spe}}</th></tr>
                                     </table>
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
@@ -324,15 +339,15 @@
                                 <div class="border ePkmnMoves">
                                     <table class="enemyMovesetTable">
                                         <tr v-for="move_index in moves = [0,1,2,3]">
-                                            <th v-if="enemy_mon_static[x].moves[move_index] != undefined">
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined">
                                                 <img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(platinum_moves[enemyMove(x, move_index)]?.Type?.toLowerCase(), enemyMove(x, move_index), x)}.png`" />
                                             </th>
-                                            <th v-if="enemy_mon_static[x].moves[move_index] != undefined"class="align_left" style="font-size: 14px;">
-                                                {{enemy_mon_static[x].moves[move_index]}}
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"class="align_left" style="font-size: 14px;">
+                                                {{enemy_mon_static[x]?.moves[move_index]}}
                                             </th>
-                                            <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: 1; font-size: 14px;" class="align_right">
-                                            <!-- <th v-if="enemy_mon_static[x].moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
-                                                <div>{{enemy_effective_power(enemy_mon_static[x].moves[move_index], mapper.properties.battle.opponent.team[x])}}</div>
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"style="opacity: 1; font-size: 14px;" class="align_right">
+                                            <!-- <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
+                                                <div>{{enemy_effective_power(enemy_mon_static[x]?.moves[move_index], mapper.properties.battle.opponent.team[x])}}</div>
                                             </th>
                                         </tr>
                                     </table>
@@ -355,7 +370,8 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).level">
+                        <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).level"> -->
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -364,7 +380,8 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tmhm">
+                        <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tmhm"> -->
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm">
                             <td class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -417,7 +434,8 @@
             <!-- Exp bar -->
             <div>
                 <div class="growthRate">{{g4PokemonData[starter].growth_rate}}</div>
-                <div v-if="mapper.properties.meta.state.value != 'No Pokemon'" class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, solo_mon.exp.value).percent)}}%</div>
+                <div v-if="mapper.properties.meta.state.value == 'From Battle'" class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, buffer_battle_exp).percent)}}%</div>
+                <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, solo_mon.exp.value).percent)}}%</div>
                 <div v-else-if="mapper.properties.meta.state.value == 'No Pokemon'"class="labelEXP">Exp:</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
                 <img src="images/misc/label.png" style="top: 298px; position: absolute;">
