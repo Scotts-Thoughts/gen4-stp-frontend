@@ -61,8 +61,10 @@
                     <div>Solo Pokemon:</div>
                     <select v-model="starter" class="dropdownMenu">
                         <option disabled value="">Select a species</option>
-                        <option v-for="key in pokemon_list" :value="`${key}`">{{key}}</option>
+                        <option v-for="key in filtered_pokemon_list" :value="`${key}`">{{key}}</option>
                     </select>
+                    <div>Search Pokemon:</div>
+                    <input type="text" v-model="search_term" placeholder="Search for a species">
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
                     <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button><br>
@@ -106,10 +108,8 @@
                     Rotation:   <input type="range" min="-180" max="180" step=".01"  v-model="imageRotation"/><br>
                     Flip:       <input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/><br>
                     <button @click="resetPokemon()" class="buttonStyle">Reset Pokemon Settings</button><br>
-                    <!-- <br> -->
-                    <div>Overlay Color Selector:</div>
                     <button @click="color_picker" class="buttonStyle">Color Picker</button><br>
-                    <button @click="clear_overlay_color" class="buttonStyle">Reset Overlay Color</button><br>
+                    <!-- <button @click="clear_overlay_color" class="buttonStyle">Reset Overlay Color</button><br> -->
                     <br>
                     <div>Background Texture:</div>
                     <select v-model="backgroundTexture" class="dropdownMenu">
@@ -130,6 +130,7 @@
                 </div>
                 <div class="ui2">
                     <div>Advanced Options</div>
+                    <div>Currently loaded mon: {{}}</div>
                     <br>
                     <div>Evolution: <input class="checkBoxStyle" type="checkbox" v-model="evolution"/></div>
                     <br>

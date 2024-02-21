@@ -723,6 +723,8 @@ const app = Vue.createApp({
             buffer_battle_speed:           0,
             buffer_battle_special_attack:  0,
             buffer_battle_special_defense: 0,
+
+            search_term: "",
         }
     },
     created() {
@@ -782,7 +784,14 @@ const app = Vue.createApp({
         starter(newValue, oldValue) {
             MyStorage['starter'] = newValue
             //background texture settings
-            this.overlay_color =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.overlay_color ?? this.default_colors[this.g4PokemonData[newValue].type_1]
+            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
+            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
+            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
+            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
+            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
+            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
+
             this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture ?? `${this.g4PokemonData[newValue].type_1}`
             this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur ?? 0,
             this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale ?? 100,
@@ -798,7 +807,7 @@ const app = Vue.createApp({
             this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number ?? 0,
             this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count ?? 0,
             this.playerResets =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets ?? 0,
-            this.blackout_counter =             MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter ?? 0,
+            this.blackout_counter =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter ?? 0,
             //main pokemon settings
             this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature ?? "Hardy",
             this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability ?? this.g4PokemonData[newValue].abilities[0],
@@ -851,6 +860,13 @@ const app = Vue.createApp({
         },
     },
     computed: {
+        filtered_pokemon_list() {
+            if (this.search_term === '') {
+                return this.pokemon_list;
+            } else {
+                return this.pokemon_list.filter(pokemon => pokemon.toLowerCase().includes(this.search_term.toLowerCase()));
+            }
+        },
         exp_label_percentage() {
             switch (this.state) {
                 case "No Pokemon":
