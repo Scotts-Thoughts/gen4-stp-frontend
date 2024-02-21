@@ -792,27 +792,27 @@ const app = Vue.createApp({
             this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat         ?? 100
             this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation    ?? 0
 
-            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture     ?? `${this.g4PokemonData[newValue].type_1}`
-            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur        ?? 0,
-            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale       ?? 100,
-            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl         ?? "",
-            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip        ?? false,
-            this.use_custom_background = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.use_custom_background ?? false,
-            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundXOffset     ?? 0,
-            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundYOffset     ?? 0,
-            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBrightness  ?? 100,
-            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundContrast    ?? 100,
-            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundSaturation  ?? 100,
+            this.backgroundTexture      = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture     ?? `${this.g4PokemonData[newValue].type_1}`
+            this.backgroundBlur         = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur        ?? 0,
+            this.backgroundScale        = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale       ?? 100,
+            this.backgroundUrl          = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl         ?? "",
+            this.backgroundFlip         = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip        ?? false,
+            this.use_custom_background  = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.use_custom_background ?? false,
+            this.backgroundXOffset      = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundXOffset     ?? 0,
+            this.backgroundYOffset      = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundYOffset     ?? 0,
+            this.backgroundBrightness   = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBrightness  ?? 100,
+            this.backgroundContrast     = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundContrast    ?? 100,
+            this.backgroundSaturation   = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundSaturation  ?? 100,
             //Attempts and finishes
-            this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number        ?? 0,
-            this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count    ?? 0,
-            this.playerResets =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets          ?? 0,
-            this.blackout_counter =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter      ?? 0,
+            this.attempt_number         = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number        ?? 0,
+            this.finished_run_count     = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count    ?? 0,
+            this.playerResets           = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets          ?? 0,
+            this.blackout_counter       = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter      ?? 0,
             //main pokemon settings
-            this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature            ?? "Hardy",
-            this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability          ?? this.g4PokemonData[newValue].abilities[0],
-            this.hidden_power_type =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.hidden_power_type     ?? "Dark",
-            this.pkmn_gender =           MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_gender           ?? "Female"
+            this.pkmnNature             = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature            ?? "Hardy",
+            this.pkmn_ability           = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability          ?? this.g4PokemonData[newValue].abilities[0],
+            this.hidden_power_type      = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.hidden_power_type     ?? "Dark",
+            this.pkmn_gender            = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_gender           ?? "Female"
             // this.movepoolResize();
         },
         playerId(newValue) {
@@ -895,14 +895,14 @@ const app = Vue.createApp({
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
-            const object = this.platinumTrainers[opponent_id].pokemon
+            const object      = this.platinumTrainers[opponent_id].pokemon
             return object
         },
         enemy_mon() {
-            const party_position = this.mapper.properties.battle.opponent.party_position.value
+            const party_position     = this.mapper.properties.battle.opponent.party_position.value
             const opponent_structure = this.mapper.properties.battle.opponent.party_position.value
-            const opponent_id = this.mapper.properties.battle.opponent.id.value
-            const static_data = this.platinumTrainers[opponent_id]
+            const opponent_id        = this.mapper.properties.battle.opponent.id.value
+            const static_data        = this.platinumTrainers[opponent_id]
         },
         heldItem() {
             if (this.mapper.properties.player?.team[0]?.held_item?.value == "Never-Melt Ice") { return "NeverMeltIce"}
@@ -1021,11 +1021,11 @@ const app = Vue.createApp({
             }
         },
         moveRouting() {
-            const gamestate = this.mapper.properties.meta.state.value
-            const team_pid = this.mapper?.properties.battle.player.active_pokemon.internals.personality_value.value
-            const battle_pid = this.mapper?.properties.player.team[0].internals.personality_value.value
+            const gamestate    = this.mapper.properties.meta.state.value
+            const team_pid     = this.mapper?.properties.battle.player.active_pokemon.internals.personality_value.value
+            const battle_pid   = this.mapper?.properties.player.team[0].internals.personality_value.value
             const battle_moves = this.mapper.properties.battle.player.active_pokemon.moves
-            const team_moves = this.mapper.properties.player.team[0].moves
+            const team_moves   = this.mapper.properties.player.team[0].moves
             debugger
             if (gamestate == `Overworld` && team_pid != battle_pid) {
                 return team_moves
