@@ -309,7 +309,7 @@
             <!-- Right Hand Information Area -->
             <transition name="fade1">
                 <!-- Enemy Team Display -->
-                <div v-if="enemyGraphic == true" style="position: absolute;" key="1">
+                <div v-if="enemy_graphic == true" style="position: absolute;" key="1">
                     <div class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
                     <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
                     <div v-for="x in pkmnSlots">
@@ -469,7 +469,7 @@
             <div class="label_nature">Nature:</div>
             <div class="value_nature">{{capitalization_format(getSoloNature().nature)}}</div>
             <div class="label_friendship">Friendship:</div>
-            <div class="value_friendship">{{getSoloFriendship()}}</div>
+            <div class="value_friendship">{{get_friendship()}}</div>
 
         </div>
     </div>
@@ -485,7 +485,7 @@
     <script src="lib/type-effectiveness.js"></script>
     <script src="lib/type effectiveness array.js"></script>
     <script src="lib/typeBoostingItems.js"></script>
-    <script src="lib/platinumTrainers.js"></script>
+    <script src="lib/platinum_trainers.js"></script>
     <script src="lib/hiddenPowerTypes.js"></script>
     <script src="lib/g4PokemonDataPlat.js"></script>
     <script src="lib/natureDefinitions.js"></script>

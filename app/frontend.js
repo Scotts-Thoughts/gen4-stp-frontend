@@ -291,7 +291,6 @@ for (let folder of ['splits', 'splits/Platinum', 'splits/HGSS']) {
 
 function logData(gameName, str, file_name, split_file_prefix, log_type, testStatus, toggle, evolution, evolution_label) {
     return new Promise((resolve, reject) => {
-        // console.log(testStatus);
         const testStatusText = 'testrun_';
         if (evolution == true) {
             split_file_prefix = evolution_label;
@@ -535,7 +534,7 @@ const app = Vue.createApp({
             typeEffectivenessArray: typeEffectivenessArray,
             typeData:               typeData,
             typeBoostingItems:      typeBoostingItems,
-            platinumTrainers:       platinumTrainers,
+            platinum_trainers:      platinum_trainers,
             platinum_moves:         platinum_moves,
             hiddenPowerTypes:       hiddenPowerTypes,
             natures:                natures,
@@ -723,7 +722,7 @@ const app = Vue.createApp({
             buffer_battle_speed:           0,
             buffer_battle_special_attack:  0,
             buffer_battle_special_defense: 0,
-            buffer_battle_friendship: 0,
+            buffer_battle_friendship:      0,
 
             search_term: "",
         }
@@ -766,8 +765,7 @@ const app = Vue.createApp({
                     MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`] = {
                             ...MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`],
                             [propName]: newValue
-                        };
-                    console.log(`${this.mapper?.properties.meta.game_name.value}_${this.starter}`)
+                    };
                 }
             );
         }
@@ -896,14 +894,14 @@ const app = Vue.createApp({
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
-            const object      = this.platinumTrainers[opponent_id].pokemon
+            const object      = this.platinum_trainers[opponent_id].party
             return object
         },
         enemy_mon() {
             const party_position     = this.mapper.properties.battle.opponent.party_position.value
             const opponent_structure = this.mapper.properties.battle.opponent.party_position.value
             const opponent_id        = this.mapper.properties.battle.opponent.id.value
-            const static_data        = this.platinumTrainers[opponent_id]
+            const static_data        = this.platinum_trainers[opponent_id]
         },
         heldItem() {
             const state = this.mapper.properties.meta.state.value
@@ -915,10 +913,12 @@ const app = Vue.createApp({
                     return this.mapper.properties.player.team[0].held_item.value
             }
         },
-        enemyGraphic() {
+        enemy_graphic() {
             let show = false
             let delay = false
             let trainer = this.mapper?.properties.battle.opponent.trainer?.value ?? "none"
+            let id = this.mapper?.properties.battle.opponent.id.value
+            if (id == 0) { return false }
             switch (trainer) {
                 case "Leader Roark":         delay == true;
                 case "Leader Gardenia":      delay == true;
@@ -990,7 +990,7 @@ const app = Vue.createApp({
             }
         },
         trainerData() {
-            if (this.mapper.properties.meta.game_name.value == "Platinum") { return this.platinumTrainers }
+            if (this.mapper.properties.meta.game_name.value == "Platinum") { return this.platinum_trainers }
             else if (this.mapper.meta.game_name == "HeartGold and SoulSilver") { return }
             else { return }
         },
@@ -1234,10 +1234,6 @@ const app = Vue.createApp({
             const game_name = this.mapper.properties.meta.game_name.value
             const from      = `${game_name}_${copy_from}`
             const to        = `${game_name}_${copy_to}`
-            console.log("From: " + copy_from)
-            console.log("To: " + copy_to)
-            console.log("Pokemon From: " + from)
-            console.log("Pokemon To: " + to)
 
             if (!MyStorage[`${game_name}_${copy_from}`]) {
                 console.log("The Pokemon you are trying to copy from does not have overlay data stored for it.")
@@ -1579,18 +1575,26 @@ const app = Vue.createApp({
                 return this.getNature(pid)
             }
         },
-        getSoloFriendship() {
+        get_friendship() {
             const state = this.mapper.properties.meta.state.value
+            const battle_ram = this.mapper.properties.battle.player.active_pokemon
+            const team_ram = this.mapper.properties.player.team[0]
             var friendship = this.mapper.properties.player.team[0].friendship.value
-            if (state == 'Battle' || state == 'From Battle') {
-                friendship = this.mapper.properties.battle.player.active_pokemon.friendship.value
+            var return_value = 0
+            if (state == `Battle`) {
+                this.buffer_battle_friendship = battle_ram.friendship.value
+                return_value = battle_ram.friendship.value
             }
-            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
-                return ""
+            else if (state == `From Battle`) {
+                return_value = this.buffer_battle_friendship;
             }
-            else {
-                return friendship + "/255"
+            else if (state == `No Pokemon`) {
+                return_value = 0
             }
+            else if (state == `Overworld` || state == `To Battle`) {
+                return_value = team_ram.friendship.value
+            }
+            return return_value + "/255"
         },
         statusConditionConverter(statusCondition) {
             if (statusCondition) {
