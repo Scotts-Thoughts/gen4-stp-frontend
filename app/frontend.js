@@ -898,12 +898,6 @@ const app = Vue.createApp({
             const object      = this.platinum_trainers[opponent_id].party
             return object
         },
-        enemy_mon() {
-            const party_position     = this.mapper.properties.battle.opponent.party_position.value
-            const opponent_structure = this.mapper.properties.battle.opponent.party_position.value
-            const opponent_id        = this.mapper.properties.battle.opponent.id.value
-            const static_data        = this.platinum_trainers[opponent_id]
-        },
         heldItem() {
             const state = this.mapper.properties.meta.state.value
             if (this.mapper.properties.player?.team[0]?.held_item?.value == "Never-Melt Ice") { return "NeverMeltIce"}
@@ -1409,20 +1403,6 @@ const app = Vue.createApp({
                 [property_name]: value,
             }
         },
-        newRun() {
-            const timeRegex = /(\d+:\d{2}:\d{2})(\.\d{2})/;
-            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5);
-            
-            this.timer_pause = true
-            this.timer_startTime = 0
-            this.timer_pause_time = 0
-            this.timer_formatted_time = timeOffsetArray ?? [ "0", ".00" ]
-            this.playerResets = 0
-            this.finished_logs = false
-            this.blackout_counter = 0
-            this.playerId = 0
-            // this.playerName = "NINTEN"
-        },
         keys_function(object) {
             return Object.keys(object)
         },
@@ -1520,6 +1500,23 @@ const app = Vue.createApp({
                 this.timer_pause_time = Date.now()
             }
         },
+        newRun() {
+            const timeRegex = /(\d+):(\d{2}):(\d{2})\.(\d{2})/;
+            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
+            const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
+
+            this.timer_pause = true
+            this.timer_startTime = Date.now() - timeOffset
+            this.timer_pause_time = Date.now()
+            this.timer_formatted_time = [ "0", ".00" ]
+            this.playerResets = 0
+            this.finished_logs = false
+            this.blackout_counter = 0
+            this.playerId = 0
+            // this.playerName = "NINTEN"
+
+            this.updateTime()
+        },
         //fixes species that contain special characters in their names
         speciesSpecialCharacters(species) {
             switch (species) {
@@ -1614,16 +1611,16 @@ const app = Vue.createApp({
         },
         statusConditionConverter(statusCondition) {
             if (statusCondition) {
-                if (this.mapper.properties.meta.generation.value == 1) {
+                if (this.mapper.properties.meta.generation == 1) {
                     return
                 }
-                if (this.mapper.properties.meta.generation.value == 2) {
+                if (this.mapper.properties.meta.generation == 2) {
                     return
                 }
-                if (this.mapper.properties.meta.generation.value == 3) {
+                if (this.mapper.properties.meta.generation == 3) {
                     return
                 }
-                if (this.mapper.properties.meta.generation.value == 4) {
+                if (this.mapper.properties.meta.generation == 4) {
                     switch (statusCondition) {
                         case "Asleep":         return "SLP"
                         case "Poisoned":       return "PSN"
@@ -1721,6 +1718,9 @@ const app = Vue.createApp({
             }
             else if (state == `Overworld` || state == `To Battle`) {
                 return_value = this.mapper?.properties?.player?.team[0].stats[stat].value
+                if (stat == 'speed' && this.mapper.properties.player.team[0].status_condition.value == 'Paralyzed') {
+                    return_value = Math.floor(return_value / 4)
+                }
             }
             // console.log(stat, state, currentStat, modifier, stageModification, return_value) 
             return return_value
@@ -1931,7 +1931,7 @@ const app = Vue.createApp({
         // MOVE ACCURACY
         getAccuracy(accuracy) {
             if (accuracy == `-`) {
-                return `-`
+                return `—`
             }
             if (accuracy == `—`) {
                 return `—`
@@ -1941,7 +1941,8 @@ const app = Vue.createApp({
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
-                return Math.floor(accuracy * accuracyModifier * evasionModifier)
+                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier) < 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier) : 100
+                return calculated_accuracy
             }
             else return accuracy
         },
@@ -2393,7 +2394,7 @@ const app = Vue.createApp({
                     return specialMovePower
                 }
                 else if (y == "Low Kick" || y == "Grass Knot") {
-                    if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == `To Battle`) { return `-`}
+                    if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == `To Battle`) { return "—"}
                     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 10) { return 20 }
                     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 25) { return 40 }
                     if (this.g4PokemonData[this.mapper.properties.battle.opponent.active_pokemon.species.value]?.weight < 50) { return 60 }
@@ -2407,8 +2408,15 @@ const app = Vue.createApp({
                 else if (y == "Facade" && (this.s1.status_condition.value == "Paralyzed" || this.s1.status_condition.value == "Poisoned" || this.s1.status_condition.value == "Burned")) {
                     return move.power * 2
                 }
+                else if (y == "Gyro Ball") {
+                    const user_speed = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    const target_speed = this.mapper.properties.battle.opponent.active_pokemon.stats.speed.value
+                    var base_power = Math.min(((25 * target_speed) / user_speed) + 1)
+                    if (base_power > 150) { base_power = 150 }
+                    return base_power
+                }
                 if (move.power == "—") { return "—"}
-                if (move.power == 0) { return "-"}
+                if (move.power == 0) { return "—"}
                 else
                     if (move) return move.power
             }
@@ -2747,6 +2755,72 @@ const app = Vue.createApp({
                 return 1
             }
         },
+        enemy_move_power(move_name, enemy_mon) { //y = move1.value
+            const state = this.mapper.properties.meta.state.value
+            if (state != 'Battle') { return }
+            if (move_name) {
+                var move = this.generation4_moves_new[move_name]
+                if (move_name == "Return") {
+                    if (enemy_mon.friendship.value < 2.5)
+                        var friendshipValue = 2.5 
+                    else 
+                        var friendshipValue = enemy_mon.friendship.value
+                    var specialMovePower = Math.floor(friendshipValue/2.5)
+                    return specialMovePower
+                }
+                else if (move_name == "Flail" || move_name == "Reversal") {
+                    var hpPercentage = enemy_mon.hp.value / enemy_mon.hp_max.value
+                    if (hpPercentage >= .6875) { return 20 }
+                    else if (hpPercentage >= .3542 && hpPercentage < .6875) { return 40 }
+                    else if (hpPercentage >= .2083 && hpPercentage < .3542) { return 80 }
+                    else if (hpPercentage >= .1042 && hpPercentage < .2083) { return 100 }
+                    else if (hpPercentage >= .0417 && hpPercentage < .1042) { return 150 }
+                    else if (hpPercentage < .0417) { return 200 }
+                }
+                else if (move_name == "Water Spout" || move_name == "Eruption") {
+                    var power = (150 * enemy_mon.hp.value) / enemy_mon.hp_max.value
+                    if (power < 1) {
+                        return 1
+                    }
+                    return Math.floor(power)
+                }
+                else if (move_name == "Frustration") {
+                    if (enemy_mon.friendship.value > 252.5)
+                        var friendshipValue = 252.5 
+                    else 
+                        var friendshipValue = enemy_mon.friendship.value
+                    var specialMovePower = Math.floor((255-friendshipValue)/2.5)
+                    return specialMovePower
+                }
+                else if (move_name == "Low Kick" || move_name == "Grass Knot") {
+                    if (this.mapper.properties.meta.state.value == `Overworld` || this.mapper.properties.meta.state.value == `To Battle`) { return "—"}
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight < 10) { return 20 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight < 25) { return 40 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight < 50) { return 60 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight < 100) { return 80 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight < 200) { return 100 }
+                    if (this.g4PokemonData[this.mapper.properties.battle.player.active_pokemon.species.value]?.weight >= 200) { return 120 }
+                }
+                else if (move_name == "Hidden Power") {
+                    return this.hiddenPowerPowerCalc(enemy_mon)
+                }
+                else if (move_name == "Facade" && (enemy_mon.status_condition.value == "Paralyzed" || enemy_mon.status_condition.value == "Poisoned" || enemy_mon.status_condition.value == "Burned")) {
+                    return move.power * 2
+                }
+                else if (move_name == "Gyro Ball") {
+                    const target_speed = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    const user_speed = this.mapper.properties.battle.opponent.active_pokemon.stats.speed.value
+                    var base_power = Math.min(((25 * target_speed) / user_speed) + 1)
+                    if (base_power > 150) { base_power = 150 }
+                    return base_power
+                }
+                if (move.power == "—") { return "—"}
+                if (move.power == 0) { return "—"}
+                else
+                    if (move) return move.power
+            }
+            return null
+        },
         enemy_effective_power(move_name, enemy_mon) {
             if (this.mapper.properties.meta.state.value != 'Battle') { return }
             if (enemy_mon.species?.value == null) { return }
@@ -2758,7 +2832,7 @@ const app = Vue.createApp({
             const species = enemy_mon.species.value
             const move_data = this.generation4_moves_new[move_name]
             const move_type = move_data.type
-            const move_base_power = move_data.power
+            const move_base_power = this.enemy_move_power(move_name, enemy_mon) ?? move_data.power
             if (move_base_power == 1) { return "—" }
             const move_category = move_data.category
             const user_type_1 = this.g4PokemonData[species].type_1
@@ -2862,6 +2936,7 @@ const app = Vue.createApp({
                 const length = evolution_family.length
                 const evolved = evolution_family.includes(newProp.value)
                 const buffer_evolution_splits_label = this.evolution_splits_label
+                this.buffer_battle_exp = this.mapper.properties.player.team[0].exp.value
                 if (evolved == true) {
                     this.starter = newProp.value
                     this.evolution_splits_label = buffer_evolution_splits_label

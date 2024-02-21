@@ -1,0 +1,9 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Buneary,Rival,2:01,0,0,5,0:04,1708516644.916,Splash,Pound,Defense Curl,Foresight
+Dawn,Buneary,Rival,10:31,0,0,9,0:30,1708518505.731,Pound,Splash,Defense Curl,Foresight
+Dawn,Buneary,Leader Roark,28:02,0,0,20,1:29,1708519889.621,Frustration,Quick Attack,Defense Curl,Foresight
+Dawn,Buneary,Commander Mars,36:23,0,0,23,1:54,1708520389.772,Frustration,Quick Attack,Jump Kick,Foresight
+Dawn,Buneary,Leader Gardenia,52:06,3,0,30,2:38,1708522511.958,Return,Quick Attack,Jump Kick,Foresight
+Dawn,Buneary,Commander Jupiter,55:55,3,0,31,2:50,1708522767.264,Return,Quick Attack,Jump Kick,Foresight
+Dawn,Buneary,Leader Fantina,1:07:14,3,0,35,3:24,1708525719.921,Return,Substitute,Jump Kick,Foresight
+Dawn,Buneary,Rival,1:08:38,3,0,35,3:28,1708525803.782,Return,Substitute,Jump Kick,Foresight
