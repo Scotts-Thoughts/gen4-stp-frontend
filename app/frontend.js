@@ -729,27 +729,27 @@ const app = Vue.createApp({
     },
     created() {
         if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
-            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
-            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
-            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
-            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
-            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
-            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
-            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
-            this.backgroundBlur         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur ?? 0
-            this.backgroundScale        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale ?? 100
-            this.backgroundUrl          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl ?? ""
+            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color         ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset          ?? 0;
+            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset          ?? 0;
+            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale            ?? 1;
+            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip             ?? false;
+            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat              ?? 100
+            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation         ?? 0
+            this.backgroundBlur         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur        ?? 0
+            this.backgroundScale        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale       ?? 100
+            this.backgroundUrl          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl         ?? ""
             this.use_custom_background  = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background ?? false
-            this.backgroundXOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset ?? 0
-            this.backgroundYOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset ?? 0
-            this.backgroundTexture      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
-            this.pkmn_ability           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
-            this.attempt_number         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number ?? 0
-            this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
-            this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
-            this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
-            this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
-            this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.backgroundXOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset     ?? 0
+            this.backgroundYOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset     ?? 0
+            this.backgroundTexture      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture     ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.pkmn_ability           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability         ?? g4PokemonData[this.starter].abilities[0]
+            this.attempt_number         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number       ?? 0
+            this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count   ?? 0
+            this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count   ?? 0
+            this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count   ?? 0
+            this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count   ?? 0
+            this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count   ?? 0
         }
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
@@ -784,35 +784,35 @@ const app = Vue.createApp({
         starter(newValue, oldValue) {
             MyStorage['starter'] = newValue
             //background texture settings
-            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
-            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
-            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
-            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
-            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
-            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
-            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
+            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color    ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset     ?? 0;
+            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset     ?? 0;
+            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale       ?? 1;
+            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip        ?? false;
+            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat         ?? 100
+            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation    ?? 0
 
-            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture ?? `${this.g4PokemonData[newValue].type_1}`
-            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur ?? 0,
-            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale ?? 100,
-            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl ?? "",
-            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip ?? false,
+            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture     ?? `${this.g4PokemonData[newValue].type_1}`
+            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur        ?? 0,
+            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale       ?? 100,
+            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl         ?? "",
+            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip        ?? false,
             this.use_custom_background = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.use_custom_background ?? false,
-            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundXOffset ?? 0,
-            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundYOffset ?? 0,
-            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBrightness ?? 100,
-            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundContrast ?? 100,
-            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundSaturation ?? 100,
+            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundXOffset     ?? 0,
+            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundYOffset     ?? 0,
+            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBrightness  ?? 100,
+            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundContrast    ?? 100,
+            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundSaturation  ?? 100,
             //Attempts and finishes
-            this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number ?? 0,
-            this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count ?? 0,
-            this.playerResets =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets ?? 0,
-            this.blackout_counter =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter ?? 0,
+            this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number        ?? 0,
+            this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count    ?? 0,
+            this.playerResets =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets          ?? 0,
+            this.blackout_counter =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter      ?? 0,
             //main pokemon settings
-            this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature ?? "Hardy",
-            this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability ?? this.g4PokemonData[newValue].abilities[0],
-            this.hidden_power_type =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.hidden_power_type ?? "Dark",
-            this.pkmn_gender =           MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_gender ?? "Female"
+            this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature            ?? "Hardy",
+            this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability          ?? this.g4PokemonData[newValue].abilities[0],
+            this.hidden_power_type =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.hidden_power_type     ?? "Dark",
+            this.pkmn_gender =           MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_gender           ?? "Female"
             // this.movepoolResize();
         },
         playerId(newValue) {
