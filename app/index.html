@@ -318,7 +318,7 @@
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species ?? 'Piplup')}.png`" />
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}} Lv: {{enemy_mon_static[x]?.level}}</div>
                                 <div class="ePkmnAbility" style="opacity: .7;">{{enemy_mon_static[x]?.ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">

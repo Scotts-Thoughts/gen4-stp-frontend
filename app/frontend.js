@@ -723,6 +723,7 @@ const app = Vue.createApp({
             buffer_battle_speed:           0,
             buffer_battle_special_attack:  0,
             buffer_battle_special_defense: 0,
+            buffer_battle_friendship: 0,
 
             search_term: "",
         }
@@ -905,8 +906,14 @@ const app = Vue.createApp({
             const static_data        = this.platinumTrainers[opponent_id]
         },
         heldItem() {
+            const state = this.mapper.properties.meta.state.value
             if (this.mapper.properties.player?.team[0]?.held_item?.value == "Never-Melt Ice") { return "NeverMeltIce"}
-            return this.mapper.properties.player?.team[0]?.held_item?.value
+            switch (state) {
+                case "Battle":
+                    return this.mapper.properties.battle.player.active_pokemon.held_item.value
+                default:
+                    return this.mapper.properties.player.team[0].held_item.value
+            }
         },
         enemyGraphic() {
             let show = false
@@ -1573,7 +1580,11 @@ const app = Vue.createApp({
             }
         },
         getSoloFriendship() {
-            friendship = this.mapper.properties.player.team[0].friendship.value
+            const state = this.mapper.properties.meta.state.value
+            var friendship = this.mapper.properties.player.team[0].friendship.value
+            if (state == 'Battle' || state == 'From Battle') {
+                friendship = this.mapper.properties.battle.player.active_pokemon.friendship.value
+            }
             if (this.mapper.properties.meta.state.value == `No Pokemon`) {
                 return ""
             }
@@ -2841,7 +2852,7 @@ const app = Vue.createApp({
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
             if (newProp.value == true) {
                 this.startTime()
-                this.attempt_number++
+                // this.attempt_number++
             }
             if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                 this.playerResets++
