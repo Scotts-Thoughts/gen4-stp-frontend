@@ -59,7 +59,7 @@
             <div>
                 <div class="ui1">
                     <div>Solo Pokemon:</div>
-                    <select v-model="starter" @change="load_pokemon_sprite_settings(s1dynamicReset.species.value)" class="dropdownMenu">
+                    <select v-model="starter" class="dropdownMenu">
                         <option disabled value="">Select a species</option>
                         <option v-for="key in pokemon_list" :value="`${key}`">{{key}}</option>
                     </select>
@@ -132,6 +132,21 @@
                     <div>Advanced Options</div>
                     <br>
                     <div>Evolution: <input class="checkBoxStyle" type="checkbox" v-model="evolution"/></div>
+                    <br>
+                    <div v-if="evolution == true">
+                        <div>Forms:</div>
+                        <div v-for="evolution in g4PokemonData[starter].evolution_family">
+                            <div>- {{evolution.species}}</div>
+                        </div>
+                        <br>
+                        Splits Label: <input type="text" v-model="evolution_splits_label"/><br>
+                    </div>
+                    <br>
+                    <div>Copy Overlay Settings:</div>
+                    <div>Enter Pokemon species here</div>
+                    Copy from: <input type="text" v-model="copy_overlay_pokemon_from"/><br>
+                    Copy to: <input type="text" v-model="copy_overlay_pokemon_to"/><br>
+                    <button @click="copy_overlay_properties()" class="buttonStyle">Copy Overlay Settings</button><br>
                 </div>
             </div>
 
@@ -376,7 +391,7 @@
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
-                            <td class="movepool_tableC">{{x.Power}}</td>
+                            <td class="movepool_tableC">{{movepoolPower(x)}}</td>
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>

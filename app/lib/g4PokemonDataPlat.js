@@ -13239,6 +13239,20 @@ const g4PokemonData =
                 "Switcheroo",
                 "ThunderPunch"
             ],
+            "evolution_family": [
+                {
+                    "species": "Buneary",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Loppuny",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "weight": 33.3
         },
         "Ralts": {
@@ -14822,6 +14836,20 @@ const g4PokemonData =
                 "Quick Attack",
                 "Rollout",
                 "Water Sport"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Bidoof",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Bibarel",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "weight": 31.5
         },
@@ -27795,6 +27823,26 @@ const g4PokemonData =
                 "Rolling Kick",
                 "SmellingSalt",
                 "ThunderPunch"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Machop",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machoke",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machamp",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "weight": 70.5
         },
@@ -41397,6 +41445,26 @@ const g4PokemonData =
                 "SmellingSalt",
                 "ThunderPunch"
             ],
+            "evolution_family": [
+                {
+                    "species": "Machop",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machoke",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machamp",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "weight": 130.0
         },
         "Whismur": {
@@ -53282,6 +53350,20 @@ const g4PokemonData =
                 "Sweet Kiss",
                 "Switcheroo",
                 "ThunderPunch"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Buneary",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Loppuny",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "weight": 5.5
         },
@@ -69168,6 +69250,26 @@ const g4PokemonData =
                 "SmellingSalt",
                 "ThunderPunch"
             ],
+            "evolution_family": [
+                {
+                    "species": "Machop",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machoke",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Machamp",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "weight": 19.5
         },
         "Slowpoke": {
@@ -71165,6 +71267,20 @@ const g4PokemonData =
                 "Quick Attack",
                 "Rollout",
                 "Water Sport"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Bidoof",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Bibarel",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "weight": 20.0
         },

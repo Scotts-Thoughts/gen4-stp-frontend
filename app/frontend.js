@@ -289,25 +289,28 @@ for (let folder of ['splits', 'splits/Platinum', 'splits/HGSS']) {
     }
 }
 
-function logData(gameName, str, file_name, starter, log_type, testStatus, toggle) {
+function logData(gameName, str, file_name, split_file_prefix, log_type, testStatus, toggle, evolution, evolution_label) {
     return new Promise((resolve, reject) => {
         // console.log(testStatus);
         const testStatusText = 'testrun_';
-        var dirPath = `./splits/${gameName}/${starter}/`;
-        var filePath = path.join(dirPath, `${starter}-${file_name}-simple.csv`);
+        if (evolution == true) {
+            split_file_prefix = evolution_label;
+        }
+        var dirPath = `./splits/${gameName}/${split_file_prefix}/`;
+        var filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-simple.csv`);
         var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "failures," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
         if (testStatus == true) { 
-            dirPath = `./splits/${gameName}/${starter}/test_runs`; 
+            dirPath = `./splits/${gameName}/${split_file_prefix}/test_runs`; 
             switch (log_type) {
-                case "Deprecated": filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-deprecated.csv`); break;
-                case "Full":       filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-full.csv`); break;
-                default:           filePath = path.join(dirPath, `${testStatusText}_${starter}-${file_name}-simple.csv`);
+                case "Deprecated": filePath = path.join(dirPath, `${testStatusText}_${split_file_prefix}-${file_name}-deprecated.csv`); break;
+                case "Full":       filePath = path.join(dirPath, `${testStatusText}_${split_file_prefix}-${file_name}-full.csv`); break;
+                default:           filePath = path.join(dirPath, `${testStatusText}_${split_file_prefix}-${file_name}-simple.csv`);
             }
         }
         switch (log_type) {
-            case "Deprecated": filePath = path.join(dirPath, `${starter}-${file_name}-deprecated.csv`); break;
-            case "Full":       filePath = path.join(dirPath, `${starter}-${file_name}-full.csv`); break;
-            default:           filePath = path.join(dirPath, `${starter}-${file_name}-simple.csv`);
+            case "Deprecated": filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-deprecated.csv`); break;
+            case "Full":       filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-full.csv`); break;
+            default:           filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-simple.csv`);
         }
         if (log_type == "Deprecated" && toggle == true) {
             header = "ROM," +
@@ -497,7 +500,8 @@ const app = Vue.createApp({
             state:               "No Pokemon",
             game_variables:      null,
             autosplitter_toggle: true,
-            evolution:           false,
+            evolution:           MyStorage['evolution'] ?? false,
+            evolution_splits_label: "",
             
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter:           "Heatran",
@@ -617,6 +621,10 @@ const app = Vue.createApp({
                 "hidden_power_type",
                 "pkmn_gender",
                 "finished_run_count",
+                "evolution",
+                "evolution_splits_label",
+                "playerResets",
+                "blackout_counter",
             ],
             //timer variables
             timer_startTimeOffset: MyStorage["timer_startTimeOffset"] ?? "00:00:00.00",
@@ -651,6 +659,8 @@ const app = Vue.createApp({
             deprecated_data_str: MyStorage["deprecated_data_str"] ?? "",
             simple_data:         MyStorage["simple_data"]         ?? "",
             testRun:             MyStorage['testRun']             ?? false,
+            copy_overlay_pokemon_from: "",
+            copy_overlay_pokemon_to:   "",
 
             auto_save: [
                 "graphicOverlay",
@@ -700,7 +710,9 @@ const app = Vue.createApp({
                 "battle_start",
                 "testStatus",
                 "autosplitter_toggle",
-                "gameSelection"
+                "gameSelection",
+                "copy_overlay_pokemon_from",
+                "copy_overlay_pokemon_to",
             ],
 
             // buffer properties
@@ -715,23 +727,27 @@ const app = Vue.createApp({
     },
     created() {
         if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
-            this.overlay_color         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
-            this.imageXOffset          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
-            this.imageYOffset          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
-            this.imageScale            = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
-            this.imageFlip             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
-            this.imageSat              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
-            this.imageRotation         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
-            this.backgroundBlur        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur ?? 0
-            this.backgroundScale       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale ?? 100
-            this.backgroundUrl         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl ?? ""
-            this.use_custom_background = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background ?? false
-            this.backgroundXOffset     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset ?? 0
-            this.backgroundYOffset     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset ?? 0
-            this.backgroundTexture     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
-            this.pkmn_ability          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
-            this.attempt_number        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number ?? 0
-            this.finished_run_count    = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset ?? 0;
+            this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset ?? 0;
+            this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale ?? 1;
+            this.imageFlip              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageFlip ?? false;
+            this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat ?? 100
+            this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation ?? 0
+            this.backgroundBlur         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur ?? 0
+            this.backgroundScale        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale ?? 100
+            this.backgroundUrl          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl ?? ""
+            this.use_custom_background  = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background ?? false
+            this.backgroundXOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset ?? 0
+            this.backgroundYOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset ?? 0
+            this.backgroundTexture      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.pkmn_ability           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability ?? g4PokemonData[this.starter].abilities[0]
+            this.attempt_number         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number ?? 0
+            this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
+            this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count ?? 0
         }
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
@@ -748,6 +764,7 @@ const app = Vue.createApp({
                             ...MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`],
                             [propName]: newValue
                         };
+                    console.log(`${this.mapper?.properties.meta.game_name.value}_${this.starter}`)
                 }
             );
         }
@@ -780,6 +797,8 @@ const app = Vue.createApp({
             //Attempts and finishes
             this.attempt_number =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.attempt_number ?? 0,
             this.finished_run_count =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.finished_run_count ?? 0,
+            this.playerResets =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.playerResets ?? 0,
+            this.blackout_counter =             MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.blackout_counter ?? 0,
             //main pokemon settings
             this.pkmnNature =            MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmnNature ?? "Hardy",
             this.pkmn_ability =          MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.pkmn_ability ?? this.g4PokemonData[newValue].abilities[0],
@@ -1186,9 +1205,51 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        copy_overlay_properties() {
+            const copy_from = this.copy_overlay_pokemon_from
+            const copy_to   = this.copy_overlay_pokemon_to
+            const game_name = this.mapper.properties.meta.game_name.value
+            const from      = `${game_name}_${copy_from}`
+            const to        = `${game_name}_${copy_to}`
+            console.log("From: " + copy_from)
+            console.log("To: " + copy_to)
+            console.log("Pokemon From: " + from)
+            console.log("Pokemon To: " + to)
 
+            if (!MyStorage[`${game_name}_${copy_from}`]) {
+                console.log("The Pokemon you are trying to copy from does not have overlay data stored for it.")
+            }
+            if (MyStorage[`${game_name}_${copy_to}`]) {
+                MyStorage[`${game_name}_${copy_to}`] = {};
+            }
+            this.overlay_color         = MyStorage[from].overlay_color
+            this.backgroundBlur        = MyStorage[from].backgroundBlur        
+            this.backgroundScale       = MyStorage[from].backgroundScale       
+            this.backgroundUrl         = MyStorage[from].backgroundUrl         
+            this.backgroundFlip        = MyStorage[from].backgroundFlip        
+            this.use_custom_background = MyStorage[from].use_custom_background 
+            this.backgroundXOffset     = MyStorage[from].backgroundXOffset     
+            this.backgroundYOffset     = MyStorage[from].backgroundYOffset     
+            this.backgroundTexture     = MyStorage[from].backgroundTexture     
+            this.backgroundBrightness  = MyStorage[from].backgroundBrightness  
+            this.backgroundContrast    = MyStorage[from].backgroundContrast    
+            this.backgroundSaturation  = MyStorage[from].backgroundSaturation  
+            
+            MyStorage[to].overlay_color         = MyStorage[from].overlay_color
+            MyStorage[to].backgroundBlur        = MyStorage[from].backgroundBlur       
+            MyStorage[to].backgroundScale       = MyStorage[from].backgroundScale      
+            MyStorage[to].backgroundUrl         = MyStorage[from].backgroundUrl        
+            MyStorage[to].backgroundFlip        = MyStorage[from].backgroundFlip       
+            MyStorage[to].use_custom_background = MyStorage[from].use_custom_background
+            MyStorage[to].backgroundXOffset     = MyStorage[from].backgroundXOffset    
+            MyStorage[to].backgroundYOffset     = MyStorage[from].backgroundYOffset    
+            MyStorage[to].backgroundTexture     = MyStorage[from].backgroundTexture    
+            MyStorage[to].backgroundBrightness  = MyStorage[from].backgroundBrightness 
+            MyStorage[to].backgroundContrast    = MyStorage[from].backgroundContrast   
+            MyStorage[to].backgroundSaturation  = MyStorage[from].backgroundSaturation 
+        },
         load_all_settings() {
-            this.starter = MyStorage["starter"] ?? "Rayquaza"
+            this.starter = MyStorage["starter"] ?? "Heatran"
 
             this.graphicOverlay =             MyStorage['graphicOverlay']             ?? true
             this.frame =                      MyStorage['frame']                      ?? false
@@ -1259,6 +1320,12 @@ const app = Vue.createApp({
             this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundBrightness ?? 100
             this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundContrast ?? 100
             this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundSaturation ?? 100
+
+            const evolution_family = this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
+            this.evolution =               MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.evolution              ?? false
+            this.evolution_splits_label =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.evolution_splits_label ?? `${evolution_family[evolution_family.length - 1]?.species}-line`
+            this.copy_overlay_pokemon_from = MyStorage['copy_overlay_pokemon_from'] ?? ""
+            this.copy_overlay_pokemon_to   = MyStorage['copy_overlay_pokemon_to']   ?? ""
         },
         reset() {
             this.backgroundBlur =        0,
@@ -2245,9 +2312,7 @@ const app = Vue.createApp({
         // MOVE MANAGEMENT
         movePower(y) { //y = move1.value
             if (y) {
-                var move = this.g4MoveData[y]
-                if (move.Power == "—") { return "—"}
-                if (move.Power == 0) { return "-"}
+                var move = this.generation4_moves_new[y]
                 if (y == "Return") {
                     if (this.mapper.properties.player.team[0].friendship.value < 2.5)
                         var friendshipValue = 2.5 
@@ -2277,7 +2342,7 @@ const app = Vue.createApp({
                         var friendshipValue = 252.5 
                     else 
                         var friendshipValue = this.mapper.properties.player.team[0].friendship.value
-                    var specialMovePower = Math.floor(255-friendshipValue/2.5)
+                    var specialMovePower = Math.floor((255-friendshipValue)/2.5)
                     return specialMovePower
                 }
                 else if (y == "Low Kick" || y == "Grass Knot") {
@@ -2293,24 +2358,26 @@ const app = Vue.createApp({
                     return this.hiddenPowerPowerCalc(this.mapper.properties.player.team[0])
                 }
                 else if (y == "Facade" && (this.s1.status_condition.value == "Paralyzed" || this.s1.status_condition.value == "Poisoned" || this.s1.status_condition.value == "Burned")) {
-                    return move.Power * 2
+                    return move.power * 2
                 }
+                if (move.power == "—") { return "—"}
+                if (move.power == 0) { return "-"}
                 else
-                    if (move) return move.Power
+                    if (move) return move.power
             }
             return null
         },
         moveCategory(move) { //move = move.value
             if (move) {
-                var move = this.g4MoveData[move]
-                if (move) return move.Category
+                var move = this.generation4_moves_new[move]
+                if (move) return move.category
             }
             return ""
         },
         moveCategoryIcon(move) { //move = move.value
             if (move) {
-                var move = this.g4MoveData[move]
-                if (move) return `images/damageCategory/${move.Category.toLowerCase()}.png`
+                var move = this.generation4_moves_new[move]
+                if (move) return `images/damageCategory/${move.category.toLowerCase()}.png`
             }
             return ""
         },
@@ -2741,9 +2808,24 @@ const app = Vue.createApp({
             this.expBarState.expPoints = expPoints;
         }
 
+        this.mapper.properties.player.team[0].species.change(async (newProp, oldProp) => {
+            if (this.evolution == true) {
+                const evolution_family_raw = this.g4PokemonData[this.starter].evolution_family
+                const evolution_family = evolution_family_raw.map(obj => obj.species)
+                const length = evolution_family.length
+                const evolved = evolution_family.includes(newProp.value)
+                const buffer_evolution_splits_label = this.evolution_splits_label
+                if (evolved == true) {
+                    this.starter = newProp.value
+                    this.evolution_splits_label = buffer_evolution_splits_label
+                }
+            }
+        })
+
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
             if (newProp.value == true) {
                 this.startTime()
+                this.attempt_number++
             }
             if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                 this.playerResets++
@@ -3044,22 +3126,23 @@ const app = Vue.createApp({
                 let trainer = this.mapper.properties.battle.opponent.name.value
                 let id = this.mapper.properties.battle.opponent.id.value
                 let gameName = 'Platinum'
+                if (trainer == 'Pokemon Trainer -') { return }
                 if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
                     gameName = 'HGSS'
                 }
                 
                 //write full split data
-                logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode)
+                logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
                 
                 //write deprecated split data
                 if (this.autosplitter[this.game.gameName][trainer]) {
-                    logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode)
+                    logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
                 }
                 
                 //write simple split data
                 const simpleSplit = () => {
                     log_split()
-                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode)
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
                     this.split_data.push(this.simple_data)
                     MyStorage["split_data"] = this.split_data
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
@@ -3084,7 +3167,7 @@ const app = Vue.createApp({
                     log_split();
                     
                     //use then so that logCopy doesn't touch any files until logData finishes
-                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode)
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
                     .then(() => {
                             // console.log("Run complete - moving attempt files to finished folder.")
                             logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count);
