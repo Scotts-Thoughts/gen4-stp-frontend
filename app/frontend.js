@@ -510,6 +510,7 @@ const app = Vue.createApp({
             overlayOld:        "Chimchar",
             scott_mode:        true,
             testStatus:        MyStorage['testStatus'] ?? false,
+            wild_pokemon_display: false,
 
             customMovepool: {
                 "Torterra":  "line-height: 16px;",
@@ -946,6 +947,17 @@ const app = Vue.createApp({
                 return true
             }
             if (this.mapper.properties.meta.state.value == `Battle` && delay == true) {
+                return true
+            }
+            else {
+                return false
+            }
+        },
+        wild_pokemon() {
+            if (this.wild_pokemon_display == false) { return false}
+            const state = this.mapper?.properties.meta.state.value
+            const id = this.mapper?.properties.battle.opponent.id.value
+            if (id == 0 && (state == `Battle` && state == `From Battle`)) {
                 return true
             }
             else {
@@ -1577,22 +1589,26 @@ const app = Vue.createApp({
         },
         get_friendship() {
             const state = this.mapper.properties.meta.state.value
-            const battle_ram = this.mapper.properties.battle.player.active_pokemon
-            const team_ram = this.mapper.properties.player.team[0]
-            var friendship = this.mapper.properties.player.team[0].friendship.value
+            const battle_friendship = this.mapper.properties.battle.player.active_pokemon.friendship.value
+            const team_friendship = this.mapper.properties.player.team[0].friendship.value
             var return_value = 0
-            if (state == `Battle`) {
-                this.buffer_battle_friendship = battle_ram.friendship.value
-                return_value = battle_ram.friendship.value
-            }
-            else if (state == `From Battle`) {
-                return_value = this.buffer_battle_friendship;
-            }
-            else if (state == `No Pokemon`) {
-                return_value = 0
-            }
-            else if (state == `Overworld` || state == `To Battle`) {
-                return_value = team_ram.friendship.value
+            switch (state) {
+                case `Battle`: 
+                    this.buffer_battle_friendship = battle_friendship; 
+                    return_value = battle_friendship; 
+                    break;
+                case `From Battle`: 
+                    return_value = this.buffer_battle_friendship; 
+                    break;
+                case `No Pokemon`: 
+                    return_value = 0; 
+                    break;
+                case `Overworld`: 
+                    return_value = team_friendship; 
+                    break;
+                case `To Battle`: 
+                    return_value = team_friendship; 
+                    break;
             }
             return return_value + "/255"
         },

@@ -130,7 +130,8 @@
                 </div>
                 <div class="ui2">
                     <div>Advanced Options</div>
-                    <div>Currently loaded mon: {{}}</div>
+                    <br>
+                    <div>Display Wild Pokemon: <input class="checkBoxStyle" type="checkbox" v-model="wild_pokemon_display"/></div>
                     <br>
                     <div>Evolution: <input class="checkBoxStyle" type="checkbox" v-model="evolution"/></div>
                     <br>
@@ -374,7 +375,7 @@
                     <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
                 <!-- Movepool -->
-                <div v-else key="2">
+                <div v-else key="3">
                     <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
                         <tr>
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
