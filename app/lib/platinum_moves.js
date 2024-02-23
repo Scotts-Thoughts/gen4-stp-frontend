@@ -1103,7 +1103,7 @@ const platinum_moves =
     "Curse": {
         "rom_id": 174,
         "Move": "Curse",
-        "Type": "Unknown",
+        "Type": "Curse",
         "Category": "Status",
         "PP": 10,
         "Power": "-",

@@ -1006,12 +1006,12 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (state == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.g4PokemonDataRubySapphireEmerald[this.starter]
-                // return {
-                //     species: { value: data["name"] },
-                //     ...data
-                // }
-                return this.g4PokemonData[this.starter]
+                var data = this.g4PokemonData[this.starter]
+                return {
+                    species: { value: this.starter },
+                    status_condition: { value: null },
+                    ...data
+                }
             }
             else {
                 return this.mapper?.properties?.player?.team[0]
@@ -1673,6 +1673,7 @@ const app = Vue.createApp({
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             const state = this.mapper.properties.meta.state.value
             const battle_ram = this.mapper.properties.battle.player.active_pokemon
+            var ability = this.mapper.properties.battle.player.active_pokemon.ability.value
             var currentStat = 0
             var modifier = 0
             var stageModification = 1
@@ -1681,6 +1682,17 @@ const app = Vue.createApp({
                 currentStat = this.mapper?.properties?.battle?.player?.active_pokemon?.stats[stat].value
                 modifier = this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value == null ? 0 
                     : this.mapper?.properties?.battle?.player?.active_pokemon?.modifiers[stat].value
+                if (ability == 'Simple') {
+                        switch (modifier) {
+                            case -4: modifier = -6; break;
+                            case -5: modifier = -6; break;
+                            case -6: modifier = -6; break;
+                            case 4:  modifier = 6;  break;
+                            case 5:  modifier = 6;  break;
+                            case 6:  modifier = 6;  break;
+                            default: modifier = modifier * 2; break;
+                        }
+                }
                 stageModification = this.stageModifiersData.stats[modifier] == undefined ? 1 
                     : this.stageModifiersData.stats[modifier]
                 return_value = Math.floor(currentStat * stageModification)
@@ -1812,7 +1824,7 @@ const app = Vue.createApp({
             if (this.mapper.properties.meta.state.value == `From Battle`) {
                 return this.g4PokemonData[species][type]
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.outcome.value == null) {
+            if (this.mapper.properties.meta.state.value == `Battle`) {
                 typeString = "type_1"
                 if (type == "type_2") {
                     typeString = "type_2"
@@ -2955,7 +2967,7 @@ const app = Vue.createApp({
         })
 
         //*Autosplitter
-        const log_split = (x) => console.log(`Autosplitter - Battle Ended: Split: ${this.opponent} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
+        const log_split = (x) => console.log(`Autosplitter - Battle Ended - Split: ${this.mapper.properties.battle.opponent.name.value} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
         const autosplitter_process = () => {
             // console.log("Checking if autosplitter is on...")
             if (this.autosplitter_toggle == true) {
@@ -3018,7 +3030,7 @@ const app = Vue.createApp({
                 
                 //deprecated properties
                 let runIdentifier = this.starter.toString() + this.attempt_number.toString()
-                let trainerName = this.opponent
+                let trainerName = this.mapper.properties.battle.opponent.name.value
                 let RTHours = this.time_h
                 let RTMinutes = this.time_m
                 let RTSeconds = this.time_s

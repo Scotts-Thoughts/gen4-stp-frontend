@@ -1102,7 +1102,7 @@ const generation4_moves_new = {
     "Curse": {
         "rom_id": 174,
         "move": "Curse",
-        "type": "Unknown",
+        "type": "Curse",
         "category": "Status",
         "pp": 10,
         "power": "-",

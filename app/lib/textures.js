@@ -28,4 +28,6 @@ const textures = {
     'Muddy Water': 'images\\textures\\Muddy Water.jpg',
     'Dark Grass': 'images\\textures\\Dark Grass.jpg',
     'Roses': 'images\\textures\\Roses.jpg',
+    'Beaver Dam': 'images\\textures\\Beaver Dam.jpg',
+    'Fallen Trees': 'images\\textures\\Fallen Trees.jpg',
 }
