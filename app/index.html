@@ -67,6 +67,7 @@
                     <input type="text" v-model="search_term" placeholder="Search for a species">
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
+                    <button class="buttonStyle" @click="set_timer">Set Timer</button><br>
                     <button @click="pauseUnpauseTime()" class="buttonStyle" style="background-color: rgb(201, 199, 100);">Toggle Pause Timer</button><br>
                     Start Time Offset: <input type="text" v-model="timer_startTimeOffset" placeholder="00:00:00.00"/><br>
                     <br>
@@ -397,7 +398,7 @@
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
                         <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tmhm"> -->
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :style="post_game_move_style(x)?.tmhm">
                             <td class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -407,13 +408,13 @@
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
                         <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value??starter).tutor">
-                            <td class="movepool_way">Tutor</td>
-                            <td class="movepool_move">{{x.Move}}</td>
-                            <td class="movepool_type">{{x.Type}}</td>
-                            <td class="movepool_type">{{x.Category}}</td>
-                            <td class="movepool_tableC">{{x.Power}}</td>
-                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
-                            <td class="movepool_tableC">{{x.PP}}</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_way">Tutor</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_move">{{x.Move}}</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_type">{{x.Type}}</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_type">{{x.Category}}</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_tableC">{{x.Power}}</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_tableC">{{x.Accuracy}}%</td>
+                            <td :style="post_game_move_style(x)?.tutor" class="movepool_tableC">{{x.PP}}</td>
                         </tr> -->
                         <!-- <tr v-for="x in getMovepool(g4MoveData, platinum_moves, g4tmhmMapping).egg">
                             <td class="movepool_way">Egg</td>
@@ -495,6 +496,7 @@
     <script src="lib/default_colors.js"></script>
     <script src="lib/game_variables.js"></script>
     <script src="lib/autosplitter.js"></script>
+    <script src="lib/post_game_moves.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="frontend.js"></script>
 </body>

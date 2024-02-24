@@ -544,6 +544,7 @@ const app = Vue.createApp({
             default_colors:         default_colors,
             game_variables:         game_variables,
             autosplitter:           autosplitter,
+            post_game_moves:        post_game_moves,
 
             //LOOPS
             badges:          [0, 1, 2, 3, 4, 5, 6, 7],
@@ -625,6 +626,7 @@ const app = Vue.createApp({
                 "evolution_splits_label",
                 "playerResets",
                 "blackout_counter",
+                "TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","HM01","HM02","HM03","HM04","HM05","HM06","HM07","HM08",
             ],
             //timer variables
             timer_startTimeOffset: MyStorage["timer_startTimeOffset"] ?? "00:00:00.00",
@@ -726,6 +728,109 @@ const app = Vue.createApp({
             buffer_battle_friendship:      0,
 
             search_term: "",
+
+            track_TMHM_viability: false,
+            // tmhm tracking
+            TM01: false, //Focus Punch
+            TM02: false, //Dragon Claw
+            TM03: false, //Water Pulse
+            TM04: false, //Calm Mind
+            TM05: false, //Roar
+            TM06: false, //Toxic
+            TM07: false, //Hail
+            TM08: false, //Bulk Up
+            TM09: false, //Bullet Seed
+            TM10: false, //Hidden Power
+            TM11: false, //Sunny Day
+            TM12: false, //Taunt
+            TM13: false, //Ice Beam
+            TM14: false, //Blizzard
+            TM15: false, //Hyper Beam
+            TM16: false, //Light Screen
+            TM17: false, //Protect
+            TM18: false, //Rain Dance
+            TM19: false, //Giga Drain
+            TM20: false, //Safeguard
+            TM21: false, //Frustration
+            TM22: false, //SolarBeam
+            TM23: false, //Iron Tail
+            TM24: false, //Thunderbolt
+            TM25: false, //Thunder
+            TM26: false, //Earthquake
+            TM27: false, //Return
+            TM28: false, //Dig
+            TM29: false, //Psychic
+            TM30: false, //Shadow Ball
+            TM31: false, //Brick Break
+            TM32: false, //Double Team
+            TM33: false, //Reflect
+            TM34: false, //Shock Wave
+            TM35: false, //Flamethrower
+            TM36: false, //Sludge Bomb
+            TM37: false, //Sandstorm
+            TM38: false, //Fire Blast
+            TM39: false, //Rock Tomb
+            TM40: false, //Aerial Ace
+            TM41: false, //Torment
+            TM42: false, //Facade
+            TM43: false, //Secret Power
+            TM44: false, //Rest
+            TM45: false, //Attract
+            TM46: false, //Thief
+            TM47: false, //Steel Wing
+            TM48: false, //Skill Swap
+            TM49: false, //Snatch
+            TM50: false, //Overheat
+            TM51: false, //Roost
+            TM52: false, //Focus Blast
+            TM53: false, //Energy Ball
+            TM54: false, //False Swipe
+            TM55: false, //Brine
+            TM56: false, //Fling
+            TM57: false, //Charge Beam
+            TM58: false, //Endure
+            TM59: false, //Dragon Pulse
+            TM60: false, //Drain Punch
+            TM61: false, //Will-O-Wisp
+            TM62: false, //Silver Wind
+            TM63: false, //Embargo
+            TM64: false, //Explosion
+            TM65: false, //Shadow Claw
+            TM66: false, //Payback
+            TM67: false, //Recycle
+            TM68: false, //Giga Impact
+            TM69: false, //Rock Polish
+            TM70: false, //Flash
+            TM71: false, //Stone Edge
+            TM72: false, //Avalanche
+            TM73: false, //Thunder Wave
+            TM74: false, //Gyro Ball
+            TM75: false, //Swords Dance
+            TM76: false, //Stealth Rock
+            TM77: false, //Psych Up
+            TM78: false, //Captivate
+            TM79: false, //Dark Pulse
+            TM80: false, //Rock Slide
+            TM81: false, //X-Scissor
+            TM82: false, //Sleep Talk
+            TM83: false, //Natural Gift
+            TM84: false, //Poison Jab
+            TM85: false, //Dream Eater
+            TM86: false, //Grass Knot
+            TM87: false, //Swagger
+            TM88: false, //Pluck
+            TM89: false, //U-turn
+            TM90: false, //Substitute
+            TM91: false, //Flash Cannon
+            TM92: false, //Trick Room
+            HM01: false, //Cut
+            HM02: false, //Fly
+            HM03: false, //Surf
+            HM04: false, //Strength
+            HM05: false, //Defog
+            HM06: false, //Rock Smash
+            HM07: false, //Waterfall
+            HM08: false, //Rock Climb
         }
     },
     created() {
@@ -1234,6 +1339,28 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        post_game_move_style(move_object) {
+            const game_name = 'Platinum' //change this to be dynamic when adding more games
+            const move_name = move_object.Move
+            var strikethrough_tmhm = ""
+            var strikethrough_tutor = ""
+            if (this.track_TMHM_viability == false) {
+                return {
+                    tmhm: strikethrough_tmhm,
+                    tutor: strikethrough_tutor,
+                }
+            }
+            if (this.post_game_moves[game_name].tmhm.includes(move_name)) {
+                strikethrough_tmhm = "text-decoration: line-through;"
+            }
+            if (this.post_game_moves[game_name].tutor.includes(move_name)) {
+                strikethrough_tutor = "text-decoration: line-through;"
+            }
+            return {
+                tmhm: strikethrough_tmhm,
+                tutor: strikethrough_tutor,
+            }
+        },
         copy_overlay_properties() {
             const copy_from = this.copy_overlay_pokemon_from
             const copy_to   = this.copy_overlay_pokemon_to
@@ -1274,6 +1401,7 @@ const app = Vue.createApp({
             MyStorage[to].backgroundSaturation  = MyStorage[from].backgroundSaturation 
         },
         load_all_settings() {
+            const game_name = this.mapper.properties.meta.game_name.value
             this.starter = MyStorage["starter"] ?? "Heatran"
 
             this.graphicOverlay =             MyStorage['graphicOverlay']             ?? true
@@ -1325,32 +1453,133 @@ const app = Vue.createApp({
             this.battle_start =               MyStorage['battle_start']               ?? 0
 
             //Pokemon settings for local storage
-            this.overlay_color = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.overlay_color ?? this.default_colors[`${this.g4PokemonData[this.starter].type_1}`]
-            this.imageXOffset =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageXOffset ?? 0
-            this.imageYOffset =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageYOffset ?? 0
-            this.imageScale =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageScale ?? 1
-            this.imageFlip =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageFlip ?? false
-            this.imageSat =      MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageSat ?? 100
-            this.imageRotation = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.imageRotation ?? 0
+            this.overlay_color = MyStorage[`${game_name}_${this.starter}`]?.overlay_color ?? this.default_colors[`${this.g4PokemonData[this.starter].type_1}`]
+            this.imageXOffset =  MyStorage[`${game_name}_${this.starter}`]?.imageXOffset ?? 0
+            this.imageYOffset =  MyStorage[`${game_name}_${this.starter}`]?.imageYOffset ?? 0
+            this.imageScale =    MyStorage[`${game_name}_${this.starter}`]?.imageScale ?? 1
+            this.imageFlip =     MyStorage[`${game_name}_${this.starter}`]?.imageFlip ?? false
+            this.imageSat =      MyStorage[`${game_name}_${this.starter}`]?.imageSat ?? 100
+            this.imageRotation = MyStorage[`${game_name}_${this.starter}`]?.imageRotation ?? 0
 
             //background texture settings
-            this.backgroundBlur =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundBlur ?? 0
-            this.backgroundScale =       MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundScale ?? 100
-            this.backgroundUrl =         MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundUrl ?? ""
-            this.backgroundFlip =        MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundFlip ?? false
-            this.use_custom_background = MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.use_custom_background ?? false
-            this.backgroundXOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundXOffset ?? 0
-            this.backgroundYOffset =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundYOffset ?? 0
-            this.backgroundTexture =     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
-            this.backgroundBrightness =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundBrightness ?? 100
-            this.backgroundContrast =    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundContrast ?? 100
-            this.backgroundSaturation =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.backgroundSaturation ?? 100
+            this.backgroundBlur =        MyStorage[`${game_name}_${this.starter}`]?.backgroundBlur ?? 0
+            this.backgroundScale =       MyStorage[`${game_name}_${this.starter}`]?.backgroundScale ?? 100
+            this.backgroundUrl =         MyStorage[`${game_name}_${this.starter}`]?.backgroundUrl ?? ""
+            this.backgroundFlip =        MyStorage[`${game_name}_${this.starter}`]?.backgroundFlip ?? false
+            this.use_custom_background = MyStorage[`${game_name}_${this.starter}`]?.use_custom_background ?? false
+            this.backgroundXOffset =     MyStorage[`${game_name}_${this.starter}`]?.backgroundXOffset ?? 0
+            this.backgroundYOffset =     MyStorage[`${game_name}_${this.starter}`]?.backgroundYOffset ?? 0
+            this.backgroundTexture =     MyStorage[`${game_name}_${this.starter}`]?.backgroundTexture ?? `${this.g4PokemonData[this.starter].type_1}`
+            this.backgroundBrightness =  MyStorage[`${game_name}_${this.starter}`]?.backgroundBrightness ?? 100
+            this.backgroundContrast =    MyStorage[`${game_name}_${this.starter}`]?.backgroundContrast ?? 100
+            this.backgroundSaturation =  MyStorage[`${game_name}_${this.starter}`]?.backgroundSaturation ?? 100
 
             const evolution_family = this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
-            this.evolution =               MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.evolution              ?? false
-            this.evolution_splits_label =  MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`]?.evolution_splits_label ?? `${evolution_family[evolution_family.length - 1]?.species}-line`
+            this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
+            this.evolution_splits_label =  MyStorage[`${game_name}_${this.starter}`]?.evolution_splits_label ?? `${evolution_family[evolution_family.length - 1]?.species}-line`
             this.copy_overlay_pokemon_from = MyStorage['copy_overlay_pokemon_from'] ?? ""
             this.copy_overlay_pokemon_to   = MyStorage['copy_overlay_pokemon_to']   ?? ""
+
+            this.TM01 = MyStorage[`${game_name}_${this.starter}`].TM01 ?? false
+            this.TM02 = MyStorage[`${game_name}_${this.starter}`].TM02 ?? false
+            this.TM03 = MyStorage[`${game_name}_${this.starter}`].TM03 ?? false
+            this.TM04 = MyStorage[`${game_name}_${this.starter}`].TM04 ?? false
+            this.TM05 = MyStorage[`${game_name}_${this.starter}`].TM05 ?? false
+            this.TM06 = MyStorage[`${game_name}_${this.starter}`].TM06 ?? false
+            this.TM07 = MyStorage[`${game_name}_${this.starter}`].TM07 ?? false
+            this.TM08 = MyStorage[`${game_name}_${this.starter}`].TM08 ?? false
+            this.TM09 = MyStorage[`${game_name}_${this.starter}`].TM09 ?? false
+            this.TM10 = MyStorage[`${game_name}_${this.starter}`].TM10 ?? false
+            this.TM11 = MyStorage[`${game_name}_${this.starter}`].TM11 ?? false
+            this.TM12 = MyStorage[`${game_name}_${this.starter}`].TM12 ?? false
+            this.TM13 = MyStorage[`${game_name}_${this.starter}`].TM13 ?? false
+            this.TM14 = MyStorage[`${game_name}_${this.starter}`].TM14 ?? false
+            this.TM15 = MyStorage[`${game_name}_${this.starter}`].TM15 ?? false
+            this.TM16 = MyStorage[`${game_name}_${this.starter}`].TM16 ?? false
+            this.TM17 = MyStorage[`${game_name}_${this.starter}`].TM17 ?? false
+            this.TM18 = MyStorage[`${game_name}_${this.starter}`].TM18 ?? false
+            this.TM19 = MyStorage[`${game_name}_${this.starter}`].TM19 ?? false
+            this.TM20 = MyStorage[`${game_name}_${this.starter}`].TM20 ?? false
+            this.TM21 = MyStorage[`${game_name}_${this.starter}`].TM21 ?? false
+            this.TM22 = MyStorage[`${game_name}_${this.starter}`].TM22 ?? false
+            this.TM23 = MyStorage[`${game_name}_${this.starter}`].TM23 ?? false
+            this.TM24 = MyStorage[`${game_name}_${this.starter}`].TM24 ?? false
+            this.TM25 = MyStorage[`${game_name}_${this.starter}`].TM25 ?? false
+            this.TM26 = MyStorage[`${game_name}_${this.starter}`].TM26 ?? false
+            this.TM27 = MyStorage[`${game_name}_${this.starter}`].TM27 ?? false
+            this.TM28 = MyStorage[`${game_name}_${this.starter}`].TM28 ?? false
+            this.TM29 = MyStorage[`${game_name}_${this.starter}`].TM29 ?? false
+            this.TM30 = MyStorage[`${game_name}_${this.starter}`].TM30 ?? false
+            this.TM31 = MyStorage[`${game_name}_${this.starter}`].TM31 ?? false
+            this.TM32 = MyStorage[`${game_name}_${this.starter}`].TM32 ?? false
+            this.TM33 = MyStorage[`${game_name}_${this.starter}`].TM33 ?? false
+            this.TM34 = MyStorage[`${game_name}_${this.starter}`].TM34 ?? false
+            this.TM35 = MyStorage[`${game_name}_${this.starter}`].TM35 ?? false
+            this.TM36 = MyStorage[`${game_name}_${this.starter}`].TM36 ?? false
+            this.TM37 = MyStorage[`${game_name}_${this.starter}`].TM37 ?? false
+            this.TM38 = MyStorage[`${game_name}_${this.starter}`].TM38 ?? false
+            this.TM39 = MyStorage[`${game_name}_${this.starter}`].TM39 ?? false
+            this.TM40 = MyStorage[`${game_name}_${this.starter}`].TM40 ?? false
+            this.TM41 = MyStorage[`${game_name}_${this.starter}`].TM41 ?? false
+            this.TM42 = MyStorage[`${game_name}_${this.starter}`].TM42 ?? false
+            this.TM43 = MyStorage[`${game_name}_${this.starter}`].TM43 ?? false
+            this.TM44 = MyStorage[`${game_name}_${this.starter}`].TM44 ?? false
+            this.TM45 = MyStorage[`${game_name}_${this.starter}`].TM45 ?? false
+            this.TM46 = MyStorage[`${game_name}_${this.starter}`].TM46 ?? false
+            this.TM47 = MyStorage[`${game_name}_${this.starter}`].TM47 ?? false
+            this.TM48 = MyStorage[`${game_name}_${this.starter}`].TM48 ?? false
+            this.TM49 = MyStorage[`${game_name}_${this.starter}`].TM49 ?? false
+            this.TM50 = MyStorage[`${game_name}_${this.starter}`].TM50 ?? false
+            this.TM51 = MyStorage[`${game_name}_${this.starter}`].TM51 ?? false
+            this.TM52 = MyStorage[`${game_name}_${this.starter}`].TM52 ?? false
+            this.TM53 = MyStorage[`${game_name}_${this.starter}`].TM53 ?? false
+            this.TM54 = MyStorage[`${game_name}_${this.starter}`].TM54 ?? false
+            this.TM55 = MyStorage[`${game_name}_${this.starter}`].TM55 ?? false
+            this.TM56 = MyStorage[`${game_name}_${this.starter}`].TM56 ?? false
+            this.TM57 = MyStorage[`${game_name}_${this.starter}`].TM57 ?? false
+            this.TM58 = MyStorage[`${game_name}_${this.starter}`].TM58 ?? false
+            this.TM59 = MyStorage[`${game_name}_${this.starter}`].TM59 ?? false
+            this.TM60 = MyStorage[`${game_name}_${this.starter}`].TM60 ?? false
+            this.TM61 = MyStorage[`${game_name}_${this.starter}`].TM61 ?? false
+            this.TM62 = MyStorage[`${game_name}_${this.starter}`].TM62 ?? false
+            this.TM63 = MyStorage[`${game_name}_${this.starter}`].TM63 ?? false
+            this.TM64 = MyStorage[`${game_name}_${this.starter}`].TM64 ?? false
+            this.TM65 = MyStorage[`${game_name}_${this.starter}`].TM65 ?? false
+            this.TM66 = MyStorage[`${game_name}_${this.starter}`].TM66 ?? false
+            this.TM67 = MyStorage[`${game_name}_${this.starter}`].TM67 ?? false
+            this.TM68 = MyStorage[`${game_name}_${this.starter}`].TM68 ?? false
+            this.TM69 = MyStorage[`${game_name}_${this.starter}`].TM69 ?? false
+            this.TM70 = MyStorage[`${game_name}_${this.starter}`].TM70 ?? false
+            this.TM71 = MyStorage[`${game_name}_${this.starter}`].TM71 ?? false
+            this.TM72 = MyStorage[`${game_name}_${this.starter}`].TM72 ?? false
+            this.TM73 = MyStorage[`${game_name}_${this.starter}`].TM73 ?? false
+            this.TM74 = MyStorage[`${game_name}_${this.starter}`].TM74 ?? false
+            this.TM75 = MyStorage[`${game_name}_${this.starter}`].TM75 ?? false
+            this.TM76 = MyStorage[`${game_name}_${this.starter}`].TM76 ?? false
+            this.TM77 = MyStorage[`${game_name}_${this.starter}`].TM77 ?? false
+            this.TM78 = MyStorage[`${game_name}_${this.starter}`].TM78 ?? false
+            this.TM79 = MyStorage[`${game_name}_${this.starter}`].TM79 ?? false
+            this.TM80 = MyStorage[`${game_name}_${this.starter}`].TM80 ?? false
+            this.TM81 = MyStorage[`${game_name}_${this.starter}`].TM81 ?? false
+            this.TM82 = MyStorage[`${game_name}_${this.starter}`].TM82 ?? false
+            this.TM83 = MyStorage[`${game_name}_${this.starter}`].TM83 ?? false
+            this.TM84 = MyStorage[`${game_name}_${this.starter}`].TM84 ?? false
+            this.TM85 = MyStorage[`${game_name}_${this.starter}`].TM85 ?? false
+            this.TM86 = MyStorage[`${game_name}_${this.starter}`].TM86 ?? false
+            this.TM87 = MyStorage[`${game_name}_${this.starter}`].TM87 ?? false
+            this.TM88 = MyStorage[`${game_name}_${this.starter}`].TM88 ?? false
+            this.TM89 = MyStorage[`${game_name}_${this.starter}`].TM89 ?? false
+            this.TM90 = MyStorage[`${game_name}_${this.starter}`].TM90 ?? false
+            this.TM91 = MyStorage[`${game_name}_${this.starter}`].TM91 ?? false
+            this.TM92 = MyStorage[`${game_name}_${this.starter}`].TM92 ?? false
+            this.HM01 = MyStorage[`${game_name}_${this.starter}`].HM01 ?? false
+            this.HM02 = MyStorage[`${game_name}_${this.starter}`].HM02 ?? false
+            this.HM03 = MyStorage[`${game_name}_${this.starter}`].HM03 ?? false
+            this.HM04 = MyStorage[`${game_name}_${this.starter}`].HM04 ?? false
+            this.HM05 = MyStorage[`${game_name}_${this.starter}`].HM05 ?? false
+            this.HM06 = MyStorage[`${game_name}_${this.starter}`].HM06 ?? false
+            this.HM07 = MyStorage[`${game_name}_${this.starter}`].HM07 ?? false
+            this.HM08 = MyStorage[`${game_name}_${this.starter}`].HM08 ?? false
         },
         reset() {
             this.backgroundBlur =        0,
@@ -1500,10 +1729,124 @@ const app = Vue.createApp({
                 this.timer_pause_time = Date.now()
             }
         },
+        set_timer() {
+            const timeRegex = /(\d+):(\d{2}):(\d{2})\.(\d{2})/;
+            const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
+            const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
+
+            this.timer_pause = true
+            this.timer_startTime = Date.now() - timeOffset
+            this.timer_pause_time = Date.now()
+            this.timer_formatted_time = [ "0", ".00" ]
+            this.finished_logs = false
+
+            this.updateTime()
+        },
         newRun() {
             const timeRegex = /(\d+):(\d{2}):(\d{2})\.(\d{2})/;
             const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
             const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
+
+            this.TM01 = false
+            this.TM02 = false
+            this.TM03 = false
+            this.TM04 = false
+            this.TM05 = false
+            this.TM06 = false
+            this.TM07 = false
+            this.TM08 = false
+            this.TM09 = false
+            this.TM10 = false
+            this.TM11 = false
+            this.TM12 = false
+            this.TM13 = false
+            this.TM14 = false
+            this.TM15 = false
+            this.TM16 = false
+            this.TM17 = false
+            this.TM18 = false
+            this.TM19 = false
+            this.TM20 = false
+            this.TM21 = false
+            this.TM22 = false
+            this.TM23 = false
+            this.TM24 = false
+            this.TM25 = false
+            this.TM26 = false
+            this.TM27 = false
+            this.TM28 = false
+            this.TM29 = false
+            this.TM30 = false
+            this.TM31 = false
+            this.TM32 = false
+            this.TM33 = false
+            this.TM34 = false
+            this.TM35 = false
+            this.TM36 = false
+            this.TM37 = false
+            this.TM38 = false
+            this.TM39 = false
+            this.TM40 = false
+            this.TM41 = false
+            this.TM42 = false
+            this.TM43 = false
+            this.TM44 = false
+            this.TM45 = false
+            this.TM46 = false
+            this.TM47 = false
+            this.TM48 = false
+            this.TM49 = false
+            this.TM50 = false
+            this.TM51 = false
+            this.TM52 = false
+            this.TM53 = false
+            this.TM54 = false
+            this.TM55 = false
+            this.TM56 = false
+            this.TM57 = false
+            this.TM58 = false
+            this.TM59 = false
+            this.TM60 = false
+            this.TM61 = false
+            this.TM62 = false
+            this.TM63 = false
+            this.TM64 = false
+            this.TM65 = false
+            this.TM66 = false
+            this.TM67 = false
+            this.TM68 = false
+            this.TM69 = false
+            this.TM70 = false
+            this.TM71 = false
+            this.TM72 = false
+            this.TM73 = false
+            this.TM74 = false
+            this.TM75 = false
+            this.TM76 = false
+            this.TM77 = false
+            this.TM78 = false
+            this.TM79 = false
+            this.TM80 = false
+            this.TM81 = false
+            this.TM82 = false
+            this.TM83 = false
+            this.TM84 = false
+            this.TM85 = false
+            this.TM86 = false
+            this.TM87 = false
+            this.TM88 = false
+            this.TM89 = false
+            this.TM90 = false
+            this.TM91 = false
+            this.TM92 = false
+            this.HM01 = false
+            this.HM02 = false
+            this.HM03 = false
+            this.HM04 = false
+            this.HM05 = false
+            this.HM06 = false
+            this.HM07 = false
+            this.HM08 = false
 
             this.timer_pause = true
             this.timer_startTime = Date.now() - timeOffset
@@ -2860,6 +3203,9 @@ const app = Vue.createApp({
                 : move_type == user_type_2 ? 1.5 
                 : 1
             var modifier_ability = this.abilityModifier(this.mapper.properties.battle.opponent.active_pokemon.ability.value, move_type, 'opponent')
+            if (this.mapper.properties.battle.player.active_pokemon.ability.value == 'Levitate' && move_type == 'Ground') {
+                modifier_ability = 0 
+            }
             var modifier_item = this.determineItemBoost(move_name, enemy_mon)
             var modifier_weather = this.weatherModifier(this.mapper.properties.battle.field.weather.value, move_name, move_type)
             var modifier_burn = 1
@@ -2896,6 +3242,9 @@ const app = Vue.createApp({
             }
             var stabModifier = this.determineSTAB(x)
             var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType, 'player')
+            if (this.mapper.properties.battle.opponent.active_pokemon.ability.value == 'Levitate' && move_type == 'Ground') {
+                ability = 0 
+            }
             var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
