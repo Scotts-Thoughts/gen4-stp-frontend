@@ -1,12 +1,3 @@
-//TODO Overlay
-//TODO Graphics
-// 4) Exp bar bottom right corner
-//TODO GameHook
-// 2) Do a test run to verify that everything is working as intended
-//TODO Debugging
-// 1) Fix an issue where the solo Pokemon stats are glitched following a successful battle
-// 2) Fix an issue where the enemy Pokemon stats are glitched when the screen transitions back to the overworld
-//TODO Setup
 const MyStorage = new Proxy({}, {
     set: (_, prop, value) => {
         if (value === undefined || value === null)
@@ -2296,7 +2287,20 @@ const app = Vue.createApp({
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
-                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier) < 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier) : 100
+                let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
+                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier) : 100
+                if (calculated_accuracy == "err") {
+                    console.log(
+                        accuracy,
+                        playerStage,
+                        oppAStage,
+                        accuracyModifier,
+                        evasionModifier,
+                        calculated_accuracy,
+                        this.mapper.properties.meta.state.value,
+                        this.mapper.properties.meta.state_enemy.value,
+                    )
+                }
                 return calculated_accuracy
             }
             else return accuracy
@@ -3176,8 +3180,8 @@ const app = Vue.createApp({
             }
             return null
         },
-        enemy_effective_power(move_name, enemy_mon) {
-            if (this.mapper.properties.meta.state.value != 'Battle') { return }
+        enemy_effective_power(move_name, enemy_mon, slot) {
+            if (this.mapper.properties.meta.state.value != 'Battle' || this.mapper.properties.meta.state.value != 'From Battle') { return }
             if (enemy_mon.species?.value == null) { return }
             switch(move_name) {
                 case "Curse": return "—";
@@ -3242,21 +3246,21 @@ const app = Vue.createApp({
             }
             var stabModifier = this.determineSTAB(x)
             var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType, 'player')
-            if (this.mapper.properties.battle.opponent.active_pokemon.ability.value == 'Levitate' && move_type == 'Ground') {
+            if (this.mapper.properties.battle.opponent.active_pokemon.ability.value == 'Levitate' && attackingType == 'Ground') {
                 ability = 0 
             }
             var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
-                if (power == "—") { return "-" }
-                if (power == "-") { return "-" }
+                if (power == "—") { return "—" }
+                if (power == "-") { return "—" }
                 return Math.floor(power * stabModifier * defendingType1Effectiveness * defendingType2Effectiveness * ability * itemBoost * weatherBoost * burnModifier)
 
             }
             else //handles out of battle cases
                 if (power == "—") { return power }
-                if (power == "-") { return "-" }
+                if (power == "-") { return "—" }
                 else 
                     return Math.floor(power * stabModifier * ability * itemBoost * burnModifier)
         },
@@ -3270,6 +3274,7 @@ const app = Vue.createApp({
         this.mapper.onConnected = (x) => this.ready = true
         this.mapper.onDisconnected = (x) => this.ready = false
         this.mapper._debouceTimeout = 10
+        // this.mapper.deboucePath("battle.player.active_pokemon.modifiers")
         this.mapper.deboucePath("battle.opponent.active_pokemon")
         this.mapper.deboucePath("battle.opponent.team")
         this.mapper.deboucePath("player.team.0.species") // TODO: requires testing
@@ -3281,7 +3286,8 @@ const app = Vue.createApp({
         //EXP BAR ANIMATION FUNCTION
         /* exp bar initialization */ {
             const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
-            const expPoints = this.mapper.properties.player.team[0].exp.value ?? 0;
+            const expPoints = (this.mapper.properties.meta.state.value == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.exp.value :
+                this.mapper.properties.player.team[0].exp.value) ?? 0;
             const growthRate = this.g4PokemonData[species].growth_rate;
             let expStats = this.calcExpStats(growthRate, expPoints);
             this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
@@ -3680,7 +3686,7 @@ const app = Vue.createApp({
                     this.expBarState.species = species;
                     this.expBarState.expPoints = expPoints;
 
-                    // console.log("exp changed", {species, growthRate, expPoints})
+                    console.log("exp changed", {species, growthRate, expPoints})
 
                     this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                 }
@@ -3699,31 +3705,33 @@ const app = Vue.createApp({
                     const newGrowthRate = this.g4PokemonData[newSpecies].growth_rate;
                     const newExpStats = this.calcExpStats(newGrowthRate, newExpPoints);
 
+                    if (newExpPoints > 1640000) { return } // max exp is 1,640,000
+
                     this.expBarState.species = newSpecies;
                     this.expBarState.expPoints = newExpPoints;
 
-                    // console.log("battle exp changed", 
-                    //     {species: prevSpecies, expPoints: prevExpPoints, growthRate: prevGrowthRate},
-                    //     {species: newSpecies, expPoints: newExpPoints, growthRate: newGrowthRate}
-                    // )
-
+                    console.log("battle exp changed", 
+                        {species: prevSpecies, expPoints: prevExpPoints, growthRate: prevGrowthRate},
+                        {species: newSpecies, expPoints: newExpPoints, growthRate: newGrowthRate}
+                    )
+                    
                     const animationMaxDuration = 500;
     
                     // did we switch out?
                     if (prevSpecies != newSpecies) {
-                        // console.log("switched out");
+                        console.log("switched out");
                         // dont animate, just set newExpStats.percent
                         this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                     } 
                     // same pokemon but exp changed
                     else {
                         if (prevExpPoints == newExpPoints) { 
-                            // console.log("exp unchanged", {prevExpPoints, newExpPoints});
+                            console.log("exp unchanged", {prevExpPoints, newExpPoints});
                             return
                         }
 
                         if (prevExpStats.level == newExpStats.level) {
-                            // console.log("same level", {prevExpStats, newExpStats});
+                            console.log("same level", {prevExpStats, newExpStats});
                             let diffExp = newExpStats.percent - prevExpStats.percent
                             let animationDuration = Math.ceil(diffExp * animationMaxDuration)
                             // animate width to newExpStats.percent
@@ -3731,7 +3739,7 @@ const app = Vue.createApp({
                             this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                             await this.sleep(animationDuration + 50);
                         } else {
-                            // console.log("level up", {prevExpStats, newExpStats});
+                            console.log("level up", {prevExpStats, newExpStats});
                             let diffExp1 = 1 - prevExpStats.percent
                             let animationDuration1 = Math.ceil(diffExp1 * animationMaxDuration)
                             let diffExp2 = newExpStats.percent
