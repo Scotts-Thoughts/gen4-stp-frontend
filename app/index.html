@@ -180,29 +180,29 @@
                 </div>
                 <table class="stats_table stats_table_borders" style="left: 21px;">
                     <tr>
-                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.status_condition?.value))">Hp:</th>
+                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.status_condition?.value))">Hp</th>
                         <th class="stats_table_borders">{{solo_mon?.stats?.hp_max ?? g4PokemonData[starter].base_hp}}</th>
                     </tr>
                     <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.attack)">Atk:</th>
+                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.attack)">Atk.</th>
                         <th class="stats_table_borders">{{getStat("attack")}}</th>
                     </tr>
                     <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.defense)">Def:</th>
+                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.defense)">Def.</th>
                         <th class="stats_table_borders">{{getStat("defense")}}</th>
                     </tr>
                 </table>
                 <table class="stats_table stats_table_borders" style="left: 225px;">
                     <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_attack)">SpA:</th>
+                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_attack)">SpA.</th>
                         <th class="stats_table_borders">{{getStat("special_attack")}}</th>
                     </tr>
                     <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_defense)">SpD:</th>
+                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_defense)">SpD.</th>
                         <th class="stats_table_borders">{{getStat("special_defense")}}</th>
                     </tr>
                     <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.speed)">Spe:</th>
+                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.speed)">Spe.</th>
                         <th class="stats_table_borders">{{getStat("speed")}}</th>
                     </tr>
                 </table>
