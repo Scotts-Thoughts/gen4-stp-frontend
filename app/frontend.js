@@ -575,6 +575,7 @@ const app = Vue.createApp({
 
             //background texture settings
             backgroundBlur:        MyStorage["backgroundBlur"]        ?? 0,
+            backgroundHue:         MyStorage["backgroundHue"]         ?? 0,
             backgroundScale:       MyStorage["backgroundScale"]       ?? 100,
             backgroundUrl:         MyStorage["backgroundUrl"]         ?? "",
             backgroundFlip:        MyStorage["backgroundFlip"]        ?? false,
@@ -596,6 +597,7 @@ const app = Vue.createApp({
                 "imageSat",
                 "imageRotation",
                 "backgroundBlur",
+                "backgroundHue",
                 "backgroundScale",
                 "backgroundUrl",
                 "use_custom_background",
@@ -834,6 +836,7 @@ const app = Vue.createApp({
             this.imageSat               = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageSat              ?? 100
             this.imageRotation          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageRotation         ?? 0
             this.backgroundBlur         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundBlur        ?? 0
+            this.backgroundHue          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundHue         ?? 0
             this.backgroundScale        = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundScale       ?? 100
             this.backgroundUrl          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundUrl         ?? ""
             this.use_custom_background  = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background ?? false
@@ -890,6 +893,7 @@ const app = Vue.createApp({
 
             this.backgroundTexture      = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundTexture     ?? `${this.g4PokemonData[newValue].type_1}`
             this.backgroundBlur         = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundBlur        ?? 0,
+            this.backgroundHue          = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundHue        ?? 0,
             this.backgroundScale        = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundScale       ?? 100,
             this.backgroundUrl          = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundUrl         ?? "",
             this.backgroundFlip         = MyStorage[`${this.mapper.properties.meta.game_name.value}_${newValue}`]?.backgroundFlip        ?? false,
@@ -1367,6 +1371,7 @@ const app = Vue.createApp({
             }
             this.overlay_color         = MyStorage[from].overlay_color
             this.backgroundBlur        = MyStorage[from].backgroundBlur        
+            this.backgroundHue         = MyStorage[from].backgroundHue        
             this.backgroundScale       = MyStorage[from].backgroundScale       
             this.backgroundUrl         = MyStorage[from].backgroundUrl         
             this.backgroundFlip        = MyStorage[from].backgroundFlip        
@@ -1380,6 +1385,7 @@ const app = Vue.createApp({
             
             MyStorage[to].overlay_color         = MyStorage[from].overlay_color
             MyStorage[to].backgroundBlur        = MyStorage[from].backgroundBlur       
+            MyStorage[to].backgroundHue         = MyStorage[from].backgroundHue       
             MyStorage[to].backgroundScale       = MyStorage[from].backgroundScale      
             MyStorage[to].backgroundUrl         = MyStorage[from].backgroundUrl        
             MyStorage[to].backgroundFlip        = MyStorage[from].backgroundFlip       
@@ -1454,6 +1460,7 @@ const app = Vue.createApp({
 
             //background texture settings
             this.backgroundBlur =        MyStorage[`${game_name}_${this.starter}`]?.backgroundBlur ?? 0
+            this.backgroundHue =         MyStorage[`${game_name}_${this.starter}`]?.backgroundHue ?? 0
             this.backgroundScale =       MyStorage[`${game_name}_${this.starter}`]?.backgroundScale ?? 100
             this.backgroundUrl =         MyStorage[`${game_name}_${this.starter}`]?.backgroundUrl ?? ""
             this.backgroundFlip =        MyStorage[`${game_name}_${this.starter}`]?.backgroundFlip ?? false
@@ -1574,6 +1581,7 @@ const app = Vue.createApp({
         },
         reset() {
             this.backgroundBlur =        0,
+            this.backgroundHue =         0,
             this.backgroundScale =       100,
             this.backgroundUrl =         "",
             this.use_custom_background = false,
