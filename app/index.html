@@ -158,11 +158,11 @@
             <div class="posAbs type_icons_boundingBox center">
                 <img 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_1')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons/2024/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_1')?.toLowerCase()}.png`" />
                 <img 
                     v-if="getSoloMonType(mapper.properties.player.team[0].species.value??starter, 'type_1') != getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_2')" 
                     class="type_icons" 
-                    :src="`images/type-icons-rectangular/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_2')?.toLowerCase()}.png`" />
+                    :src="`images/type-icons/2024/${getSoloMonType(mapper.properties.player.team[0].species.value ?? starter, 'type_2')?.toLowerCase()}.png`" />
             </div>
 
             <!-- Stats -->
