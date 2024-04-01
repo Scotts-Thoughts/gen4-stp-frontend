@@ -485,23 +485,27 @@ function transition(fn, ms) {
 const app = Vue.createApp({
     data() {
         return {
-            ready:               false,
-            mapper:              null,
-            state:               "No Pokemon",
-            game_variables:      null,
-            autosplitter_toggle: true,
-            evolution:           MyStorage['evolution'] ?? false,
+            ready:                  false,
+            mapper:                 null,
+            state:                  "No Pokemon",
+            game_variables:         null,
+            autosplitter_toggle:    true,
+            evolution:              MyStorage['evolution'] ?? false,
             evolution_splits_label: "",
             
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
-            starter:           "Heatran",
-            growth_rate:       "Slow",
-            hidden_power_type: "Dark",
-            overlayNew:        "Chimchar",
-            overlayOld:        "Chimchar",
-            scott_mode:        true,
-            testStatus:        MyStorage['testStatus'] ?? false,
+            starter:              "Heatran",
+            pkmnNature:           "Adamant",
+            growth_rate:          "Slow",
+            hidden_power_type:    "Dark",
+            overlayNew:           "Chimchar",
+            overlayOld:           "Chimchar",
+            scott_mode:           true,
+            testStatus:           MyStorage['testStatus']           ?? false,
             wild_pokemon_display: false,
+            stats_setting:        MyStorage['stats_setting']        ?? "Automatic",
+            expBarToggle:         MyStorage['expBarToggle']         ?? true,
+            show_nature_changes:  MyStorage['show_nature_changes']  ?? true,
 
             customMovepool: {
                 "Torterra":  "line-height: 16px;",
@@ -529,13 +533,14 @@ const app = Vue.createApp({
             platinum_trainers:      platinum_trainers,
             platinum_moves:         platinum_moves,
             hiddenPowerTypes:       hiddenPowerTypes,
-            natures:                natures,
             generation4_moves_new:  generation4_moves_new,
             textures:               textures,
             default_colors:         default_colors,
             game_variables:         game_variables,
             autosplitter:           autosplitter,
             post_game_moves:        post_game_moves,
+            auto_save_settings:     auto_save_settings,
+            natures:                natures,
 
             //LOOPS
             badges:          [0, 1, 2, 3, 4, 5, 6, 7],
@@ -543,6 +548,41 @@ const app = Vue.createApp({
             moves:           ["move1","move2","move3","move4",],
             pkmnSlots:       [0, 1, 2, 3, 4, 5],
             modifier_values: ["attack","defense","special_attack","special_defense","speed"],
+            simple_natures: {
+                "0": "Hardy",
+                "1": "Lonely",
+                "2": "Brave",
+                "3": "Adamant",
+                "4": "Naughty",
+                "5": "Bold",
+                "6": "Docile",
+                "7": "Relaxed",
+                "8": "Impish",
+                "9": "Lax",
+                "10": "Timid",
+                "11": "Hasty",
+                "12": "Serious",
+                "13": "Jolly",
+                "14": "Naive",
+                "15": "Modest",
+                "16": "Mild",
+                "17": "Quiet",
+                "18": "Bashful",
+                "19": "Rash",
+                "20": "Calm",
+                "21": "Gentle",
+                "22": "Sassy",
+                "23": "Careful",
+                "24": "Quirky",
+            },
+            stat_object:     [
+                {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",   base_stat_path: "base_hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
+                {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", path: "attack",          mod_path: "Attack",         mod_abrv: "atk",  base_stat_path: "base_atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
+                {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", path: "defense",         mod_path: "Defense",        mod_abrv: "def",  base_stat_path: "base_def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
+                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spcA", base_stat_path: "base_spc_atk", dv: "dvSpecial", hp_spe_label_row: 1, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 2, value_column: 4,}, 
+                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spcD", base_stat_path: "base_spc_def", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 3, value_column: 4,}, 
+                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spd",  base_stat_path: "base_spd",     dv: "dvSpeed",   hp_spe_label_row: 3, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 1, value_column: 4,}, 
+            ],
 
             //VARIABLES THAT TRACK IN GAME PROGRESS ------------------------------------------------------------//
             playerId:       -1,
@@ -619,6 +659,7 @@ const app = Vue.createApp({
                 "evolution_splits_label",
                 "playerResets",
                 "blackout_counter",
+                "ui_saturation",
                 "TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","HM01","HM02","HM03","HM04","HM05","HM06","HM07","HM08",
             ],
             //timer variables
@@ -656,59 +697,6 @@ const app = Vue.createApp({
             testRun:             MyStorage['testRun']             ?? false,
             copy_overlay_pokemon_from: "",
             copy_overlay_pokemon_to:   "",
-
-            auto_save: [
-                "graphicOverlay",
-                "frame",
-                "gameArea",
-                "pokeballFloor",
-                "dynamicOverlay",
-                "gametime",
-                "pick",
-                "typeCalcs",
-                "moveset",
-                "dynamicPower",
-                "resets",
-                "stats",
-                "movepool",
-                "inventory",
-                "battleStats",
-                "battleInfo",
-                "conditions",
-                "expBar",
-                "splits",
-                "tooltips",
-                "btcInfo",
-                "returnPower",
-                "gamestate",
-                "labels",
-                "tutor_moves",
-                "showSpecialTrainerGraphics",
-                "route_101",
-                "route_102",
-                "route_103",
-                "testRun",
-                "simple_data_str",
-                "full_data_str",
-                "deprecated_data_str",
-                "simple_data",
-                "timer_startTimeOffset",
-                "timer_startTime",
-                "timer_pause",
-                "timer_formatted_time",
-                "timer_pause_time",
-                "time_h",
-                "time_m",
-                "time_s",
-                "time_ms",
-                "time_split_start",
-                "battle_start",
-                "testStatus",
-                "autosplitter_toggle",
-                "gameSelection",
-                "copy_overlay_pokemon_from",
-                "copy_overlay_pokemon_to",
-            ],
 
             // buffer properties
             buffer_battle_level:           0,
@@ -824,6 +812,17 @@ const app = Vue.createApp({
             HM06: false, //Rock Smash
             HM07: false, //Waterfall
             HM08: false, //Rock Climb
+
+            // UI
+            ui_saturation:                MyStorage["ui_saturation"]                ?? .6,
+            ui_type_colors:               MyStorage["ui_type_colors"]               ?? "Current",
+            ui_type_color_modifier:       MyStorage["ui_type_color_modifier"]       ?? "current_",
+            ui_type_icons:                MyStorage["ui_type_icons"]                ?? "2024",
+            ui_type_icons_modifier:       MyStorage["ui_type_icons_modifier"]       ?? "2024/",
+            ui_stats_styling:             MyStorage["ui_stats_styling"]             ?? "2024",
+            ui_stats_styling_modifier:    MyStorage["ui_stats_styling_modifier"]    ?? "",
+            ui_stat_arrangement:          MyStorage['ui_stat_arrangement']          ?? "HP, Atk, Def, Spe, SpA, SpD",
+            ui_stat_arrangement_modifier: MyStorage['ui_stat_arrangement_modifier'] ?? "hp_spe_",
         }
     },
     created() {
@@ -869,8 +868,8 @@ const app = Vue.createApp({
                 }
             );
         }
-        for (let i = 0; i < this.auto_save.length; i++) {
-            let propName = this.auto_save[i];
+        for (let i = 0; i < this.auto_save_settings.length; i++) {
+            let propName = this.auto_save_settings[i];
             this.$watch(
                 () => this[propName], // Using a function to return the property's value
                 (newValue) => {
@@ -880,6 +879,22 @@ const app = Vue.createApp({
         }
     },
     watch: {
+        ui_stat_arrangement(newValue) {
+            if (newValue == 'HP, Atk, Def, SpA, SpD, Spe') {
+                this.ui_stat_arrangement_modifier = "hp_spe_"
+            }
+            if (newValue == 'HP, Atk, Def, Spe, SpA, SpD') {
+                this.ui_stat_arrangement_modifier = "hp_spd_"
+            }
+        },
+        ui_type_colors(newValue) {
+            if (newValue == 'Current') {
+                this.ui_type_color_modifier = "current_"
+            }
+            if (newValue == 'Legacy') {
+                this.ui_type_color_modifier = "legacy_"
+            }
+        },
         starter(newValue, oldValue) {
             MyStorage['starter'] = newValue
             //background texture settings
@@ -960,6 +975,41 @@ const app = Vue.createApp({
         },
     },
     computed: {
+        stats_header() {
+            const toggle    = true
+            const stat_type = this.stats_setting
+            const year      = this.ui_stats_styling_modifier
+            const state     = this.mapper.properties.meta.state.value
+            if (year == '2023') {
+                if (this.mapper.properties.flags.got_tm27_return.value == false) {
+                    return `IVs`
+                }
+                switch (state) {
+                    case "Base Stats":  return `Base Stats`
+                    case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                    case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                    case "From Battle": return `Level ${this.mapper.properties.battle.yourPokemon.level.value}`
+                    case "Battle":      return `Level ${this.mapper.properties.battle.yourPokemon.level.value}`
+                }
+            }
+            else {
+                if (this.mapper.properties.flags.got_tm27_return.value == false) {
+                    return `IVs`
+                }
+                switch (stat_type) {
+                    case "Base Stats":   return `Base Stats`
+                    case "IVs":          return `IVs`
+                    case "Hidden Power": return `Hidden Power ${this.hpType}`
+                    case "EVs":          return `EVs`
+                    case "Detailed EVs": return `EVs`
+                    case "Automatic":    return `Level ${this.mapper.properties.player.team[0].level.value}`
+                    case "Badge Boosts": return `Level ${this.mapper.properties.player.team[0].level.value}`
+                }
+            }
+        },
+        growth_rate() {
+            return this.g4PokemonData[this.starter].growth_rate
+        },
         filtered_pokemon_list() {
             if (this.search_term === '') {
                 return this.pokemon_list;
@@ -1122,7 +1172,7 @@ const app = Vue.createApp({
                 return this.mapper?.properties?.battle?.player?.active_pokemon
             }
             else if (this.mapper.properties.meta.state.value == `No Pokemon` || this.mapper?.properties?.player?.team[0]?.species?.value == null || this.mapper?.properties?.battle?.player?.team_count?.value == 0) {
-                // var data = this.g4PokemonDataRubySapphireEmerald[this.starter]
+                // var data = this.g4PokemonData[this.starter]
                 // return {
                 //     species: { value: data["name"] },
                 //     ...data
@@ -1190,10 +1240,10 @@ const app = Vue.createApp({
         typeHeaderColor() {
             return
             // if (this.mapper.properties.meta.state.value == `Battle`) { return this.mapper.properties.battle.yourPokemon.type2.value }
-            // if (this.mapper.properties.meta.state.value == `Overworld`) { return this.g4PokemonDataRubySapphireEmerald[this.mapper.properties.player.team[0].species.value].type_2 }
-            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.g4PokemonDataRubySapphireEmerald[this.starter].type_2}
+            // if (this.mapper.properties.meta.state.value == `Overworld`) { return this.g4PokemonData[this.mapper.properties.player.team[0].species.value].type_2 }
+            // if (this.mapper.properties.meta.state.value == `No Pokemon`) { return this.g4PokemonData[this.starter].type_2}
             // else { return }
-            // else { return this.g4PokemonDataRubySapphireEmerald[this.starter].type_2}
+            // else { return this.g4PokemonData[this.starter].type_2}
         },
         //BATTLE FADE
         battle_fade() {
@@ -1265,12 +1315,12 @@ const app = Vue.createApp({
             }
         },
         pkmnGrowthRate() {
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_SLOW`) { return "Slow" }
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FAST`) { return "Fast" }
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
-            if (this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_MEDIUM_SLOW`) { return "Medium Slow" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_MEDIUM_FAST`) { return "Medium Fast" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_SLOW`) { return "Slow" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_FAST`) { return "Fast" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_FLUCTUATING`) { return "Fluctuating" }
+            if (this.g4PokemonData[this.starter].growth_rate == `GROWTH_ERRATIC`) { return "Erratic" }
         },
         field_effect_array() {
             var effect_array = [
@@ -1334,6 +1384,128 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        natureLabels(nature) {
+            let output = nature + ": ";
+            // let pad = 7 - nature.length;
+            // output+="-".repeat(pad) + ": "
+            switch(this.natures[nature].raises) {
+                case "Attack":
+                    output+= "+Attack";
+                    break;
+                case "Defense":
+                    output+= "+Defense";
+                    break;
+                case "Special Attack":
+                    output+= "+Sp. Atk";
+                    break;
+                case "Special Defense":
+                    output+= "+Sp. Def";
+                    break;
+                case "Speed":
+                    output+= "+Speed";
+                    break;
+                default:
+                    output+= "Neutral";
+                    break;
+            }
+            switch(this.natures[nature].lowers) {
+                case "Attack":
+                    output+= " | -Attack";
+                    break;
+                case "Defense":
+                    output+= " | -Defense";
+                    break;
+                case "Special Attack":
+                    output+= " | -Sp. Atk";
+                    break;
+                case "Special Defense":
+                    output+= " | -Sp. Def";
+                    break;
+                case "Speed":
+                    output+= " | -Speed";
+                    break;
+                default:
+                    break;
+            }
+            return output;
+        },
+        get_iv(stat_name) {
+            const state = this.mapper.properties.meta.state.value
+            let iv_hp  = this.mapper.properties.player.team[0].ivs.hp.value
+            let iv_atk = this.mapper.properties.player.team[0].ivs.attack.value
+            let iv_def = this.mapper.properties.player.team[0].ivs.defense.value
+            let iv_spa = this.mapper.properties.player.team[0].ivs.special_attack.value
+            let iv_spd = this.mapper.properties.player.team[0].ivs.special_defense.value
+            let iv_spe = this.mapper.properties.player.team[0].ivs.speed.value
+            switch (stat_name) {
+                case "Hp":
+                    return iv_hp
+                case "Attack":
+                    return iv_atk
+                case "Defense":
+                    return iv_def
+                case "Special Attack":
+                    return iv_spa
+                case "Special Defense":
+                    return iv_spd
+                case "Speed":
+                    return iv_spe
+            }
+        },
+        get_stat(stat_name) {
+            const state = this.mapper.properties.meta.state.value
+            if (state == `Overworld` || state == `To Battle`) {
+                switch (stat_name) {
+                    case "Hp":              return this.mapper.properties.player.team[0].stats.hp_max.value
+                    case "Attack":          return this.mapper.properties.player.team[0].stats.attack.value
+                    case "Defense":         return this.mapper.properties.player.team[0].stats.defense.value
+                    case "Special Attack":  return this.mapper.properties.player.team[0].stats.special_attack.value
+                    case "Special Defense": return this.mapper.properties.player.team[0].stats.special_defense.value
+                    case "Speed":           return this.mapper.properties.player.team[0].stats.speed.value
+                }
+            }
+            if (state == `Battle` || state == `From Battle`) {
+                switch (stat_name) {
+                    case "Hp":              return this.mapper.properties.battle.yourPokemon.maxHp.value
+                    case "Attack":          return this.mapper.properties.battle.yourPokemon.attack.value
+                    case "Defense":         return this.mapper.properties.battle.yourPokemon.defense.value
+                    case "Speed":           return this.mapper.properties.battle.yourPokemon.speed.value
+                    case "Special Attack":  return this.mapper.properties.battle.yourPokemon.specialAttack.value
+                    case "Special Defense": return this.mapper.properties.battle.yourPokemon.specialDefense.value
+                }
+            }
+            if (state == `Base Stats`) {
+                switch (stat_name) {
+                    case "Hp":              return this.dexDataCrystal[this.starter].base_hp
+                    case "Attack":          return this.dexDataCrystal[this.starter].base_atk
+                    case "Defense":         return this.dexDataCrystal[this.starter].base_def
+                    case "Special Attack":  return this.dexDataCrystal[this.starter].base_spc_atk
+                    case "Special Defense": return this.dexDataCrystal[this.starter].base_spc_def
+                    case "Speed":           return this.dexDataCrystal[this.starter].base_spd
+                }
+            }
+        },
+        statLabelOpacity() {
+            let default_opacity = .63
+            let faded_opacity = .1
+            let mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value != '0'          && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value != '0'         && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value != '0'  && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value != '0' && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value != '0'           && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let object = {
+                "HP":              default_opacity,
+                "Attack":          mod_atk,
+                "Defense":         mod_def,
+                "Speed":           mod_spa,
+                "Special Attack":  mod_spd,
+                "Special Defense": mod_spe,
+            }
+            return object
+        },
+        get_friendship() {
+            return this.mapper.properties.player.team[0].friendship + "/255"
+        },
         post_game_move_style(move_object) {
             const game_name = 'Platinum' //change this to be dynamic when adding more games
             const move_name = move_object.Move
@@ -2544,12 +2716,12 @@ const app = Vue.createApp({
         },
         getStarterType1() {
             if (this.pick == true)
-                var type = this.g4PokemonDataRubySapphireEmerald[this.starter].type_1
+                var type = this.g4PokemonData[this.starter].type_1
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
         getStarterType2() {
             if (this.pick == true)
-                var type = this.g4PokemonDataRubySapphireEmerald[this.starter].type_2
+                var type = this.g4PokemonData[this.starter].type_2
                 return `images/elements/types/${type.toLowerCase()}.png`
         },
 
@@ -2666,7 +2838,7 @@ const app = Vue.createApp({
         
         //EXPERIENCE FUNCTIONS
         growthRate() {
-            var growthRate = this.g4PokemonDataRubySapphireEmerald[this.starter].growth_rate
+            var growthRate = this.g4PokemonData[this.starter].growth_rate
             if (growthRate == "GROWTH_MEDIUM_SLOW") {
                 return "Medium Slow"
             }
@@ -2686,7 +2858,7 @@ const app = Vue.createApp({
                 return "Erratic"
             }
             else {
-                return this.g4PokemonDataRubySapphireEmerald[starter].growth_rate
+                return this.g4PokemonData[this.starter].growth_rate
             }
         },
         calcExpStats(growthRate, exp) {
@@ -2976,15 +3148,15 @@ const app = Vue.createApp({
         },
         
         //x = stat modifier property (not the value of the property. [ex. battle.modStageAttack])
-        statLabelOpacity(modifier) {
-            if (this.mapper.properties.player.team[0].internals.personality_value.value == null)
-                return
-            else if (this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.battle.outcome.value == null)
-                if (modifier.value != 0)
-                    return `opacity: ${this.statLabelOpacityValue};`
-            else
-                return
-        },
+        // statLabelOpacity(modifier) {
+        //     if (this.mapper.properties.player.team[0].internals.personality_value.value == null)
+        //         return
+        //     else if (this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.battle.outcome.value == null)
+        //         if (modifier.value != 0)
+        //             return `opacity: ${this.statLabelOpacityValue};`
+        //     else
+        //         return
+        // },
         enemyStatLabelOpacity(modifier, slot) {
             if (this.mapper.properties.battle.opponent.party_position.value == slot) {
                 if (this.mapper.properties.battle.opponent.team[0].internals.personality_value.value == null)
@@ -3770,14 +3942,57 @@ const app = Vue.createApp({
                 }
             }
         })
-        // keybinds
-        keyhook.registerShortCut('F23', async () => {
+        //keybinds
+        keyhook.registerShortCut('F13', async () => { // Show IVs
+            console.log("Key: F13 pressed: DVs displayed.")
+            this.stats_setting = "IVs";
+        });
+        keyhook.registerShortCut('F14', async () => { // Show EVs
+            console.log("Key: F14 pressed: Stat experience displayed.")
+            this.stats_setting = "EVs";
+        });
+        keyhook.registerShortCut('F15', async () => { // Show Base Stats
+            console.log("Key: F15 pressed. Base Stats displayed.")
+            this.stats_setting = "Base Stats";
+        });
+        keyhook.registerShortCut('F16', async () => { // Automatic
+            console.log("Key: F16 pressed. Stats are displaying automatically now.")
+            this.stats_setting = "Automatic";
+        });
+
+        keyhook.registerShortCut('F17', async () => { // Inventory
+            console.log("Key: F17 pressed. Automatic battle graphics will be displayed.")
+            this.right_panel = "Battle Graphic";
+        });
+        keyhook.registerShortCut('F18', async () => { // Trainer Graphic during Battle
+            console.log("Key: F18 pressed. Inventory displayed.")
+            this.right_panel = "Inventory";
+        });
+        keyhook.registerShortCut('F19', async () => { // Trainer Graphic during Battle
+            console.log("Key: F19 pressed. Movepool displayed.")
+            this.right_panel = "Movepool";
+        });
+        keyhook.registerShortCut('F20', async () => { // Trainer Graphic during Battle
+            console.log(`Key: F20 pressed. Bonk counter displayed. (Bonk = ${this.bonk})`)
+            this.bonk = !this.bonk;
+        });
+
+
+
+        //UNUSED F Keys
+        keyhook.registerShortCut('F21', async () => { // Trainer Graphic during Battle
+            console.log(`Key: F21 pressed. This shortcut is currently unused...`)
+        });
+        keyhook.registerShortCut('F22', async () => { // Trainer Graphic during Battle
+            console.log(`Key: F22 pressed. This shortcut is currently unused...`)
+        });
+
+
+
+        keyhook.registerShortCut('F23', async () => { // Clear Timer and Metrics
             this.newRun()
         });
-        keyhook.registerShortCut('F12', async () => {
-            this.pauseUnpauseTime()
-        });
-        keyhook.registerShortCut('F24', async () => {
+        keyhook.registerShortCut('F24', async () => { // Pause
             this.pauseUnpauseTime()
         });
     },

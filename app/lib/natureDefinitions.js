@@ -1,4 +1,4 @@
-const natures = {
+const natures_2 = {
     "Hardy": {
         nature: "hardy",
         index: 0,

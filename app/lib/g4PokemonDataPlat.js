@@ -4,6 +4,7 @@ const g4PokemonData =
             "species": "Latias",
             "rom_id": 380,
             "base_hp": 80,
+            "base_atk": 80,
             "base_def": 90,
             "base_spd": 110,
             "base_spc_atk": 110,
