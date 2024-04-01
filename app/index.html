@@ -223,6 +223,7 @@
                             <div v-if="stats_setting == 'Base Stats'"   :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`">{{g4PokemonData[starter][stat.base_stat_path]}}</div>
                             <div v-if="stats_setting == 'IVs'"          :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} dv`">{{get_iv(`${stat.name}`)}}/31</div>
                             <div v-if="stats_setting == 'EVs'"          :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
+                            <div v-if="stats_setting == 'Detailed EVs'" :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
                             <div v-if="stats_setting == 'Automatic'"    :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`">{{get_stat(`${stat.name}`)}}</div>
                         </div>
                     </div>
@@ -518,9 +519,9 @@
 
             <!-- Exp bar -->
             <div class="expBar">
-                <div v-if="mapper.properties.meta.state.value == 'From Battle' || mapper.properties.meta.state.value == 'Battle'" class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, buffer_battle_exp).percent)}}%</div>
-                <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="labelEXP">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, mapper.properties.player.team[0].exp.value).percent)}}%</div>
-                <div v-else-if="mapper.properties.meta.state.value == 'No Pokemon'"class="labelEXP">Exp:</div>
+                <div v-if="mapper.properties.meta.state.value == 'From Battle' || mapper.properties.meta.state.value == 'Battle'" class="exp_label">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, buffer_battle_exp).percent)}}%</div>
+                <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="exp_label">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, mapper.properties.player.team[0].exp.value).percent)}}%</div>
+                <div v-else-if="mapper.properties.meta.state.value == 'No Pokemon'"class="exp_label">Exp:</div>
                 <div class="expMeterOuter"><div class="expMeterInner" ref="expBar"></div></div>
             </div>
 

@@ -167,15 +167,6 @@
     --expBarExperience: linear-gradient(90deg,hsl(189, 92%, 45%), hsl(187, 100%, 69%));
 }
 
-.expBar {
-    /* border: 1px solid rgb(255, 0, 0); */
-    position: absolute;
-    width: 400px;
-    height: 50px;
-    left: 0px;
-    top: 770px;
-}
-
 html {
     height: 100%;
     width: 100%;
@@ -627,18 +618,6 @@ body {
     font-size: 36px;
     opacity: 0.6;
 }
-.labelEXP {
-    position: absolute;
-    font-size: 14px;
-    font-family: play;
-    top: 659px;
-    left: 21px;
-    z-index: 1005;
-    opacity: .55;
-    text-align: center;
-    width: 42px;
-    border: 1px solid rgba(255, 0, 0, 0);
-}
 .ability {
     position: absolute;
     font-family: play;
@@ -712,40 +691,44 @@ body {
     border-radius: 4px;
     width: 318px;
 }
+
+.expBar {
+    border: 1px solid rgba(255, 0, 0, 0);
+    position: absolute;
+    width: 448px;
+    height: 17px;
+    left: 0px;
+    top: 814px;
+}
 .expMeterOuter {
     position: absolute;
-    border: 1px solid #000;
+    border: 1px solid #00000000;
     background: var(--expBarBackground);
-    height: 18px;
-    top: 660px;
+    height: 17px;
+    top: 0px;
     left: 64px;
     z-index: 0;
 }
 .expMeterInner {
     position: relative;    
     background: var(--expBarExperience);
-    height: 15px;
+    height: 16px;
     top: -1px;
     border: 1px solid #00000023;
 }
-
-.expBar {
-    border: 1px solid rgba(255, 0, 0, 0);
-    position: absolute;
-    width: 400px;
-    height: 44px;
-    left: 0px;
-    top: 153px;
-}
 .exp_label {
     position: absolute;
-    font-size: 26px;
+    font-size: 14px;
     font-family: play;
-    top: 4px;
-    left: 23px;
+    top: -2px;
+    left: 21px;
     z-index: 1005;
     opacity: .55;
+    text-align: center;
+    width: 42px;
+    border: 1px solid rgba(255, 0, 0, 0);
 }
+
 .statsLabelsColumn1 {
     font-size: 30px;
     position: absolute;
@@ -2055,7 +2038,7 @@ img, span, div {
     width: 400px;
     height: 14px;
     border: 1px solid #ff000000;
-    top: 660px;
+    top: 815px;
     bottom: 0px;
     right: 0px;
     z-index: 5;

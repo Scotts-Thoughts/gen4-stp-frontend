@@ -496,7 +496,6 @@ const app = Vue.createApp({
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter:              "Heatran",
             pkmnNature:           "Adamant",
-            growth_rate:          "Slow",
             hidden_power_type:    "Dark",
             overlayNew:           "Chimchar",
             overlayOld:           "Chimchar",
@@ -1001,7 +1000,16 @@ const app = Vue.createApp({
                     case "IVs":          return `IVs`
                     case "Hidden Power": return `Hidden Power ${this.hpType}`
                     case "EVs":          return `EVs`
-                    case "Detailed EVs": return `EVs`
+                    case "Detailed EVs": {
+                        let ev_hp  = this.mapper.properties.player.team[0].evs.hp.value
+                        let ev_atk = this.mapper.properties.player.team[0].evs.attack.value
+                        let ev_def = this.mapper.properties.player.team[0].evs.defense.value
+                        let ev_spa = this.mapper.properties.player.team[0].evs.special_attack.value
+                        let ev_spd = this.mapper.properties.player.team[0].evs.special_defense.value
+                        let ev_spe = this.mapper.properties.player.team[0].evs.speed.value
+                        let total = ev_hp + ev_atk + ev_def + ev_spa + ev_spd + ev_spe
+                        return `${total}/510 (${this.decimalToPercentage(total/510)}%)`
+                    }
                     case "Automatic":    return `Level ${this.mapper.properties.player.team[0].level.value}`
                     case "Badge Boosts": return `Level ${this.mapper.properties.player.team[0].level.value}`
                 }
@@ -1466,12 +1474,12 @@ const app = Vue.createApp({
             }
             if (state == `Battle` || state == `From Battle`) {
                 switch (stat_name) {
-                    case "Hp":              return this.mapper.properties.battle.yourPokemon.maxHp.value
-                    case "Attack":          return this.mapper.properties.battle.yourPokemon.attack.value
-                    case "Defense":         return this.mapper.properties.battle.yourPokemon.defense.value
-                    case "Speed":           return this.mapper.properties.battle.yourPokemon.speed.value
-                    case "Special Attack":  return this.mapper.properties.battle.yourPokemon.specialAttack.value
-                    case "Special Defense": return this.mapper.properties.battle.yourPokemon.specialDefense.value
+                    case "Hp":              return this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
+                    case "Attack":          return this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                    case "Defense":         return this.mapper.properties.battle.player.active_pokemon.stats.defense.value
+                    case "Speed":           return this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    case "Special Attack":  return this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                    case "Special Defense": return this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
                 }
             }
             if (state == `Base Stats`) {
@@ -3949,6 +3957,10 @@ const app = Vue.createApp({
         });
         keyhook.registerShortCut('F14', async () => { // Show EVs
             console.log("Key: F14 pressed: Stat experience displayed.")
+            if (this.stats_setting == "EVs") {
+                this.stats_setting = "Detailed EVs";
+                return
+            }
             this.stats_setting = "EVs";
         });
         keyhook.registerShortCut('F15', async () => { // Show Base Stats
