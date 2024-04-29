@@ -1482,14 +1482,14 @@ const app = Vue.createApp({
                     case "Special Defense": return this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
                 }
             }
-            if (state == `Base Stats`) {
+            if (state == `No Pokemon`) {
                 switch (stat_name) {
-                    case "Hp":              return this.dexDataCrystal[this.starter].base_hp
-                    case "Attack":          return this.dexDataCrystal[this.starter].base_atk
-                    case "Defense":         return this.dexDataCrystal[this.starter].base_def
-                    case "Special Attack":  return this.dexDataCrystal[this.starter].base_spc_atk
-                    case "Special Defense": return this.dexDataCrystal[this.starter].base_spc_def
-                    case "Speed":           return this.dexDataCrystal[this.starter].base_spd
+                    case "Hp":              return this.g4PokemonData[this.starter].base_hp
+                    case "Attack":          return this.g4PokemonData[this.starter].base_atk
+                    case "Defense":         return this.g4PokemonData[this.starter].base_def
+                    case "Special Attack":  return this.g4PokemonData[this.starter].base_spc_atk
+                    case "Special Defense": return this.g4PokemonData[this.starter].base_spc_def
+                    case "Speed":           return this.g4PokemonData[this.starter].base_spd
                 }
             }
         },
@@ -3864,6 +3864,7 @@ const app = Vue.createApp({
         });
 
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
+            console.log("mapper.properties.player.team[0].exp.change")
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
                 if (this.expBarAnimation == true) {
                     const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
@@ -3881,6 +3882,7 @@ const app = Vue.createApp({
             }
         })
         this.mapper.properties.battle.player.active_pokemon.exp.change(async (newProp, oldProp) => {
+            console.log("mapper.properties.battle.player.active_pokemon.exp.change")
             if (this.mapper.properties.meta.state.value == "Battle") {
                 if (this.expBarAnimation == true) {
                     const prevSpecies = this.expBarState.species;

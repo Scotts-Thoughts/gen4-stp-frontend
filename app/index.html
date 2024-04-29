@@ -149,12 +149,14 @@
                 </div>
                 <div class="ui3">
                     <div>Pokemon Image Settings</div>
-                    X-Offset:   <input type="range" min="-400" max="400" v-model="imageXOffset"/><br>
-                    Y-Offset:   <input type="range" min="-400" max="400" v-model="imageYOffset"/><br>
-                    Scale:      <input type="range" min="0.2"  max="2.5" step="0.01" v-model="imageScale"/><br>
-                    Saturation: <input type="range" min="90"   max="150" step="1"    v-model="imageSat"/><br>
-                    Rotation:   <input type="range" min="-180" max="180" step=".01"  v-model="imageRotation"/><br>
-                    Flip:       <input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/><br>
+                    <table>
+                        <tr><td>X-Offset:  </td><td><input type="range" min="-400" max="400" v-model="imageXOffset"/></td></tr>
+                        <tr><td>Y-Offset:  </td><td><input type="range" min="-400" max="400" v-model="imageYOffset"/></td></tr>
+                        <tr><td>Scale:     </td><td><input type="range" min="0.2"  max="2.5" step="0.01" v-model="imageScale"/></td></tr>
+                        <tr><td>Saturation:</td><td><input type="range" min="90"   max="150" step="1"    v-model="imageSat"/></td></tr>
+                        <tr><td>Rotation:  </td><td><input type="range" min="-180" max="180" step=".01"  v-model="imageRotation"/></td></tr>
+                        <tr><td>Flip:      </td><td><input class="checkBoxStyle" type="checkbox" v-model="imageFlip"/></td></tr>
+                    </table>
                     <button @click="resetPokemon()" class="buttonStyle">Reset Pokemon Settings</button><br>
                     <button @click="color_picker" class="buttonStyle">Color Picker</button><br>
                     <br>
@@ -164,15 +166,17 @@
                             {{ key }}
                         </option>
                     </select><br>
-                    X-Offset:   <input type="range" min="-125" max="125" v-model="backgroundXOffset"/><br>
-                    Y-Offset:   <input type="range" min="-125" max="125" v-model="backgroundYOffset"/><br>
-                    Scale:      <input type="range" min="100"  max="200" v-model="backgroundScale"/><br>
-                    Brightness: <input type="range" min="0"    max="200" v-model="backgroundBrightness"/><br>
-                    Contrast:   <input type="range" min="0"    max="200" v-model="backgroundContrast"/><br>
-                    Saturation: <input type="range" min="0"    max="200" v-model="backgroundSaturation"/><br>
-                    Blur:       <input type="range" min="0"    max="10"  v-model="backgroundBlur"/><br>
-                    Hue:        <input type="range" min="0"    max="358" v-model="backgroundHue"/><br>
-                    Flip:       <input class="checkBoxStyle" type="checkbox" v-model="backgroundFlip"/><br>
+                    <table>
+                        <tr><td>X-Offset:   </td><td><input type="range" min="-125" max="125" v-model="backgroundXOffset"/></td></tr>
+                        <tr><td>Y-Offset:   </td><td><input type="range" min="-125" max="125" v-model="backgroundYOffset"/></td></tr>
+                        <tr><td>Scale:      </td><td><input type="range" min="100"  max="200" v-model="backgroundScale"/></td></tr>
+                        <tr><td>Brightness: </td><td><input type="range" min="0"    max="200" v-model="backgroundBrightness"/></td></tr>
+                        <tr><td>Contrast:   </td><td><input type="range" min="0"    max="200" v-model="backgroundContrast"/></td></tr>
+                        <tr><td>Saturation: </td><td><input type="range" min="0"    max="200" v-model="backgroundSaturation"/></td></tr>
+                        <tr><td>Blur:       </td><td><input type="range" min="0"    max="10"  v-model="backgroundBlur"/></td></tr>
+                        <tr><td>Hue:        </td><td><input type="range" min="0"    max="358" v-model="backgroundHue"/></td></tr>
+                        <tr><td>Flip:       </td><td><input class="checkBoxStyle" type="checkbox" v-model="backgroundFlip"/></td></tr>
+                    </table>
                     <br>
                     <div>Copy Overlay Settings:</div>
                     <div>Enter Pokemon species here</div>
