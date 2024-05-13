@@ -50,7 +50,7 @@
     --current_water:    #2980ef;
     --current_electric: #fac000;
     --current_ground:   #915121;
-    --current_rock:     #afa981;
+    --current_rock:     #8d896c;
     --current_psychic:  #ef4179;
     --current_poison:   #9141cb;
     --current_flying:   #81b9ef;
@@ -84,9 +84,15 @@
     --legacy_curse:    #2e9fa3;
 
     /* Damage Category Colours */
-    --physical: #bf2923;
-    --special:  #4f5870;
-    --status:   #8c888c;
+    --legacy_physical: #bf2923;
+    --legacy_special:  #4f5870;
+    --legacy_status:   #8c888c;
+    --current_physical: #EB5628;
+    --current_special:  #375AB2;
+    --current_status:   #828282;
+    /* --current_physical: #F29173;
+    --current_special:  #7D94CD;
+    --current_status:   #AEAEAE; */
 
     /* Stat Colours */
     --hp:     #ff5959;
@@ -1888,16 +1894,25 @@ img, span, div {
     width: 65px;
     height: 58px;
     text-align: center;
+    vertical-align: middle;
     opacity: .7;
+    display: flex;        /* Add this line */
+    align-items: center;  /* Add this line */
+    justify-content: center; /* Add this line if you also want to center text horizontally */
 }
 .modColumn1 { left: 23px; }
 .modColumn2 { left: 227px; }
 .status { top: 866px; left: 30px; }
-.atkMod { top: 934px; }
-.defMod { top: 997px; }
-.spAMod { top: 871px; }
-.spDMod { top: 934px; }
-.speMod { top: 997px; }
+.hp_spd_atkMod { position: absolute; left: 23px; top: 134px; }
+.hp_spd_defMod { position: absolute; left: 23px; top: 197px; }
+.hp_spd_spAMod { position: absolute; left: 226px; top: 134px; }
+.hp_spd_spDMod { position: absolute; left: 226px; top: 197px; }
+.hp_spd_speMod { position: absolute; left: 226px; top: 71px; }
+.hp_spe_atkMod { position: absolute; left: 23px; top: 134px; }
+.hp_spe_defMod { position: absolute; left: 23px; top: 197px; }
+.hp_spe_spAMod { position: absolute; left: 226px; top: 71px; }
+.hp_spe_spDMod { position: absolute; left: 226px; top: 134px; }
+.hp_spe_speMod { position: absolute; left: 226px; top: 197px; }
 
 
 .aDMods {
