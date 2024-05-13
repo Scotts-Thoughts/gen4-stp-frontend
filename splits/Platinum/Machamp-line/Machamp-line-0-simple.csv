@@ -1,2 +1,5 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
 SCOTT,Machop,Rival,2:09,0,0,5,0:05,1714355843.996,Low Kick,Leer,,
+SCOTT,Machop,Rival,12:00,0,0,11,0:41,1715608305.414,Karate Chop,Low Kick,Focus Energy,Return
+SCOTT,Machop,Leader Roark,16:26,0,0,16,0:57,1715609063.505,Karate Chop,Low Kick,Foresight,Return
+SCOTT,Machop,Commander Mars,24:02,0,0,20,1:25,1715610432.607,Karate Chop,Rock Tomb,Foresight,Return

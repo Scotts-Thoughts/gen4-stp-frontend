@@ -2520,6 +2520,9 @@ const app = Vue.createApp({
             if (accuracy == `—`) {
                 return `—`
             }
+            if (this.mapper.properties.player?.team[0]?.ability?.value == 'No Guard') {
+                return `—`
+            }
             if (this.mapper.properties.meta.state.value == `Battle`) {
                 let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value.toString()
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
