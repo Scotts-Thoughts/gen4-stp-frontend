@@ -505,21 +505,26 @@ const app = Vue.createApp({
             stats_setting:        MyStorage['stats_setting']        ?? "Automatic",
             expBarToggle:         MyStorage['expBarToggle']         ?? true,
             show_nature_changes:  MyStorage['show_nature_changes']  ?? true,
-            stat_fix_toggle: false,
+            show_tutor_moves:     MyStorage['show_tutor_moves']     ?? true,
+            stat_fix_toggle  : false,
             stat_fix_toggle_2: 0,
-            stat_fix_hp    : 0,
-            stat_fix_atk   : 0,
-            stat_fix_def   : 0,
-            stat_fix_spe   : 0,
-            stat_fix_spa   : 0,
-            stat_fix_spd   : 0,
+            stat_fix_lvl     : 0,
+            stat_fix_hp      : 0,
+            stat_fix_atk     : 0,
+            stat_fix_def     : 0,
+            stat_fix_spe     : 0,
+            stat_fix_spa     : 0,
+            stat_fix_spd     : 0,
 
             customMovepool: {
-                "Torterra":  "line-height: 16px;",
+                "Torterra" : "line-height: 16px;",
                 "Infernape": "line-height: 15px;",
-                "Empoleon":  "line-height: 15px;",
+                "Empoleon" : "line-height: 15px;",
                 "Cresselia": "line-height: 18px;",
-                "Heatran":   "line-height: 18px;",
+                "Heatran"  : "line-height: 18px;",
+                "Machop"   : "line-height: 16.54px;",
+                "Machoke"  : "line-height: 16.26px;",
+                "Machamp"  : "line-height: 15.47px;",
             },
             pokemon_list: [],
             
@@ -987,6 +992,7 @@ const app = Vue.createApp({
             const stat_type = this.stats_setting
             const year      = this.ui_stats_styling_modifier
             const state     = this.mapper.properties.meta.state.value
+            // stat_fix_lvl 
             if (year == '2023') {
                 if (this.mapper.properties.flags.got_tm27_return.value == false) {
                     return `IVs`
@@ -995,7 +1001,7 @@ const app = Vue.createApp({
                     case "Base Stats":  return `Base Stats`
                     case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
                     case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
-                    case "From Battle": return `Level ${this.mapper.properties.battle.yourPokemon.level.value}`
+                    case "From Battle": return `Level ${this.stat_fix_lvl}`
                     case "Battle":      return `Level ${this.mapper.properties.battle.yourPokemon.level.value}`
                 }
             }
@@ -1506,6 +1512,7 @@ const app = Vue.createApp({
                 if (this.stat_fix_toggle = true) {
                     this.stat_fix_toggle = false
                     if (this.mapper.properties.battle.player.active_pokemon.stats.defense.value < 2000) {
+                        this.stat_fix_lvl = this.mapper.properties.battle.player.active_pokemon.level.value
                         this.stat_fix_hp  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                         this.stat_fix_atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
                         this.stat_fix_def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
@@ -1868,7 +1875,8 @@ const app = Vue.createApp({
             }
         },
         customFormats() {
-            var currentMon = this.mapper?.properties?.player?.team[0]?.species?.value ?? this.starter
+            var currentMon = this.starter
+            // var currentMon = this.mapper?.properties?.player?.team[0]?.species?.value ?? this.starter
             if (this.starter != currentMon) {
                 return this.customMovepool[currentMon]
             }
@@ -2494,9 +2502,9 @@ const app = Vue.createApp({
                         ...this.dataSearch(moveData, x)
                     }
                 }),     
-                // tutor: pkmn.tutor_learnset.map(x => {
-                //     return this.dataSearch(moveData, x)
-                // }),    
+                tutor: pkmn.tutor_learnset.map(x => {
+                    return this.dataSearch(moveData, x)
+                }),    
                 // egg: pkmn.egg_moves.map(x => {
                 //     return this.dataSearch(moveData, x)
                 // }),    
