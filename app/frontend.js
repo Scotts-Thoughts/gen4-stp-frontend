@@ -505,6 +505,14 @@ const app = Vue.createApp({
             stats_setting:        MyStorage['stats_setting']        ?? "Automatic",
             expBarToggle:         MyStorage['expBarToggle']         ?? true,
             show_nature_changes:  MyStorage['show_nature_changes']  ?? true,
+            stat_fix_toggle: false,
+            stat_fix_toggle_2: 0,
+            stat_fix_hp    : 0,
+            stat_fix_atk   : 0,
+            stat_fix_def   : 0,
+            stat_fix_spe   : 0,
+            stat_fix_spa   : 0,
+            stat_fix_spd   : 0,
 
             customMovepool: {
                 "Torterra":  "line-height: 16px;",
@@ -1460,36 +1468,70 @@ const app = Vue.createApp({
                     return iv_spe
             }
         },
-        get_stat(stat_name) {
+        get_stat() {
             const state = this.mapper.properties.meta.state.value
             if (state == `Overworld` || state == `To Battle`) {
-                switch (stat_name) {
-                    case "Hp":              return this.mapper.properties.player.team[0].stats.hp_max.value
-                    case "Attack":          return this.mapper.properties.player.team[0].stats.attack.value
-                    case "Defense":         return this.mapper.properties.player.team[0].stats.defense.value
-                    case "Special Attack":  return this.mapper.properties.player.team[0].stats.special_attack.value
-                    case "Special Defense": return this.mapper.properties.player.team[0].stats.special_defense.value
-                    case "Speed":           return this.mapper.properties.player.team[0].stats.speed.value
+                if (this.stat_fix_toggle_2 > 0) {
+                    this.stat_fix_toggle_2 -= 1
+                    return {
+                        "Hp" : this.stat_fix_hp,
+                        "Atk": this.stat_fix_atk,
+                        "Def": this.stat_fix_def,
+                        "SpA": this.stat_fix_spa,
+                        "SpD": this.stat_fix_spd,
+                        "Spe": this.stat_fix_spe
+                    }
+                }
+                return {
+                    "Hp" : this.mapper.properties.player.team[0].stats.hp_max.value,
+                    "Atk": this.mapper.properties.player.team[0].stats.attack.value,
+                    "Def": this.mapper.properties.player.team[0].stats.defense.value,
+                    "SpA": this.mapper.properties.player.team[0].stats.special_attack.value,
+                    "SpD": this.mapper.properties.player.team[0].stats.special_defense.value,
+                    "Spe": this.mapper.properties.player.team[0].stats.speed.value,
                 }
             }
-            if (state == `Battle` || state == `From Battle`) {
-                switch (stat_name) {
-                    case "Hp":              return this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
-                    case "Attack":          return this.mapper.properties.battle.player.active_pokemon.stats.attack.value
-                    case "Defense":         return this.mapper.properties.battle.player.active_pokemon.stats.defense.value
-                    case "Speed":           return this.mapper.properties.battle.player.active_pokemon.stats.speed.value
-                    case "Special Attack":  return this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
-                    case "Special Defense": return this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
+            if (state == `Battle`) {
+                this.stat_fix_toggle = true
+                return {
+                    "Hp" : this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value,
+                    "Atk": this.mapper.properties.battle.player.active_pokemon.stats.attack.value,
+                    "Def": this.mapper.properties.battle.player.active_pokemon.stats.defense.value,
+                    "SpA": this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value,
+                    "SpD": this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value,
+                    "Spe": this.mapper.properties.battle.player.active_pokemon.stats.speed.value,
+                }
+            }
+            if (state == `From Battle`) {
+                if (this.stat_fix_toggle = true) {
+                    this.stat_fix_toggle = false
+                    if (this.mapper.properties.battle.player.active_pokemon.stats.defense.value < 2000) {
+                        this.stat_fix_hp  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
+                        this.stat_fix_atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                        this.stat_fix_def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
+                        this.stat_fix_spa = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                        this.stat_fix_spd = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
+                        this.stat_fix_spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                        this.stat_fix_toggle_2 = 500
+                    }
+                }
+                return {
+                    "Hp" : this.stat_fix_hp,
+                    "Atk": this.stat_fix_atk,
+                    "Def": this.stat_fix_def,
+                    "SpA": this.stat_fix_spa,
+                    "SpD": this.stat_fix_spd,
+                    "Spe": this.stat_fix_spe
                 }
             }
             if (state == `No Pokemon`) {
-                switch (stat_name) {
-                    case "Hp":              return this.g4PokemonData[this.starter].base_hp
-                    case "Attack":          return this.g4PokemonData[this.starter].base_atk
-                    case "Defense":         return this.g4PokemonData[this.starter].base_def
-                    case "Special Attack":  return this.g4PokemonData[this.starter].base_spc_atk
-                    case "Special Defense": return this.g4PokemonData[this.starter].base_spc_def
-                    case "Speed":           return this.g4PokemonData[this.starter].base_spd
+                return {
+                    "Hp" : this.g4PokemonData[this.starter].base_hp,
+                    "Atk": this.g4PokemonData[this.starter].base_atk,
+                    "Def": this.g4PokemonData[this.starter].base_def,
+                    "SpA": this.g4PokemonData[this.starter].base_spc_atk,
+                    "SpD": this.g4PokemonData[this.starter].base_spc_def,
+                    "Spe": this.g4PokemonData[this.starter].base_spd,
                 }
             }
         },

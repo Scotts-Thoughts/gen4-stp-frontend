@@ -703,9 +703,10 @@ body {
 }
 .expMeterOuter {
     position: absolute;
-    border: 1px solid #00000000;
+    /* border: 1px solid #00000000; */
     background: var(--expBarBackground);
     height: 17px;
+    width: 358px;
     top: 0px;
     left: 64px;
     z-index: 0;
@@ -713,7 +714,7 @@ body {
 .expMeterInner {
     position: relative;    
     background: var(--expBarExperience);
-    height: 16px;
+    height: 18px;
     top: -1px;
     border: 1px solid #00000023;
 }
