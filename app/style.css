@@ -3016,7 +3016,7 @@ img, span, div {
     line-height: 17px;
 }
 .eFaintTransition {
-    transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out 50ms, filter 500ms ease-in-out 50ms;
 }
 .movepoolDemo {
     display: block;
