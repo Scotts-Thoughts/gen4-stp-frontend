@@ -46257,6 +46257,20 @@ const g4PokemonData =
                 "Swift",
                 "Tailwind"
             ],
+            "evolution_family": [
+                {
+                    "species": "Combee",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Vespiquen",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "egg_moves": [],
             "weight": 38.5
         },
@@ -59970,6 +59984,20 @@ const g4PokemonData =
                 "String Shot",
                 "Swift",
                 "Tailwind"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Combee",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Vespiquen",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "egg_moves": [],
             "weight": 5.5

@@ -492,6 +492,7 @@ const app = Vue.createApp({
             autosplitter_toggle:    true,
             evolution:              MyStorage['evolution'] ?? false,
             evolution_splits_label: "",
+            frame:                  true,
             
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter:              "Heatran",
@@ -517,14 +518,16 @@ const app = Vue.createApp({
             stat_fix_spd     : 0,
 
             customMovepool: {
-                "Torterra" : "line-height: 16px;",
-                "Infernape": "line-height: 15px;",
-                "Empoleon" : "line-height: 15px;",
-                "Cresselia": "line-height: 18px;",
-                "Heatran"  : "line-height: 18px;",
-                "Machop"   : "line-height: 16.54px;",
-                "Machoke"  : "line-height: 16.26px;",
-                "Machamp"  : "line-height: 15.47px;",
+                "Torterra"  : "line-height: 16px;",
+                "Infernape" : "line-height: 15px;",
+                "Empoleon"  : "line-height: 15px;",
+                "Cresselia" : "line-height: 18px;",
+                "Heatran"   : "line-height: 18px;",
+                "Machop"    : "line-height: 16.54px;",
+                "Machoke"   : "line-height: 16.26px;",
+                "Machamp"   : "line-height: 15.47px;",
+                "Combee"    : "line-height: 19px;",
+                "Vespiquen" : "line-height: 16.82px;",
             },
             pokemon_list: [],
             
@@ -1707,106 +1710,106 @@ const app = Vue.createApp({
             this.copy_overlay_pokemon_from = MyStorage['copy_overlay_pokemon_from'] ?? ""
             this.copy_overlay_pokemon_to   = MyStorage['copy_overlay_pokemon_to']   ?? ""
 
-            this.TM01 = MyStorage[`${game_name}_${this.starter}`].TM01 ?? false
-            this.TM02 = MyStorage[`${game_name}_${this.starter}`].TM02 ?? false
-            this.TM03 = MyStorage[`${game_name}_${this.starter}`].TM03 ?? false
-            this.TM04 = MyStorage[`${game_name}_${this.starter}`].TM04 ?? false
-            this.TM05 = MyStorage[`${game_name}_${this.starter}`].TM05 ?? false
-            this.TM06 = MyStorage[`${game_name}_${this.starter}`].TM06 ?? false
-            this.TM07 = MyStorage[`${game_name}_${this.starter}`].TM07 ?? false
-            this.TM08 = MyStorage[`${game_name}_${this.starter}`].TM08 ?? false
-            this.TM09 = MyStorage[`${game_name}_${this.starter}`].TM09 ?? false
-            this.TM10 = MyStorage[`${game_name}_${this.starter}`].TM10 ?? false
-            this.TM11 = MyStorage[`${game_name}_${this.starter}`].TM11 ?? false
-            this.TM12 = MyStorage[`${game_name}_${this.starter}`].TM12 ?? false
-            this.TM13 = MyStorage[`${game_name}_${this.starter}`].TM13 ?? false
-            this.TM14 = MyStorage[`${game_name}_${this.starter}`].TM14 ?? false
-            this.TM15 = MyStorage[`${game_name}_${this.starter}`].TM15 ?? false
-            this.TM16 = MyStorage[`${game_name}_${this.starter}`].TM16 ?? false
-            this.TM17 = MyStorage[`${game_name}_${this.starter}`].TM17 ?? false
-            this.TM18 = MyStorage[`${game_name}_${this.starter}`].TM18 ?? false
-            this.TM19 = MyStorage[`${game_name}_${this.starter}`].TM19 ?? false
-            this.TM20 = MyStorage[`${game_name}_${this.starter}`].TM20 ?? false
-            this.TM21 = MyStorage[`${game_name}_${this.starter}`].TM21 ?? false
-            this.TM22 = MyStorage[`${game_name}_${this.starter}`].TM22 ?? false
-            this.TM23 = MyStorage[`${game_name}_${this.starter}`].TM23 ?? false
-            this.TM24 = MyStorage[`${game_name}_${this.starter}`].TM24 ?? false
-            this.TM25 = MyStorage[`${game_name}_${this.starter}`].TM25 ?? false
-            this.TM26 = MyStorage[`${game_name}_${this.starter}`].TM26 ?? false
-            this.TM27 = MyStorage[`${game_name}_${this.starter}`].TM27 ?? false
-            this.TM28 = MyStorage[`${game_name}_${this.starter}`].TM28 ?? false
-            this.TM29 = MyStorage[`${game_name}_${this.starter}`].TM29 ?? false
-            this.TM30 = MyStorage[`${game_name}_${this.starter}`].TM30 ?? false
-            this.TM31 = MyStorage[`${game_name}_${this.starter}`].TM31 ?? false
-            this.TM32 = MyStorage[`${game_name}_${this.starter}`].TM32 ?? false
-            this.TM33 = MyStorage[`${game_name}_${this.starter}`].TM33 ?? false
-            this.TM34 = MyStorage[`${game_name}_${this.starter}`].TM34 ?? false
-            this.TM35 = MyStorage[`${game_name}_${this.starter}`].TM35 ?? false
-            this.TM36 = MyStorage[`${game_name}_${this.starter}`].TM36 ?? false
-            this.TM37 = MyStorage[`${game_name}_${this.starter}`].TM37 ?? false
-            this.TM38 = MyStorage[`${game_name}_${this.starter}`].TM38 ?? false
-            this.TM39 = MyStorage[`${game_name}_${this.starter}`].TM39 ?? false
-            this.TM40 = MyStorage[`${game_name}_${this.starter}`].TM40 ?? false
-            this.TM41 = MyStorage[`${game_name}_${this.starter}`].TM41 ?? false
-            this.TM42 = MyStorage[`${game_name}_${this.starter}`].TM42 ?? false
-            this.TM43 = MyStorage[`${game_name}_${this.starter}`].TM43 ?? false
-            this.TM44 = MyStorage[`${game_name}_${this.starter}`].TM44 ?? false
-            this.TM45 = MyStorage[`${game_name}_${this.starter}`].TM45 ?? false
-            this.TM46 = MyStorage[`${game_name}_${this.starter}`].TM46 ?? false
-            this.TM47 = MyStorage[`${game_name}_${this.starter}`].TM47 ?? false
-            this.TM48 = MyStorage[`${game_name}_${this.starter}`].TM48 ?? false
-            this.TM49 = MyStorage[`${game_name}_${this.starter}`].TM49 ?? false
-            this.TM50 = MyStorage[`${game_name}_${this.starter}`].TM50 ?? false
-            this.TM51 = MyStorage[`${game_name}_${this.starter}`].TM51 ?? false
-            this.TM52 = MyStorage[`${game_name}_${this.starter}`].TM52 ?? false
-            this.TM53 = MyStorage[`${game_name}_${this.starter}`].TM53 ?? false
-            this.TM54 = MyStorage[`${game_name}_${this.starter}`].TM54 ?? false
-            this.TM55 = MyStorage[`${game_name}_${this.starter}`].TM55 ?? false
-            this.TM56 = MyStorage[`${game_name}_${this.starter}`].TM56 ?? false
-            this.TM57 = MyStorage[`${game_name}_${this.starter}`].TM57 ?? false
-            this.TM58 = MyStorage[`${game_name}_${this.starter}`].TM58 ?? false
-            this.TM59 = MyStorage[`${game_name}_${this.starter}`].TM59 ?? false
-            this.TM60 = MyStorage[`${game_name}_${this.starter}`].TM60 ?? false
-            this.TM61 = MyStorage[`${game_name}_${this.starter}`].TM61 ?? false
-            this.TM62 = MyStorage[`${game_name}_${this.starter}`].TM62 ?? false
-            this.TM63 = MyStorage[`${game_name}_${this.starter}`].TM63 ?? false
-            this.TM64 = MyStorage[`${game_name}_${this.starter}`].TM64 ?? false
-            this.TM65 = MyStorage[`${game_name}_${this.starter}`].TM65 ?? false
-            this.TM66 = MyStorage[`${game_name}_${this.starter}`].TM66 ?? false
-            this.TM67 = MyStorage[`${game_name}_${this.starter}`].TM67 ?? false
-            this.TM68 = MyStorage[`${game_name}_${this.starter}`].TM68 ?? false
-            this.TM69 = MyStorage[`${game_name}_${this.starter}`].TM69 ?? false
-            this.TM70 = MyStorage[`${game_name}_${this.starter}`].TM70 ?? false
-            this.TM71 = MyStorage[`${game_name}_${this.starter}`].TM71 ?? false
-            this.TM72 = MyStorage[`${game_name}_${this.starter}`].TM72 ?? false
-            this.TM73 = MyStorage[`${game_name}_${this.starter}`].TM73 ?? false
-            this.TM74 = MyStorage[`${game_name}_${this.starter}`].TM74 ?? false
-            this.TM75 = MyStorage[`${game_name}_${this.starter}`].TM75 ?? false
-            this.TM76 = MyStorage[`${game_name}_${this.starter}`].TM76 ?? false
-            this.TM77 = MyStorage[`${game_name}_${this.starter}`].TM77 ?? false
-            this.TM78 = MyStorage[`${game_name}_${this.starter}`].TM78 ?? false
-            this.TM79 = MyStorage[`${game_name}_${this.starter}`].TM79 ?? false
-            this.TM80 = MyStorage[`${game_name}_${this.starter}`].TM80 ?? false
-            this.TM81 = MyStorage[`${game_name}_${this.starter}`].TM81 ?? false
-            this.TM82 = MyStorage[`${game_name}_${this.starter}`].TM82 ?? false
-            this.TM83 = MyStorage[`${game_name}_${this.starter}`].TM83 ?? false
-            this.TM84 = MyStorage[`${game_name}_${this.starter}`].TM84 ?? false
-            this.TM85 = MyStorage[`${game_name}_${this.starter}`].TM85 ?? false
-            this.TM86 = MyStorage[`${game_name}_${this.starter}`].TM86 ?? false
-            this.TM87 = MyStorage[`${game_name}_${this.starter}`].TM87 ?? false
-            this.TM88 = MyStorage[`${game_name}_${this.starter}`].TM88 ?? false
-            this.TM89 = MyStorage[`${game_name}_${this.starter}`].TM89 ?? false
-            this.TM90 = MyStorage[`${game_name}_${this.starter}`].TM90 ?? false
-            this.TM91 = MyStorage[`${game_name}_${this.starter}`].TM91 ?? false
-            this.TM92 = MyStorage[`${game_name}_${this.starter}`].TM92 ?? false
-            this.HM01 = MyStorage[`${game_name}_${this.starter}`].HM01 ?? false
-            this.HM02 = MyStorage[`${game_name}_${this.starter}`].HM02 ?? false
-            this.HM03 = MyStorage[`${game_name}_${this.starter}`].HM03 ?? false
-            this.HM04 = MyStorage[`${game_name}_${this.starter}`].HM04 ?? false
-            this.HM05 = MyStorage[`${game_name}_${this.starter}`].HM05 ?? false
-            this.HM06 = MyStorage[`${game_name}_${this.starter}`].HM06 ?? false
-            this.HM07 = MyStorage[`${game_name}_${this.starter}`].HM07 ?? false
-            this.HM08 = MyStorage[`${game_name}_${this.starter}`].HM08 ?? false
+            // this.TM01 = MyStorage[`${game_name}_${this.starter}`].TM01 ?? false
+            // this.TM02 = MyStorage[`${game_name}_${this.starter}`].TM02 ?? false
+            // this.TM03 = MyStorage[`${game_name}_${this.starter}`].TM03 ?? false
+            // this.TM04 = MyStorage[`${game_name}_${this.starter}`].TM04 ?? false
+            // this.TM05 = MyStorage[`${game_name}_${this.starter}`].TM05 ?? false
+            // this.TM06 = MyStorage[`${game_name}_${this.starter}`].TM06 ?? false
+            // this.TM07 = MyStorage[`${game_name}_${this.starter}`].TM07 ?? false
+            // this.TM08 = MyStorage[`${game_name}_${this.starter}`].TM08 ?? false
+            // this.TM09 = MyStorage[`${game_name}_${this.starter}`].TM09 ?? false
+            // this.TM10 = MyStorage[`${game_name}_${this.starter}`].TM10 ?? false
+            // this.TM11 = MyStorage[`${game_name}_${this.starter}`].TM11 ?? false
+            // this.TM12 = MyStorage[`${game_name}_${this.starter}`].TM12 ?? false
+            // this.TM13 = MyStorage[`${game_name}_${this.starter}`].TM13 ?? false
+            // this.TM14 = MyStorage[`${game_name}_${this.starter}`].TM14 ?? false
+            // this.TM15 = MyStorage[`${game_name}_${this.starter}`].TM15 ?? false
+            // this.TM16 = MyStorage[`${game_name}_${this.starter}`].TM16 ?? false
+            // this.TM17 = MyStorage[`${game_name}_${this.starter}`].TM17 ?? false
+            // this.TM18 = MyStorage[`${game_name}_${this.starter}`].TM18 ?? false
+            // this.TM19 = MyStorage[`${game_name}_${this.starter}`].TM19 ?? false
+            // this.TM20 = MyStorage[`${game_name}_${this.starter}`].TM20 ?? false
+            // this.TM21 = MyStorage[`${game_name}_${this.starter}`].TM21 ?? false
+            // this.TM22 = MyStorage[`${game_name}_${this.starter}`].TM22 ?? false
+            // this.TM23 = MyStorage[`${game_name}_${this.starter}`].TM23 ?? false
+            // this.TM24 = MyStorage[`${game_name}_${this.starter}`].TM24 ?? false
+            // this.TM25 = MyStorage[`${game_name}_${this.starter}`].TM25 ?? false
+            // this.TM26 = MyStorage[`${game_name}_${this.starter}`].TM26 ?? false
+            // this.TM27 = MyStorage[`${game_name}_${this.starter}`].TM27 ?? false
+            // this.TM28 = MyStorage[`${game_name}_${this.starter}`].TM28 ?? false
+            // this.TM29 = MyStorage[`${game_name}_${this.starter}`].TM29 ?? false
+            // this.TM30 = MyStorage[`${game_name}_${this.starter}`].TM30 ?? false
+            // this.TM31 = MyStorage[`${game_name}_${this.starter}`].TM31 ?? false
+            // this.TM32 = MyStorage[`${game_name}_${this.starter}`].TM32 ?? false
+            // this.TM33 = MyStorage[`${game_name}_${this.starter}`].TM33 ?? false
+            // this.TM34 = MyStorage[`${game_name}_${this.starter}`].TM34 ?? false
+            // this.TM35 = MyStorage[`${game_name}_${this.starter}`].TM35 ?? false
+            // this.TM36 = MyStorage[`${game_name}_${this.starter}`].TM36 ?? false
+            // this.TM37 = MyStorage[`${game_name}_${this.starter}`].TM37 ?? false
+            // this.TM38 = MyStorage[`${game_name}_${this.starter}`].TM38 ?? false
+            // this.TM39 = MyStorage[`${game_name}_${this.starter}`].TM39 ?? false
+            // this.TM40 = MyStorage[`${game_name}_${this.starter}`].TM40 ?? false
+            // this.TM41 = MyStorage[`${game_name}_${this.starter}`].TM41 ?? false
+            // this.TM42 = MyStorage[`${game_name}_${this.starter}`].TM42 ?? false
+            // this.TM43 = MyStorage[`${game_name}_${this.starter}`].TM43 ?? false
+            // this.TM44 = MyStorage[`${game_name}_${this.starter}`].TM44 ?? false
+            // this.TM45 = MyStorage[`${game_name}_${this.starter}`].TM45 ?? false
+            // this.TM46 = MyStorage[`${game_name}_${this.starter}`].TM46 ?? false
+            // this.TM47 = MyStorage[`${game_name}_${this.starter}`].TM47 ?? false
+            // this.TM48 = MyStorage[`${game_name}_${this.starter}`].TM48 ?? false
+            // this.TM49 = MyStorage[`${game_name}_${this.starter}`].TM49 ?? false
+            // this.TM50 = MyStorage[`${game_name}_${this.starter}`].TM50 ?? false
+            // this.TM51 = MyStorage[`${game_name}_${this.starter}`].TM51 ?? false
+            // this.TM52 = MyStorage[`${game_name}_${this.starter}`].TM52 ?? false
+            // this.TM53 = MyStorage[`${game_name}_${this.starter}`].TM53 ?? false
+            // this.TM54 = MyStorage[`${game_name}_${this.starter}`].TM54 ?? false
+            // this.TM55 = MyStorage[`${game_name}_${this.starter}`].TM55 ?? false
+            // this.TM56 = MyStorage[`${game_name}_${this.starter}`].TM56 ?? false
+            // this.TM57 = MyStorage[`${game_name}_${this.starter}`].TM57 ?? false
+            // this.TM58 = MyStorage[`${game_name}_${this.starter}`].TM58 ?? false
+            // this.TM59 = MyStorage[`${game_name}_${this.starter}`].TM59 ?? false
+            // this.TM60 = MyStorage[`${game_name}_${this.starter}`].TM60 ?? false
+            // this.TM61 = MyStorage[`${game_name}_${this.starter}`].TM61 ?? false
+            // this.TM62 = MyStorage[`${game_name}_${this.starter}`].TM62 ?? false
+            // this.TM63 = MyStorage[`${game_name}_${this.starter}`].TM63 ?? false
+            // this.TM64 = MyStorage[`${game_name}_${this.starter}`].TM64 ?? false
+            // this.TM65 = MyStorage[`${game_name}_${this.starter}`].TM65 ?? false
+            // this.TM66 = MyStorage[`${game_name}_${this.starter}`].TM66 ?? false
+            // this.TM67 = MyStorage[`${game_name}_${this.starter}`].TM67 ?? false
+            // this.TM68 = MyStorage[`${game_name}_${this.starter}`].TM68 ?? false
+            // this.TM69 = MyStorage[`${game_name}_${this.starter}`].TM69 ?? false
+            // this.TM70 = MyStorage[`${game_name}_${this.starter}`].TM70 ?? false
+            // this.TM71 = MyStorage[`${game_name}_${this.starter}`].TM71 ?? false
+            // this.TM72 = MyStorage[`${game_name}_${this.starter}`].TM72 ?? false
+            // this.TM73 = MyStorage[`${game_name}_${this.starter}`].TM73 ?? false
+            // this.TM74 = MyStorage[`${game_name}_${this.starter}`].TM74 ?? false
+            // this.TM75 = MyStorage[`${game_name}_${this.starter}`].TM75 ?? false
+            // this.TM76 = MyStorage[`${game_name}_${this.starter}`].TM76 ?? false
+            // this.TM77 = MyStorage[`${game_name}_${this.starter}`].TM77 ?? false
+            // this.TM78 = MyStorage[`${game_name}_${this.starter}`].TM78 ?? false
+            // this.TM79 = MyStorage[`${game_name}_${this.starter}`].TM79 ?? false
+            // this.TM80 = MyStorage[`${game_name}_${this.starter}`].TM80 ?? false
+            // this.TM81 = MyStorage[`${game_name}_${this.starter}`].TM81 ?? false
+            // this.TM82 = MyStorage[`${game_name}_${this.starter}`].TM82 ?? false
+            // this.TM83 = MyStorage[`${game_name}_${this.starter}`].TM83 ?? false
+            // this.TM84 = MyStorage[`${game_name}_${this.starter}`].TM84 ?? false
+            // this.TM85 = MyStorage[`${game_name}_${this.starter}`].TM85 ?? false
+            // this.TM86 = MyStorage[`${game_name}_${this.starter}`].TM86 ?? false
+            // this.TM87 = MyStorage[`${game_name}_${this.starter}`].TM87 ?? false
+            // this.TM88 = MyStorage[`${game_name}_${this.starter}`].TM88 ?? false
+            // this.TM89 = MyStorage[`${game_name}_${this.starter}`].TM89 ?? false
+            // this.TM90 = MyStorage[`${game_name}_${this.starter}`].TM90 ?? false
+            // this.TM91 = MyStorage[`${game_name}_${this.starter}`].TM91 ?? false
+            // this.TM92 = MyStorage[`${game_name}_${this.starter}`].TM92 ?? false
+            // this.HM01 = MyStorage[`${game_name}_${this.starter}`].HM01 ?? false
+            // this.HM02 = MyStorage[`${game_name}_${this.starter}`].HM02 ?? false
+            // this.HM03 = MyStorage[`${game_name}_${this.starter}`].HM03 ?? false
+            // this.HM04 = MyStorage[`${game_name}_${this.starter}`].HM04 ?? false
+            // this.HM05 = MyStorage[`${game_name}_${this.starter}`].HM05 ?? false
+            // this.HM06 = MyStorage[`${game_name}_${this.starter}`].HM06 ?? false
+            // this.HM07 = MyStorage[`${game_name}_${this.starter}`].HM07 ?? false
+            // this.HM08 = MyStorage[`${game_name}_${this.starter}`].HM08 ?? false
         },
         reset() {
             this.backgroundBlur =        0,
