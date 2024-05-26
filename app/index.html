@@ -505,7 +505,8 @@
                 <div class="posAbs ">Ability:</div>
                 <div class="posAbs" style="left: 487px; width: 200px;">Held Item:</div>
             </div>
-            <div class="ability">{{mapper.properties.player?.team[0]?.ability?.value}}</div>
+            <div v-if="mapper.properties.meta.state.value == 'No Pokemon'"      class="ability">{{pkmn_ability}}</div>
+            <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="ability">{{mapper.properties.player?.team[0]?.ability?.value}}</div>
             <div class="heldItem">{{heldItem}}</div>
             <div class="genericLabels timerLabel">time played at 4x game speed</div>
             <div class="genericLabels resetsLabel">resets</div>

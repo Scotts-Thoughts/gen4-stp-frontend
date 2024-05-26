@@ -2068,6 +2068,7 @@ const app = Vue.createApp({
             const timeRegex = /(\d+):(\d{2}):(\d{2})\.(\d{2})/;
             const timeOffsetArray = this.timer_startTimeOffset.match(timeRegex)?.slice(1,5).map(x => parseInt(x)) ?? [0,0,0,0];
             const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
+            this.starter_received = false,
 
             this.TM01 = false
             this.TM02 = false
@@ -2263,7 +2264,12 @@ const app = Vue.createApp({
                     return_value = this.buffer_battle_friendship; 
                     break;
                 case `No Pokemon`: 
-                    return_value = 0; 
+                    if (this.mapper.properties.player.team[0].species.value != null) {
+                        return_value = team_friendship; 
+                    }
+                    else {
+                        return_value = 0; 
+                    }
                     break;
                 case `Overworld`: 
                     return_value = team_friendship; 
@@ -2425,24 +2431,42 @@ const app = Vue.createApp({
             }
         },
         getMove(moveNumber) {
-            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
-                return
-            }
-            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
+            const state = this.mapper.properties.meta.state.value
+            const species = this.mapper.properties.player.team[0].species.value
+            const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value.value
+            const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value.value
+            if (state == `Battle` || state == `From Battle` || (state == `No Pokemon` && species != null && active_pokemonPv == teamPokemonPv)) {
                 // return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber]?.move?.value
                 if (this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]?.move.value) {
                     return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]?.move.value
                 }
             }
-            if (this.mapper.properties.meta.state.value == `Overworld`) {
+            else if (state == `Overworld`) {
                 // return this.mapper.properties.player.team[0]?.moves["move" + moveNumber]?.move.value
                 if (this.mapper.properties.player.team[0]?.moves[moveNumber - 1]?.move.value) {
                     return this.mapper.properties.player.team[0]?.moves[moveNumber - 1]?.move.value
                 }
             }
+            else if (state == `No Pokemon`) {
+                return
+            }
         },
         getMoveObject(moveNumber) {
-            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
+            const state = this.mapper.properties.meta.state.value
+            const species = this.mapper.properties.player.team[0].species.value
+            const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value.value
+            const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value.value
+            if (state == `Battle` || state == `From Battle` || (state == `No Pokemon` && species != null && active_pokemonPv == teamPokemonPv)) {
+                if (this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]?.move.value) {
+                    return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]
+                }
+            }
+            else if (state == `Overworld`) {
+                if (this.mapper.properties.player.team[0]?.moves[moveNumber - 1]?.move.value) {
+                    return this.mapper.properties.player.team[0]?.moves[moveNumber - 1]
+                }
+            }
+            else if (state == `No Pokemon`) {
                 return {
                     move: {
                         value: null,
@@ -2451,28 +2475,20 @@ const app = Vue.createApp({
                     ppUp: null,
                 }
             }
-            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
-                // return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber]?.move?.value
-                if (this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]?.move.value) {
-                    return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]
-                }
-            }
-            if (this.mapper.properties.meta.state.value == `Overworld`) {
-                // return this.mapper.properties.player.team[0]?.moves["move" + moveNumber]?.move.value
-                if (this.mapper.properties.player.team[0]?.moves[moveNumber - 1]?.move.value) {
-                    return this.mapper.properties.player.team[0]?.moves[moveNumber - 1]
-                }
-            }
         },
         getPP(moveNumber) {
-            if (this.mapper.properties.meta.state.value == `No Pokemon`) {
-                return
-            }
-            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
+            const state = this.mapper.properties.meta.state.value
+            const species = this.mapper.properties.player.team[0].species.value
+            const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value.value
+            const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value.value
+            if (state == `Battle` || state == `From Battle` || (state == `No Pokemon` && species != null && active_pokemonPv == teamPokemonPv)) {
                 return this.mapper.properties.battle.player.active_pokemon?.moves[moveNumber - 1]?.pp.value
             }
-            if (this.mapper.properties.meta.state.value == `Overworld`) {
+            else if (state == `Overworld`) {
                 return this.mapper.properties.player.team[0]?.moves[moveNumber - 1]?.pp.value
+            }
+            else if (state == `No Pokemon`) {
+                return
             }
         },
         getMoveProperty(move, property) {
@@ -3695,8 +3711,10 @@ const app = Vue.createApp({
             }
             //the odd/evenness may need to be flipped according to the selected ability
             //if this were going to break, it would probably be when evolving
-            if((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
-            (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
+            //Scott: This is likely not needed anymore as ability is set within the data and contained within a single byte
+            if(personalityValue % 2 == 0 || personalityValue % 2 == 1) {
+            // if((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
+            // (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
                 //these checks are trying to flip the odd/even by adding an odd number multiple of 25
                 //in order to not disturb the nature calc. It's trying to maintain the gender calc too.
                 if(personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
@@ -3713,13 +3731,14 @@ const app = Vue.createApp({
                 }
             }
             
+            const ability = this.pkmn_ability
             const species = this.starter
             const pkmnData = this.g4PokemonData[this.starter]
             const level = 5
             const natures = this.natures[this.pkmnNature]
             const iv_values = this.hiddenpower_type_selector[this.hidden_power_type]
 
-            //calculates the Pokemon's starting stats with the desired DVs
+            //Calculates the Pokemon's starting stats with the desired DVs
             var hitpoints      = Math.floor((((2 * pkmnData.base_hp + iv_values.hp + 0) * level)/100) + level + 10)
             var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + iv_values.attack + 0) * level)/100) + 5)) * natures["nature_attack"])
             var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + iv_values.defense + 0) * level)/100) + 5)) * natures["nature_defense"])
@@ -3727,10 +3746,25 @@ const app = Vue.createApp({
             var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
 
-            console.log(iv_values.hp, iv_values.attack, iv_values.defense, iv_values.speed, iv_values.special_attack, iv_values.special_defense)
+            // console.log(iv_values.hp, iv_values.attack, iv_values.defense, iv_values.speed, iv_values.special_attack, iv_values.special_defense)
             await Promise.all([
+                //Set personality value & ablity
+                await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
+                await this.mapper.properties.player.team[0].ability.set(ability, false), 
+                await this.sleep(25),
+                //Set stat values
+                await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
+                await this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
+                await this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
+                await this.mapper.properties.player.team[0].stats.defense.set(defense, false), 
+                await this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
+                await this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
+                await this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
+                await this.sleep(250),
+                
+                //Set IVs values
                 await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
-                await this.sleep(150),
+                await this.sleep(150), //A delay value <100ms sometimes causes write fails, I added 50 MS for safety
                 await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
                 await this.sleep(150),
                 await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
@@ -3740,28 +3774,19 @@ const app = Vue.createApp({
                 await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
                 await this.sleep(150),
                 await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false), 
- 
-                await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
-                await this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
-                await this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
-                await this.mapper.properties.player.team[0].stats.defense.set(defense, false), 
-                await this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
-                await this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
-                await this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
+                await this.sleep(500), //This delay ensures the second write to IVs is successful
                 
-                await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
-                await this.sleep(250),
-                
+                //Set IVs again in case one was missed
                 await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
-                await this.sleep(150),
+                await this.sleep(250), //This delay is increased to improve accuracy
                 await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
-                await this.sleep(150),
+                await this.sleep(250),
                 await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
-                await this.sleep(150),
+                await this.sleep(250),
                 await this.mapper.properties.player.team[0].ivs.speed.set(iv_values.speed, false), 
-                await this.sleep(150),
+                await this.sleep(250),
                 await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
-                await this.sleep(150),
+                await this.sleep(250),
                 await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false),
             ])
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
@@ -4131,7 +4156,7 @@ const app = Vue.createApp({
         });
 
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
-            console.log("mapper.properties.player.team[0].exp.change")
+            // console.log("mapper.properties.player.team[0].exp.change")
             if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
                 if (this.expBarAnimation == true) {
                     const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
@@ -4142,14 +4167,14 @@ const app = Vue.createApp({
                     this.expBarState.species = species;
                     this.expBarState.expPoints = expPoints;
 
-                    console.log("exp changed", {species, growthRate, expPoints})
+                    // console.log("exp changed", {species, growthRate, expPoints})
 
                     this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                 }
             }
         })
         this.mapper.properties.battle.player.active_pokemon.exp.change(async (newProp, oldProp) => {
-            console.log("mapper.properties.battle.player.active_pokemon.exp.change")
+            // console.log("mapper.properties.battle.player.active_pokemon.exp.change")
             if (this.mapper.properties.meta.state.value == "Battle") {
                 if (this.expBarAnimation == true) {
                     const prevSpecies = this.expBarState.species;
@@ -4167,28 +4192,28 @@ const app = Vue.createApp({
                     this.expBarState.species = newSpecies;
                     this.expBarState.expPoints = newExpPoints;
 
-                    console.log("battle exp changed", 
-                        {species: prevSpecies, expPoints: prevExpPoints, growthRate: prevGrowthRate},
-                        {species: newSpecies, expPoints: newExpPoints, growthRate: newGrowthRate}
-                    )
+                    // console.log("battle exp changed", 
+                    //     {species: prevSpecies, expPoints: prevExpPoints, growthRate: prevGrowthRate},
+                    //     {species: newSpecies, expPoints: newExpPoints, growthRate: newGrowthRate}
+                    // )
                     
                     const animationMaxDuration = 500;
     
                     // did we switch out?
                     if (prevSpecies != newSpecies) {
-                        console.log("switched out");
+                        // console.log("switched out");
                         // dont animate, just set newExpStats.percent
                         this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                     } 
                     // same pokemon but exp changed
                     else {
                         if (prevExpPoints == newExpPoints) { 
-                            console.log("exp unchanged", {prevExpPoints, newExpPoints});
+                            // console.log("exp unchanged", {prevExpPoints, newExpPoints});
                             return
                         }
 
                         if (prevExpStats.level == newExpStats.level) {
-                            console.log("same level", {prevExpStats, newExpStats});
+                            // console.log("same level", {prevExpStats, newExpStats});
                             let diffExp = newExpStats.percent - prevExpStats.percent
                             let animationDuration = Math.ceil(diffExp * animationMaxDuration)
                             // animate width to newExpStats.percent
@@ -4196,7 +4221,7 @@ const app = Vue.createApp({
                             this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
                             await this.sleep(animationDuration + 50);
                         } else {
-                            console.log("level up", {prevExpStats, newExpStats});
+                            // console.log("level up", {prevExpStats, newExpStats});
                             let diffExp1 = 1 - prevExpStats.percent
                             let animationDuration1 = Math.ceil(diffExp1 * animationMaxDuration)
                             let diffExp2 = newExpStats.percent
