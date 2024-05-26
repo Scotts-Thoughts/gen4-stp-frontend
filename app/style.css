@@ -1905,8 +1905,8 @@ img, span, div {
 .status { top: 866px; left: 30px; }
 .hp_spd_atkMod { position: absolute; left: 23px; top: 134px; }
 .hp_spd_defMod { position: absolute; left: 23px; top: 197px; }
-.hp_spd_spAMod { position: absolute; left: 226px; top: 134px; }
 .hp_spd_spDMod { position: absolute; left: 226px; top: 197px; }
+.hp_spd_spAMod { position: absolute; left: 226px; top: 134px; }
 .hp_spd_speMod { position: absolute; left: 226px; top: 71px; }
 .hp_spe_atkMod { position: absolute; left: 23px; top: 134px; }
 .hp_spe_defMod { position: absolute; left: 23px; top: 197px; }

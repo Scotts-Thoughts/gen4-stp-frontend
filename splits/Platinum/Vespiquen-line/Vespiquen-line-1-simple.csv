@@ -1,0 +1,3 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Combee,Rival,2:08,0,0,5,0:05,1716247577.779,Sweet Scent,Gust,,
+Dawn,Combee,Rival,11:22,0,0,13,0:40,1716248392.854,Gust,Sweet Scent,Bug Bite,

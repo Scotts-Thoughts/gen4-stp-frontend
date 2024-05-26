@@ -46242,7 +46242,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Cut",
-                "Whirlpool"
+                "Defog"
             ],
             "tutor_learnset": [
                 "Air Cutter",

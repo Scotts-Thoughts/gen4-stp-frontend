@@ -497,6 +497,8 @@ const app = Vue.createApp({
             // POKEMON CONFIG (components) ---------------------------------------------------------------------//
             starter:              "Heatran",
             pkmnNature:           "Adamant",
+            pkmn_gender:          "Female",
+            pkmn_ability:         null,
             hidden_power_type:    "Dark",
             overlayNew:           "Chimchar",
             overlayOld:           "Chimchar",
@@ -528,6 +530,53 @@ const app = Vue.createApp({
                 "Machamp"   : "line-height: 15.47px;",
                 "Combee"    : "line-height: 19px;",
                 "Vespiquen" : "line-height: 16.82px;",
+                "Shellos"   : "line-height: 19px;",
+                "Gastrodon" : "line-height: 16.54px;",
+            },
+            simple_natures: {
+                "0": "Hardy",
+                "1": "Lonely",
+                "2": "Brave",
+                "3": "Adamant",
+                "4": "Naughty",
+                "5": "Bold",
+                "6": "Docile",
+                "7": "Relaxed",
+                "8": "Impish",
+                "9": "Lax",
+                "10": "Timid",
+                "11": "Hasty",
+                "12": "Serious",
+                "13": "Jolly",
+                "14": "Naive",
+                "15": "Modest",
+                "16": "Mild",
+                "17": "Quiet",
+                "18": "Bashful",
+                "19": "Rash",
+                "20": "Calm",
+                "21": "Gentle",
+                "22": "Sassy",
+                "23": "Careful",
+                "24": "Quirky",
+            },
+            hiddenPowerTypes : {
+                15 : "Dark",
+                8 : "Fire",
+                6 : "Ghost",
+                11 : "Electric",
+                10 : "Grass",
+                9 : "Water",
+                4 : "Rock",
+                1 : "Flying",
+                0 : "Fighting",
+                3 : "Ground",
+                13 : "Ice",
+                12 : "Psychic",
+                5 : "Bug",
+                7 : "Steel",
+                14 : "Dragon",
+                2 : "Poison",
             },
             pokemon_list: [],
             
@@ -556,6 +605,7 @@ const app = Vue.createApp({
             post_game_moves:        post_game_moves,
             auto_save_settings:     auto_save_settings,
             natures:                natures,
+            hiddenpower_type_selector: hiddenpower_type_selector,
 
             //LOOPS
             badges:          [0, 1, 2, 3, 4, 5, 6, 7],
@@ -1019,6 +1069,9 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        ability() {
+            return this.g4PokemonData[this.starter].abilities
+        },
         stats_header() {
             const toggle    = true
             const stat_type = this.stats_setting
@@ -1034,11 +1087,11 @@ const app = Vue.createApp({
                     case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
                     case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
                     case "From Battle": return `Level ${this.stat_fix_lvl}`
-                    case "Battle":      return `Level ${this.mapper.properties.battle.yourPokemon.level.value}`
+                    case "Battle":      return `Level ${this.mapper.properties.battle.player.active_pokemon.level.value}`
                 }
             }
             else {
-                if (this.mapper.properties.flags.got_tm27_return.value == false) {
+                if (this.mapper.properties.flags.got_tm27_return.value == false && state == 'Overworld') {
                     return `IVs`
                 }
                 switch (stat_type) {
@@ -1056,7 +1109,15 @@ const app = Vue.createApp({
                         let total = ev_hp + ev_atk + ev_def + ev_spa + ev_spd + ev_spe
                         return `${total}/510 (${this.decimalToPercentage(total/510)}%)`
                     }
-                    case "Automatic":    return `Level ${this.mapper.properties.player.team[0].level.value}`
+                    case "Automatic":    {
+                        switch (state) {
+                            case "No Pokemon":  return `Base Stats`
+                            case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                            case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                            case "From Battle": return `Level ${this.stat_fix_lvl}`
+                            case "Battle":      return `Level ${this.mapper.properties.battle.player.active_pokemon.level.value}`
+                        }
+                    }
                     case "Badge Boosts": return `Level ${this.mapper.properties.player.team[0].level.value}`
                 }
             }
@@ -1586,9 +1647,9 @@ const app = Vue.createApp({
                 "HP":              default_opacity,
                 "Attack":          mod_atk,
                 "Defense":         mod_def,
-                "Speed":           mod_spa,
-                "Special Attack":  mod_spd,
-                "Special Defense": mod_spe,
+                "Speed":           mod_spe,
+                "Special Attack":  mod_spa,
+                "Special Defense": mod_spd,
             }
             return object
         },
@@ -3593,6 +3654,127 @@ const app = Vue.createApp({
                 this.playerResets++
             }
         })
+
+        // //*Set Starting Attributes
+        // const setStartingAttributes = async () => {
+        //     //the odd/evenness may need to be flipped according to the selected ability
+        //     //if this were going to break, it would probably be when evolving
+        //     if((personalityValue % 2 == 0 && this.pkmn_ability == this.game.dexData[this.starterString].abilities[1]) ||
+        //     (personalityValue % 2 == 1 && this.pkmn_ability == this.game.dexData[this.starterString].abilities[0])) {
+        //         //these checks are trying to flip the odd/even by adding an odd number multiple of 25
+        //         //in order to not disturb the nature calc. It's trying to maintain the gender calc too.
+        //         if(personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
+        //             personalityValue += 275; //adding 275 won't make the modulo exceed 31
+        //         }
+        //         if(personalityValue % 256 > 11 && this.pkmn_gender != "Male") {
+        //             personalityValue += 1525; //1525 keeps the modulo between 0 and 31
+        //         }
+        //         if(personalityValue % 256 <= 236 && this.pkmn_gender == "Male") {
+        //             personalityValue += 275; //adding 275 keeps the modulo between 225 and 255
+        //         }
+        //         if(personalityValue % 256 > 236 && this.pkmn_gender == "Male") {
+        //             personalityValue += 1525; //1525 keeps the modulo between 225 and 255
+        //         }
+        //     }
+        
+        //     // only recalculate stats when IVs when your starter is received
+        //     if (this.mapper.properties.overworld.map_name.value == "Route 201 - Map 1" && this.mapper.properties.player.team[0].level.value == 5) {
+        //         await Promise.all([
+        //             await this.mapper.properties.player.team[0].personalityValue.set(personalityValue, false), 
+        //         ])
+        //     }
+        // }
+        
+        const setStartingStats = async () => {
+            //256 * 25 * 10 = 70400, gives a clean starting point where modulo 25 and modulo 256 are both 0
+            //this can really be anything divisible by 256 though
+            var personalityValue = 70400 + this.natures[this.pkmnNature]["modulo_value"];
+            if(this.pkmn_gender == "Male") {
+                //31 and 225 are the breakpoints for 87% gender ratio pokemon
+                personalityValue += 225;
+            }
+            //the odd/evenness may need to be flipped according to the selected ability
+            //if this were going to break, it would probably be when evolving
+            if((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
+            (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
+                //these checks are trying to flip the odd/even by adding an odd number multiple of 25
+                //in order to not disturb the nature calc. It's trying to maintain the gender calc too.
+                if(personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
+                    personalityValue += 275; //adding 275 won't make the modulo exceed 31
+                }
+                if(personalityValue % 256 > 11 && this.pkmn_gender != "Male") {
+                    personalityValue += 1525; //1525 keeps the modulo between 0 and 31
+                }
+                if(personalityValue % 256 <= 236 && this.pkmn_gender == "Male") {
+                    personalityValue += 275; //adding 275 keeps the modulo between 225 and 255
+                }
+                if(personalityValue % 256 > 236 && this.pkmn_gender == "Male") {
+                    personalityValue += 1525; //1525 keeps the modulo between 225 and 255
+                }
+            }
+            
+            const species = this.starter
+            const pkmnData = this.g4PokemonData[this.starter]
+            const level = 5
+            const natures = this.natures[this.pkmnNature]
+            const iv_values = this.hiddenpower_type_selector[this.hidden_power_type]
+
+            //calculates the Pokemon's starting stats with the desired DVs
+            var hitpoints      = Math.floor((((2 * pkmnData.base_hp + iv_values.hp + 0) * level)/100) + level + 10)
+            var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + iv_values.attack + 0) * level)/100) + 5)) * natures["nature_attack"])
+            var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + iv_values.defense + 0) * level)/100) + 5)) * natures["nature_defense"])
+            var specialAttack  = Math.floor(Math.floor(((((2 * pkmnData.base_spc_atk + iv_values.special_attack + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
+            var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
+            var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
+
+            console.log(iv_values.hp, iv_values.attack, iv_values.defense, iv_values.speed, iv_values.special_attack, iv_values.special_defense)
+            await Promise.all([
+                await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.speed.set(iv_values.speed, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false), 
+ 
+                await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
+                await this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
+                await this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
+                await this.mapper.properties.player.team[0].stats.defense.set(defense, false), 
+                await this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
+                await this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
+                await this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
+                
+                await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
+                await this.sleep(250),
+                
+                await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.speed.set(iv_values.speed, false), 
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
+                await this.sleep(150),
+                await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false),
+            ])
+            if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),
+                ])
+            }
+        }
+        this.mapper.properties.player.team[0].level.change(async (newProp) => {
+            if (newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "Route 201 - Map 1") {
+                await setStartingStats()
+            }
+        });
 
         //*Autosplitter
         const log_split = (x) => console.log(`Autosplitter - Battle Ended - Split: ${this.mapper.properties.battle.opponent.name.value} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)

@@ -158,6 +158,30 @@
                         Splits Label: <input type="text" v-model="evolution_splits_label"/><br>
                     </div>
                     <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div>Hidden Power:</div>
+                    <select v-model="hidden_power_type" class="dropdownMenu dropdown_menu_column3">
+                        <option disabled value="">Select a Hidden Power type</option>
+                        <option v-for="key in values_function(hiddenPowerTypes)" :value="`${key}`">{{key}}</option>
+                    </select><br>
+                    <div>Abilities: ({{starter}} has {{g4PokemonData[starter].abilities.length}})</div>
+                    <select v-model="pkmn_ability" class="dropdownMenu dropdown_menu_column3">
+                        <option disabled value="">Select an ability</option>
+                        <option v-for="key in values_function(g4PokemonData[starter].abilities)" :value="`${key}`">{{key}}</option>
+                    </select><br>
+                    <div>Nature:</div>
+                    <select v-model="pkmnNature" class="dropdownMenu dropdown_menu_column3">
+                        <option disabled value="">Select a Nature</option>
+                        <option v-for="key in values_function(simple_natures)" :value="`${key}`">{{natureLabels(`${key}`)}}</option>
+                    </select><br>
+                    <div>Gender:</div>
+                    <select v-model="pkmn_gender" class="dropdownMenu">
+                        <option>Female</option>
+                        <option>Male</option>
+                    </select>
                 </div>
                 <div class="ui3">
                     <div>Pokemon Image Settings</div>
@@ -195,16 +219,6 @@
                     Copy from: <input type="text" v-model="copy_overlay_pokemon_from"/><br>
                     Copy to: <input type="text" v-model="copy_overlay_pokemon_to"/><br>
                     <button @click="copy_overlay_properties()" class="buttonStyle">Copy Overlay Settings</button><br>
-                    <br>
-                    <div>Nature:</div>
-                    <select v-model="pkmnNature" class="dropdownMenu">
-                        <option disabled value="">Select a Nature</option>
-                        <option v-for="key in values_function(simple_natures)" :value="`${key}`">{{natureLabels(`${key}`)}}</option>
-                    </select><br>
-                    <table style="font-size: 12px;">
-                        <tr><td>Raises:</td><td>{{natures[pkmnNature].raises}}</td></tr>
-                        <tr><td>Lowers:</td><td>{{natures[pkmnNature].lowers}}</td></tr>
-                    </table>
                 </div>
             </div>
 
@@ -245,62 +259,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 
-            <div class="posAbs">
-                <div v-if="mapper.properties.meta.state == 'Overworld' || mapper.properties.meta.state == 'Battle' || mapper.properties.meta.state == 'To Battle'" 
-                    class="stats_table_header">
-                    Level {{solo_mon.level}}
-                </div>
-                <div v-if="mapper.properties.meta.state =='From Battle'" 
-                    class="stats_table_header">
-                    Level {{buffer_battle_level}}
-                </div>
-                <div v-if="mapper.properties.meta.state == 'No Pokemon'" 
-                    class="stats_table_header">
-                    Base Stats
-                </div>
-                <table class="stats_table stats_table_borders" style="left: 21px;">
-                    <tr>
-                        <th class="stats_table_borders" :style="statusOpacityLabel(statusConditionConverter(solo_mon?.status_condition?.value))">Hp</th>
-                        <th class="stats_table_borders">{{solo_mon?.stats?.hp_max ?? g4PokemonData[starter].base_hp}}</th>
-                    </tr>
-                    <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.attack)">Atk.</th>
-                        <th class="stats_table_borders">{{getStat("attack")}}</th>
-                    </tr>
-                    <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.defense)">Def.</th>
-                        <th class="stats_table_borders">{{getStat("defense")}}</th>
-                    </tr>
-                </table>
-                <table class="stats_table stats_table_borders" style="left: 225px;">
-                    <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_attack)">SpA.</th>
-                        <th class="stats_table_borders">{{getStat("special_attack")}}</th>
-                    </tr>
-                    <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.special_defense)">SpD.</th>
-                        <th class="stats_table_borders">{{getStat("special_defense")}}</th>
-                    </tr>
-                    <tr>
-                        <th class="stats_table_borders" :style="statLabelOpacity(play.active_pokemon.modifiers.speed)">Spe.</th>
-                        <th class="stats_table_borders">{{getStat("speed")}}</th>
-                    </tr>
-                </table>
-            </div> 
-            -->
-            <!-- Stat modifiers -->
-            <!-- 
-            <div v-show="statusConditionConverter(solo_mon.status_condition.value) != ``" class="statusConditions modColumn1 status">{{statusConditionConverter(solo_mon.status_condition.value)}}</div>
-            <div v-if="mapper.properties.meta.state.value == 'Battle'">
-                <div v-show="play.active_pokemon.modifiers.attack.value != 0"          class="playerMods modColumn1 atkMod">{{stageModifiers(play.active_pokemon.modifiers.attack.value)}}</div>
-                <div v-show="play.active_pokemon.modifiers.defense.value != 0"         class="playerMods modColumn1 defMod">{{stageModifiers(play.active_pokemon.modifiers.defense.value)}}</div>
-                <div v-show="play.active_pokemon.modifiers.special_attack.value != 0"  class="playerMods modColumn2 spAMod">{{stageModifiers(play.active_pokemon.modifiers.special_attack.value)}}</div>
-                <div v-show="play.active_pokemon.modifiers.special_defense.value != 0" class="playerMods modColumn2 spDMod">{{stageModifiers(play.active_pokemon.modifiers.special_defense.value)}}</div>
-                <div v-show="play.active_pokemon.modifiers.speed.value != 0"           class="playerMods modColumn2 speMod">{{stageModifiers(play.active_pokemon.modifiers.speed.value)}}</div>
-            </div> 
-            -->
 
             <!--------- BADGE ICONS ---------------------------------------------------------------------------------------------------------------------->
             <div v-for="x in badges">
@@ -399,7 +357,7 @@
                     <div class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
                     <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
                     <div v-for="x in pkmnSlots">
-                        <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
+                        <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
@@ -578,6 +536,7 @@
     <script src="lib/post_game_moves.js"></script>
     <script src="lib/auto_save_settings.js"></script>
     <script src="lib/natures.js"></script>
+    <script src="lib/hiddenpower.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="frontend.js"></script>
 </body>
