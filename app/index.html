@@ -34,14 +34,14 @@
             }" 
             :src="`images/pokemon/${starter}.png`" />
             <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
-            <div class="colored-image ds" style="--url: url(images/ui/timer.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/resets.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/badges.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/stats.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/ability.svg)"></div>
-            <div class="colored-image ds" style="--url: url(images/ui/heldItem.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/timer.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/moveset.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/resets.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/badges.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/moveset.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/stats.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/ability.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/heldItem.svg)"></div>
             <img class="canvas colored-image ds" :src="`images/ui/${ui_type_color_modifier}${ui_stat_arrangement_modifier}stats_values.svg`" />
             <div v-if="show_nature_changes == true && (stats_setting == 'Automatic' || stats_setting == 'Base Stats')">
                 <img class="canvas colored-image ds" :src="`images/ui/nature arrows/${ui_stat_arrangement_modifier}/raises/${natures[pkmnNature].raises}.svg`" />
@@ -195,6 +195,7 @@
                     </table>
                     <button @click="resetPokemon()" class="buttonStyle">Reset Pokemon Settings</button><br>
                     <button @click="color_picker" class="buttonStyle">Color Picker</button><br>
+                    Saturation: <input type="range" min="0" max="2" step="0.1" v-model="ui_saturation"/><br>
                     <br>
                     <div>Background Texture:</div>
                     <select v-model="backgroundTexture" class="dropdownMenu">
@@ -469,7 +470,7 @@
                         </tr> -->
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
             </transition>
 
@@ -477,14 +478,14 @@
             <div style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" style="--url: url(images/ui/accuracy.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/accuracy.svg)"></div>
                         <div class="genericLabels accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value }}</div>
                     </div>
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" style="--url: url(images/ui/evasion.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/evasion.svg)"></div>
                         <div class="genericLabels evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.evasion.value }}</div>
                     </div>

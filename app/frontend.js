@@ -167,7 +167,7 @@ class KeyHook {
         this.process = require("child_process").spawn("keyhook.exe");
 
         // general logging
-        this.process.on("spawn", () => console.log("Keyboard hook started!"));
+        // this.process.on("spawn", () => console.log("Keyboard hook started!"));
         this.process.stderr.on("data", (data) => console.error(`${data}`));
         
         // handle output of the keyboard hook
@@ -1069,9 +1069,9 @@ const app = Vue.createApp({
         // },
     },
     computed: {
-        ability() {
-            return this.g4PokemonData[this.starter].abilities
-        },
+        // ability() {
+        //     return this.g4PokemonData[this.starter].abilities
+        // },
         stats_header() {
             const toggle    = true
             const stat_type = this.stats_setting
@@ -1233,7 +1233,7 @@ const app = Vue.createApp({
               5: "898px",
               6: "1080px"
             };
-            return `height: ${heights[totalPokemon]};`;
+            return `height: ${heights[totalPokemon]}; filter: saturate(${this.ui_saturation}) drop-shadow(0px 0px 1px #000000)`;
         },
         play() {
             if (this.mapper.properties.battle.player) {
@@ -1592,13 +1592,30 @@ const app = Vue.createApp({
             }
             if (state == `Battle`) {
                 this.stat_fix_toggle = true
+                const mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
+                const mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
+                const mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
+                const mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
+                const mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
+                let hp  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
+                let atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                let def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
+                let spa = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                let spd = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
+                let spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                let battle_hp  = hp
+                let battle_atk = Math.floor(atk * this.stageModifiersData.stats[mod_atk])
+                let battle_def = Math.floor(def * this.stageModifiersData.stats[mod_def])
+                let battle_spa = Math.floor(spa * this.stageModifiersData.stats[mod_spa])
+                let battle_spd = Math.floor(spd * this.stageModifiersData.stats[mod_spd])
+                let battle_spe = Math.floor(spe * this.stageModifiersData.stats[mod_spe])
                 return {
-                    "Hp" : this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value,
-                    "Atk": this.mapper.properties.battle.player.active_pokemon.stats.attack.value,
-                    "Def": this.mapper.properties.battle.player.active_pokemon.stats.defense.value,
-                    "SpA": this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value,
-                    "SpD": this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value,
-                    "Spe": this.mapper.properties.battle.player.active_pokemon.stats.speed.value,
+                    "Hp" : battle_hp,
+                    "Atk": battle_atk,
+                    "Def": battle_def,
+                    "SpA": battle_spa,
+                    "SpD": battle_spd,
+                    "Spe": battle_spe,
                 }
             }
             if (state == `From Battle`) {
@@ -1704,6 +1721,8 @@ const app = Vue.createApp({
             this.backgroundBrightness  = MyStorage[from].backgroundBrightness  
             this.backgroundContrast    = MyStorage[from].backgroundContrast    
             this.backgroundSaturation  = MyStorage[from].backgroundSaturation  
+            this.ui_saturation         = MyStorage[from].ui_saturation  
+            this.evolution             = MyStorage[from].evolution  
             
             MyStorage[to].overlay_color         = MyStorage[from].overlay_color
             MyStorage[to].backgroundBlur        = MyStorage[from].backgroundBlur       
@@ -1718,6 +1737,8 @@ const app = Vue.createApp({
             MyStorage[to].backgroundBrightness  = MyStorage[from].backgroundBrightness 
             MyStorage[to].backgroundContrast    = MyStorage[from].backgroundContrast   
             MyStorage[to].backgroundSaturation  = MyStorage[from].backgroundSaturation 
+            MyStorage[to].ui_saturation         = MyStorage[from].ui_saturation 
+            MyStorage[to].evolution             = MyStorage[from].evolution 
         },
         load_all_settings() {
             const game_name = this.mapper.properties.meta.game_name.value
@@ -1793,6 +1814,9 @@ const app = Vue.createApp({
             this.backgroundBrightness =  MyStorage[`${game_name}_${this.starter}`]?.backgroundBrightness ?? 100
             this.backgroundContrast =    MyStorage[`${game_name}_${this.starter}`]?.backgroundContrast ?? 100
             this.backgroundSaturation =  MyStorage[`${game_name}_${this.starter}`]?.backgroundSaturation ?? 100
+            
+            //UI styling
+            this.ui_saturation =  MyStorage[`${game_name}_${this.starter}`]?.ui_saturation ?? .6
 
             const evolution_family = this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
             this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
