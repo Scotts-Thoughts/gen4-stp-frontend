@@ -390,6 +390,32 @@ class GameHookMapperClient {
             })
     }
 
+    //For setting multiple bits within the same byte at the same time
+    async setBits(propertyArray) {
+        const modifiedArray = propertyArray.map(item => ({
+            ...item,
+            path: item.path.replace(/\./g, '/')
+        }));
+
+        await fetch(`${this._connectionString}/mapper/set-properties-by-bits/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(modifiedArray)
+        })
+            .then(async (x) => { return { response: x } })
+            .then(x => {
+                if (x.response.status === 200) {
+                    return
+                } else {
+                    if (x.body) {
+                        throw new Error(x.body)
+                    } else {
+                        throw new Error('Unknown error')
+                    }
+                }
+            })
+    }
+
     onConnected() { /* Override this with your own function. */ }
     onDisconnected() { /* Override this with your own function. */ }
 

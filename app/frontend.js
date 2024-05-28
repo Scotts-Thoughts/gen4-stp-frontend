@@ -3780,8 +3780,6 @@ const app = Vue.createApp({
                 //Set personality value & ablity
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
-                await this.sleep(25),
-                //Set stat values
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
                 await this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
                 await this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
@@ -3789,34 +3787,14 @@ const app = Vue.createApp({
                 await this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
                 await this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
                 await this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
-                await this.sleep(250),
-                
-                //Set IVs values
-                await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
-                await this.sleep(150), //A delay value <100ms sometimes causes write fails, I added 50 MS for safety
-                await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
-                await this.sleep(150),
-                await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
-                await this.sleep(150),
-                await this.mapper.properties.player.team[0].ivs.speed.set(iv_values.speed, false), 
-                await this.sleep(150),
-                await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
-                await this.sleep(150),
-                await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false), 
-                await this.sleep(500), //This delay ensures the second write to IVs is successful
-                
-                //Set IVs again in case one was missed
-                await this.mapper.properties.player.team[0].ivs.hp.set(iv_values.hp, false), 
-                await this.sleep(250), //This delay is increased to improve accuracy
-                await this.mapper.properties.player.team[0].ivs.attack.set(iv_values.attack, false), 
-                await this.sleep(250),
-                await this.mapper.properties.player.team[0].ivs.defense.set(iv_values.defense, false), 
-                await this.sleep(250),
-                await this.mapper.properties.player.team[0].ivs.speed.set(iv_values.speed, false), 
-                await this.sleep(250),
-                await this.mapper.properties.player.team[0].ivs.special_attack.set(iv_values.special_attack, false),
-                await this.sleep(250),
-                await this.mapper.properties.player.team[0].ivs.special_defense.set(iv_values.special_defense, false),
+                await this.mapper.setBits([
+                    {path: 'player.team.0.ivs.hp',              value: iv_values.hp,              freeze: false},
+                    {path: 'player.team.0.ivs.attack',          value: iv_values.attack,          freeze: false},
+                    {path: 'player.team.0.ivs.defense',         value: iv_values.defense,         freeze: false},
+                    {path: 'player.team.0.ivs.speed',           value: iv_values.speed,           freeze: false},
+                    {path: 'player.team.0.ivs.special_attack',  value: iv_values.special_attack,  freeze: false},
+                    {path: 'player.team.0.ivs.special_defense', value: iv_values.special_defense, freeze: false},
+                ]),
             ])
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
                 await Promise.all([
