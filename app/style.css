@@ -359,7 +359,8 @@ body {
     text-align: right;
 }
 .g4mp_type {
-    width: 60px;
+    width: 55px;
+    padding-right: 4px;
 }
 .g4mp_move {
     width: 145px;
@@ -3023,9 +3024,9 @@ img, span, div {
     position: absolute;
     /* border: 1px solid #00ff0d00; */
     background-color: #ffffff;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 16px;
-    width: 403px;
+    width: 404px;
     height: 1000px;
     font-family: play;
     left: 1494px;

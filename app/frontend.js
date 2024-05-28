@@ -532,6 +532,9 @@ const app = Vue.createApp({
                 "Vespiquen" : "line-height: 16.82px;",
                 "Shellos"   : "line-height: 19px;",
                 "Gastrodon" : "line-height: 16.54px;",
+                "Swinub"    : "line-height: 18.42px;",
+                "Piloswine" : "line-height: 15.99px;",
+                "Mamoswine" : "line-height: 14.77px;",
             },
             simple_natures: {
                 "0": "Hardy",
@@ -1569,6 +1572,8 @@ const app = Vue.createApp({
         },
         get_stat() {
             const state = this.mapper.properties.meta.state.value
+            // const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value
+            // const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value
             if (state == `Overworld` || state == `To Battle`) {
                 if (this.stat_fix_toggle_2 > 0) {
                     this.stat_fix_toggle_2 -= 1
@@ -3688,7 +3693,7 @@ const app = Vue.createApp({
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
             if (newProp.value == true) {
                 this.startTime()
-                // this.attempt_number++
+                this.attempt_number++
             }
             if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                 this.playerResets++

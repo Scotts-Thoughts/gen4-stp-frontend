@@ -5548,6 +5548,26 @@ const g4PokemonData =
                 "Rock Slide",
                 "Take Down"
             ],
+            "evolution_family": [
+                {
+                    "species": "Swinub",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Piloswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Mamoswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "weight": 6.5
         },
         "Cacturne": {
@@ -69897,6 +69917,26 @@ const g4PokemonData =
                 "Rock Slide",
                 "Take Down"
             ],
+            "evolution_family": [
+                {
+                    "species": "Swinub",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Piloswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Mamoswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
             "weight": 55.8
         },
         "Tentacruel": {
@@ -72843,6 +72883,26 @@ const g4PokemonData =
                 "Mud Shot",
                 "Rock Slide",
                 "Take Down"
+            ],
+            "evolution_family": [
+                {
+                    "species": "Swinub",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Piloswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Mamoswine",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
             ],
             "weight": 291.0
         },
