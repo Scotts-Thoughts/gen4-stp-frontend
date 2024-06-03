@@ -9,7 +9,11 @@
 <body>
     <div id="app">
         <div v-if="ready == false">
-            Loading...
+            <select v-model="selected_game" class="dropdownMenu">
+                <option disabled value="">Select a species</option>
+                <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
+            </select>
+            GameHook not yet loaded.
         </div>
         <div v-else class="">
             <img class="canvas" ref="background_texture" :src="textures[backgroundTexture]" 
@@ -128,6 +132,12 @@
                     <div>spa: {{this.stat_fix_spa}}</div>
                     <div>spd: {{this.stat_fix_spd}}</div>
                     <div>spe: {{this.stat_fix_spe}}</div>
+                    <br>
+                    <br>
+                    <select v-model="selected_game" class="dropdownMenu">
+                        <option disabled value="">Select a species</option>
+                        <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
+                    </select>
                 </div>
                 <div class="ui2">
                     <div>Advanced Options</div>
@@ -538,6 +548,17 @@
     <script src="lib/auto_save_settings.js"></script>
     <script src="lib/natures.js"></script>
     <script src="lib/hiddenpower.js"></script>
+    <!-- Data Objects (New as of 2024-06-02) -->
+    <!-- Pokedex -->
+    <script src="lib/pokedex/diamond_pearl.js"></script>
+    <script src="lib/pokedex/platinum.js"></script>
+    <script src="lib/pokedex/heartgold_soulsilver.js"></script>
+    <!-- Trainers -->
+    <script src="lib/trainers/diamond_pearl.js"></script>
+    <script src="lib/trainers/platinum.js"></script>
+    <script src="lib/trainers/heartgold_soulsilver.js"></script>
+    <!-- Misc. Data -->
+    <script src="lib/misc/tmhm.js"></script>
     <!-- VUE APP -->
     <script type="text/javascript" src="frontend.js"></script>
 </body>
