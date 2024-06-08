@@ -501,7 +501,7 @@ const g4PokemonData =
                 ],
                 [
                     35,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     40,
@@ -1391,7 +1391,7 @@ const g4PokemonData =
                 ],
                 [
                     19,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -5648,7 +5648,7 @@ const g4PokemonData =
                 ],
                 [
                     29,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     35,
@@ -5958,7 +5958,7 @@ const g4PokemonData =
                 ],
                 [
                     23,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     27,
@@ -6114,7 +6114,7 @@ const g4PokemonData =
                 ],
                 [
                     14,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     21,
@@ -6765,7 +6765,7 @@ const g4PokemonData =
                 ],
                 [
                     32,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     36,
@@ -7592,7 +7592,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     1,
@@ -7604,7 +7604,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -7764,7 +7764,7 @@ const g4PokemonData =
                 ],
                 [
                     15,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     22,
@@ -8104,7 +8104,7 @@ const g4PokemonData =
                 ],
                 [
                     28,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     31,
@@ -10240,7 +10240,7 @@ const g4PokemonData =
                 ],
                 [
                     29,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     32,
@@ -10954,7 +10954,7 @@ const g4PokemonData =
                 ],
                 [
                     29,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     33,
@@ -11308,7 +11308,7 @@ const g4PokemonData =
                 ],
                 [
                     38,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     44,
@@ -11886,7 +11886,7 @@ const g4PokemonData =
                 ],
                 [
                     25,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     30,
@@ -13648,7 +13648,7 @@ const g4PokemonData =
                 ],
                 [
                     22,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -13989,7 +13989,7 @@ const g4PokemonData =
                 ],
                 [
                     7,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     10,
@@ -23346,7 +23346,7 @@ const g4PokemonData =
                 ],
                 [
                     31,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     37,
@@ -24063,7 +24063,7 @@ const g4PokemonData =
                 ],
                 [
                     16,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     19,
@@ -24923,7 +24923,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -28837,7 +28837,7 @@ const g4PokemonData =
                 ],
                 [
                     29,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     38,
@@ -30262,7 +30262,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     20,
@@ -34928,7 +34928,7 @@ const g4PokemonData =
                 ],
                 [
                     15,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     22,
@@ -35210,7 +35210,7 @@ const g4PokemonData =
                 ],
                 [
                     19,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -37145,7 +37145,7 @@ const g4PokemonData =
                 ],
                 [
                     16,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     19,
@@ -38231,7 +38231,7 @@ const g4PokemonData =
                 ],
                 [
                     35,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     41,
@@ -39493,7 +39493,7 @@ const g4PokemonData =
                 ],
                 [
                     27,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     31,
@@ -41076,7 +41076,7 @@ const g4PokemonData =
                 ],
                 [
                     7,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     13,
@@ -42599,7 +42599,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     20,
@@ -42989,7 +42989,7 @@ const g4PokemonData =
                 ],
                 [
                     14,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     19,
@@ -43812,7 +43812,7 @@ const g4PokemonData =
             "levelup_moveset": [
                 [
                     1,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     1,
@@ -44783,7 +44783,7 @@ const g4PokemonData =
                 ],
                 [
                     28,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     31,
@@ -45222,7 +45222,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     22,
@@ -45732,7 +45732,7 @@ const g4PokemonData =
                 ],
                 [
                     22,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -58190,7 +58190,7 @@ const g4PokemonData =
                 ],
                 [
                     50,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     61,
@@ -58513,7 +58513,7 @@ const g4PokemonData =
                 ],
                 [
                     23,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     27,
@@ -58661,7 +58661,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     1,
@@ -58673,7 +58673,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     25,
@@ -63851,7 +63851,7 @@ const g4PokemonData =
                 ],
                 [
                     16,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     19,
@@ -66832,7 +66832,7 @@ const g4PokemonData =
                 ],
                 [
                     26,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     31,
@@ -68861,7 +68861,7 @@ const g4PokemonData =
                 ],
                 [
                     14,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     21,
@@ -69666,7 +69666,7 @@ const g4PokemonData =
                 ],
                 [
                     36,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     43,
@@ -70959,7 +70959,7 @@ const g4PokemonData =
                 ],
                 [
                     25,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     30,
@@ -71994,7 +71994,7 @@ const g4PokemonData =
                 ],
                 [
                     41,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     49,
@@ -74251,7 +74251,7 @@ const g4PokemonData =
                 ],
                 [
                     17,
-                    "Feint Attack"
+                    "Faint Attack"
                 ],
                 [
                     22,
