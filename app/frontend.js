@@ -494,7 +494,7 @@ const app = Vue.createApp({
             autosplitter_toggle   : true,
             evolution             : false,
             evolution_splits_label: "",
-            frame                 : true,
+            frame                 : false,
             selected_game         : "Platinum",
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
@@ -515,15 +515,15 @@ const app = Vue.createApp({
             expBarToggle        : MyStorage['expBarToggle']         ?? true,
             show_nature_changes : MyStorage['show_nature_changes']  ?? true,
             show_tutor_moves    : MyStorage['show_tutor_moves']     ?? true,
-            stat_fix_toggle  : false,
-            stat_fix_toggle_2: 0,
-            stat_fix_lvl     : 0,
-            stat_fix_hp      : 0,
-            stat_fix_atk     : 0,
-            stat_fix_def     : 0,
-            stat_fix_spe     : 0,
-            stat_fix_spa     : 0,
-            stat_fix_spd     : 0,
+            stat_fix_toggle     : false,
+            stat_fix_toggle_2   : 0,
+            stat_fix_lvl        : 0,
+            stat_fix_hp         : 0,
+            stat_fix_atk        : 0,
+            stat_fix_def        : 0,
+            stat_fix_spe        : 0,
+            stat_fix_spa        : 0,
+            stat_fix_spd        : 0,
 
             customMovepool: {
                 "Torterra"  : "line-height: 16px;",
@@ -985,7 +985,7 @@ const app = Vue.createApp({
             this.evolution              = MyStorage[`${game}_${starter}`]?.evolution ?? false
             this.evolution_splits_label = MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
             
-            this.frame                  = MyStorage[`${game}_${starter}`]?.frame ?? true
+            this.frame                  = MyStorage[`${game}_${starter}`]?.frame ?? false
             this.imageXOffset           = MyStorage[`${game}_${starter}`]?.imageXOffset     ?? 0;
             this.imageYOffset           = MyStorage[`${game}_${starter}`]?.imageYOffset     ?? 0;
             this.imageScale             = MyStorage[`${game}_${starter}`]?.imageScale       ?? 1;
