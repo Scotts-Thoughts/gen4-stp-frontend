@@ -1,0 +1,8 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Snorunt,Rival,10:53,0,0,10,0:34,1717954347.049,Powder Snow,Leer,Double Team,Bite
+Dawn,Snorunt,Leader Roark,16:36,0,0,14,0:54,1717954690.323,Powder Snow,Leer,Icy Wind,Bite
+Dawn,Snorunt,Commander Mars,24:59,2,0,19,1:18,1717955192.656,Powder Snow,Headbutt,Icy Wind,Bite
+Dawn,Snorunt,Leader Gardenia,33:59,3,0,25,1:46,1717955732.699,Icy Wind,Headbutt,Bite,Protect
+Dawn,Snorunt,Commander Jupiter,36:25,4,0,26,1:52,1717955878.629,Icy Wind,Headbutt,Bite,Protect
+Dawn,Snorunt,Leader Fantina,48:24,4,0,30,2:31,1717956598.017,Ice Fang,Headbutt,Bite,Substitute
+Dawn,Snorunt,Rival,52:39,9,0,33,2:36,1717956852.738,Ice Fang,Headbutt,Crunch,Substitute

@@ -123,15 +123,18 @@
                     <button @click="reset()" class="buttonStyle">Reset Texture Settings</button><br>
                     <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
                     <br>
-                    <div>state: {{this.mapper.properties.meta.state.value}}</div>
-                    <div>toggle1: {{this.stat_fix_toggle}}</div>
-                    <div>toggle2: {{this.stat_fix_toggle_2}}</div>
-                    <div>hp : {{this.stat_fix_hp}}</div>
-                    <div>atk: {{this.stat_fix_atk}}</div>
-                    <div>def: {{this.stat_fix_def}}</div>
-                    <div>spa: {{this.stat_fix_spa}}</div>
-                    <div>spd: {{this.stat_fix_spd}}</div>
-                    <div>spe: {{this.stat_fix_spe}}</div>
+                    <table>
+                        <tr><td>state:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
+                        <tr><td>toggle1:</td><td>{{this.stat_fix_toggle}}</td></tr>
+                        <tr><td>toggle2:</td><td>{{this.stat_fix_toggle_2}}</td></tr>
+                        <tr><td>hp :</td><td>{{this.stat_fix_hp}}</td></tr>
+                        <tr><td>atk:</td><td>{{this.stat_fix_atk}}</td></tr>
+                        <tr><td>def:</td><td>{{this.stat_fix_def}}</td></tr>
+                        <tr><td>spa:</td><td>{{this.stat_fix_spa}}</td></tr>
+                        <tr><td>spd:</td><td>{{this.stat_fix_spd}}</td></tr>
+                        <tr><td>spe:</td><td>{{this.stat_fix_spe}}</td></tr>
+                        <tr><td>blackout:</td><td>{{this.blackout}}</td></tr>
+                    </table>
                     <br>
                     <br>
                     <select v-model="selected_game" class="dropdownMenu">
@@ -192,6 +195,13 @@
                         <option>Female</option>
                         <option>Male</option>
                     </select>
+                    <div>Starter Player Chooses:</div>
+                    <select v-model="starter_choice" class="dropdownMenu">
+                        <option>Turtwig</option>
+                        <option>Chimchar</option>
+                        <option>Piplup</option>
+                    </select>
+                    <div>Rival chooses: {{rival_starter}}</div>
                 </div>
                 <div class="ui3">
                     <div>Pokemon Image Settings</div>
@@ -300,7 +310,7 @@
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('1'))" />
                     </th>
-                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('1')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('1')]?.Accuracy, getMove('1'))}}%</th>
                     <th class="align_right g4mp_pp">{{getPP("1")}}</th>
                 </tr>
             </table>    
@@ -324,7 +334,7 @@
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('2'))" />
                     </th>
-                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('2')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('2')]?.Accuracy, getMove('2'))}}%</th>
                     <th class="align_right g4mp_pp">{{getPP('2')}}</th>
                 </tr>
             </table>
@@ -340,7 +350,7 @@
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('3'))" />
                     </th>
-                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('3')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('3')]?.Accuracy, getMove('3'))}}%</th>
                     <th class="align_right g4mp_pp">{{getPP("3")}}</th>
                 </tr>
             </table>
@@ -356,7 +366,7 @@
                     <th class="align_right g4mp_category">
                         <img class="centered-content dropshadow" :src="moveCategoryIcon(getMove('4'))" />
                     </th>
-                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('4')]?.Accuracy)}}%</th>
+                    <th class="align_right g4mp_accuracy">{{getAccuracy(platinum_moves[getMove('4')]?.Accuracy, getMove('4'))}}%</th>
                     <th class="align_right g4mp_pp">{{getPP("4")}}</th>
                 </tr>
             </table>

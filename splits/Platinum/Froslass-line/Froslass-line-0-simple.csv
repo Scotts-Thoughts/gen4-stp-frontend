@@ -1,0 +1,36 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Froslass,Leader Maylene,1:10:39,0,0,39,3:29,1717957932.592,Ice Fang,Headbutt,Crunch,Substitute
+Dawn,Froslass,Rival,1:14:03,0,0,39,3:40,1717958136.963,Ice Fang,Shock Wave,Crunch,Substitute
+Dawn,Froslass,Leader Wake,1:18:40,1,0,46,3:53,1717962215.684,Ice Fang,Shock Wave,Crunch,Substitute
+Dawn,Froslass,Galactic Boss Cyrus,1:25:21,1,0,47,4:14,1717962616.601,Shadow Ball,Shock Wave,Crunch,Substitute
+Dawn,Froslass,Rival,1:29:37,1,0,48,4:28,1717962873.408,Shadow Ball,Shock Wave,Crunch,Substitute
+Dawn,Froslass,Leader Byron,1:44:08,5,1,52,5:06,1717963964.132,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Commander Saturn,1:46:51,5,1,52,5:14,1717964127.957,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Commander Mars,1:48:48,5,1,53,5:21,1717964244.822,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Leader Candice,1:54:44,5,1,55,5:40,1717964600.786,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Galactic Boss Cyrus,2:04:22,5,1,57,6:12,1717965178.354,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Commander Saturn,2:05:25,5,1,57,6:15,1717965241.669,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Commander Mars,2:14:35,8,1,68,6:39,1717965791.302,Shadow Ball,Hail,Blizzard,Substitute
+Dawn,Froslass,Galactic Boss Cyrus,2:23:50,11,1,68,6:56,1717966346.374,Shadow Ball,Return,Thunderbolt,Substitute
+Dawn,Froslass,Leader Volkner,2:30:09,11,1,70,7:16,1717966725.138,Shadow Ball,Return,Thunderbolt,Substitute
+Dawn,Froslass,Rival,2:40:37,11,1,73,7:51,1717967353.126,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Aaron,2:41:59,11,1,74,7:56,1717967435.46,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Bertha,2:43:09,11,1,74,8:00,1717967505.764,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Flint,2:45:42,14,1,79,8:04,1717967658.705,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Aaron,2:51:02,14,3,79,8:22,1717968020.429,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Bertha,2:51:38,14,3,80,8:24,1717968056.692,Shadow Ball,Ice Beam,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Flint,2:53:44,15,3,80,8:29,1717968182.273,Shadow Ball,Water Pulse,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Flint,2:54:22,16,3,80,8:29,1717968220.417,Shadow Ball,Water Pulse,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Flint,2:58:36,23,4,80,8:28,1717968474.688,Shadow Ball,Water Pulse,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Aaron,3:03:43,23,5,81,8:46,1717968877.394,Shadow Ball,Water Pulse,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Bertha,3:04:43,23,5,81,8:50,1717968936.714,Shadow Ball,Water Pulse,Thunderbolt,Substitute
+Dawn,Froslass,Elite Four Flint,3:06:31,24,5,82,8:55,1717969045.403,Shadow Ball,Water Pulse,Thunderbolt,Rain Dance
+Dawn,Froslass,Elite Four Lucian,3:07:35,24,5,83,8:59,1717969108.867,Shadow Ball,Water Pulse,Thunderbolt,Rain Dance
+Dawn,Froslass,Champion Cynthia,3:09:02,24,5,83,9:05,1717969195.733,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,25,5,83,9:03,1717972193.211,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,26,5,83,9:03,1717972369.944,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,27,5,83,9:03,1717972502.15,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,28,5,83,9:03,1717972602.623,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,29,5,83,9:05,1717972769.905,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,30,5,83,9:03,1717972986.974,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam
+Dawn,Froslass,Champion Cynthia,3:09:02,31,5,83,9:04,1717973222.745,Shadow Ball,Water Pulse,Thunderbolt,Ice Beam

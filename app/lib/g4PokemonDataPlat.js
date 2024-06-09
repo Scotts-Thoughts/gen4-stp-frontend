@@ -18416,7 +18416,21 @@ const g4PokemonData =
                 "Rollout",
                 "Spikes*"
             ],
-            "weight": 16.8
+            "weight": 16.8,
+            "evolution_family": [
+                {
+                    "species": "Snorunt",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Froslass",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
         },
         "Noctowl": {
             "species": "Noctowl",
@@ -41791,7 +41805,21 @@ const g4PokemonData =
                 "Rollout",
                 "Spikes*"
             ],
-            "weight": 26.6
+            "weight": 26.6,
+            "evolution_family": [
+                {
+                    "species": "Snorunt",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Froslass",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
         },
         "Qwilfish": {
             "species": "Qwilfish",

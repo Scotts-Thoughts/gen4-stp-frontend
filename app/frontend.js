@@ -441,9 +441,9 @@ function logData(gameName, str, file_name, split_file_prefix, log_type, testStat
     );
 }
 
-function logCopy(gameName, file_name, starterName, finished_run_count) {
-    var dirPathAttempts = `./splits/${gameName}/${starterName}`;
-    var dirPathFinishes = `./splits/${gameName}/${starterName}/${starterName}_${finished_run_count}/`;
+function logCopy(gameName, file_name, starterName, finished_run_count, evolution, evolution_label) {
+    var dirPathAttempts = evolution == true ? `./splits/${gameName}/${evolution_label}/attempts` : `./splits/${gameName}/${starterName}/attempts`;
+    var dirPathFinishes = evolution == true ? `./splits/${gameName}/${evolution_label}/finishes` : `./splits/${gameName}/${starterName}/finishes`;
     fs.mkdir(dirPathFinishes, { recursive: true }, (err) => {
         fs.copyFile(
             path.join(dirPathAttempts, `${starterName}-${file_name}-simple.csv`), 
@@ -495,6 +495,7 @@ const app = Vue.createApp({
             frame                 : true,
             selected_game         : "Platinum",
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
+            starter_choice        : "Turtwig",
             
             // POKEMON CONFIG (components) ---------------------------------//
             starter             : "Heatran",
@@ -539,6 +540,8 @@ const app = Vue.createApp({
                 "Mamoswine" : "line-height: 14.77px;",
                 "Bonsly"    : "line-height: 19.13px;",
                 "Sudowoodo" : "line-height: 14.77px;",
+                "Snorunt"   : "line-height: 19px;", // no tutor moves
+                "Froslass"  : "line-height: 17.42px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -1094,9 +1097,10 @@ const app = Vue.createApp({
         // },
     },
     computed: {
-        // ability() {
-        //     return this.g4PokemonData[this.starter].abilities
-        // },
+        rival_starter() {
+            let starter = this.starter_choice == 'Turtwig' ? 'Chimchar' : this.starter_choice == 'Chimchar' ? 'Piplup' : 'Turtwig'
+            return starter
+        },
         stats_header() {
             const toggle    = true
             const stat_type = this.stats_setting
@@ -2674,7 +2678,9 @@ const app = Vue.createApp({
         }, 
         
         // MOVE ACCURACY
-        getAccuracy(accuracy) {
+        getAccuracy(accuracy, move) {
+            const weather = this.mapper.properties.battle.field.weather.value
+            const state   = this.mapper.properties.meta.state.value
             if (accuracy == `-`) {
                 return `—`
             }
@@ -2684,7 +2690,10 @@ const app = Vue.createApp({
             if (this.mapper.properties.player?.team[0]?.ability?.value == 'No Guard') {
                 return `—`
             }
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (weather == 'Hail' && move == 'Blizzard' && state == 'Battle') {
+                return `—`
+            }
+            if (state == `Battle`) {
                 let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value.toString()
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
@@ -2699,7 +2708,7 @@ const app = Vue.createApp({
                         accuracyModifier,
                         evasionModifier,
                         calculated_accuracy,
-                        this.mapper.properties.meta.state.value,
+                        state,
                         this.mapper.properties.meta.state_enemy.value,
                     )
                 }
@@ -3422,7 +3431,7 @@ const app = Vue.createApp({
                 return (a >> b) & ((1 << d) - 1);
             }
             switch (ivName) {
-                case "hp": return getBits(fourByteIvBlock, 0, 5);
+                case "hp":  return getBits(fourByteIvBlock, 0, 5);
                 case "atk": return getBits(fourByteIvBlock, 5, 5);
                 case "def": return getBits(fourByteIvBlock, 10, 5);
                 case "spe": return getBits(fourByteIvBlock, 15, 5);
@@ -3434,41 +3443,41 @@ const app = Vue.createApp({
             }
         },
         hiddenPowerTypeCalc(slot) {
-            let ivHpBit =  slot.ivs.hp.value  
+            let ivHpBit  = slot.ivs.hp.value
             let ivAtkBit = slot.ivs.attack.value
             let ivDefBit = slot.ivs.defense.value
             let ivSpeBit = slot.ivs.speed.value
             let ivSpABit = slot.ivs.special_attack.value
             let ivSpDBit = slot.ivs.special_defense.value
-            ivHpBit = this.getLSB(ivHpBit) 
-            ivAtkBit = this.getLSB(ivAtkBit) 
+            ivHpBit  = this.getLSB(ivHpBit)
+            ivAtkBit = this.getLSB(ivAtkBit)
             ivDefBit = this.getLSB(ivDefBit)
-            ivSpeBit = this.getLSB(ivSpeBit) 
-            ivSpABit = this.getLSB(ivSpABit) 
-            ivSpDBit = this.getLSB(ivSpDBit) 
+            ivSpeBit = this.getLSB(ivSpeBit)
+            ivSpABit = this.getLSB(ivSpABit)
+            ivSpDBit = this.getLSB(ivSpDBit)
             type = this.hiddenPowerTypes[(Math.floor(((ivHpBit + (2 * ivAtkBit) + (4 * ivDefBit) + (8 * ivSpeBit) + (16 * ivSpABit) + (32 * ivSpDBit)) * 5)/21))]
             return type
         },
         hiddenPowerPowerCalc(slot) {
-            let ivHpBit =  slot.ivs.hp.value  
+            let ivHpBit  = slot.ivs.hp.value
             let ivAtkBit = slot.ivs.attack.value
             let ivDefBit = slot.ivs.defense.value
             let ivSpeBit = slot.ivs.speed.value
             let ivSpABit = slot.ivs.special_attack.value
             let ivSpDBit = slot.ivs.special_defense.value
-            ivHpBit = this.getSecondLSB(ivHpBit) 
-            ivAtkBit = this.getSecondLSB(ivAtkBit) 
+            ivHpBit  = this.getSecondLSB(ivHpBit)
+            ivAtkBit = this.getSecondLSB(ivAtkBit)
             ivDefBit = this.getSecondLSB(ivDefBit)
-            ivSpeBit = this.getSecondLSB(ivSpeBit) 
-            ivSpABit = this.getSecondLSB(ivSpABit) 
-            ivSpDBit = this.getSecondLSB(ivSpDBit) 
+            ivSpeBit = this.getSecondLSB(ivSpeBit)
+            ivSpABit = this.getSecondLSB(ivSpABit)
+            ivSpDBit = this.getSecondLSB(ivSpDBit)
             basePower = Math.floor((((ivHpBit + (2 * ivAtkBit) + (4 * ivDefBit) + (8 * ivSpeBit) + (16 * ivSpABit) + (32 * ivSpDBit)) * 40)/63) + 30 )
             return basePower
         },
         determineSTAB(x) { //x = move1.value
             var pkmnType1 = this.g4PokemonData[this.starter].type_1
             var pkmnType2 = this.g4PokemonData[this.starter].type_2
-            var moveType = this.moveType(x)
+            var moveType  = this.moveType(x)
             if (pkmnType1 == moveType || pkmnType2 == moveType)
                 return 1.5
             else
@@ -3734,13 +3743,15 @@ const app = Vue.createApp({
             }
         })
         //Blackouts
-        this.mapper.properties.player.team[0].hp.change((newProp, oldProp) => {
-            if (newProp.value == 0 && this.state == `Battle`) {
+        this.mapper.properties.battle.player.team[0].stats.hp.change((newProp, oldProp) => {
+            const state = this.mapper.properties.meta.state.value
+            console.log(newProp.value, newProp.value)
+            if (newProp.value == 0 && (state == `Battle` || state == `From Battle`)) {
                 this.blackout = true;
             }
         })
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
-            if (newProp.value == "Overworld" && oldProp.value == "Battle" && this.blackout == true) {
+            if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
                 this.blackout_counter++;
                 this.blackout = false;
             }
@@ -3776,12 +3787,13 @@ const app = Vue.createApp({
                 }
             }
             
-            const ability = this.pkmn_ability
-            const species = this.starter
-            const pkmnData = this.g4PokemonData[this.starter]
-            const level = 5
-            const natures = this.natures[this.pkmnNature]
+            const ability   = this.pkmn_ability
+            const species   = this.starter
+            const pkmnData  = this.g4PokemonData[this.starter]
+            const level     = 5
+            const natures   = this.natures[this.pkmnNature]
             const iv_values = this.hiddenpower_type_selector[this.hidden_power_type]
+            let player_starter = this.starter_choice
 
             //Calculates the Pokemon's starting stats with the desired DVs
             var hitpoints      = Math.floor((((2 * pkmnData.base_hp + iv_values.hp + 0) * level)/100) + level + 10)
@@ -3791,9 +3803,9 @@ const app = Vue.createApp({
             var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
 
-            // console.log(iv_values.hp, iv_values.attack, iv_values.defense, iv_values.speed, iv_values.special_attack, iv_values.special_defense)
             await Promise.all([
                 //Set personality value & ablity
+                await this.mapper.properties.player.starter.set(player_starter, false), 
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
@@ -3839,25 +3851,23 @@ const app = Vue.createApp({
                 let gameTimeF = 0
                 
                 //data to be collected with the autosplitter
-                let date_string = (d.getMonth() + 1) + "-" + d.getDate().toString().padStart(2, "0")
-                let time_string = d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0") + ":" + d.getSeconds().toString().padStart(2, "0")
-                let player_name = this.mapper.properties.player.name.value
-                let pokemon = this.starter
-                // console.log("opponent info: "+ this.opponent)
+                let date_string  = (d.getMonth() + 1) + "-" + d.getDate().toString().padStart(2, "0")
+                let time_string  = d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0") + ":" + d.getSeconds().toString().padStart(2, "0")
+                let player_name  = this.mapper.properties.player.name.value
+                let pokemon      = this.starter
                 let trainer_name = this.mapper.properties.battle.opponent.name.value
-                // let trainer_name = this.format_trainer_name(this.mapper.properties.battle.trainer.class.value, this.mapper.properties.battle.trainer.number.value)
-                let trainer_id = this.mapper.properties.battle.opponent.id.value
-                let location = this.mapper.properties.overworld.map_name.value
-                let total_pokemon = this.mapper.properties.battle.opponent.team_count.value
-                let real_time_total = this.timer_formatted_time[0] + this.timer_formatted_time[1]
-                let real_time_hmmss = this.timer_formatted_time[0]
+                let trainer_id           = this.mapper.properties.battle.opponent.id.value
+                let location             = this.mapper.properties.overworld.map_name.value
+                let total_pokemon        = this.mapper.properties.battle.opponent.team_count.value
+                let real_time_total      = this.timer_formatted_time[0] + this.timer_formatted_time[1]
+                let real_time_hmmss      = this.timer_formatted_time[0]
                 let real_time_file_label = this.timer_formatted_time[2]
-                let resets = this.playerResets.toString()
-                let blackouts = this.blackout_counter.toString()
-                let failures = this.playerResets + this.blackout_counter
-                let level = this.mapper.properties.player.team[0].level.value.toString()
-                let game_time = this.gametimeSplit.toString()
-                let battle_duration = (battle_end - this.battle_start)/1000 
+                let resets               = this.playerResets.toString()
+                let blackouts            = this.blackout_counter.toString()
+                let failures             = this.playerResets + this.blackout_counter
+                let level                = this.mapper.properties.player.team[0].level.value.toString()
+                let game_time            = this.gametimeSplit.toString()
+                let battle_duration      = (battle_end - this.battle_start)/1000 
                 let move1     = this.mapper.properties.player.team[0].moves[0].move.value
                 let move2     = this.mapper.properties.player.team[0].moves[1].move.value
                 let move3     = this.mapper.properties.player.team[0].moves[2].move.value
@@ -3882,20 +3892,20 @@ const app = Vue.createApp({
                 let money       = 0
                 let rivalTeam   = 0
                 let statusCondition = this.mapper.properties.player.team[0].status_condition.value
-                let type1 = this.g4PokemonData[this.starter].type_1
-                let type2 = this.g4PokemonData[this.starter].type_2
-                let experience = this.mapper.properties.player.team[0].exp.value
+                let type1           = this.g4PokemonData[this.starter].type_1
+                let type2           = this.g4PokemonData[this.starter].type_2
+                let experience      = this.mapper.properties.player.team[0].exp.value
                 
                 //deprecated properties
-                let runIdentifier = this.starter.toString() + this.attempt_number.toString()
-                let trainerName = this.mapper.properties.battle.opponent.name.value
-                let RTHours = this.time_h
-                let RTMinutes = this.time_m
-                let RTSeconds = this.time_s
+                let runIdentifier  = this.starter.toString() + this.attempt_number.toString()
+                let trainerName    = this.mapper.properties.battle.opponent.name.value
+                let RTHours        = this.time_h
+                let RTMinutes      = this.time_m
+                let RTSeconds      = this.time_s
                 let RTMilliseconds = this.time_ms
-                let startTime = this.time_split_start
-                let realTime = this.padTime(this.time_h) + ":" + this.padTime(this.time_m) + ":" + this.padTime(this.time_s) + "." + this.padTime(this.time_ms)
-                let gameTime = this.padTime(gameTimeH) + ":" + this.padTime(gameTimeM) + ":" + this.padTime(gameTimeS) + "." + this.padTime(gameTimeF)
+                let startTime      = this.time_split_start
+                let realTime       = this.padTime(this.time_h) + ":" + this.padTime(this.time_m) + ":" + this.padTime(this.time_s) + "." + this.padTime(this.time_ms)
+                let gameTime       = this.padTime(gameTimeH) + ":" + this.padTime(gameTimeM) + ":" + this.padTime(gameTimeS) + "." + this.padTime(gameTimeF)
 
                 let hp    = this.mapper.properties.player.team[0].stats.hp.value
                 let maxHp = this.mapper.properties.player.team[0].stats.hp_max.value
@@ -4110,7 +4120,7 @@ const app = Vue.createApp({
         //write to file at the end of a key battle
         this.mapper.properties.meta.state.change(async (prop) => {
             // console.log(`State Changed to "${prop.value}"`)
-            if (prop.value != 'From Battle') { return  }
+            if (prop.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
             autosplitter_process()
             // console.log('Autosplitter Attempted to Run')
             if (prop.value == 'From Battle') {
@@ -4162,7 +4172,7 @@ const app = Vue.createApp({
                     logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
                     .then(() => {
                             // console.log("Run complete - moving attempt files to finished folder.")
-                            logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count);
+                            logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count, this.evolution, this.evolution_splits_label);
                         })
                         .catch(error => {
                             console.error("Error:", error);
