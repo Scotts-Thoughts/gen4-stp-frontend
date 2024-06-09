@@ -673,6 +673,7 @@ const app = Vue.createApp({
             resets        : 0,
             trainerBattles: 0,
             wildEncounters: 0,
+            blackout: false,
 
             //STATE MANAGEMENT ---------------------------------------------------------------------------------//
             gameStarted:  true, //tracks if the player has a save game or not
@@ -3131,7 +3132,7 @@ const app = Vue.createApp({
                     return specialMovePower
                 }
                 else if (y == "Flail" || y == "Reversal") {
-                    var hpPercentage = this.mapper.properties.player.team[0].hp.value / this.mapper.properties.player.team[0].hp_max.value
+                    var hpPercentage = this.mapper.properties.player.team[0].stats.hp.value / this.mapper.properties.player.team[0].stats.hp_max.value
                     if (hpPercentage >= .6875) { return 20 }
                     else if (hpPercentage >= .3542 && hpPercentage < .6875) { return 40 }
                     else if (hpPercentage >= .2083 && hpPercentage < .3542) { return 80 }
@@ -3721,8 +3722,10 @@ const app = Vue.createApp({
             }
         })
 
+        // Resets
         this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
-            if (newProp.value == true) {
+            // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
+            if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
                 this.startTime()
                 this.attempt_number++
             }
@@ -3730,37 +3733,19 @@ const app = Vue.createApp({
                 this.playerResets++
             }
         })
+        //Blackouts
+        this.mapper.properties.player.team[0].hp.change((newProp, oldProp) => {
+            if (newProp.value == 0 && this.state == `Battle`) {
+                this.blackout = true;
+            }
+        })
+        this.mapper.properties.meta.state.change((newProp, oldProp) => {
+            if (newProp.value == "Overworld" && oldProp.value == "Battle" && this.blackout == true) {
+                this.blackout_counter++;
+                this.blackout = false;
+            }
+        });
 
-        // //*Set Starting Attributes
-        // const setStartingAttributes = async () => {
-        //     //the odd/evenness may need to be flipped according to the selected ability
-        //     //if this were going to break, it would probably be when evolving
-        //     if((personalityValue % 2 == 0 && this.pkmn_ability == this.game.dexData[this.starterString].abilities[1]) ||
-        //     (personalityValue % 2 == 1 && this.pkmn_ability == this.game.dexData[this.starterString].abilities[0])) {
-        //         //these checks are trying to flip the odd/even by adding an odd number multiple of 25
-        //         //in order to not disturb the nature calc. It's trying to maintain the gender calc too.
-        //         if(personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
-        //             personalityValue += 275; //adding 275 won't make the modulo exceed 31
-        //         }
-        //         if(personalityValue % 256 > 11 && this.pkmn_gender != "Male") {
-        //             personalityValue += 1525; //1525 keeps the modulo between 0 and 31
-        //         }
-        //         if(personalityValue % 256 <= 236 && this.pkmn_gender == "Male") {
-        //             personalityValue += 275; //adding 275 keeps the modulo between 225 and 255
-        //         }
-        //         if(personalityValue % 256 > 236 && this.pkmn_gender == "Male") {
-        //             personalityValue += 1525; //1525 keeps the modulo between 225 and 255
-        //         }
-        //     }
-        
-        //     // only recalculate stats when IVs when your starter is received
-        //     if (this.mapper.properties.overworld.map_name.value == "Route 201 - Map 1" && this.mapper.properties.player.team[0].level.value == 5) {
-        //         await Promise.all([
-        //             await this.mapper.properties.player.team[0].personalityValue.set(personalityValue, false), 
-        //         ])
-        //     }
-        // }
-        
         const setStartingStats = async () => {
             //256 * 25 * 10 = 70400, gives a clean starting point where modulo 25 and modulo 256 are both 0
             //this can really be anything divisible by 256 though

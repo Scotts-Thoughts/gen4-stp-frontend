@@ -1,0 +1,7 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sudowoodo,Leader Gardenia,50:31,7,0,30,2:34,1717880466.934,Return,Low Kick,Faint Attack,Rock Tomb
+Dawn,Sudowoodo,Commander Jupiter,53:52,7,0,30,2:45,1717880668.109,Return,Substitute,Faint Attack,Rock Tomb
+Dawn,Sudowoodo,Leader Fantina,1:02:55,7,0,33,3:13,1717881744.493,Return,Substitute,Faint Attack,Rock Slide
+Dawn,Sudowoodo,Rival,1:04:17,7,0,34,3:17,1717881826.995,Return,Substitute,Faint Attack,Rock Slide
+Dawn,Sudowoodo,Leader Maylene,1:14:22,7,0,37,3:49,1717882431.744,Return,Substitute,Earthquake,Rock Slide
+Dawn,Sudowoodo,Rival,1:24:24,7,0,42,4:20,1717883081.102,Return,Rock Slide,Earthquake,Substitute

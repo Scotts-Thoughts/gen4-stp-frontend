@@ -1,0 +1,3 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sudowoodo,Elite Four Bertha,2:43:38,13,0,81,8:12,1717887834.793,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,2:44:45,13,0,81,8:16,1717887901.63,Earthquake,Ice Punch,Rock Slide,Substitute

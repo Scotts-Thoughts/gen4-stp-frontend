@@ -1,0 +1,4 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sudowoodo,Champion Cynthia,3:22:02,41,0,88,9:16,1717890403.9,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Champion Cynthia,3:24:30,45,0,88,9:16,1717890561.729,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Champion Cynthia,3:26:33,47,0,88,9:17,1717890710.208,Earthquake,Ice Punch,Rock Slide,Substitute

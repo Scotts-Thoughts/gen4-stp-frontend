@@ -11959,7 +11959,21 @@ const g4PokemonData =
                 "Sand Tomb",
                 "Selfdestruct"
             ],
-            "weight": 15.0
+            "weight": 15.0,
+            "evolution_family": [
+                {
+                    "species": "Bonsly",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Sudowoodo",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
         },
         "Pineco": {
             "species": "Pineco",
@@ -71047,7 +71061,21 @@ const g4PokemonData =
                 "Sand Tomb",
                 "Selfdestruct"
             ],
-            "weight": 38.0
+            "weight": 38.0,
+            "evolution_family": [
+                {
+                    "species": "Bonsly",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                },
+                {
+                    "species": "Sudowoodo",
+                    "method": null,
+                    "level": null,
+                    "item": null,
+                }
+            ],
         },
         "Chikorita": {
             "species": "Chikorita",

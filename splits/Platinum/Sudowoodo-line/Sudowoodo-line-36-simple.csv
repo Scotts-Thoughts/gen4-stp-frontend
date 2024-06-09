@@ -1,0 +1,6 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sudowoodo,Champion Cynthia,3:08:51,36,0,84,8:41,1717889473.04,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Aaron,3:09:44,36,0,84,8:44,1717889544.351,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Bertha,3:10:38,36,0,85,8:47,1717889598.944,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,3:11:28,36,0,85,8:50,1717889649.246,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Lucian,3:12:27,36,0,86,8:54,1717889707.401,Earthquake,Ice Punch,Rock Slide,Substitute
