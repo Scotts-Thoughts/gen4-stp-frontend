@@ -280,14 +280,16 @@ for (let folder of ['splits', 'splits/Platinum', 'splits/HGSS']) {
     }
 }
 
-function logData(gameName, str, file_name, split_file_prefix, log_type, testStatus, toggle, evolution, evolution_label) {
+function logData(gameName, str, file_name, split_file_prefix, log_type, testStatus, toggle, evolution, evolution_label, refilming_mode) {
     return new Promise((resolve, reject) => {
         const testStatusText = 'testrun_';
         if (evolution == true) {
             split_file_prefix = evolution_label;
         }
-        var dirPath = `./splits/${gameName}/${split_file_prefix}/`;
+        // File paths
+        var dirPath  = refilming_mode == true ? `./splits/${gameName}/refilmed/${split_file_prefix}/` : `./splits/${gameName}/${split_file_prefix}/`;
         var filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-simple.csv`);
+        // Header
         var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "failures," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
         if (testStatus == true) { 
             dirPath = `./splits/${gameName}/${split_file_prefix}/test_runs`; 
@@ -496,6 +498,7 @@ const app = Vue.createApp({
             selected_game         : "Platinum",
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
+            refilming_mode        : false,
             
             // POKEMON CONFIG (components) ---------------------------------//
             starter             : "Heatran",
@@ -3745,7 +3748,6 @@ const app = Vue.createApp({
         //Blackouts
         this.mapper.properties.battle.player.team[0].stats.hp.change((newProp, oldProp) => {
             const state = this.mapper.properties.meta.state.value
-            console.log(newProp.value, newProp.value)
             if (newProp.value == 0 && (state == `Battle` || state == `From Battle`)) {
                 this.blackout = true;
             }
@@ -4134,17 +4136,17 @@ const app = Vue.createApp({
                 }
                 
                 //write full split data
-                logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
+                logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                 
                 //write deprecated split data
                 if (this.autosplitter[this.game.gameName][trainer]) {
-                    logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
+                    logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                 }
                 
                 //write simple split data
                 const simpleSplit = () => {
                     log_split()
-                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                     this.split_data.push(this.simple_data)
                     MyStorage["split_data"] = this.split_data
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
@@ -4169,7 +4171,7 @@ const app = Vue.createApp({
                     log_split();
                     
                     //use then so that logCopy doesn't touch any files until logData finishes
-                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label)
+                    logData(gameName, this.simple_data_str, this.attempt_number, this.starter, "Simple", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                     .then(() => {
                             // console.log("Run complete - moving attempt files to finished folder.")
                             logCopy(gameName, this.attempt_number, this.starter, this.finished_run_count, this.evolution, this.evolution_splits_label);
