@@ -1,0 +1,36 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sudowoodo,Commander Mars,25:43,0,0,18,1:25,1718324232.463,Return,Low Kick,Rock Throw,Mimic
+Dawn,Sudowoodo,Leader Gardenia,50:22,7,7,30,2:34,1718325712.331,Return,Low Kick,Faint Attack,Rock Tomb
+Dawn,Sudowoodo,Commander Jupiter,53:45,7,9,30,2:45,1718325915.289,Return,Substitute,Faint Attack,Rock Tomb
+Dawn,Sudowoodo,Leader Fantina,1:02:56,7,11,33,3:13,1718326465.849,Return,Substitute,Faint Attack,Rock Slide
+Dawn,Sudowoodo,Rival,1:04:21,7,11,34,3:17,1718326550.615,Return,Substitute,Faint Attack,Rock Slide
+Dawn,Sudowoodo,Leader Maylene,1:14:39,7,12,37,3:49,1718327169.333,Return,Substitute,Earthquake,Rock Slide
+Dawn,Sudowoodo,Rival,1:24:51,7,16,42,4:20,1718327781.033,Return,Rock Slide,Earthquake,Substitute
+Dawn,Sudowoodo,Leader Wake,1:31:53,10,18,51,4:37,1718328203.142,Double-Edge,Rock Slide,Earthquake,Substitute
+Dawn,Sudowoodo,Galactic Boss Cyrus,1:38:55,10,18,53,4:57,1718328625.051,Double-Edge,Rock Slide,Earthquake,Substitute
+Dawn,Sudowoodo,Rival,1:46:23,11,18,53,5:18,1718329072.915,Low Kick,Rock Slide,Earthquake,Substitute
+Dawn,Sudowoodo,Leader Byron,1:49:56,11,25,55,5:29,1718329285.875,Low Kick,Rock Slide,Earthquake,Substitute
+Dawn,Sudowoodo,Commander Saturn,1:54:19,11,25,56,5:42,1718329548.711,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Commander Mars,1:56:33,11,27,56,5:50,1718329682.41,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Leader Candice,2:02:56,11,27,58,6:09,1718330065.568,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Galactic Boss Cyrus,2:09:29,11,36,60,6:29,1718330458.577,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Commander Saturn,2:10:40,11,37,60,6:33,1718330530.197,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Commander Mars,2:17:01,11,41,62,6:54,1718330911.093,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Galactic Boss Cyrus,2:23:28,11,41,73,7:11,1718331298.051,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Leader Volkner,2:30:27,11,49,74,7:33,1718331716.87,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Rival,2:39:38,11,52,77,8:02,1718332267.645,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Aaron,2:40:50,11,53,78,8:06,1718332339.887,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Bertha,2:44:04,13,53,81,8:12,1718332533.996,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,2:45:11,13,54,81,8:16,1718332600.619,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Aaron,3:02:59,34,55,82,8:25,1718333669.298,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Bertha,3:04:06,34,55,82,8:29,1718333735.729,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,3:04:53,34,55,83,8:32,1718333782.718,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Lucian,3:06:05,34,55,83,8:36,1718333855.001,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Aaron,3:10:12,36,56,84,8:44,1718334102.046,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Bertha,3:11:11,36,56,85,8:47,1718334160.371,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,3:12:04,36,56,85,8:50,1718334214.126,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Aaron,3:15:42,38,57,86,8:58,1718334432.321,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Bertha,3:16:42,38,57,86,9:02,1718334491.7,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Flint,3:17:48,38,57,87,9:05,1718334558.129,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Elite Four Lucian,3:19:18,38,57,87,9:11,1718334648.255,Earthquake,Ice Punch,Rock Slide,Substitute
+Dawn,Sudowoodo,Champion Cynthia,3:27:48,47,58,88,9:17,1718335158.003,Earthquake,Ice Punch,Rock Slide,Substitute

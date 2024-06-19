@@ -542,7 +542,7 @@ const app = Vue.createApp({
                 "Piloswine" : "line-height: 15.99px;",
                 "Mamoswine" : "line-height: 14.77px;",
                 "Bonsly"    : "line-height: 19.13px;",
-                "Sudowoodo" : "line-height: 14.77px;",
+                "Sudowoodo" : "line-height: 18.41px;",
                 "Snorunt"   : "line-height: 19px;", // no tutor moves
                 "Froslass"  : "line-height: 17.42px;", // no tutor moves
             },
@@ -666,12 +666,12 @@ const app = Vue.createApp({
                 "24": "Quirky",
             },
             stat_object:     [
-                {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",  base_stat_path: "base_hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
-                {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", path: "attack",          mod_path: "Attack",         mod_abrv: "atk", base_stat_path: "base_atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
-                {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", path: "defense",         mod_path: "Defense",        mod_abrv: "def", base_stat_path: "base_def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
-                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", dv: "dvSpecial", hp_spe_label_row: 1, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 2, value_column: 4,}, 
-                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 3, value_column: 4,}, 
-                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     dv: "dvSpeed",   hp_spe_label_row: 3, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 1, value_column: 4,}, 
+                {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",  base_stat_path: "base_hp",      object_identifier: "hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
+                {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", path: "attack",          mod_path: "Attack",         mod_abrv: "atk", base_stat_path: "base_atk",     object_identifier: "atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
+                {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", path: "defense",         mod_path: "Defense",        mod_abrv: "def", base_stat_path: "base_def",     object_identifier: "def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
+                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", object_identifier: "spc_atk", dv: "dvSpecial", hp_spe_label_row: 1, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 2, value_column: 4,}, 
+                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", object_identifier: "spc_def", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 3, value_column: 4,}, 
+                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     object_identifier: "spd",     dv: "dvSpeed",   hp_spe_label_row: 3, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 1, value_column: 4,}, 
             ],
 
             //VARIABLES THAT TRACK IN GAME PROGRESS ------------------------------------------------------------//
@@ -1109,6 +1109,12 @@ const app = Vue.createApp({
             const stat_type = this.stats_setting
             const year      = this.ui_stats_styling_modifier
             const state     = this.mapper.properties.meta.state.value
+            if (stat_type == 'Base Stats Average') {
+                return 'Gen4 Base Stat Averages'
+            }
+            if (stat_type == 'Base Stats Median') {
+                return 'Gen4 Base Stat Medians'
+            }
             // stat_fix_lvl 
             if (year == '2023') {
                 if (this.mapper.properties.flags.got_tm27_return.value == false) {
@@ -1531,6 +1537,34 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        average_median_stats(stat_label) {
+            let sum = 0;
+            let count = 0;
+            let values = [];
+            
+            for (let pokemon of Object.values(this.g4PokemonData)) {
+                let stat = pokemon[`base_${stat_label}`];
+                sum += stat;
+                count++;
+                values.push(stat);
+            }
+            
+            let average = sum / count;
+            
+            values.sort((a, b) => a - b);
+            let median;
+            let midIndex = Math.floor(values.length / 2);
+            
+            if (values.length % 2 === 0) {
+                median = (values[midIndex - 1] + values[midIndex]) / 2;
+            } else {
+                median = values[midIndex];
+            }
+            return {
+                average: Math.round(average),
+                median : Math.round(median),
+            };
+        },
         natureLabels(nature) {
             let output = nature + ": ";
             // let pad = 7 - nature.length;
@@ -1706,6 +1740,38 @@ const app = Vue.createApp({
         },
         get_friendship() {
             return this.mapper.properties.player.team[0].friendship + "/255"
+        },
+        get_effort_values() {
+            const ev_hp  = this.mapper.properties.player.team[0].evs.hp.value
+            const ev_atk = this.mapper.properties.player.team[0].evs.attack.value
+            const ev_def = this.mapper.properties.player.team[0].evs.defense.value
+            const ev_spa = this.mapper.properties.player.team[0].evs.special_attack.value
+            const ev_spd = this.mapper.properties.player.team[0].evs.special_defense.value
+            const ev_spe = this.mapper.properties.player.team[0].evs.speed.value
+            const total = ev_hp + ev_atk + ev_def + ev_spa + ev_spd + ev_spe
+            return total + "/510"
+        },
+        get_iv_total() {
+            const iv_hp  = this.mapper.properties.player.team[0].ivs.hp.value
+            const iv_atk = this.mapper.properties.player.team[0].ivs.attack.value
+            const iv_def = this.mapper.properties.player.team[0].ivs.defense.value
+            const iv_spa = this.mapper.properties.player.team[0].ivs.special_attack.value
+            const iv_spd = this.mapper.properties.player.team[0].ivs.special_defense.value
+            const iv_spe = this.mapper.properties.player.team[0].ivs.speed.value
+            const total = iv_hp + iv_atk + iv_def + iv_spa + iv_spd + iv_spe
+            return total + "/186"
+        },
+        get_base_stat_total() {
+            const starter = this.starter
+            const data    = this.g4PokemonData[starter]
+            const hp      = data.base_hp
+            const atk     = data.base_atk
+            const def     = data.base_def
+            const spa     = data.base_spd
+            const spd     = data.base_spc_atk
+            const spe     = data.base_spc_def
+            const total   = hp + atk + def + spa + spd + spe
+            return total
         },
         post_game_move_style(move_object) {
             const game_name = 'Platinum' //change this to be dynamic when adding more games
@@ -3807,7 +3873,7 @@ const app = Vue.createApp({
 
             await Promise.all([
                 //Set personality value & ablity
-                await this.mapper.properties.player.starter.set(player_starter, false), 
+                // await this.mapper.properties.player.starter.set(player_starter, false), 
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
