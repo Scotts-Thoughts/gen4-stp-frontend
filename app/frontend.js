@@ -3873,7 +3873,7 @@ const app = Vue.createApp({
 
             await Promise.all([
                 //Set personality value & ablity
-                // await this.mapper.properties.player.starter.set(player_starter, false), 
+                await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 

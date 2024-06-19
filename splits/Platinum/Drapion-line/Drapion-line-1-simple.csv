@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Skorupi,Rival,9:44,0,2,8,0:29,1718822254.049,Bite,Poison Sting,Leer,Knock Off
+Dawn,Skorupi,Leader Roark,25:36,2,9,17,1:21,1718823255.3,Bite,Acupressure,Pin Missile,Knock Off
+Dawn,Skorupi,Commander Mars,32:01,3,13,19,1:41,1718823640.693,Bite,Acupressure,Pin Missile,Rock Tomb
+Dawn,Skorupi,Leader Gardenia,44:35,3,19,24,2:24,1718824394.767,Bite,Acupressure,Pin Missile,Rock Tomb
+Dawn,Skorupi,Commander Jupiter,48:09,5,21,25,2:32,1718824608.664,Bite,Acupressure,Pin Missile,Rock Tomb
+Dawn,Skorupi,Leader Fantina,1:01:27,7,22,30,3:11,1718825406.352,Bite,Acupressure,Substitute,Rock Tomb
+Dawn,Skorupi,Rival,1:19:58,12,26,38,4:04,1718826517.557,Bite,Bug Bite,Substitute,Return
+Dawn,Drapion,Leader Maylene,1:30:17,12,2,40,4:37,1718827188.004,Poison Fang,Earthquake,Substitute,Return
+Dawn,Drapion,Rival,1:37:24,12,2,42,5:00,1718827615.37,Thunder Fang,Earthquake,Substitute,Return
+Dawn,Drapion,Leader Wake,1:41:51,14,3,45,5:09,1718827882.067,Thunder Fang,Earthquake,Substitute,Return
+Dawn,Drapion,Galactic Boss Cyrus,1:50:30,14,4,47,5:36,1718828400.999,Thunder Fang,Earthquake,Substitute,Aerial Ace
+Dawn,Drapion,Rival,1:54:40,14,4,47,5:49,1718828651.349,Ice Fang,Earthquake,Swords Dance,Aerial Ace
+Dawn,Drapion,Leader Byron,1:58:28,14,8,49,6:02,1718828879.269,Ice Fang,Earthquake,Swords Dance,Crunch
+Dawn,Drapion,Commander Saturn,2:01:52,14,8,50,6:12,1718829082.842,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Commander Mars,2:03:28,14,10,50,6:17,1718829179.764,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Leader Candice,2:09:01,14,10,52,6:34,1718829512.36,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Galactic Boss Cyrus,2:15:56,15,19,54,6:54,1718829927.248,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Commander Saturn,2:16:46,15,20,54,6:56,1718829976.96,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Commander Mars,2:22:57,15,21,68,7:16,1718830347.801,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Galactic Boss Cyrus,2:29:14,15,21,68,7:32,1718830725.325,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Leader Volkner,2:35:19,15,27,70,7:50,1718831090.283,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Rival,2:43:27,15,31,72,8:16,1718831577.998,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Elite Four Aaron,2:44:45,15,32,73,8:20,1718831656.062,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Elite Four Bertha,2:45:36,15,32,73,8:23,1718831707.21,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Elite Four Flint,2:46:31,15,32,74,8:27,1718831762.335,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Elite Four Lucian,2:47:18,15,32,74,8:29,1718831809.254,Swords Dance,Earthquake,Crunch,Ice Fang
+Dawn,Drapion,Champion Cynthia,2:48:28,15,32,78,8:33,1718831878.79,Swords Dance,Earthquake,Crunch,Ice Fang
