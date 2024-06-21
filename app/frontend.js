@@ -545,6 +545,9 @@ const app = Vue.createApp({
                 "Sudowoodo" : "line-height: 18.41px;",
                 "Snorunt"   : "line-height: 19px;", // no tutor moves
                 "Froslass"  : "line-height: 17.42px;", // no tutor moves
+                "Carnivine" : "line-height: 18.42px;", // no tutor moves
+                "Snover"    : "line-height: 18.06px;", // no tutor moves
+                "Abomasnow" : "line-height: 14.13px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
