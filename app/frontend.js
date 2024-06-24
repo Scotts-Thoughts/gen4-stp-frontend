@@ -546,8 +546,8 @@ const app = Vue.createApp({
                 "Snorunt"   : "line-height: 19px;", // no tutor moves
                 "Froslass"  : "line-height: 17.42px;", // no tutor moves
                 "Carnivine" : "line-height: 18.42px;", // no tutor moves
-                "Snover"    : "line-height: 18.06px;", // no tutor moves
-                "Abomasnow" : "line-height: 14.13px;", // no tutor moves
+                "Snover"    : "line-height: 18.06px;",
+                "Abomasnow" : "line-height: 16.25px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -3717,8 +3717,8 @@ const app = Vue.createApp({
             }
             var attackingType = this.moveType(x)
             var power = this.movePower(x)
-            var defendingType1 = this.mapper.properties.battle.opponent.active_pokemon.type_1.value
-            var defendingType2 = this.mapper.properties.battle.opponent.active_pokemon.type_2.value
+            var defendingType1 = this.mapper.properties.battle.opponent.active_pokemon.type_1.value ?? "Normal"
+            var defendingType2 = this.mapper.properties.battle.opponent.active_pokemon.type_2.value ?? "Normal"
             var defendingType1Effectiveness = 1
             var defendingType2Effectiveness = 1
             var defendingType1Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType1]
@@ -3817,7 +3817,7 @@ const app = Vue.createApp({
         //Blackouts
         this.mapper.properties.battle.player.team[0].stats.hp.change((newProp, oldProp) => {
             const state = this.mapper.properties.meta.state.value
-            if (newProp.value == 0 && (state == `Battle` || state == `From Battle`)) {
+            if (newProp.value == 0 && (state == `Battle`)) {
                 this.blackout = true;
             }
         })

@@ -3504,9 +3504,9 @@ const g4MoveData = {
         Description: "A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."
     },
 
-    "Grass Whistle":
+    "GrassWhistle":
     {
-        Move: "Grass Whistle",
+        Move: "GrassWhistle",
         Type: "Grass",
         Category: "Status",
         PP: "15",
