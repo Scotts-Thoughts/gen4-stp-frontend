@@ -2820,6 +2820,8 @@ const app = Vue.createApp({
             return out;
         },
         movepoolResizeCalc() {
+            console.log("resize");
+
             if(!this.dexData){ 
                 return;
             }
@@ -2837,8 +2839,8 @@ const app = Vue.createApp({
             //var computedStyle = window.getComputedStyle(moveElement);
             //if(this.movepoolDefaultFontSize==-1) {
                 this.movepoolDefaultFontSize = 15;//parseInt(computedStyle.getPropertyValue('font-size'),10);
-                this.movepoolDefaultLineHeight = 18;//parseInt(computedStyle.getPropertyValue('line-height'),10);
-                this.movepoolDefaultContainerHeight = 1001-(this.movepoolDefaultLineHeight+0);// parseInt(computedStyle.getPropertyValue('height'),10)-this.movepoolDefaultLineHeight+1;
+                this.movepoolDefaultLineHeight = 16;//parseInt(computedStyle.getPropertyValue('line-height'),10);
+                this.movepoolDefaultContainerHeight = 992-(this.movepoolDefaultLineHeight+0);// parseInt(computedStyle.getPropertyValue('height'),10)-this.movepoolDefaultLineHeight+1;
             //}
             //calculate new sizes
             let currentStarter = this.starter;
@@ -2851,12 +2853,13 @@ const app = Vue.createApp({
                 }
             }
             let movepoolSize = this.dexData[currentStarter].tm_hm_learnset.length + this.dexData[currentStarter].levelup_moveset.length;
-            if (this.tutor_moves) {
+            if (this.show_tutor_moves) {
                 movepoolSize = movepoolSize + this.dexData[currentStarter].tutor_learnset.length;
             }
             let maxSize = this.movepoolDefaultContainerHeight / this.movepoolDefaultLineHeight;
             let correctedLineHeight = this.movepoolDefaultContainerHeight / movepoolSize;
-            let correctedFontSize = this.movepoolDefaultFontSize * Math.sqrt(correctedLineHeight / this.movepoolDefaultLineHeight);
+            let fontShrinkFactor = 0.6; //make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
+            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight,fontShrinkFactor); 
             if(movepoolSize > (maxSize)){
                 return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
             }
