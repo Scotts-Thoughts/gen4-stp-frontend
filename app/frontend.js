@@ -686,6 +686,11 @@ const app = Vue.createApp({
             wildEncounters: 0,
             blackout: false,
 
+            //movepool starting parameters. set to -1 if not initialized
+            movepoolDefaultFontSize:        -1,
+            movepoolDefaultLineHeight:      -1,
+            movepoolDefaultContainerHeight: -1,
+
             //STATE MANAGEMENT ---------------------------------------------------------------------------------//
             gameStarted:  true, //tracks if the player has a save game or not
             playerID:     999,
@@ -923,7 +928,7 @@ const app = Vue.createApp({
         }
     },
     created() {
-        import('../lib/gameVariables.js').then((gameVariables) => {
+        import('../lib/game_variables.js').then((gameVariables) => {
             this.gameVariables = gameVariables.default;
             // Bind the newGame function to the Vue component
             // this.gameVariables.newGame = this.gameVariables.newGame.bind(this);
@@ -1025,7 +1030,7 @@ const app = Vue.createApp({
             this.pkmn_ability           = MyStorage[`${game}_${starter}`]?.pkmn_ability          ?? this.g4PokemonData[starter].abilities[0],
             this.hidden_power_type      = MyStorage[`${game}_${starter}`]?.hidden_power_type     ?? "Dark",
             this.pkmn_gender            = MyStorage[`${game}_${starter}`]?.pkmn_gender           ?? "Female"
-            // this.movepoolResize();
+            this.movepoolResize();
         },
         ui_stat_arrangement(newValue) {
             if (newValue == 'HP, Atk, Def, SpA, SpD, Spe') {
@@ -2836,7 +2841,7 @@ const app = Vue.createApp({
                 this.movepoolDefaultContainerHeight = 1001-(this.movepoolDefaultLineHeight+0);// parseInt(computedStyle.getPropertyValue('height'),10)-this.movepoolDefaultLineHeight+1;
             //}
             //calculate new sizes
-            let currentStarter = this.s1dynamicReset.name;
+            let currentStarter = this.starter;
             if(currentStarter == undefined || currentStarter == null) {
                 if(this.mapper.properties.player.team[0].species) {
                     currentStarter = this.mapper.properties.player.team[0].species.value;
