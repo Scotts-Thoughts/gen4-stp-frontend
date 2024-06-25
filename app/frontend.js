@@ -495,7 +495,7 @@ const app = Vue.createApp({
             evolution             : false,
             evolution_splits_label: "",
             frame                 : false,
-            selected_game         : "Platinum",
+            selected_game         : MyStorage['selected_game'] ?? "Platinum",
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
             refilming_mode        : false,
@@ -923,6 +923,11 @@ const app = Vue.createApp({
         }
     },
     created() {
+        import('../lib/gameVariables.js').then((gameVariables) => {
+            this.gameVariables = gameVariables.default;
+            // Bind the newGame function to the Vue component
+            // this.gameVariables.newGame = this.gameVariables.newGame.bind(this);
+        })
         if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {  
             this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter].type_1];
             this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset            ?? 0;
@@ -1120,6 +1125,49 @@ const app = Vue.createApp({
             if (stat_type == 'Base Stats Median') {
                 return 'Gen4 Base Stat Medians'
             }
+            if (this.selected_game == 'HeartGold and SoulSilver') { 
+                if (year == '2023') {
+                    if (this.mapper.properties.flags.got_tm27_return.value == false) {
+                        return `IVs`
+                    }
+                    switch (state) {
+                        case "Base Stats":  return `Base Stats`
+                        case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                        case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                        case "From Battle": return `Level ${this.stat_fix_lvl}`
+                        case "Battle":      return `Level ${this.mapper.properties.battle.player.active_pokemon.level.value}`
+                    }
+                }
+                else {
+                    switch (stat_type) {
+                        case "Base Stats":   return `Base Stats`
+                        case "IVs":          return `IVs`
+                        case "Hidden Power": return `Hidden Power ${this.hpType}`
+                        case "EVs":          return `EVs`
+                        case "Detailed EVs": {
+                            let ev_hp  = this.mapper.properties.player.team[0].evs.hp.value
+                            let ev_atk = this.mapper.properties.player.team[0].evs.attack.value
+                            let ev_def = this.mapper.properties.player.team[0].evs.defense.value
+                            let ev_spa = this.mapper.properties.player.team[0].evs.special_attack.value
+                            let ev_spd = this.mapper.properties.player.team[0].evs.special_defense.value
+                            let ev_spe = this.mapper.properties.player.team[0].evs.speed.value
+                            let total = ev_hp + ev_atk + ev_def + ev_spa + ev_spd + ev_spe
+                            return `${total}/510 (${this.decimalToPercentage(total/510)}%)`
+                        }
+                        case "Automatic":    {
+                            switch (state) {
+                                case "No Pokemon":  return `Base Stats`
+                                case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                                case "To Battle":   return `Level ${this.mapper.properties.player.team[0].level.value}`
+                                case "From Battle": return `Level ${this.stat_fix_lvl}`
+                                case "Battle":      return `Level ${this.mapper.properties.battle.player.active_pokemon.level.value}`
+                            }
+                        }
+                        case "Badge Boosts": return `Level ${this.mapper.properties.player.team[0].level.value}`
+                    }
+                }
+            }
+
             // stat_fix_lvl 
             if (year == '2023') {
                 if (this.mapper.properties.flags.got_tm27_return.value == false) {
@@ -1165,6 +1213,9 @@ const app = Vue.createApp({
                 }
             }
         },
+        dexData() {
+            return this.game.dexData;
+        },
         growth_rate() {
             return this.g4PokemonData[this.starter].growth_rate
         },
@@ -1196,10 +1247,12 @@ const app = Vue.createApp({
             return timecode
         },
         game() {
-            return this.game_variables['Platinum'];
-            // return this.gameVariables[this.mapper?.properties?.meta?.gameName];
-            // return "FireRed and LeafGreen";
-            // return(this.mapper?.properties.meta.gameName);
+            if (this.ready == false) { return }
+            // if (this.mapper && this.mapper.properties.meta?.gameName) {
+            //     if (this.gameVariables[this.mapper.properties.meta.gameName?.value] != null)
+            //         this.gameSelection = this.mapper.properties.meta.gameName.value;
+            // }
+            return this.gameVariables[this.selected_game];
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
@@ -1848,6 +1901,7 @@ const app = Vue.createApp({
         load_all_settings() {
             const game_name = this.mapper.properties.meta.game_name.value
             this.starter = MyStorage["starter"] ?? "Heatran"
+            this.selected_game = MyStorage["selected_game"] ?? "Platinum"
 
             this.graphicOverlay =             MyStorage['graphicOverlay']             ?? true
             this.gameArea =                   MyStorage['gameArea']                   ?? false
@@ -2750,7 +2804,59 @@ const app = Vue.createApp({
             }
             return obj
         }, 
-        
+        movepoolResize() {
+            let out = this.movepoolResizeCalc();
+            if(this.mapper.properties.meta.state.value == "From Battle") {
+                return out;
+            }
+            this.mapper.properties.player.team[0].species.change((newProp, oldProp) => {
+                out = this.movepoolResizeCalc();
+            })
+            return out;
+        },
+        movepoolResizeCalc() {
+            if(!this.dexData){ 
+                return;
+            }
+            //retrieve the default sizing from the .css
+            var element = document.getElementById('movepoolMoveTable')
+            //********The next few lines were dynamic to support different css sizes */
+            //********This is useful if you want to reuse the code in other overlays */
+            //********However it had bugs with resizing after battles, so I'm commenting it for now */
+            // var moveElement = document.querySelector('.movepoolDemo');
+            // if (!moveElement) {
+            //     console.log("nope")
+            //     return;
+            // }
+            //store the default sizes so we can access them after overwriting them
+            //var computedStyle = window.getComputedStyle(moveElement);
+            //if(this.movepoolDefaultFontSize==-1) {
+                this.movepoolDefaultFontSize = 15;//parseInt(computedStyle.getPropertyValue('font-size'),10);
+                this.movepoolDefaultLineHeight = 18;//parseInt(computedStyle.getPropertyValue('line-height'),10);
+                this.movepoolDefaultContainerHeight = 1001-(this.movepoolDefaultLineHeight+0);// parseInt(computedStyle.getPropertyValue('height'),10)-this.movepoolDefaultLineHeight+1;
+            //}
+            //calculate new sizes
+            let currentStarter = this.s1dynamicReset.name;
+            if(currentStarter == undefined || currentStarter == null) {
+                if(this.mapper.properties.player.team[0].species) {
+                    currentStarter = this.mapper.properties.player.team[0].species.value;
+                }
+                else {
+                    currentStarter = this.starterString;
+                }
+            }
+            let movepoolSize = this.dexData[currentStarter].tm_hm_learnset.length + this.dexData[currentStarter].levelup_moveset.length;
+            if (this.tutor_moves) {
+                movepoolSize = movepoolSize + this.dexData[currentStarter].tutor_learnset.length;
+            }
+            let maxSize = this.movepoolDefaultContainerHeight / this.movepoolDefaultLineHeight;
+            let correctedLineHeight = this.movepoolDefaultContainerHeight / movepoolSize;
+            let correctedFontSize = this.movepoolDefaultFontSize * Math.sqrt(correctedLineHeight / this.movepoolDefaultLineHeight);
+            if(movepoolSize > (maxSize)){
+                return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
+            }
+        },
+
         // MOVE ACCURACY
         getAccuracy(accuracy, move) {
             const weather = this.mapper.properties.battle.field.weather.value
@@ -3904,7 +4010,10 @@ const app = Vue.createApp({
             }
         }
         this.mapper.properties.player.team[0].level.change(async (newProp) => {
-            if (newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "Route 201 - Map 1") {
+            if (newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "Route 201 - Map 1" && this.selected_game == "Platinum") {
+                await setStartingStats()
+            }
+            if (newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "New Bark Town - Map 2" && this.selected_game == "HeartGold and SoulSilver") {
                 await setStartingStats()
             }
         });

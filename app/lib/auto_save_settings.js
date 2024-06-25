@@ -60,4 +60,5 @@ const auto_save_settings = [
     "ui_stat_arrangement",
     "ui_stat_arrangement_modifier",
     "show_tutor_moves",
+    "selected_game",
 ]

@@ -191,13 +191,15 @@
                         <option>Female</option>
                         <option>Male</option>
                     </select>
-                    <div>Starter Player Chooses:</div>
-                    <select v-model="starter_choice" class="dropdownMenu">
-                        <option>Turtwig</option>
-                        <option>Chimchar</option>
-                        <option>Piplup</option>
-                    </select>
-                    <div>Rival chooses: {{rival_starter}}</div>
+                    <div v-if="selected_game !='HeartGold and SoulSilver'">
+                        <div>Starter Player Chooses:</div>
+                        <select v-model="starter_choice" class="dropdownMenu">
+                            <option>Turtwig</option>
+                            <option>Chimchar</option>
+                            <option>Piplup</option>
+                        </select>
+                        <div>Rival chooses: {{rival_starter}}</div>
+                    </div>
                 </div>
                 <div class="ui3">
                     <div>Pokemon Image Settings</div>
@@ -458,7 +460,7 @@
                 </div>
                 <!-- Movepool -->
                 <div v-else key="2">
-                    <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
+                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
                             <th class="movepool_header movepool_move">Move</th>
