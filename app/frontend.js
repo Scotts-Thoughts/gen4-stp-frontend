@@ -928,7 +928,7 @@ const app = Vue.createApp({
         }
     },
     created() {
-        import('../lib/game_variables.js').then((gameVariables) => {
+        import('../app/lib/game_variables.js').then((gameVariables) => {
             this.gameVariables = gameVariables.default;
             // Bind the newGame function to the Vue component
             // this.gameVariables.newGame = this.gameVariables.newGame.bind(this);
@@ -1257,7 +1257,7 @@ const app = Vue.createApp({
             //     if (this.gameVariables[this.mapper.properties.meta.gameName?.value] != null)
             //         this.gameSelection = this.mapper.properties.meta.gameName.value;
             // }
-            return this.gameVariables[this.selected_game];
+            if(this.game_variables) return this.game_variables[this.selected_game];
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
