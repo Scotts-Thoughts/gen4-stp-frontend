@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Giratina,Rival,7:55,0,0,7,0:23,1719524488.07,DragonBreath,Scary Face,,
+Dawn,Giratina,Leader Roark,10:52,0,0,9,0:33,1719524665.78,DragonBreath,Scary Face,,
+Dawn,Giratina,Commander Mars,18:32,0,0,15,0:58,1719525125.914,DragonBreath,Scary Face,Ominous Wind,
+Dawn,Giratina,Leader Gardenia,26:04,2,0,19,1:17,1719525577.933,DragonBreath,Scary Face,Ominous Wind,
+Dawn,Giratina,Commander Jupiter,29:11,2,1,20,1:27,1719525764.147,DragonBreath,Substitute,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Fantina,39:17,2,1,22,1:58,1719526370.875,DragonBreath,Substitute,Ominous Wind,AncientPower
+Dawn,Giratina,Rival,40:38,2,1,23,2:02,1719526452.004,DragonBreath,Substitute,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Maylene,48:09,2,1,28,2:26,1719526902.846,DragonBreath,Earthquake,Ominous Wind,AncientPower
+Dawn,Giratina,Rival,54:43,2,1,30,2:45,1719527296.494,Dragon Claw,Earthquake,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Wake,58:57,2,1,41,3:00,1719527550.89,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Galactic Boss Cyrus,1:04:41,2,1,42,3:17,1719527894.106,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Rival,1:08:56,3,1,45,3:28,1719528149.161,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Leader Byron,1:12:43,3,2,47,3:40,1719528376.051,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Commander Saturn,1:15:43,3,2,47,3:49,1719528556.089,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Commander Mars,1:17:25,3,2,48,3:54,1719528658.375,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Leader Candice,1:22:51,3,2,50,4:11,1719528984.243,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Galactic Boss Cyrus,1:29:12,3,2,52,4:31,1719529365.419,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Commander Saturn,1:29:59,3,2,52,4:34,1719529412.355,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Commander Mars,1:36:27,3,2,53,4:55,1719529800.906,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Galactic Boss Cyrus,1:43:32,4,2,60,5:11,1719530225.92,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Leader Volkner,1:50:07,4,3,62,5:32,1719530620.24,Dragon Claw,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Rival,1:58:26,4,3,65,5:59,1719531119.69,Dragon Pulse,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Elite Four Aaron,1:59:45,4,3,66,6:04,1719531198.729,Dragon Pulse,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Elite Four Bertha,2:04:29,7,3,71,6:12,1719531482.111,Dragon Pulse,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Elite Four Flint,2:05:19,7,4,71,6:15,1719531532.215,Dragon Pulse,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Elite Four Lucian,2:06:13,7,4,72,6:18,1719531586.438,Dragon Pulse,Earthquake,Shadow Force,Shock Wave
+Dawn,Giratina,Champion Cynthia,2:07:30,7,4,72,6:23,1719531663.221,Dragon Pulse,Earthquake,Shadow Force,Thunderbolt

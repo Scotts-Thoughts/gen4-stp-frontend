@@ -145,7 +145,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -2521,7 +2521,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -3505,7 +3505,7 @@ const g4PokemonData =
                 "Substitute",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -6031,7 +6031,7 @@ const g4PokemonData =
                 "Substitute",
                 "Cut",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -7675,7 +7675,7 @@ const g4PokemonData =
                 "Substitute",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -12530,7 +12530,7 @@ const g4PokemonData =
                 "Swagger",
                 "Substitute",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -15921,7 +15921,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -16561,7 +16561,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -17784,7 +17784,7 @@ const g4PokemonData =
                 "Substitute",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -18979,7 +18979,7 @@ const g4PokemonData =
                 "Swagger",
                 "Substitute",
                 "Cut",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -19917,7 +19917,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -23731,7 +23731,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Cut",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -24004,7 +24004,7 @@ const g4PokemonData =
                 "Substitute",
                 "Cut",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -26700,7 +26700,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Rock Climb"
             ],
@@ -28601,7 +28601,7 @@ const g4PokemonData =
                 "Substitute",
                 "Cut",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -29428,7 +29428,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -33527,7 +33527,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -33711,7 +33711,7 @@ const g4PokemonData =
                 "Fly",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall",
                 "Rock Climb"
@@ -36789,7 +36789,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -39332,7 +39332,7 @@ const g4PokemonData =
                 "Swagger",
                 "Substitute",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -42417,7 +42417,7 @@ const g4PokemonData =
                 "Cut",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall",
                 "Rock Climb"
@@ -43270,7 +43270,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Rock Climb"
             ],
@@ -43919,7 +43919,7 @@ const g4PokemonData =
                 "Substitute",
                 "Cut",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -47149,7 +47149,7 @@ const g4PokemonData =
                 "Cut",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall"
             ],
@@ -48606,7 +48606,7 @@ const g4PokemonData =
                 "Cut",
                 "Fly",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -51290,7 +51290,7 @@ const g4PokemonData =
                 "Fly",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall"
             ],
@@ -52357,7 +52357,7 @@ const g4PokemonData =
                 "Flash Cannon",
                 "Cut",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -52666,7 +52666,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Cut",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -55870,7 +55870,7 @@ const g4PokemonData =
                 "Fly",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall"
             ],
@@ -58630,7 +58630,7 @@ const g4PokemonData =
                 "Substitute",
                 "Cut",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -58775,7 +58775,7 @@ const g4PokemonData =
                 "Substitute",
                 "Fly",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -60511,7 +60511,7 @@ const g4PokemonData =
                 "U-turn",
                 "Substitute",
                 "Surf",
-                "Whirlpool",
+                "Defog",
                 "Waterfall"
             ],
             "tutor_learnset": [
@@ -62905,7 +62905,7 @@ const g4PokemonData =
                 "Flash Cannon",
                 "Cut",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -71937,7 +71937,7 @@ const g4PokemonData =
                 "Pluck",
                 "Substitute",
                 "Fly",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash"
             ],
             "tutor_learnset": [
@@ -74913,7 +74913,7 @@ const g4PokemonData =
                 "Fly",
                 "Surf",
                 "Strength",
-                "Whirlpool",
+                "Defog",
                 "Rock Smash",
                 "Waterfall",
                 "Rock Climb"

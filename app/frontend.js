@@ -548,8 +548,9 @@ const app = Vue.createApp({
                 "Carnivine" : "line-height: 18.42px;", // no tutor moves
                 "Snover"    : "line-height: 18.06px;",
                 "Abomasnow" : "line-height: 16.25px;", // no tutor moves
-                "Riolu"     : "line-height: 16.25px;", // no tutor moves
+                "Riolu"     : "line-height: 16.54px;",
                 "Lucario"   : "line-height: 15.47px;", // no tutor moves
+                "Giratina"  : "line-height: 16.25px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -3262,6 +3263,7 @@ const app = Vue.createApp({
                 }
                 if (move.power == "—") { return "—"}
                 if (move.power == 0) { return "—"}
+                if (move.power == 1) { return "—"}
                 else
                     if (move) return move.power
             }
