@@ -147,6 +147,14 @@
                         <option>Base Stats</option>
                         <option>Base Stats Average</option>
                         <option>Base Stats Median</option>
+                    </select><br>
+                    <br>
+                    <div>Movepool Mode:</div>
+                    <select v-model="movepool_isolation" class="dropdownMenu">
+                        <option>Automatic</option>
+                        <option>Level Up Moves</option>
+                        <option>TMHM Moves</option>
+                        <option>Tutor Moves</option>
                     </select>
                     <br>
                     <br>
@@ -320,7 +328,7 @@
                 <tr v-if="getMoveObject('1')?.move.value != null">
                     <!-- Move1 -->
                     <th class="align_left g4mp_types">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${platinum_moves[getMove('1')]?.Type.toLowerCase()}.png`" />
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${getMoveType('1')}.png`" />
                     </th>
                     <th class="align_left g4mp_move">{{getMove("1")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[0].move.value)}}</th>
@@ -344,7 +352,7 @@
                 <tr v-if="getMoveObject('2')?.move.value != null">
                     <!-- Move2 -->
                     <th class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${platinum_moves[getMove('2')]?.Type.toLowerCase()}.png`" />
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${getMoveType('2')}.png`" />
                     </th>
                     <th class="align_left g4mp_move">{{getMove('2')}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[1].move.value)}}</th>
@@ -360,7 +368,7 @@
                 <tr v-if="getMoveObject('3')?.move.value != null">
                     <!-- Move3 -->
                     <th class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${platinum_moves[getMove('3')]?.Type.toLowerCase()}.png`" />
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${getMoveType('3')}.png`" />
                     </th>
                     <th class="align_left g4mp_move">{{getMove("3")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[2].move.value)}}</th>
@@ -376,7 +384,7 @@
                 <tr v-if="getMoveObject('4')?.move.value != null">
                     <!-- Move4 -->
                     <th class="align_left g4mp_type">
-                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${platinum_moves[getMove('4')]?.Type.toLowerCase()}.png`" />
+                        <img class="moveset_typeIcons centered-content dropshadow" :src="`images/type-icons-circular/${getMoveType('4')}.png`" />
                     </th>
                     <th class="align_left g4mp_move">{{getMove("4")}}</th>
                     <th v-if="mapper.properties.meta.state.value == 'Battle'" class="align_right g4mp_power">{{typeEffectiveness(mapper.properties.battle.player.active_pokemon.moves[3].move.value)}}</th>
@@ -456,6 +464,81 @@
                     </div> 
                     <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
+                <!-- Movepool - Only level up -->
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3">
+                    <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
+                        <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
+                            <th class="movepool_header movepool_way">Way</th>
+                            <th class="movepool_header movepool_move">Move</th>
+                            <th class="movepool_header movepool_type">Type</th>
+                            <th class="movepool_header movepool_type">DC</th>
+                            <th class="movepool_header movepool_tableC">Pwr.</th>
+                            <th class="movepool_header movepool_tableC">Acc.</th>
+                            <th class="movepool_header movepool_tableC">PP</th>
+                        </tr>
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level" :class="{ 'first-row': index === 0 }">
+                            <td class="movepool_way">{{x.Level}}</td>
+                            <td class="movepool_move">{{x.Move}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                            <td class="movepool_tableC">{{movepoolPower(x)}}</td>
+                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                            <td class="movepool_tableC">{{x.PP}}</td>
+                        </tr>
+                        <div class="posAbs movepoolLabel">Movepool</div>
+                    </table>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                </div>
+                <!-- Movepool - TMHM -->
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4">
+                    <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
+                        <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
+                            <th class="movepool_header movepool_way">Way</th>
+                            <th class="movepool_header movepool_move">Move</th>
+                            <th class="movepool_header movepool_type">Type</th>
+                            <th class="movepool_header movepool_type">DC</th>
+                            <th class="movepool_header movepool_tableC">Pwr.</th>
+                            <th class="movepool_header movepool_tableC">Acc.</th>
+                            <th class="movepool_header movepool_tableC">PP</th>
+                        </tr>
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :class="{ 'first-row': index === 0 }">
+                            <td class="movepool_way">{{x.tmhm}}</td>
+                            <td class="movepool_move">{{x.Move}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
+                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
+                            <td class="movepool_tableC">{{movepoolPower(x)}}</td>
+                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                            <td class="movepool_tableC">{{x.PP}}</td>
+                        </tr>
+                        <div class="posAbs movepoolLabel">Movepool</div>
+                    </table>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                </div>
+                <!-- Movepool - Other (Tutor and Egg) -->
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5">
+                    <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
+                        <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
+                            <th class="movepool_header movepool_way">Way</th>
+                            <th class="movepool_header movepool_move">Move</th>
+                            <th class="movepool_header movepool_type">Type</th>
+                            <th class="movepool_header movepool_type">DC</th>
+                            <th class="movepool_header movepool_tableC">Pwr.</th>
+                            <th class="movepool_header movepool_tableC">Acc.</th>
+                            <th class="movepool_header movepool_tableC">PP</th>
+                        </tr>
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tutor" :class="{ 'first-row': index === 0 }">
+                            <td class="movepool_way">Tutor</td>
+                            <td class="movepool_move">{{x.Move}}</td>
+                            <td :style="{'background-color': `var(--${ui_type_color_modifier}${x.Type?.toLowerCase()})`}" class="movepool_type">{{x.Type}}</td>
+                            <td :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}" class="movepool_type">{{x.Category}}</td>
+                            <td class="movepool_tableC">{{x.Power}}</td>
+                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
+                            <td class="movepool_tableC">{{x.PP}}</td>
+                        </tr>
+                        <div class="posAbs movepoolLabel">Movepool</div>
+                    </table>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                </div>
                 <!-- Movepool -->
                 <div v-else key="2">
                     <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
@@ -468,7 +551,6 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).level"> -->
                         <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level" :class="{ 'first-row': index === 0 }">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
@@ -478,7 +560,6 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <!-- <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tmhm"> -->
                         <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :style="post_game_move_style(x)?.tmhm">
                             <td class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
@@ -497,14 +578,6 @@
                             <td v-if="show_tutor_moves == true" class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td v-if="show_tutor_moves == true" class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <!-- <tr v-for="x in getMovepool(g4MoveData, platinum_moves, g4tmhmMapping).egg">
-                            <td class="movepool_way">Egg</td>
-                            <td class="movepool_move">{{x.Move}}</td>
-                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${x.Type?.toLowerCase()})`}">{{x.Type}}</td>
-                            <td class="movepool_tableC">{{x.Power}}</td>
-                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
-                            <td class="movepool_tableC">{{x.PP}}</td>
-                        </tr> -->
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
@@ -531,9 +604,6 @@
 
             <!-- Exp bar -->
             <div class="expBar">
-                <!-- <div v-if="mapper.properties.meta.state.value == 'From Battle' || mapper.properties.meta.state.value == 'Battle'" class="exp_label">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, mapper.properties.battle.player.active_pokemon.exp.value).percent)}}%</div> -->
-                <!-- <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="exp_label">{{decimalToPercentage(calcExpStats(g4PokemonData[starter].growth_rate, mapper.properties.player.team[0].exp.value).percent)}}%</div> -->
-                <!-- <div v-else-if="mapper.properties.meta.state.value == 'No Pokemon'"class="exp_label">Exp:</div> -->
                 <div class="exp_label">Exp:</div>
                 <div class="expMeterOuter expMeterStyle"><div class="expMeterInner expMeterStyle" ref="expBar"></div></div>
             </div>
@@ -576,6 +646,7 @@
     <script src="lib/auto_save_settings.js"></script>
     <script src="lib/natures.js"></script>
     <script src="lib/hiddenpower.js"></script>
+    <script src="lib/moves/natural_gift.js"></script>
     <!-- Data Objects (New as of 2024-06-02) -->
     <!-- Pokedex -->
     <script src="lib/pokedex/diamond_pearl.js"></script>

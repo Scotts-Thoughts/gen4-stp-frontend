@@ -501,29 +501,30 @@ const app = Vue.createApp({
             refilming_mode        : false,
             
             // POKEMON CONFIG (components) ---------------------------------//
-            starter             : "Heatran",
-            pkmnNature          : "Adamant",
-            pkmn_gender         : "Female",
-            pkmn_ability        : null,
-            hidden_power_type   : "Dark",
-            overlayNew          : "Chimchar",
-            overlayOld          : "Chimchar",
-            scott_mode          : true,
-            testStatus          : MyStorage['testStatus']           ?? false,
-            wild_pokemon_display: false,
-            stats_setting       : MyStorage['stats_setting']        ?? "Automatic",
-            expBarToggle        : MyStorage['expBarToggle']         ?? true,
-            show_nature_changes : MyStorage['show_nature_changes']  ?? true,
-            show_tutor_moves    : MyStorage['show_tutor_moves']     ?? true,
-            stat_fix_toggle     : false,
-            stat_fix_toggle_2   : 0,
-            stat_fix_lvl        : 0,
-            stat_fix_hp         : 0,
-            stat_fix_atk        : 0,
-            stat_fix_def        : 0,
-            stat_fix_spe        : 0,
-            stat_fix_spa        : 0,
-            stat_fix_spd        : 0,
+            starter                : "Heatran",
+            pkmnNature             : "Adamant",
+            pkmn_gender            : "Female",
+            pkmn_ability           : null,
+            hidden_power_type      : "Dark",
+            overlayNew             : "Chimchar",
+            overlayOld             : "Chimchar",
+            scott_mode             : true,
+            testStatus             : MyStorage['testStatus']           ?? false,
+            wild_pokemon_display   : false,
+            stats_setting          : MyStorage['stats_setting']        ?? "Automatic",
+            expBarToggle           : MyStorage['expBarToggle']         ?? true,
+            show_nature_changes    : MyStorage['show_nature_changes']  ?? true,
+            show_tutor_moves       : MyStorage['show_tutor_moves']     ?? true,
+            movepool_isolation     : MyStorage['movepool_isolation']   ?? "Automatic",
+            stat_fix_toggle        : false,
+            stat_fix_toggle_2      : 0,
+            stat_fix_lvl           : 0,
+            stat_fix_hp            : 0,
+            stat_fix_atk           : 0,
+            stat_fix_def           : 0,
+            stat_fix_spe           : 0,
+            stat_fix_spa           : 0,
+            stat_fix_spd           : 0,
 
             customMovepool: {
                 "Torterra"  : "line-height: 16px;",
@@ -551,6 +552,7 @@ const app = Vue.createApp({
                 "Riolu"     : "line-height: 16.54px;",
                 "Lucario"   : "line-height: 15.47px;", // no tutor moves
                 "Giratina"  : "line-height: 16.25px;", // no tutor moves
+                "Arceus"    : "line-height: 13.74px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -625,6 +627,7 @@ const app = Vue.createApp({
             natures                  : natures,
             hiddenpower_type_selector: hiddenpower_type_selector,
             game_variables           : game_variables,
+            natural_gift             : natural_gift,
 
             // Data (New as of 2024-06-02)
             // These files contain the most up-to-date data for both trainers and pokemon.
@@ -1246,10 +1249,13 @@ const app = Vue.createApp({
             if (this.mapper.properties.battle.opponent.trainer.value != null) {
                 show = true
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == false) {
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == true) {
                 return true
             }
             if (this.mapper.properties.meta.state.value == `Battle` && delay == true) {
+                return true
+            }
+            if (this.mapper.properties.meta.state.value == `From Battle` && delay == true) {
                 return true
             }
             else {
@@ -2582,6 +2588,15 @@ const app = Vue.createApp({
                 return
             }
         },
+        getMoveType(x) {
+            const move = this.platinum_moves[this.getMove(x)]?.Move
+            if (move == 'Natural Gift') {
+                return this.moveType(move)
+            }
+            else {
+                return this.platinum_moves[this.getMove(x)]?.Type.toLowerCase()
+            }
+        },
         getMoveObject(moveNumber) {
             const state = this.mapper.properties.meta.state.value
             const species = this.mapper.properties.player.team[0].species.value
@@ -2627,9 +2642,36 @@ const app = Vue.createApp({
                 return this.g4MoveData[move][property]
             }
         },
+        arceus_plate_check() {
+            const held_item = this.mapper.properties.player.team[0].held_item.value 
+            switch (held_item) {
+                case "Dread Plate":  return "Dark"
+                case "Draco Plate":  return "Dragon"
+                case "Earth Plate":  return "Ground"
+                case "Fist Plate":   return "Fighting"
+                case "Flame Plate":  return "Fire"
+                case "Icicle Plate": return "Ice"
+                case "Insect Plate": return "Bug"
+                case "Iron Plate":   return "Steel"
+                case "Meadow Plate": return "Grass"
+                case "Mind Plate":   return "Psychic"
+                case "Pixie Plate":  return "Fairy"
+                case "Sky Plate":    return "Flying"
+                case "Splash Plate": return "Water"
+                case "Spooky Plate": return "Ghost"
+                case "Stone Plate":  return "Rock"
+                case "Toxic Plate":  return "Poison"
+                case "Zap Plate":    return "Electric"
+                default:             return "Normal"
+            }
+        },
         getSoloMonType(pkmn, type) { //type == type_1 or type_2
             // const species = pkmn
             const species = this.starter
+            var held_item = ""
+            if (this.starter == 'Arceus') {
+                return this.arceus_plate_check()
+            }
             if (this.mapper.properties.meta?.state?.value == `From Battle`) {
                 return this.g4PokemonData[species][type]
             }
@@ -3261,6 +3303,25 @@ const app = Vue.createApp({
                     if (base_power > 150) { base_power = 150 }
                     return base_power
                 }
+                else if (y == "Natural Gift") {
+                    if (this.mapper.properties.player.team[0].held_item.value == null) { return "—" }
+                    var held_item = this.mapper.properties.player.team[0].held_item.value
+                    power = this.natural_gift[held_item]?.power ?? "—"
+                    return power
+                }
+                else if (y == "Punishment") {
+                    var power = 60 // Starts at 60, increases by 20 for each positive stat change the enemy has, maxes out at 200
+                    var stat_change_atk = this.mapper.properties.battle.opponent.active_pokemon.modifiers.attack.value > 0          ? this.mapper.properties.battle.opponent.active_pokemon.modifiers.attack.value          : 0
+                    var stat_change_def = this.mapper.properties.battle.opponent.active_pokemon.modifiers.defense.value > 0         ? this.mapper.properties.battle.opponent.active_pokemon.modifiers.defense.value         : 0
+                    var stat_change_spa = this.mapper.properties.battle.opponent.active_pokemon.modifiers.special_attack.value > 0  ? this.mapper.properties.battle.opponent.active_pokemon.modifiers.special.value         : 0
+                    var stat_change_spd = this.mapper.properties.battle.opponent.active_pokemon.modifiers.special_defense.value > 0 ? this.mapper.properties.battle.opponent.active_pokemon.modifiers.special_defense.value : 0
+                    var stat_change_spe = this.mapper.properties.battle.opponent.active_pokemon.modifiers.speed.value > 0           ? this.mapper.properties.battle.opponent.active_pokemon.modifiers.speed.value           : 0
+                    var increases = stat_change_atk + stat_change_def + stat_change_spa + stat_change_spd + stat_change_spe
+                    var power_boost = increases * 20
+                    power += power_boost
+                    if (power > 200) { power = 200 } // Ensure power does not exceed 200
+                    return power
+                }
                 if (move.power == "—") { return "—"}
                 if (move.power == 0) { return "—"}
                 if (move.power == 1) { return "—"}
@@ -3389,6 +3450,11 @@ const app = Vue.createApp({
                 if (this.batt.field.weather.value == `Hail`) {
                     return "Ice" }
                 return "Normal"
+            }
+            else if (y == 'Natural Gift') {
+                if (this.mapper.properties.player.team[0].held_item.value == null) { return "Normal" }
+                var held_item = this.mapper.properties.player.team[0].held_item.value
+                return this.natural_gift[held_item]?.type ?? "Normal"
             }
             else if (y) {
                 var move = this.g4MoveData[y]
@@ -3553,6 +3619,9 @@ const app = Vue.createApp({
         determineSTAB(x) { //x = move1.value
             var pkmnType1 = this.g4PokemonData[this.starter].type_1
             var pkmnType2 = this.g4PokemonData[this.starter].type_2
+            if (this.starter == 'Arceus') {
+                pkmnType1 = this.arceus_plate_check()
+            }
             var moveType  = this.moveType(x)
             if (pkmnType1 == moveType || pkmnType2 == moveType)
                 return 1.5
