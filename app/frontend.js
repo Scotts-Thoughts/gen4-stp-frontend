@@ -553,6 +553,9 @@ const app = Vue.createApp({
                 "Lucario"   : "line-height: 15.47px;", // no tutor moves
                 "Giratina"  : "line-height: 16.25px;", // no tutor moves
                 "Arceus"    : "line-height: 13.74px;", // no tutor moves
+                "Gible"     : "line-height: 17.42px;", // no tutor moves
+                "Gabite"    : "line-height: 16.82px;", // no tutor moves
+                "Garchomp"  : "line-height: 13.74px;", // no tutor moves
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -1252,10 +1255,10 @@ const app = Vue.createApp({
             if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == true) {
                 return true
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && delay == true) {
+            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == false) {
                 return true
             }
-            if (this.mapper.properties.meta.state.value == `From Battle` && delay == true) {
+            if (this.mapper.properties.meta.state.value == `Battle` && delay == true) {
                 return true
             }
             else {
@@ -1549,6 +1552,10 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        // Open the folder ./splits/ in the file explorer with node.js
+        openFolder(folderName) {
+            require('child_process').exec(`start .\\${folderName}\\`);
+        },
         average_median_stats(stat_label) {
             let sum = 0;
             let count = 0;
@@ -1833,6 +1840,7 @@ const app = Vue.createApp({
             this.backgroundBrightness  = MyStorage[from].backgroundBrightness  
             this.backgroundContrast    = MyStorage[from].backgroundContrast    
             this.backgroundSaturation  = MyStorage[from].backgroundSaturation  
+            this.backgroundBlur        = MyStorage[from].backgroundBlur  
             this.ui_saturation         = MyStorage[from].ui_saturation  
             this.evolution             = MyStorage[from].evolution  
             
@@ -3864,6 +3872,7 @@ const app = Vue.createApp({
         this.mapper.properties.player.team[0].species.change(async (newProp, oldProp) => {
             if (this.evolution == true) {
                 const evolution_family_raw = this.g4PokemonData[this.starter].evolution_family
+                if (!evolution_family_raw) { return }
                 const evolution_family = evolution_family_raw.map(obj => obj.species)
                 const length = evolution_family.length
                 const evolved = evolution_family.includes(newProp.value)
@@ -3971,6 +3980,11 @@ const app = Vue.createApp({
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
                 await Promise.all([
                     await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),
+                ])
+            }
+            if (species == 'Shaymin') {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].flags.fateful_encounter.set(true, false),
                 ])
             }
         }

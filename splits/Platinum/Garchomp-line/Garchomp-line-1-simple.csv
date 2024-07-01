@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Gible,Rival,2:02,0,0,5,0:04,1719768269.828,Tackle,Sand-Attack,,
+Dawn,Gible,Rival,10:01,0,0,8,0:30,1719768749.505,Dragon Rage,Sand-Attack,Tackle,
+Dawn,Gible,Leader Roark,14:20,0,0,13,0:45,1719769008.532,Dragon Rage,Sand-Attack,Tackle,Sandstorm
+Dawn,Gible,Commander Mars,21:03,1,0,16,1:05,1719769410.822,Dragon Rage,Take Down,Tackle,Rock Tomb
+Dawn,Gabite,Leader Gardenia,31:29,1,0,24,1:39,1719770065.709,Dragon Rage,Take Down,Sand Tomb,Rock Tomb
+Dawn,Gabite,Commander Jupiter,34:06,1,0,25,1:47,1719770222.762,Dragon Rage,Take Down,Sand Tomb,Rock Tomb
+Dawn,Gabite,Leader Fantina,50:39,1,2,34,2:41,1719771216.15,Dragon Claw,Return,Earthquake,Substitute
+Dawn,Gabite,Rival,52:00,1,2,34,2:45,1719771296.715,Dragon Claw,Return,Earthquake,Substitute
+Dawn,Gabite,Leader Maylene,58:49,1,2,37,3:06,1719771706.174,Dragon Claw,Return,Earthquake,Substitute
+Dawn,Gabite,Rival,1:06:24,2,2,39,3:27,1719772161.157,Dragon Claw,Return,Earthquake,Substitute
+Dawn,Garchomp,Leader Wake,1:15:19,2,1,48,3:57,1719772979.675,Dragon Claw,Return,Earthquake,Swords Dance
+Dawn,Garchomp,Galactic Boss Cyrus,1:21:09,2,1,50,4:15,1719773418.638,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Rival,1:24:13,2,1,50,4:25,1719773602.954,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Leader Byron,1:26:58,2,1,52,4:34,1719773767.821,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Commander Saturn,1:29:32,2,1,52,4:42,1719773921.922,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Commander Mars,1:30:57,2,1,53,4:47,1719774006.876,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Leader Candice,1:36:02,2,1,54,5:03,1719774311.312,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Galactic Boss Cyrus,1:42:08,2,1,56,5:23,1719774727.055,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Commander Saturn,1:42:50,2,1,56,5:25,1719774768.356,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Commander Mars,1:48:13,2,1,57,5:43,1719775091.501,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Galactic Boss Cyrus,1:54:11,2,1,58,5:59,1719775449.248,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Leader Volkner,2:00:53,2,1,60,6:21,1719775958.393,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Rival,2:07:46,2,1,74,6:44,1719776371.624,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Elite Four Aaron,2:08:35,2,1,74,6:46,1719776420.34,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Elite Four Bertha,2:09:26,2,1,75,6:50,1719776471.679,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Elite Four Flint,2:10:06,2,1,75,6:52,1719776511.469,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Elite Four Lucian,2:10:57,2,1,76,6:55,1719776562.935,Dragon Claw,Aerial Ace,Earthquake,Swords Dance
+Dawn,Garchomp,Champion Cynthia,2:11:51,2,1,76,6:58,1719776616.453,Dragon Claw,Aerial Ace,Earthquake,Swords Dance

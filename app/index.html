@@ -38,14 +38,14 @@
             }" 
             :src="`images/pokemon/${starter}.png`" />
             <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/timer.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/resets.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/badges.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/stats.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/ability.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/heldItem.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/resets.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/badges.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/heldItem.svg)"></div>
             <img class="canvas colored-image ds" :src="`images/ui/${ui_type_color_modifier}${ui_stat_arrangement_modifier}stats_values.svg`" />
             <div v-if="show_nature_changes == true && (stats_setting == 'Automatic' || stats_setting == 'Base Stats')">
                 <img class="canvas colored-image ds" :src="`images/ui/nature arrows/${ui_stat_arrangement_modifier}/raises/${natures[pkmnNature].raises}.svg`" />
@@ -174,8 +174,6 @@
                         <br>
                         Splits Label: <input type="text" v-model="evolution_splits_label"/><br>
                     </div>
-                    <br>
-                    <br>
                     <br>
                     <br>
                     <br>
@@ -465,7 +463,7 @@
                     <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -490,7 +488,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -515,7 +513,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -540,7 +538,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="2">
+                <div v-else key="2" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
