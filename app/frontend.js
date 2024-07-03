@@ -527,35 +527,37 @@ const app = Vue.createApp({
             stat_fix_spd           : 0,
 
             customMovepool: {
-                "Torterra"  : "line-height: 16px;",
-                "Infernape" : "line-height: 15px;",
-                "Empoleon"  : "line-height: 15px;",
-                "Cresselia" : "line-height: 18px;",
-                "Heatran"   : "line-height: 18px;",
-                "Machop"    : "line-height: 16.54px;",
-                "Machoke"   : "line-height: 16.26px;",
-                "Machamp"   : "line-height: 15.47px;",
-                "Combee"    : "line-height: 19px;",
-                "Vespiquen" : "line-height: 16.82px;",
-                "Shellos"   : "line-height: 19px;",
-                "Gastrodon" : "line-height: 16.54px;",
-                "Swinub"    : "line-height: 18.42px;",
-                "Piloswine" : "line-height: 15.99px;",
-                "Mamoswine" : "line-height: 14.77px;",
-                "Bonsly"    : "line-height: 19.13px;",
-                "Sudowoodo" : "line-height: 18.41px;",
-                "Snorunt"   : "line-height: 19px;", // no tutor moves
-                "Froslass"  : "line-height: 17.42px;", // no tutor moves
-                "Carnivine" : "line-height: 18.42px;", // no tutor moves
-                "Snover"    : "line-height: 18.06px;",
-                "Abomasnow" : "line-height: 16.25px;", // no tutor moves
-                "Riolu"     : "line-height: 16.54px;",
-                "Lucario"   : "line-height: 15.47px;", // no tutor moves
-                "Giratina"  : "line-height: 16.25px;", // no tutor moves
-                "Arceus"    : "line-height: 13.74px;", // no tutor moves
-                "Gible"     : "line-height: 17.42px;", // no tutor moves
-                "Gabite"    : "line-height: 16.82px;", // no tutor moves
-                "Garchomp"  : "line-height: 13.74px;", // no tutor moves
+                "Torterra"     : "line-height: 16px;",
+                "Infernape"    : "line-height: 15px;",
+                "Empoleon"     : "line-height: 15px;",
+                "Cresselia"    : "line-height: 18px;",
+                "Heatran"      : "line-height: 18px;",
+                "Machop"       : "line-height: 16.54px;",
+                "Machoke"      : "line-height: 16.26px;",
+                "Machamp"      : "line-height: 15.47px;",
+                "Combee"       : "line-height: 19px;",
+                "Vespiquen"    : "line-height: 16.82px;",
+                "Shellos"      : "line-height: 19px;",
+                "Gastrodon"    : "line-height: 16.54px;",
+                "Swinub"       : "line-height: 18.42px;",
+                "Piloswine"    : "line-height: 15.99px;",
+                "Mamoswine"    : "line-height: 14.77px;",
+                "Bonsly"       : "line-height: 19.13px;",
+                "Sudowoodo"    : "line-height: 18.41px;",
+                "Snorunt"      : "line-height: 19px;",      // no tutor moves
+                "Froslass"     : "line-height: 17.42px;",   // no tutor moves
+                "Carnivine"    : "line-height: 18.42px;",   // no tutor moves
+                "Snover"       : "line-height: 18.06px;",
+                "Abomasnow"    : "line-height: 16.25px;",   // no tutor moves
+                "Riolu"        : "line-height: 16.54px;",
+                "Lucario"      : "line-height: 15.47px;",   // no tutor moves
+                "Giratina"     : "line-height: 16.25px;",   // no tutor moves
+                "Arceus"       : "line-height: 13.74px;",   // no tutor moves
+                "Gible"        : "line-height: 17.42px;",   // no tutor moves
+                "Gabite"       : "line-height: 16.82px;",   // no tutor moves
+                "Garchomp"     : "line-height: 13.74px;",   // no tutor moves
+                "Shaymin"      : "line-height: 19.52px;", 
+                "Shaymin - Sky": "line-height: 19.52px;", 
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -2344,6 +2346,7 @@ const app = Vue.createApp({
             if (this.mapper.properties.meta.state == `Battle`) {
                 let graphic = `images/trainers/roark.png`
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
+                let bytes = this.mapper.properties.battle.opponent.trainer.bytes
                 let displayGraphicState = true
                 switch (trainer) {
                     case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
@@ -2366,6 +2369,42 @@ const app = Vue.createApp({
                             case 5: graphic = `images/trainers/rival5mon.png`; break;
                             case 6: displayGraphicState = false; break;
                             default: graphic = `images/trainers/rival1mon.png`; break;
+                        }
+                        break;
+                    }   
+                    case "Commander Mars": {
+                        switch (bytes) {
+                            case 295: graphic = `images/trainers/mars.png`; break;
+                            case 405: graphic = `images/trainers/mars.png`; break;
+                            case 528: graphic = `images/trainers/mars.png`; break;
+                            case 926: graphic = `images/trainers/mars.png`; break; // TODO
+                            default:  graphic = `images/trainers/mars.png`; break;
+                        }
+                        break;
+                    }           
+                    case "Commander Jupiter": {
+                        switch (bytes) {
+                            case 406: graphic = `images/trainers/jupiter.png`; break;
+                            case 407: graphic = `images/trainers/jupiter.png`; break;
+                            case 927: graphic = `images/trainers/jupiter.png`; break; // TODO
+                            default:  graphic = `images/trainers/jupiter.png`; break;
+                        }
+                        break;
+                    }            
+                    case "Commander Saturn": {
+                        switch (bytes) {
+                            case 408: graphic = `images/trainers/saturn.png`; break;
+                            case 409: graphic = `images/trainers/saturn.png`; break; 
+                            case 913: graphic = `images/trainers/saturn.png`; break; // TODO
+                            default:  graphic = `images/trainers/saturn.png`; break;
+                        }
+                        break;
+                    }            
+                    case "Galactic Boss Cyrus": {
+                        switch (bytes) {
+                            case 403: graphic = `images/trainers/cyrus_1_2.png`; break;
+                            case 404: graphic = `images/trainers/cyrus_1_2.png`; break;
+                            default:  graphic = `images/trainers/cyrus_3.png`;   break;
                         }
                         break;
                     }            

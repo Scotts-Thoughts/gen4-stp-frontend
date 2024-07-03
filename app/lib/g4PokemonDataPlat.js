@@ -50254,7 +50254,20 @@ const g4PokemonData =
                 "Swagger",
                 "Substitute"
             ],
-            "tutor_learnset": [],
+            "tutor_learnset": [
+                "Air Cutter",
+                "Headbutt",
+                "Last Resort",
+                "Mud-Slap",
+                "Ominous Wind",
+                "Seed Bomb",
+                "Snore",
+                "Swift",
+                "Synthesis",
+                "Tailwind",
+                "Worry Seed",
+                "Zen Headbutt"
+            ],
             "egg_moves": []
         },
         "Fearow": {

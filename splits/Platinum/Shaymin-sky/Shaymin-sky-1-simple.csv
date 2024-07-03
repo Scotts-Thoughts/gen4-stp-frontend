@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Shaymin,Rival,8:36,0,1,9,0:27,1719844685.862,Return,Growth,,
+Dawn,Shaymin,Leader Roark,11:17,0,1,13,0:36,1719844846.252,Magical Leaf,Growth,Return,
+Dawn,Shaymin - Sky,Commander Mars,17:50,0,0,18,0:58,1719845377.571,Magical Leaf,Growth,Return,
+Dawn,Shaymin - Sky,Leader Gardenia,24:22,0,0,24,1:18,1719845769.306,Magical Leaf,Growth,Return,Leech Seed
+Dawn,Shaymin - Sky,Commander Jupiter,27:46,3,0,25,1:25,1719845973.265,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Leader Fantina,35:52,3,1,28,1:50,1719846675.538,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Rival,39:21,5,2,30,1:58,1719846884.082,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Leader Maylene,46:56,6,2,34,2:21,1719847338.793,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Rival,52:29,6,3,36,2:39,1719847672.067,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Leader Wake,55:32,6,3,45,2:50,1719847855.09,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Galactic Boss Cyrus,1:03:22,7,3,46,3:12,1719848325.726,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Rival,1:07:41,10,4,47,3:21,1719848583.855,Magical Leaf,Growth,Return,Substitute
+Dawn,Shaymin - Sky,Leader Byron,1:13:48,12,6,50,3:38,1719848951.052,Magical Leaf,Growth,Return,Grass Knot
+Dawn,Shaymin - Sky,Commander Saturn,1:17:48,13,6,50,3:48,1719849191.621,Magical Leaf,Growth,Return,Grass Knot
+Dawn,Shaymin - Sky,Commander Mars,1:19:47,13,7,51,3:55,1719849310.266,Magical Leaf,Growth,Return,Grass Knot
+Dawn,Shaymin - Sky,Leader Candice,1:29:59,13,7,64,4:28,1719849984.842,Magical Leaf,Growth,Return,Air Slash
+Dawn,Shaymin - Sky,Galactic Boss Cyrus,1:36:02,13,7,65,4:48,1719850348.272,Air Slash,Magical Leaf,Growth,Return
+Dawn,Shaymin - Sky,Commander Saturn,1:37:04,13,7,65,4:51,1719850409.874,Air Slash,Magical Leaf,Growth,Return
+Dawn,Shaymin - Sky,Commander Mars,1:45:47,13,7,67,5:20,1719850932.873,Air Slash,Magical Leaf,Growth,Psychic
+Dawn,Shaymin - Sky,Galactic Boss Cyrus,1:51:32,13,7,67,5:36,1719851277.996,Air Slash,Magical Leaf,Growth,Psychic
+Dawn,Shaymin - Sky,Leader Volkner,2:01:07,15,8,73,6:02,1719851852.443,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Rival,2:08:40,15,8,75,6:27,1719852305.728,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Elite Four Aaron,2:09:38,15,8,76,6:31,1719852364.083,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Elite Four Bertha,2:10:29,15,8,76,6:34,1719852414.942,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Elite Four Flint,2:11:56,16,8,77,6:37,1719852501.523,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Elite Four Lucian,2:12:58,16,9,77,6:40,1719852563.727,Air Slash,Energy Ball,Growth,Psychic
+Dawn,Shaymin - Sky,Champion Cynthia,2:14:04,16,9,80,6:45,1719852629.634,Air Slash,Energy Ball,Growth,Psychic
