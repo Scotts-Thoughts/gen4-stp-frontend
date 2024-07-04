@@ -400,7 +400,8 @@
             <transition name="fade1">
                 <!-- Enemy Team Display -->
                 <div v-if="enemy_graphic == true" style="position: absolute;" key="1">
-                    <div class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
+                    <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
+                    <div v-else class="trainerLabel">Double Battle Team</div>
                     <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
                     <div v-for="x in pkmnSlots">
                         <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
