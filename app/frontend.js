@@ -1114,6 +1114,17 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        double_battle_team_size() {
+            const opponent_2 = this.mapper.properties.battle.opponent_2.trainer.value
+            const opponent_1_team_count = this.mapper.properties.battle.opponent.team_count.value
+            const opponent_2_team_count = this.mapper.properties.battle.opponent_2.team_count.value
+            if (opponent_2) {
+                return opponent_1_team_count + opponent_2_team_count
+            }
+            else {
+                return opponent_1_team_count
+            }
+        },
         rival_starter() {
             let starter = this.starter_choice == 'Turtwig' ? 'Chimchar' : this.starter_choice == 'Chimchar' ? 'Piplup' : 'Turtwig'
             return starter
@@ -1215,6 +1226,11 @@ const app = Vue.createApp({
             const object      = this.platinum_trainers[opponent_id].party
             return object
         },
+        enemy_2_mon_static() {
+            const opponent_id = this.mapper.properties.battle.opponent_2.id.value
+            const object      = this.platinum_trainers[opponent_id].party
+            return object
+        },
         heldItem() {
             const state = this.mapper.properties.meta.state.value
             if (this.mapper.properties.player?.team[0]?.held_item?.value == "Never-Melt Ice") { return "NeverMeltIce"}
@@ -1279,7 +1295,13 @@ const app = Vue.createApp({
             }
         },
         battlePokemonCrop() {
-            const totalPokemon = this.mapper.properties.battle.opponent.team_count.value;
+            let totalPokemon          = this.mapper.properties.battle.opponent.team_count.value;
+            let opponent_2            = this.mapper.properties.battle.opponent_2.trainer.value
+            let opponent_team_count   = this.mapper.properties.battle.opponent.team_count.value;
+            let opponent_2_team_count = this.mapper.properties.battle.opponent_2.team_count.value;
+            if (opponent_2) {
+                totalPokemon = opponent_team_count + opponent_2_team_count
+            }
             const heights = {
               1: "233px",
               2: "399px",
@@ -2122,8 +2144,14 @@ const app = Vue.createApp({
             return this.customMovepool[this.starter]
         },
         enemyFaint(slotIndex) {
+            let opponent = 1
+            if (slotIndex >= 6) { 
+                slotIndex = slotIndex - 6
+                opponent = 2
+            }
             let fainted = false
-            if (this.mapper.properties.battle.opponent.team[slotIndex].stats.hp.value == 0) {
+            const enemy_hp = opponent == 2 ? this.mapper.properties.battle.opponent_2.team[slotIndex].stats.hp.value : this.mapper.properties.battle.opponent.team[slotIndex].stats.hp.value
+            if (enemy_hp == 0) {
                 fainted = true
             }
             if (fainted == true) {
@@ -2133,7 +2161,19 @@ const app = Vue.createApp({
                 return
             }
         },
-                //*timer methods
+        enemy2Faint(slotIndex) {
+            let fainted = false
+            if (this.mapper.properties.battle.opponent_2.team[slotIndex].stats.hp.value == 0) {
+                fainted = true
+            }
+            if (fainted == true) {
+                return "opacity: .35; filter: grayscale(100%);"
+            }
+            else {
+                return
+            }
+        },
+        //*timer methods
         //start the timer
         startTime() {
             if (this.timer_pause == false) {
@@ -4325,7 +4365,7 @@ const app = Vue.createApp({
                 let trainer = this.mapper.properties.battle.opponent.name.value
                 let id = this.mapper.properties.battle.opponent.id.value
                 let gameName = 'Platinum'
-                if (trainer == 'Pokemon Trainer -') { return }
+                if (trainer == 'Pokemon Trainer -' || trainer == null || trainer == undefined) { return }
                 if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
                     gameName = 'HGSS'
                 }

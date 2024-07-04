@@ -126,6 +126,7 @@
                     <table>
                         <tr><td>state:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
                         <tr><td>blackout:</td><td>{{this.blackout}}</td></tr>
+                        <tr><td>Enemy Team Count:</td><td>{{double_battle_team_size}}</td></tr>
                     </table>
                 </div>
                 <div class="ui2">
@@ -404,6 +405,9 @@
                     <div v-for="x in pkmnSlots">
                         <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
+                    <div v-for="x in pkmnSlots">
+                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value)" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
+                    </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
@@ -453,6 +457,60 @@
                                             <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"style="opacity: 1; font-size: 14px;" class="align_right">
                                             <!-- <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
                                                 <div>{{enemy_effective_power(enemy_mon_static[x]?.moves[move_index], mapper.properties.battle.opponent.team[x], x)}}</div>
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x + 6)">
+                            <div v-if="x < mapper.properties.battle.opponent_2.team_count.value && mapper.properties.battle.opponent_2.trainer.value != null" :class="`border slots ePkmnStyle ePkmn${x + mapper.properties.battle.opponent.team_count.value}`">
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_2_mon_static[x]?.species)}.png`" />
+                                <div class="ePkmnLvlSpecies">{{enemy_2_mon_static[x]?.species}} Lv: {{enemy_2_mon_static[x]?.level}}</div>
+                                <div class="ePkmnAbility" style="opacity: .7;">{{enemy_2_mon_static[x]?.ability}}</div>
+                                <div style="left: 2px;" class="border ePkmnTyping">
+                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_2_mon_static[x]?.species]?.type_1?.toLowerCase()}.png`" />
+                                    <img v-show="g4PokemonData[enemy_2_mon_static[x]?.species]?.type_1 != g4PokemonData[enemy_2_mon_static[x]?.species]?.type_2" 
+                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_2_mon_static[x]?.species]?.type_2?.toLowerCase()}.png`" />
+                                </div>
+                                <div v-if="mapper.properties.meta.state.value == 'Battle'" class="border ePkmnStats">
+                                    <table v-if="mapper.properties.battle.player.active_pokemon.stats.hp.value > 0" class="enemyStatTable">
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_2_mon_static[x]?.stats.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{getEnemyStat("attack", enemy_2_mon_static[x]?.stats.atk, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{getEnemyStat("defense", enemy_2_mon_static[x]?.stats.def, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{getEnemyStat("special_attack", enemy_2_mon_static[x]?.stats.spa, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{getEnemyStat("special_defense", enemy_2_mon_static[x]?.stats.spd, x)}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{getEnemyStat("speed", enemy_2_mon_static[x]?.stats.spe, x)}}</th></tr>
+                                    </table>
+                                    <table v-else class="enemyStatTable">
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.status_condition, x)">Hp:</span></th> <th class="align_right">{{enemy_2_mon_static[x]?.stats.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.attack, x)">Atk:</span></th><th class="align_right">{{enemy_2_mon_static[x]?.stats.attack}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.defense, x)">Def:</span></th><th class="align_right">{{enemy_2_mon_static[x]?.stats.defense}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.special_attack, x)">SpA:</span></th><th class="align_right">{{enemy_2_mon_static[x]?.stats.special_attack}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.special_defense, x)">SpD:</span></th><th class="align_right">{{enemy_2_mon_static[x]?.stats.special_defense}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.speed, x)">Spe:</span></th><th class="align_right">{{enemy_2_mon_static[x]?.stats.speed}}</th></tr>
+                                    </table>
+                                </div>
+                                <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent_2.party_position.value == x" class="ePkmnStats">
+                                    <div class="enemyStatModTable">
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent_2.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">BRN</div>
+                                        <div v-for="x in modifier_values">
+                                            <div v-show="mapper.properties.battle.opponent_2.active_pokemon.modifiers?.[x].value != 0" class="enemyMod" :class="`e_${x}`">{{stageModifiers(mapper.properties.battle.opponent.active_pokemon.modifiers[x].value)}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border ePkmnMoves">
+                                    <table class="enemyMovesetTable">
+                                        <tr v-for="move_index in moves = [0,1,2,3]">
+                                            <th v-if="enemy_2_mon_static[x]?.moves[move_index] != undefined">
+                                                <img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(platinum_moves[enemyMove(x, move_index)]?.Type?.toLowerCase(), enemyMove(x, move_index), x)}.png`" />
+                                            </th>
+                                            <th v-if="enemy_2_mon_static[x]?.moves[move_index] != undefined"class="align_left" style="font-size: 14px;">
+                                                {{enemy_2_mon_static[x]?.moves[move_index]}}
+                                            </th>
+                                            <th v-if="enemy_2_mon_static[x]?.moves[move_index] != undefined"style="opacity: 1; font-size: 14px;" class="align_right">
+                                            <!-- <th v-if="enemy_2_mon_static[x]?.moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
+                                                <div>{{enemy_effective_power(enemy_2_mon_static[x]?.moves[move_index], mapper.properties.battle.opponent_2.team[x], x)}}</div>
                                             </th>
                                         </tr>
                                     </table>
