@@ -407,7 +407,7 @@
                         <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
                     <div v-for="x in pkmnSlots">
-                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value)" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
+                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">

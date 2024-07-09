@@ -2414,11 +2414,15 @@ const app = Vue.createApp({
                     }   
                     case "Commander Mars": {
                         switch (bytes) {
-                            case 295: graphic = `images/trainers/mars.png`; break;
-                            case 405: graphic = `images/trainers/mars.png`; break;
-                            case 528: graphic = `images/trainers/mars.png`; break;
-                            case 926: graphic = `images/trainers/mars.png`; break; // TODO
-                            default:  graphic = `images/trainers/mars.png`; break;
+                            case 295: graphic = `images/trainers/mars.png`;  break;
+                            case 405: graphic = `images/trainers/mars2.png`; break;
+                            case 528: graphic = `images/trainers/mars.png`;  break;
+                            case 926: { // TODO
+                                graphic = `images/trainers/mars.png`;  
+                                displayGraphicState = false;
+                                break; 
+                            } 
+                            default:  graphic = `images/trainers/mars.png`;  break;
                         }
                         break;
                     }           
@@ -2426,7 +2430,11 @@ const app = Vue.createApp({
                         switch (bytes) {
                             case 406: graphic = `images/trainers/jupiter.png`; break;
                             case 407: graphic = `images/trainers/jupiter.png`; break;
-                            case 927: graphic = `images/trainers/jupiter.png`; break; // TODO
+                            case 927: { // TODO
+                                graphic = `images/trainers/jupiter.png`; 
+                                displayGraphicState = false;
+                                break; 
+                            } 
                             default:  graphic = `images/trainers/jupiter.png`; break;
                         }
                         break;
@@ -2435,7 +2443,6 @@ const app = Vue.createApp({
                         switch (bytes) {
                             case 408: graphic = `images/trainers/saturn.png`; break;
                             case 409: graphic = `images/trainers/saturn.png`; break; 
-                            case 913: graphic = `images/trainers/saturn.png`; break; // TODO
                             default:  graphic = `images/trainers/saturn.png`; break;
                         }
                         break;
@@ -2444,6 +2451,7 @@ const app = Vue.createApp({
                         switch (bytes) {
                             case 403: graphic = `images/trainers/cyrus_1_2.png`; break;
                             case 404: graphic = `images/trainers/cyrus_1_2.png`; break;
+                            case 913: graphic = `images/trainers/cyrus_3.png`;   break;
                             default:  graphic = `images/trainers/cyrus_3.png`;   break;
                         }
                         break;
