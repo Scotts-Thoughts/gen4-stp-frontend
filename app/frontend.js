@@ -544,20 +544,21 @@ const app = Vue.createApp({
                 "Mamoswine"    : "line-height: 14.77px;",
                 "Bonsly"       : "line-height: 19.13px;",
                 "Sudowoodo"    : "line-height: 18.41px;",
-                "Snorunt"      : "line-height: 19px;",      // no tutor moves
-                "Froslass"     : "line-height: 17.42px;",   // no tutor moves
-                "Carnivine"    : "line-height: 18.42px;",   // no tutor moves
+                "Snorunt"      : "line-height: 19px;",    // no tutor moves
+                "Froslass"     : "line-height: 17.42px;", // no tutor moves
+                "Carnivine"    : "line-height: 18.42px;", // no tutor moves
                 "Snover"       : "line-height: 18.06px;",
-                "Abomasnow"    : "line-height: 16.25px;",   // no tutor moves
+                "Abomasnow"    : "line-height: 16.25px;", // no tutor moves
                 "Riolu"        : "line-height: 16.54px;",
-                "Lucario"      : "line-height: 15.47px;",   // no tutor moves
-                "Giratina"     : "line-height: 16.25px;",   // no tutor moves
-                "Arceus"       : "line-height: 13.74px;",   // no tutor moves
-                "Gible"        : "line-height: 17.42px;",   // no tutor moves
-                "Gabite"       : "line-height: 16.82px;",   // no tutor moves
-                "Garchomp"     : "line-height: 13.74px;",   // no tutor moves
-                "Shaymin"      : "line-height: 19.52px;", 
-                "Shaymin - Sky": "line-height: 19.52px;", 
+                "Lucario"      : "line-height: 15.47px;", // no tutor moves
+                "Giratina"     : "line-height: 16.25px;", // no tutor moves
+                "Arceus"       : "line-height: 13.74px;", // no tutor moves
+                "Gible"        : "line-height: 17.42px;", // no tutor moves
+                "Gabite"       : "line-height: 16.82px;", // no tutor moves
+                "Garchomp"     : "line-height: 13.74px;", // no tutor moves
+                "Shaymin"      : "line-height: 19.52px;",
+                "Shaymin - Sky": "line-height: 19.52px;",
+                "Feraligatr"   : "line-height: 15.49px;",
             },
             simple_natures: {
                 "0" : "Hardy",
