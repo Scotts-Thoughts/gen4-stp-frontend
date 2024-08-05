@@ -13,7 +13,7 @@
                 <option disabled value="">Select a species</option>
                 <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
             </select>
-            GameHook not yet loaded.
+            Not receiving data...
         </div>
         <div v-else class="">
             <img class="canvas" ref="background_texture" :src="textures[backgroundTexture]" 

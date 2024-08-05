@@ -495,7 +495,7 @@ const app = Vue.createApp({
             evolution             : false,
             evolution_splits_label: "",
             frame                 : false,
-            selected_game         : "Platinum",
+            selected_game         : MyStorage['selected_game'] ?? "Platinum",
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
             refilming_mode        : false,
@@ -1155,7 +1155,7 @@ const app = Vue.createApp({
                 }
             }
             else {
-                if (this.mapper.properties.flags.got_tm27_return.value == false && state == 'Overworld') {
+                if (this.selected_game == 'Platinum' && this.mapper.properties.flags?.got_tm27_return?.value == false && state == 'Overworld') {
                     return `IVs`
                 }
                 switch (stat_type) {
@@ -1224,7 +1224,9 @@ const app = Vue.createApp({
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
-            const object      = this.platinum_trainers[opponent_id].party
+            const object      = this.selected_game == 'Platinum' ? this.platinum_trainers[opponent_id].party : 
+                this.selected_game == 'HeartGold and SoulSilver' ? this.trainers_hgss[opponent_id].party :
+                this.trainers_dp[opponent_id].party
             return object
         },
         enemy_2_mon_static() {
@@ -2389,75 +2391,162 @@ const app = Vue.createApp({
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
                 let bytes = this.mapper.properties.battle.opponent.trainer.bytes
                 let displayGraphicState = true
-                switch (trainer) {
-                    case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
-                    case "Leader Gardenia":   graphic = `images/trainers/gardenia.png`;    break;
-                    case "Leader Fantina":    graphic = `images/trainers/fantina.png`;     break;
-                    case "Leader Wake":       graphic = `images/trainers/crasherwake.png`; break;
-                    case "Leader Maylene":    graphic = `images/trainers/maylene.png`;     break;
-                    case "Leader Candice":    graphic = `images/trainers/candice.png`;     break;
-                    case "Leader Volkner":    graphic = `images/trainers/volkner.png`;     break;
-                    case "Leader Byron":      graphic = `images/trainers/byron.png`;       break;
-                    case "Elite Four Aaron":  graphic = `images/trainers/aaron.png`;       break;
-                    case "Elite Four Bertha": graphic = `images/trainers/bertha.png`;      break;
-                    case "Elite Four Flint":  graphic = `images/trainers/flint.png`;       break;
-                    case "Elite Four Lucian": graphic = `images/trainers/lucian.png`;      break;
-                    case "Rival": {
-                        switch (this.mapper.properties.battle.opponent.team_count.value) {
-                            case 1: graphic = `images/trainers/rival1mon.png`; break;
-                            case 2: graphic = `images/trainers/rival1mon.png`; break;
-                            case 4: graphic = `images/trainers/rival4mon.png`; break;
-                            case 5: graphic = `images/trainers/rival5mon.png`; break;
-                            case 6: displayGraphicState = false; break;
-                            default: graphic = `images/trainers/rival1mon.png`; break;
+                if (this.selected_game == `Platinum` || this.selected_game == `Diamond and Pearl`) {
+                    switch (trainer) {
+                        case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
+                        case "Leader Gardenia":   graphic = `images/trainers/gardenia.png`;    break;
+                        case "Leader Fantina":    graphic = `images/trainers/fantina.png`;     break;
+                        case "Leader Wake":       graphic = `images/trainers/crasherwake.png`; break;
+                        case "Leader Maylene":    graphic = `images/trainers/maylene.png`;     break;
+                        case "Leader Candice":    graphic = `images/trainers/candice.png`;     break;
+                        case "Leader Volkner":    graphic = `images/trainers/volkner.png`;     break;
+                        case "Leader Byron":      graphic = `images/trainers/byron.png`;       break;
+                        case "Elite Four Aaron":  graphic = `images/trainers/aaron.png`;       break;
+                        case "Elite Four Bertha": graphic = `images/trainers/bertha.png`;      break;
+                        case "Elite Four Flint":  graphic = `images/trainers/flint.png`;       break;
+                        case "Elite Four Lucian": graphic = `images/trainers/lucian.png`;      break;
+                        case "Rival": {
+                            switch (this.mapper.properties.battle.opponent.team_count.value) {
+                                case 1: graphic = `images/trainers/rival1mon.png`; break;
+                                case 2: graphic = `images/trainers/rival1mon.png`; break;
+                                case 4: graphic = `images/trainers/rival4mon.png`; break;
+                                case 5: graphic = `images/trainers/rival5mon.png`; break;
+                                case 6: displayGraphicState = false; break;
+                                default: graphic = `images/trainers/rival1mon.png`; break;
+                            }
+                            break;
+                        }   
+                        case "Commander Mars": {
+                            switch (bytes) {
+                                case 295: graphic = `images/trainers/mars.png`;  break;
+                                case 405: graphic = `images/trainers/mars2.png`; break;
+                                case 528: graphic = `images/trainers/mars.png`;  break;
+                                case 926: { // TODO
+                                    graphic = `images/trainers/mars.png`;  
+                                    displayGraphicState = false;
+                                    break; 
+                                } 
+                                default:  graphic = `images/trainers/mars.png`;  break;
+                            }
+                            break;
+                        }           
+                        case "Commander Jupiter": {
+                            switch (bytes) {
+                                case 406: graphic = `images/trainers/jupiter.png`; break;
+                                case 407: graphic = `images/trainers/jupiter.png`; break;
+                                case 927: { // TODO
+                                    graphic = `images/trainers/jupiter.png`; 
+                                    displayGraphicState = false;
+                                    break; 
+                                } 
+                                default:  graphic = `images/trainers/jupiter.png`; break;
+                            }
+                            break;
+                        }            
+                        case "Commander Saturn": {
+                            switch (bytes) {
+                                case 408: graphic = `images/trainers/saturn.png`; break;
+                                case 409: graphic = `images/trainers/saturn.png`; break; 
+                                default:  graphic = `images/trainers/saturn.png`; break;
+                            }
+                            break;
+                        }            
+                        case "Galactic Boss Cyrus": {
+                            switch (bytes) {
+                                case 403: graphic = `images/trainers/cyrus_1_2.png`; break;
+                                case 404: graphic = `images/trainers/cyrus_1_2.png`; break;
+                                case 913: graphic = `images/trainers/cyrus_3.png`;   break;
+                                default:  graphic = `images/trainers/cyrus_3.png`;   break;
+                            }
+                            break;
+                        }            
+                        default: displayGraphicState = false; break;
+                    } 
+                }
+                if (this.selected_game == `HeartGold and SoulSilver`) {
+                    switch (trainer) {
+                        case "Leader Falkner":   graphic = `images/trainers/falkner.png`;      break;
+                        case "Leader Bugsy":     graphic = `images/trainers/bugsy.png`;        break;
+                        case "Leader Whitney":   graphic = `images/trainers/whitney.png`;      break;
+                        case "Leader Morty":     graphic = `images/trainers/morty.png`;        break;
+                        case "Leader Chuck":     graphic = `images/trainers/chuck.png`;        break;
+                        case "Leader Pryce":     graphic = `images/trainers/pryce.png`;        break;
+                        case "Leader Jasmine":   graphic = `images/trainers/jasmine.png`;      break;
+                        case "Leader Clair":     graphic = `images/trainers/clair.png`;        break;
+                        case "Leader Brock":     graphic = `images/trainers/brock.png`;        break;
+                        case "Leader Misty":     graphic = `images/trainers/misty.png`;        break;
+                        case "Leader Lt. Surge": graphic = `images/trainers/surge.png`;        break;
+                        case "Leader Erika":     graphic = `images/trainers/erika.png`;        break;
+                        case "Leader Sabrina":   graphic = `images/trainers/sabrina.png`;      break;
+                        case "Leader Janine":    graphic = `images/trainers/janine.png`;       break;
+                        case "Leader Blaine":    graphic = `images/trainers/blaine.png`;       break;
+                        case "Elite Four Will": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 245: graphic = `images/trainers/will.png`; break;
+                                case 702: displayGraphicState = false;          break;
+                                default:  displayGraphicState = false;          break;
+                            }
+                            break;
+                        }   
+                        case "Elite Four Koga": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 247: graphic = `images/trainers/koga.png`; break;
+                                case 703: displayGraphicState = false;          break;
+                                default:  displayGraphicState = false;          break;
+                            }
+                            break;
+                        }   
+                        case "Elite Four Bruno": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 418: graphic = `images/trainers/bruno.png`; break;
+                                case 704: displayGraphicState = false;           break;
+                                default:  displayGraphicState = false;           break;
+                            }
+                            break;
+                        }   
+                        case "Elite Four Karen": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 246: graphic = `images/trainers/karen.png`; break;
+                                case 705: displayGraphicState = false;           break;
+                                default:  displayGraphicState = false;           break;
+                            }
+                            break;
+                        }   
+                        case "Passerby Boy": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 495: graphic = `images/trainers/passerby boy.png`; break;
+                                case 496: graphic = `images/trainers/passerby boy.png`; break;
+                                case 497: graphic = `images/trainers/passerby boy.png`; break;
+                                default:  graphic = `images/trainers/passerby boy.png`; break;
+                            }
+                            break;
                         }
-                        break;
-                    }   
-                    case "Commander Mars": {
-                        switch (bytes) {
-                            case 295: graphic = `images/trainers/mars.png`;  break;
-                            case 405: graphic = `images/trainers/mars2.png`; break;
-                            case 528: graphic = `images/trainers/mars.png`;  break;
-                            case 926: { // TODO
-                                graphic = `images/trainers/mars.png`;  
-                                displayGraphicState = false;
-                                break; 
-                            } 
-                            default:  graphic = `images/trainers/mars.png`;  break;
-                        }
-                        break;
-                    }           
-                    case "Commander Jupiter": {
-                        switch (bytes) {
-                            case 406: graphic = `images/trainers/jupiter.png`; break;
-                            case 407: graphic = `images/trainers/jupiter.png`; break;
-                            case 927: { // TODO
-                                graphic = `images/trainers/jupiter.png`; 
-                                displayGraphicState = false;
-                                break; 
-                            } 
-                            default:  graphic = `images/trainers/jupiter.png`; break;
-                        }
-                        break;
-                    }            
-                    case "Commander Saturn": {
-                        switch (bytes) {
-                            case 408: graphic = `images/trainers/saturn.png`; break;
-                            case 409: graphic = `images/trainers/saturn.png`; break; 
-                            default:  graphic = `images/trainers/saturn.png`; break;
-                        }
-                        break;
-                    }            
-                    case "Galactic Boss Cyrus": {
-                        switch (bytes) {
-                            case 403: graphic = `images/trainers/cyrus_1_2.png`; break;
-                            case 404: graphic = `images/trainers/cyrus_1_2.png`; break;
-                            case 913: graphic = `images/trainers/cyrus_3.png`;   break;
-                            default:  graphic = `images/trainers/cyrus_3.png`;   break;
-                        }
-                        break;
-                    }            
-                    default: displayGraphicState = false; break;
+                        case "Rival": {
+                            switch (this.mapper.properties.battle.opponent.trainer.bytes) {
+                                case 1:   graphic = `images/trainers/rival2.png`; break;
+                                case 2:   graphic = `images/trainers/rival1.png`; break;
+                                case 3:   graphic = `images/trainers/rival1.png`; break;
+                                case 263: graphic = `images/trainers/rival3.png`; break;
+                                case 264: graphic = `images/trainers/rival5.png`; break;
+                                case 265: graphic = `images/trainers/rival1.png`; break;
+                                case 266: graphic = `images/trainers/rival2.png`; break;
+                                case 267: graphic = `images/trainers/rival3.png`; break;
+                                case 268: graphic = `images/trainers/rival5.png`; break;
+                                case 269: graphic = `images/trainers/rival2.png`; break;
+                                case 270: graphic = `images/trainers/rival3.png`; break;
+                                case 271: graphic = `images/trainers/rival4.png`; break;
+                                case 272: graphic = `images/trainers/rival5.png`; break;
+                                case 285: graphic = `images/trainers/rival6.png`; break;
+                                case 286: graphic = `images/trainers/rival6.png`; break;
+                                case 287: graphic = `images/trainers/rival6.png`; break;
+                                case 288: graphic = `images/trainers/rival4.png`; break;
+                                case 289: graphic = `images/trainers/rival4.png`; break;
+                                default: graphic = `images/trainers/rival1mon.png`; break;
+                            }
+                            break;
+                        }   
+                        default: displayGraphicState = false; break;
+                    } 
                 }
                 return {
                     state: displayGraphicState,
@@ -3974,7 +4063,7 @@ const app = Vue.createApp({
         })
 
         // Resets
-        this.mapper.properties.flags.new_game_1.change(async (newProp, oldProp) => {
+        this.mapper.properties?.flags?.new_game_1.change(async (newProp, oldProp) => {
             // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
             if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
                 this.startTime()
