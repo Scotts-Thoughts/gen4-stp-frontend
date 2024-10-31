@@ -2013,6 +2013,32 @@ img, span, div {
     top: 135px;
     left: 30px;
 }
+
+.voltorb_flip_data {
+    border: 1px solid #ff000000;
+    left: 355px;
+    width: 74px;
+    text-align: center;
+}
+.coinsLabel {
+    top: 132px;
+    text-decoration: underline;
+}
+.coinsValue {
+    top: 154px;
+    opacity: 1;
+    font-size: 16px;
+}
+.roundLabel {
+    top: 175px;
+    text-decoration: underline;
+}
+.roundValue {
+    top: 197px;
+    opacity: 1;
+    font-size: 16px;
+}
+
 .accuracyModLabel {
     position: absolute;
     top: 245px;
@@ -3068,6 +3094,11 @@ img, span, div {
 }
 .movepoolDemo tr:nth-child(odd) {
     background-color: #cfcfcf;
+}
+.voltorb_flip {
+    position: absolute;
+    top: 252px;
+    left: 88px;
 }
 .enemyStatsArea {
     display: block;

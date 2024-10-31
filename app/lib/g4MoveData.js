@@ -2223,7 +2223,7 @@ const g4MoveData = {
         Type: "Grass",
         Category: "Special",
         PP: "10",
-        Power: "75",
+        Power: "60",
         Accuracy: "100",
         Description: "A nutrient-draining attack. The user's HP is restored by half the damage taken by the target."
     },
@@ -2583,7 +2583,7 @@ const g4MoveData = {
     "Moonlight":
     {
         Move: "Moonlight",
-        Type: "Fairy",
+        Type: "Normal",
         Category: "Status",
         PP: "5",
         Power: "—",

@@ -62,4 +62,5 @@ const auto_save_settings = [
     "show_tutor_moves",
     "movepool_isolation",
     "selected_game",
+    "right_display",
 ]

@@ -516,6 +516,12 @@ const app = Vue.createApp({
             show_nature_changes    : MyStorage['show_nature_changes']  ?? true,
             show_tutor_moves       : MyStorage['show_tutor_moves']     ?? true,
             movepool_isolation     : MyStorage['movepool_isolation']   ?? "Automatic",
+            
+            right_display          : MyStorage['right_display'] ?? "Automatic",
+            hgss_trainers          : [],
+            examined_trainer       : "",
+            search_trainers        : "",
+            
             stat_fix_toggle        : false,
             stat_fix_toggle_2      : 0,
             stat_fix_lvl           : 0,
@@ -985,6 +991,7 @@ const app = Vue.createApp({
                 }
             );
         }
+        this.hgss_trainers = this.extractTrainerInfo(this.trainers_hgss)
     },
     watch: {
         starter(newValue, oldValue) {
@@ -1115,6 +1122,25 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        voltorb_flip() {
+            const voltorb_flip_trigger = this.mapper.properties.screen.voltorb_flip.activate_voltorb_flip.value
+            const map = this.mapper.properties.overworld.map_name.value 
+            if (voltorb_flip_trigger == 160 && map == 'Goldenrod City - Map 31') {
+                console.log("Voltorb Flip Active")
+                return true
+            }
+            else {
+                return false
+            }
+        },
+        examined_trainer_data() {
+            var trainer_id = ""
+            var inputString = this.examined_trainer
+            const underscoreIndex = inputString.indexOf('_');
+            trainer_id = inputString.substring(underscoreIndex + 1);
+            var data = this.trainers_hgss[trainer_id] ?? { name: "Unknown"}
+            return data
+        },
         double_battle_team_size() {
             const opponent_2 = this.mapper.properties.battle.opponent_2.trainer.value
             const opponent_1_team_count = this.mapper.properties.battle.opponent.team_count.value
@@ -1194,6 +1220,13 @@ const app = Vue.createApp({
                 return this.pokemon_list;
             } else {
                 return this.pokemon_list.filter(pokemon => pokemon.toLowerCase().includes(this.search_term.toLowerCase()));
+            }
+        },
+        filtered_trainer_list() {
+            if (this.search_trainers === '') {
+                return this.hgss_trainers;
+            } else {
+                return this.hgss_trainers.filter(pokemon => pokemon.toLowerCase().includes(this.search_trainers.toLowerCase()));
             }
         },
         exp_label_percentage() {
@@ -1298,21 +1331,26 @@ const app = Vue.createApp({
             }
         },
         battlePokemonCrop() {
-            let totalPokemon          = this.mapper.properties.battle.opponent.team_count.value;
+            let totalPokemon = 0
+            const heights = {
+                1: "233px",
+                2: "399px",
+                3: "566px",
+                4: "733px",
+                5: "898px",
+                6: "1080px"
+              };
+            if (this.right_display == 'Trainer') {
+                totalPokemon = this.examined_trainer_data?.party?.length ?? 0
+                return `height: ${heights[totalPokemon]}; filter: saturate(${this.ui_saturation}) drop-shadow(0px 0px 1px #000000)`;
+            }
+            totalPokemon = this.mapper.properties.battle.opponent.team_count.value;
             let opponent_2            = this.mapper.properties.battle.opponent_2.trainer.value
             let opponent_team_count   = this.mapper.properties.battle.opponent.team_count.value;
             let opponent_2_team_count = this.mapper.properties.battle.opponent_2.team_count.value;
             if (opponent_2) {
                 totalPokemon = opponent_team_count + opponent_2_team_count
             }
-            const heights = {
-              1: "233px",
-              2: "399px",
-              3: "566px",
-              4: "733px",
-              5: "898px",
-              6: "1080px"
-            };
             return `height: ${heights[totalPokemon]}; filter: saturate(${this.ui_saturation}) drop-shadow(0px 0px 1px #000000)`;
         },
         play() {
@@ -1579,6 +1617,35 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        voltorb_flip_style(voltorb_flip_card_value) {
+            if (voltorb_flip_card_value == 2 || voltorb_flip_card_value == 3) {
+                return "opacity: .9; filter: saturate(150%);"
+            }
+            if (voltorb_flip_card_value == 1) {
+                return "opacity: .9; filter: grayscale(100%);"
+            }
+            if (voltorb_flip_card_value == 'Voltorb') {
+                return "opacity: .20; filter: grayscale(100%);"
+            }
+        },
+        stripBeforeUnderscore(inputString) {
+            const underscoreIndex = inputString.indexOf('_');
+            if (underscoreIndex === -1) {
+                return inputString; // Return the original string if no underscore is found
+            }
+            return inputString.substring(underscoreIndex + 1);
+        },
+        extractTrainerInfo(trainers) {
+            const result = [];
+            for (const key in trainers) {
+                if (trainers.hasOwnProperty(key)) {
+                    const trainer = trainers[key];
+                    const infoString = `${trainer.name}_${trainer.rom_id}`;
+                    result.push(infoString);
+                }
+            }
+            return result;
+        },
         // Open the folder ./splits/ in the file explorer with node.js
         openFolder(folderName) {
             require('child_process').exec(`start .\\${folderName}\\`);
@@ -4063,16 +4130,29 @@ const app = Vue.createApp({
         })
 
         // Resets
-        this.mapper.properties?.flags?.new_game_1.change(async (newProp, oldProp) => {
-            // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
-            if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
-                this.startTime()
-                this.attempt_number++
-            }
-            if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
-                this.playerResets++
-            }
-        })
+        if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
+            this.mapper.properties?.flags?.new_game_1.change(async (newProp, oldProp) => {
+                // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
+                if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
+                    this.startTime()
+                    this.attempt_number++
+                }
+                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
+                    this.playerResets++
+                }
+            })
+        }
+        if (this.selected_game == "HeartGold and SoulSilver") {
+            this.mapper.properties?.variables?.game_started.change(async (newProp, oldProp) => {
+                if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
+                    this.startTime()
+                    this.attempt_number++
+                }
+                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0) { // TODO How do resets work in HGSS?
+                    this.playerResets++
+                }
+            })
+        }
         //Blackouts
         this.mapper.properties.battle.player.team[0].stats.hp.change((newProp, oldProp) => {
             const state = this.mapper.properties.meta.state.value

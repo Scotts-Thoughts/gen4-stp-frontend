@@ -196,13 +196,15 @@
                         <option>Female</option>
                         <option>Male</option>
                     </select>
-                    <div>Starter Player Chooses:</div>
-                    <select v-model="starter_choice" class="dropdownMenu">
-                        <option>Turtwig</option>
-                        <option>Chimchar</option>
-                        <option>Piplup</option>
-                    </select>
-                    <div>Rival chooses: {{rival_starter}}</div>
+                    <div v-if="mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'">
+                        <div>Starter Player Chooses:</div>
+                        <select v-model="starter_choice" class="dropdownMenu">
+                            <option>Turtwig</option>
+                            <option>Chimchar</option>
+                            <option>Piplup</option>
+                        </select>
+                        <div>Rival chooses: {{rival_starter}}</div>
+                    </div>
                 </div>
                 <div class="ui3">
                     <div>Pokemon Image Settings</div>
@@ -241,6 +243,20 @@
                     Copy from: <input type="text" v-model="copy_overlay_pokemon_from"/><br>
                     Copy to: <input type="text" v-model="copy_overlay_pokemon_to"/><br>
                     <button @click="copy_overlay_properties()" class="buttonStyle">Copy Overlay Settings</button><br>
+                    <br>
+                    <div>Right Display:</div>
+                    <select v-model="right_display" class="dropdownMenu">
+                        <option>Automatic</option>
+                        <option>Trainer</option>
+                    </select><br>
+                    <div v-if="right_display == 'Trainer'">
+                        <div>Search Trainers:</div>
+                        <input type="text" v-model="search_trainers" placeholder="Search for a trainer">
+                        <div>Trainer:</div>
+                        <select v-model="examined_trainer" class="dropdownMenu">
+                            <option v-for="trainer in filtered_trainer_list" :key="trainer" :value="trainer">{{ trainer }}</option>
+                        </select><br>
+                    </div>
                 </div>
             </div>
 
@@ -519,6 +535,73 @@
                     </div> 
                     <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
+                <div v-else-if="right_display == 'Trainer'" style="position: absolute;" key="2">
+                    <div class="trainerLabel">{{examined_trainer_data.name}}</div>
+                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
+                    <div v-for="x in pkmnSlots">
+                        <img v-if="x < examined_trainer_data?.party?.length" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition">
+                    </div>
+                    <div class="enemyGraphic">
+                        <div v-for="x in pkmnSlots" class="eFaintTransition" >
+                            <div v-if="x < examined_trainer_data?.party?.length" :class="`border slots ePkmnStyle ePkmn${x}`">
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(examined_trainer_data?.party[x]?.species)}.png`" />
+                                <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}} Lv: {{examined_trainer_data?.party[x]?.level}}</div>
+                                <div class="ePkmnAbility" style="opacity: .7;">{{examined_trainer_data?.party[x]?.ability}}</div>
+                                <div style="left: 2px;" class="border ePkmnTyping">
+                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[examined_trainer_data?.party[x]?.species]?.type_1?.toLowerCase()}.png`" />
+                                    <img v-show="g4PokemonData[examined_trainer_data?.party[x]?.species]?.type_1?.toLowerCase() != g4PokemonData[examined_trainer_data?.party[x]?.species]?.type_2?.toLowerCase()" 
+                                        class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[examined_trainer_data?.party[x]?.species]?.type_2?.toLowerCase()}.png`" />
+                                </div>
+                                <div class="border ePkmnStats">
+                                    <table v-if="mapper.properties.battle.player.active_pokemon.stats.hp.value > 0" class="enemyStatTable">
+                                        <tr><th class="align_left"><span class="enemyStatLabel">Hp:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.hp}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel">Atk:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.attack}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel">Def:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.defense}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel">SpA:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.special_attack}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel">SpD:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.special_defense}}</th></tr>
+                                        <tr><th class="align_left"><span class="enemyStatLabel">Spe:</span></th><th class="align_right">{{examined_trainer_data?.party[x]?.stats.speed}}</th></tr>
+                                    </table>
+                                </div>
+                                <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
+                                    <div class="enemyStatModTable">
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">BRN</div>
+                                        <div v-for="x in modifier_values">
+                                            <div v-show="mapper.properties.battle.opponent.active_pokemon.modifiers?.[x].value != 0" class="enemyMod" :class="`e_${x}`">{{stageModifiers(mapper.properties.battle.opponent.active_pokemon.modifiers[x].value)}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border ePkmnMoves">
+                                    <table class="enemyMovesetTable">
+                                        <tr v-for="(move, index) in examined_trainer_data.party[x].moves">
+                                            <th>
+                                                <img class="icons moveIcon" :src="`images/type-icons-circular/${g4MoveData[examined_trainer_data.party[x].moves[index]].Type}.png`" />
+                                            </th>
+                                            <th style="font-size: 14px;">
+                                                {{examined_trainer_data.party[x].moves[index]}}
+                                            </th>
+                                            <th style="opacity: 1; font-size: 14px;" class="align_right">
+                                                {{g4MoveData[examined_trainer_data.party[x].moves[index]].Power}}
+                                            </th>
+                                        </tr>
+                                        <tr v-for="move_index in moves = [0,1,2,3]">
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined">
+                                                <img class="icons moveIcon" :src="`images/type-icons-circular/${eHPType(platinum_moves[enemyMove(x, move_index)]?.Type?.toLowerCase(), enemyMove(x, move_index), x)}.png`" />
+                                            </th>
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"class="align_left" style="font-size: 14px;">
+                                                {{enemy_mon_static[x]?.moves[move_index]}}
+                                            </th>
+                                            <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined" style="opacity: 1; font-size: 14px;" class="align_right">
+                                            <!-- <th v-if="enemy_mon_static[x]?.moves[move_index] != undefined"style="opacity: .6;" class="align_right"> -->
+                                                <div>{{enemy_effective_power(enemy_mon_static[x]?.moves[move_index], mapper.properties.battle.opponent.team[x], x)}}</div>
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
+                </div>
                 <!-- Movepool - Only level up -->
                 <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
@@ -595,7 +678,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="2" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -673,6 +756,57 @@
             <div class="heldItem">{{heldItem}}</div>
             <div class="genericLabels timerLabel">time played at 4x game speed</div>
             <div class="genericLabels resetsLabel">resets</div>
+
+            <!-- Voltorb Flip -->
+            <div class="posAbs" v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
+                <transition name="fade1">
+                    <div v-if="voltorb_flip == true">
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/voltorb_flip.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/coins.svg)"></div>
+                        <div  class="genericLabels voltorb_flip_data coinsLabel">coins:</div>
+                        <div  class="genericLabels voltorb_flip_data coinsValue">{{mapper.properties.bag.coins.value}}</div>
+                        <div  class="genericLabels voltorb_flip_data roundLabel">round:</div>
+                        <div  class="genericLabels voltorb_flip_data roundValue">{{mapper.properties.screen.voltorb_flip.information.round_coins.value}}</div>
+                        <table class="voltorb_flip"> 
+                            <tr>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_1.a.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_1.a.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_1.b.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_1.b.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_1.c.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_1.c.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_1.d.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_1.d.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_1.e.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_1.e.value)"></td>
+                            </tr>
+                            <tr>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_2.a.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_2.a.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_2.b.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_2.b.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_2.c.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_2.c.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_2.d.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_2.d.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_2.e.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_2.e.value)"></td>
+                            </tr>
+                            <tr>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_3.a.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_3.a.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_3.b.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_3.b.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_3.c.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_3.c.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_3.d.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_3.d.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_3.e.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_3.e.value)"></td>
+                            </tr>
+                            <tr>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_4.a.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_4.a.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_4.b.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_4.b.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_4.c.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_4.c.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_4.d.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_4.d.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_4.e.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_4.e.value)"></td>
+                            </tr>
+                            <tr>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_5.a.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_5.a.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_5.b.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_5.b.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_5.c.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_5.c.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_5.d.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_5.d.value)"></td>
+                                <td><img :src="`images/voltorb_flip/${mapper.properties.screen.voltorb_flip.value.row_5.e.value}.png`" :style="voltorb_flip_style(mapper.properties.screen.voltorb_flip.value.row_5.e.value)"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </transition>   
+            </div>
         </div>
     </div>
 
