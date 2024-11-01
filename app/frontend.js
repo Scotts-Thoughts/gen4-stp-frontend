@@ -3048,8 +3048,9 @@ const app = Vue.createApp({
         
         // MOVE ACCURACY
         getAccuracy(accuracy, move) {
-            const weather = this.mapper.properties.battle.field.weather.value
-            const state   = this.mapper.properties.meta.state.value
+            const weather   = this.mapper.properties.battle.field.weather.value
+            const state     = this.mapper.properties.meta.state.value
+            const held_item = this.mapper.properties.player.team[0].held_item.value
             if (accuracy == `-`) {
                 return `—`
             }
@@ -3062,13 +3063,35 @@ const app = Vue.createApp({
             if (weather == 'Hail' && move == 'Blizzard' && state == 'Battle') {
                 return `—`
             }
+            if (state == `Overworld`) {
+                let item_modifier = 1
+                switch (held_item) {
+                    case "Wide Lens": item_modifier = 4505/4096; break;
+                    case "Zoom Lens": item_modifier = 4915/4096; break;
+                    default: item_modifier = 1; break;
+                }
+                let calculated_accuracy = Math.floor(accuracy * item_modifier) <= 100 ? Math.floor(accuracy * item_modifier) : 100
+                return calculated_accuracy
+            }
             if (state == `Battle`) {
                 let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value.toString()
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
                 let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
-                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier) : 100
+                let item_modifier = 1
+                switch (held_item) {
+                    case "Wide Lens": item_modifier = 4505/4096; break;
+                    case "Zoom Lens": {
+                        const player_speed = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                        const enemy_speed  = this.mapper.properties.battle.opponent.active_pokemon.stats.speed.value
+                        if (player_speed < enemy_speed) { item_modifier = 4915/4096 }
+                        else { item_modifier = 1 }
+                        break;
+                    }
+                    default: item_modifier = 1; break;
+                }
+                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) : 100
                 if (calculated_accuracy == "err") {
                     console.log(
                         accuracy,

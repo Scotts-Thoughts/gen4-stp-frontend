@@ -51,7 +51,9 @@
                 <img class="canvas colored-image ds" :src="`images/ui/nature arrows/${ui_stat_arrangement_modifier}/raises/${natures[pkmnNature].raises}.svg`" />
                 <img class="canvas colored-image ds" :src="`images/ui/nature arrows/${ui_stat_arrangement_modifier}/lowers/${natures[pkmnNature].lowers}.svg`" />
             </div>
-            <img class="canvas" :src="`images/ui/badges_unobtained.png`" />
+            <img v-if="mapper.properties.meta.game_name.value == 'Diamond and Pearl'"        class="canvas" :src="`images/ui/badges_unobtained.png`" />
+            <img v-if="mapper.properties.meta.game_name.value == 'Platinum'"                 class="canvas" :src="`images/ui/badges_unobtained - plat.png`" />
+            <img v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" class="canvas" :src="`images/ui/badges_unobtained - hgss.png`" />
             <img class="canvas" :src="`images/ui/move_backgrounds.png`" />
             <div>
                 <div class="gametimeClock">{{timer_formatted_time[0]}}</div>
@@ -323,7 +325,8 @@
             <!--------- BADGE ICONS ---------------------------------------------------------------------------------------------------------------------->
             <div v-for="x in badges">
                 <div v-if="mapper.properties.player.badges[x].value == true && mapper.properties.meta.state != `No Pokemon` && mapper.properties.meta.global_pointer.value != 0">
-                    <img class="badge" :src="`images/badges/${x}.png`"/>
+                    <img v-if="mapper.properties.meta.game_name.value == 'Platinum' || mapper.properties.meta.game_name.value == 'Diamond and Pearl'" class="badge" :src="`images/badges/plat/${x}.png`"/>
+                    <img v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" class="badge" :src="`images/badges/hgss/${x}.png`"/>
                 </div>
             </div>
 
