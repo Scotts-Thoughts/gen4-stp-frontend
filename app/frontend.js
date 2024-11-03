@@ -1122,6 +1122,9 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        faults() {
+            return this.blackout_counter + this.playerResets
+        },
         voltorb_flip() {
             const voltorb_flip_trigger = this.mapper.properties.screen.voltorb_flip.activate_voltorb_flip.value
             const map = this.mapper.properties.overworld.map_name.value 
@@ -1250,10 +1253,9 @@ const app = Vue.createApp({
             return timecode
         },
         game() {
-            return this.game_variables['Platinum'];
-            // return this.gameVariables[this.mapper?.properties?.meta?.gameName];
-            // return "FireRed and LeafGreen";
-            // return(this.mapper?.properties.meta.gameName);
+            const game = this.mapper.properties.meta.game_name.value
+            if (game == 'Platinum') { return this.game_variables['Platinum']; }
+            if (game == 'HeartGold and SoulSilver') { return this.game_variables['HeartGold and SoulSilver']; }
         },
         enemy_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent.id.value
@@ -1345,10 +1347,11 @@ const app = Vue.createApp({
                 return `height: ${heights[totalPokemon]}; filter: saturate(${this.ui_saturation}) drop-shadow(0px 0px 1px #000000)`;
             }
             totalPokemon = this.mapper.properties.battle.opponent.team_count.value;
+            let game = this.mapper.properties.meta.game_name.value
             let opponent_2            = this.mapper.properties.battle.opponent_2.trainer.value
             let opponent_team_count   = this.mapper.properties.battle.opponent.team_count.value;
             let opponent_2_team_count = this.mapper.properties.battle.opponent_2.team_count.value;
-            if (opponent_2) {
+            if (opponent_2 && game != "HeartGold and SoulSilver") {
                 totalPokemon = opponent_team_count + opponent_2_team_count
             }
             return `height: ${heights[totalPokemon]}; filter: saturate(${this.ui_saturation}) drop-shadow(0px 0px 1px #000000)`;
@@ -1617,6 +1620,18 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        hgss_badge_check(x) {
+            const badge          = this.mapper.properties.player.badges[x].value
+            const state          = this.mapper.properties.meta.state.value          
+            const global_pointer = this.mapper.properties.meta.global_pointer.value
+            console.log(global_pointer)
+            if (badge == true && state!= `No Pokemon`) {
+                return true
+            }
+            else {
+                return false
+            }
+        },
         voltorb_flip_style(voltorb_flip_card_value) {
             if (voltorb_flip_card_value == 2 || voltorb_flip_card_value == 3) {
                 return "opacity: .9; filter: saturate(150%);"
@@ -3627,15 +3642,15 @@ const app = Vue.createApp({
                 return this.hiddenPowerPowerCalc(this.mapper.properties.player.team[0])
             }
             if (moveObject.Move == `Return`) {
-                if (this.mapper.properties.battle.player.team_count.value == 0) {
-                    return "-"
-                }
+                // if (this.mapper.properties.battle.player.team_count.value == 0) {
+                //     return "-"
+                // }
                 return this.g3ReturnPowerCalc(this.mapper.properties.player.team[0])
             }
             if (moveObject.Move == `Frustration`) {
-                if (this.mapper.properties.battle.player.team_count.value == 0) {
-                    return "-"
-                }
+                // if (this.mapper.properties.battle.player.team_count.value == 0) {
+                //     return "-"
+                // }
                 return this.g3FrustrationPowerCalc(this.mapper.properties.player.team[0])
             }
             else { return moveObject.Power }
@@ -4184,9 +4199,18 @@ const app = Vue.createApp({
             }
         })
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
-            if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
-                this.blackout_counter++;
-                this.blackout = false;
+            const game = this.mapper.properties.meta.game_name.value
+            if (game == 'Platinum' || game == 'Diamond and Pearl') {
+                if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
+                    this.blackout_counter++;
+                    this.blackout = false;
+                }
+            }
+            if (game == 'HeartGold and SoulSilver') {
+                if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
+                    this.blackout_counter++;
+                    this.blackout = false;
+                }
             }
         });
 
@@ -4236,9 +4260,10 @@ const app = Vue.createApp({
             var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
 
+            console.log("Setting starting stats...")
             await Promise.all([
                 //Set personality value & ablity
-                await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
+                // await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
@@ -4269,9 +4294,16 @@ const app = Vue.createApp({
             }
         }
         this.mapper.properties.player.team[0].level.change(async (newProp) => {
-            if (newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "Route 201 - Map 1") {
+            if (this.mapper.properties.meta.game_name.value == "Platinum" && newProp == 5 && this.mapper.properties.overworld?.map_name?.value == "Route 201 - Map 1") {
                 await setStartingStats()
             }
+            if (this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver" && newProp == 5 && this.mapper.properties.overworld?.map_index?.value == 61) {
+                await setStartingStats()
+            }
+        });
+
+        this.mapper.properties.overworld.map_name.change(async (newProp) => {
+            console.log(newProp)
         });
 
         //*Autosplitter

@@ -256,12 +256,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 115,
-                    "attack": 103,
-                    "defense": 100,
-                    "speed": 98,
-                    "special_attack": 101,
-                    "special_defense": 102
+                    "hp": 25,
+                    "attack": 11,
+                    "defense": 12,
+                    "speed": 8,
+                    "special_attack": 11,
+                    "special_defense": 13
                 },
                 "moves": [
                     "Scratch",
@@ -278,12 +278,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 161,
-                    "attack": 146,
-                    "defense": 128,
-                    "speed": 139,
-                    "special_attack": 157,
-                    "special_defense": 146
+                    "hp": 32,
+                    "attack": 18,
+                    "defense": 13,
+                    "speed": 10,
+                    "special_attack": 12,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Foresight",
@@ -300,12 +300,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 196,
-                    "attack": 179,
-                    "defense": 192,
-                    "speed": 170,
-                    "special_attack": 157,
-                    "special_defense": 178
+                    "hp": 37,
+                    "attack": 17,
+                    "defense": 16,
+                    "speed": 11,
+                    "special_attack": 16,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Defense Curl",
@@ -385,12 +385,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 80,
-                    "attack": 68,
-                    "defense": 70,
-                    "speed": 76,
-                    "special_attack": 71,
-                    "special_defense": 71
+                    "hp": 20,
+                    "attack": 8,
+                    "defense": 11,
+                    "speed": 17,
+                    "special_attack": 11,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Charge",
@@ -426,12 +426,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 174,
-                    "attack": 167,
-                    "defense": 158,
-                    "speed": 172,
-                    "special_attack": 159,
-                    "special_defense": 143
+                    "hp": 35,
+                    "attack": 11,
+                    "defense": 19,
+                    "speed": 36,
+                    "special_attack": 20,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Charge",
@@ -491,12 +491,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 252,
-                    "attack": 232,
-                    "defense": 237,
-                    "speed": 224,
-                    "special_attack": 267,
-                    "special_defense": 237
+                    "hp": 43,
+                    "attack": 23,
+                    "defense": 28,
+                    "speed": 40,
+                    "special_attack": 34,
+                    "special_defense": 28
                 },
                 "moves": [
                     "Water Gun",
@@ -524,12 +524,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 127,
-                    "attack": 116,
-                    "defense": 112,
-                    "speed": 121,
-                    "special_attack": 112,
-                    "special_defense": 100
+                    "hp": 28,
+                    "attack": 15,
+                    "defense": 14,
+                    "speed": 11,
+                    "special_attack": 13,
+                    "special_defense": 13
                 },
                 "moves": [
                     "Poison Sting",
@@ -546,12 +546,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 127,
-                    "attack": 118,
-                    "defense": 110,
-                    "speed": 115,
-                    "special_attack": 100,
-                    "special_defense": 120
+                    "hp": 28,
+                    "attack": 9,
+                    "defense": 11,
+                    "speed": 16,
+                    "special_attack": 14,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Tackle",
@@ -655,12 +655,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 91,
-                    "attack": 73,
-                    "defense": 79,
-                    "speed": 85,
-                    "special_attack": 78,
-                    "special_defense": 86
+                    "hp": 21,
+                    "attack": 13,
+                    "defense": 10,
+                    "speed": 15,
+                    "special_attack": 8,
+                    "special_defense": 10
                 },
                 "moves": [
                     "Tackle",
@@ -960,12 +960,12 @@ const trainers_hgss = {
                 "ability": "Clear Body",
                 "held_item": null,
                 "stats": {
-                    "hp": 245,
-                    "attack": 220,
-                    "defense": 218,
-                    "speed": 255,
-                    "special_attack": 224,
-                    "special_defense": 219
+                    "hp": 46,
+                    "attack": 21,
+                    "defense": 17,
+                    "speed": 33,
+                    "special_attack": 25,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Constrict",
@@ -1245,12 +1245,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 221,
-                    "attack": 213,
-                    "defense": 203,
-                    "speed": 211,
-                    "special_attack": 194,
-                    "special_defense": 203
+                    "hp": 52,
+                    "attack": 38,
+                    "defense": 33,
+                    "speed": 42,
+                    "special_attack": 25,
+                    "special_defense": 36
                 },
                 "moves": [
                     "Quick Attack",
@@ -1349,12 +1349,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 150,
-                    "attack": 140,
-                    "defense": 128,
-                    "speed": 105,
-                    "special_attack": 123,
-                    "special_defense": 123
+                    "hp": 40,
+                    "attack": 19,
+                    "defense": 19,
+                    "speed": 7,
+                    "special_attack": 14,
+                    "special_defense": 13
                 },
                 "moves": [
                     "Yawn",
@@ -1415,12 +1415,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 57,
-                    "attack": 56,
-                    "defense": 52,
-                    "speed": 46,
-                    "special_attack": 47,
-                    "special_defense": 42
+                    "hp": 17,
+                    "attack": 11,
+                    "defense": 14,
+                    "speed": 6,
+                    "special_attack": 6,
+                    "special_defense": 7
                 },
                 "moves": [
                     "Tackle",
@@ -1436,12 +1436,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 80,
-                    "attack": 74,
-                    "defense": 83,
-                    "speed": 67,
-                    "special_attack": 68,
-                    "special_defense": 61
+                    "hp": 20,
+                    "attack": 14,
+                    "defense": 17,
+                    "speed": 7,
+                    "special_attack": 7,
+                    "special_defense": 8
                 },
                 "moves": [
                     "Tackle",
@@ -1457,12 +1457,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 104,
-                    "attack": 97,
-                    "defense": 100,
-                    "speed": 95,
-                    "special_attack": 89,
-                    "special_defense": 80
+                    "hp": 24,
+                    "attack": 17,
+                    "defense": 21,
+                    "speed": 8,
+                    "special_attack": 9,
+                    "special_defense": 9
                 },
                 "moves": [
                     "Tackle",
@@ -1483,19 +1483,19 @@ const trainers_hgss = {
         "items": [],
         "party": [
             {
-                "species": "Nidoran_M",
+                "species": "Nidoran M",
                 "level": 9,
                 "experience_yield": 115,
                 "nature": "Adamant",
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 116,
-                    "attack": 114,
-                    "defense": 101,
-                    "speed": 103,
-                    "special_attack": 90,
-                    "special_defense": 101
+                    "hp": 27,
+                    "attack": 15,
+                    "defense": 10,
+                    "speed": 15,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Leer",
@@ -1516,19 +1516,19 @@ const trainers_hgss = {
         "items": [],
         "party": [
             {
-                "species": "Nidoran_F",
+                "species": "Nidoran F",
                 "level": 8,
                 "experience_yield": 100,
                 "nature": "Bold",
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 106,
-                    "attack": 82,
-                    "defense": 101,
-                    "speed": 91,
-                    "special_attack": 91,
-                    "special_defense": 91
+                    "hp": 26,
+                    "attack": 12,
+                    "defense": 13,
+                    "speed": 11,
+                    "special_attack": 11,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Growl",
@@ -1555,12 +1555,12 @@ const trainers_hgss = {
                 "ability": "Effect Spore",
                 "held_item": null,
                 "stats": {
-                    "hp": 412,
-                    "attack": 398,
-                    "defense": 349,
-                    "speed": 390,
-                    "special_attack": 374,
-                    "special_defense": 388
+                    "hp": 84,
+                    "attack": 75,
+                    "defense": 59,
+                    "speed": 26,
+                    "special_attack": 46,
+                    "special_defense": 53
                 },
                 "moves": [
                     "Leech Life",
@@ -1577,12 +1577,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 451,
-                    "attack": 412,
-                    "defense": 409,
-                    "speed": 372,
-                    "special_attack": 463,
-                    "special_defense": 411
+                    "hp": 103,
+                    "attack": 57,
+                    "defense": 61,
+                    "speed": 72,
+                    "special_attack": 73,
+                    "special_defense": 63
                 },
                 "moves": [
                     "Psychic",
@@ -1708,12 +1708,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": "Lum Berry",
                 "stats": {
-                    "hp": 256,
-                    "attack": 226,
-                    "defense": 236,
-                    "speed": 210,
-                    "special_attack": 211,
-                    "special_defense": 245
+                    "hp": 67,
+                    "attack": 37,
+                    "defense": 47,
+                    "speed": 45,
+                    "special_attack": 24,
+                    "special_defense": 29
                 },
                 "moves": [
                     "Rollout",
@@ -1890,12 +1890,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 456,
-                    "attack": 458,
-                    "defense": 404,
-                    "speed": 344,
-                    "special_attack": 390,
-                    "special_defense": 390
+                    "hp": 118,
+                    "attack": 79,
+                    "defense": 65,
+                    "speed": 45,
+                    "special_attack": 56,
+                    "special_defense": 45
                 },
                 "moves": [
                     "Hail",
@@ -1948,12 +1948,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 359,
-                    "attack": 330,
-                    "defense": 386,
-                    "speed": 336,
-                    "special_attack": 366,
-                    "special_defense": 307
+                    "hp": 60,
+                    "attack": 31,
+                    "defense": 52,
+                    "speed": 33,
+                    "special_attack": 67,
+                    "special_defense": 47
                 },
                 "moves": [
                     "Thunderbolt",
@@ -1970,12 +1970,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 452,
-                    "attack": 419,
-                    "defense": 449,
-                    "speed": 380,
-                    "special_attack": 437,
-                    "special_defense": 405
+                    "hp": 103,
+                    "attack": 77,
+                    "defense": 151,
+                    "speed": 32,
+                    "special_attack": 49,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Screech",
@@ -2130,12 +2130,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 530,
-                    "attack": 501,
-                    "defense": 551,
-                    "speed": 492,
-                    "special_attack": 501,
-                    "special_defense": 450
+                    "hp": 122,
+                    "attack": 92,
+                    "defense": 101,
+                    "speed": 84,
+                    "special_attack": 92,
+                    "special_defense": 82
                 },
                 "moves": [
                     "SmokeScreen",
@@ -2275,12 +2275,12 @@ const trainers_hgss = {
                 "ability": "Cute Charm",
                 "held_item": null,
                 "stats": {
-                    "hp": 565,
-                    "attack": 443,
-                    "defense": 495,
-                    "speed": 484,
-                    "special_attack": 556,
-                    "special_defense": 511
+                    "hp": 118,
+                    "attack": 45,
+                    "defense": 48,
+                    "speed": 36,
+                    "special_attack": 59,
+                    "special_defense": 63
                 },
                 "moves": [
                     "Gravity",
@@ -2330,12 +2330,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 214,
-                    "attack": 221,
-                    "defense": 194,
-                    "speed": 207,
-                    "special_attack": 171,
-                    "special_defense": 197
+                    "hp": 45,
+                    "attack": 32,
+                    "defense": 22,
+                    "speed": 37,
+                    "special_attack": 24,
+                    "special_defense": 28
                 },
                 "moves": [
                     "Focus Energy",
@@ -2352,12 +2352,12 @@ const trainers_hgss = {
                 "ability": "Hyper Cutter",
                 "held_item": null,
                 "stats": {
-                    "hp": 229,
-                    "attack": 233,
-                    "defense": 250,
-                    "speed": 213,
-                    "special_attack": 182,
-                    "special_defense": 203
+                    "hp": 40,
+                    "attack": 39,
+                    "defense": 42,
+                    "speed": 24,
+                    "special_attack": 14,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Leer",
@@ -2714,12 +2714,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 56,
-                    "attack": 49,
-                    "defense": 47,
-                    "speed": 55,
-                    "special_attack": 41,
-                    "special_defense": 47
+                    "hp": 16,
+                    "attack": 9,
+                    "defense": 7,
+                    "speed": 11,
+                    "special_attack": 6,
+                    "special_defense": 7
                 },
                 "moves": [
                     "Tackle",
@@ -3072,12 +3072,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 95,
-                    "attack": 78,
-                    "defense": 78,
-                    "speed": 81,
-                    "special_attack": 79,
-                    "special_defense": 82
+                    "hp": 25,
+                    "attack": 9,
+                    "defense": 9,
+                    "speed": 13,
+                    "special_attack": 9,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Tackle",
@@ -3135,12 +3135,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 130,
-                    "attack": 113,
-                    "defense": 113,
-                    "speed": 117,
-                    "special_attack": 109,
-                    "special_defense": 98
+                    "hp": 31,
+                    "attack": 14,
+                    "defense": 14,
+                    "speed": 8,
+                    "special_attack": 10,
+                    "special_defense": 9
                 },
                 "moves": [
                     "Water Gun",
@@ -3332,12 +3332,12 @@ const trainers_hgss = {
                 "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
-                    "hp": 104,
-                    "attack": 82,
-                    "defense": 91,
-                    "speed": 99,
-                    "special_attack": 91,
-                    "special_defense": 100
+                    "hp": 24,
+                    "attack": 13,
+                    "defense": 11,
+                    "speed": 20,
+                    "special_attack": 9,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Water Sport",
@@ -3386,12 +3386,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 145,
-                    "attack": 132,
-                    "defense": 137,
-                    "speed": 122,
-                    "special_attack": 122,
-                    "special_defense": 109
+                    "hp": 36,
+                    "attack": 22,
+                    "defense": 16,
+                    "speed": 13,
+                    "special_attack": 10,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Low Kick",
@@ -3419,12 +3419,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 90,
-                    "attack": 82,
-                    "defense": 79,
-                    "speed": 92,
-                    "special_attack": 70,
-                    "special_defense": 79
+                    "hp": 21,
+                    "attack": 13,
+                    "defense": 9,
+                    "speed": 15,
+                    "special_attack": 8,
+                    "special_defense": 8
                 },
                 "moves": [
                     "Tackle",
@@ -3865,12 +3865,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 198,
-                    "attack": 178,
-                    "defense": 157,
-                    "speed": 193,
-                    "special_attack": 194,
-                    "special_defense": 177
+                    "hp": 38,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 33,
+                    "special_attack": 17,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Scratch",
@@ -3887,12 +3887,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 198,
-                    "attack": 178,
-                    "defense": 157,
-                    "speed": 193,
-                    "special_attack": 194,
-                    "special_defense": 177
+                    "hp": 38,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 33,
+                    "special_attack": 17,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Scratch",
@@ -4073,12 +4073,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 187,
-                    "attack": 184,
-                    "defense": 150,
-                    "speed": 171,
-                    "special_attack": 165,
-                    "special_defense": 165
+                    "hp": 37,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 22,
+                    "special_attack": 16,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Tackle",
@@ -4117,12 +4117,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 187,
-                    "attack": 184,
-                    "defense": 150,
-                    "speed": 171,
-                    "special_attack": 165,
-                    "special_defense": 165
+                    "hp": 37,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 22,
+                    "special_attack": 16,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Tackle",
@@ -4402,12 +4402,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 491,
-                    "attack": 463,
-                    "defense": 447,
-                    "speed": 424,
-                    "special_attack": 439,
-                    "special_defense": 439
+                    "hp": 103,
+                    "attack": 75,
+                    "defense": 59,
+                    "speed": 36,
+                    "special_attack": 51,
+                    "special_defense": 51
                 },
                 "moves": [
                     "Fury Swipes",
@@ -4424,12 +4424,12 @@ const trainers_hgss = {
                 "ability": "Hyper Cutter",
                 "held_item": null,
                 "stats": {
-                    "hp": 500,
-                    "attack": 452,
-                    "defense": 483,
-                    "speed": 518,
-                    "special_attack": 447,
-                    "special_defense": 459
+                    "hp": 102,
+                    "attack": 115,
+                    "defense": 85,
+                    "speed": 73,
+                    "special_attack": 44,
+                    "special_defense": 61
                 },
                 "moves": [
                     "Vital Throw",
@@ -4567,12 +4567,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 197,
-                    "attack": 192,
-                    "defense": 179,
-                    "speed": 189,
-                    "special_attack": 176,
-                    "special_defense": 176
+                    "hp": 38,
+                    "attack": 33,
+                    "defense": 22,
+                    "speed": 26,
+                    "special_attack": 17,
+                    "special_defense": 17
                 },
                 "moves": [
                     "Growl",
@@ -4589,12 +4589,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 209,
-                    "attack": 204,
-                    "defense": 190,
-                    "speed": 180,
-                    "special_attack": 205,
-                    "special_defense": 187
+                    "hp": 39,
+                    "attack": 34,
+                    "defense": 21,
+                    "speed": 31,
+                    "special_attack": 17,
+                    "special_defense": 17
                 },
                 "moves": [
                     "Growl",
@@ -4611,12 +4611,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 220,
-                    "attack": 215,
-                    "defense": 201,
-                    "speed": 212,
-                    "special_attack": 197,
-                    "special_defense": 197
+                    "hp": 41,
+                    "attack": 36,
+                    "defense": 19,
+                    "speed": 36,
+                    "special_attack": 18,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Growl",
@@ -4644,12 +4644,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 622,
-                    "attack": 561,
-                    "defense": 566,
-                    "speed": 555,
-                    "special_attack": 554,
-                    "special_defense": 564
+                    "hp": 144,
+                    "attack": 83,
+                    "defense": 96,
+                    "speed": 69,
+                    "special_attack": 77,
+                    "special_defense": 86
                 },
                 "moves": [
                     "Poison Jab",
@@ -4677,12 +4677,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 613,
-                    "attack": 570,
-                    "defense": 500,
-                    "speed": 564,
-                    "special_attack": 564,
-                    "special_defense": 609
+                    "hp": 135,
+                    "attack": 102,
+                    "defense": 78,
+                    "speed": 86,
+                    "special_attack": 86,
+                    "special_defense": 69
                 },
                 "moves": [
                     "Poison Jab",
@@ -4710,12 +4710,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 229,
-                    "attack": 189,
-                    "defense": 214,
-                    "speed": 226,
-                    "special_attack": 242,
-                    "special_defense": 214
+                    "hp": 40,
+                    "attack": 24,
+                    "defense": 25,
+                    "speed": 37,
+                    "special_attack": 31,
+                    "special_defense": 22
                 },
                 "moves": [
                     "Water Gun",
@@ -4732,12 +4732,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 229,
-                    "attack": 218,
-                    "defense": 208,
-                    "speed": 209,
-                    "special_attack": 232,
-                    "special_defense": 203
+                    "hp": 40,
+                    "attack": 26,
+                    "defense": 47,
+                    "speed": 20,
+                    "special_attack": 22,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Withdraw",
@@ -4809,12 +4809,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 217,
-                    "attack": 207,
-                    "defense": 220,
-                    "speed": 198,
-                    "special_attack": 200,
-                    "special_defense": 193
+                    "hp": 38,
+                    "attack": 28,
+                    "defense": 41,
+                    "speed": 19,
+                    "special_attack": 23,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Supersonic",
@@ -5051,12 +5051,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 223,
-                    "attack": 208,
-                    "defense": 225,
-                    "speed": 206,
-                    "special_attack": 176,
-                    "special_defense": 202
+                    "hp": 44,
+                    "attack": 31,
+                    "defense": 26,
+                    "speed": 27,
+                    "special_attack": 15,
+                    "special_defense": 23
                 },
                 "moves": [
                     "Water Pulse",
@@ -5095,12 +5095,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 261,
-                    "attack": 240,
-                    "defense": 207,
-                    "speed": 254,
-                    "special_attack": 230,
-                    "special_defense": 236
+                    "hp": 62,
+                    "attack": 41,
+                    "defense": 27,
+                    "speed": 32,
+                    "special_attack": 34,
+                    "special_defense": 37
                 },
                 "moves": [
                     "Water Pulse",
@@ -5216,12 +5216,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 241,
-                    "attack": 244,
-                    "defense": 226,
-                    "speed": 238,
-                    "special_attack": 208,
-                    "special_defense": 226
+                    "hp": 42,
+                    "attack": 23,
+                    "defense": 29,
+                    "speed": 39,
+                    "special_attack": 29,
+                    "special_defense": 27
                 },
                 "moves": [
                     "Water Gun",
@@ -5238,12 +5238,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 253,
-                    "attack": 234,
-                    "defense": 238,
-                    "speed": 250,
-                    "special_attack": 219,
-                    "special_defense": 261
+                    "hp": 54,
+                    "attack": 35,
+                    "defense": 39,
+                    "speed": 51,
+                    "special_attack": 45,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Water Gun",
@@ -5293,12 +5293,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 252,
-                    "attack": 253,
-                    "defense": 243,
-                    "speed": 239,
-                    "special_attack": 243,
-                    "special_defense": 201
+                    "hp": 43,
+                    "attack": 18,
+                    "defense": 34,
+                    "speed": 30,
+                    "special_attack": 37,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Focus Energy",
@@ -5326,12 +5326,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 252,
-                    "attack": 241,
-                    "defense": 255,
-                    "speed": 253,
-                    "special_attack": 208,
-                    "special_defense": 224
+                    "hp": 43,
+                    "attack": 32,
+                    "defense": 47,
+                    "speed": 23,
+                    "special_attack": 23,
+                    "special_defense": 13
                 },
                 "moves": [
                     "Supersonic",
@@ -5370,12 +5370,12 @@ const trainers_hgss = {
                 "ability": "Clear Body",
                 "held_item": null,
                 "stats": {
-                    "hp": 248,
-                    "attack": 220,
-                    "defense": 218,
-                    "speed": 232,
-                    "special_attack": 224,
-                    "special_defense": 239
+                    "hp": 59,
+                    "attack": 31,
+                    "defense": 26,
+                    "speed": 43,
+                    "special_attack": 38,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Constrict",
@@ -5425,12 +5425,12 @@ const trainers_hgss = {
                 "ability": "Clear Body",
                 "held_item": null,
                 "stats": {
-                    "hp": 209,
-                    "attack": 205,
-                    "defense": 167,
-                    "speed": 197,
-                    "special_attack": 191,
-                    "special_defense": 208
+                    "hp": 40,
+                    "attack": 18,
+                    "defense": 17,
+                    "speed": 28,
+                    "special_attack": 19,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Supersonic",
@@ -5469,12 +5469,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 229,
-                    "attack": 211,
-                    "defense": 214,
-                    "speed": 248,
-                    "special_attack": 220,
-                    "special_defense": 192
+                    "hp": 40,
+                    "attack": 22,
+                    "defense": 22,
+                    "speed": 37,
+                    "special_attack": 31,
+                    "special_defense": 27
                 },
                 "moves": [
                     "Water Gun",
@@ -5685,12 +5685,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 411,
-                    "attack": 425,
-                    "defense": 368,
-                    "speed": 352,
-                    "special_attack": 319,
-                    "special_defense": 361
+                    "hp": 93,
+                    "attack": 69,
+                    "defense": 49,
+                    "speed": 36,
+                    "special_attack": 33,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Seismic Toss",
@@ -5718,12 +5718,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 114,
-                    "attack": 104,
-                    "defense": 101,
-                    "speed": 107,
-                    "special_attack": 99,
-                    "special_defense": 101
+                    "hp": 24,
+                    "attack": 15,
+                    "defense": 11,
+                    "speed": 16,
+                    "special_attack": 9,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Tackle",
@@ -5740,12 +5740,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 114,
-                    "attack": 104,
-                    "defense": 101,
-                    "speed": 107,
-                    "special_attack": 99,
-                    "special_defense": 101
+                    "hp": 24,
+                    "attack": 15,
+                    "defense": 11,
+                    "speed": 16,
+                    "special_attack": 9,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Tackle",
@@ -5850,12 +5850,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 406,
-                    "attack": 374,
-                    "defense": 437,
-                    "speed": 381,
-                    "special_attack": 372,
-                    "special_defense": 381
+                    "hp": 77,
+                    "attack": 50,
+                    "defense": 62,
+                    "speed": 53,
+                    "special_attack": 86,
+                    "special_defense": 53
                 },
                 "moves": [
                     "Thunderbolt",
@@ -5872,12 +5872,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 410,
-                    "attack": 404,
-                    "defense": 331,
-                    "speed": 337,
-                    "special_attack": 355,
-                    "special_defense": 355
+                    "hp": 101,
+                    "attack": 59,
+                    "defense": 59,
+                    "speed": 28,
+                    "special_attack": 51,
+                    "special_defense": 42
                 },
                 "moves": [
                     "Water Gun",
@@ -6345,12 +6345,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 434,
-                    "attack": 401,
-                    "defense": 464,
-                    "speed": 373,
-                    "special_attack": 422,
-                    "special_defense": 387
+                    "hp": 85,
+                    "attack": 52,
+                    "defense": 73,
+                    "speed": 66,
+                    "special_attack": 80,
+                    "special_defense": 34
                 },
                 "moves": [
                     "BubbleBeam",
@@ -6455,12 +6455,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 458,
-                    "attack": 424,
-                    "defense": 446,
-                    "speed": 482,
-                    "special_attack": 446,
-                    "special_defense": 368
+                    "hp": 90,
+                    "attack": 55,
+                    "defense": 84,
+                    "speed": 63,
+                    "special_attack": 77,
+                    "special_defense": 40
                 },
                 "moves": [
                     "BubbleBeam",
@@ -6488,12 +6488,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 453,
-                    "attack": 480,
-                    "defense": 415,
-                    "speed": 440,
-                    "special_attack": 422,
-                    "special_defense": 379
+                    "hp": 94,
+                    "attack": 79,
+                    "defense": 57,
+                    "speed": 82,
+                    "special_attack": 64,
+                    "special_defense": 64
                 },
                 "moves": [
                     "Stomp",
@@ -6862,12 +6862,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 470,
-                    "attack": 435,
-                    "defense": 503,
-                    "speed": 405,
-                    "special_attack": 458,
-                    "special_defense": 420
+                    "hp": 92,
+                    "attack": 51,
+                    "defense": 79,
+                    "speed": 72,
+                    "special_attack": 86,
+                    "special_defense": 41
                 },
                 "moves": [
                     "BubbleBeam",
@@ -7230,12 +7230,12 @@ const trainers_hgss = {
                 "ability": "Hustle",
                 "held_item": null,
                 "stats": {
-                    "hp": 336,
-                    "attack": 352,
-                    "defense": 303,
-                    "speed": 320,
-                    "special_attack": 288,
-                    "special_defense": 303
+                    "hp": 57,
+                    "attack": 45,
+                    "defense": 24,
+                    "speed": 36,
+                    "special_attack": 41,
+                    "special_defense": 24
                 },
                 "moves": [
                     "Lock-On",
@@ -7409,12 +7409,12 @@ const trainers_hgss = {
                 "ability": "Suction Cups",
                 "held_item": null,
                 "stats": {
-                    "hp": 470,
-                    "attack": 450,
-                    "defense": 385,
-                    "speed": 406,
-                    "special_attack": 495,
-                    "special_defense": 428
+                    "hp": 102,
+                    "attack": 73,
+                    "defense": 60,
+                    "speed": 38,
+                    "special_attack": 90,
+                    "special_defense": 60
                 },
                 "moves": [
                     "Focus Energy",
@@ -7431,12 +7431,12 @@ const trainers_hgss = {
                 "ability": "Hustle",
                 "held_item": null,
                 "stats": {
-                    "hp": 394,
-                    "attack": 376,
-                    "defense": 356,
-                    "speed": 376,
-                    "special_attack": 376,
-                    "special_defense": 356
+                    "hp": 66,
+                    "attack": 47,
+                    "defense": 28,
+                    "speed": 42,
+                    "special_attack": 51,
+                    "special_defense": 28
                 },
                 "moves": [
                     "BubbleBeam",
@@ -7629,12 +7629,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 261,
-                    "attack": 240,
-                    "defense": 234,
-                    "speed": 214,
-                    "special_attack": 261,
-                    "special_defense": 234
+                    "hp": 62,
+                    "attack": 41,
+                    "defense": 35,
+                    "speed": 39,
+                    "special_attack": 35,
+                    "special_defense": 38
                 },
                 "moves": [
                     "Peck",
@@ -7662,12 +7662,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 499,
-                    "attack": 459,
-                    "defense": 513,
-                    "speed": 412,
-                    "special_attack": 416,
-                    "special_defense": 374
+                    "hp": 111,
+                    "attack": 71,
+                    "defense": 79,
+                    "speed": 24,
+                    "special_attack": 28,
+                    "special_defense": 28
                 },
                 "moves": [
                     "Scary Face",
@@ -7684,12 +7684,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 518,
-                    "attack": 494,
-                    "defense": 486,
-                    "speed": 424,
-                    "special_attack": 470,
-                    "special_defense": 385
+                    "hp": 130,
+                    "attack": 106,
+                    "defense": 98,
+                    "speed": 36,
+                    "special_attack": 40,
+                    "special_defense": 40
                 },
                 "moves": [
                     "Scary Face",
@@ -7739,12 +7739,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 186,
-                    "attack": 178,
-                    "defense": 184,
-                    "speed": 160,
-                    "special_attack": 163,
-                    "special_defense": 163
+                    "hp": 37,
+                    "attack": 29,
+                    "defense": 35,
+                    "speed": 12,
+                    "special_attack": 12,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Mud Sport",
@@ -8036,12 +8036,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 439,
-                    "defense": 512,
-                    "speed": 468,
-                    "special_attack": 466,
-                    "special_defense": 478
+                    "hp": 116,
+                    "attack": 80,
+                    "defense": 58,
+                    "speed": 60,
+                    "special_attack": 58,
+                    "special_defense": 70
                 },
                 "moves": [
                     "Flail",
@@ -8256,12 +8256,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 335,
-                    "attack": 324,
-                    "defense": 335,
-                    "speed": 321,
-                    "special_attack": 267,
-                    "special_defense": 297
+                    "hp": 66,
+                    "attack": 56,
+                    "defense": 67,
+                    "speed": 20,
+                    "special_attack": 31,
+                    "special_defense": 29
                 },
                 "moves": [
                     "Magnitude",
@@ -8311,12 +8311,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 303,
-                    "attack": 293,
-                    "defense": 333,
-                    "speed": 263,
-                    "special_attack": 241,
-                    "special_defense": 268
+                    "hp": 55,
+                    "attack": 45,
+                    "defense": 55,
+                    "speed": 15,
+                    "special_attack": 20,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Magnitude",
@@ -8333,12 +8333,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 311,
-                    "attack": 301,
-                    "defense": 311,
-                    "speed": 271,
-                    "special_attack": 248,
-                    "special_defense": 303
+                    "hp": 62,
+                    "attack": 57,
+                    "defense": 62,
+                    "speed": 19,
+                    "special_attack": 27,
+                    "special_defense": 27
                 },
                 "moves": [
                     "Rock Throw",
@@ -8355,12 +8355,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 323,
-                    "attack": 308,
-                    "defense": 318,
-                    "speed": 303,
-                    "special_attack": 252,
-                    "special_defense": 286
+                    "hp": 75,
+                    "attack": 60,
+                    "defense": 70,
+                    "speed": 24,
+                    "special_attack": 35,
+                    "special_defense": 37
                 },
                 "moves": [
                     "Rock Throw",
@@ -8476,12 +8476,12 @@ const trainers_hgss = {
                 "ability": "Vital Spirit",
                 "held_item": null,
                 "stats": {
-                    "hp": 209,
-                    "attack": 201,
-                    "defense": 186,
-                    "speed": 197,
-                    "special_attack": 186,
-                    "special_defense": 189
+                    "hp": 40,
+                    "attack": 32,
+                    "defense": 17,
+                    "speed": 25,
+                    "special_attack": 16,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Focus Energy",
@@ -8542,12 +8542,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 562,
-                    "attack": 565,
-                    "defense": 511,
-                    "speed": 517,
-                    "special_attack": 526,
-                    "special_defense": 461
+                    "hp": 124,
+                    "attack": 77,
+                    "defense": 73,
+                    "speed": 79,
+                    "special_attack": 88,
+                    "special_defense": 75
                 },
                 "moves": [
                     "Fury Swipes",
@@ -8619,12 +8619,12 @@ const trainers_hgss = {
                 "ability": "Vital Spirit",
                 "held_item": null,
                 "stats": {
-                    "hp": 500,
-                    "attack": 438,
-                    "defense": 451,
-                    "speed": 526,
-                    "special_attack": 451,
-                    "special_defense": 459
+                    "hp": 102,
+                    "attack": 89,
+                    "defense": 53,
+                    "speed": 81,
+                    "special_attack": 53,
+                    "special_defense": 61
                 },
                 "moves": [
                     "Screech",
@@ -8674,12 +8674,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 213,
-                    "attack": 182,
-                    "defense": 192,
-                    "speed": 204,
-                    "special_attack": 196,
-                    "special_defense": 215
+                    "hp": 44,
+                    "attack": 33,
+                    "defense": 20,
+                    "speed": 35,
+                    "special_attack": 27,
+                    "special_defense": 29
                 },
                 "moves": [
                     "Tackle",
@@ -8762,12 +8762,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 427,
-                    "defense": 465,
-                    "speed": 534,
-                    "special_attack": 449,
-                    "special_defense": 458
+                    "hp": 120,
+                    "attack": 67,
+                    "defense": 51,
+                    "speed": 85,
+                    "special_attack": 41,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Follow Me",
@@ -8784,12 +8784,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 536,
-                    "attack": 518,
-                    "defense": 493,
-                    "speed": 523,
-                    "special_attack": 501,
-                    "special_defense": 501
+                    "hp": 108,
+                    "attack": 91,
+                    "defense": 71,
+                    "speed": 85,
+                    "special_attack": 73,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Take Down",
@@ -8817,12 +8817,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 162,
-                    "attack": 170,
-                    "defense": 160,
-                    "speed": 139,
-                    "special_attack": 127,
-                    "special_defense": 142
+                    "hp": 33,
+                    "attack": 25,
+                    "defense": 34,
+                    "speed": 9,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Defense Curl",
@@ -8839,12 +8839,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 162,
-                    "attack": 170,
-                    "defense": 160,
-                    "speed": 139,
-                    "special_attack": 127,
-                    "special_defense": 142
+                    "hp": 33,
+                    "attack": 25,
+                    "defense": 34,
+                    "speed": 9,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Defense Curl",
@@ -8861,12 +8861,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 162,
-                    "attack": 170,
-                    "defense": 160,
-                    "speed": 139,
-                    "special_attack": 127,
-                    "special_defense": 142
+                    "hp": 33,
+                    "attack": 25,
+                    "defense": 34,
+                    "speed": 9,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Defense Curl",
@@ -8883,12 +8883,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 162,
-                    "attack": 170,
-                    "defense": 160,
-                    "speed": 139,
-                    "special_attack": 127,
-                    "special_defense": 142
+                    "hp": 33,
+                    "attack": 25,
+                    "defense": 34,
+                    "speed": 9,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Defense Curl",
@@ -8905,12 +8905,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 162,
-                    "attack": 170,
-                    "defense": 160,
-                    "speed": 139,
-                    "special_attack": 127,
-                    "special_defense": 142
+                    "hp": 33,
+                    "attack": 25,
+                    "defense": 34,
+                    "speed": 9,
+                    "special_attack": 12,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Defense Curl",
@@ -8982,12 +8982,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 512,
-                    "attack": 483,
-                    "defense": 504,
-                    "speed": 439,
-                    "special_attack": 398,
-                    "special_defense": 451
+                    "hp": 114,
+                    "attack": 85,
+                    "defense": 61,
+                    "speed": 41,
+                    "special_attack": 45,
+                    "special_defense": 53
                 },
                 "moves": [
                     "Vital Throw",
@@ -9015,12 +9015,12 @@ const trainers_hgss = {
                 "ability": "Limber",
                 "held_item": null,
                 "stats": {
-                    "hp": 334,
-                    "attack": 339,
-                    "defense": 303,
-                    "speed": 288,
-                    "special_attack": 293,
-                    "special_defense": 367
+                    "hp": 65,
+                    "attack": 77,
+                    "defense": 34,
+                    "speed": 53,
+                    "special_attack": 24,
+                    "special_defense": 58
                 },
                 "moves": [
                     "Double Kick",
@@ -9048,12 +9048,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 334,
-                    "attack": 331,
-                    "defense": 285,
-                    "speed": 316,
-                    "special_attack": 293,
-                    "special_defense": 367
+                    "hp": 65,
+                    "attack": 68,
+                    "defense": 48,
+                    "speed": 47,
+                    "special_attack": 21,
+                    "special_defense": 65
                 },
                 "moves": [
                     "Mach Punch",
@@ -9081,12 +9081,12 @@ const trainers_hgss = {
                 "ability": "Limber",
                 "held_item": null,
                 "stats": {
-                    "hp": 420,
-                    "attack": 429,
-                    "defense": 383,
-                    "speed": 406,
-                    "special_attack": 371,
-                    "special_defense": 422
+                    "hp": 82,
+                    "attack": 90,
+                    "defense": 45,
+                    "speed": 74,
+                    "special_attack": 28,
+                    "special_defense": 83
                 },
                 "moves": [
                     "Focus Energy",
@@ -9103,12 +9103,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 420,
-                    "attack": 419,
-                    "defense": 441,
-                    "speed": 359,
-                    "special_attack": 371,
-                    "special_defense": 422
+                    "hp": 82,
+                    "attack": 80,
+                    "defense": 62,
+                    "speed": 60,
+                    "special_attack": 28,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Vacuum Wave",
@@ -9158,12 +9158,12 @@ const trainers_hgss = {
                 "ability": "Vital Spirit",
                 "held_item": null,
                 "stats": {
-                    "hp": 281,
-                    "attack": 271,
-                    "defense": 251,
-                    "speed": 267,
-                    "special_attack": 251,
-                    "special_defense": 255
+                    "hp": 52,
+                    "attack": 42,
+                    "defense": 22,
+                    "speed": 41,
+                    "special_attack": 19,
+                    "special_defense": 26
                 },
                 "moves": [
                     "Fury Swipes",
@@ -9180,12 +9180,12 @@ const trainers_hgss = {
                 "ability": "Vital Spirit",
                 "held_item": null,
                 "stats": {
-                    "hp": 317,
-                    "attack": 307,
-                    "defense": 285,
-                    "speed": 302,
-                    "special_attack": 285,
-                    "special_defense": 290
+                    "hp": 68,
+                    "attack": 58,
+                    "defense": 36,
+                    "speed": 58,
+                    "special_attack": 32,
+                    "special_defense": 41
                 },
                 "moves": [
                     "Karate Chop",
@@ -10169,12 +10169,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 345,
-                    "defense": 438,
-                    "speed": 435,
-                    "special_attack": 402,
-                    "special_defense": 402
+                    "hp": 74,
+                    "attack": 26,
+                    "defense": 41,
+                    "speed": 77,
+                    "special_attack": 39,
+                    "special_defense": 48
                 },
                 "moves": [
                     "Charge Beam",
@@ -10235,12 +10235,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 488,
-                    "attack": 451,
-                    "defense": 479,
-                    "speed": 459,
-                    "special_attack": 499,
-                    "special_defense": 459
+                    "hp": 90,
+                    "attack": 53,
+                    "defense": 81,
+                    "speed": 67,
+                    "special_attack": 101,
+                    "special_defense": 54
                 },
                 "moves": [
                     "Lock-On",
@@ -10499,12 +10499,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 300,
-                    "attack": 283,
-                    "defense": 273,
-                    "speed": 291,
-                    "special_attack": 241,
-                    "special_defense": 305
+                    "hp": 61,
+                    "attack": 39,
+                    "defense": 34,
+                    "speed": 52,
+                    "special_attack": 31,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Hyper Fang",
@@ -10521,12 +10521,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 300,
-                    "attack": 283,
-                    "defense": 273,
-                    "speed": 291,
-                    "special_attack": 241,
-                    "special_defense": 305
+                    "hp": 61,
+                    "attack": 39,
+                    "defense": 34,
+                    "speed": 52,
+                    "special_attack": 31,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Hyper Fang",
@@ -10631,12 +10631,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 253,
-                    "attack": 261,
-                    "defense": 229,
-                    "speed": 220,
-                    "special_attack": 225,
-                    "special_defense": 229
+                    "hp": 44,
+                    "attack": 26,
+                    "defense": 20,
+                    "speed": 38,
+                    "special_attack": 16,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Bite",
@@ -10653,12 +10653,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 253,
-                    "attack": 261,
-                    "defense": 229,
-                    "speed": 220,
-                    "special_attack": 225,
-                    "special_defense": 229
+                    "hp": 44,
+                    "attack": 26,
+                    "defense": 20,
+                    "speed": 38,
+                    "special_attack": 16,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Bite",
@@ -10675,12 +10675,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 276,
-                    "attack": 260,
-                    "defense": 250,
-                    "speed": 267,
-                    "special_attack": 221,
-                    "special_defense": 275
+                    "hp": 47,
+                    "attack": 27,
+                    "defense": 21,
+                    "speed": 38,
+                    "special_attack": 18,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Pursuit",
@@ -10697,12 +10697,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 276,
-                    "attack": 260,
-                    "defense": 250,
-                    "speed": 267,
-                    "special_attack": 221,
-                    "special_defense": 275
+                    "hp": 47,
+                    "attack": 27,
+                    "defense": 21,
+                    "speed": 38,
+                    "special_attack": 18,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Pursuit",
@@ -10719,12 +10719,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 276,
-                    "attack": 260,
-                    "defense": 250,
-                    "speed": 267,
-                    "special_attack": 221,
-                    "special_defense": 275
+                    "hp": 47,
+                    "attack": 27,
+                    "defense": 21,
+                    "speed": 38,
+                    "special_attack": 18,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Pursuit",
@@ -10873,12 +10873,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 276,
-                    "attack": 260,
-                    "defense": 250,
-                    "speed": 267,
-                    "special_attack": 246,
-                    "special_defense": 250
+                    "hp": 47,
+                    "attack": 31,
+                    "defense": 18,
+                    "speed": 41,
+                    "special_attack": 17,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Pursuit",
@@ -10939,12 +10939,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 300,
-                    "attack": 283,
-                    "defense": 273,
-                    "speed": 261,
-                    "special_attack": 294,
-                    "special_defense": 278
+                    "hp": 61,
+                    "attack": 44,
+                    "defense": 37,
+                    "speed": 52,
+                    "special_attack": 29,
+                    "special_defense": 35
                 },
                 "moves": [
                     "Hyper Fang",
@@ -11115,12 +11115,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 299,
-                    "attack": 310,
-                    "defense": 272,
-                    "speed": 290,
-                    "special_attack": 240,
-                    "special_defense": 272
+                    "hp": 50,
+                    "attack": 33,
+                    "defense": 23,
+                    "speed": 45,
+                    "special_attack": 18,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Hyper Fang",
@@ -11181,12 +11181,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 322,
-                    "attack": 273,
-                    "defense": 293,
-                    "speed": 313,
-                    "special_attack": 288,
-                    "special_defense": 322
+                    "hp": 54,
+                    "attack": 36,
+                    "defense": 24,
+                    "speed": 44,
+                    "special_attack": 19,
+                    "special_defense": 24
                 },
                 "moves": [
                     "Hyper Fang",
@@ -11214,12 +11214,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 300,
-                    "attack": 283,
-                    "defense": 273,
-                    "speed": 261,
-                    "special_attack": 268,
-                    "special_defense": 305
+                    "hp": 61,
+                    "attack": 44,
+                    "defense": 37,
+                    "speed": 52,
+                    "special_attack": 26,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Hyper Fang",
@@ -11456,12 +11456,12 @@ const trainers_hgss = {
                 "ability": "Intimidate",
                 "held_item": null,
                 "stats": {
-                    "hp": 255,
-                    "attack": 239,
-                    "defense": 233,
-                    "speed": 237,
-                    "special_attack": 231,
-                    "special_defense": 237
+                    "hp": 46,
+                    "attack": 30,
+                    "defense": 24,
+                    "speed": 28,
+                    "special_attack": 22,
+                    "special_defense": 28
                 },
                 "moves": [
                     "Bite",
@@ -11566,12 +11566,12 @@ const trainers_hgss = {
                 "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
-                    "hp": 349,
-                    "attack": 313,
-                    "defense": 274,
-                    "speed": 310,
-                    "special_attack": 284,
-                    "special_defense": 335
+                    "hp": 90,
+                    "attack": 54,
+                    "defense": 41,
+                    "speed": 56,
+                    "special_attack": 25,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Bite",
@@ -11599,12 +11599,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 280,
-                    "attack": 270,
-                    "defense": 306,
-                    "speed": 243,
-                    "special_attack": 222,
-                    "special_defense": 247
+                    "hp": 51,
+                    "attack": 41,
+                    "defense": 51,
+                    "speed": 14,
+                    "special_attack": 18,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Rock Throw",
@@ -11621,12 +11621,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 311,
-                    "attack": 301,
-                    "defense": 311,
-                    "speed": 271,
-                    "special_attack": 276,
-                    "special_defense": 276
+                    "hp": 62,
+                    "attack": 52,
+                    "defense": 62,
+                    "speed": 24,
+                    "special_attack": 24,
+                    "special_defense": 27
                 },
                 "moves": [
                     "Rock Throw",
@@ -11654,12 +11654,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 280,
-                    "attack": 270,
-                    "defense": 306,
-                    "speed": 218,
-                    "special_attack": 247,
-                    "special_defense": 247
+                    "hp": 51,
+                    "attack": 41,
+                    "defense": 56,
+                    "speed": 14,
+                    "special_attack": 16,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Rock Throw",
@@ -11676,12 +11676,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 318,
-                    "attack": 293,
-                    "defense": 305,
-                    "speed": 271,
-                    "special_attack": 243,
-                    "special_defense": 271
+                    "hp": 70,
+                    "attack": 45,
+                    "defense": 30,
+                    "speed": 22,
+                    "special_attack": 22,
+                    "special_defense": 22
                 },
                 "moves": [
                     "Foresight",
@@ -11786,12 +11786,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 324,
-                    "attack": 293,
-                    "defense": 291,
-                    "speed": 263,
-                    "special_attack": 288,
-                    "special_defense": 328
+                    "hp": 66,
+                    "attack": 31,
+                    "defense": 35,
+                    "speed": 35,
+                    "special_attack": 29,
+                    "special_defense": 40
                 },
                 "moves": [
                     "Helping Hand",
@@ -12050,12 +12050,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 124,
-                    "attack": 38,
-                    "defense": 72,
-                    "speed": 58,
-                    "special_attack": 43,
-                    "special_defense": 66
+                    "hp": 101,
+                    "attack": 20,
+                    "defense": 43,
+                    "speed": 35,
+                    "special_attack": 20,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Aqua Ring",
@@ -12193,12 +12193,12 @@ const trainers_hgss = {
                 "ability": "Hyper Cutter",
                 "held_item": null,
                 "stats": {
-                    "hp": 241,
-                    "attack": 246,
-                    "defense": 240,
-                    "speed": 224,
-                    "special_attack": 214,
-                    "special_defense": 214
+                    "hp": 42,
+                    "attack": 47,
+                    "defense": 41,
+                    "speed": 25,
+                    "special_attack": 16,
+                    "special_defense": 13
                 },
                 "moves": [
                     "BubbleBeam",
@@ -12248,12 +12248,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 232,
-                    "attack": 212,
-                    "defense": 202,
-                    "speed": 196,
-                    "special_attack": 176,
-                    "special_defense": 215
+                    "hp": 53,
+                    "attack": 29,
+                    "defense": 23,
+                    "speed": 17,
+                    "special_attack": 17,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Leer",
@@ -12336,12 +12336,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 195,
-                    "attack": 182,
-                    "defense": 158,
-                    "speed": 187,
-                    "special_attack": 172,
-                    "special_defense": 193
+                    "hp": 36,
+                    "attack": 23,
+                    "defense": 17,
+                    "speed": 25,
+                    "special_attack": 13,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Focus Energy",
@@ -12358,12 +12358,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 195,
-                    "attack": 182,
-                    "defense": 158,
-                    "speed": 187,
-                    "special_attack": 172,
-                    "special_defense": 193
+                    "hp": 36,
+                    "attack": 23,
+                    "defense": 17,
+                    "speed": 25,
+                    "special_attack": 13,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Focus Energy",
@@ -12380,12 +12380,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 195,
-                    "attack": 182,
-                    "defense": 158,
-                    "speed": 187,
-                    "special_attack": 172,
-                    "special_defense": 193
+                    "hp": 36,
+                    "attack": 23,
+                    "defense": 17,
+                    "speed": 25,
+                    "special_attack": 13,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Focus Energy",
@@ -12402,12 +12402,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 195,
-                    "attack": 182,
-                    "defense": 158,
-                    "speed": 187,
-                    "special_attack": 172,
-                    "special_defense": 193
+                    "hp": 36,
+                    "attack": 23,
+                    "defense": 17,
+                    "speed": 25,
+                    "special_attack": 13,
+                    "special_defense": 16
                 },
                 "moves": [
                     "Focus Energy",
@@ -12545,12 +12545,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 207,
-                    "attack": 193,
-                    "defense": 186,
-                    "speed": 179,
-                    "special_attack": 183,
-                    "special_defense": 204
+                    "hp": 37,
+                    "attack": 24,
+                    "defense": 17,
+                    "speed": 31,
+                    "special_attack": 14,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Focus Energy",
@@ -12589,12 +12589,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 207,
-                    "attack": 193,
-                    "defense": 186,
-                    "speed": 179,
-                    "special_attack": 183,
-                    "special_defense": 204
+                    "hp": 37,
+                    "attack": 24,
+                    "defense": 17,
+                    "speed": 31,
+                    "special_attack": 14,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Focus Energy",
@@ -12644,12 +12644,12 @@ const trainers_hgss = {
                 "ability": "Compoundeyes",
                 "held_item": null,
                 "stats": {
-                    "hp": 229,
-                    "attack": 204,
-                    "defense": 202,
-                    "speed": 180,
-                    "special_attack": 218,
-                    "special_defense": 204
+                    "hp": 50,
+                    "attack": 27,
+                    "defense": 23,
+                    "speed": 21,
+                    "special_attack": 17,
+                    "special_defense": 25
                 },
                 "moves": [
                     "Supersonic",
@@ -12710,12 +12710,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 239,
-                    "attack": 225,
-                    "defense": 195,
-                    "speed": 231,
-                    "special_attack": 234,
-                    "special_defense": 221
+                    "hp": 50,
+                    "attack": 39,
+                    "defense": 28,
+                    "speed": 37,
+                    "special_attack": 24,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Bite",
@@ -12842,12 +12842,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 218,
-                    "attack": 204,
-                    "defense": 177,
-                    "speed": 210,
-                    "special_attack": 212,
-                    "special_defense": 197
+                    "hp": 39,
+                    "attack": 27,
+                    "defense": 18,
+                    "speed": 27,
+                    "special_attack": 14,
+                    "special_defense": 18
                 },
                 "moves": [
                     "Focus Energy",
@@ -13106,12 +13106,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": null,
                 "stats": {
-                    "hp": 527,
-                    "attack": 425,
-                    "defense": 469,
-                    "speed": 535,
-                    "special_attack": 602,
-                    "special_defense": 504
+                    "hp": 89,
+                    "attack": 35,
+                    "defense": 31,
+                    "speed": 106,
+                    "special_attack": 110,
+                    "special_defense": 59
                 },
                 "moves": [
                     "Headbutt",
@@ -13128,12 +13128,12 @@ const trainers_hgss = {
                 "ability": "Inner Focus",
                 "held_item": null,
                 "stats": {
-                    "hp": 590,
-                    "attack": 601,
-                    "defense": 533,
-                    "speed": 496,
-                    "special_attack": 557,
-                    "special_defense": 533
+                    "hp": 122,
+                    "attack": 88,
+                    "defense": 59,
+                    "speed": 84,
+                    "special_attack": 89,
+                    "special_defense": 66
                 },
                 "moves": [
                     "Crunch",
@@ -13218,12 +13218,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 515,
-                    "attack": 458,
-                    "defense": 475,
-                    "speed": 518,
-                    "special_attack": 480,
-                    "special_defense": 480
+                    "hp": 87,
+                    "attack": 33,
+                    "defense": 48,
+                    "speed": 91,
+                    "special_attack": 52,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Shock Wave",
@@ -13240,12 +13240,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 490,
-                    "attack": 452,
-                    "defense": 529,
-                    "speed": 460,
-                    "special_attack": 502,
-                    "special_defense": 422
+                    "hp": 73,
+                    "attack": 34,
+                    "defense": 63,
+                    "speed": 46,
+                    "special_attack": 75,
+                    "special_defense": 51
                 },
                 "moves": [
                     "Shock Wave",
@@ -13328,12 +13328,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 552,
-                    "defense": 519,
-                    "speed": 406,
-                    "special_attack": 460,
-                    "special_defense": 460
+                    "hp": 98,
+                    "attack": 84,
+                    "defense": 101,
+                    "speed": 30,
+                    "special_attack": 42,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Rollout",
@@ -13350,12 +13350,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 552,
-                    "defense": 519,
-                    "speed": 406,
-                    "special_attack": 460,
-                    "special_defense": 460
+                    "hp": 98,
+                    "attack": 84,
+                    "defense": 101,
+                    "speed": 30,
+                    "special_attack": 42,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Rollout",
@@ -13372,12 +13372,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 552,
-                    "defense": 519,
-                    "speed": 406,
-                    "special_attack": 460,
-                    "special_defense": 460
+                    "hp": 98,
+                    "attack": 84,
+                    "defense": 101,
+                    "speed": 30,
+                    "special_attack": 42,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Rollout",
@@ -13427,12 +13427,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 537,
-                    "attack": 515,
-                    "defense": 585,
-                    "speed": 414,
-                    "special_attack": 469,
-                    "special_defense": 477
+                    "hp": 119,
+                    "attack": 97,
+                    "defense": 114,
+                    "speed": 37,
+                    "special_attack": 56,
+                    "special_defense": 59
                 },
                 "moves": [
                     "Rollout",
@@ -13504,12 +13504,12 @@ const trainers_hgss = {
                 "ability": "Intimidate",
                 "held_item": null,
                 "stats": {
-                    "hp": 547,
-                    "attack": 521,
-                    "defense": 517,
-                    "speed": 530,
-                    "special_attack": 515,
-                    "special_defense": 445
+                    "hp": 120,
+                    "attack": 93,
+                    "defense": 89,
+                    "speed": 102,
+                    "special_attack": 41,
+                    "special_defense": 67
                 },
                 "moves": [
                     "Take Down",
@@ -13537,12 +13537,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 535,
-                    "attack": 478,
-                    "defense": 495,
-                    "speed": 610,
-                    "special_attack": 504,
-                    "special_defense": 453
+                    "hp": 107,
+                    "attack": 50,
+                    "defense": 67,
+                    "speed": 114,
+                    "special_attack": 76,
+                    "special_defense": 83
                 },
                 "moves": [
                     "Thunder",
@@ -13559,12 +13559,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 535,
-                    "attack": 499,
-                    "defense": 558,
-                    "speed": 534,
-                    "special_attack": 468,
-                    "special_defense": 508
+                    "hp": 107,
+                    "attack": 72,
+                    "defense": 72,
+                    "speed": 106,
+                    "special_attack": 102,
+                    "special_defense": 80
                 },
                 "moves": [
                     "Recover",
@@ -13614,12 +13614,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 491,
-                    "attack": 455,
-                    "defense": 432,
-                    "speed": 420,
-                    "special_attack": 420,
-                    "special_defense": 420
+                    "hp": 103,
+                    "attack": 73,
+                    "defense": 44,
+                    "speed": 32,
+                    "special_attack": 28,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Vital Throw",
@@ -13636,12 +13636,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 444,
-                    "defense": 470,
-                    "speed": 493,
-                    "special_attack": 453,
-                    "special_defense": 462
+                    "hp": 116,
+                    "attack": 87,
+                    "defense": 68,
+                    "speed": 36,
+                    "special_attack": 46,
+                    "special_defense": 54
                 },
                 "moves": [
                     "Vital Throw",
@@ -13658,12 +13658,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 416,
-                    "attack": 378,
-                    "defense": 375,
-                    "speed": 418,
-                    "special_attack": 348,
-                    "special_defense": 377
+                    "hp": 78,
+                    "attack": 36,
+                    "defense": 37,
+                    "speed": 42,
+                    "special_attack": 49,
+                    "special_defense": 42
                 },
                 "moves": [
                     "Confusion",
@@ -13713,12 +13713,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 492,
-                    "attack": 467,
-                    "defense": 451,
-                    "speed": 480,
-                    "special_attack": 487,
-                    "special_defense": 413
+                    "hp": 94,
+                    "attack": 69,
+                    "defense": 58,
+                    "speed": 73,
+                    "special_attack": 45,
+                    "special_defense": 61
                 },
                 "moves": [
                     "Crunch",
@@ -13801,12 +13801,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 454,
-                    "attack": 420,
-                    "defense": 399,
-                    "speed": 388,
-                    "special_attack": 388,
-                    "special_defense": 388
+                    "hp": 96,
+                    "attack": 68,
+                    "defense": 41,
+                    "speed": 30,
+                    "special_attack": 27,
+                    "special_defense": 30
                 },
                 "moves": [
                     "Revenge",
@@ -13845,12 +13845,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 454,
-                    "attack": 420,
-                    "defense": 399,
-                    "speed": 388,
-                    "special_attack": 388,
-                    "special_defense": 388
+                    "hp": 96,
+                    "attack": 68,
+                    "defense": 41,
+                    "speed": 30,
+                    "special_attack": 27,
+                    "special_defense": 30
                 },
                 "moves": [
                     "Revenge",
@@ -13878,12 +13878,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 444,
-                    "attack": 446,
-                    "defense": 421,
-                    "speed": 439,
-                    "special_attack": 402,
-                    "special_defense": 461
+                    "hp": 76,
+                    "attack": 38,
+                    "defense": 58,
+                    "speed": 71,
+                    "special_attack": 79,
+                    "special_defense": 83
                 },
                 "moves": [
                     "Substitute",
@@ -14059,12 +14059,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 627,
-                    "attack": 598,
-                    "defense": 559,
-                    "speed": 622,
-                    "special_attack": 555,
-                    "special_defense": 569
+                    "hp": 149,
+                    "attack": 120,
+                    "defense": 81,
+                    "speed": 144,
+                    "special_attack": 77,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Aerial Ace",
@@ -14205,12 +14205,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 549,
-                    "attack": 487,
-                    "defense": 566,
-                    "speed": 450,
-                    "special_attack": 507,
-                    "special_defense": 441
+                    "hp": 141,
+                    "attack": 85,
+                    "defense": 96,
+                    "speed": 41,
+                    "special_attack": 99,
+                    "special_defense": 82
                 },
                 "moves": [
                     "Curse",
@@ -14227,12 +14227,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 537,
-                    "attack": 498,
-                    "defense": 494,
-                    "speed": 463,
-                    "special_attack": 515,
-                    "special_defense": 543
+                    "hp": 119,
+                    "attack": 80,
+                    "defense": 76,
+                    "speed": 97,
+                    "special_attack": 87,
+                    "special_defense": 83
                 },
                 "moves": [
                     "Aerial Ace",
@@ -14329,12 +14329,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 558,
-                    "attack": 531,
-                    "defense": 493,
-                    "speed": 482,
-                    "special_attack": 531,
-                    "special_defense": 542
+                    "hp": 120,
+                    "attack": 93,
+                    "defense": 55,
+                    "speed": 98,
+                    "special_attack": 83,
+                    "special_defense": 60
                 },
                 "moves": [
                     "Pluck",
@@ -14387,12 +14387,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 487,
-                    "defense": 471,
-                    "speed": 447,
-                    "special_attack": 416,
-                    "special_defense": 509
+                    "hp": 118,
+                    "attack": 89,
+                    "defense": 73,
+                    "speed": 44,
+                    "special_attack": 71,
+                    "special_defense": 65
                 },
                 "moves": [
                     "Poison Jab",
@@ -14453,12 +14453,12 @@ const trainers_hgss = {
                 "ability": "Stench",
                 "held_item": "Black Sludge",
                 "stats": {
-                    "hp": 571,
-                    "attack": 524,
-                    "defense": 547,
-                    "speed": 477,
-                    "special_attack": 490,
-                    "special_defense": 467
+                    "hp": 152,
+                    "attack": 115,
+                    "defense": 80,
+                    "speed": 59,
+                    "special_attack": 64,
+                    "special_defense": 101
                 },
                 "moves": [
                     "Minimize",
@@ -14735,12 +14735,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 320,
-                    "attack": 295,
-                    "defense": 280,
-                    "speed": 272,
-                    "special_attack": 272,
-                    "special_defense": 272
+                    "hp": 71,
+                    "attack": 50,
+                    "defense": 31,
+                    "speed": 23,
+                    "special_attack": 20,
+                    "special_defense": 23
                 },
                 "moves": [
                     "Vital Throw",
@@ -14757,12 +14757,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 325,
-                    "attack": 305,
-                    "defense": 261,
-                    "speed": 277,
-                    "special_attack": 308,
-                    "special_defense": 285
+                    "hp": 76,
+                    "attack": 56,
+                    "defense": 41,
+                    "speed": 28,
+                    "special_attack": 27,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Leer",
@@ -14790,12 +14790,12 @@ const trainers_hgss = {
                 "ability": "Hustle",
                 "held_item": null,
                 "stats": {
-                    "hp": 499,
-                    "attack": 524,
-                    "defense": 452,
-                    "speed": 477,
-                    "special_attack": 477,
-                    "special_defense": 406
+                    "hp": 81,
+                    "attack": 64,
+                    "defense": 34,
+                    "speed": 53,
+                    "special_attack": 59,
+                    "special_defense": 34
                 },
                 "moves": [
                     "Bullet Seed",
@@ -14849,12 +14849,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 637,
-                    "attack": 622,
-                    "defense": 577,
-                    "speed": 560,
-                    "special_attack": 571,
-                    "special_defense": 628
+                    "hp": 129,
+                    "attack": 114,
+                    "defense": 134,
+                    "speed": 52,
+                    "special_attack": 63,
+                    "special_defense": 63
                 },
                 "moves": [
                     "Defense Curl",
@@ -14893,12 +14893,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 677,
-                    "attack": 669,
-                    "defense": 678,
-                    "speed": 603,
-                    "special_attack": 667,
-                    "special_defense": 557
+                    "hp": 149,
+                    "attack": 81,
+                    "defense": 165,
+                    "speed": 76,
+                    "special_attack": 125,
+                    "special_defense": 91
                 },
                 "moves": [
                     "AncientPower",
@@ -14937,12 +14937,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 654,
-                    "attack": 655,
-                    "defense": 644,
-                    "speed": 679,
-                    "special_attack": 603,
-                    "special_defense": 547
+                    "hp": 136,
+                    "attack": 137,
+                    "defense": 126,
+                    "speed": 100,
+                    "special_attack": 85,
+                    "special_defense": 90
                 },
                 "moves": [
                     "Rock Slide",
@@ -14996,12 +14996,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 651,
-                    "attack": 588,
-                    "defense": 588,
-                    "speed": 539,
-                    "special_attack": 568,
-                    "special_defense": 568
+                    "hp": 163,
+                    "attack": 100,
+                    "defense": 100,
+                    "speed": 56,
+                    "special_attack": 72,
+                    "special_defense": 80
                 },
                 "moves": [
                     "Water Pulse",
@@ -15040,12 +15040,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 679,
-                    "attack": 636,
-                    "defense": 647,
-                    "speed": 680,
-                    "special_attack": 729,
-                    "special_defense": 582
+                    "hp": 141,
+                    "attack": 98,
+                    "defense": 119,
+                    "speed": 127,
+                    "special_attack": 125,
+                    "special_defense": 109
                 },
                 "moves": [
                     "Water Pulse",
@@ -15099,12 +15099,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 592,
-                    "attack": 531,
-                    "defense": 605,
-                    "speed": 554,
-                    "special_attack": 559,
-                    "special_defense": 559
+                    "hp": 124,
+                    "attack": 56,
+                    "defense": 82,
+                    "speed": 161,
+                    "special_attack": 91,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Thunder Wave",
@@ -15143,12 +15143,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 592,
-                    "attack": 531,
-                    "defense": 605,
-                    "speed": 554,
-                    "special_attack": 559,
-                    "special_defense": 559
+                    "hp": 124,
+                    "attack": 56,
+                    "defense": 82,
+                    "speed": 161,
+                    "special_attack": 91,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Screech",
@@ -15349,12 +15349,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 602,
-                    "attack": 625,
-                    "defense": 550,
-                    "speed": 522,
-                    "special_attack": 540,
-                    "special_defense": 486
+                    "hp": 134,
+                    "attack": 100,
+                    "defense": 82,
+                    "speed": 58,
+                    "special_attack": 72,
+                    "special_defense": 64
                 },
                 "moves": [
                     "Scary Face",
@@ -15452,12 +15452,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 646,
-                    "attack": 593,
-                    "defense": 614,
-                    "speed": 705,
-                    "special_attack": 651,
-                    "special_defense": 604
+                    "hp": 118,
+                    "attack": 65,
+                    "defense": 86,
+                    "speed": 124,
+                    "special_attack": 110,
+                    "special_defense": 144
                 },
                 "moves": [
                     "Mimic",
@@ -15511,12 +15511,12 @@ const trainers_hgss = {
                 "ability": "Magma Armor",
                 "held_item": "White Herb",
                 "stats": {
-                    "hp": 668,
-                    "attack": 609,
-                    "defense": 616,
-                    "speed": 588,
-                    "special_attack": 706,
-                    "special_defense": 642
+                    "hp": 130,
+                    "attack": 63,
+                    "defense": 161,
+                    "speed": 50,
+                    "special_attack": 104,
+                    "special_defense": 104
                 },
                 "moves": [
                     "Sunny Day",
@@ -15555,12 +15555,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": "White Herb",
                 "stats": {
-                    "hp": 747,
-                    "attack": 724,
-                    "defense": 689,
-                    "speed": 730,
-                    "special_attack": 701,
-                    "special_defense": 701
+                    "hp": 159,
+                    "attack": 137,
+                    "defense": 101,
+                    "speed": 157,
+                    "special_attack": 113,
+                    "special_defense": 101
                 },
                 "moves": [
                     "Quick Attack",
@@ -15615,12 +15615,12 @@ const trainers_hgss = {
                 "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
-                    "hp": 1118,
-                    "attack": 961,
-                    "defense": 953,
-                    "speed": 828,
-                    "special_attack": 1057,
-                    "special_defense": 977
+                    "hp": 322,
+                    "attack": 181,
+                    "defense": 141,
+                    "speed": 125,
+                    "special_attack": 165,
+                    "special_defense": 181
                 },
                 "moves": [
                     "Blizzard",
@@ -15637,12 +15637,12 @@ const trainers_hgss = {
                 "ability": "Immunity",
                 "held_item": null,
                 "stats": {
-                    "hp": 1195,
-                    "attack": 923,
-                    "defense": 952,
-                    "speed": 895,
-                    "special_attack": 1047,
-                    "special_defense": 1026
+                    "hp": 379,
+                    "attack": 210,
+                    "defense": 136,
+                    "speed": 78,
+                    "special_attack": 136,
+                    "special_defense": 210
                 },
                 "moves": [
                     "Shadow Ball",
@@ -15785,12 +15785,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 784,
-                    "attack": 675,
-                    "defense": 739,
-                    "speed": 646,
-                    "special_attack": 652,
-                    "special_defense": 717
+                    "hp": 207,
+                    "attack": 173,
+                    "defense": 161,
+                    "speed": 68,
+                    "special_attack": 81,
+                    "special_defense": 66
                 },
                 "moves": [
                     "Megahorn",
@@ -15829,12 +15829,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 741,
-                    "attack": 725,
-                    "defense": 602,
-                    "speed": 641,
-                    "special_attack": 652,
-                    "special_defense": 741
+                    "hp": 183,
+                    "attack": 150,
+                    "defense": 111,
+                    "speed": 83,
+                    "special_attack": 94,
+                    "special_defense": 128
                 },
                 "moves": [
                     "DynamicPunch",
@@ -17268,12 +17268,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 479,
-                    "attack": 430,
-                    "defense": 434,
-                    "speed": 425,
-                    "special_attack": 424,
-                    "special_defense": 424
+                    "hp": 101,
+                    "attack": 52,
+                    "defense": 60,
+                    "speed": 42,
+                    "special_attack": 46,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Bite",
@@ -17345,12 +17345,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 520,
-                    "attack": 514,
-                    "defense": 472,
-                    "speed": 416,
-                    "special_attack": 463,
-                    "special_defense": 471
+                    "hp": 122,
+                    "attack": 70,
+                    "defense": 74,
+                    "speed": 65,
+                    "special_attack": 71,
+                    "special_defense": 65
                 },
                 "moves": [
                     "Tail Whip",
@@ -18617,12 +18617,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 491,
-                    "attack": 367,
-                    "defense": 432,
-                    "speed": 466,
-                    "special_attack": 408,
-                    "special_defense": 432
+                    "hp": 103,
+                    "attack": 18,
+                    "defense": 44,
+                    "speed": 36,
+                    "special_attack": 22,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Aqua Ring",
@@ -18639,12 +18639,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 491,
-                    "attack": 367,
-                    "defense": 432,
-                    "speed": 466,
-                    "special_attack": 408,
-                    "special_defense": 432
+                    "hp": 103,
+                    "attack": 18,
+                    "defense": 44,
+                    "speed": 36,
+                    "special_attack": 22,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Aqua Ring",
@@ -18661,12 +18661,12 @@ const trainers_hgss = {
                 "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
-                    "hp": 579,
-                    "attack": 494,
-                    "defense": 539,
-                    "speed": 473,
-                    "special_attack": 494,
-                    "special_defense": 451
+                    "hp": 161,
+                    "attack": 83,
+                    "defense": 72,
+                    "speed": 55,
+                    "special_attack": 76,
+                    "special_defense": 75
                 },
                 "moves": [
                     "Rain Dance",
@@ -18694,12 +18694,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 520,
-                    "attack": 436,
-                    "defense": 543,
-                    "speed": 519,
-                    "special_attack": 506,
-                    "special_defense": 494
+                    "hp": 102,
+                    "attack": 68,
+                    "defense": 68,
+                    "speed": 101,
+                    "special_attack": 97,
+                    "special_defense": 76
                 },
                 "moves": [
                     "Thunderbolt",
@@ -18716,12 +18716,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 520,
-                    "attack": 436,
-                    "defense": 543,
-                    "speed": 519,
-                    "special_attack": 506,
-                    "special_defense": 494
+                    "hp": 102,
+                    "attack": 68,
+                    "defense": 68,
+                    "speed": 101,
+                    "special_attack": 97,
+                    "special_defense": 76
                 },
                 "moves": [
                     "Thunderbolt",
@@ -18738,12 +18738,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 520,
-                    "attack": 436,
-                    "defense": 543,
-                    "speed": 519,
-                    "special_attack": 506,
-                    "special_defense": 494
+                    "hp": 102,
+                    "attack": 68,
+                    "defense": 68,
+                    "speed": 101,
+                    "special_attack": 97,
+                    "special_defense": 76
                 },
                 "moves": [
                     "Recover",
@@ -18859,12 +18859,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 612,
-                    "attack": 617,
-                    "defense": 501,
-                    "speed": 564,
-                    "special_attack": 573,
-                    "special_defense": 559
+                    "hp": 134,
+                    "attack": 74,
+                    "defense": 79,
+                    "speed": 86,
+                    "special_attack": 105,
+                    "special_defense": 81
                 },
                 "moves": [
                     "Water Pulse",
@@ -18892,12 +18892,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 587,
-                    "attack": 547,
-                    "defense": 469,
-                    "speed": 525,
-                    "special_attack": 522,
-                    "special_defense": 589
+                    "hp": 129,
+                    "attack": 97,
+                    "defense": 57,
+                    "speed": 67,
+                    "special_attack": 64,
+                    "special_defense": 78
                 },
                 "moves": [
                     "Water Pulse",
@@ -18914,12 +18914,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 587,
-                    "attack": 547,
-                    "defense": 469,
-                    "speed": 525,
-                    "special_attack": 522,
-                    "special_defense": 589
+                    "hp": 129,
+                    "attack": 97,
+                    "defense": 57,
+                    "speed": 67,
+                    "special_attack": 64,
+                    "special_defense": 78
                 },
                 "moves": [
                     "Water Pulse",
@@ -18969,12 +18969,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 567,
-                    "attack": 515,
-                    "defense": 511,
-                    "speed": 525,
-                    "special_attack": 557,
-                    "special_defense": 456
+                    "hp": 129,
+                    "attack": 78,
+                    "defense": 80,
+                    "speed": 87,
+                    "special_attack": 62,
+                    "special_defense": 69
                 },
                 "moves": [
                     "FeatherDance",
@@ -19057,12 +19057,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 466,
-                    "attack": 507,
-                    "defense": 430,
-                    "speed": 453,
-                    "special_attack": 379,
-                    "special_defense": 422
+                    "hp": 78,
+                    "attack": 73,
+                    "defense": 42,
+                    "speed": 58,
+                    "special_attack": 37,
+                    "special_defense": 34
                 },
                 "moves": [
                     "Uproar",
@@ -19079,12 +19079,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 443,
-                    "attack": 394,
-                    "defense": 408,
-                    "speed": 430,
-                    "special_attack": 441,
-                    "special_defense": 401
+                    "hp": 75,
+                    "attack": 63,
+                    "defense": 40,
+                    "speed": 68,
+                    "special_attack": 33,
+                    "special_defense": 33
                 },
                 "moves": [
                     "Uproar",
@@ -19101,12 +19101,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 510,
-                    "attack": 505,
-                    "defense": 472,
-                    "speed": 497,
-                    "special_attack": 464,
-                    "special_defense": 464
+                    "hp": 102,
+                    "attack": 87,
+                    "defense": 64,
+                    "speed": 89,
+                    "special_attack": 56,
+                    "special_defense": 61
                 },
                 "moves": [
                     "Uproar",
@@ -19596,12 +19596,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 667,
-                    "attack": 573,
-                    "defense": 627,
-                    "speed": 601,
-                    "special_attack": 552,
-                    "special_defense": 552
+                    "hp": 169,
+                    "attack": 139,
+                    "defense": 129,
+                    "speed": 49,
+                    "special_attack": 54,
+                    "special_defense": 54
                 },
                 "moves": [
                     "Rock Slide",
@@ -20135,12 +20135,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": null,
                 "stats": {
-                    "hp": 536,
-                    "attack": 497,
-                    "defense": 443,
-                    "speed": 514,
-                    "special_attack": 565,
-                    "special_defense": 493
+                    "hp": 108,
+                    "attack": 62,
+                    "defense": 65,
+                    "speed": 86,
+                    "special_attack": 94,
+                    "special_defense": 65
                 },
                 "moves": [
                     "Future Sight",
@@ -20727,12 +20727,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 536,
-                    "attack": 475,
-                    "defense": 462,
-                    "speed": 514,
-                    "special_attack": 531,
-                    "special_defense": 514
+                    "hp": 108,
+                    "attack": 48,
+                    "defense": 35,
+                    "speed": 94,
+                    "special_attack": 103,
+                    "special_defense": 77
                 },
                 "moves": [
                     "Fake Tears",
@@ -20826,12 +20826,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 475,
-                    "defense": 471,
-                    "speed": 482,
-                    "special_attack": 548,
-                    "special_defense": 555
+                    "hp": 100,
+                    "attack": 48,
+                    "defense": 43,
+                    "speed": 108,
+                    "special_attack": 121,
+                    "special_defense": 78
                 },
                 "moves": [
                     "Psychic",
@@ -20947,12 +20947,12 @@ const trainers_hgss = {
                 "ability": "Effect Spore",
                 "held_item": null,
                 "stats": {
-                    "hp": 483,
-                    "attack": 420,
-                    "defense": 455,
-                    "speed": 416,
-                    "special_attack": 439,
-                    "special_defense": 500
+                    "hp": 95,
+                    "attack": 79,
+                    "defense": 67,
+                    "speed": 25,
+                    "special_attack": 51,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Spore",
@@ -21021,12 +21021,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 471,
-                    "defense": 475,
-                    "speed": 501,
-                    "special_attack": 471,
-                    "special_defense": 488
+                    "hp": 100,
+                    "attack": 43,
+                    "defense": 52,
+                    "speed": 65,
+                    "special_attack": 43,
+                    "special_defense": 60
                 },
                 "moves": [
                     "Mega Drain",
@@ -21076,12 +21076,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 463,
-                    "defense": 513,
-                    "speed": 412,
-                    "special_attack": 458,
-                    "special_defense": 458
+                    "hp": 108,
+                    "attack": 55,
+                    "defense": 59,
+                    "speed": 55,
+                    "special_attack": 50,
+                    "special_defense": 45
                 },
                 "moves": [
                     "Bite",
@@ -21230,12 +21230,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 512,
-                    "attack": 494,
-                    "defense": 423,
-                    "speed": 548,
-                    "special_attack": 478,
-                    "special_defense": 478
+                    "hp": 104,
+                    "attack": 87,
+                    "defense": 62,
+                    "speed": 91,
+                    "special_attack": 70,
+                    "special_defense": 70
                 },
                 "moves": [
                     "Take Down",
@@ -21410,12 +21410,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 488,
-                    "attack": 460,
-                    "defense": 480,
-                    "speed": 418,
-                    "special_attack": 422,
-                    "special_defense": 387
+                    "hp": 109,
+                    "attack": 82,
+                    "defense": 53,
+                    "speed": 40,
+                    "special_attack": 48,
+                    "special_defense": 51
                 },
                 "moves": [
                     "Revenge",
@@ -21432,12 +21432,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 513,
-                    "attack": 484,
-                    "defense": 460,
-                    "speed": 484,
-                    "special_attack": 444,
-                    "special_defense": 406
+                    "hp": 115,
+                    "attack": 77,
+                    "defense": 62,
+                    "speed": 42,
+                    "special_attack": 50,
+                    "special_defense": 54
                 },
                 "moves": [
                     "Vital Throw",
@@ -21795,12 +21795,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 562,
-                    "attack": 454,
-                    "defense": 555,
-                    "speed": 462,
-                    "special_attack": 488,
-                    "special_defense": 488
+                    "hp": 134,
+                    "attack": 85,
+                    "defense": 78,
+                    "speed": 31,
+                    "special_attack": 60,
+                    "special_defense": 60
                 },
                 "moves": [
                     "Amnesia",
@@ -22048,12 +22048,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 511,
-                    "attack": 466,
-                    "defense": 463,
-                    "speed": 469,
-                    "special_attack": 477,
-                    "special_defense": 464
+                    "hp": 94,
+                    "attack": 48,
+                    "defense": 40,
+                    "speed": 51,
+                    "special_attack": 59,
+                    "special_defense": 51
                 },
                 "moves": [
                     "Fury Swipes",
@@ -22081,12 +22081,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 371,
-                    "attack": 375,
-                    "defense": 334,
-                    "speed": 292,
-                    "special_attack": 335,
-                    "special_defense": 341
+                    "hp": 62,
+                    "attack": 33,
+                    "defense": 28,
+                    "speed": 17,
+                    "special_attack": 23,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Follow Me",
@@ -22103,12 +22103,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 371,
-                    "attack": 375,
-                    "defense": 334,
-                    "speed": 292,
-                    "special_attack": 335,
-                    "special_defense": 341
+                    "hp": 62,
+                    "attack": 33,
+                    "defense": 28,
+                    "speed": 17,
+                    "special_attack": 23,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Follow Me",
@@ -22125,12 +22125,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 371,
-                    "attack": 375,
-                    "defense": 334,
-                    "speed": 292,
-                    "special_attack": 335,
-                    "special_defense": 341
+                    "hp": 62,
+                    "attack": 33,
+                    "defense": 28,
+                    "speed": 17,
+                    "special_attack": 23,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Follow Me",
@@ -22147,12 +22147,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 465,
-                    "attack": 417,
-                    "defense": 409,
-                    "speed": 428,
-                    "special_attack": 395,
-                    "special_defense": 402
+                    "hp": 107,
+                    "attack": 59,
+                    "defense": 51,
+                    "speed": 69,
+                    "special_attack": 37,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Follow Me",
@@ -22169,12 +22169,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 371,
-                    "attack": 375,
-                    "defense": 334,
-                    "speed": 292,
-                    "special_attack": 335,
-                    "special_defense": 341
+                    "hp": 62,
+                    "attack": 33,
+                    "defense": 28,
+                    "speed": 17,
+                    "special_attack": 23,
+                    "special_defense": 32
                 },
                 "moves": [
                     "Follow Me",
@@ -22257,12 +22257,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 510,
-                    "attack": 462,
-                    "defense": 412,
-                    "speed": 471,
-                    "special_attack": 453,
-                    "special_defense": 498
+                    "hp": 102,
+                    "attack": 59,
+                    "defense": 50,
+                    "speed": 56,
+                    "special_attack": 46,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Twister",
@@ -22334,12 +22334,12 @@ const trainers_hgss = {
                 "ability": "Effect Spore",
                 "held_item": null,
                 "stats": {
-                    "hp": 452,
-                    "attack": 436,
-                    "defense": 466,
-                    "speed": 402,
-                    "special_attack": 375,
-                    "special_defense": 424
+                    "hp": 74,
+                    "attack": 52,
+                    "defense": 50,
+                    "speed": 24,
+                    "special_attack": 39,
+                    "special_defense": 46
                 },
                 "moves": [
                     "Slash",
@@ -22466,12 +22466,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 510,
-                    "attack": 471,
-                    "defense": 570,
-                    "speed": 443,
-                    "special_attack": 458,
-                    "special_defense": 518
+                    "hp": 83,
+                    "attack": 43,
+                    "defense": 142,
+                    "speed": 58,
+                    "special_attack": 33,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Rock Polish",
@@ -22598,12 +22598,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 583,
-                    "attack": 569,
-                    "defense": 524,
-                    "speed": 451,
-                    "special_attack": 511,
-                    "special_defense": 581
+                    "hp": 136,
+                    "attack": 122,
+                    "defense": 84,
+                    "speed": 48,
+                    "special_attack": 63,
+                    "special_defense": 81
                 },
                 "moves": [
                     "Submission",
@@ -22664,12 +22664,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 615,
-                    "attack": 567,
-                    "defense": 576,
-                    "speed": 559,
-                    "special_attack": 514,
-                    "special_defense": 462
+                    "hp": 137,
+                    "attack": 89,
+                    "defense": 108,
+                    "speed": 27,
+                    "special_attack": 36,
+                    "special_defense": 36
                 },
                 "moves": [
                     "Take Down",
@@ -22763,12 +22763,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 583,
-                    "attack": 545,
-                    "defense": 555,
-                    "speed": 583,
-                    "special_attack": 569,
-                    "special_defense": 555
+                    "hp": 116,
+                    "attack": 78,
+                    "defense": 95,
+                    "speed": 103,
+                    "special_attack": 101,
+                    "special_defense": 87
                 },
                 "moves": [
                     "Blizzard",
@@ -22884,12 +22884,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 468,
-                    "attack": 431,
-                    "defense": 504,
-                    "speed": 439,
-                    "special_attack": 479,
-                    "special_defense": 402
+                    "hp": 70,
+                    "attack": 33,
+                    "defense": 54,
+                    "speed": 45,
+                    "special_attack": 81,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Lock-On",
@@ -22928,12 +22928,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 468,
-                    "attack": 431,
-                    "defense": 504,
-                    "speed": 439,
-                    "special_attack": 479,
-                    "special_defense": 402
+                    "hp": 70,
+                    "attack": 33,
+                    "defense": 54,
+                    "speed": 45,
+                    "special_attack": 81,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Lock-On",
@@ -22961,12 +22961,12 @@ const trainers_hgss = {
                 "ability": "Trace",
                 "held_item": null,
                 "stats": {
-                    "hp": 588,
-                    "attack": 531,
-                    "defense": 541,
-                    "speed": 513,
-                    "special_attack": 555,
-                    "special_defense": 545
+                    "hp": 120,
+                    "attack": 70,
+                    "defense": 73,
+                    "speed": 45,
+                    "special_attack": 87,
+                    "special_defense": 70
                 },
                 "moves": [
                     "Charge Beam",
@@ -22994,12 +22994,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 456,
-                    "attack": 420,
-                    "defense": 447,
-                    "speed": 470,
-                    "special_attack": 420,
-                    "special_defense": 435
+                    "hp": 68,
+                    "attack": 28,
+                    "defense": 59,
+                    "speed": 40,
+                    "special_attack": 86,
+                    "special_defense": 47
                 },
                 "moves": [
                     "Lock-On",
@@ -23071,12 +23071,12 @@ const trainers_hgss = {
                 "ability": "Levitate",
                 "held_item": null,
                 "stats": {
-                    "hp": 554,
-                    "attack": 474,
-                    "defense": 530,
-                    "speed": 473,
-                    "special_attack": 521,
-                    "special_defense": 477
+                    "hp": 106,
+                    "attack": 26,
+                    "defense": 73,
+                    "speed": 25,
+                    "special_attack": 26,
+                    "special_defense": 90
                 },
                 "moves": [
                     "Faint Attack",
@@ -23093,12 +23093,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 579,
-                    "attack": 518,
-                    "defense": 515,
-                    "speed": 461,
-                    "special_attack": 569,
-                    "special_defense": 556
+                    "hp": 131,
+                    "attack": 70,
+                    "defense": 74,
+                    "speed": 65,
+                    "special_attack": 70,
+                    "special_defense": 97
                 },
                 "moves": [
                     "Swagger",
@@ -23126,12 +23126,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 571,
-                    "attack": 450,
-                    "defense": 500,
-                    "speed": 501,
-                    "special_attack": 478,
-                    "special_defense": 478
+                    "hp": 133,
+                    "attack": 62,
+                    "defense": 62,
+                    "speed": 18,
+                    "special_attack": 40,
+                    "special_defense": 40
                 },
                 "moves": [
                     "Skill Swap",
@@ -23148,12 +23148,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 601,
-                    "attack": 477,
-                    "defense": 563,
-                    "speed": 490,
-                    "special_attack": 609,
-                    "special_defense": 536
+                    "hp": 143,
+                    "attack": 74,
+                    "defense": 116,
+                    "speed": 28,
+                    "special_attack": 97,
+                    "special_defense": 78
                 },
                 "moves": [
                     "Skill Swap",
@@ -23181,12 +23181,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 443,
-                    "attack": 410,
-                    "defense": 431,
-                    "speed": 381,
-                    "special_attack": 431,
-                    "special_defense": 434
+                    "hp": 85,
+                    "attack": 56,
+                    "defense": 73,
+                    "speed": 66,
+                    "special_attack": 73,
+                    "special_defense": 33
                 },
                 "moves": [
                     "BubbleBeam",
@@ -23247,12 +23247,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 460,
-                    "attack": 390,
-                    "defense": 428,
-                    "speed": 430,
-                    "special_attack": 449,
-                    "special_defense": 421
+                    "hp": 82,
+                    "attack": 55,
+                    "defense": 50,
+                    "speed": 57,
+                    "special_attack": 27,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Flail",
@@ -23302,12 +23302,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 535,
-                    "attack": 526,
-                    "defense": 540,
-                    "speed": 504,
-                    "special_attack": 568,
-                    "special_defense": 482
+                    "hp": 98,
+                    "attack": 88,
+                    "defense": 179,
+                    "speed": 66,
+                    "special_attack": 71,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Aurora Beam",
@@ -23412,12 +23412,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 579,
-                    "attack": 486,
-                    "defense": 461,
-                    "speed": 486,
-                    "special_attack": 534,
-                    "special_defense": 513
+                    "hp": 142,
+                    "attack": 49,
+                    "defense": 75,
+                    "speed": 49,
+                    "special_attack": 44,
+                    "special_defense": 82
                 },
                 "moves": [
                     "BubbleBeam",
@@ -23445,12 +23445,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 549,
-                    "attack": 543,
-                    "defense": 494,
-                    "speed": 452,
-                    "special_attack": 429,
-                    "special_defense": 477
+                    "hp": 131,
+                    "attack": 68,
+                    "defense": 76,
+                    "speed": 37,
+                    "special_attack": 59,
+                    "special_defense": 59
                 },
                 "moves": [
                     "Earthquake",
@@ -23467,12 +23467,12 @@ const trainers_hgss = {
                 "ability": "Suction Cups",
                 "held_item": null,
                 "stats": {
-                    "hp": 532,
-                    "attack": 511,
-                    "defense": 485,
-                    "speed": 460,
-                    "special_attack": 562,
-                    "special_defense": 436
+                    "hp": 115,
+                    "attack": 93,
+                    "defense": 68,
+                    "speed": 37,
+                    "special_attack": 102,
+                    "special_defense": 68
                 },
                 "moves": [
                     "Signal Beam",
@@ -23654,12 +23654,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 506,
-                    "attack": 467,
-                    "defense": 493,
-                    "speed": 484,
-                    "special_attack": 493,
-                    "special_defense": 454
+                    "hp": 78,
+                    "attack": 39,
+                    "defense": 65,
+                    "speed": 56,
+                    "special_attack": 65,
+                    "special_defense": 26
                 },
                 "moves": [
                     "Water Pulse",
@@ -23676,12 +23676,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 488,
-                    "defense": 514,
-                    "speed": 505,
-                    "special_attack": 514,
-                    "special_defense": 471
+                    "hp": 100,
+                    "attack": 60,
+                    "defense": 94,
+                    "speed": 70,
+                    "special_attack": 86,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Water Pulse",
@@ -23929,12 +23929,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 483,
-                    "attack": 437,
-                    "defense": 437,
-                    "speed": 437,
-                    "special_attack": 437,
-                    "special_defense": 437
+                    "hp": 75,
+                    "attack": 31,
+                    "defense": 29,
+                    "speed": 29,
+                    "special_attack": 26,
+                    "special_defense": 29
                 },
                 "moves": [
                     "Razor Leaf",
@@ -24004,12 +24004,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 80,
-                    "attack": 70,
-                    "defense": 69,
-                    "speed": 71,
-                    "special_attack": 69,
-                    "special_defense": 69
+                    "hp": 21,
+                    "attack": 10,
+                    "defense": 10,
+                    "speed": 13,
+                    "special_attack": 9,
+                    "special_defense": 8
                 },
                 "moves": [
                     "Tackle",
@@ -24056,12 +24056,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 138,
-                    "attack": 124,
-                    "defense": 163,
-                    "speed": 116,
-                    "special_attack": 121,
-                    "special_defense": 124
+                    "hp": 28,
+                    "attack": 14,
+                    "defense": 40,
+                    "speed": 18,
+                    "special_attack": 12,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Harden",
@@ -24176,12 +24176,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 127,
-                    "attack": 108,
-                    "defense": 110,
-                    "speed": 115,
-                    "special_attack": 112,
-                    "special_defense": 120
+                    "hp": 28,
+                    "attack": 9,
+                    "defense": 11,
+                    "speed": 16,
+                    "special_attack": 11,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Tackle",
@@ -24197,12 +24197,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": null,
                 "stats": {
-                    "hp": 127,
-                    "attack": 116,
-                    "defense": 112,
-                    "speed": 110,
-                    "special_attack": 100,
-                    "special_defense": 123
+                    "hp": 28,
+                    "attack": 17,
+                    "defense": 13,
+                    "speed": 12,
+                    "special_attack": 13,
+                    "special_defense": 11
                 },
                 "moves": [
                     "Poison Sting",
@@ -24306,12 +24306,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 265,
-                    "attack": 253,
-                    "defense": 207,
-                    "speed": 210,
-                    "special_attack": 220,
-                    "special_defense": 220
+                    "hp": 66,
+                    "attack": 31,
+                    "defense": 31,
+                    "speed": 11,
+                    "special_attack": 21,
+                    "special_defense": 21
                 },
                 "moves": [
                     "Curse",
@@ -24403,12 +24403,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 150,
-                    "attack": 115,
-                    "defense": 128,
-                    "speed": 117,
-                    "special_attack": 135,
-                    "special_defense": 123
+                    "hp": 40,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 8,
+                    "special_attack": 13,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Yawn",
@@ -24425,12 +24425,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 150,
-                    "attack": 115,
-                    "defense": 128,
-                    "speed": 117,
-                    "special_attack": 135,
-                    "special_defense": 123
+                    "hp": 40,
+                    "attack": 19,
+                    "defense": 17,
+                    "speed": 8,
+                    "special_attack": 13,
+                    "special_defense": 14
                 },
                 "moves": [
                     "Yawn",
@@ -24500,12 +24500,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 90,
-                    "attack": 86,
-                    "defense": 84,
-                    "speed": 80,
-                    "special_attack": 78,
-                    "special_defense": 82
+                    "hp": 20,
+                    "attack": 8,
+                    "defense": 15,
+                    "speed": 11,
+                    "special_attack": 18,
+                    "special_defense": 12
                 },
                 "moves": [
                     "Metal Sound",
@@ -24702,12 +24702,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 532,
-                    "attack": 475,
-                    "defense": 493,
-                    "speed": 553,
-                    "special_attack": 551,
-                    "special_defense": 450
+                    "hp": 104,
+                    "attack": 48,
+                    "defense": 65,
+                    "speed": 125,
+                    "special_attack": 73,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Swift",
@@ -24746,12 +24746,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 532,
-                    "attack": 475,
-                    "defense": 493,
-                    "speed": 553,
-                    "special_attack": 551,
-                    "special_defense": 450
+                    "hp": 104,
+                    "attack": 48,
+                    "defense": 65,
+                    "speed": 125,
+                    "special_attack": 73,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Swift",
@@ -24834,12 +24834,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 226,
-                    "attack": 200,
-                    "defense": 181,
-                    "speed": 233,
-                    "special_attack": 200,
-                    "special_defense": 207
+                    "hp": 47,
+                    "attack": 23,
+                    "defense": 23,
+                    "speed": 33,
+                    "special_attack": 21,
+                    "special_defense": 25
                 },
                 "moves": [
                     "Mega Drain",
@@ -25453,12 +25453,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 251,
-                    "attack": 244,
-                    "defense": 222,
-                    "speed": 210,
-                    "special_attack": 214,
-                    "special_defense": 192
+                    "hp": 52,
+                    "attack": 23,
+                    "defense": 23,
+                    "speed": 9,
+                    "special_attack": 16,
+                    "special_defense": 15
                 },
                 "moves": [
                     "Water Gun",
@@ -25596,12 +25596,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 377,
-                    "attack": 360,
-                    "defense": 313,
-                    "speed": 354,
-                    "special_attack": 336,
-                    "special_defense": 369
+                    "hp": 79,
+                    "attack": 62,
+                    "defense": 50,
+                    "speed": 61,
+                    "special_attack": 38,
+                    "special_defense": 34
                 },
                 "moves": [
                     "Water Gun",
@@ -25706,12 +25706,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 503,
-                    "attack": 460,
-                    "defense": 477,
-                    "speed": 547,
-                    "special_attack": 506,
-                    "special_defense": 470
+                    "hp": 85,
+                    "attack": 42,
+                    "defense": 59,
+                    "speed": 88,
+                    "special_attack": 80,
+                    "special_defense": 105
                 },
                 "moves": [
                     "Skill Swap",
@@ -25896,12 +25896,12 @@ const trainers_hgss = {
                 "ability": "Intimidate",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 515,
-                    "defense": 515,
-                    "speed": 494,
-                    "special_attack": 465,
-                    "special_defense": 528
+                    "hp": 106,
+                    "attack": 97,
+                    "defense": 97,
+                    "speed": 76,
+                    "special_attack": 42,
+                    "special_defense": 121
                 },
                 "moves": [
                     "Counter",
@@ -25918,12 +25918,12 @@ const trainers_hgss = {
                 "ability": "Limber",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 536,
-                    "defense": 480,
-                    "speed": 559,
-                    "special_attack": 465,
-                    "special_defense": 475
+                    "hp": 106,
+                    "attack": 106,
+                    "defense": 62,
+                    "speed": 99,
+                    "special_attack": 47,
+                    "special_defense": 110
                 },
                 "moves": [
                     "Swagger",
@@ -25940,12 +25940,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 524,
-                    "defense": 502,
-                    "speed": 499,
-                    "special_attack": 418,
-                    "special_defense": 580
+                    "hp": 106,
+                    "attack": 105,
+                    "defense": 83,
+                    "speed": 81,
+                    "special_attack": 51,
+                    "special_defense": 99
                 },
                 "moves": [
                     "ThunderPunch",
@@ -25962,12 +25962,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 524,
-                    "attack": 484,
-                    "defense": 583,
-                    "speed": 506,
-                    "special_attack": 471,
-                    "special_defense": 484
+                    "hp": 96,
+                    "attack": 56,
+                    "defense": 170,
+                    "speed": 78,
+                    "special_attack": 38,
+                    "special_defense": 56
                 },
                 "moves": [
                     "DragonBreath",
@@ -25984,12 +25984,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 610,
-                    "attack": 536,
-                    "defense": 550,
-                    "speed": 579,
-                    "special_attack": 536,
-                    "special_defense": 555
+                    "hp": 152,
+                    "attack": 124,
+                    "defense": 92,
+                    "speed": 69,
+                    "special_attack": 85,
+                    "special_defense": 97
                 },
                 "moves": [
                     "Rock Slide",
@@ -26072,12 +26072,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 516,
-                    "attack": 432,
-                    "defense": 518,
-                    "speed": 475,
-                    "special_attack": 474,
-                    "special_defense": 477
+                    "hp": 98,
+                    "attack": 62,
+                    "defense": 47,
+                    "speed": 57,
+                    "special_attack": 61,
+                    "special_defense": 59
                 },
                 "moves": [
                     "Swords Dance",
@@ -26182,12 +26182,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 472,
-                    "defense": 423,
-                    "speed": 513,
-                    "special_attack": 472,
-                    "special_defense": 507
+                    "hp": 120,
+                    "attack": 64,
+                    "defense": 68,
+                    "speed": 53,
+                    "special_attack": 64,
+                    "special_defense": 99
                 },
                 "moves": [
                     "Meditate",
@@ -26215,12 +26215,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 355,
-                    "defense": 426,
-                    "speed": 428,
-                    "special_attack": 392,
-                    "special_defense": 392
+                    "hp": 74,
+                    "attack": 40,
+                    "defense": 30,
+                    "speed": 62,
+                    "special_attack": 33,
+                    "special_defense": 33
                 },
                 "moves": [
                     "Faint Attack",
@@ -26237,12 +26237,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 355,
-                    "defense": 426,
-                    "speed": 428,
-                    "special_attack": 392,
-                    "special_defense": 392
+                    "hp": 74,
+                    "attack": 40,
+                    "defense": 30,
+                    "speed": 62,
+                    "special_attack": 33,
+                    "special_defense": 33
                 },
                 "moves": [
                     "Faint Attack",
@@ -26259,12 +26259,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 355,
-                    "defense": 426,
-                    "speed": 428,
-                    "special_attack": 392,
-                    "special_defense": 392
+                    "hp": 74,
+                    "attack": 40,
+                    "defense": 30,
+                    "speed": 62,
+                    "special_attack": 33,
+                    "special_defense": 33
                 },
                 "moves": [
                     "Faint Attack",
@@ -26292,12 +26292,12 @@ const trainers_hgss = {
                 "ability": "Vital Spirit",
                 "held_item": null,
                 "stats": {
-                    "hp": 484,
-                    "attack": 491,
-                    "defense": 439,
-                    "speed": 463,
-                    "special_attack": 455,
-                    "special_defense": 395
+                    "hp": 86,
+                    "attack": 49,
+                    "defense": 41,
+                    "speed": 58,
+                    "special_attack": 62,
+                    "special_defense": 41
                 },
                 "moves": [
                     "Present",
@@ -26324,12 +26324,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 483,
-                    "attack": 455,
-                    "defense": 432,
-                    "speed": 381,
-                    "special_attack": 475,
-                    "special_defense": 432
+                    "hp": 95,
+                    "attack": 67,
+                    "defense": 48,
+                    "speed": 36,
+                    "special_attack": 39,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Faint Attack",
@@ -26401,12 +26401,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 483,
-                    "attack": 409,
-                    "defense": 432,
-                    "speed": 466,
-                    "special_attack": 432,
-                    "special_defense": 432
+                    "hp": 95,
+                    "attack": 73,
+                    "defense": 39,
+                    "speed": 36,
+                    "special_attack": 44,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Faint Attack",
@@ -26434,12 +26434,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 546,
-                    "attack": 536,
-                    "defense": 471,
-                    "speed": 511,
-                    "special_attack": 459,
-                    "special_defense": 468
+                    "hp": 118,
+                    "attack": 54,
+                    "defense": 43,
+                    "speed": 83,
+                    "special_attack": 92,
+                    "special_defense": 41
                 },
                 "moves": [
                     "Mimic",
@@ -27410,12 +27410,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 451,
-                    "attack": 419,
-                    "defense": 427,
-                    "speed": 449,
-                    "special_attack": 438,
-                    "special_defense": 427
+                    "hp": 73,
+                    "attack": 45,
+                    "defense": 49,
+                    "speed": 71,
+                    "special_attack": 60,
+                    "special_defense": 44
                 },
                 "moves": [
                     "Swift",
@@ -27487,12 +27487,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 583,
-                    "attack": 490,
-                    "defense": 555,
-                    "speed": 641,
-                    "special_attack": 569,
-                    "special_defense": 555
+                    "hp": 116,
+                    "attack": 78,
+                    "defense": 87,
+                    "speed": 115,
+                    "special_attack": 101,
+                    "special_defense": 87
                 },
                 "moves": [
                     "Rapid Spin",
@@ -27971,12 +27971,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 598,
-                    "attack": 578,
-                    "defense": 549,
-                    "speed": 583,
-                    "special_attack": 559,
-                    "special_defense": 559
+                    "hp": 120,
+                    "attack": 101,
+                    "defense": 79,
+                    "speed": 94,
+                    "special_attack": 81,
+                    "special_defense": 81
                 },
                 "moves": [
                     "Agility",
@@ -28026,12 +28026,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 315,
-                    "attack": 251,
-                    "defense": 289,
-                    "speed": 315,
-                    "special_attack": 292,
-                    "special_defense": 321
+                    "hp": 56,
+                    "attack": 20,
+                    "defense": 31,
+                    "speed": 51,
+                    "special_attack": 36,
+                    "special_defense": 33
                 },
                 "moves": [
                     "Rollout",
@@ -28070,12 +28070,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 409,
-                    "attack": 399,
-                    "defense": 377,
-                    "speed": 411,
-                    "special_attack": 342,
-                    "special_defense": 380
+                    "hp": 71,
+                    "attack": 25,
+                    "defense": 42,
+                    "speed": 73,
+                    "special_attack": 42,
+                    "special_defense": 37
                 },
                 "moves": [
                     "Light Screen",
@@ -28125,12 +28125,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 384,
-                    "defense": 399,
-                    "speed": 391,
-                    "special_attack": 402,
-                    "special_defense": 442
+                    "hp": 74,
+                    "attack": 26,
+                    "defense": 45,
+                    "speed": 77,
+                    "special_attack": 44,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Charge Beam",
@@ -28169,12 +28169,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 520,
-                    "attack": 464,
-                    "defense": 481,
-                    "speed": 540,
-                    "special_attack": 490,
-                    "special_defense": 490
+                    "hp": 102,
+                    "attack": 47,
+                    "defense": 63,
+                    "speed": 122,
+                    "special_attack": 72,
+                    "special_defense": 72
                 },
                 "moves": [
                     "Charge Beam",
@@ -28356,12 +28356,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 477,
-                    "attack": 461,
-                    "defense": 394,
-                    "speed": 511,
-                    "special_attack": 446,
-                    "special_defense": 446
+                    "hp": 99,
+                    "attack": 83,
+                    "defense": 60,
+                    "speed": 87,
+                    "special_attack": 68,
+                    "special_defense": 68
                 },
                 "moves": [
                     "Stomp",
@@ -28411,12 +28411,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 527,
-                    "attack": 509,
-                    "defense": 484,
-                    "speed": 564,
-                    "special_attack": 492,
-                    "special_defense": 442
+                    "hp": 109,
+                    "attack": 100,
+                    "defense": 66,
+                    "speed": 95,
+                    "special_attack": 66,
+                    "special_defense": 74
                 },
                 "moves": [
                     "Stomp",
@@ -29034,12 +29034,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 239,
-                    "attack": 196,
-                    "defense": 255,
-                    "speed": 222,
-                    "special_attack": 242,
-                    "special_defense": 226
+                    "hp": 40,
+                    "attack": 19,
+                    "defense": 33,
+                    "speed": 23,
+                    "special_attack": 43,
+                    "special_defense": 27
                 },
                 "moves": [
                     "ThunderShock",
@@ -29089,12 +29089,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 319,
-                    "attack": 262,
-                    "defense": 342,
-                    "speed": 297,
-                    "special_attack": 324,
-                    "special_defense": 303
+                    "hp": 50,
+                    "attack": 23,
+                    "defense": 42,
+                    "speed": 29,
+                    "special_attack": 56,
+                    "special_defense": 34
                 },
                 "moves": [
                     "SonicBoom",
@@ -29166,12 +29166,12 @@ const trainers_hgss = {
                 "ability": "Trace",
                 "held_item": null,
                 "stats": {
-                    "hp": 377,
-                    "attack": 339,
-                    "defense": 345,
-                    "speed": 327,
-                    "special_attack": 354,
-                    "special_defense": 348
+                    "hp": 79,
+                    "attack": 36,
+                    "defense": 47,
+                    "speed": 31,
+                    "special_attack": 56,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Conversion",
@@ -29284,12 +29284,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 239,
-                    "attack": 218,
-                    "defense": 255,
-                    "speed": 222,
-                    "special_attack": 242,
-                    "special_defense": 203
+                    "hp": 40,
+                    "attack": 17,
+                    "defense": 36,
+                    "speed": 23,
+                    "special_attack": 43,
+                    "special_defense": 27
                 },
                 "moves": [
                     "ThunderShock",
@@ -29383,12 +29383,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 319,
-                    "attack": 292,
-                    "defense": 311,
-                    "speed": 267,
-                    "special_attack": 356,
-                    "special_defense": 303
+                    "hp": 50,
+                    "attack": 23,
+                    "defense": 42,
+                    "speed": 31,
+                    "special_attack": 50,
+                    "special_defense": 34
                 },
                 "moves": [
                     "SonicBoom",
@@ -29438,12 +29438,12 @@ const trainers_hgss = {
                 "ability": "Trace",
                 "held_item": null,
                 "stats": {
-                    "hp": 377,
-                    "attack": 339,
-                    "defense": 310,
-                    "speed": 359,
-                    "special_attack": 354,
-                    "special_defense": 348
+                    "hp": 79,
+                    "attack": 41,
+                    "defense": 47,
+                    "speed": 31,
+                    "special_attack": 50,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Conversion",
@@ -29515,12 +29515,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 402,
-                    "attack": 381,
-                    "defense": 354,
-                    "speed": 385,
-                    "special_attack": 381,
-                    "special_defense": 354
+                    "hp": 84,
+                    "attack": 69,
+                    "defense": 35,
+                    "speed": 67,
+                    "special_attack": 63,
+                    "special_defense": 31
                 },
                 "moves": [
                     "Wing Attack",
@@ -29592,12 +29592,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 341,
-                    "attack": 290,
-                    "defense": 328,
-                    "speed": 326,
-                    "special_attack": 323,
-                    "special_defense": 299
+                    "hp": 72,
+                    "attack": 54,
+                    "defense": 30,
+                    "speed": 57,
+                    "special_attack": 54,
+                    "special_defense": 30
                 },
                 "moves": [
                     "Wing Attack",
@@ -30195,12 +30195,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 302,
-                    "attack": 285,
-                    "defense": 247,
-                    "speed": 322,
-                    "special_attack": 270,
-                    "special_defense": 280
+                    "hp": 63,
+                    "attack": 46,
+                    "defense": 36,
+                    "speed": 54,
+                    "special_attack": 34,
+                    "special_defense": 36
                 },
                 "moves": [
                     "Hyper Fang",
@@ -30688,12 +30688,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 374,
-                    "attack": 311,
-                    "defense": 338,
-                    "speed": 342,
-                    "special_attack": 376,
-                    "special_defense": 337
+                    "hp": 85,
+                    "attack": 58,
+                    "defense": 49,
+                    "speed": 54,
+                    "special_attack": 54,
+                    "special_defense": 48
                 },
                 "moves": [
                     "Focus Energy",
@@ -30710,12 +30710,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 382,
-                    "attack": 303,
-                    "defense": 339,
-                    "speed": 341,
-                    "special_attack": 351,
-                    "special_defense": 357
+                    "hp": 94,
+                    "attack": 48,
+                    "defense": 56,
+                    "speed": 19,
+                    "special_attack": 63,
+                    "special_defense": 68
                 },
                 "moves": [
                     "Confusion",
@@ -31055,12 +31055,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 343,
-                    "attack": 274,
-                    "defense": 347,
-                    "speed": 354,
-                    "special_attack": 321,
-                    "special_defense": 321
+                    "hp": 74,
+                    "attack": 36,
+                    "defense": 51,
+                    "speed": 76,
+                    "special_attack": 53,
+                    "special_defense": 53
                 },
                 "moves": [
                     "Screech",
@@ -31176,12 +31176,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 393,
-                    "attack": 361,
-                    "defense": 419,
-                    "speed": 336,
-                    "special_attack": 381,
-                    "special_defense": 351
+                    "hp": 64,
+                    "attack": 33,
+                    "defense": 47,
+                    "speed": 46,
+                    "special_attack": 53,
+                    "special_defense": 25
                 },
                 "moves": [
                     "SmokeScreen",
@@ -31198,12 +31198,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 393,
-                    "attack": 361,
-                    "defense": 419,
-                    "speed": 336,
-                    "special_attack": 381,
-                    "special_defense": 351
+                    "hp": 64,
+                    "attack": 33,
+                    "defense": 47,
+                    "speed": 46,
+                    "special_attack": 53,
+                    "special_defense": 25
                 },
                 "moves": [
                     "SmokeScreen",
@@ -31220,12 +31220,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 433,
-                    "attack": 360,
-                    "defense": 421,
-                    "speed": 414,
-                    "special_attack": 421,
-                    "special_defense": 424
+                    "hp": 85,
+                    "attack": 57,
+                    "defense": 73,
+                    "speed": 66,
+                    "special_attack": 65,
+                    "special_defense": 38
                 },
                 "moves": [
                     "Agility",
@@ -32311,12 +32311,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 775,
-                    "attack": 700,
-                    "defense": 635,
-                    "speed": 762,
-                    "special_attack": 692,
-                    "special_defense": 704
+                    "hp": 178,
+                    "attack": 103,
+                    "defense": 109,
+                    "speed": 96,
+                    "special_attack": 95,
+                    "special_defense": 107
                 },
                 "moves": [
                     "Poison Sting",
@@ -32652,12 +32652,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 711,
-                    "attack": 695,
-                    "defense": 576,
-                    "speed": 612,
-                    "special_attack": 685,
-                    "special_defense": 645
+                    "hp": 164,
+                    "attack": 162,
+                    "defense": 83,
+                    "speed": 65,
+                    "special_attack": 76,
+                    "special_defense": 98
                 },
                 "moves": [
                     "Wake-Up Slap",
@@ -32982,12 +32982,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 480,
-                    "attack": 427,
-                    "defense": 443,
-                    "speed": 483,
-                    "special_attack": 447,
-                    "special_defense": 447
+                    "hp": 82,
+                    "attack": 29,
+                    "defense": 45,
+                    "speed": 85,
+                    "special_attack": 49,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Charge Beam",
@@ -33026,12 +33026,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 629,
-                    "attack": 619,
-                    "defense": 583,
-                    "speed": 655,
-                    "special_attack": 594,
-                    "special_defense": 534
+                    "hp": 122,
+                    "attack": 50,
+                    "defense": 76,
+                    "speed": 161,
+                    "special_attack": 86,
+                    "special_defense": 86
                 },
                 "moves": [
                     "Thunder",
@@ -33509,12 +33509,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 198,
-                    "attack": 178,
-                    "defense": 175,
-                    "speed": 193,
-                    "special_attack": 177,
-                    "special_defense": 177
+                    "hp": 38,
+                    "attack": 19,
+                    "defense": 16,
+                    "speed": 33,
+                    "special_attack": 17,
+                    "special_defense": 17
                 },
                 "moves": [
                     "Growl",
@@ -33619,12 +33619,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 223,
-                    "attack": 184,
-                    "defense": 200,
-                    "speed": 223,
-                    "special_attack": 203,
-                    "special_defense": 199
+                    "hp": 54,
+                    "attack": 36,
+                    "defense": 27,
+                    "speed": 33,
+                    "special_attack": 36,
+                    "special_defense": 30
                 },
                 "moves": [
                     "Peck",
@@ -33707,12 +33707,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 252,
-                    "attack": 218,
-                    "defense": 218,
-                    "speed": 179,
-                    "special_attack": 209,
-                    "special_defense": 229
+                    "hp": 63,
+                    "attack": 29,
+                    "defense": 29,
+                    "speed": 10,
+                    "special_attack": 20,
+                    "special_defense": 20
                 },
                 "moves": [
                     "Curse",
@@ -33773,12 +33773,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 544,
-                    "attack": 513,
-                    "defense": 534,
-                    "speed": 478,
-                    "special_attack": 486,
-                    "special_defense": 437
+                    "hp": 106,
+                    "attack": 75,
+                    "defense": 49,
+                    "speed": 40,
+                    "special_attack": 49,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Slash",
@@ -33973,12 +33973,12 @@ const trainers_hgss = {
                 "ability": "Pressure",
                 "held_item": null,
                 "stats": {
-                    "hp": 588,
-                    "attack": 597,
-                    "defense": 531,
-                    "speed": 490,
-                    "special_attack": 599,
-                    "special_defense": 531
+                    "hp": 120,
+                    "attack": 117,
+                    "defense": 64,
+                    "speed": 85,
+                    "special_attack": 78,
+                    "special_defense": 64
                 },
                 "moves": [
                     "Psycho Cut",
@@ -34215,12 +34215,12 @@ const trainers_hgss = {
                 "ability": "Sand Veil",
                 "held_item": null,
                 "stats": {
-                    "hp": 560,
-                    "attack": 550,
-                    "defense": 522,
-                    "speed": 588,
-                    "special_attack": 522,
-                    "special_defense": 541
+                    "hp": 92,
+                    "attack": 83,
+                    "defense": 59,
+                    "speed": 108,
+                    "special_attack": 54,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Dig",
@@ -34435,12 +34435,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 515,
-                    "attack": 458,
-                    "defense": 412,
-                    "speed": 458,
-                    "special_attack": 467,
-                    "special_defense": 522
+                    "hp": 87,
+                    "attack": 33,
+                    "defense": 30,
+                    "speed": 30,
+                    "special_attack": 39,
+                    "special_defense": 43
                 },
                 "moves": [
                     "Mega Drain",
@@ -34457,12 +34457,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 515,
-                    "attack": 467,
-                    "defense": 522,
-                    "speed": 458,
-                    "special_attack": 412,
-                    "special_defense": 458
+                    "hp": 87,
+                    "attack": 39,
+                    "defense": 48,
+                    "speed": 30,
+                    "special_attack": 30,
+                    "special_defense": 30
                 },
                 "moves": [
                     "Nature Power",
@@ -34657,12 +34657,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 545,
-                    "attack": 497,
-                    "defense": 480,
-                    "speed": 412,
-                    "special_attack": 523,
-                    "special_defense": 555
+                    "hp": 117,
+                    "attack": 62,
+                    "defense": 57,
+                    "speed": 30,
+                    "special_attack": 95,
+                    "special_defense": 78
                 },
                 "moves": [
                     "SolarBeam",
@@ -34948,12 +34948,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 490,
-                    "attack": 480,
-                    "defense": 401,
-                    "speed": 462,
-                    "special_attack": 437,
-                    "special_defense": 446
+                    "hp": 82,
+                    "attack": 29,
+                    "defense": 38,
+                    "speed": 59,
+                    "special_attack": 26,
+                    "special_defense": 38
                 },
                 "moves": [
                     "Belly Drum",
@@ -34970,12 +34970,12 @@ const trainers_hgss = {
                 "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
-                    "hp": 523,
-                    "attack": 484,
-                    "defense": 518,
-                    "speed": 488,
-                    "special_attack": 466,
-                    "special_defense": 501
+                    "hp": 96,
+                    "attack": 50,
+                    "defense": 43,
+                    "speed": 60,
+                    "special_attack": 91,
+                    "special_defense": 80
                 },
                 "moves": [
                     "Ingrain",
@@ -35036,12 +35036,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": "Chesto Berry",
                 "stats": {
-                    "hp": 501,
-                    "attack": 448,
-                    "defense": 457,
-                    "speed": 473,
-                    "special_attack": 448,
-                    "special_defense": 457
+                    "hp": 83,
+                    "attack": 27,
+                    "defense": 42,
+                    "speed": 55,
+                    "special_attack": 30,
+                    "special_defense": 39
                 },
                 "moves": [
                     "Belly Drum",
@@ -35124,12 +35124,12 @@ const trainers_hgss = {
                 "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
-                    "hp": 503,
-                    "attack": 448,
-                    "defense": 406,
-                    "speed": 469,
-                    "special_attack": 464,
-                    "special_defense": 529
+                    "hp": 85,
+                    "attack": 30,
+                    "defense": 34,
+                    "speed": 56,
+                    "special_attack": 47,
+                    "special_defense": 56
                 },
                 "moves": [
                     "Stun Spore",
@@ -35232,12 +35232,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 512,
-                    "attack": 424,
-                    "defense": 458,
-                    "speed": 482,
-                    "special_attack": 451,
-                    "special_defense": 521
+                    "hp": 104,
+                    "attack": 64,
+                    "defense": 45,
+                    "speed": 81,
+                    "special_attack": 43,
+                    "special_defense": 66
                 },
                 "moves": [
                     "Protect",
@@ -35320,12 +35320,12 @@ const trainers_hgss = {
                 "ability": "Liquid Ooze",
                 "held_item": "Black Sludge",
                 "stats": {
-                    "hp": 590,
-                    "attack": 564,
-                    "defense": 469,
-                    "speed": 510,
-                    "special_attack": 513,
-                    "special_defense": 522
+                    "hp": 122,
+                    "attack": 45,
+                    "defense": 54,
+                    "speed": 46,
+                    "special_attack": 45,
+                    "special_defense": 48
                 },
                 "moves": [
                     "Spit Up",
@@ -35375,12 +35375,12 @@ const trainers_hgss = {
                 "ability": "Clear Body",
                 "held_item": null,
                 "stats": {
-                    "hp": 549,
-                    "attack": 443,
-                    "defense": 488,
-                    "speed": 569,
-                    "special_attack": 501,
-                    "special_defense": 536
+                    "hp": 121,
+                    "attack": 65,
+                    "defense": 60,
+                    "speed": 91,
+                    "special_attack": 65,
+                    "special_defense": 118
                 },
                 "moves": [
                     "Barrier",
@@ -35408,12 +35408,12 @@ const trainers_hgss = {
                 "ability": "Clear Body",
                 "held_item": null,
                 "stats": {
-                    "hp": 574,
-                    "attack": 566,
-                    "defense": 511,
-                    "speed": 542,
-                    "special_attack": 524,
-                    "special_defense": 504
+                    "hp": 127,
+                    "attack": 68,
+                    "defense": 63,
+                    "speed": 85,
+                    "special_attack": 84,
+                    "special_defense": 113
                 },
                 "moves": [
                     "Barrier",
@@ -35518,12 +35518,12 @@ const trainers_hgss = {
                 "ability": "Anticipation",
                 "held_item": null,
                 "stats": {
-                    "hp": 126,
-                    "attack": 95,
-                    "defense": 68,
-                    "speed": 77,
-                    "special_attack": 78,
-                    "special_defense": 68
+                    "hp": 98,
+                    "attack": 59,
+                    "defense": 36,
+                    "speed": 50,
+                    "special_attack": 64,
+                    "special_defense": 41
                 },
                 "moves": [
                     "Nasty Plot",
@@ -35551,12 +35551,12 @@ const trainers_hgss = {
                 "ability": "Battle Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 562,
-                    "attack": 570,
-                    "defense": 501,
-                    "speed": 533,
-                    "special_attack": 500,
-                    "special_defense": 524
+                    "hp": 94,
+                    "attack": 52,
+                    "defense": 89,
+                    "speed": 72,
+                    "special_attack": 33,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Toxic Spikes",
@@ -35617,12 +35617,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": null,
                 "stats": {
-                    "hp": 556,
-                    "attack": 576,
-                    "defense": 497,
-                    "speed": 488,
-                    "special_attack": 497,
-                    "special_defense": 447
+                    "hp": 109,
+                    "attack": 77,
+                    "defense": 55,
+                    "speed": 41,
+                    "special_attack": 45,
+                    "special_defense": 50
                 },
                 "moves": [
                     "Slash",
@@ -35639,12 +35639,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 553,
-                    "attack": 460,
-                    "defense": 437,
-                    "speed": 525,
-                    "special_attack": 460,
-                    "special_defense": 486
+                    "hp": 115,
+                    "attack": 19,
+                    "defense": 53,
+                    "speed": 40,
+                    "special_attack": 22,
+                    "special_defense": 49
                 },
                 "moves": [
                     "Double-Edge",
@@ -35672,12 +35672,12 @@ const trainers_hgss = {
                 "ability": "Pickup",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 572,
-                    "attack": 463,
-                    "defense": 507,
-                    "speed": 542,
-                    "special_attack": 546,
-                    "special_defense": 507
+                    "hp": 125,
+                    "attack": 68,
+                    "defense": 59,
+                    "speed": 95,
+                    "special_attack": 45,
+                    "special_defense": 64
                 },
                 "moves": [
                     "Belly Drum",
@@ -35738,12 +35738,12 @@ const trainers_hgss = {
                 "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
-                    "hp": 543,
-                    "attack": 562,
-                    "defense": 483,
-                    "speed": 493,
-                    "special_attack": 488,
-                    "special_defense": 434
+                    "hp": 95,
+                    "attack": 56,
+                    "defense": 38,
+                    "speed": 45,
+                    "special_attack": 41,
+                    "special_defense": 35
                 },
                 "moves": [
                     "Thunder Fang",
@@ -35914,12 +35914,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 564,
-                    "attack": 522,
-                    "defense": 550,
-                    "speed": 486,
-                    "special_attack": 550,
-                    "special_defense": 554
+                    "hp": 106,
+                    "attack": 70,
+                    "defense": 92,
+                    "speed": 83,
+                    "special_attack": 92,
+                    "special_defense": 41
                 },
                 "moves": [
                     "Agility",
@@ -35936,12 +35936,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 549,
-                    "attack": 494,
-                    "defense": 494,
-                    "speed": 452,
-                    "special_attack": 477,
-                    "special_defense": 477
+                    "hp": 131,
+                    "attack": 76,
+                    "defense": 83,
+                    "speed": 30,
+                    "special_attack": 59,
+                    "special_defense": 59
                 },
                 "moves": [
                     "Amnesia",
@@ -36266,12 +36266,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 443,
-                    "defense": 513,
-                    "speed": 398,
-                    "special_attack": 443,
-                    "special_defense": 467
+                    "hp": 130,
+                    "attack": 45,
+                    "defense": 69,
+                    "speed": 45,
+                    "special_attack": 45,
+                    "special_defense": 69
                 },
                 "moves": [
                     "Waterfall",
@@ -36873,12 +36873,12 @@ const trainers_hgss = {
                 "ability": "Chlorophyll",
                 "held_item": null,
                 "stats": {
-                    "hp": 582,
-                    "attack": 531,
-                    "defense": 513,
-                    "speed": 490,
-                    "special_attack": 559,
-                    "special_defense": 540
+                    "hp": 125,
+                    "attack": 74,
+                    "defense": 60,
+                    "speed": 28,
+                    "special_attack": 101,
+                    "special_defense": 83
                 },
                 "moves": [
                     "Petal Dance",
@@ -36917,12 +36917,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 659,
-                    "attack": 638,
-                    "defense": 606,
-                    "speed": 643,
-                    "special_attack": 617,
-                    "special_defense": 617
+                    "hp": 131,
+                    "attack": 111,
+                    "defense": 79,
+                    "speed": 127,
+                    "special_attack": 80,
+                    "special_defense": 89
                 },
                 "moves": [
                     "Agility",
@@ -37225,12 +37225,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": null,
                 "stats": {
-                    "hp": 693,
-                    "attack": 713,
-                    "defense": 594,
-                    "speed": 694,
-                    "special_attack": 677,
-                    "special_defense": 660
+                    "hp": 136,
+                    "attack": 92,
+                    "defense": 113,
+                    "speed": 137,
+                    "special_attack": 120,
+                    "special_defense": 92
                 },
                 "moves": [
                     "Surf",
@@ -37335,12 +37335,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 699,
-                    "attack": 677,
-                    "defense": 578,
-                    "speed": 683,
-                    "special_attack": 655,
-                    "special_defense": 720
+                    "hp": 142,
+                    "attack": 132,
+                    "defense": 86,
+                    "speed": 125,
+                    "special_attack": 97,
+                    "special_defense": 87
                 },
                 "moves": [
                     "Bounce",
@@ -38820,12 +38820,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 618,
-                    "attack": 519,
-                    "defense": 601,
-                    "speed": 519,
-                    "special_attack": 519,
-                    "special_defense": 492
+                    "hp": 151,
+                    "attack": 57,
+                    "defense": 80,
+                    "speed": 52,
+                    "special_attack": 46,
+                    "special_defense": 80
                 },
                 "moves": [
                     "Aqua Ring",
@@ -38875,12 +38875,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 644,
-                    "attack": 595,
-                    "defense": 570,
-                    "speed": 541,
-                    "special_attack": 486,
-                    "special_defense": 570
+                    "hp": 157,
+                    "attack": 54,
+                    "defense": 83,
+                    "speed": 48,
+                    "special_attack": 54,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Aqua Ring",
@@ -38930,12 +38930,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 709,
-                    "attack": 596,
-                    "defense": 690,
-                    "speed": 536,
-                    "special_attack": 596,
-                    "special_defense": 628
+                    "hp": 172,
+                    "attack": 64,
+                    "defense": 81,
+                    "speed": 59,
+                    "special_attack": 59,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Double-Edge",
@@ -41967,12 +41967,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 506,
-                    "attack": 467,
-                    "defense": 443,
-                    "speed": 532,
-                    "special_attack": 493,
-                    "special_defense": 454
+                    "hp": 78,
+                    "attack": 39,
+                    "defense": 65,
+                    "speed": 56,
+                    "special_attack": 65,
+                    "special_defense": 26
                 },
                 "moves": [
                     "Water Pulse",
@@ -41989,12 +41989,12 @@ const trainers_hgss = {
                 "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
-                    "hp": 528,
-                    "attack": 488,
-                    "defense": 514,
-                    "speed": 505,
-                    "special_attack": 462,
-                    "special_defense": 518
+                    "hp": 100,
+                    "attack": 54,
+                    "defense": 86,
+                    "speed": 78,
+                    "special_attack": 86,
+                    "special_defense": 47
                 },
                 "moves": [
                     "Water Pulse",
@@ -42022,12 +42022,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 631,
-                    "attack": 530,
-                    "defense": 503,
-                    "speed": 530,
-                    "special_attack": 530,
-                    "special_defense": 614
+                    "hp": 154,
+                    "attack": 53,
+                    "defense": 81,
+                    "speed": 53,
+                    "special_attack": 53,
+                    "special_defense": 81
                 },
                 "moves": [
                     "Water Pulse",
@@ -42055,12 +42055,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 583,
-                    "attack": 630,
-                    "defense": 655,
-                    "speed": 494,
-                    "special_attack": 564,
-                    "special_defense": 525
+                    "hp": 106,
+                    "attack": 96,
+                    "defense": 177,
+                    "speed": 64,
+                    "special_attack": 86,
+                    "special_defense": 52
                 },
                 "moves": [
                     "Water Pulse",
@@ -42275,12 +42275,12 @@ const trainers_hgss = {
                 "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
-                    "hp": 656,
-                    "attack": 630,
-                    "defense": 646,
-                    "speed": 557,
-                    "special_attack": 612,
-                    "special_defense": 534
+                    "hp": 138,
+                    "attack": 112,
+                    "defense": 128,
+                    "speed": 39,
+                    "special_attack": 39,
+                    "special_defense": 76
                 },
                 "moves": [
                     "Wood Hammer",
@@ -42363,12 +42363,12 @@ const trainers_hgss = {
                 "ability": "Trace",
                 "held_item": null,
                 "stats": {
-                    "hp": 671,
-                    "attack": 609,
-                    "defense": 682,
-                    "speed": 588,
-                    "special_attack": 571,
-                    "special_defense": 625
+                    "hp": 154,
+                    "attack": 91,
+                    "defense": 102,
+                    "speed": 63,
+                    "special_attack": 117,
+                    "special_defense": 117
                 },
                 "moves": [
                     "Tri Attack",
@@ -42385,12 +42385,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 661,
-                    "attack": 556,
-                    "defense": 586,
-                    "speed": 611,
-                    "special_attack": 500,
-                    "special_defense": 586
+                    "hp": 163,
+                    "attack": 63,
+                    "defense": 88,
+                    "speed": 52,
+                    "special_attack": 58,
+                    "special_defense": 88
                 },
                 "moves": [
                     "Waterfall",
@@ -42624,12 +42624,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 653,
-                    "attack": 654,
-                    "defense": 574,
-                    "speed": 512,
-                    "special_attack": 601,
-                    "special_defense": 580
+                    "hp": 126,
+                    "attack": 68,
+                    "defense": 47,
+                    "speed": 46,
+                    "special_attack": 65,
+                    "special_defense": 52
                 },
                 "moves": [
                     "Overheat",
@@ -42657,12 +42657,12 @@ const trainers_hgss = {
                 "ability": "Magma Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 643,
-                    "attack": 585,
-                    "defense": 659,
-                    "speed": 620,
-                    "special_attack": 555,
-                    "special_defense": 617
+                    "hp": 116,
+                    "attack": 52,
+                    "defense": 132,
+                    "speed": 36,
+                    "special_attack": 97,
+                    "special_defense": 89
                 },
                 "moves": [
                     "Overheat",
@@ -43119,12 +43119,12 @@ const trainers_hgss = {
                 "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
-                    "hp": 537,
-                    "attack": 484,
-                    "defense": 424,
-                    "speed": 480,
-                    "special_attack": 440,
-                    "special_defense": 519
+                    "hp": 138,
+                    "attack": 85,
+                    "defense": 73,
+                    "speed": 72,
+                    "special_attack": 45,
+                    "special_defense": 73
                 },
                 "moves": [
                     "Dizzy Punch",
@@ -43347,12 +43347,12 @@ const trainers_hgss = {
                 "ability": "Levitate",
                 "held_item": null,
                 "stats": {
-                    "hp": 740,
-                    "attack": 703,
-                    "defense": 807,
-                    "speed": 638,
-                    "special_attack": 691,
-                    "special_defense": 660
+                    "hp": 163,
+                    "attack": 112,
+                    "defense": 156,
+                    "speed": 66,
+                    "special_attack": 114,
+                    "special_defense": 156
                 },
                 "moves": [
                     "Reflect",
@@ -43413,12 +43413,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": null,
                 "stats": {
-                    "hp": 799,
-                    "attack": 710,
-                    "defense": 752,
-                    "speed": 656,
-                    "special_attack": 666,
-                    "special_defense": 787
+                    "hp": 202,
+                    "attack": 101,
+                    "defense": 170,
+                    "speed": 59,
+                    "special_attack": 143,
+                    "special_defense": 119
                 },
                 "moves": [
                     "Curse",
@@ -43457,12 +43457,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 788,
-                    "attack": 807,
-                    "defense": 727,
-                    "speed": 758,
-                    "special_attack": 682,
-                    "special_defense": 727
+                    "hp": 171,
+                    "attack": 104,
+                    "defense": 110,
+                    "speed": 155,
+                    "special_attack": 141,
+                    "special_defense": 110
                 },
                 "moves": [
                     "Quick Attack",
@@ -43493,12 +43493,12 @@ const trainers_hgss = {
                 "ability": "Stench",
                 "held_item": null,
                 "stats": {
-                    "hp": 822,
-                    "attack": 744,
-                    "defense": 783,
-                    "speed": 733,
-                    "special_attack": 645,
-                    "special_defense": 705
+                    "hp": 214,
+                    "attack": 136,
+                    "defense": 105,
+                    "speed": 125,
+                    "special_attack": 109,
+                    "special_defense": 97
                 },
                 "moves": [
                     "Sucker Punch",
@@ -43537,12 +43537,12 @@ const trainers_hgss = {
                 "ability": "Anticipation",
                 "held_item": null,
                 "stats": {
-                    "hp": 785,
-                    "attack": 747,
-                    "defense": 767,
-                    "speed": 649,
-                    "special_attack": 723,
-                    "special_defense": 698
+                    "hp": 187,
+                    "attack": 165,
+                    "defense": 90,
+                    "speed": 125,
+                    "special_attack": 126,
+                    "special_defense": 101
                 },
                 "moves": [
                     "Cross Chop",
@@ -43559,12 +43559,12 @@ const trainers_hgss = {
                 "ability": "Stench",
                 "held_item": "Black Sludge",
                 "stats": {
-                    "hp": 838,
-                    "attack": 771,
-                    "defense": 734,
-                    "speed": 703,
-                    "special_attack": 721,
-                    "special_defense": 765
+                    "hp": 220,
+                    "attack": 153,
+                    "defense": 116,
+                    "speed": 85,
+                    "special_attack": 104,
+                    "special_defense": 147
                 },
                 "moves": [
                     "Minimize",
@@ -43603,12 +43603,12 @@ const trainers_hgss = {
                 "ability": "Liquid Ooze",
                 "held_item": "Leftovers",
                 "stats": {
-                    "hp": 832,
-                    "attack": 657,
-                    "defense": 744,
-                    "speed": 779,
-                    "special_attack": 731,
-                    "special_defense": 744
+                    "hp": 214,
+                    "attack": 125,
+                    "defense": 126,
+                    "speed": 91,
+                    "special_attack": 114,
+                    "special_defense": 113
                 },
                 "moves": [
                     "Yawn",
@@ -43639,12 +43639,12 @@ const trainers_hgss = {
                 "ability": "Intimidate",
                 "held_item": null,
                 "stats": {
-                    "hp": 770,
-                    "attack": 758,
-                    "defense": 758,
-                    "speed": 654,
-                    "special_attack": 684,
-                    "special_defense": 854
+                    "hp": 152,
+                    "attack": 141,
+                    "defense": 141,
+                    "speed": 110,
+                    "special_attack": 67,
+                    "special_defense": 160
                 },
                 "moves": [
                     "Counter",
@@ -43661,12 +43661,12 @@ const trainers_hgss = {
                 "ability": "Limber",
                 "held_item": null,
                 "stats": {
-                    "hp": 757,
-                    "attack": 777,
-                    "defense": 695,
-                    "speed": 737,
-                    "special_attack": 673,
-                    "special_defense": 765
+                    "hp": 150,
+                    "attack": 169,
+                    "defense": 78,
+                    "speed": 129,
+                    "special_attack": 66,
+                    "special_defense": 172
                 },
                 "moves": [
                     "Swagger",
@@ -43683,12 +43683,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 757,
-                    "attack": 758,
-                    "defense": 799,
-                    "speed": 723,
-                    "special_attack": 673,
-                    "special_defense": 688
+                    "hp": 150,
+                    "attack": 151,
+                    "defense": 119,
+                    "speed": 116,
+                    "special_attack": 66,
+                    "special_defense": 157
                 },
                 "moves": [
                     "Substitute",
@@ -43727,12 +43727,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": null,
                 "stats": {
-                    "hp": 845,
-                    "attack": 828,
-                    "defense": 764,
-                    "speed": 732,
-                    "special_attack": 744,
-                    "special_defense": 770
+                    "hp": 208,
+                    "attack": 190,
+                    "defense": 126,
+                    "speed": 84,
+                    "special_attack": 117,
+                    "special_defense": 133
                 },
                 "moves": [
                     "Bullet Punch",
@@ -43749,12 +43749,12 @@ const trainers_hgss = {
                 "ability": "Steadfast",
                 "held_item": null,
                 "stats": {
-                    "hp": 820,
-                    "attack": 802,
-                    "defense": 675,
-                    "speed": 776,
-                    "special_attack": 888,
-                    "special_defense": 751
+                    "hp": 182,
+                    "attack": 165,
+                    "defense": 113,
+                    "speed": 139,
+                    "special_attack": 171,
+                    "special_defense": 113
                 },
                 "moves": [
                     "ExtremeSpeed",
@@ -43829,12 +43829,12 @@ const trainers_hgss = {
                 "ability": "Pressure",
                 "held_item": null,
                 "stats": {
-                    "hp": 788,
-                    "attack": 721,
-                    "defense": 786,
-                    "speed": 734,
-                    "special_attack": 734,
-                    "special_defense": 715
+                    "hp": 171,
+                    "attack": 184,
+                    "defense": 88,
+                    "speed": 116,
+                    "special_attack": 127,
+                    "special_defense": 98
                 },
                 "moves": [
                     "Night Slash",
@@ -43851,12 +43851,12 @@ const trainers_hgss = {
                 "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
-                    "hp": 858,
-                    "attack": 738,
-                    "defense": 800,
-                    "speed": 752,
-                    "special_attack": 796,
-                    "special_defense": 728
+                    "hp": 221,
+                    "attack": 184,
+                    "defense": 90,
+                    "speed": 115,
+                    "special_attack": 158,
+                    "special_defense": 90
                 },
                 "moves": [
                     "Drill Peck",
@@ -44294,12 +44294,12 @@ const trainers_hgss = {
                 "ability": "Swarm",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 715,
-                    "attack": 721,
-                    "defense": 756,
-                    "speed": 649,
-                    "special_attack": 637,
-                    "special_defense": 598
+                    "hp": 157,
+                    "attack": 180,
+                    "defense": 130,
+                    "speed": 91,
+                    "special_attack": 80,
+                    "special_defense": 97
                 },
                 "moves": [
                     "Bullet Punch",
@@ -44338,12 +44338,12 @@ const trainers_hgss = {
                 "ability": "Speed Boost",
                 "held_item": null,
                 "stats": {
-                    "hp": 681,
-                    "attack": 614,
-                    "defense": 624,
-                    "speed": 634,
-                    "special_attack": 721,
-                    "special_defense": 533
+                    "hp": 163,
+                    "attack": 96,
+                    "defense": 106,
+                    "speed": 116,
+                    "special_attack": 124,
+                    "special_defense": 82
                 },
                 "moves": [
                     "Detect",
@@ -44507,12 +44507,12 @@ const trainers_hgss = {
                 "ability": "Cute Charm",
                 "held_item": null,
                 "stats": {
-                    "hp": 693,
-                    "attack": 629,
-                    "defense": 691,
-                    "speed": 634,
-                    "special_attack": 618,
-                    "special_defense": 556
+                    "hp": 155,
+                    "attack": 91,
+                    "defense": 91,
+                    "speed": 96,
+                    "special_attack": 80,
+                    "special_defense": 80
                 },
                 "moves": [
                     "Fake Out",
@@ -44551,12 +44551,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": "Lum Berry",
                 "stats": {
-                    "hp": 769,
-                    "attack": 689,
-                    "defense": 718,
-                    "speed": 783,
-                    "special_attack": 578,
-                    "special_defense": 677
+                    "hp": 192,
+                    "attack": 99,
+                    "defense": 140,
+                    "speed": 147,
+                    "special_attack": 65,
+                    "special_defense": 100
                 },
                 "moves": [
                     "Body Slam",
@@ -44588,12 +44588,12 @@ const trainers_hgss = {
                 "ability": "Aftermath",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 748,
-                    "attack": 556,
-                    "defense": 581,
-                    "speed": 618,
-                    "special_attack": 691,
-                    "special_defense": 591
+                    "hp": 230,
+                    "attack": 100,
+                    "defense": 63,
+                    "speed": 100,
+                    "special_attack": 122,
+                    "special_defense": 65
                 },
                 "moves": [
                     "Destiny Bond",
@@ -44823,12 +44823,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 733,
-                    "attack": 642,
-                    "defense": 587,
-                    "speed": 626,
-                    "special_attack": 658,
-                    "special_defense": 718
+                    "hp": 195,
+                    "attack": 104,
+                    "defense": 115,
+                    "speed": 96,
+                    "special_attack": 108,
+                    "special_defense": 115
                 },
                 "moves": [
                     "Hail",
@@ -44845,12 +44845,12 @@ const trainers_hgss = {
                 "ability": "Oblivious",
                 "held_item": "Sitrus Berry",
                 "stats": {
-                    "hp": 814,
-                    "attack": 773,
-                    "defense": 713,
-                    "speed": 784,
-                    "special_attack": 701,
-                    "special_defense": 620
+                    "hp": 216,
+                    "attack": 175,
+                    "defense": 115,
+                    "speed": 115,
+                    "special_attack": 103,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Earthquake",
@@ -44904,12 +44904,12 @@ const trainers_hgss = {
                 "ability": "Magnet Pull",
                 "held_item": null,
                 "stats": {
-                    "hp": 715,
-                    "attack": 654,
-                    "defense": 775,
-                    "speed": 643,
-                    "special_attack": 648,
-                    "special_defense": 677
+                    "hp": 157,
+                    "attack": 96,
+                    "defense": 147,
+                    "speed": 85,
+                    "special_attack": 164,
+                    "special_defense": 119
                 },
                 "moves": [
                     "Zap Cannon",
@@ -44948,12 +44948,12 @@ const trainers_hgss = {
                 "ability": "Levitate",
                 "held_item": null,
                 "stats": {
-                    "hp": 637,
-                    "attack": 543,
-                    "defense": 631,
-                    "speed": 602,
-                    "special_attack": 594,
-                    "special_defense": 631
+                    "hp": 139,
+                    "attack": 106,
+                    "defense": 133,
+                    "speed": 50,
+                    "special_attack": 86,
+                    "special_defense": 146
                 },
                 "moves": [
                     "Gyro Ball",
@@ -44992,12 +44992,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 797,
-                    "attack": 667,
-                    "defense": 885,
-                    "speed": 741,
-                    "special_attack": 705,
-                    "special_defense": 718
+                    "hp": 179,
+                    "attack": 125,
+                    "defense": 267,
+                    "speed": 62,
+                    "special_attack": 88,
+                    "special_defense": 90
                 },
                 "moves": [
                     "Stone Edge",
@@ -45051,12 +45051,12 @@ const trainers_hgss = {
                 "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
-                    "hp": 644,
-                    "attack": 644,
-                    "defense": 617,
-                    "speed": 614,
-                    "special_attack": 571,
-                    "special_defense": 649
+                    "hp": 126,
+                    "attack": 126,
+                    "defense": 99,
+                    "speed": 86,
+                    "special_attack": 58,
+                    "special_defense": 131
                 },
                 "moves": [
                     "Mach Punch",
@@ -45073,12 +45073,12 @@ const trainers_hgss = {
                 "ability": "Limber",
                 "held_item": null,
                 "stats": {
-                    "hp": 681,
-                    "attack": 698,
-                    "defense": 561,
-                    "speed": 661,
-                    "special_attack": 604,
-                    "special_defense": 755
+                    "hp": 133,
+                    "attack": 150,
+                    "defense": 76,
+                    "speed": 124,
+                    "special_attack": 50,
+                    "special_defense": 139
                 },
                 "moves": [
                     "Hi Jump Kick",
@@ -45095,12 +45095,12 @@ const trainers_hgss = {
                 "ability": "Effect Spore",
                 "held_item": "Toxic Orb",
                 "stats": {
-                    "hp": 679,
-                    "attack": 696,
-                    "defense": 577,
-                    "speed": 694,
-                    "special_attack": 620,
-                    "special_defense": 620
+                    "hp": 141,
+                    "attack": 158,
+                    "defense": 104,
+                    "speed": 83,
+                    "special_attack": 82,
+                    "special_defense": 90
                 },
                 "moves": [
                     "Substitute",
@@ -45242,12 +45242,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 721,
-                    "attack": 682,
-                    "defense": 682,
-                    "speed": 603,
-                    "special_attack": 750,
-                    "special_defense": 682
+                    "hp": 163,
+                    "attack": 136,
+                    "defense": 111,
+                    "speed": 113,
+                    "special_attack": 124,
+                    "special_defense": 124
                 },
                 "moves": [
                     "Yawn",
@@ -45323,12 +45323,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 714,
-                    "attack": 755,
-                    "defense": 709,
-                    "speed": 615,
-                    "special_attack": 626,
-                    "special_defense": 573
+                    "hp": 166,
+                    "attack": 152,
+                    "defense": 161,
+                    "speed": 60,
+                    "special_attack": 78,
+                    "special_defense": 89
                 },
                 "moves": [
                     "Sandstorm",
@@ -45345,12 +45345,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": "Lum Berry",
                 "stats": {
-                    "hp": 722,
-                    "attack": 653,
-                    "defense": 626,
-                    "speed": 615,
-                    "special_attack": 604,
-                    "special_defense": 688
+                    "hp": 184,
+                    "attack": 115,
+                    "defense": 158,
+                    "speed": 77,
+                    "special_attack": 66,
+                    "special_defense": 88
                 },
                 "moves": [
                     "Head Smash",
@@ -45367,12 +45367,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 715,
-                    "attack": 643,
-                    "defense": 787,
-                    "speed": 573,
-                    "special_attack": 705,
-                    "special_defense": 654
+                    "hp": 157,
+                    "attack": 76,
+                    "defense": 173,
+                    "speed": 80,
+                    "special_attack": 147,
+                    "special_defense": 96
                 },
                 "moves": [
                     "AncientPower",
@@ -45411,12 +45411,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 692,
-                    "attack": 692,
-                    "defense": 612,
-                    "speed": 719,
-                    "special_attack": 637,
-                    "special_defense": 643
+                    "hp": 144,
+                    "attack": 129,
+                    "defense": 133,
+                    "speed": 106,
+                    "special_attack": 97,
+                    "special_defense": 95
                 },
                 "moves": [
                     "Rock Slide",
@@ -45470,12 +45470,12 @@ const trainers_hgss = {
                 "ability": "Illuminate",
                 "held_item": "Colbur Berry",
                 "stats": {
-                    "hp": 754,
-                    "attack": 707,
-                    "defense": 719,
-                    "speed": 755,
-                    "special_attack": 737,
-                    "special_defense": 719
+                    "hp": 156,
+                    "attack": 109,
+                    "defense": 121,
+                    "speed": 172,
+                    "special_attack": 125,
+                    "special_defense": 121
                 },
                 "moves": [
                     "Thunderbolt",
@@ -45492,12 +45492,12 @@ const trainers_hgss = {
                 "ability": "Damp",
                 "held_item": null,
                 "stats": {
-                    "hp": 743,
-                    "attack": 603,
-                    "defense": 671,
-                    "speed": 615,
-                    "special_attack": 713,
-                    "special_defense": 649
+                    "hp": 185,
+                    "attack": 124,
+                    "defense": 113,
+                    "speed": 57,
+                    "special_attack": 81,
+                    "special_defense": 91
                 },
                 "moves": [
                     "Water Pulse",
@@ -45683,12 +45683,12 @@ const trainers_hgss = {
                 "ability": "Soundproof",
                 "held_item": null,
                 "stats": {
-                    "hp": 654,
-                    "attack": 587,
-                    "defense": 608,
-                    "speed": 681,
-                    "special_attack": 679,
-                    "special_defense": 556
+                    "hp": 136,
+                    "attack": 69,
+                    "defense": 90,
+                    "speed": 146,
+                    "special_attack": 100,
+                    "special_defense": 110
                 },
                 "moves": [
                     "Thunder Wave",
@@ -45955,12 +45955,12 @@ const trainers_hgss = {
                 "ability": "Anticipation",
                 "held_item": null,
                 "stats": {
-                    "hp": 678,
-                    "attack": 645,
-                    "defense": 603,
-                    "speed": 623,
-                    "special_attack": 686,
-                    "special_defense": 542
+                    "hp": 160,
+                    "attack": 139,
+                    "defense": 85,
+                    "speed": 105,
+                    "special_attack": 106,
+                    "special_defense": 76
                 },
                 "moves": [
                     "Cross Chop",
@@ -46080,12 +46080,12 @@ const trainers_hgss = {
                 "ability": "Synchronize",
                 "held_item": null,
                 "stats": {
-                    "hp": 735,
-                    "attack": 739,
-                    "defense": 666,
-                    "speed": 724,
-                    "special_attack": 747,
-                    "special_defense": 635
+                    "hp": 157,
+                    "attack": 94,
+                    "defense": 88,
+                    "speed": 131,
+                    "special_attack": 169,
+                    "special_defense": 141
                 },
                 "moves": [
                     "Calm Mind",
@@ -46227,12 +46227,12 @@ const trainers_hgss = {
                 "ability": "Magma Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 728,
-                    "attack": 700,
-                    "defense": 732,
-                    "speed": 632,
-                    "special_attack": 706,
-                    "special_defense": 603
+                    "hp": 160,
+                    "attack": 132,
+                    "defense": 98,
+                    "speed": 64,
+                    "special_attack": 124,
+                    "special_defense": 114
                 },
                 "moves": [
                     "Earthquake",
@@ -46249,12 +46249,12 @@ const trainers_hgss = {
                 "ability": "Run Away",
                 "held_item": null,
                 "stats": {
-                    "hp": 760,
-                    "attack": 737,
-                    "defense": 701,
-                    "speed": 668,
-                    "special_attack": 713,
-                    "special_defense": 784
+                    "hp": 162,
+                    "attack": 152,
+                    "defense": 103,
+                    "speed": 130,
+                    "special_attack": 115,
+                    "special_defense": 115
                 },
                 "moves": [
                     "Megahorn",
@@ -46293,12 +46293,12 @@ const trainers_hgss = {
                 "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
-                    "hp": 695,
-                    "attack": 653,
-                    "defense": 609,
-                    "speed": 592,
-                    "special_attack": 741,
-                    "special_defense": 642
+                    "hp": 157,
+                    "attack": 115,
+                    "defense": 71,
+                    "speed": 120,
+                    "special_attack": 136,
+                    "special_defense": 104
                 },
                 "moves": [
                     "Shadow Ball",
@@ -46375,12 +46375,12 @@ const trainers_hgss = {
                 "ability": "Guts",
                 "held_item": "Iron Ball",
                 "stats": {
-                    "hp": 911,
-                    "attack": 892,
-                    "defense": 823,
-                    "speed": 788,
-                    "special_attack": 802,
-                    "special_defense": 830
+                    "hp": 223,
+                    "attack": 205,
+                    "defense": 122,
+                    "speed": 101,
+                    "special_attack": 115,
+                    "special_defense": 157
                 },
                 "moves": [
                     "DynamicPunch",
@@ -46397,12 +46397,12 @@ const trainers_hgss = {
                 "ability": "Lightningrod",
                 "held_item": null,
                 "stats": {
-                    "hp": 959,
-                    "attack": 827,
-                    "defense": 995,
-                    "speed": 779,
-                    "special_attack": 800,
-                    "special_defense": 800
+                    "hp": 262,
+                    "attack": 199,
+                    "defense": 208,
+                    "speed": 82,
+                    "special_attack": 103,
+                    "special_defense": 113
                 },
                 "moves": [
                     "Megahorn",
@@ -46529,12 +46529,12 @@ const trainers_hgss = {
                 "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
-                    "hp": 266,
-                    "attack": 218,
-                    "defense": 294,
-                    "speed": 279,
-                    "special_attack": 237,
-                    "special_defense": 243
+                    "hp": 47,
+                    "attack": 26,
+                    "defense": 75,
+                    "speed": 31,
+                    "special_attack": 18,
+                    "special_defense": 24
                 },
                 "moves": [
                     "Rock Throw",
@@ -46551,12 +46551,12 @@ const trainers_hgss = {
                 "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
-                    "hp": 272,
-                    "attack": 265,
-                    "defense": 272,
-                    "speed": 279,
-                    "special_attack": 261,
-                    "special_defense": 243
+                    "hp": 54,
+                    "attack": 50,
+                    "defense": 84,
+                    "speed": 35,
+                    "special_attack": 37,
+                    "special_defense": 24
                 },
                 "moves": [
                     "Withdraw",
@@ -46738,12 +46738,12 @@ const trainers_hgss = {
                 "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
-                    "hp": 269,
-                    "attack": 222,
-                    "defense": 234,
-                    "speed": 230,
-                    "special_attack": 222,
-                    "special_defense": 234
+                    "hp": 60,
+                    "attack": 11,
+                    "defense": 26,
+                    "speed": 21,
+                    "special_attack": 13,
+                    "special_defense": 28
                 },
                 "moves": [
                     "Tail Whip",
@@ -46876,12 +46876,12 @@ const trainers_hgss = {
                 "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
-                    "hp": 721,
-                    "attack": 682,
-                    "defense": 613,
-                    "speed": 738,
-                    "special_attack": 682,
-                    "special_defense": 682
+                    "hp": 163,
+                    "attack": 111,
+                    "defense": 136,
+                    "speed": 113,
+                    "special_attack": 124,
+                    "special_defense": 124
                 },
                 "moves": [
                     "Yawn",

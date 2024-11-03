@@ -59,10 +59,6 @@
                 <div class="gametimeClock">{{timer_formatted_time[0]}}</div>
                 <div class="gametimeFrames">{{timer_formatted_time[1]}}</div>
             </div>
-            <!-- RESET COUNTER -->
-            <div v-show="resetCounter == true" id="reset_counter" class="resets">
-                <div>{{playerResets}}</div>
-            </div>
 
             <div>
                 <div class="ui1">
@@ -100,6 +96,10 @@
                             <td>{{blackout_counter}}</td>
                             <td><button @click="increment('blackout_counter')" class="smallButtonStyle increment">+</button></td>
                             <td><button @click="decrement('blackout_counter')" class="smallButtonStyle2 decrement">-</button></td>
+                        </tr>
+                        <tr>
+                            <td>Faults:</td>
+                            <td>{{faults}}</td>
                         </tr>
                     </table>
                     <table>
@@ -323,12 +323,21 @@
             </div>
 
             <!--------- BADGE ICONS ---------------------------------------------------------------------------------------------------------------------->
-            <div v-for="x in badges">
-                <div v-if="mapper.properties.player.badges[x].value == true && mapper.properties.meta.state != `No Pokemon` && mapper.properties.meta.global_pointer.value != 0">
-                    <img v-if="mapper.properties.meta.game_name.value == 'Platinum' || mapper.properties.meta.game_name.value == 'Diamond and Pearl'" class="badge" :src="`images/badges/plat/${x}.png`"/>
-                    <img v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" class="badge" :src="`images/badges/hgss/${x}.png`"/>
+            <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
+                <div v-for="x in badges">
+                    <div v-if="hgss_badge_check(x) == true">
+                        <img class="badge" :src="`images/badges/hgss/${x}.png`"/>
+                    </div>
                 </div>
             </div>
+            <div>
+                <div v-for="x in badges">
+                    <div v-if="mapper.properties.player.badges[x].value == true && mapper.properties.meta.state != `No Pokemon` && mapper.properties.meta.global_pointer.value != 0">
+                        <img v-if="mapper.properties.meta.game_name.value == 'Platinum' || mapper.properties.meta.game_name.value == 'Diamond and Pearl'" class="badge" :src="`images/badges/plat/${x}.png`"/>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Moveset -->
             </table>
@@ -424,7 +433,7 @@
                         <img v-if="x < mapper.properties.battle.opponent.team_count.value" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                     </div>
                     <div v-for="x in pkmnSlots">
-                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
+                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :src="`images/enemy-area/stats/${ui_type_color_modifier}/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
@@ -482,7 +491,7 @@
                             </div>
                         </div>
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x + 6)">
-                            <div v-if="x < mapper.properties.battle.opponent_2.team_count.value && mapper.properties.battle.opponent_2.trainer.value != null" :class="`border slots ePkmnStyle ePkmn${x + mapper.properties.battle.opponent.team_count.value}`">
+                            <div v-if="x < mapper.properties.battle.opponent_2.team_count.value && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :class="`border slots ePkmnStyle ePkmn${x + mapper.properties.battle.opponent.team_count.value}`">
                                 <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_2_mon_static[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_2_mon_static[x]?.species}} Lv: {{enemy_2_mon_static[x]?.level}}</div>
                                 <div class="ePkmnAbility" style="opacity: .7;">{{enemy_2_mon_static[x]?.ability}}</div>
@@ -758,7 +767,23 @@
             <div v-else-if="mapper.properties.meta.state.value != 'No Pokemon'" class="ability">{{mapper.properties.player?.team[0]?.ability?.value}}</div>
             <div class="heldItem">{{heldItem}}</div>
             <div class="genericLabels timerLabel">time played at 4x game speed</div>
-            <div class="genericLabels resetsLabel">resets</div>
+
+            <!-- Faults -->
+            <div>
+                <div v-if="blackout_counter == 0">
+                    <div class="genericLabels resetsLabel">resets</div>
+                    <div v-show="resetCounter == true" id="reset_counter" class="resets">
+                        <div>{{playerResets}}</div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="genericLabels resetsLabel">faults</div>
+                    <div v-show="resetCounter == true" id="reset_counter" class="resets">
+                        <div>{{faults}}</div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Voltorb Flip -->
             <div class="posAbs" v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
