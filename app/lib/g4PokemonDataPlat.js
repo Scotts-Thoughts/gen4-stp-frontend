@@ -4538,7 +4538,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -7268,7 +7268,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -7276,7 +7276,7 @@ const g4PokemonData =
                 ],
                 [
                     7,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     10,
@@ -9110,7 +9110,7 @@ const g4PokemonData =
                 ],
                 [
                     15,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     22,
@@ -14311,7 +14311,7 @@ const g4PokemonData =
                 ],
                 [
                     8,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     15,
@@ -20335,7 +20335,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -20343,7 +20343,7 @@ const g4PokemonData =
                 ],
                 [
                     6,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     11,
@@ -23206,7 +23206,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -23214,7 +23214,7 @@ const g4PokemonData =
                 ],
                 [
                     6,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     11,
@@ -30756,7 +30756,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -30861,7 +30861,7 @@ const g4PokemonData =
             "levelup_moveset": [
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -32445,7 +32445,7 @@ const g4PokemonData =
                 ],
                 [
                     10,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     14,
@@ -33442,7 +33442,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     8,
@@ -34800,7 +34800,7 @@ const g4PokemonData =
                 ],
                 [
                     7,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     10,
@@ -42027,11 +42027,11 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     7,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     10,
@@ -46539,7 +46539,7 @@ const g4PokemonData =
                 ],
                 [
                     6,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     11,
@@ -46950,7 +46950,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -47697,7 +47697,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -47709,7 +47709,7 @@ const g4PokemonData =
                 ],
                 [
                     10,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     14,
@@ -49872,7 +49872,7 @@ const g4PokemonData =
             "levelup_moveset": [
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -56387,7 +56387,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -59923,7 +59923,7 @@ const g4PokemonData =
             "levelup_moveset": [
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -63130,7 +63130,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,
@@ -71464,7 +71464,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     5,
@@ -71472,7 +71472,7 @@ const g4PokemonData =
                 ],
                 [
                     10,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     14,
@@ -74981,7 +74981,7 @@ const g4PokemonData =
                 ],
                 [
                     1,
-                    "Thunder Shock"
+                    "ThunderShock"
                 ],
                 [
                     1,

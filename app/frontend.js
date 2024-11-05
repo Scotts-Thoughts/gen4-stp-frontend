@@ -1624,7 +1624,7 @@ const app = Vue.createApp({
             const badge          = this.mapper.properties.player.badges[x].value
             const state          = this.mapper.properties.meta.state.value          
             const global_pointer = this.mapper.properties.meta.global_pointer.value
-            console.log(global_pointer)
+            // console.log(global_pointer)
             if (badge == true && state!= `No Pokemon`) {
                 return true
             }
@@ -1763,27 +1763,49 @@ const app = Vue.createApp({
         },
         get_stat() {
             const state = this.mapper.properties.meta.state.value
+            const held_item = this.mapper.properties.player.team[0].held_item.value
+            function choice_specs(stat) {
+                return Math.floor(stat * 1.5)
+            }
+            let HP = 0
+            let Atk = 0
+            let Def = 0
+            let SpA = 0
+            let SpD = 0
+            let SpE = 0
             // const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value
             // const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value
             if (state == `Overworld` || state == `To Battle`) {
+                HP = this.mapper.properties.player.team[0].stats.hp_max.value
+                Atk = this.mapper.properties.player.team[0].stats.attack.value
+                Def = this.mapper.properties.player.team[0].stats.defense.value
+                SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
+                SpD = this.mapper.properties.player.team[0].stats.special_defense.value
+                SpE = this.mapper.properties.player.team[0].stats.speed.value
                 if (this.stat_fix_toggle_2 > 0) {
                     this.stat_fix_toggle_2 -= 1
+                    HP = this.stat_fix_hp
+                    Atk = this.stat_fix_hp
+                    Def = this.stat_fix_hp
+                    SpA = this.stat_fix_hp
+                    SpD = this.stat_fix_hp
+                    SpE = this.stat_fix_hp
                     return {
-                        "Hp" : this.stat_fix_hp,
-                        "Atk": this.stat_fix_atk,
-                        "Def": this.stat_fix_def,
-                        "SpA": this.stat_fix_spa,
-                        "SpD": this.stat_fix_spd,
-                        "Spe": this.stat_fix_spe
+                        "Hp" : HP,
+                        "Atk": Atk,
+                        "Def": Def,
+                        "SpA": SpA,
+                        "SpD": SpD,
+                        "Spe": SpE
                     }
                 }
                 return {
-                    "Hp" : this.mapper.properties.player.team[0].stats.hp_max.value,
-                    "Atk": this.mapper.properties.player.team[0].stats.attack.value,
-                    "Def": this.mapper.properties.player.team[0].stats.defense.value,
-                    "SpA": this.mapper.properties.player.team[0].stats.special_attack.value,
-                    "SpD": this.mapper.properties.player.team[0].stats.special_defense.value,
-                    "Spe": this.mapper.properties.player.team[0].stats.speed.value,
+                    "Hp" : HP,
+                    "Atk": Atk,
+                    "Def": Def,
+                    "SpA": SpA,
+                    "SpD": SpD,
+                    "Spe": SpE,
                 }
             }
             if (state == `Battle`) {
@@ -1793,18 +1815,18 @@ const app = Vue.createApp({
                 const mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
                 const mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
                 const mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
-                let hp  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
-                let atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
-                let def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
-                let spa = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
-                let spd = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                let spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
-                let battle_hp  = hp
-                let battle_atk = Math.floor(atk * this.stageModifiersData.stats[mod_atk])
-                let battle_def = Math.floor(def * this.stageModifiersData.stats[mod_def])
-                let battle_spa = Math.floor(spa * this.stageModifiersData.stats[mod_spa])
-                let battle_spd = Math.floor(spd * this.stageModifiersData.stats[mod_spd])
-                let battle_spe = Math.floor(spe * this.stageModifiersData.stats[mod_spe])
+                HP  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
+                Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
+                SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
+                Spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                let battle_hp  = HP
+                let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
+                let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def])
+                let battle_spa = Math.floor(SpA * this.stageModifiersData.stats[mod_spa])
+                let battle_spd = Math.floor(SpD * this.stageModifiersData.stats[mod_spd])
+                let battle_spe = Math.floor(Spe * this.stageModifiersData.stats[mod_spe])
                 return {
                     "Hp" : battle_hp,
                     "Atk": battle_atk,
@@ -1817,14 +1839,20 @@ const app = Vue.createApp({
             if (state == `From Battle`) {
                 if (this.stat_fix_toggle = true) {
                     this.stat_fix_toggle = false
+                    HP = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
+                    Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                    Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
+                    SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                    SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
+                    Spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
                     if (this.mapper.properties.battle.player.active_pokemon.stats.defense.value < 2000) {
                         this.stat_fix_lvl = this.mapper.properties.battle.player.active_pokemon.level.value
-                        this.stat_fix_hp  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
-                        this.stat_fix_atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
-                        this.stat_fix_def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
-                        this.stat_fix_spa = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
-                        this.stat_fix_spd = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                        this.stat_fix_spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                        this.stat_fix_hp  = HP
+                        this.stat_fix_atk = Atk
+                        this.stat_fix_def = Def
+                        this.stat_fix_spa = SpA
+                        this.stat_fix_spd = SpD
+                        this.stat_fix_spe = Spe
                         this.stat_fix_toggle_2 = 500
                     }
                 }
@@ -3557,7 +3585,7 @@ const app = Vue.createApp({
                     else if (hpPercentage < .0417) { return 200 }
                 }
                 else if (y == "Water Spout" || y == "Eruption") {
-                    var power = (150 * this.mapper.properties.player.team[0].hp.value) / this.mapper.properties.player.team[0].hp_max.value
+                    var power = (150 * this.mapper.properties.player.team[0].stats.hp.value) / this.mapper.properties.player.team[0].stats.hp_max.value
                     if (power < 1) {
                         return 1
                     }
@@ -4208,7 +4236,7 @@ const app = Vue.createApp({
             }
             if (game == 'HeartGold and SoulSilver') {
                 if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
-                    this.blackout_counter++;
+                    // this.blackout_counter++;
                     this.blackout = false;
                 }
             }
@@ -4584,30 +4612,40 @@ const app = Vue.createApp({
                 this.full_data_str = full_data_str
                 this.simple_data = simple_data
                 this.deprecated_data_str = deprecated_data_str
+                console.log("Simple Data: ", simple_data)
+                console.log("Deprecated Data: ", deprecated_data_str)
             }
         }
 
         //write to file at the end of a key battle
         this.mapper.properties.meta.state.change(async (prop) => {
-            // console.log(`State Changed to "${prop.value}"`)
+            console.log(`State Changed to "${prop.value}"`)
             if (prop.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
             autosplitter_process()
-            // console.log('Autosplitter Attempted to Run')
+            console.log('Autosplitter Attempted to Run')
             if (prop.value == 'From Battle') {
                 // console.log('Starting split log process')
                 let trainer = this.mapper.properties.battle.opponent.name.value
                 let id = this.mapper.properties.battle.opponent.id.value
                 let gameName = 'Platinum'
+                let game_name = 'Platinum'
                 if (trainer == 'Pokemon Trainer -' || trainer == null || trainer == undefined) { return }
                 if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
                     gameName = 'HGSS'
+                    game_name = 'HeartGold and SoulSilver'
                 }
                 
                 //write full split data
                 logData(gameName, this.full_data_str, this.attempt_number, this.starter, "Full", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                 
                 //write deprecated split data
+                console.log("Autosplitter[this.game.gameName]:" + this.autosplitter[this.game.gameName])
+                console.log(this.autosplitter)
+                console.log("this.game:" + this.game)
+                console.log("this.game.gameName:" + this.game.gameName)
+                console.log("Trainer: " + trainer)
                 if (this.autosplitter[this.game.gameName][trainer]) {
+                    console.log("Deprecated split attempted to be collected...")
                     logData(gameName, this.deprecated_data_str, this.attempt_number, this.starter, "Deprecated", this.testRun, this.scott_mode, this.evolution, this.evolution_splits_label, this.refilming_mode)
                 }
                 
@@ -4623,6 +4661,7 @@ const app = Vue.createApp({
                     }
                 }
                 if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
+                    console.log("Simple split attempted to be collected...")
                     simpleSplit();
                 }
         

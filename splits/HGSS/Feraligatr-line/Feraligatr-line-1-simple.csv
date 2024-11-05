@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Totodile,Leader Falkner,12:21,0,0,15,0:40,1730742760.734,Bite,Scratch,Water Gun,Rage
+Lyra,Croconaw,Leader Bugsy,21:52,0,0,21,1:12,1730743390.142,Bite,Ice Fang,Water Gun,Rock Tomb
+Lyra,Croconaw,Rival Silver,22:52,0,0,22,1:15,1730743450.115,Bite,Ice Fang,Water Gun,Rock Tomb
+Lyra,Croconaw,Leader Whitney,30:44,0,0,23,1:42,1730743922.219,Bite,Ice Fang,Headbutt,Swords Dance
+Lyra,Croconaw,Rival Silver,39:56,0,1,26,2:12,1730744473.584,Bite,Ice Fang,Headbutt,Swords Dance
+Lyra,Croconaw,Leader Morty,42:26,0,1,29,2:21,1730744623.765,Bite,Ice Fang,Headbutt,Swords Dance
+Lyra,Feraligatr,Leader Chuck,47:43,0,1,32,2:38,1730744997.406,Crunch,Ice Fang,Headbutt,Swords Dance
+Lyra,Feraligatr,Leader Pryce,58:56,0,1,38,3:16,1730745670.299,Crunch,Ice Fang,Headbutt,Swords Dance
+Lyra,Feraligatr,Leader Jasmine,1:01:46,0,1,38,3:25,1730745840.755,Crunch,Ice Fang,Surf,Swords Dance
+Lyra,Feraligatr,Rival Silver,1:06:22,0,1,41,3:40,1730746116.32,Crunch,Ice Fang,Surf,Swords Dance
+Lyra,Feraligatr,Leader Clair,1:15:59,0,1,45,4:12,1730746692.857,Crunch,Ice Fang,Surf,Swords Dance
+Lyra,Feraligatr,Rival Silver,1:33:51,1,1,50,5:03,1730747765.35,Crunch,Ice Fang,Swords Dance,Waterfall
+Lyra,Feraligatr,Elite Four Will,1:36:53,1,1,51,5:12,1730748244.186,Crunch,Ice Fang,Swords Dance,Waterfall
+Lyra,Feraligatr,Elite Four Koga,1:37:42,1,1,52,5:15,1730748292.72,Crunch,Ice Fang,Swords Dance,Waterfall
+Lyra,Feraligatr,Elite Four Bruno,1:38:24,1,1,52,5:18,1730748334.751,Crunch,Ice Fang,Swords Dance,Waterfall
+Lyra,Feraligatr,Elite Four Karen,1:39:23,1,1,53,5:21,1730748393.375,Crunch,Ice Fang,Swords Dance,Waterfall
+Lyra,Feraligatr,Champion Lance,1:40:55,1,1,54,5:27,1730748485.577,Crunch,Dragon Claw,Swords Dance,Waterfall
+Lyra,Feraligatr,Leader Misty,1:52:48,2,1,58,6:05,1730749198.334,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Sabrina,1:56:18,2,1,59,6:16,1730749408.766,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Brock,1:59:20,2,1,59,6:26,1730749590.465,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Blaine,2:02:36,2,1,61,6:37,1730749786.567,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Erika,2:05:01,2,1,61,6:44,1730749931.466,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Janine,2:10:43,2,1,63,7:02,1730750273.415,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Lt. Surge,2:12:33,2,1,63,7:08,1730750383.467,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Leader Blue,2:15:46,3,1,79,7:17,1730750576.288,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Elite Four Will,2:17:35,3,1,79,7:23,1730750686.103,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Elite Four Will,2:18:55,4,1,79,7:23,1730750765.657,Waterfall,Swords Dance,Dragon Claw,Crunch
+Lyra,Feraligatr,Elite Four Koga,2:20:44,6,1,80,7:28,1730750875.205,Waterfall,Swords Dance,Dragon Claw,Earthquake
+Lyra,Feraligatr,Elite Four Bruno,2:21:41,6,1,81,7:31,1730750931.54,Waterfall,Swords Dance,Dragon Claw,Earthquake
+Lyra,Feraligatr,Elite Four Karen,2:22:43,6,1,81,7:35,1730750993.584,Waterfall,Swords Dance,Dragon Claw,Earthquake
+Lyra,Feraligatr,Champion Lance,2:24:24,7,1,82,7:39,1730751094.449,Waterfall,Swords Dance,Dragon Claw,Earthquake
+Lyra,Feraligatr,Pokemon Trainer Red,2:43:19,16,1,87,8:26,1730752230.235,Swords Dance,Return,Earthquake,Ice Fang
