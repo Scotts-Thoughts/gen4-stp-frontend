@@ -1,4 +1,4 @@
-const trainers_hgss = {
+const trainer_hgss = {
     "0": {
         "rom_id": 0,
         "name": "Player",
@@ -253,7 +253,7 @@ const trainers_hgss = {
                 "level": 9,
                 "experience_yield": 109,
                 "nature": "Serious",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 25,
@@ -275,7 +275,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 157,
                 "nature": "Mild",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 32,
@@ -297,7 +297,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 195,
                 "nature": "Impish",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -382,7 +382,7 @@ const trainers_hgss = {
                 "level": 6,
                 "experience_yield": 132,
                 "nature": "Serious",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 20,
@@ -423,7 +423,7 @@ const trainers_hgss = {
                 "level": 14,
                 "experience_yield": 309,
                 "nature": "Naughty",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 35,
@@ -488,7 +488,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 477,
                 "nature": "Quiet",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 43,
@@ -521,7 +521,7 @@ const trainers_hgss = {
                 "level": 10,
                 "experience_yield": 115,
                 "nature": "Naive",
-                "ability": "Swarm",
+                "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
                     "hp": 28,
@@ -543,7 +543,7 @@ const trainers_hgss = {
                 "level": 10,
                 "experience_yield": 115,
                 "nature": "Adamant",
-                "ability": "Swarm",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 28,
@@ -652,7 +652,7 @@ const trainers_hgss = {
                 "level": 7,
                 "experience_yield": 85,
                 "nature": "Calm",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 21,
@@ -957,7 +957,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 450,
                 "nature": "Naive",
-                "ability": "Clear Body",
+                "ability": "Liquid Ooze",
                 "held_item": null,
                 "stats": {
                     "hp": 46,
@@ -1242,7 +1242,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 681,
                 "nature": "Hardy",
-                "ability": "Swarm",
+                "ability": "Technician",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 52,
@@ -1346,7 +1346,7 @@ const trainers_hgss = {
                 "level": 11,
                 "experience_yield": 232,
                 "nature": "Brave",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -1412,7 +1412,7 @@ const trainers_hgss = {
                 "level": 4,
                 "experience_yield": 61,
                 "nature": "Naughty",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 17,
@@ -1433,7 +1433,7 @@ const trainers_hgss = {
                 "level": 6,
                 "experience_yield": 93,
                 "nature": "Lax",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 20,
@@ -1454,7 +1454,7 @@ const trainers_hgss = {
                 "level": 8,
                 "experience_yield": 124,
                 "nature": "Naive",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 24,
@@ -1483,11 +1483,11 @@ const trainers_hgss = {
         "items": [],
         "party": [
             {
-                "species": "Nidoran M",
+                "species": "Nidoran_M",
                 "level": 9,
                 "experience_yield": 115,
                 "nature": "Adamant",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 27,
@@ -1516,11 +1516,11 @@ const trainers_hgss = {
         "items": [],
         "party": [
             {
-                "species": "Nidoran F",
+                "species": "Nidoran_F",
                 "level": 8,
                 "experience_yield": 100,
                 "nature": "Bold",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 26,
@@ -1552,7 +1552,7 @@ const trainers_hgss = {
                 "level": 33,
                 "experience_yield": 904,
                 "nature": "Hasty",
-                "ability": "Effect Spore",
+                "ability": "Dry Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 84,
@@ -1574,7 +1574,7 @@ const trainers_hgss = {
                 "level": 35,
                 "experience_yield": 1305,
                 "nature": "Quiet",
-                "ability": "Damp",
+                "ability": "Cloud Nine",
                 "held_item": null,
                 "stats": {
                     "hp": 103,
@@ -1705,7 +1705,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 813,
                 "nature": "Sassy",
-                "ability": "Thick Fat",
+                "ability": "Scrappy",
                 "held_item": "Lum Berry",
                 "stats": {
                     "hp": 67,
@@ -1887,7 +1887,7 @@ const trainers_hgss = {
                 "level": 34,
                 "experience_yield": 1165,
                 "nature": "Brave",
-                "ability": "Oblivious",
+                "ability": "Snow Cloak",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 118,
@@ -1945,7 +1945,7 @@ const trainers_hgss = {
                 "level": 30,
                 "experience_yield": 571,
                 "nature": "Lax",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 60,
@@ -1967,7 +1967,7 @@ const trainers_hgss = {
                 "level": 35,
                 "experience_yield": 1470,
                 "nature": "Mild",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 103,
@@ -2127,7 +2127,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1818,
                 "nature": "Lax",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 122,
@@ -2272,7 +2272,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 655,
                 "nature": "Modest",
-                "ability": "Cute Charm",
+                "ability": "Magic Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 118,
@@ -2327,7 +2327,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 421,
                 "nature": "Adamant",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 45,
@@ -2349,7 +2349,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 468,
                 "nature": "Impish",
-                "ability": "Hyper Cutter",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -2711,7 +2711,7 @@ const trainers_hgss = {
                 "level": 4,
                 "experience_yield": 48,
                 "nature": "Jolly",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 16,
@@ -3069,7 +3069,7 @@ const trainers_hgss = {
                 "level": 7,
                 "experience_yield": 87,
                 "nature": "Quirky",
-                "ability": "Insomnia",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 25,
@@ -3132,7 +3132,7 @@ const trainers_hgss = {
                 "level": 10,
                 "experience_yield": 111,
                 "nature": "Naive",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 31,
@@ -3329,7 +3329,7 @@ const trainers_hgss = {
                 "level": 8,
                 "experience_yield": 132,
                 "nature": "Calm",
-                "ability": "Water Absorb",
+                "ability": "Damp",
                 "held_item": null,
                 "stats": {
                     "hp": 24,
@@ -3383,7 +3383,7 @@ const trainers_hgss = {
                 "level": 11,
                 "experience_yield": 175,
                 "nature": "Lax",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 36,
@@ -3416,7 +3416,7 @@ const trainers_hgss = {
                 "level": 7,
                 "experience_yield": 85,
                 "nature": "Jolly",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 21,
@@ -3862,7 +3862,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 235,
                 "nature": "Mild",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 38,
@@ -3884,7 +3884,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 235,
                 "nature": "Mild",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 38,
@@ -4070,7 +4070,7 @@ const trainers_hgss = {
                 "level": 15,
                 "experience_yield": 175,
                 "nature": "Lonely",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -4114,7 +4114,7 @@ const trainers_hgss = {
                 "level": 15,
                 "experience_yield": 175,
                 "nature": "Lonely",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -4399,7 +4399,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1119,
                 "nature": "Docile",
-                "ability": "Swarm",
+                "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
                     "hp": 103,
@@ -4421,7 +4421,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1713,
                 "nature": "Timid",
-                "ability": "Hyper Cutter",
+                "ability": "Mold Breaker",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -4564,7 +4564,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 328,
                 "nature": "Bashful",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 38,
@@ -4586,7 +4586,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 349,
                 "nature": "Quiet",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 39,
@@ -4608,7 +4608,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 369,
                 "nature": "Hardy",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 41,
@@ -4641,7 +4641,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 1995,
                 "nature": "Hardy",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 144,
@@ -4674,7 +4674,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 2005,
                 "nature": "Gentle",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 135,
@@ -4707,7 +4707,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 430,
                 "nature": "Modest",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -4729,7 +4729,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 394,
                 "nature": "Mild",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -4806,7 +4806,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 373,
                 "nature": "Serious",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 38,
@@ -5048,7 +5048,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 427,
                 "nature": "Impish",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 44,
@@ -5092,7 +5092,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 727,
                 "nature": "Hasty",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -5213,7 +5213,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 453,
                 "nature": "Adamant",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 42,
@@ -5235,7 +5235,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 886,
                 "nature": "Careful",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 54,
@@ -5290,7 +5290,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 373,
                 "nature": "Naughty",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 43,
@@ -5323,7 +5323,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 436,
                 "nature": "Jolly",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 43,
@@ -5367,7 +5367,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 834,
                 "nature": "Bashful",
-                "ability": "Clear Body",
+                "ability": "Liquid Ooze",
                 "held_item": null,
                 "stats": {
                     "hp": 59,
@@ -5422,7 +5422,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 382,
                 "nature": "Lonely",
-                "ability": "Clear Body",
+                "ability": "Liquid Ooze",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -5466,7 +5466,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 430,
                 "nature": "Naive",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -5682,7 +5682,7 @@ const trainers_hgss = {
                 "level": 32,
                 "experience_yield": 1000,
                 "nature": "Adamant",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 93,
@@ -5715,7 +5715,7 @@ const trainers_hgss = {
                 "level": 9,
                 "experience_yield": 109,
                 "nature": "Docile",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 24,
@@ -5737,7 +5737,7 @@ const trainers_hgss = {
                 "level": 9,
                 "experience_yield": 109,
                 "nature": "Docile",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 24,
@@ -5847,7 +5847,7 @@ const trainers_hgss = {
                 "level": 33,
                 "experience_yield": 1138,
                 "nature": "Impish",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 77,
@@ -5869,7 +5869,7 @@ const trainers_hgss = {
                 "level": 31,
                 "experience_yield": 909,
                 "nature": "Lonely",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 101,
@@ -6342,7 +6342,7 @@ const trainers_hgss = {
                 "level": 35,
                 "experience_yield": 1162,
                 "nature": "Relaxed",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -6452,7 +6452,7 @@ const trainers_hgss = {
                 "level": 37,
                 "experience_yield": 1228,
                 "nature": "Naive",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 90,
@@ -6485,7 +6485,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 1480,
                 "nature": "Naughty",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 94,
@@ -6859,7 +6859,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 1261,
                 "nature": "Relaxed",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 92,
@@ -7227,7 +7227,7 @@ const trainers_hgss = {
                 "level": 28,
                 "experience_yield": 468,
                 "nature": "Adamant",
-                "ability": "Hustle",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 57,
@@ -7406,7 +7406,7 @@ const trainers_hgss = {
                 "level": 37,
                 "experience_yield": 1299,
                 "nature": "Mild",
-                "ability": "Suction Cups",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -7428,7 +7428,7 @@ const trainers_hgss = {
                 "level": 33,
                 "experience_yield": 550,
                 "nature": "Bashful",
-                "ability": "Hustle",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 66,
@@ -7626,7 +7626,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 835,
                 "nature": "Quiet",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -7659,7 +7659,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1128,
                 "nature": "Lax",
-                "ability": "Lightningrod",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 111,
@@ -7681,7 +7681,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1704,
                 "nature": "Rash",
-                "ability": "Lightningrod",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 130,
@@ -7736,7 +7736,7 @@ const trainers_hgss = {
                 "level": 15,
                 "experience_yield": 234,
                 "nature": "Bashful",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -8033,7 +8033,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1492,
                 "nature": "Bold",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 116,
@@ -8253,7 +8253,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 774,
                 "nature": "Jolly",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 66,
@@ -8308,7 +8308,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 390,
                 "nature": "Impish",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 55,
@@ -8330,7 +8330,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 717,
                 "nature": "Careful",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -8352,7 +8352,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 948,
                 "nature": "Jolly",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 75,
@@ -8473,7 +8473,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 268,
                 "nature": "Quirky",
-                "ability": "Vital Spirit",
+                "ability": "Anger Point",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -8539,7 +8539,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1639,
                 "nature": "Naughty",
-                "ability": "Damp",
+                "ability": "Cloud Nine",
                 "held_item": null,
                 "stats": {
                     "hp": 124,
@@ -8616,7 +8616,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1276,
                 "nature": "Timid",
-                "ability": "Vital Spirit",
+                "ability": "Anger Point",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -8671,7 +8671,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 553,
                 "nature": "Calm",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 44,
@@ -8759,7 +8759,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1018,
                 "nature": "Timid",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -8781,7 +8781,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1768,
                 "nature": "Docile",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 108,
@@ -8814,7 +8814,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 202,
                 "nature": "Adamant",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 33,
@@ -8836,7 +8836,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 202,
                 "nature": "Adamant",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 33,
@@ -8858,7 +8858,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 202,
                 "nature": "Adamant",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 33,
@@ -8880,7 +8880,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 202,
                 "nature": "Adamant",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 33,
@@ -8902,7 +8902,7 @@ const trainers_hgss = {
                 "level": 13,
                 "experience_yield": 202,
                 "nature": "Adamant",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 33,
@@ -8979,7 +8979,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1251,
                 "nature": "Impish",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 114,
@@ -9012,7 +9012,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 804,
                 "nature": "Sassy",
-                "ability": "Limber",
+                "ability": "Reckless",
                 "held_item": null,
                 "stats": {
                     "hp": 65,
@@ -9045,7 +9045,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 810,
                 "nature": "Gentle",
-                "ability": "Keen Eye",
+                "ability": "Iron Fist",
                 "held_item": null,
                 "stats": {
                     "hp": 65,
@@ -9078,7 +9078,7 @@ const trainers_hgss = {
                 "level": 34,
                 "experience_yield": 1012,
                 "nature": "Serious",
-                "ability": "Limber",
+                "ability": "Reckless",
                 "held_item": null,
                 "stats": {
                     "hp": 82,
@@ -9100,7 +9100,7 @@ const trainers_hgss = {
                 "level": 34,
                 "experience_yield": 1020,
                 "nature": "Relaxed",
-                "ability": "Keen Eye",
+                "ability": "Iron Fist",
                 "held_item": null,
                 "stats": {
                     "hp": 82,
@@ -9155,7 +9155,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 364,
                 "nature": "Docile",
-                "ability": "Vital Spirit",
+                "ability": "Anger Point",
                 "held_item": null,
                 "stats": {
                     "hp": 52,
@@ -9177,7 +9177,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 798,
                 "nature": "Docile",
-                "ability": "Vital Spirit",
+                "ability": "Anger Point",
                 "held_item": null,
                 "stats": {
                     "hp": 68,
@@ -10166,7 +10166,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 793,
                 "nature": "Bold",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -10232,7 +10232,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1380,
                 "nature": "Serious",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 90,
@@ -10496,7 +10496,7 @@ const trainers_hgss = {
                 "level": 24,
                 "experience_yield": 595,
                 "nature": "Careful",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 61,
@@ -10518,7 +10518,7 @@ const trainers_hgss = {
                 "level": 24,
                 "experience_yield": 595,
                 "nature": "Careful",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 61,
@@ -10628,7 +10628,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 256,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 44,
@@ -10650,7 +10650,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 256,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 44,
@@ -10672,7 +10672,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 280,
                 "nature": "Careful",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -10694,7 +10694,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 280,
                 "nature": "Careful",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -10716,7 +10716,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 280,
                 "nature": "Careful",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -10870,7 +10870,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 280,
                 "nature": "Hardy",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -10936,7 +10936,7 @@ const trainers_hgss = {
                 "level": 24,
                 "experience_yield": 595,
                 "nature": "Quiet",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 61,
@@ -11112,7 +11112,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 304,
                 "nature": "Adamant",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 50,
@@ -11178,7 +11178,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 328,
                 "nature": "Calm",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 54,
@@ -11211,7 +11211,7 @@ const trainers_hgss = {
                 "level": 24,
                 "experience_yield": 595,
                 "nature": "Sassy",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 61,
@@ -11453,7 +11453,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 279,
                 "nature": "Docile",
-                "ability": "Intimidate",
+                "ability": "Shed Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 46,
@@ -11563,7 +11563,7 @@ const trainers_hgss = {
                 "level": 26,
                 "experience_yield": 975,
                 "nature": "Gentle",
-                "ability": "Early Bird",
+                "ability": "Scrappy",
                 "held_item": null,
                 "stats": {
                     "hp": 90,
@@ -11596,7 +11596,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 358,
                 "nature": "Impish",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 51,
@@ -11618,7 +11618,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 717,
                 "nature": "Serious",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -11651,7 +11651,7 @@ const trainers_hgss = {
                 "level": 23,
                 "experience_yield": 358,
                 "nature": "Relaxed",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 51,
@@ -11673,7 +11673,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 400,
                 "nature": "Impish",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 70,
@@ -11783,7 +11783,7 @@ const trainers_hgss = {
                 "level": 26,
                 "experience_yield": 511,
                 "nature": "Sassy",
-                "ability": "Run Away",
+                "ability": "Adaptability",
                 "held_item": null,
                 "stats": {
                     "hp": 66,
@@ -12190,7 +12190,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 492,
                 "nature": "Docile",
-                "ability": "Hyper Cutter",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 42,
@@ -12245,7 +12245,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 288,
                 "nature": "Careful",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 53,
@@ -12333,7 +12333,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 195,
                 "nature": "Gentle",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 36,
@@ -12355,7 +12355,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 195,
                 "nature": "Gentle",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 36,
@@ -12377,7 +12377,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 195,
                 "nature": "Gentle",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 36,
@@ -12399,7 +12399,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 195,
                 "nature": "Gentle",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 36,
@@ -12542,7 +12542,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 207,
                 "nature": "Sassy",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -12586,7 +12586,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 207,
                 "nature": "Sassy",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 37,
@@ -12641,7 +12641,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 288,
                 "nature": "Quiet",
-                "ability": "Compoundeyes",
+                "ability": "Tinted Lens",
                 "held_item": null,
                 "stats": {
                     "hp": 50,
@@ -12707,7 +12707,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 471,
                 "nature": "Mild",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 50,
@@ -12839,7 +12839,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 219,
                 "nature": "Mild",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 39,
@@ -13103,7 +13103,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1366,
                 "nature": "Modest",
-                "ability": "Synchronize",
+                "ability": "Inner Focus",
                 "held_item": null,
                 "stats": {
                     "hp": 89,
@@ -13125,7 +13125,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1500,
                 "nature": "Brave",
-                "ability": "Inner Focus",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 122,
@@ -13215,7 +13215,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 948,
                 "nature": "Hardy",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 87,
@@ -13237,7 +13237,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 801,
                 "nature": "Lax",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 73,
@@ -13325,7 +13325,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1206,
                 "nature": "Brave",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 98,
@@ -13347,7 +13347,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1206,
                 "nature": "Brave",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 98,
@@ -13369,7 +13369,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1206,
                 "nature": "Brave",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 98,
@@ -13424,7 +13424,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1593,
                 "nature": "Relaxed",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 119,
@@ -13501,7 +13501,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1944,
                 "nature": "Rash",
-                "ability": "Intimidate",
+                "ability": "Anger Point",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -13534,7 +13534,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1381,
                 "nature": "Naive",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 107,
@@ -13556,7 +13556,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1906,
                 "nature": "Impish",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 107,
@@ -13611,7 +13611,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 625,
                 "nature": "Docile",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 103,
@@ -13633,7 +13633,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1282,
                 "nature": "Timid",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 116,
@@ -13655,7 +13655,7 @@ const trainers_hgss = {
                 "level": 34,
                 "experience_yield": 582,
                 "nature": "Jolly",
-                "ability": "Damp",
+                "ability": "Cloud Nine",
                 "held_item": null,
                 "stats": {
                     "hp": 78,
@@ -13710,7 +13710,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 993,
                 "nature": "Rash",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 94,
@@ -13798,7 +13798,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 577,
                 "nature": "Docile",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 96,
@@ -13842,7 +13842,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 577,
                 "nature": "Docile",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 96,
@@ -13875,7 +13875,7 @@ const trainers_hgss = {
                 "level": 37,
                 "experience_yield": 1077,
                 "nature": "Adamant",
-                "ability": "Soundproof",
+                "ability": "Filter",
                 "held_item": null,
                 "stats": {
                     "hp": 76,
@@ -14056,7 +14056,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 2077,
                 "nature": "Quirky",
-                "ability": "Rock Head",
+                "ability": "Pressure",
                 "held_item": null,
                 "stats": {
                     "hp": 149,
@@ -14202,7 +14202,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1440,
                 "nature": "Lax",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 141,
@@ -14224,7 +14224,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1539,
                 "nature": "Sassy",
-                "ability": "Synchronize",
+                "ability": "Early Bird",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 119,
@@ -14326,7 +14326,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1008,
                 "nature": "Sassy",
-                "ability": "Insomnia",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -14384,7 +14384,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1147,
                 "nature": "Careful",
-                "ability": "Swarm",
+                "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
                     "hp": 118,
@@ -14450,7 +14450,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1413,
                 "nature": "Lax",
-                "ability": "Stench",
+                "ability": "Sticky Hold",
                 "held_item": "Black Sludge",
                 "stats": {
                     "hp": 152,
@@ -14732,7 +14732,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 400,
                 "nature": "Serious",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 71,
@@ -14754,7 +14754,7 @@ const trainers_hgss = {
                 "level": 25,
                 "experience_yield": 781,
                 "nature": "Mild",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 76,
@@ -14787,7 +14787,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 702,
                 "nature": "Naughty",
-                "ability": "Hustle",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 81,
@@ -14846,7 +14846,7 @@ const trainers_hgss = {
                 "level": 51,
                 "experience_yield": 1464,
                 "nature": "Gentle",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 129,
@@ -14890,7 +14890,7 @@ const trainers_hgss = {
                 "level": 53,
                 "experience_yield": 2259,
                 "nature": "Naughty",
-                "ability": "Swift Swim",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 149,
@@ -14934,7 +14934,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 2217,
                 "nature": "Naive",
-                "ability": "Swift Swim",
+                "ability": "Battle Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 136,
@@ -14993,7 +14993,7 @@ const trainers_hgss = {
                 "level": 49,
                 "experience_yield": 1438,
                 "nature": "Docile",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
@@ -15037,7 +15037,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 2394,
                 "nature": "Rash",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 141,
@@ -15096,7 +15096,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1510,
                 "nature": "Relaxed",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 124,
@@ -15140,7 +15140,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1510,
                 "nature": "Relaxed",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 124,
@@ -15346,7 +15346,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1348,
                 "nature": "Naughty",
-                "ability": "Swarm",
+                "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
                     "hp": 134,
@@ -15449,7 +15449,7 @@ const trainers_hgss = {
                 "level": 53,
                 "experience_yield": 1543,
                 "nature": "Naive",
-                "ability": "Soundproof",
+                "ability": "Filter",
                 "held_item": null,
                 "stats": {
                     "hp": 118,
@@ -15508,7 +15508,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 1782,
                 "nature": "Mild",
-                "ability": "Magma Armor",
+                "ability": "Flame Body",
                 "held_item": "White Herb",
                 "stats": {
                     "hp": 130,
@@ -15552,7 +15552,7 @@ const trainers_hgss = {
                 "level": 59,
                 "experience_yield": 2427,
                 "nature": "Hardy",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": "White Herb",
                 "stats": {
                     "hp": 159,
@@ -15612,7 +15612,7 @@ const trainers_hgss = {
                 "level": 80,
                 "experience_yield": 3753,
                 "nature": "Quiet",
-                "ability": "Water Absorb",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 322,
@@ -15634,7 +15634,7 @@ const trainers_hgss = {
                 "level": 82,
                 "experience_yield": 2706,
                 "nature": "Modest",
-                "ability": "Immunity",
+                "ability": "Thick Fat",
                 "held_item": null,
                 "stats": {
                     "hp": 379,
@@ -15782,7 +15782,7 @@ const trainers_hgss = {
                 "level": 58,
                 "experience_yield": 2535,
                 "nature": "Calm",
-                "ability": "Lightningrod",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 207,
@@ -15826,7 +15826,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2316,
                 "nature": "Gentle",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 183,
@@ -17265,7 +17265,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 952,
                 "nature": "Docile",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 101,
@@ -17342,7 +17342,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1662,
                 "nature": "Brave",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 122,
@@ -18614,7 +18614,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 484,
                 "nature": "Timid",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 103,
@@ -18636,7 +18636,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 484,
                 "nature": "Timid",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 103,
@@ -18658,7 +18658,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1971,
                 "nature": "Lax",
-                "ability": "Water Absorb",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 161,
@@ -18691,7 +18691,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1863,
                 "nature": "Bold",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -18713,7 +18713,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1863,
                 "nature": "Bold",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -18735,7 +18735,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1863,
                 "nature": "Bold",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -18856,7 +18856,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 1789,
                 "nature": "Lonely",
-                "ability": "Damp",
+                "ability": "Cloud Nine",
                 "held_item": null,
                 "stats": {
                     "hp": 134,
@@ -18889,7 +18889,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1675,
                 "nature": "Gentle",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 129,
@@ -18911,7 +18911,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1675,
                 "nature": "Gentle",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 129,
@@ -18966,7 +18966,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1621,
                 "nature": "Rash",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 129,
@@ -19054,7 +19054,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 801,
                 "nature": "Adamant",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 78,
@@ -19076,7 +19076,7 @@ const trainers_hgss = {
                 "level": 37,
                 "experience_yield": 760,
                 "nature": "Modest",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 75,
@@ -19098,7 +19098,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1387,
                 "nature": "Docile",
-                "ability": "Run Away",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -19593,7 +19593,7 @@ const trainers_hgss = {
                 "level": 50,
                 "experience_yield": 2185,
                 "nature": "Timid",
-                "ability": "Lightningrod",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 169,
@@ -20132,7 +20132,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1575,
                 "nature": "Mild",
-                "ability": "Synchronize",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 108,
@@ -20724,7 +20724,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1261,
                 "nature": "Serious",
-                "ability": "Oblivious",
+                "ability": "Forewarn",
                 "held_item": null,
                 "stats": {
                     "hp": 108,
@@ -20823,7 +20823,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1713,
                 "nature": "Sassy",
-                "ability": "Synchronize",
+                "ability": "Inner Focus",
                 "held_item": null,
                 "stats": {
                     "hp": 100,
@@ -20944,7 +20944,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1069,
                 "nature": "Calm",
-                "ability": "Effect Spore",
+                "ability": "Dry Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 95,
@@ -21018,7 +21018,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1252,
                 "nature": "Hardy",
-                "ability": "Chlorophyll",
+                "ability": "Leaf Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 100,
@@ -21073,7 +21073,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1027,
                 "nature": "Relaxed",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 108,
@@ -21227,7 +21227,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1686,
                 "nature": "Hasty",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 104,
@@ -21407,7 +21407,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 1188,
                 "nature": "Lax",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 109,
@@ -21429,7 +21429,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1251,
                 "nature": "Naive",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 115,
@@ -21792,7 +21792,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1261,
                 "nature": "Bold",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 134,
@@ -22045,7 +22045,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 720,
                 "nature": "Quirky",
-                "ability": "Damp",
+                "ability": "Cloud Nine",
                 "held_item": null,
                 "stats": {
                     "hp": 94,
@@ -22078,7 +22078,7 @@ const trainers_hgss = {
                 "level": 31,
                 "experience_yield": 378,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -22100,7 +22100,7 @@ const trainers_hgss = {
                 "level": 31,
                 "experience_yield": 378,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -22122,7 +22122,7 @@ const trainers_hgss = {
                 "level": 31,
                 "experience_yield": 378,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -22144,7 +22144,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 894,
                 "nature": "Bashful",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 107,
@@ -22166,7 +22166,7 @@ const trainers_hgss = {
                 "level": 31,
                 "experience_yield": 378,
                 "nature": "Brave",
-                "ability": "Run Away",
+                "ability": "Keen Eye",
                 "held_item": null,
                 "stats": {
                     "hp": 62,
@@ -22254,7 +22254,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 991,
                 "nature": "Gentle",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -22331,7 +22331,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 570,
                 "nature": "Impish",
-                "ability": "Effect Spore",
+                "ability": "Dry Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -22463,7 +22463,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 994,
                 "nature": "Sassy",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 83,
@@ -22595,7 +22595,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 1860,
                 "nature": "Sassy",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 136,
@@ -22661,7 +22661,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 1387,
                 "nature": "Naive",
-                "ability": "Lightningrod",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 137,
@@ -22760,7 +22760,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 2083,
                 "nature": "Quirky",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 116,
@@ -22881,7 +22881,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 762,
                 "nature": "Lax",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 70,
@@ -22925,7 +22925,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 762,
                 "nature": "Lax",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 70,
@@ -22958,7 +22958,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1308,
                 "nature": "Quirky",
-                "ability": "Trace",
+                "ability": "Download",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -22991,7 +22991,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 742,
                 "nature": "Jolly",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 68,
@@ -23068,7 +23068,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 693,
                 "nature": "Rash",
-                "ability": "Levitate",
+                "ability": "Heatproof",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -23090,7 +23090,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 1590,
                 "nature": "Quiet",
-                "ability": "Insomnia",
+                "ability": "Forewarn",
                 "held_item": null,
                 "stats": {
                     "hp": 131,
@@ -23123,7 +23123,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 933,
                 "nature": "Timid",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 133,
@@ -23145,7 +23145,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1615,
                 "nature": "Modest",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 143,
@@ -23178,7 +23178,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 1195,
                 "nature": "Sassy",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -23244,7 +23244,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 903,
                 "nature": "Modest",
-                "ability": "Swift Swim",
+                "ability": "Water Veil",
                 "held_item": null,
                 "stats": {
                     "hp": 82,
@@ -23299,7 +23299,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1914,
                 "nature": "Mild",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 98,
@@ -23409,7 +23409,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1441,
                 "nature": "Mild",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 142,
@@ -23442,7 +23442,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1233,
                 "nature": "Adamant",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 131,
@@ -23464,7 +23464,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1476,
                 "nature": "Rash",
-                "ability": "Suction Cups",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 115,
@@ -23651,7 +23651,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 763,
                 "nature": "Quirky",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 78,
@@ -23673,7 +23673,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1428,
                 "nature": "Hardy",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 100,
@@ -23926,7 +23926,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 456,
                 "nature": "Docile",
-                "ability": "Chlorophyll",
+                "ability": "Solar Power",
                 "held_item": null,
                 "stats": {
                     "hp": 75,
@@ -24001,7 +24001,7 @@ const trainers_hgss = {
                 "level": 6,
                 "experience_yield": 70,
                 "nature": "Hardy",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 21,
@@ -24053,7 +24053,7 @@ const trainers_hgss = {
                 "level": 11,
                 "experience_yield": 253,
                 "nature": "Relaxed",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 28,
@@ -24173,7 +24173,7 @@ const trainers_hgss = {
                 "level": 10,
                 "experience_yield": 115,
                 "nature": "Serious",
-                "ability": "Swarm",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 28,
@@ -24194,7 +24194,7 @@ const trainers_hgss = {
                 "level": 10,
                 "experience_yield": 115,
                 "nature": "Careful",
-                "ability": "Swarm",
+                "ability": "Insomnia",
                 "held_item": null,
                 "stats": {
                     "hp": 28,
@@ -24303,7 +24303,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 423,
                 "nature": "Lonely",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 66,
@@ -24400,7 +24400,7 @@ const trainers_hgss = {
                 "level": 11,
                 "experience_yield": 232,
                 "nature": "Modest",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -24422,7 +24422,7 @@ const trainers_hgss = {
                 "level": 11,
                 "experience_yield": 232,
                 "nature": "Modest",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -24497,7 +24497,7 @@ const trainers_hgss = {
                 "level": 7,
                 "experience_yield": 133,
                 "nature": "Adamant",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 20,
@@ -24699,7 +24699,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1381,
                 "nature": "Rash",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 104,
@@ -24743,7 +24743,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1381,
                 "nature": "Rash",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 104,
@@ -24831,7 +24831,7 @@ const trainers_hgss = {
                 "level": 18,
                 "experience_yield": 523,
                 "nature": "Hasty",
-                "ability": "Chlorophyll",
+                "ability": "Leaf Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -25450,7 +25450,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 222,
                 "nature": "Naughty",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 52,
@@ -25593,7 +25593,7 @@ const trainers_hgss = {
                 "level": 30,
                 "experience_yield": 642,
                 "nature": "Gentle",
-                "ability": "Poison Point",
+                "ability": "Swift Swim",
                 "held_item": null,
                 "stats": {
                     "hp": 79,
@@ -25703,7 +25703,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1224,
                 "nature": "Naive",
-                "ability": "Soundproof",
+                "ability": "Filter",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -25893,7 +25893,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1242,
                 "nature": "Quirky",
-                "ability": "Intimidate",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -25915,7 +25915,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1251,
                 "nature": "Naive",
-                "ability": "Limber",
+                "ability": "Reckless",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -25937,7 +25937,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1260,
                 "nature": "Careful",
-                "ability": "Keen Eye",
+                "ability": "Iron Fist",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -25959,7 +25959,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 994,
                 "nature": "Serious",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 96,
@@ -25981,7 +25981,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1902,
                 "nature": "Timid",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 152,
@@ -26069,7 +26069,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 846,
                 "nature": "Bold",
-                "ability": "Keen Eye",
+                "ability": "Inner Focus",
                 "held_item": null,
                 "stats": {
                     "hp": 98,
@@ -26179,7 +26179,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1449,
                 "nature": "Hasty",
-                "ability": "Insomnia",
+                "ability": "Forewarn",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -26212,7 +26212,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 531,
                 "nature": "Bold",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -26234,7 +26234,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 531,
                 "nature": "Bold",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -26256,7 +26256,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 531,
                 "nature": "Bold",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -26289,7 +26289,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1567,
                 "nature": "Naughty",
-                "ability": "Vital Spirit",
+                "ability": "Hustle",
                 "held_item": null,
                 "stats": {
                     "hp": 86,
@@ -26321,7 +26321,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1035,
                 "nature": "Quiet",
-                "ability": "Pickup",
+                "ability": "Quick Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 95,
@@ -26398,7 +26398,7 @@ const trainers_hgss = {
                 "level": 39,
                 "experience_yield": 1035,
                 "nature": "Timid",
-                "ability": "Pickup",
+                "ability": "Quick Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 95,
@@ -26431,7 +26431,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 985,
                 "nature": "Adamant",
-                "ability": "Keen Eye",
+                "ability": "Tangled Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 118,
@@ -27407,7 +27407,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 862,
                 "nature": "Serious",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 73,
@@ -27484,7 +27484,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 2083,
                 "nature": "Timid",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 116,
@@ -27968,7 +27968,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 1974,
                 "nature": "Docile",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -28023,7 +28023,7 @@ const trainers_hgss = {
                 "level": 26,
                 "experience_yield": 573,
                 "nature": "Calm",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 56,
@@ -28067,7 +28067,7 @@ const trainers_hgss = {
                 "level": 34,
                 "experience_yield": 750,
                 "nature": "Adamant",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 71,
@@ -28122,7 +28122,7 @@ const trainers_hgss = {
                 "level": 36,
                 "experience_yield": 793,
                 "nature": "Sassy",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -28166,7 +28166,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1350,
                 "nature": "Bashful",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 102,
@@ -28353,7 +28353,7 @@ const trainers_hgss = {
                 "level": 38,
                 "experience_yield": 1563,
                 "nature": "Hasty",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 99,
@@ -28408,7 +28408,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1728,
                 "nature": "Naive",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 109,
@@ -29031,7 +29031,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 381,
                 "nature": "Bold",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -29086,7 +29086,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 514,
                 "nature": "Bold",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 50,
@@ -29163,7 +29163,7 @@ const trainers_hgss = {
                 "level": 30,
                 "experience_yield": 835,
                 "nature": "Hardy",
-                "ability": "Trace",
+                "ability": "Download",
                 "held_item": null,
                 "stats": {
                     "hp": 79,
@@ -29281,7 +29281,7 @@ const trainers_hgss = {
                 "level": 20,
                 "experience_yield": 381,
                 "nature": "Lax",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 40,
@@ -29380,7 +29380,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 514,
                 "nature": "Quiet",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 50,
@@ -29435,7 +29435,7 @@ const trainers_hgss = {
                 "level": 30,
                 "experience_yield": 835,
                 "nature": "Hasty",
-                "ability": "Trace",
+                "ability": "Download",
                 "held_item": null,
                 "stats": {
                     "hp": 79,
@@ -29512,7 +29512,7 @@ const trainers_hgss = {
                 "level": 32,
                 "experience_yield": 733,
                 "nature": "Hardy",
-                "ability": "Insomnia",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 84,
@@ -29589,7 +29589,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 618,
                 "nature": "Bold",
-                "ability": "Insomnia",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 72,
@@ -30192,7 +30192,7 @@ const trainers_hgss = {
                 "level": 24,
                 "experience_yield": 595,
                 "nature": "Hasty",
-                "ability": "Run Away",
+                "ability": "Guts",
                 "held_item": null,
                 "stats": {
                     "hp": 63,
@@ -30685,7 +30685,7 @@ const trainers_hgss = {
                 "level": 29,
                 "experience_yield": 1210,
                 "nature": "Modest",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -30707,7 +30707,7 @@ const trainers_hgss = {
                 "level": 29,
                 "experience_yield": 1018,
                 "nature": "Timid",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 94,
@@ -31052,7 +31052,7 @@ const trainers_hgss = {
                 "level": 27,
                 "experience_yield": 867,
                 "nature": "Bold",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 74,
@@ -31173,7 +31173,7 @@ const trainers_hgss = {
                 "level": 33,
                 "experience_yield": 586,
                 "nature": "Relaxed",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 64,
@@ -31195,7 +31195,7 @@ const trainers_hgss = {
                 "level": 33,
                 "experience_yield": 586,
                 "nature": "Relaxed",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 64,
@@ -31217,7 +31217,7 @@ const trainers_hgss = {
                 "level": 35,
                 "experience_yield": 1162,
                 "nature": "Calm",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -32308,7 +32308,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2493,
                 "nature": "Hasty",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 178,
@@ -32649,7 +32649,7 @@ const trainers_hgss = {
                 "level": 55,
                 "experience_yield": 2274,
                 "nature": "Mild",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 164,
@@ -32979,7 +32979,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 882,
                 "nature": "Hardy",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 82,
@@ -33023,7 +33023,7 @@ const trainers_hgss = {
                 "level": 51,
                 "experience_yield": 1638,
                 "nature": "Naughty",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 122,
@@ -33506,7 +33506,7 @@ const trainers_hgss = {
                 "level": 16,
                 "experience_yield": 235,
                 "nature": "Hardy",
-                "ability": "Pickup",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 38,
@@ -33616,7 +33616,7 @@ const trainers_hgss = {
                 "level": 17,
                 "experience_yield": 709,
                 "nature": "Timid",
-                "ability": "Poison Point",
+                "ability": "Rivalry",
                 "held_item": null,
                 "stats": {
                     "hp": 54,
@@ -33704,7 +33704,7 @@ const trainers_hgss = {
                 "level": 19,
                 "experience_yield": 402,
                 "nature": "Sassy",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 63,
@@ -33770,7 +33770,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 1168,
                 "nature": "Lax",
-                "ability": "Pickup",
+                "ability": "Quick Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -33970,7 +33970,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1752,
                 "nature": "Quiet",
-                "ability": "Pressure",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 120,
@@ -34212,7 +34212,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1540,
                 "nature": "Quirky",
-                "ability": "Sand Veil",
+                "ability": "Arena Trap",
                 "held_item": null,
                 "stats": {
                     "hp": 92,
@@ -34432,7 +34432,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 681,
                 "nature": "Gentle",
-                "ability": "Swift Swim",
+                "ability": "Rain Dish",
                 "held_item": null,
                 "stats": {
                     "hp": 87,
@@ -34454,7 +34454,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 681,
                 "nature": "Impish",
-                "ability": "Chlorophyll",
+                "ability": "Early Bird",
                 "held_item": null,
                 "stats": {
                     "hp": 87,
@@ -34654,7 +34654,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1344,
                 "nature": "Sassy",
-                "ability": "Chlorophyll",
+                "ability": "Solar Power",
                 "held_item": null,
                 "stats": {
                     "hp": 117,
@@ -34945,7 +34945,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 526,
                 "nature": "Lonely",
-                "ability": "Pickup",
+                "ability": "Gluttony",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 82,
@@ -34967,7 +34967,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1399,
                 "nature": "Impish",
-                "ability": "Natural Cure",
+                "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
                     "hp": 96,
@@ -35033,7 +35033,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 540,
                 "nature": "Serious",
-                "ability": "Pickup",
+                "ability": "Gluttony",
                 "held_item": "Chesto Berry",
                 "stats": {
                     "hp": 83,
@@ -35121,7 +35121,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 612,
                 "nature": "Gentle",
-                "ability": "Natural Cure",
+                "ability": "Poison Point",
                 "held_item": null,
                 "stats": {
                     "hp": 85,
@@ -35229,7 +35229,7 @@ const trainers_hgss = {
                 "level": 41,
                 "experience_yield": 1282,
                 "nature": "Calm",
-                "ability": "Illuminate",
+                "ability": "Swarm",
                 "held_item": null,
                 "stats": {
                     "hp": 104,
@@ -35317,7 +35317,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 754,
                 "nature": "Lonely",
-                "ability": "Liquid Ooze",
+                "ability": "Sticky Hold",
                 "held_item": "Black Sludge",
                 "stats": {
                     "hp": 122,
@@ -35372,7 +35372,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1888,
                 "nature": "Timid",
-                "ability": "Clear Body",
+                "ability": "Liquid Ooze",
                 "held_item": null,
                 "stats": {
                     "hp": 121,
@@ -35405,7 +35405,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 1975,
                 "nature": "Naughty",
-                "ability": "Clear Body",
+                "ability": "Liquid Ooze",
                 "held_item": null,
                 "stats": {
                     "hp": 127,
@@ -35548,7 +35548,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1147,
                 "nature": "Lonely",
-                "ability": "Battle Armor",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 94,
@@ -35614,7 +35614,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 1195,
                 "nature": "Naughty",
-                "ability": "Pickup",
+                "ability": "Quick Feet",
                 "held_item": null,
                 "stats": {
                     "hp": 109,
@@ -35636,7 +35636,7 @@ const trainers_hgss = {
                 "level": 44,
                 "experience_yield": 546,
                 "nature": "Hasty",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 115,
@@ -35669,7 +35669,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 1233,
                 "nature": "Modest",
-                "ability": "Pickup",
+                "ability": "Gluttony",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 125,
@@ -35735,7 +35735,7 @@ const trainers_hgss = {
                 "level": 45,
                 "experience_yield": 577,
                 "nature": "Naughty",
-                "ability": "Rivalry",
+                "ability": "Intimidate",
                 "held_item": null,
                 "stats": {
                     "hp": 95,
@@ -35911,7 +35911,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1527,
                 "nature": "Sassy",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -35933,7 +35933,7 @@ const trainers_hgss = {
                 "level": 42,
                 "experience_yield": 1233,
                 "nature": "Hardy",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 131,
@@ -36263,7 +36263,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1311,
                 "nature": "Relaxed",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 130,
@@ -36870,7 +36870,7 @@ const trainers_hgss = {
                 "level": 46,
                 "experience_yield": 1438,
                 "nature": "Docile",
-                "ability": "Chlorophyll",
+                "ability": "Solar Power",
                 "held_item": null,
                 "stats": {
                     "hp": 125,
@@ -36914,7 +36914,7 @@ const trainers_hgss = {
                 "level": 53,
                 "experience_yield": 2179,
                 "nature": "Serious",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 131,
@@ -37222,7 +37222,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2484,
                 "nature": "Lonely",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": null,
                 "stats": {
                     "hp": 136,
@@ -37332,7 +37332,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2304,
                 "nature": "Gentle",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 142,
@@ -38817,7 +38817,7 @@ const trainers_hgss = {
                 "level": 47,
                 "experience_yield": 1540,
                 "nature": "Lax",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 151,
@@ -38872,7 +38872,7 @@ const trainers_hgss = {
                 "level": 49,
                 "experience_yield": 1606,
                 "nature": "Adamant",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 157,
@@ -38927,7 +38927,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 1770,
                 "nature": "Relaxed",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 172,
@@ -41964,7 +41964,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 763,
                 "nature": "Hasty",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 78,
@@ -41986,7 +41986,7 @@ const trainers_hgss = {
                 "level": 43,
                 "experience_yield": 1428,
                 "nature": "Careful",
-                "ability": "Poison Point",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 100,
@@ -42019,7 +42019,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 1573,
                 "nature": "Gentle",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 154,
@@ -42052,7 +42052,7 @@ const trainers_hgss = {
                 "level": 48,
                 "experience_yield": 2088,
                 "nature": "Brave",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 106,
@@ -42272,7 +42272,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 1503,
                 "nature": "Rash",
-                "ability": "Sturdy",
+                "ability": "Rock Head",
                 "held_item": null,
                 "stats": {
                     "hp": 138,
@@ -42360,7 +42360,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 2005,
                 "nature": "Impish",
-                "ability": "Trace",
+                "ability": "Download",
                 "held_item": null,
                 "stats": {
                     "hp": 154,
@@ -42382,7 +42382,7 @@ const trainers_hgss = {
                 "level": 50,
                 "experience_yield": 1638,
                 "nature": "Jolly",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
@@ -42621,7 +42621,7 @@ const trainers_hgss = {
                 "level": 53,
                 "experience_yield": 999,
                 "nature": "Brave",
-                "ability": "Oblivious",
+                "ability": "Simple",
                 "held_item": null,
                 "stats": {
                     "hp": 126,
@@ -42654,7 +42654,7 @@ const trainers_hgss = {
                 "level": 53,
                 "experience_yield": 1749,
                 "nature": "Jolly",
-                "ability": "Magma Armor",
+                "ability": "Flame Body",
                 "held_item": null,
                 "stats": {
                     "hp": 116,
@@ -43116,7 +43116,7 @@ const trainers_hgss = {
                 "level": 40,
                 "experience_yield": 1500,
                 "nature": "Gentle",
-                "ability": "Early Bird",
+                "ability": "Scrappy",
                 "held_item": null,
                 "stats": {
                     "hp": 138,
@@ -43344,7 +43344,7 @@ const trainers_hgss = {
                 "level": 58,
                 "experience_yield": 2335,
                 "nature": "Lax",
-                "ability": "Levitate",
+                "ability": "Heatproof",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
@@ -43410,7 +43410,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2107,
                 "nature": "Careful",
-                "ability": "Oblivious",
+                "ability": "Own Tempo",
                 "held_item": null,
                 "stats": {
                     "hp": 202,
@@ -43454,7 +43454,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 2271,
                 "nature": "Adamant",
-                "ability": "Synchronize",
+                "ability": "Early Bird",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 171,
@@ -43490,7 +43490,7 @@ const trainers_hgss = {
                 "level": 61,
                 "experience_yield": 2731,
                 "nature": "Impish",
-                "ability": "Stench",
+                "ability": "Aftermath",
                 "held_item": null,
                 "stats": {
                     "hp": 214,
@@ -43534,7 +43534,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2326,
                 "nature": "Relaxed",
-                "ability": "Anticipation",
+                "ability": "Dry Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 187,
@@ -43556,7 +43556,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 2085,
                 "nature": "Docile",
-                "ability": "Stench",
+                "ability": "Sticky Hold",
                 "held_item": "Black Sludge",
                 "stats": {
                     "hp": 220,
@@ -43600,7 +43600,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 2232,
                 "nature": "Timid",
-                "ability": "Liquid Ooze",
+                "ability": "Sticky Hold",
                 "held_item": "Leftovers",
                 "stats": {
                     "hp": 214,
@@ -43636,7 +43636,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 1833,
                 "nature": "Sassy",
-                "ability": "Intimidate",
+                "ability": "Technician",
                 "held_item": null,
                 "stats": {
                     "hp": 152,
@@ -43658,7 +43658,7 @@ const trainers_hgss = {
                 "level": 61,
                 "experience_yield": 1816,
                 "nature": "Hardy",
-                "ability": "Limber",
+                "ability": "Reckless",
                 "held_item": null,
                 "stats": {
                     "hp": 150,
@@ -43680,7 +43680,7 @@ const trainers_hgss = {
                 "level": 61,
                 "experience_yield": 1830,
                 "nature": "Lax",
-                "ability": "Keen Eye",
+                "ability": "Iron Fist",
                 "held_item": null,
                 "stats": {
                     "hp": 150,
@@ -43724,7 +43724,7 @@ const trainers_hgss = {
                 "level": 64,
                 "experience_yield": 2646,
                 "nature": "Serious",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": null,
                 "stats": {
                     "hp": 208,
@@ -43746,7 +43746,7 @@ const trainers_hgss = {
                 "level": 64,
                 "experience_yield": 2797,
                 "nature": "Mild",
-                "ability": "Steadfast",
+                "ability": "Inner Focus",
                 "held_item": null,
                 "stats": {
                     "hp": 182,
@@ -43826,7 +43826,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 2311,
                 "nature": "Bold",
-                "ability": "Pressure",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 171,
@@ -43848,7 +43848,7 @@ const trainers_hgss = {
                 "level": 64,
                 "experience_yield": 2563,
                 "nature": "Bold",
-                "ability": "Insomnia",
+                "ability": "Super Luck",
                 "held_item": null,
                 "stats": {
                     "hp": 221,
@@ -44291,7 +44291,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2400,
                 "nature": "Lax",
-                "ability": "Swarm",
+                "ability": "Technician",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 157,
@@ -44335,7 +44335,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 2205,
                 "nature": "Rash",
-                "ability": "Speed Boost",
+                "ability": "Tinted Lens",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
@@ -44504,7 +44504,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 1596,
                 "nature": "Lax",
-                "ability": "Cute Charm",
+                "ability": "Normalize",
                 "held_item": null,
                 "stats": {
                     "hp": 155,
@@ -44548,7 +44548,7 @@ const trainers_hgss = {
                 "level": 58,
                 "experience_yield": 2485,
                 "nature": "Jolly",
-                "ability": "Thick Fat",
+                "ability": "Scrappy",
                 "held_item": "Lum Berry",
                 "stats": {
                     "hp": 192,
@@ -44585,7 +44585,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 2272,
                 "nature": "Modest",
-                "ability": "Aftermath",
+                "ability": "Unburden",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 230,
@@ -44820,7 +44820,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 2221,
                 "nature": "Gentle",
-                "ability": "Thick Fat",
+                "ability": "Ice Body",
                 "held_item": null,
                 "stats": {
                     "hp": 195,
@@ -44842,7 +44842,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2661,
                 "nature": "Naive",
-                "ability": "Oblivious",
+                "ability": "Snow Cloak",
                 "held_item": "Sitrus Berry",
                 "stats": {
                     "hp": 216,
@@ -44901,7 +44901,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2532,
                 "nature": "Impish",
-                "ability": "Magnet Pull",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 157,
@@ -44945,7 +44945,7 @@ const trainers_hgss = {
                 "level": 50,
                 "experience_yield": 2013,
                 "nature": "Timid",
-                "ability": "Levitate",
+                "ability": "Heatproof",
                 "held_item": null,
                 "stats": {
                     "hp": 139,
@@ -44989,7 +44989,7 @@ const trainers_hgss = {
                 "level": 62,
                 "experience_yield": 2604,
                 "nature": "Timid",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 179,
@@ -45048,7 +45048,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 1560,
                 "nature": "Docile",
-                "ability": "Keen Eye",
+                "ability": "Iron Fist",
                 "held_item": null,
                 "stats": {
                     "hp": 126,
@@ -45070,7 +45070,7 @@ const trainers_hgss = {
                 "level": 55,
                 "experience_yield": 1638,
                 "nature": "Gentle",
-                "ability": "Limber",
+                "ability": "Reckless",
                 "held_item": null,
                 "stats": {
                     "hp": 133,
@@ -45092,7 +45092,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 1908,
                 "nature": "Hasty",
-                "ability": "Effect Spore",
+                "ability": "Poison Heal",
                 "held_item": "Toxic Orb",
                 "stats": {
                     "hp": 141,
@@ -45239,7 +45239,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2484,
                 "nature": "Quiet",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
@@ -45320,7 +45320,7 @@ const trainers_hgss = {
                 "level": 55,
                 "experience_yield": 2085,
                 "nature": "Naughty",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 166,
@@ -45342,7 +45342,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 2290,
                 "nature": "Gentle",
-                "ability": "Swift Swim",
+                "ability": "Rock Head",
                 "held_item": "Lum Berry",
                 "stats": {
                     "hp": 184,
@@ -45364,7 +45364,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2388,
                 "nature": "Relaxed",
-                "ability": "Swift Swim",
+                "ability": "Shell Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 157,
@@ -45408,7 +45408,7 @@ const trainers_hgss = {
                 "level": 55,
                 "experience_yield": 2344,
                 "nature": "Hasty",
-                "ability": "Swift Swim",
+                "ability": "Battle Armor",
                 "held_item": null,
                 "stats": {
                     "hp": 144,
@@ -45467,7 +45467,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2661,
                 "nature": "Docile",
-                "ability": "Illuminate",
+                "ability": "Natural Cure",
                 "held_item": "Colbur Berry",
                 "stats": {
                     "hp": 156,
@@ -45489,7 +45489,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 1644,
                 "nature": "Modest",
-                "ability": "Damp",
+                "ability": "Water Absorb",
                 "held_item": null,
                 "stats": {
                     "hp": 185,
@@ -45680,7 +45680,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 1671,
                 "nature": "Rash",
-                "ability": "Soundproof",
+                "ability": "Static",
                 "held_item": null,
                 "stats": {
                     "hp": 136,
@@ -45952,7 +45952,7 @@ const trainers_hgss = {
                 "level": 52,
                 "experience_yield": 2016,
                 "nature": "Rash",
-                "ability": "Anticipation",
+                "ability": "Dry Skin",
                 "held_item": null,
                 "stats": {
                     "hp": 160,
@@ -46224,7 +46224,7 @@ const trainers_hgss = {
                 "level": 57,
                 "experience_yield": 2137,
                 "nature": "Lax",
-                "ability": "Magma Armor",
+                "ability": "Solid Rock",
                 "held_item": null,
                 "stats": {
                     "hp": 160,
@@ -46246,7 +46246,7 @@ const trainers_hgss = {
                 "level": 60,
                 "experience_yield": 2467,
                 "nature": "Sassy",
-                "ability": "Run Away",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 162,
@@ -46290,7 +46290,7 @@ const trainers_hgss = {
                 "level": 54,
                 "experience_yield": 2359,
                 "nature": "Quiet",
-                "ability": "Early Bird",
+                "ability": "Flash Fire",
                 "held_item": null,
                 "stats": {
                     "hp": 157,
@@ -46372,7 +46372,7 @@ const trainers_hgss = {
                 "level": 69,
                 "experience_yield": 2853,
                 "nature": "Docile",
-                "ability": "Guts",
+                "ability": "No Guard",
                 "held_item": "Iron Ball",
                 "stats": {
                     "hp": 223,
@@ -46394,7 +46394,7 @@ const trainers_hgss = {
                 "level": 70,
                 "experience_yield": 3255,
                 "nature": "Bold",
-                "ability": "Lightningrod",
+                "ability": "Solid Rock",
                 "held_item": null,
                 "stats": {
                     "hp": 262,
@@ -46526,7 +46526,7 @@ const trainers_hgss = {
                 "level": 22,
                 "experience_yield": 508,
                 "nature": "Timid",
-                "ability": "Rock Head",
+                "ability": "Sturdy",
                 "held_item": null,
                 "stats": {
                     "hp": 47,
@@ -46548,7 +46548,7 @@ const trainers_hgss = {
                 "level": 22,
                 "experience_yield": 957,
                 "nature": "Hasty",
-                "ability": "Shell Armor",
+                "ability": "Skill Link",
                 "held_item": null,
                 "stats": {
                     "hp": 54,
@@ -46735,7 +46735,7 @@ const trainers_hgss = {
                 "level": 21,
                 "experience_yield": 261,
                 "nature": "Serious",
-                "ability": "Thick Fat",
+                "ability": "Huge Power",
                 "held_item": null,
                 "stats": {
                     "hp": 60,
@@ -46873,7 +46873,7 @@ const trainers_hgss = {
                 "level": 56,
                 "experience_yield": 2484,
                 "nature": "Hasty",
-                "ability": "Swift Swim",
+                "ability": "Sniper",
                 "held_item": null,
                 "stats": {
                     "hp": 163,
