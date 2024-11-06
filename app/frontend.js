@@ -3566,6 +3566,7 @@ const app = Vue.createApp({
         // MOVE MANAGEMENT
         movePower(y) { //y = move1.value
             if (y) {
+                const state = this.mapper.properties.meta.state.value
                 var move = this.generation4_moves_new[y]
                 if (y == "Return") {
                     if (this.mapper.properties.player.team[0].friendship.value < 2.5)
@@ -3575,7 +3576,7 @@ const app = Vue.createApp({
                     var specialMovePower = Math.floor(friendshipValue/2.5)
                     return specialMovePower
                 }
-                else if (y == "Flail" || y == "Reversal") {
+                else if ((y == "Flail" || y == "Reversal") && state == 'Overworld') {
                     var hpPercentage = this.mapper.properties.player.team[0].stats.hp.value / this.mapper.properties.player.team[0].stats.hp_max.value
                     if (hpPercentage >= .6875) { return 20 }
                     else if (hpPercentage >= .3542 && hpPercentage < .6875) { return 40 }
@@ -3584,8 +3585,24 @@ const app = Vue.createApp({
                     else if (hpPercentage >= .0417 && hpPercentage < .1042) { return 150 }
                     else if (hpPercentage < .0417) { return 200 }
                 }
-                else if (y == "Water Spout" || y == "Eruption") {
+                else if ((y == "Flail" || y == "Reversal") && state == 'Battle') {
+                    var hpPercentage = this.mapper.properties.battle.player.team[0].stats.hp.value / this.mapper.properties.battle.player.team[0].stats.hp_max.value
+                    if (hpPercentage >= .6875) { return 20 }
+                    else if (hpPercentage >= .3542 && hpPercentage < .6875) { return 40 }
+                    else if (hpPercentage >= .2083 && hpPercentage < .3542) { return 80 }
+                    else if (hpPercentage >= .1042 && hpPercentage < .2083) { return 100 }
+                    else if (hpPercentage >= .0417 && hpPercentage < .1042) { return 150 }
+                    else if (hpPercentage < .0417) { return 200 }
+                }
+                else if ((y == "Water Spout" || y == "Eruption") && state == 'Overworld') {
                     var power = (150 * this.mapper.properties.player.team[0].stats.hp.value) / this.mapper.properties.player.team[0].stats.hp_max.value
+                    if (power < 1) {
+                        return 1
+                    }
+                    return Math.floor(power)
+                }
+                else if ((y == "Water Spout" || y == "Eruption") && state == 'Battle') {
+                    var power = (150 * this.mapper.properties.battle.player.team[0].stats.hp.value) / this.mapper.properties.battle.player.team[0].stats.hp_max.value
                     if (power < 1) {
                         return 1
                     }

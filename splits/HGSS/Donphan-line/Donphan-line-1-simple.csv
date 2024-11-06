@@ -1,0 +1,48 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Phanpy,Passerby Boy,5:28,0,0,7,0:17,1730840478.183,Tackle,Defense Curl,Growl,Flail
+Lyra,Phanpy,Leader Falkner,13:39,0,0,13,0:45,1730840969.389,Tackle,Defense Curl,Take Down,Flail
+Lyra,Phanpy,Leader Bugsy,21:49,0,0,18,1:13,1730841458.83,Rollout,Defense Curl,Take Down,Flail
+Lyra,Phanpy,Rival Silver,23:35,3,0,19,1:15,1730841564.964,Rollout,Defense Curl,Take Down,Flail
+Lyra,Phanpy,Leader Whitney,32:44,3,0,21,1:45,1730842114.72,Rollout,Defense Curl,Headbutt,Substitute
+Lyra,Donphan,Rival Silver,41:02,4,0,25,2:10,1730842646.863,Rollout,Defense Curl,Headbutt,Substitute
+Lyra,Donphan,Leader Morty,44:07,4,0,28,2:21,1730842831.248,Rollout,Defense Curl,Headbutt,Substitute
+Lyra,Donphan,Leader Pryce,57:18,5,0,36,3:03,1730843622.445,Rollout,Defense Curl,Headbutt,Substitute
+Lyra,Donphan,Leader Chuck,1:09:01,5,0,46,3:43,1730860307.406,Rollout,Defense Curl,Earthquake,Substitute
+Lyra,Donphan,Leader Jasmine,1:10:58,5,0,46,3:50,1730860424.018,Rollout,Defense Curl,Earthquake,Substitute
+Lyra,Donphan,Rival Silver,1:18:36,5,0,47,4:15,1730860882.711,Earthquake,Rollout,Defense Curl,Substitute
+Lyra,Donphan,Leader Clair,1:32:06,5,0,51,5:00,1730861692.416,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Rival Silver,1:50:40,8,0,56,5:54,1730862806.52,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Elite Four Will,1:52:34,9,0,57,5:58,1730862920.578,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Elite Four Koga,1:53:37,9,0,58,6:02,1730862983.477,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Elite Four Bruno,1:54:23,9,0,58,6:05,1730863028.782,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Elite Four Karen,1:57:07,11,0,59,6:08,1730863192.871,Earthquake,Rollout,Thunder Fang,Substitute
+Lyra,Donphan,Champion Lance,2:03:47,15,0,69,6:18,1730863593.283,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Lt. Surge,2:08:31,15,0,70,6:32,1730863877.088,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Misty,2:15:22,15,0,72,6:54,1730864288.239,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Brock,2:19:28,15,0,72,7:07,1730864533.939,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Blaine,2:23:04,15,0,73,7:18,1730864750.208,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Janine,2:27:18,15,0,75,7:32,1730865004.525,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Leader Erika,2:30:46,15,0,75,7:43,1730866470.492,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Leader Sabrina,2:32:16,15,0,75,7:48,1730866560.863,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Leader Blue,2:36:59,18,0,76,7:57,1730866929.327,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Will,2:50:35,18,2,77,8:44,1730867744.814,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Koga,2:51:41,18,2,78,8:48,1730867811.157,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Will,2:53:47,18,3,79,8:56,1730867937.477,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Koga,2:54:45,18,3,80,9:00,1730867995.5,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Bruno,2:55:59,18,3,81,9:04,1730868069.448,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Karen,2:57:23,18,3,90,9:09,1730868152.86,Earthquake,Rollout,Thunder Fang,Fire Fang
+Lyra,Donphan,Elite Four Will,3:03:14,22,4,91,9:20,1730868503.942,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Koga,3:03:56,22,4,91,9:23,1730868546.649,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Bruno,3:04:34,22,4,92,9:25,1730868583.911,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Will,3:06:34,22,5,93,9:32,1730868704.414,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Koga,3:07:26,22,5,93,9:36,1730868756.45,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Bruno,3:08:11,22,5,94,9:38,1730868801.685,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Will,3:10:02,22,6,94,9:45,1730868912.392,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Koga,3:10:44,22,6,95,9:48,1730868954.041,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Bruno,3:11:22,22,6,95,9:50,1730868991.874,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Will,3:14:05,23,7,96,9:58,1730869155.479,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Koga,3:14:51,23,7,96,10:01,1730869201.047,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Bruno,3:15:28,23,7,97,10:04,1730869237.881,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Elite Four Karen,3:16:38,23,7,97,10:08,1730869308.577,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Champion Lance,3:19:06,24,7,98,10:15,1730869455.783,Earthquake,Rollout,Thunder Fang,Rest
+Lyra,Donphan,Pokemon Trainer Red,3:40:16,34,7,100,10:59,1730870780.323,Sandstorm,Rollout,Double Team,Rest
