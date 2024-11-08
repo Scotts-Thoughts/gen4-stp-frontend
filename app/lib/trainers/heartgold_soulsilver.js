@@ -1,4 +1,4 @@
-const trainer_hgss = {
+const trainers_hgss = {
     "0": {
         "rom_id": 0,
         "name": "Player",

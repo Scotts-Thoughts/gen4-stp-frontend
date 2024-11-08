@@ -1,0 +1,50 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Teddiursa,Passerby Boy,3:52,0,0,6,0:11,1730919992.941,Scratch,Leer,Lick,Fake Tears
+Lyra,Teddiursa,Leader Falkner,11:31,0,0,13,0:37,1730920452.465,Scratch,Leer,Lick,Fury Swipes
+Lyra,Teddiursa,Leader Bugsy,21:07,1,0,18,1:07,1730921037.83,Scratch,Faint Attack,Lick,Rock Tomb
+Lyra,Teddiursa,Rival Silver,30:41,4,5,22,1:33,1730921611.75,Scratch,Faint Attack,Lick,Rock Tomb
+Lyra,Teddiursa,Leader Whitney,40:46,4,5,23,2:07,1730922217.291,Headbutt,Faint Attack,Shadow Claw,Swords Dance
+Lyra,Teddiursa,Rival Silver,52:51,4,5,29,2:47,1730922942.481,Slash,Faint Attack,Shadow Claw,Swords Dance
+Lyra,Ursaring,Leader Morty,55:26,4,5,31,2:56,1730923130.503,Slash,Faint Attack,Shadow Claw,Swords Dance
+Lyra,Ursaring,Leader Chuck,58:59,4,5,34,3:07,1730923343.645,Slash,Faint Attack,Shadow Claw,Swords Dance
+Lyra,Ursaring,Leader Pryce,1:08:30,4,5,39,3:39,1730923914.588,Slash,Faint Attack,Shadow Claw,Swords Dance
+Lyra,Ursaring,Leader Jasmine,1:10:37,4,5,40,3:46,1730924042.316,Slash,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Rival Silver,1:14:58,4,5,42,4:00,1730924303.277,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Leader Clair,1:26:43,6,5,46,4:35,1730925007.621,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Rival Silver,1:44:58,9,5,51,5:24,1730926102.681,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Elite Four Will,1:46:16,9,5,52,5:28,1730926180.872,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Elite Four Koga,1:47:13,9,5,53,5:31,1730926237.54,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,1:48:03,9,5,54,5:34,1730926287.647,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Elite Four Karen,1:49:19,10,5,55,5:37,1730926364.11,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Champion Lance,1:52:15,12,5,60,5:42,1730926559.558,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Leader Erika,1:57:30,12,5,61,5:58,1730926873.657,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Leader Sabrina,1:59:07,12,5,62,6:03,1730926971.071,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Leader Misty,2:04:56,13,5,64,6:20,1730927319.986,Return,Faint Attack,Dig,Swords Dance
+Lyra,Ursaring,Leader Lt. Surge,2:07:39,13,5,64,6:29,1730927483.288,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Leader Brock,2:10:24,13,5,65,6:38,1730927647.703,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Leader Blaine,2:13:30,13,5,66,6:48,1730927833.912,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Leader Janine,2:17:19,13,5,68,7:01,1730928062.741,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Leader Blue,2:20:27,13,5,69,7:11,1730928251.404,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Elite Four Will,2:27:38,13,5,70,7:34,1730928682.151,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Elite Four Koga,2:28:43,13,5,71,7:38,1730928747.084,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,2:30:57,14,5,86,7:43,1730928880.796,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Elite Four Karen,2:32:00,14,5,86,7:47,1730928943.839,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Champion Lance,2:33:34,15,5,87,7:50,1730929038.184,Return,Faint Attack,Earthquake,Swords Dance
+Lyra,Ursaring,Elite Four Will,3:04:35,78,5,90,8:08,1730931190.392,Return,Rest,Substitute,Swords Dance
+Lyra,Ursaring,Elite Four Koga,3:05:18,78,5,90,8:10,1730931233.045,Return,Rest,Substitute,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,3:06:10,78,5,91,8:13,1730931284.505,Return,Rest,Substitute,Swords Dance
+Lyra,Ursaring,Elite Four Will,3:08:33,78,6,91,8:22,1730931428.475,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Koga,3:09:20,78,6,92,8:25,1730931474.554,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,3:10:09,78,6,92,8:28,1730931523.971,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Will,3:12:17,78,7,93,8:36,1730931651.582,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Koga,3:13:01,78,7,94,8:39,1730931695.68,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,3:13:58,78,7,94,8:43,1730931753.153,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Karen,3:15:01,78,7,95,8:47,1730931815.818,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Champion Lance,3:16:08,78,7,95,8:51,1730931883.07,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Will,3:17:57,78,7,96,8:57,1730931992.47,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Koga,3:18:46,78,7,97,9:00,1730932040.592,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,3:19:55,78,7,97,9:04,1730932109.624,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Will,3:22:13,78,8,98,9:12,1730932248.043,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Koga,3:22:58,78,8,98,9:15,1730932292.642,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Elite Four Bruno,3:23:50,78,8,99,9:18,1730932344.96,Return,Rest,Avalanche,Swords Dance
+Lyra,Ursaring,Pokemon Trainer Red,3:29:57,82,9,100,9:33,1730932804.371,Return,Rest,Avalanche,Swords Dance

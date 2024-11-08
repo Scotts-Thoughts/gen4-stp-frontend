@@ -565,6 +565,7 @@ const app = Vue.createApp({
                 "Shaymin"      : "line-height: 19.52px;",
                 "Shaymin - Sky": "line-height: 19.52px;",
                 "Feraligatr"   : "line-height: 15.49px;",
+                "Mewtwo"       : "line-height: 11.62px;",
             },
             simple_natures: {
                 "0" : "Hardy",
