@@ -4248,7 +4248,7 @@ const app = Vue.createApp({
             const game = this.mapper.properties.meta.game_name.value
             if (game == 'Platinum' || game == 'Diamond and Pearl') {
                 if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
-                    this.blackout_counter++;
+                    // this.blackout_counter++;
                     this.blackout = false;
                 }
             }
@@ -4307,9 +4307,13 @@ const app = Vue.createApp({
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
 
             console.log("Setting starting stats...")
+            if (this.mapper.properties.meta.game_name.value == "Platinum") {
+                await Promise.all([
+                    await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
+                ])
+            }
             await Promise.all([
                 //Set personality value & ablity
-                // await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 

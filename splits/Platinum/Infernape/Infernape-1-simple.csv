@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Infernape,Rival,7:41,0,0,8,0:24,1731703038.674,Scratch,Leer,Ember,Taunt
+Dawn,Infernape,Leader Roark,12:06,0,0,14,0:40,1731703303.677,Scratch,Mach Punch,Ember,Taunt
+Dawn,Infernape,Commander Mars,17:13,0,0,19,0:57,1731703610.45,Scratch,Mach Punch,Ember,Rock Tomb
+Dawn,Infernape,Leader Gardenia,21:59,0,0,23,1:14,1731703896.518,Scratch,Mach Punch,Flame Wheel,Rock Tomb
+Dawn,Infernape,Commander Jupiter,23:39,0,0,24,1:19,1731703997.048,Scratch,Mach Punch,Flame Wheel,Rock Tomb
+Dawn,Infernape,Leader Fantina,34:22,0,0,28,1:55,1731704640.081,Substitute,Mach Punch,Flame Wheel,Rock Tomb
+Dawn,Infernape,Rival,36:38,2,0,32,2:01,1731704775.67,Substitute,Mach Punch,Flame Wheel,Earthquake
+Dawn,Infernape,Leader Maylene,44:54,2,0,36,2:28,1731705271.554,Substitute,Mach Punch,Flame Wheel,Earthquake
+Dawn,Infernape,Rival,54:56,2,0,40,3:02,1731705873.483,Mach Punch,Earthquake,Flame Wheel,Swords Dance
+Dawn,Infernape,Leader Wake,1:01:10,6,0,46,3:17,1731706247.597,Close Combat,Earthquake,Natural Gift,Swords Dance
+Dawn,Infernape,Galactic Boss Cyrus,1:07:25,6,0,48,3:38,1731706622.724,Close Combat,Earthquake,Aerial Ace,Swords Dance
+Dawn,Infernape,Rival,1:10:09,6,0,48,3:47,1731706786.583,Close Combat,Earthquake,Aerial Ace,Swords Dance
+Dawn,Infernape,Leader Byron,1:13:22,6,0,51,3:58,1731706979.317,Close Combat,Earthquake,Aerial Ace,Swords Dance
+Dawn,Infernape,Commander Saturn,1:15:53,6,0,51,4:07,1731707131.038,Close Combat,Earthquake,Aerial Ace,Swords Dance
+Dawn,Infernape,Commander Mars,1:18:25,7,0,52,4:14,1731707282.649,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Leader Candice,1:24:36,7,0,54,4:35,1731707654.043,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Galactic Boss Cyrus,1:30:54,7,0,56,4:56,1731708051.116,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Commander Saturn,1:31:43,7,0,56,4:59,1731708100.194,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Commander Mars,1:39:20,8,0,66,5:24,1731708557.731,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Galactic Boss Cyrus,1:45:09,8,0,66,5:41,1731708906.036,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Leader Volkner,1:51:24,8,0,68,6:03,1731709281.573,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Rival,1:59:24,8,0,71,6:30,1731709761.402,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Elite Four Aaron,2:00:24,8,0,72,6:34,1731709821.449,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Elite Four Bertha,2:01:31,8,0,72,6:38,1731709887.868,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Elite Four Flint,2:02:20,8,0,73,6:41,1731709937.5,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Elite Four Lucian,2:03:32,8,0,77,6:46,1731710009.52,Close Combat,Earthquake,Return,Swords Dance
+Dawn,Infernape,Champion Cynthia,2:06:02,10,0,77,6:50,1731710159.492,Close Combat,Earthquake,Return,Swords Dance
