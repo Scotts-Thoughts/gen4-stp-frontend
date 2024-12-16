@@ -4246,16 +4246,19 @@ const app = Vue.createApp({
         })
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
             const game = this.mapper.properties.meta.game_name.value
-            if (game == 'Platinum' || game == 'Diamond and Pearl') {
-                if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
-                    // this.blackout_counter++;
-                    this.blackout = false;
+            if (this.blackout == true) {
+                if (game == 'Platinum' || game == 'Diamond and Pearl') {
+                    if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
+                        this.blackout_counter++;
+                        this.blackout = false;
+                    }
                 }
-            }
-            if (game == 'HeartGold and SoulSilver') {
-                if (newProp.value == "Overworld" && oldProp.value == "From Battle" && this.blackout == true) {
-                    // this.blackout_counter++;
-                    this.blackout = false;
+                if (game == 'HeartGold and SoulSilver') {
+                    if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
+                        this.blackout_counter++;
+                        this.blackout = false;
+                        this.sleep(1000)
+                    }
                 }
             }
         });
