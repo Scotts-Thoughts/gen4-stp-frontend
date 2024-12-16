@@ -94,8 +94,7 @@ const game_variables =
             "Leader Janine",
             "Leader Sabrina",
             "Leader Blaine",
-            "Leader Blue",
-            "Pokemon Trainer Red"
+            "Leader Blue"
         ],
         "champion" : [
             "Champion Lance",
