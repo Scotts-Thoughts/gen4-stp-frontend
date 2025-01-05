@@ -1,0 +1,5 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Mewtwo,Elite Four Karen,2:24,1,0,60,5:03,1736009390.078,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Champion Lance,3:12,1,1,60,5:06,1736009437.922,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Elite Four Karen,7:41,3,1,60,5:03,1736009706.496,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Champion Lance,8:28,3,1,60,5:06,1736009754.092,Ice Beam,Flamethrower,Thunderbolt,Confusion

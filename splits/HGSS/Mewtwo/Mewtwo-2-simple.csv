@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Mewtwo,Passerby Boy,3:01,0,0,5,0:09,1735970357.527,Confusion,Disable,,
+Lyra,Mewtwo,Leader Falkner,8:17,0,0,10,0:28,1735970672.871,Confusion,Disable,Barrier,
+Lyra,Mewtwo,Leader Bugsy,15:13,0,0,15,0:53,1735971089.343,Confusion,Swift,Barrier,Rock Tomb
+Lyra,Mewtwo,Rival Silver,16:05,0,0,16,0:56,1735971141.589,Confusion,Swift,Barrier,Rock Tomb
+Lyra,Mewtwo,Leader Whitney,28:06,0,0,18,1:40,1735971862.522,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Rival Silver,33:55,0,0,21,2:01,1735972211.617,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Morty,36:14,0,0,24,2:09,1735972350.342,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Chuck,40:38,0,0,27,2:25,1735972613.904,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Pryce,50:46,1,0,33,3:00,1735973221.658,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Jasmine,52:12,1,1,33,3:05,1735973308.218,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Rival Silver,56:22,1,1,36,3:20,1735973558.531,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Clair,1:05:37,1,1,41,3:54,1735974113.038,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Rival Silver,1:21:18,2,2,46,4:48,1735975054.415,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Elite Four Will,1:22:28,2,2,47,4:52,1735975124.619,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Elite Four Koga,1:23:05,2,2,48,4:54,1735975161,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Elite Four Bruno,1:24:02,2,2,48,4:58,1735975218.075,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Elite Four Karen,1:26:14,3,2,60,5:03,1735975350.417,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Champion Lance,1:26:59,3,3,60,5:06,1735975395.486,Ice Beam,Flamethrower,Thunderbolt,Confusion
+Lyra,Mewtwo,Leader Erika,1:32:19,4,3,61,5:24,1735975715.319,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Sabrina,1:33:39,4,3,62,5:29,1735975795.439,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Misty,1:38:51,4,3,64,5:48,1735976107.181,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Lt. Surge,1:41:15,4,3,64,5:56,1735976250.949,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Brock,1:42:52,4,3,65,6:02,1735976347.701,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Blaine,1:45:17,4,3,66,6:10,1735976493.421,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Janine,1:47:13,4,3,66,6:17,1735976609.612,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Leader Blue,1:49:27,4,3,67,6:25,1735976742.939,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Elite Four Will,1:56:35,5,3,68,6:47,1735977171.294,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Elite Four Koga,1:57:25,5,4,68,6:50,1735977221.002,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Elite Four Bruno,1:58:20,5,4,69,6:53,1735977275.867,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Elite Four Karen,1:59:49,5,4,77,6:59,1735977364.792,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Champion Lance,2:00:48,5,4,77,7:03,1735977424.437,Psychic,Ice Beam,Thunderbolt,Flamethrower
+Lyra,Mewtwo,Pokemon Trainer Red,2:16:50,15,4,80,7:29,1735978385.716,Psychic,Ice Beam,Thunderbolt,Rest

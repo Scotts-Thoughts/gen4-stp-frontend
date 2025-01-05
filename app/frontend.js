@@ -566,6 +566,9 @@ const app = Vue.createApp({
                 "Shaymin - Sky": "line-height: 19.52px;",
                 "Feraligatr"   : "line-height: 15.49px;",
                 "Mewtwo"       : "line-height: 11.62px;",
+                "Pidgey"       : "line-height: 19px;",
+                "Pidgeotto"    : "line-height: 19px;",
+                "Pidgeot"      : "line-height: 19px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -623,7 +626,7 @@ const app = Vue.createApp({
             //DATA ---------------------------------------------------------------------------------------------//
             g4MoveData               : g4MoveData,
             g4tmhmMapping            : g4tmhmMapping,
-            g4PokemonData            : g4PokemonData,
+            // g4PokemonData            : g4PokemonData,
             stageModifiersData       : stageModifiersData,
             typeEffectivenessArray   : typeEffectivenessArray,
             typeData                 : typeData,
@@ -1123,6 +1126,19 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        g4PokemonData() {
+            const game = this.mapper.properties.meta.game_name.value
+            switch (game) {
+                case "Diamond"                 : return this.pokedex_dp
+                case "Pearl"                   : return this.pokedex_dp
+                case "Diamond and Pearl"       : return this.pokedex_dp
+                case "Platinum"                : return this.pokedex_plat
+                case "HeartGold"               : return this.pokedex_hgss
+                case "SoulSilver"              : return this.pokedex_hgss
+                case "HeartGold and SoulSilver": return this.pokedex_hgss
+                default                        : return this.pokedex_plat
+            }
+        },
         faults() {
             return this.blackout_counter + this.playerResets
         },
@@ -1868,12 +1884,12 @@ const app = Vue.createApp({
             }
             if (state == `No Pokemon`) {
                 return {
-                    "Hp" : this.g4PokemonData[this.starter].base_hp,
-                    "Atk": this.g4PokemonData[this.starter].base_atk,
-                    "Def": this.g4PokemonData[this.starter].base_def,
-                    "SpA": this.g4PokemonData[this.starter].base_spc_atk,
-                    "SpD": this.g4PokemonData[this.starter].base_spc_def,
-                    "Spe": this.g4PokemonData[this.starter].base_spd,
+                    "Hp" : this.g4PokemonData[this.starter].base_stats.hp,
+                    "Atk": this.g4PokemonData[this.starter].base_stats.attack,
+                    "Def": this.g4PokemonData[this.starter].base_stats.defense,
+                    "SpA": this.g4PokemonData[this.starter].base_stats.special_attack,
+                    "SpD": this.g4PokemonData[this.starter].base_stats.special_defense,
+                    "Spe": this.g4PokemonData[this.starter].base_stats.speed,
                 }
             }
         },
@@ -1921,12 +1937,12 @@ const app = Vue.createApp({
         get_base_stat_total() {
             const starter = this.starter
             const data    = this.g4PokemonData[starter]
-            const hp      = data.base_hp
-            const atk     = data.base_atk
-            const def     = data.base_def
-            const spa     = data.base_spd
-            const spd     = data.base_spc_atk
-            const spe     = data.base_spc_def
+            const hp      = data.base_stats.hp
+            const atk     = data.base_stats.attack
+            const def     = data.base_stats.defense
+            const spa     = data.base_stats.speed
+            const spd     = data.base_stats.special_attack
+            const spe     = data.base_stats.special_defense
             const total   = hp + atk + def + spa + spd + spe
             return total
         },
@@ -3068,7 +3084,7 @@ const app = Vue.createApp({
         getMovepool(gen3PkmnData, moveData, tmhmMapping, species) {
             const pkmn = this.dataSearch(gen3PkmnData, species)
             let obj = {
-                level: pkmn.levelup_moveset.map(x => {
+                level: pkmn.level_up_learnset.map(x => {
                     return {
                         ...{Level: x[0]},
                         ...this.dataSearch(moveData, x[1]) //searching for index 1
@@ -4230,9 +4246,11 @@ const app = Vue.createApp({
             this.mapper.properties?.variables?.game_started.change(async (newProp, oldProp) => {
                 if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
                     this.startTime()
+                    this.blackout = false;
                     this.attempt_number++
                 }
-                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0) { // TODO How do resets work in HGSS?
+                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
+                    this.blackout = false;
                     this.playerResets++
                 }
             })
@@ -4257,7 +4275,7 @@ const app = Vue.createApp({
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         this.blackout_counter++;
                         this.blackout = false;
-                        this.sleep(1000)
+                        this.sleep(2500)
                     }
                 }
             }
