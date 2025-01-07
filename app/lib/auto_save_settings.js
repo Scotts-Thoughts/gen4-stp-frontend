@@ -63,4 +63,5 @@ const auto_save_settings = [
     "movepool_isolation",
     "selected_game",
     "right_display",
+    "starter_choice",
 ]

@@ -142,8 +142,6 @@
                     <div>Search Pokemon:</div>
                     <input type="text" v-model="search_term" placeholder="Search for a species">
                     <br>
-                    <br>
-                    <br>
                     <div>Stat Display:</div>
                     <select v-model="stats_setting" class="dropdownMenu">
                         <option>Automatic</option>
@@ -206,6 +204,15 @@
                             <option>Turtwig</option>
                             <option>Chimchar</option>
                             <option>Piplup</option>
+                        </select>
+                        <div>Rival chooses: {{rival_starter}}</div>
+                    </div>
+                    <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
+                        <div>Starter Player Chooses:</div>
+                        <select v-model="starter_choice" class="dropdownMenu">
+                            <option>Chikorita</option>
+                            <option>Cyndaquil</option>
+                            <option>Totodile</option>
                         </select>
                         <div>Rival chooses: {{rival_starter}}</div>
                     </div>

@@ -569,6 +569,8 @@ const app = Vue.createApp({
                 "Pidgey"       : "line-height: 19px;",
                 "Pidgeotto"    : "line-height: 19px;",
                 "Pidgeot"      : "line-height: 19px;",
+                "Glameow"      : "line-height: 17.5px;",
+                "Purugly"      : "line-height: 17.5px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -1173,8 +1175,15 @@ const app = Vue.createApp({
             }
         },
         rival_starter() {
-            let starter = this.starter_choice == 'Turtwig' ? 'Chimchar' : this.starter_choice == 'Chimchar' ? 'Piplup' : 'Turtwig'
-            return starter
+            const game = this.mapper.properties.meta.game_name.value
+            if (game == 'Platinum' || game == 'Diamond' || game == 'Pearl' || game == 'Diamond and Pearl') {
+                let starter = this.starter_choice == 'Turtwig' ? 'Chimchar' : this.starter_choice == 'Chimchar' ? 'Piplup' : 'Turtwig'
+                return starter
+            }
+            else if (game == 'HeartGold' || game == 'SoulSilver' || game == 'HeartGold and SoulSilver') {
+                let starter = this.starter_choice == 'Chikorita' ? 'Cyndaquil' : this.starter_choice == 'Cyndaquil' ? 'Totodile' : 'Chikorita'
+                return starter
+            }
         },
         stats_header() {
             const toggle    = true
@@ -2017,6 +2026,12 @@ const app = Vue.createApp({
         load_all_settings() {
             const game_name = this.mapper.properties.meta.game_name.value
             this.starter = MyStorage["starter"] ?? "Heatran"
+            if (game_name == "HeartGold and SoulSilver") {
+                this.starter_choice = MyStorage["starter_choice"] ?? "Chikorita"
+            }
+            else {
+                this.starter_choice = MyStorage["starter_choice"] ?? "Turtwig"
+            }
 
             this.graphicOverlay =             MyStorage['graphicOverlay']             ?? true
             this.gameArea =                   MyStorage['gameArea']                   ?? false
@@ -4238,6 +4253,7 @@ const app = Vue.createApp({
                     this.attempt_number++
                 }
                 if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
+                    this.blackout = false;
                     this.playerResets++
                 }
             })
@@ -4327,14 +4343,9 @@ const app = Vue.createApp({
             var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
 
-            console.log("Setting starting stats...")
-            if (this.mapper.properties.meta.game_name.value == "Platinum") {
-                await Promise.all([
-                    await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
-                ])
-            }
             await Promise.all([
                 //Set personality value & ablity
+                await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
                 await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
                 await this.mapper.properties.player.team[0].ability.set(ability, false), 
                 await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
@@ -4373,9 +4384,16 @@ const app = Vue.createApp({
             }
         });
 
-        this.mapper.properties.overworld.map_name.change(async (newProp) => {
-            console.log(newProp)
-        });
+        this.mapper.properties.player.starter.change(async (newProp) => {
+            if (newProp.value != this.starter_choice && this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver" && this.mapper.properties.overworld?.map_index?.value == 61) {
+                await Promise.all([
+                    await this.mapper.properties.player.starter.set(this.starter_choice, false),
+                ])
+            }
+        })
+        // this.mapper.properties.overworld.map_name.change(async (newProp) => {
+        //     console.log(newProp)
+        // });
 
         //*Autosplitter
         const log_split = (x) => console.log(`Autosplitter - Battle Ended - Split: ${this.mapper.properties.battle.opponent.name.value} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)

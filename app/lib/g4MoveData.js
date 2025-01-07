@@ -2242,7 +2242,7 @@ const g4MoveData = {
     "Charm":
     {
         Move: "Charm",
-        Type: "Fairy",
+        Type: "Normal",
         Category: "Status",
         PP: "20",
         Power: "—",
