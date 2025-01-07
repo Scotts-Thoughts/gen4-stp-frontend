@@ -2665,25 +2665,25 @@ const app = Vue.createApp({
                         }
                         case "Rival": {
                             switch (this.mapper.properties.battle.opponent.trainer.bytes) {
-                                case 1:   graphic = `images/trainers/rival2.png`; break;
-                                case 2:   graphic = `images/trainers/rival1.png`; break;
-                                case 3:   graphic = `images/trainers/rival1.png`; break;
-                                case 263: graphic = `images/trainers/rival3.png`; break;
-                                case 264: graphic = `images/trainers/rival5.png`; break;
-                                case 265: graphic = `images/trainers/rival1.png`; break;
-                                case 266: graphic = `images/trainers/rival2.png`; break;
-                                case 267: graphic = `images/trainers/rival3.png`; break;
-                                case 268: graphic = `images/trainers/rival5.png`; break;
-                                case 269: graphic = `images/trainers/rival2.png`; break;
-                                case 270: graphic = `images/trainers/rival3.png`; break;
-                                case 271: graphic = `images/trainers/rival4.png`; break;
-                                case 272: graphic = `images/trainers/rival5.png`; break;
-                                case 285: graphic = `images/trainers/rival6.png`; break;
-                                case 286: graphic = `images/trainers/rival6.png`; break;
-                                case 287: graphic = `images/trainers/rival6.png`; break;
-                                case 288: graphic = `images/trainers/rival4.png`; break;
-                                case 289: graphic = `images/trainers/rival4.png`; break;
-                                default: graphic = `images/trainers/rival1mon.png`; break;
+                                case 1:   graphic = `images/trainers/rival2.png`;    break;
+                                case 2:   graphic = `images/trainers/rival1.png`;    break;
+                                case 3:   graphic = `images/trainers/rival1.png`;    break;
+                                case 263: graphic = `images/trainers/rival3.png`;    break;
+                                case 264: graphic = `images/trainers/rival5.png`;    break;
+                                case 265: graphic = `images/trainers/rival1.png`;    break;
+                                case 266: graphic = `images/trainers/rival2.png`;    break;
+                                case 267: graphic = `images/trainers/rival3.png`;    break;
+                                case 268: graphic = `images/trainers/rival5.png`;    break;
+                                case 269: graphic = `images/trainers/rival2.png`;    break;
+                                case 270: graphic = `images/trainers/rival3.png`;    break;
+                                case 271: graphic = `images/trainers/rival4.png`;    break;
+                                case 272: graphic = `images/trainers/rival5.png`;    break;
+                                case 285: graphic = `images/trainers/rival6.png`;    break;
+                                case 286: graphic = `images/trainers/rival6.png`;    break;
+                                case 287: graphic = `images/trainers/rival6.png`;    break;
+                                case 288: graphic = `images/trainers/rival4.png`;    break;
+                                case 289: graphic = `images/trainers/rival4.png`;    break;
+                                default:  graphic = `images/trainers/rival1mon.png`; break;
                             }
                             break;
                         }   
