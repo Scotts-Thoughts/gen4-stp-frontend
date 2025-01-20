@@ -1,0 +1,53 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Starly,Passerby Boy,4:25,0,0,8,0:13,1737390940.793,Quick Attack,Growl,Tackle,
+Lyra,Staravia,Leader Falkner,10:39,0,0,15,0:34,1737391324.323,Wing Attack,Quick Attack,Tackle,Growl
+Lyra,Staravia,Leader Bugsy,17:00,0,0,18,0:55,1737391705.416,Wing Attack,Quick Attack,Tackle,Growl
+Lyra,Staravia,Rival Silver,17:51,0,0,20,0:57,1737391756.356,Wing Attack,Quick Attack,Tackle,Growl
+Lyra,Staravia,Leader Whitney,34:20,4,0,25,1:45,1737392745.766,Wing Attack,Quick Attack,Return,Substitute
+Lyra,Staravia,Rival Silver,39:28,4,0,26,2:01,1737393053.524,Wing Attack,Quick Attack,Return,Substitute
+Lyra,Staravia,Leader Morty,42:14,4,0,29,2:10,1737393219.413,Wing Attack,Aerial Ace,Return,Substitute
+Lyra,Staraptor,Leader Chuck,50:14,4,0,34,2:37,1737393707.644,Return,Aerial Ace,Close Combat,Substitute
+Lyra,Staraptor,Leader Pryce,1:01:10,4,0,39,3:13,1737394363.759,Return,Aerial Ace,Close Combat,Substitute
+Lyra,Staraptor,Leader Jasmine,1:03:14,4,0,40,3:20,1737394487.258,Return,Aerial Ace,Close Combat,Substitute
+Lyra,Staraptor,Rival Silver,1:07:35,4,0,42,3:35,1737394748.542,Return,Aerial Ace,Close Combat,Substitute
+Lyra,Staraptor,Leader Clair,1:27:28,6,0,49,4:35,1737395941.278,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Rival Silver,1:43:38,6,0,53,5:25,1737396911.211,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,1:45:01,6,0,54,5:30,1737396994.33,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,1:45:55,6,0,55,5:33,1737397048.531,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,1:46:44,6,0,55,5:36,1737397096.996,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,1:47:43,6,0,56,5:39,1737397156.543,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,1:52:31,9,1,57,5:46,1737397444.24,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,1:53:07,9,2,58,5:48,1737397479.836,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,1:53:42,9,2,58,5:50,1737397515.121,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,1:54:29,9,2,59,5:53,1737397562.155,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,1:56:24,9,2,60,6:00,1737397677.455,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,1:57:02,9,2,61,6:03,1737397715.203,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,1:57:38,9,2,62,6:05,1737397750.971,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,1:58:25,9,2,62,6:08,1737397798.703,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,2:01:25,10,3,63,6:15,1737397978.654,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,2:02:03,10,3,64,6:18,1737398016.59,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,2:02:38,10,3,64,6:20,1737398051.289,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,2:03:31,10,3,65,6:23,1737398103.91,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Champion Lance,2:06:14,11,3,78,6:30,1737398267.088,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Erika,2:11:14,11,3,78,6:45,1737398702.412,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Sabrina,2:12:52,11,3,79,6:50,1737398801.126,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Misty,2:18:43,11,3,80,7:09,1737399151.574,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Lt. Surge,2:22:00,11,3,81,7:20,1737399348.645,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Brock,2:24:00,11,3,81,7:26,1737399468.389,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Blaine,2:28:34,14,3,82,7:36,1737399742.652,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Janine,2:32:57,14,3,83,7:50,1737400005.642,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Leader Blue,2:35:12,14,3,83,7:57,1737400140.829,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,2:40:39,14,3,84,8:16,1737400467.894,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,2:41:25,14,3,84,8:19,1737400513.404,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,2:42:15,14,3,85,8:22,1737400563.403,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,2:43:16,14,3,85,8:25,1737400624.433,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,2:46:39,16,4,86,8:31,1737400827.898,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,2:47:19,16,4,87,8:33,1737400867.535,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,2:48:02,16,4,87,8:36,1737400911.271,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,2:48:58,16,4,88,8:39,1737400966.848,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Will,2:50:21,16,5,89,8:44,1737401050.016,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Koga,2:51:03,16,5,89,8:47,1737401091.445,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Bruno,2:51:47,16,5,90,8:50,1737401136.084,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Elite Four Karen,2:52:29,16,5,90,8:52,1737401177.698,Return,Brave Bird,Close Combat,Substitute
+Lyra,Staraptor,Champion Lance,2:56:43,19,5,96,9:02,1737401431.635,Return,Roost,Close Combat,Substitute
+Lyra,Staraptor,Pokemon Trainer Red,3:10:15,23,5,98,9:27,1737402244.008,Return,Roost,Attract,Substitute
