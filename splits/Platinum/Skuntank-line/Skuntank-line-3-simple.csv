@@ -1,0 +1,47 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Stunky,Rival,10:11,0,0,9,0:32,1738617309.039,Scratch,Focus Energy,Poison Gas,Screech
+Dawn,Stunky,Leader Roark,20:46,1,1,15,1:08,1738617944.039,Return,SmokeScreen,Rock Smash,Screech
+Dawn,Stunky,Commander Mars,26:51,1,1,18,1:27,1738618308.655,Return,SmokeScreen,Rock Smash,Screech
+Dawn,Stunky,Leader Gardenia,33:35,2,1,23,1:48,1738618713.502,Return,Slash,Rock Smash,Screech
+Dawn,Stunky,Commander Jupiter,37:12,3,1,24,1:58,1738618929.976,Return,Slash,Rock Smash,Screech
+Dawn,Stunky,Leader Fantina,46:05,5,1,29,2:23,1738619576.429,Return,Thief,Rock Smash,Substitute
+Dawn,Stunky,Rival,52:56,6,1,33,2:45,1738619986.623,Return,Night Slash,Rock Smash,Substitute
+Dawn,Skuntank,Leader Maylene,59:00,6,1,35,3:04,1738620420.908,Return,Night Slash,Rock Smash,Flamethrower
+Dawn,Skuntank,Rival,1:04:28,6,1,37,3:21,1738620748.488,Night Slash,Return,Rock Smash,Flamethrower
+Dawn,Skuntank,Leader Wake,1:20:08,15,1,48,3:56,1738621798.547,Night Slash,Return,Rock Smash,Flamethrower
+Dawn,Skuntank,Galactic Boss Cyrus,1:27:06,15,1,50,4:19,1738622356.2,Night Slash,Return,Rock Smash,Flamethrower
+Dawn,Skuntank,Rival,1:31:29,15,1,51,4:32,1738622619.454,Night Slash,Return,Flamethrower,Dig
+Dawn,Skuntank,Leader Byron,1:36:00,15,1,53,4:47,1738622890.222,Night Slash,Return,Flamethrower,Dig
+Dawn,Skuntank,Commander Saturn,1:38:52,15,1,54,4:56,1738623061.764,Night Slash,Return,Flamethrower,Dig
+Dawn,Skuntank,Commander Mars,1:40:45,15,1,54,5:02,1738623199.321,Night Slash,Return,Flamethrower,Dig
+Dawn,Skuntank,Leader Candice,1:48:08,15,2,56,5:25,1738623643.223,Night Slash,Return,Flamethrower,Dig
+Dawn,Skuntank,Galactic Boss Cyrus,1:54:36,15,2,58,5:46,1738624030.269,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Commander Saturn,1:55:20,15,2,59,5:48,1738624075.033,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Commander Mars,2:01:45,15,2,60,6:10,1738624459.54,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Galactic Boss Cyrus,2:08:35,16,2,70,6:26,1738624886.856,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Leader Volkner,2:16:57,16,4,72,6:53,1738625388.688,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Rival,2:31:27,16,4,75,7:40,1738626258.434,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:32:50,16,4,76,7:44,1738626341.952,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:36:43,18,6,77,7:51,1738626574.775,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:38:06,18,7,78,7:56,1738626657.602,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:39:27,18,8,78,8:01,1738626738.258,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:40:43,18,9,79,8:05,1738626814.846,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:42:58,19,10,80,8:10,1738626949.847,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:44:28,19,11,81,8:16,1738627039.748,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:45:43,19,12,82,8:20,1738627114.27,Night Slash,Poison Jab,Flamethrower,Dig
+Dawn,Skuntank,Elite Four Aaron,2:52:52,26,13,85,8:28,1738627543.912,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,2:54:11,26,14,85,8:33,1738628078.635,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,2:55:32,26,15,86,8:38,1738628159.034,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,2:56:49,26,16,87,8:43,1738628236.422,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,2:58:25,26,17,88,8:49,1738628332.088,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,2:59:50,26,18,88,8:54,1738628416.926,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:01:08,26,19,89,8:59,1738628494.752,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:06:12,31,20,89,9:06,1738628799.229,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:07:31,31,21,90,9:10,1738628878.694,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:08:51,31,22,91,9:15,1738628958.038,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:10:47,31,23,91,9:23,1738629073.939,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Aaron,3:12:35,31,24,92,9:29,1738629182.056,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Bertha,3:13:31,31,24,92,9:33,1738629238.659,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Flint,3:14:26,31,24,93,9:36,1738629293.192,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Elite Four Lucian,3:15:27,31,24,93,9:40,1738629353.87,Night Slash,Poison Jab,Iron Tail,Dig
+Dawn,Skuntank,Champion Cynthia,3:16:45,31,24,94,9:45,1738629432.531,Night Slash,Poison Jab,Iron Tail,Dig

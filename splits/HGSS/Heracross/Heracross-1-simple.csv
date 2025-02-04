@@ -1,0 +1,36 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Heracross,Passerby Boy,4:36,0,0,6,0:14,1737404676.174,Horn Attack,Tackle,Leer,Endure
+Lyra,Heracross,Leader Falkner,11:45,1,0,12,0:37,1737405112.019,Horn Attack,Tackle,Leer,Endure
+Lyra,Heracross,Leader Bugsy,20:36,1,0,16,1:05,1737405650.828,Horn Attack,Rock Tomb,Aerial Ace,Endure
+Lyra,Heracross,Rival Silver,21:34,1,0,17,1:08,1737405708.904,Horn Attack,Rock Tomb,Aerial Ace,Endure
+Lyra,Heracross,Leader Whitney,30:14,1,0,19,1:37,1737406228.362,Brick Break,Headbutt,Aerial Ace,Swords Dance
+Lyra,Heracross,Rival Silver,35:32,1,0,22,1:54,1737406546.275,Brick Break,Headbutt,Aerial Ace,Swords Dance
+Lyra,Heracross,Leader Morty,39:21,3,0,25,2:03,1737406775.271,Brick Break,Substitute,Aerial Ace,Swords Dance
+Lyra,Heracross,Leader Chuck,47:18,3,0,29,2:29,1737407252.624,Brick Break,Substitute,Aerial Ace,Swords Dance
+Lyra,Heracross,Leader Pryce,58:00,3,0,34,3:04,1737408165.083,Brick Break,Substitute,Aerial Ace,Swords Dance
+Lyra,Heracross,Leader Jasmine,59:49,3,0,35,3:10,1737408274.371,Brick Break,Substitute,Aerial Ace,Swords Dance
+Lyra,Heracross,Rival Silver,1:05:05,4,0,37,3:26,1737408590.467,Brick Break,Close Combat,Aerial Ace,Swords Dance
+Lyra,Heracross,Leader Clair,1:21:16,5,0,42,4:17,1737409560.915,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Rival Silver,1:37:58,8,0,47,5:04,1737410563.007,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Will,1:39:09,8,0,48,5:07,1737410633.792,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Will,1:43:01,10,2,49,5:17,1737410865.87,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Koga,1:43:40,10,2,50,5:20,1737410904.948,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Bruno,1:44:34,10,2,50,5:23,1737410958.802,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Karen,1:45:22,10,2,51,5:26,1737411006.796,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Champion Lance,1:49:21,14,2,61,5:32,1737411264.223,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Erika,1:55:30,14,2,62,5:50,1737411634.019,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Sabrina,1:57:18,14,2,62,5:55,1737411741.917,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Misty,2:03:11,14,2,64,6:15,1737412094.197,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Lt. Surge,2:06:15,14,2,65,6:24,1737412278.423,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Brock,2:08:31,14,2,65,6:32,1737412414.129,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Blaine,2:12:14,14,2,66,6:43,1737412637.751,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Janine,2:16:38,14,2,67,6:57,1737412901.469,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Leader Blue,2:31:03,24,2,70,7:28,1737413766.185,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Will,2:36:17,24,2,70,7:45,1737414080.784,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Will,2:37:44,24,3,71,7:50,1737414167.561,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Will,2:40:52,24,4,72,8:00,1737414355.156,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Koga,2:45:10,32,4,81,8:04,1737414613.373,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Bruno,2:46:05,32,4,81,8:08,1737414668.163,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Elite Four Karen,2:47:24,33,4,82,8:11,1737414747.705,Brick Break,Return,Shadow Claw,Swords Dance
+Lyra,Heracross,Champion Lance,2:51:47,38,4,82,8:17,1737415010.977,Brick Break,Return,Rock Slide,Swords Dance
+Lyra,Heracross,Pokemon Trainer Red,2:59:32,42,4,86,8:34,1737415475.508,Brick Break,Return,Attract,Swords Dance

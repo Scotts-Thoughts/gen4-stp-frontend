@@ -575,6 +575,8 @@ const app = Vue.createApp({
                 "Staravia"     : "line-height: 19px;",
                 "Staraptor"    : "line-height: 19px;",
                 "Heracross"    : "line-height: 19px;",
+                "Stunky"       : "line-height: 20px;",
+                "Skuntank"     : "line-height: 18px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -2536,6 +2538,7 @@ const app = Vue.createApp({
                 let graphic = `images/trainers/roark.png`
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
                 let bytes = this.mapper.properties.battle.opponent.trainer.bytes
+                let id_value = this.mapper.properties.battle.opponent.id.value
                 let displayGraphicState = true
                 if (this.selected_game == `Platinum` || this.selected_game == `Diamond and Pearl`) {
                     switch (trainer) {
@@ -2563,7 +2566,7 @@ const app = Vue.createApp({
                             break;
                         }   
                         case "Commander Mars": {
-                            switch (bytes) {
+                            switch (id_value) {
                                 case 295: graphic = `images/trainers/mars.png`;  break;
                                 case 405: graphic = `images/trainers/mars2.png`; break;
                                 case 528: graphic = `images/trainers/mars.png`;  break;
@@ -2598,10 +2601,10 @@ const app = Vue.createApp({
                             break;
                         }            
                         case "Galactic Boss Cyrus": {
-                            switch (bytes) {
+                            switch (id_value) {
                                 case 403: graphic = `images/trainers/cyrus_1_2.png`; break;
-                                case 404: graphic = `images/trainers/cyrus_1_2.png`; break;
-                                case 913: graphic = `images/trainers/cyrus_3.png`;   break;
+                                case 404: graphic = `images/trainers/cyrus_3.png`; break;
+                                case 913: graphic = `images/trainers/cyrus_1_2.png`; break;
                                 default:  graphic = `images/trainers/cyrus_3.png`;   break;
                             }
                             break;

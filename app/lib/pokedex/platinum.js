@@ -14746,7 +14746,7 @@ const pokedex_plat = {
             "Swagger",
             "Substitute",
             "Cut",
-            "Whirlpool",
+            "Defog",
             "Rock Smash"
         ],
         "tutor_learnset": [
@@ -22306,7 +22306,7 @@ const pokedex_plat = {
             "Substitute",
             "Cut",
             "Strength",
-            "Whirlpool",
+            "Defog",
             "Rock Smash"
         ],
         "tutor_learnset": [
