@@ -577,6 +577,8 @@ const app = Vue.createApp({
                 "Heracross"    : "line-height: 19px;",
                 "Stunky"       : "line-height: 20px;",
                 "Skuntank"     : "line-height: 18px;",
+                "Croagunk"     : "line-height: 17.75px;",
+                "Toxicroak"    : "line-height: 15.74px;",
             },
             simple_natures: {
                 "0" : "Hardy",
