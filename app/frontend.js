@@ -580,7 +580,7 @@ const app = Vue.createApp({
                 "Croagunk"     : "line-height: 17.75px;",
                 "Toxicroak"    : "line-height: 15.74px;",
                 "Yanma"        : "line-height: 20px;",
-                "Yanmega"      : "line-height: 18px;",
+                "Yanmega"      : "line-height: 18.75px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -3146,6 +3146,9 @@ const app = Vue.createApp({
             if (this.mapper.properties.player?.team[0]?.ability?.value == 'No Guard') {
                 return `—`
             }
+            if (this.mapper.properties.player?.team[0]?.ability?.value == 'Compound Eyes') {
+                accuracy = accuracy * 1.3
+            }
             if (weather == 'Hail' && move == 'Blizzard' && state == 'Battle') {
                 return `—`
             }
@@ -4173,7 +4176,7 @@ const app = Vue.createApp({
             var defendingType1Effectiveness = 1
             var defendingType2Effectiveness = 1
             var defendingType1Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType1]
-            var ability = this.mapper.properties.battle.player.active_pokemon.ability.value
+            var pkmn_ability = this.mapper.properties.player.team[0].ability.value
             // if (defendingType1 && attackingType) {
             //     var defendingType1Effectiveness = this.typeEffectivenessArray[attackingType][defendingType1]
             // }
@@ -4188,14 +4191,17 @@ const app = Vue.createApp({
             var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
-            if (ability == "Tinted Lens") {
-                if (defendingType1Effectiveness < 1) {
-                    defendingType1Effectiveness = defendingType1Effectiveness * 2
-                }
-                if (defendingType2Effectiveness < 1) {
-                    defendingType2Effectiveness = defendingType2Effectiveness * 2
+            console.log("Type1:",defendingType1Effectiveness)
+            console.log("Type2:",defendingType2Effectiveness)
+            if (pkmn_ability == "Tinted Lens") {
+                var type_multiple = defendingType1Effectiveness * defendingType2Effectiveness
+                if (type_multiple == 0) {}
+                else if (type_multiple < 1) {
+                    defendingType1Effectiveness = 1
+                    defendingType2Effectiveness = type_multiple * 2
                 }
             }
+            console.log("Recalculated:", defendingType2Effectiveness)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
                 if (power == "-") { return "—" }

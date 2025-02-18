@@ -1,0 +1,6 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Yanma,Passerby Boy,5:33,0,0,8,0:18,1739904390.638,Quick Attack,Foresight,Tackle,
+Lyra,Yanma,Leader Falkner,13:42,0,0,14,0:47,1739904879.185,Quick Attack,Foresight,Tackle,SonicBoom
+Lyra,Yanma,Leader Bugsy,28:40,3,0,20,1:31,1739909111.888,Quick Attack,Foresight,Detect,SonicBoom
+Lyra,Yanma,Rival Silver,29:50,3,0,20,1:35,1739909182.445,Quick Attack,Foresight,Detect,SonicBoom
+Lyra,Yanma,Leader Whitney,41:23,3,0,24,2:14,1739909875.771,Headbutt,SonicBoom,Quick Attack,Foresight
