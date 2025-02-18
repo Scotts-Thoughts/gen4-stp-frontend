@@ -3975,7 +3975,7 @@ const pokedex_hgss = {
         "egg_group_1": "Bug",
         "egg_group_2": "Bug",
         "abilities": [
-            "Compoundeyes",
+            "Compound Eyes",
             "Tinted Lens"
         ],
         "level_up_learnset": [
@@ -23145,7 +23145,7 @@ const pokedex_hgss = {
         "egg_group_2": "Bug",
         "abilities": [
             "Speed Boost",
-            "Compoundeyes"
+            "Compound Eyes"
         ],
         "level_up_learnset": [
             [1, "Tackle"],
@@ -27678,7 +27678,7 @@ const pokedex_hgss = {
         "egg_group_1": "Bug",
         "egg_group_2": "Bug",
         "abilities": [
-            "Compoundeyes"
+            "Compound Eyes"
         ],
         "level_up_learnset": [
             [1, "Scratch"],
@@ -34579,7 +34579,7 @@ const pokedex_hgss = {
         "egg_group_1": "Bug",
         "egg_group_2": "Bug",
         "abilities": [
-            "Compoundeyes"
+            "Compound Eyes"
         ],
         "level_up_learnset": [
             [1, "Confusion"],

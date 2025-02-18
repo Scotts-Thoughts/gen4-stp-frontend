@@ -579,6 +579,8 @@ const app = Vue.createApp({
                 "Skuntank"     : "line-height: 18px;",
                 "Croagunk"     : "line-height: 17.75px;",
                 "Toxicroak"    : "line-height: 15.74px;",
+                "Yanma"        : "line-height: 20px;",
+                "Yanmega"      : "line-height: 18px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -4171,6 +4173,7 @@ const app = Vue.createApp({
             var defendingType1Effectiveness = 1
             var defendingType2Effectiveness = 1
             var defendingType1Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType1]
+            var ability = this.mapper.properties.battle.player.active_pokemon.ability.value
             // if (defendingType1 && attackingType) {
             //     var defendingType1Effectiveness = this.typeEffectivenessArray[attackingType][defendingType1]
             // }
@@ -4185,6 +4188,14 @@ const app = Vue.createApp({
             var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
+            if (ability == "Tinted Lens") {
+                if (defendingType1Effectiveness < 1) {
+                    defendingType1Effectiveness = defendingType1Effectiveness * 2
+                }
+                if (defendingType2Effectiveness < 1) {
+                    defendingType2Effectiveness = defendingType2Effectiveness * 2
+                }
+            }
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
                 if (power == "-") { return "—" }
@@ -4315,23 +4326,21 @@ const app = Vue.createApp({
                 personalityValue += 225;
             }
             //the odd/evenness may need to be flipped according to the selected ability
-            //if this were going to break, it would probably be when evolving
-            //Scott: This is likely not needed anymore as ability is set within the data and contained within a single byte
-            if(personalityValue % 2 == 0 || personalityValue % 2 == 1) {
-            // if((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
-            // (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
-                //these checks are trying to flip the odd/even by adding an odd number multiple of 25
-                //in order to not disturb the nature calc. It's trying to maintain the gender calc too.
-                if(personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
+            //this code prevents abilities from swapping when the Pokemon evolves
+            if ((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
+            (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
+            //     these checks are trying to flip the odd/even by adding an odd number multiple of 25
+            //     in order to not disturb the nature calc. It's trying to maintain the gender calc too.
+                if (personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
                     personalityValue += 275; //adding 275 won't make the modulo exceed 31
                 }
-                if(personalityValue % 256 > 11 && this.pkmn_gender != "Male") {
+                else if (personalityValue % 256 > 11 && this.pkmn_gender != "Male") {
                     personalityValue += 1525; //1525 keeps the modulo between 0 and 31
                 }
-                if(personalityValue % 256 <= 236 && this.pkmn_gender == "Male") {
+                else if (personalityValue % 256 <= 236 && this.pkmn_gender == "Male") {
                     personalityValue += 275; //adding 275 keeps the modulo between 225 and 255
                 }
-                if(personalityValue % 256 > 236 && this.pkmn_gender == "Male") {
+                else if (personalityValue % 256 > 236 && this.pkmn_gender == "Male") {
                     personalityValue += 1525; //1525 keeps the modulo between 225 and 255
                 }
             }
