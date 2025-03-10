@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Zubat,Rival,15:18,1,0,11,0:48,1741467489.246,Return,Supersonic,Leech Life,Astonish
+Dawn,Golbat,Leader Roark,34:32,3,0,22,1:53,1741468676.379,Wing Attack,Return,Bite,Confuse Ray
+Dawn,Golbat,Commander Mars,39:41,3,0,23,2:09,1741468985.07,Wing Attack,Return,Bite,Confuse Ray
+Dawn,Golbat,Leader Gardenia,44:55,3,0,27,2:26,1741469299.616,Wing Attack,Return,Bite,Air Cutter
+Dawn,Golbat,Commander Jupiter,46:48,3,0,28,2:31,1741469411.99,Wing Attack,Return,Bite,Air Cutter
+Dawn,Golbat,Leader Fantina,56:34,3,0,31,3:01,1741469998.531,Wing Attack,Return,Bite,Air Cutter
+Dawn,Golbat,Rival,57:48,3,0,32,3:05,1741470072.208,Wing Attack,Return,Bite,Air Cutter
+Dawn,Golbat,Leader Maylene,1:05:11,3,0,36,3:27,1741470515.29,Wing Attack,Return,Bite,Air Cutter
+Dawn,Crobat,Rival,1:13:31,3,0,40,3:54,1741471035.285,Cross Poison,Return,Wing Attack,Bite
+Dawn,Crobat,Leader Wake,1:17:28,4,0,50,4:06,1741471272.303,Cross Poison,Return,Wing Attack,Haze
+Dawn,Crobat,Galactic Boss Cyrus,1:26:57,5,2,52,4:35,1741471841.251,Cross Poison,Return,Aerial Ace,Air Slash
+Dawn,Crobat,Rival,1:33:52,5,1,54,4:59,1741472256.286,Cross Poison,Return,Roost,Air Slash
+Dawn,Crobat,Leader Byron,1:39:55,7,1,56,5:18,1741472619.242,Cross Poison,Return,Roost,Air Slash
+Dawn,Crobat,Commander Saturn,1:43:13,7,1,57,5:28,1741472817.114,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Commander Mars,1:45:01,7,1,57,5:34,1741472925.12,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Leader Candice,1:51:22,7,1,59,5:55,1741473305.827,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Galactic Boss Cyrus,1:57:26,7,1,61,6:14,1741473669.663,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Commander Saturn,1:58:20,7,1,61,6:17,1741473724.356,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Commander Mars,2:04:58,7,1,63,6:40,1741474122.254,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Galactic Boss Cyrus,2:11:14,7,1,63,6:57,1741474498.103,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Leader Volkner,2:21:56,10,1,76,7:25,1741475140.057,Fly,Cross Poison,Return,Roost
+Dawn,Crobat,Rival,2:34:00,11,1,82,8:01,1741475863.482,Fly,Cross Poison,Giga Drain,Roost
+Dawn,Crobat,Elite Four Aaron,2:35:14,11,1,82,8:06,1741475937.5,Fly,Cross Poison,Giga Drain,Roost
+Dawn,Crobat,Elite Four Bertha,2:36:31,11,1,83,8:10,1741476015.229,Fly,Cross Poison,Giga Drain,Roost
+Dawn,Crobat,Elite Four Flint,2:37:23,11,1,83,8:14,1741476067.06,Fly,Cross Poison,Giga Drain,Roost
+Dawn,Crobat,Elite Four Lucian,2:39:32,12,1,84,8:18,1741476195.734,Fly,Dark Pulse,Giga Drain,Roost
+Dawn,Crobat,Champion Cynthia,2:41:15,12,1,84,8:25,1741476299.413,Fly,Dark Pulse,Giga Drain,Roost

@@ -784,7 +784,7 @@ const pokedex_plat = {
             "U-turn",
             "Substitute",
             "Fly",
-            "Whirlpool"
+            "Defog"
         ],
         "tutor_learnset": [
             "Air Cutter",
@@ -20335,7 +20335,7 @@ const pokedex_plat = {
             "U-turn",
             "Substitute",
             "Fly",
-            "Whirlpool"
+            "Defog"
         ],
         "tutor_learnset": [
             "Air Cutter",
@@ -27792,7 +27792,7 @@ const pokedex_plat = {
             "U-turn",
             "Substitute",
             "Fly",
-            "Whirlpool"
+            "Defog"
         ],
         "tutor_learnset": [
             "Air Cutter",
