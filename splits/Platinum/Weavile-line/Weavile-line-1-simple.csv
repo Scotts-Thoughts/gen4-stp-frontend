@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Sneasel,Rival,9:06,0,0,11,0:28,1741708279.84,Quick Attack,Screech,Scratch,Taunt
+Dawn,Sneasel,Leader Roark,13:53,0,0,17,0:45,1741708567.254,Faint Attack,Screech,Quick Attack,Taunt
+Dawn,Sneasel,Commander Mars,19:04,0,0,19,1:02,1741708878.16,Faint Attack,Screech,Quick Attack,Taunt
+Dawn,Sneasel,Leader Gardenia,24:18,2,0,24,1:15,1741709207.778,Faint Attack,Screech,Quick Attack,Taunt
+Dawn,Sneasel,Commander Jupiter,27:34,2,0,25,1:26,1741709403.561,Faint Attack,Screech,Quick Attack,Taunt
+Dawn,Sneasel,Leader Fantina,36:38,2,0,29,1:55,1741709948.033,Faint Attack,Substitute,Quick Attack,Icy Wind
+Dawn,Sneasel,Rival,52:28,8,0,38,2:35,1741710897.519,Faint Attack,Substitute,Slash,Icy Wind
+Dawn,Sneasel,Leader Maylene,1:08:38,14,0,43,3:20,1741711867.627,Faint Attack,Dig,Return,Swords Dance
+Dawn,Sneasel,Rival,1:14:27,14,0,43,3:37,1741712216.572,Faint Attack,Dig,Return,Swords Dance
+Dawn,Sneasel,Leader Wake,1:16:55,14,0,45,3:45,1741712364.607,Faint Attack,Dig,Return,Swords Dance
+Dawn,Sneasel,Galactic Boss Cyrus,1:22:09,14,0,47,4:00,1741712678.291,Faint Attack,Dig,Return,Swords Dance
+Dawn,Sneasel,Rival,1:26:40,16,0,47,4:11,1741712950.018,Quick Attack,Dig,Return,Swords Dance
+Dawn,Sneasel,Leader Byron,1:34:23,20,0,55,4:32,1741713412.989,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Sneasel,Commander Saturn,1:37:13,20,0,56,4:40,1741713582.198,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Sneasel,Commander Mars,1:39:24,20,0,56,4:48,1741713713.449,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Sneasel,Leader Candice,1:45:47,20,0,58,5:08,1741714096.635,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Sneasel,Galactic Boss Cyrus,1:50:50,20,0,59,5:24,1741714399.5,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Weavile,Commander Saturn,1:51:57,20,0,61,5:28,1741714497.538,Brick Break,Dig,Ice Shard,Swords Dance
+Dawn,Weavile,Commander Mars,2:01:42,23,0,66,5:51,1741715083.009,Brick Break,Night Slash,Ice Shard,Swords Dance
+Dawn,Weavile,Galactic Boss Cyrus,2:07:07,23,0,66,6:06,1741715408.083,Brick Break,Night Slash,Ice Shard,Swords Dance
+Dawn,Weavile,Leader Volkner,2:13:20,23,0,68,6:28,1741715780.807,Brick Break,Night Slash,Ice Shard,Swords Dance
+Dawn,Weavile,Rival,2:22:03,25,0,73,6:54,1741716303.265,Brick Break,Night Slash,Aerial Ace,Swords Dance
+Dawn,Weavile,Elite Four Aaron,2:23:10,25,0,73,6:58,1741716370.423,Brick Break,Night Slash,Aerial Ace,Swords Dance
+Dawn,Weavile,Elite Four Bertha,2:24:07,25,0,74,7:01,1741716428.023,Brick Break,Night Slash,Aerial Ace,Swords Dance
+Dawn,Weavile,Elite Four Flint,2:25:26,26,0,74,7:04,1741716506.685,Brick Break,Night Slash,Aerial Ace,Swords Dance
+Dawn,Weavile,Elite Four Lucian,2:26:28,26,0,75,7:08,1741716568.412,Brick Break,Night Slash,Aerial Ace,Swords Dance
+Dawn,Weavile,Champion Cynthia,2:27:37,26,0,76,7:12,1741716637.884,Brick Break,Night Slash,Aerial Ace,Swords Dance
