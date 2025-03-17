@@ -588,6 +588,8 @@ const app = Vue.createApp({
                 "Honchkrow"    : "line-height: 20.75px;",
                 "Sneasel"      : "line-height: 15.99px;",
                 "Weavile"      : "line-height: 14.35px;",
+                "Drifloon"     : "line-height: 18.4px;",
+                "Drifblim"     : "line-height: 16.82px;",
             },
             simple_natures: {
                 "0" : "Hardy",

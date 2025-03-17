@@ -6575,7 +6575,7 @@ const pokedex_plat = {
             "Swagger",
             "Substitute",
             "Cut",
-            "Whirlpool"
+            "Defog"
         ],
         "tutor_learnset": [
             "Air Cutter",
@@ -47893,7 +47893,7 @@ const pokedex_plat = {
             "Substitute",
             "Cut",
             "Fly",
-            "Whirlpool"
+            "Defog"
         ],
         "tutor_learnset": [
             "Air Cutter",
