@@ -1,0 +1,66 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Bonsly,Passerby Boy,5:01,0,0,6,0:15,1742228046.014,Flail,Copycat,Fake Tears,
+Lyra,Bonsly,Leader Falkner,16:28,0,0,13,0:55,1742228733.592,Flail,Copycat,Fake Tears,Low Kick
+Lyra,Sudowoodo,Leader Bugsy,24:50,0,0,17,1:23,1742229278.96,Flail,Rock Throw,Mimic,Low Kick
+Lyra,Sudowoodo,Rival Silver,30:56,2,0,20,1:39,1742229644.889,Flail,Rock Throw,Mimic,Low Kick
+Lyra,Sudowoodo,Leader Whitney,41:41,2,0,23,2:16,1742230305.795,Dig,Rock Throw,Headbutt,Low Kick
+Lyra,Sudowoodo,Rival Silver,53:26,5,0,28,2:52,1742231259.448,Dig,Rock Throw,Faint Attack,Low Kick
+Lyra,Sudowoodo,Leader Morty,57:42,7,0,33,3:04,1742231514.755,Dig,Rock Slide,Faint Attack,Low Kick
+Lyra,Sudowoodo,Leader Pryce,1:18:18,14,0,40,4:03,1742232751.333,Dig,Rock Slide,Return,Low Kick
+Lyra,Sudowoodo,Leader Jasmine,1:20:08,14,0,41,4:09,1742232861.23,Dig,Rock Slide,Return,Low Kick
+Lyra,Sudowoodo,Leader Chuck,1:22:00,14,0,42,4:16,1742232973.083,Dig,Rock Slide,Return,Low Kick
+Lyra,Sudowoodo,Rival Silver,1:32:44,23,0,44,4:39,1742233617.173,Dig,Rock Slide,Return,Substitute
+Lyra,Sudowoodo,Leader Clair,1:57:31,28,0,55,5:53,1742237628.436,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Rival Silver,2:12:40,29,0,59,6:41,1742238537.032,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Elite Four Will,2:16:44,32,0,60,6:48,1742238903.912,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Elite Four Koga,2:17:55,32,0,60,6:52,1742238974.633,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Elite Four Bruno,2:19:19,33,0,61,6:56,1742239059.151,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Elite Four Karen,2:20:55,35,0,62,7:00,1742239154.642,Hammer Arm,Rock Slide,Double-Edge,Substitute
+Lyra,Sudowoodo,Champion Lance,2:27:49,42,0,62,7:11,1742239568.395,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Lt. Surge,2:33:08,42,0,64,7:28,1742239887.646,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Misty,2:48:02,46,0,67,8:08,1742240781.639,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Sabrina,2:50:34,46,0,67,8:16,1742240933.827,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Blaine,2:59:31,49,0,69,8:42,1742241470.781,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Janine,3:04:22,49,0,71,8:57,1742241762.074,Hammer Arm,Rock Slide,Double-Edge,Rest
+Lyra,Sudowoodo,Leader Brock,3:07:13,51,0,71,9:04,1742241933.033,Hammer Arm,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Leader Erika,3:11:39,53,0,72,9:12,1742242198.358,Hammer Arm,Rock Slide,Rock Polish,Rest
+Lyra,Sudowoodo,Elite Four Will,3:16:14,58,0,72,9:15,1742242473.279,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:17:12,58,0,72,9:18,1742242531.273,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:18:40,58,1,73,9:23,1742242619.675,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:19:19,58,1,73,9:26,1742242659.168,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:19:59,58,1,74,9:28,1742242698.975,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:22:00,58,2,74,9:36,1742242819.985,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:22:38,58,2,75,9:38,1742242857.932,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Leader Erika,3:26:05,58,3,75,9:50,1742243064.772,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:30:28,60,3,76,9:59,1742243515.704,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:31:05,60,3,76,10:02,1742243552.371,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:31:49,60,3,77,10:04,1742243596.206,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Karen,3:33:00,60,3,77,10:09,1742243667.148,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:33:57,60,4,78,10:12,1742243724.231,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:34:38,60,4,78,10:15,1742243765.411,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:35:19,60,4,78,10:18,1742243806.792,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:36:35,60,5,79,10:22,1742243882.808,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:37:16,60,5,79,10:25,1742243922.975,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:38:07,60,5,80,10:28,1742243974.41,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:39:31,60,6,80,10:33,1742244058.334,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:40:13,60,6,80,10:36,1742244100.712,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:40:54,60,6,81,10:39,1742244140.921,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:42:26,60,7,81,10:44,1742244233.689,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:43:15,60,7,82,10:48,1742244282.19,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:44:34,60,8,82,10:52,1742244361.372,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:45:19,60,8,82,10:55,1742244405.994,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,3:46:00,60,8,83,10:58,1742244447.485,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Karen,3:46:58,60,8,83,11:02,1742244505.287,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Leader Blue,3:49:42,60,9,91,11:11,1742244669.406,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:53:17,60,9,91,11:23,1742244884.42,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:54:10,60,9,92,11:27,1742244937.339,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,3:56:01,60,10,92,11:34,1742245048.223,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Koga,3:56:53,60,10,93,11:37,1742245100.644,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Bruno,4:00:14,63,10,95,11:43,1742245348.714,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Karen,4:01:14,63,10,95,11:47,1742245408.392,Rock Polish,Rock Slide,Earthquake,Rest
+Lyra,Sudowoodo,Elite Four Will,4:22:59,72,11,96,12:39,1742246792.098,Rock Polish,Rock Slide,Earthquake,Wood Hammer
+Lyra,Sudowoodo,Elite Four Koga,4:23:56,72,11,96,12:42,1742246849.173,Rock Polish,Rock Slide,Earthquake,Wood Hammer
+Lyra,Sudowoodo,Elite Four Bruno,4:26:29,74,11,97,12:46,1742247001.748,Rock Polish,Rock Slide,Earthquake,Wood Hammer
+Lyra,Sudowoodo,Elite Four Karen,4:27:51,74,11,97,12:51,1742247084.482,Rock Polish,Rock Slide,Earthquake,Wood Hammer
+Lyra,Sudowoodo,Champion Lance,4:38:32,86,11,99,12:59,1742247724.869,Rock Polish,Rock Slide,Rest,Wood Hammer
+Lyra,Sudowoodo,Pokemon Trainer Red,4:51:37,96,11,100,13:18,1742248565.11,Sandstorm,Rock Slide,Rest,Double Team
