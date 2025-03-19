@@ -590,6 +590,8 @@ const app = Vue.createApp({
                 "Weavile"      : "line-height: 14.35px;",
                 "Drifloon"     : "line-height: 18.4px;",
                 "Drifblim"     : "line-height: 16.82px;",
+                "Aipom"        : "line-height: 17.41px;",
+                "Ambipom"      : "line-height: 16.25px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -1093,15 +1095,28 @@ const app = Vue.createApp({
             document.documentElement.style.setProperty('--overlay-color', newColor);
         }, 
         playerResets(newProp) {
-            if (newProp.toString().length == 1) {
+            if ((newProp + this.blackout_counter).toString().length == 1) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
-            if (newProp.toString().length == 3) {
+            if ((newProp + this.blackout_counter).toString().length == 2) {
+                document.getElementById("reset_counter").style.fontSize = "68px"
+            }
+            if ((newProp + this.blackout_counter).toString().length == 3) {
                 document.getElementById("reset_counter").style.fontSize = "54px"
             }
-            if (newProp.toString().length == 4) {
+            if ((newProp + this.blackout_counter).toString().length == 4) {
                 document.getElementById("reset_counter").style.fontSize = "40px"
             }
+
+            // if (newProp.toString().length == 1) {
+            //     document.getElementById("reset_counter").style.fontSize = "68px"
+            // }
+            // if (newProp.toString().length == 3) {
+            //     document.getElementById("reset_counter").style.fontSize = "54px"
+            // }
+            // if (newProp.toString().length == 4) {
+            //     document.getElementById("reset_counter").style.fontSize = "40px"
+            // }
             
             if (this.playerResets < 0) {
                 this.playerResets = 0;
@@ -1110,6 +1125,19 @@ const app = Vue.createApp({
             MyStorage["playerResets"] = this.playerResets
         },
         blackout_counter(newProp) {
+            if ((this.playerResets + newProp).toString().length == 1) {
+                document.getElementById("reset_counter").style.fontSize = "68px"
+            }
+            if ((this.playerResets + newProp).toString().length == 2) {
+                document.getElementById("reset_counter").style.fontSize = "68px"
+            }
+            if ((this.playerResets + newProp).toString().length == 3) {
+                document.getElementById("reset_counter").style.fontSize = "54px"
+            }
+            if ((this.playerResets + newProp).toString().length == 4) {
+                document.getElementById("reset_counter").style.fontSize = "40px"
+            }
+            
             if (this.blackout_counter < 0) {
                 this.blackout_counter = 0;
             }
@@ -4210,12 +4238,14 @@ const app = Vue.createApp({
                     defendingType2Effectiveness = type_multiple * 2
                 }
             }
+            if (power <= 60 && pkmn_ability == "Technician") {
+                power = power * 1.5
+            }
             console.log("Recalculated:", defendingType2Effectiveness)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
                 if (power == "-") { return "—" }
                 return Math.floor(power * stabModifier * defendingType1Effectiveness * defendingType2Effectiveness * ability * itemBoost * weatherBoost * burnModifier)
-
             }
             else //handles out of battle cases
                 if (power == "—") { return power }
