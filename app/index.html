@@ -124,14 +124,38 @@
                     <button @click="reset()" class="buttonStyle">Reset Texture Settings</button><br>
                     <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
                     <br>
-                    <div>Debugging:</div>
-                    <table>
-                        <tr><td>state:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
-                        <tr><td>blackout:</td><td>{{this.blackout}}</td></tr>
-                        <tr><td>Enemy Team Count:</td><td>{{double_battle_team_size}}</td></tr>
-                        <tr><td>Enemy Graphic:</td><td>{{enemy_graphic}}</td></tr>
-                        <tr><td>Battle Outcome:</td><td>{{this.mapper.properties.battle.outcome.value}}</td></tr>
-                    </table>
+                    Editor:<input class="checkBoxStyle" type="checkbox" v-model="editor"/>
+                    <br>
+                    <div v-if="editor == true">
+                        <div>Moveset Updating:</div>
+                        <input style="width: 150px;" type="text" v-model="move1_replacement" placeholder="Input move 1">
+                        <input style="width: 150px;" type="text" v-model="move2_replacement" placeholder="Input move 2">
+                        <input style="width: 150px;" type="text" v-model="move3_replacement" placeholder="Input move 3">
+                        <input style="width: 150px;" type="text" v-model="move4_replacement" placeholder="Input move 4">
+                        <button class="buttonStyle buttonStyle_column3" @click="update_moveset">Update Party Moves</button>
+                        <button class="buttonStyle buttonStyle_column3" @click="update_battle_moveset">Update Battle Moves</button>
+                        <br>
+                        <br>
+                        <div>Item Updating:</div>
+                        <input style="width: 150px;" type="text" v-model="item1_replacement" placeholder="Input item 1">
+                        <input style="width: 150px;" type="text" v-model="item2_replacement" placeholder="Input item 2">
+                        <input style="width: 150px;" type="text" v-model="item3_replacement" placeholder="Input item 3">
+                        <input style="width: 150px;" type="text" v-model="item4_replacement" placeholder="Input item 4">
+                        <button class="buttonStyle buttonStyle_column3" @click="update_items">Update</button>
+                        <br>
+                        <br>
+                    </div>
+                    <br>
+                    <div v-if="editor == false">
+                        <div>Debugging:</div>
+                        <table>
+                            <tr><td>state:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
+                            <tr><td>blackout:</td><td>{{this.blackout}}</td></tr>
+                            <tr><td>Enemy Team Count:</td><td>{{double_battle_team_size}}</td></tr>
+                            <tr><td>Enemy Graphic:</td><td>{{enemy_graphic}}</td></tr>
+                            <tr><td>Battle Outcome:</td><td>{{this.mapper.properties.battle.outcome.value}}</td></tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="ui2">
                     <div>Solo Pokemon:</div>
@@ -475,7 +499,7 @@
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
                                     <div class="enemyStatModTable">
-                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">BRN</div>
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">{{enemy_status(mapper.properties.battle.opponent.active_pokemon.status_condition?.value)}}</div>
                                         <div v-for="x in modifier_values">
                                             <div v-show="mapper.properties.battle.opponent.active_pokemon.modifiers?.[x].value != 0" class="enemyMod" :class="`e_${x}`">{{stageModifiers(mapper.properties.battle.opponent.active_pokemon.modifiers[x].value)}}</div>
                                         </div>
@@ -873,6 +897,7 @@
     <script src="lib/natures.js"></script>
     <script src="lib/hiddenpower.js"></script>
     <script src="lib/moves/natural_gift.js"></script>
+    <script src="lib/moves/cross_generation_moves.js"></script>
     <!-- Data Objects (New as of 2024-06-02) -->
     <!-- Pokedex -->
     <script src="lib/pokedex/diamond_pearl.js"></script>

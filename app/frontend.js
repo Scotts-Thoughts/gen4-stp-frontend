@@ -490,6 +490,7 @@ const app = Vue.createApp({
             ready                 : false,
             mapper                : null,
             state                 : "No Pokemon",
+            editor                : false,
             game_variables        : null,
             autosplitter_toggle   : true,
             evolution             : false,
@@ -500,6 +501,16 @@ const app = Vue.createApp({
             starter_choice        : "Turtwig",
             refilming_mode        : false,
             
+            // Editor variables
+            move1_replacement: "",
+            move2_replacement: "",
+            move3_replacement: "",
+            move4_replacement: "",
+            item1_replacement: "Rare Candy",
+            item2_replacement: "PP Up",
+            item3_replacement: "Full Restore",
+            item4_replacement: "Max Elixir",
+
             // POKEMON CONFIG (components) ---------------------------------//
             starter                : "Heatran",
             pkmnNature             : "Adamant",
@@ -667,6 +678,7 @@ const app = Vue.createApp({
             hiddenpower_type_selector: hiddenpower_type_selector,
             game_variables           : game_variables,
             natural_gift             : natural_gift,
+            cross_generation_moves   : cross_generation_moves,
 
             // Data (New as of 2024-06-02)
             // These files contain the most up-to-date data for both trainers and pokemon.
@@ -1693,6 +1705,96 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        enemy_status(status) {
+            switch (status) {
+                case "Paralyzed"     : return "PRZ"
+                case "Burned"        : return "BRN"
+                case "Frozen"        : return "FRZ"
+                case "Asleep"        : return "SLP"
+                case "Poisoned"      : return "PSN"
+                case "Badly Poisoned": return "PSN"
+                default: return ""
+            }
+        },
+        async update_items() {
+            var item1 = this.item1_replacement
+            var item2 = this.item2_replacement
+            var item3 = this.item3_replacement
+            var item4 = this.item4_replacement
+            await this.mapper.properties.bag.medicine[0].item.set(item1, false)
+            await this.mapper.properties.bag.medicine[0].quantity.set(99, false)
+            await this.mapper.properties.bag.medicine[1].item.set(item2, false)
+            await this.mapper.properties.bag.medicine[1].quantity.set(99, false)
+            await this.mapper.properties.bag.medicine[2].item.set(item3, false)
+            await this.mapper.properties.bag.medicine[2].quantity.set(99, false)
+            await this.mapper.properties.bag.medicine[3].item.set(item4, false)
+            await this.mapper.properties.bag.medicine[3].quantity.set(99, false)
+        },
+        async update_moveset() {
+            const move_data = this.cross_generation_moves.g4
+            var move1 = this.move_name(this.move1_replacement)
+            var move2 = this.move_name(this.move2_replacement)
+            var move3 = this.move_name(this.move3_replacement)
+            var move4 = this.move_name(this.move4_replacement)
+            var pp1   = move_data[this.move_name(move1)]
+            var pp2   = move_data[this.move_name(move2)]
+            var pp3   = move_data[this.move_name(move3)]
+            var pp4   = move_data[this.move_name(move4)]
+            if (move1 != "") {
+                await this.mapper.properties.player.team[0].moves[0].move.set(move1, false)
+                await this.mapper.properties.player.team[0].moves[0].pp.set(pp1["PP"], false)
+            }
+            if (move2 != "") {
+                await this.mapper.properties.player.team[0].moves[1].move.set(move2, false)
+                await this.mapper.properties.player.team[0].moves[1].pp.set(pp2["PP"], false)
+            }
+            if (move3 != "") {
+                await this.mapper.properties.player.team[0].moves[2].move.set(move3, false)
+                await this.mapper.properties.player.team[0].moves[2].pp.set(pp3["PP"], false)
+            }
+            if (move4 != "") {
+                await this.mapper.properties.player.team[0].moves[3].move.set(move4, false)
+                await this.mapper.properties.player.team[0].moves[3].pp.set(pp4["PP"], false)
+            }
+        },
+        async update_battle_moveset() {
+            if (this.mapper.properties.meta.state.value == "Battle") {
+                const move_data = this.cross_generation_moves.g4
+                var move1 = this.move_name(this.move1_replacement)
+                var move2 = this.move_name(this.move2_replacement)
+                var move3 = this.move_name(this.move3_replacement)
+                var move4 = this.move_name(this.move4_replacement)
+                var pp1   = move_data[this.move_name(move1)]
+                var pp2   = move_data[this.move_name(move2)]
+                var pp3   = move_data[this.move_name(move3)]
+                var pp4   = move_data[this.move_name(move4)]
+                if (move1 != "") {
+                    await this.mapper.properties.battle.player.active_pokemon.moves[0].move.set(move1, false)
+                    await this.mapper.properties.battle.player.active_pokemon.moves[0].pp.set(pp1["PP"], false)
+                    await this.mapper.properties.battle.player.team[0].moves[0].move.set(move1, false)
+                    await this.mapper.properties.battle.player.team[0].moves[0].pp.set(pp1["PP"], false)
+                }
+                if (move2 != "") {
+                    await this.mapper.properties.battle.player.active_pokemon.moves[1].move.set(move2, false)
+                    await this.mapper.properties.battle.player.active_pokemon.moves[1].pp.set(pp2["PP"], false)
+                    await this.mapper.properties.battle.player.team[0].moves[1].move.set(move2, false)
+                    await this.mapper.properties.battle.player.team[0].moves[1].pp.set(pp2["PP"], false)
+                }
+                if (move3 != "") {
+                    await this.mapper.properties.battle.player.active_pokemon.moves[2].move.set(move3, false)
+                    await this.mapper.properties.battle.player.active_pokemon.moves[2].pp.set(pp3["PP"], false)
+                    await this.mapper.properties.battle.player.team[0].moves[2].move.set(move3, false)
+                    await this.mapper.properties.battle.player.team[0].moves[2].pp.set(pp3["PP"], false)
+                }
+                if (move4 != "") {
+                    await this.mapper.properties.battle.player.active_pokemon.moves[3].move.set(move4, false)
+                    await this.mapper.properties.battle.player.active_pokemon.moves[3].pp.set(pp4["PP"], false)
+                    await this.mapper.properties.battle.player.team[0].moves[3].move.set(move4, false)
+                    await this.mapper.properties.battle.player.team[0].moves[3].pp.set(pp4["PP"], false)
+                }
+            }
+            else { return }
+        },
         hgss_badge_check(x) {
             const badge          = this.mapper.properties.player.badges[x].value
             const state          = this.mapper.properties.meta.state.value          
@@ -1837,6 +1939,7 @@ const app = Vue.createApp({
         get_stat() {
             const state = this.mapper.properties.meta.state.value
             const held_item = this.mapper.properties.player.team[0].held_item.value
+            var status_condition = this.mapper.properties.player.team[0].status_condition.value
             function choice_specs(stat) {
                 return Math.floor(stat * 1.5)
             }
@@ -1854,7 +1957,7 @@ const app = Vue.createApp({
                 Def = this.mapper.properties.player.team[0].stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
-                SpE = this.mapper.properties.player.team[0].stats.speed.value
+                SpE = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.player.team[0].stats.speed.value / 4) : this.mapper.properties.player.team[0].stats.speed.value
                 if (this.stat_fix_toggle_2 > 0) {
                     this.stat_fix_toggle_2 -= 1
                     HP = this.stat_fix_hp
@@ -1893,7 +1996,7 @@ const app = Vue.createApp({
                 Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                 SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                Spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                Spe = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.battle.player.active_pokemon.stats.speed.value / 4) : this.mapper.properties.battle.player.active_pokemon.stats.speed.value
                 let battle_hp  = HP
                 let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
                 let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def])
@@ -1917,7 +2020,7 @@ const app = Vue.createApp({
                     Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
                     SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                     SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                    Spe = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    Spe = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.battle.player.active_pokemon.stats.speed.value / 4) : this.mapper.properties.battle.player.active_pokemon.stats.speed.value
                     if (this.mapper.properties.battle.player.active_pokemon.stats.defense.value < 2000) {
                         this.stat_fix_lvl = this.mapper.properties.battle.player.active_pokemon.level.value
                         this.stat_fix_hp  = HP
