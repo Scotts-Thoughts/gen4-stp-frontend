@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Lickilicky,Rival Silver,1:00:00,1,0,33,3:13,1743450485.14,Rollout,Substitute,Rock Smash,Swords Dance
+Lyra,Lickilicky,Leader Morty,1:02:45,1,0,34,3:23,1743450651.501,Rollout,Substitute,Rock Smash,Swords Dance
+Lyra,Lickilicky,Leader Chuck,1:07:04,1,0,36,3:37,1743450910.587,Return,Substitute,Rock Smash,Swords Dance
+Lyra,Lickilicky,Leader Pryce,1:17:04,1,0,40,4:07,1743451510.035,Return,Substitute,Rock Smash,Swords Dance
+Lyra,Lickilicky,Leader Jasmine,1:19:03,1,0,41,4:13,1743451629,Return,Substitute,Rock Smash,Swords Dance
+Lyra,Lickilicky,Rival Silver,1:26:08,2,0,43,4:34,1743452054.426,Return,Shadow Ball,Rock Smash,Swords Dance
+Lyra,Lickilicky,Leader Clair,1:38:32,2,0,48,5:11,1743452798.85,Return,Shadow Ball,Swords Dance,
+Lyra,Lickilicky,Rival Silver,1:54:10,2,0,52,5:56,1743453736.016,Return,Shadow Ball,Swords Dance,Power Whip
+Lyra,Lickilicky,Elite Four Will,1:55:31,2,0,53,6:00,1743453816.944,Return,Shadow Ball,Swords Dance,Power Whip
+Lyra,Lickilicky,Elite Four Koga,1:57:16,3,0,54,6:03,1743453922.152,Return,Shadow Ball,Swords Dance,Power Whip
+Lyra,Lickilicky,Elite Four Bruno,1:58:12,3,0,54,6:06,1743453977.935,Return,Shadow Ball,Swords Dance,Power Whip
+Lyra,Lickilicky,Elite Four Karen,1:59:57,4,0,55,6:09,1743454083.704,Return,Shadow Ball,Swords Dance,Power Whip
+Lyra,Lickilicky,Champion Lance,2:04:00,6,0,64,6:17,1743454326.657,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Erika,2:09:56,6,0,65,6:34,1743454682.002,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Sabrina,2:11:38,6,0,65,6:38,1743454784.142,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Misty,2:17:56,6,0,68,6:57,1743455162.519,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Lt. Surge,2:21:13,6,0,68,7:07,1743455359.856,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Brock,2:23:37,6,0,69,7:14,1743455503.7,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Blaine,2:27:19,6,0,70,7:24,1743455725.337,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Janine,2:31:17,6,0,71,7:35,1743455963.284,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Leader Blue,2:34:32,6,0,71,7:46,1743456158.742,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Elite Four Will,2:39:04,6,0,72,7:59,1743456430.183,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Elite Four Koga,2:40:17,6,0,73,8:03,1743456503.429,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Elite Four Bruno,2:43:21,8,0,74,8:07,1743456687.567,Return,Thunderbolt,Swords Dance,Ice Beam
+Lyra,Lickilicky,Elite Four Karen,2:46:32,10,0,75,8:13,1743456878.733,Return,Earthquake,Swords Dance,Ice Beam
+Lyra,Lickilicky,Champion Lance,2:50:12,11,0,83,8:23,1743457098.131,Return,Rest,Swords Dance,Ice Beam
+Lyra,Lickilicky,Pokemon Trainer Red,2:58:47,14,0,85,8:45,1743457613.223,Return,Rest,Swords Dance,Attract

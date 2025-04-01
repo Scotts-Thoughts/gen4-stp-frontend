@@ -685,7 +685,8 @@
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
                         <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :class="{ 'first-row': index === 0 }">
-                            <td class="movepool_way">{{x.tmhm}}</td>
+                            <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
+                            <td v-else class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
@@ -744,7 +745,8 @@
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
                         <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :style="post_game_move_style(x)?.tmhm">
-                            <td class="movepool_way">{{x.tmhm}}</td>
+                            <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
+                            <td v-else class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>

@@ -1,0 +1,6 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Lickitung,Passerby Boy,4:20,0,0,5,0:12,1743443474.207,Lick,Supersonic,,
+Lyra,Lickitung,Leader Falkner,17:44,0,0,13,0:57,1743444278.603,Lick,Knock Off,Rock Smash,Defense Curl
+Lyra,Lickitung,Leader Bugsy,32:48,0,0,20,1:47,1743448806.842,Rock Tomb,Knock Off,Rock Smash,Defense Curl
+Lyra,Lickitung,Rival Silver,34:47,1,0,21,1:51,1743448925.562,Rock Tomb,Stomp,Rock Smash,Defense Curl
+Lyra,Lickitung,Leader Whitney,45:00,1,0,22,2:26,1743449548.618,Rock Tomb,Stomp,Rock Smash,Swords Dance
