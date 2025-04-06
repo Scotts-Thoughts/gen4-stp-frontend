@@ -149,8 +149,11 @@
                     <div v-if="editor == false">
                         <div>Debugging:</div>
                         <table>
-                            <tr><td>state:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
-                            <tr><td>blackout:</td><td>{{this.blackout}}</td></tr>
+                            <tr><td>State:</td><td>{{this.mapper.properties.meta.state.value}}</td></tr>
+                            <tr><td>Global Pointer:</td><td>{{this.mapper.properties.meta.global_pointer.value}}</td></tr>
+                            <tr><td>Team Count:</td><td>{{this.mapper.properties.player.team_count.value}}</td></tr>
+                            <tr><td>Delay:</td><td>{{disallow_delay}}</td></tr>
+                            <tr><td>Blackout:</td><td>{{this.blackout}}</td></tr>
                             <tr><td>Enemy Team Count:</td><td>{{double_battle_team_size}}</td></tr>
                             <tr><td>Enemy Graphic:</td><td>{{enemy_graphic}}</td></tr>
                             <tr><td>Battle Outcome:</td><td>{{this.mapper.properties.battle.outcome.value}}</td></tr>
@@ -345,7 +348,7 @@
                             <div v-if="stats_setting == 'IVs'"                 :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} dv`">{{get_iv(`${stat.name}`)}}/31</div>
                             <div v-if="stats_setting == 'EVs'"                 :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
                             <div v-if="stats_setting == 'Detailed EVs'"        :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
-                            <div v-if="stats_setting == 'Automatic'"           :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`">{{get_stat()[stat.abrv]}}</div>
+                            <div v-if="stats_setting == 'Automatic'"           :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`" :id="stat.abrv">{{get_stat()[stat.abrv]}}</div>
                             <div v-if="stats_setting == 'Base Stats Median'"   :class="`average_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`">{{average_median_stats(stat.object_identifier).median}}</div>
                             <div v-if="stats_setting == 'Base Stats Average'"  :class="`average_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`">{{average_median_stats(stat.object_identifier).average}}</div>
                             <!-- <div v-if="stats_setting == 'Base Stats Detailed'" :class="`stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} avrg_value_style `">{{average_median_stats(stat.object_identifier).average}}</div> -->

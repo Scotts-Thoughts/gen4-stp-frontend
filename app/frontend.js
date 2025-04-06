@@ -500,6 +500,10 @@ const app = Vue.createApp({
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
             refilming_mode        : false,
+
+            // Fix for Resets and Blackouts incrementing twice instead of just once
+            disallow_faults: false,
+            disallow_delay : 2000,
             
             // Editor variables
             move1_replacement: "",
@@ -1110,7 +1114,7 @@ const app = Vue.createApp({
         overlay_color(newColor) {
             document.documentElement.style.setProperty('--overlay-color', newColor);
         }, 
-        playerResets(newProp) {
+        async playerResets(newProp) {
             if ((newProp + this.blackout_counter).toString().length == 1) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
@@ -1137,7 +1141,7 @@ const app = Vue.createApp({
             if (this.playerResets < 0) {
                 this.playerResets = 0;
             }
-            // this.blackout == false
+            this.blackout == false
             MyStorage["playerResets"] = this.playerResets
         },
         blackout_counter(newProp) {
@@ -1709,6 +1713,11 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        async disallow_faults_function() {
+            this.disallow_faults = true
+            await this.sleep(this.disallow_delay)
+            this.disallow_faults = false
+        },
         enemy_status(status) {
             switch (status) {
                 case "Paralyzed"     : return "PRZ"
@@ -4335,8 +4344,8 @@ const app = Vue.createApp({
             var itemBoost = this.determineItemBoost(x, this.mapper.properties.player.team[0])
             var weatherBoost = this.weatherModifier(this.mapper.properties.battle.field.weather.value, x, this.moveType(x))
             var burnModifier = this.burnModifier(x)
-            console.log("Type1:",defendingType1Effectiveness)
-            console.log("Type2:",defendingType2Effectiveness)
+            // console.log("Type1:",defendingType1Effectiveness)
+            // console.log("Type2:",defendingType2Effectiveness)
             if (pkmn_ability == "Tinted Lens") {
                 var type_multiple = defendingType1Effectiveness * defendingType2Effectiveness
                 if (type_multiple == 0) {}
@@ -4348,7 +4357,7 @@ const app = Vue.createApp({
             if (power <= 60 && pkmn_ability == "Technician") {
                 power = power * 1.5
             }
-            console.log("Recalculated:", defendingType2Effectiveness)
+            // console.log("Recalculated:", defendingType2Effectiveness)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
                 if (power == "-") { return "—" }
@@ -4426,7 +4435,8 @@ const app = Vue.createApp({
                 }
                 if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                     this.blackout = false;
-                    this.playerResets++
+                    if (this.disallow_faults == false) { this.playerResets++ }
+                    this.disallow_faults_function()
                 }
             })
         }
@@ -4439,7 +4449,8 @@ const app = Vue.createApp({
                 }
                 if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
                     this.blackout = false;
-                    this.playerResets++
+                    if (this.disallow_faults == false) { this.playerResets++ }
+                    this.disallow_faults_function()
                 }
             })
         }
@@ -4455,15 +4466,15 @@ const app = Vue.createApp({
             if (this.blackout == true) {
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
-                        this.blackout_counter++;
-                        this.blackout = false;
+                        if (this.disallow_faults == false) { this.blackout_counter++ }
+                        this.disallow_faults_function()
                     }
                 }
                 if (game == 'HeartGold and SoulSilver') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
-                        this.blackout_counter++;
+                        if (this.disallow_faults == false) { this.blackout_counter++ }
                         this.blackout = false;
-                        this.sleep(2500)
+                        this.disallow_faults_function()
                     }
                 }
             }
@@ -4564,6 +4575,40 @@ const app = Vue.createApp({
         // this.mapper.properties.overworld.map_name.change(async (newProp) => {
         //     console.log(newProp)
         // });
+
+        //Styling for stats in case they go above 999
+        const stat_size_3_digit = "56px"
+        const stat_size_4_digit = "43px"
+        if (document.getElementById("Atk") && this.get_stat()["Atk"].toString().length <= 3) { document.getElementById("Atk").style.fontSize = stat_size_3_digit }
+        if (document.getElementById("Atk") && this.get_stat()["Atk"].toString().length >= 4) { document.getElementById("Atk").style.fontSize = stat_size_4_digit }
+        if (document.getElementById("Def") && this.get_stat()["Def"].toString().length <= 3) { document.getElementById("Def").style.fontSize = stat_size_3_digit }
+        if (document.getElementById("Def") && this.get_stat()["Def"].toString().length >= 4) { document.getElementById("Def").style.fontSize = stat_size_4_digit }
+        if (document.getElementById("SpA") && this.get_stat()["SpA"].toString().length <= 3) { document.getElementById("SpA").style.fontSize = stat_size_3_digit }
+        if (document.getElementById("SpA") && this.get_stat()["SpA"].toString().length >= 4) { document.getElementById("SpA").style.fontSize = stat_size_4_digit }
+        if (document.getElementById("SpD") && this.get_stat()["SpD"].toString().length <= 3) { document.getElementById("SpD").style.fontSize = stat_size_3_digit }
+        if (document.getElementById("SpD") && this.get_stat()["SpD"].toString().length >= 4) { document.getElementById("SpD").style.fontSize = stat_size_4_digit }
+        if (document.getElementById("Spe") && this.get_stat()["Spe"].toString().length <= 3) { document.getElementById("Spe").style.fontSize = stat_size_3_digit }
+        if (document.getElementById("Spe") && this.get_stat()["Spe"].toString().length >= 4) { document.getElementById("Spe").style.fontSize = stat_size_4_digit }
+        this.mapper.properties.battle.player.active_pokemon.modifiers.attack.change(async () => {
+            if (this.get_stat()["Atk"].toString().length <= 3) { document.getElementById("Atk").style.fontSize = stat_size_3_digit }
+            if (this.get_stat()["Atk"].toString().length >= 4) { document.getElementById("Atk").style.fontSize = stat_size_4_digit }
+        })
+        this.mapper.properties.battle.player.active_pokemon.modifiers.defense.change(async () => {
+            if (this.get_stat()["Def"].toString().length <= 3) { document.getElementById("Def").style.fontSize = stat_size_3_digit }
+            if (this.get_stat()["Def"].toString().length >= 4) { document.getElementById("Def").style.fontSize = stat_size_4_digit }
+        })
+        this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.change(async () => {
+            if (this.get_stat()["SpA"].toString().length <= 3) { document.getElementById("SpA").style.fontSize = stat_size_3_digit }
+            if (this.get_stat()["SpA"].toString().length >= 4) { document.getElementById("SpA").style.fontSize = stat_size_4_digit }
+        })
+        this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.change(async () => {
+            if (this.get_stat()["SpD"].toString().length <= 3) { document.getElementById("SpD").style.fontSize = stat_size_3_digit }
+            if (this.get_stat()["SpD"].toString().length >= 4) { document.getElementById("SpD").style.fontSize = stat_size_4_digit }
+        })
+        this.mapper.properties.battle.player.active_pokemon.modifiers.speed.change(async () => {
+            if (this.get_stat()["Spe"].toString().length <= 3) { document.getElementById("Spe").style.fontSize = stat_size_3_digit }
+            if (this.get_stat()["Spe"].toString().length >= 4) { document.getElementById("Spe").style.fontSize = stat_size_4_digit }
+        })
 
         //*Autosplitter
         const log_split = (x) => console.log(`Autosplitter - Battle Ended - Split: ${this.mapper.properties.battle.opponent.name.value} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
@@ -4929,27 +4974,27 @@ const app = Vue.createApp({
         });
 
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
-            // console.log("mapper.properties.player.team[0].exp.change")
-            if (this.mapper.properties.meta.state.value == "Overworld" || this.mapper.properties.meta.state.value == "No Pokemon") {
-                if (this.expBarAnimation == true) {
-                    const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
-                    const growthRate = this.g4PokemonData[species]?.growth_rate ?? this.g4PokemonData[this.starter].growth_rate;
-                    const expPoints = newProp.value;
-                    const newExpStats = this.calcExpStats(growthRate, expPoints);
+            console.log("State - EXP Function 1", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
+            if (this.expBarAnimation == true) {
+                // console.log("Exp Bar function got here (1)...")
+                const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
+                const growthRate = this.g4PokemonData[species]?.growth_rate ?? this.g4PokemonData[this.starter].growth_rate;
+                const expPoints = newProp.value;
+                const newExpStats = this.calcExpStats(growthRate, expPoints);
 
-                    this.expBarState.species = species;
-                    this.expBarState.expPoints = expPoints;
+                this.expBarState.species = species;
+                this.expBarState.expPoints = expPoints;
 
-                    // console.log("exp changed", {species, growthRate, expPoints})
+                // console.log("exp changed", {species, growthRate, expPoints})
 
-                    this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
-                }
+                this.$refs.expBar.style.width = (newExpStats.percent * 100) + "%";
             }
         })
         this.mapper.properties.battle.player.active_pokemon.exp.change(async (newProp, oldProp) => {
-            // console.log("mapper.properties.battle.player.active_pokemon.exp.change")
+            console.log("State - EXP Function 2", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
             if (this.mapper.properties.meta.state.value == "Battle") {
                 if (this.expBarAnimation == true) {
+                    // console.log("Exp Bar function got here (2)...")
                     const prevSpecies = this.expBarState.species;
                     const prevExpPoints = this.expBarState.expPoints;
                     const prevGrowthRate = this.g4PokemonData[prevSpecies].growth_rate;
