@@ -1,0 +1,54 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Tangela,Passerby Boy,7:54,0,0,7,0:26,1743624212.308,Ingrain,Constrict,Sleep Powder,
+Lyra,Tangela,Leader Falkner,21:44,1,0,13,1:12,1743625234.502,Ingrain,Growth,Sleep Powder,Absorb
+Lyra,Tangela,Rival Silver,42:46,8,0,20,2:07,1743626496.9,Vine Whip,Growth,Sleep Powder,Absorb
+Lyra,Tangela,Leader Bugsy,58:48,13,0,24,2:49,1743627532.88,Vine Whip,Growth,Sleep Powder,Absorb
+Lyra,Tangela,Leader Whitney,1:07:01,13,0,25,3:16,1743628026.052,Vine Whip,Swords Dance,Sleep Powder,Headbutt
+Lyra,Tangela,Rival Silver,1:18:20,13,0,30,3:53,1743628704.52,Vine Whip,Swords Dance,Sleep Powder,Substitute
+Lyra,Tangela,Leader Morty,1:22:16,13,0,32,4:06,1743628940.84,Vine Whip,Swords Dance,Sleep Powder,Substitute
+Lyra,Tangrowth,Leader Chuck,1:26:48,13,0,34,4:21,1743629225.911,Vine Whip,Swords Dance,Sleep Powder,Return
+Lyra,Tangrowth,Leader Pryce,1:37:04,13,0,39,4:54,1743629854.895,Return,Swords Dance,Sleep Powder,Vine Whip
+Lyra,Tangrowth,Leader Jasmine,1:40:55,14,0,39,5:04,1743630085.448,Return,Swords Dance,Sleep Powder,Vine Whip
+Lyra,Tangrowth,Rival Silver,1:46:49,15,0,42,5:20,1743630439.798,Return,Swords Dance,Sleep Powder,Vine Whip
+Lyra,Tangrowth,Leader Clair,1:57:52,17,0,46,5:53,1743631102.68,Return,Swords Dance,Sleep Powder,Vine Whip
+Lyra,Tangrowth,Rival Silver,2:20:05,28,0,57,6:40,1743632435.451,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Elite Four Will,2:21:54,29,0,57,6:44,1743632544.453,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Elite Four Koga,2:23:07,30,0,58,6:47,1743632617.873,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Elite Four Bruno,2:23:58,30,0,59,6:50,1743632668.541,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Elite Four Karen,2:24:44,30,0,59,6:53,1743632714.674,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Champion Lance,2:26:02,30,0,63,6:58,1743632792.655,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Leader Erika,2:31:26,30,0,64,7:14,1743633116.752,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Leader Misty,2:37:55,30,0,66,7:35,1743633505.446,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Leader Lt. Surge,2:40:55,30,0,67,7:44,1743633685.619,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Leader Brock,2:42:48,30,0,67,7:50,1743633798.43,Return,Swords Dance,Sleep Powder,Power Whip
+Lyra,Tangrowth,Leader Blaine,2:47:59,32,0,68,8:04,1743634109.133,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Leader Janine,2:51:59,32,0,70,8:16,1743634349.968,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Leader Sabrina,2:53:17,32,0,70,8:20,1743634545.393,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Leader Blue,2:57:59,34,0,70,8:29,1743634826.715,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Elite Four Will,3:03:50,35,0,71,8:45,1743638291.543,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Elite Four Koga,3:04:53,35,0,72,8:48,1743638354.474,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Tangrowth,Elite Four Bruno,3:06:27,35,0,73,8:54,1743638448.08,Return,Swords Dance,Sleep Powder,Earthquake
+Lyra,Tangrowth,Elite Four Will,3:18:34,43,1,81,9:19,1743639253.471,Return,Swords Dance,Sleep Powder,Earthquake
+Lyra,Tangrowth,Elite Four Koga,3:19:40,43,1,82,9:24,1743639319.871,Return,Swords Dance,Sleep Powder,Earthquake
+Lyra,Tangrowth,Elite Four Bruno,3:20:38,43,1,82,9:27,1743639377.869,Return,Swords Dance,Sleep Powder,Earthquake
+Lyra,Tangrowth,Elite Four Karen,3:21:43,43,1,84,9:31,1743639443.318,Return,Swords Dance,Sleep Powder,Earthquake
+Lyra,Tangrowth,Elite Four Will,3:29:34,50,2,84,9:46,1743639913.697,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Koga,3:30:26,50,2,85,9:50,1743639966.272,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Bruno,3:31:17,50,2,85,9:53,1743640017.226,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:32:34,50,3,86,9:57,1743640094.265,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Koga,3:33:18,50,4,87,10:00,1743640138.231,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Bruno,3:34:16,50,4,87,10:03,1743640195.727,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:35:54,50,4,88,10:09,1743640327.516,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:37:38,50,5,89,10:16,1743640431.914,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:39:15,50,7,90,10:22,1743640528.816,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Koga,3:40:05,50,8,90,10:25,1743640578.388,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Bruno,3:40:57,50,8,91,10:28,1743640630.311,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:42:19,50,8,91,10:33,1743640712.58,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Koga,3:43:06,50,9,92,10:36,1743640759.95,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Bruno,3:43:49,50,9,93,10:38,1743640802.334,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Will,3:45:48,50,9,93,10:46,1743641033.823,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Koga,3:46:33,50,10,94,10:48,1743641078.457,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Bruno,3:47:24,50,10,94,10:52,1743641130.041,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Elite Four Karen,3:49:45,51,10,95,10:57,1743641271.096,Rock Slide,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Champion Lance,3:52:39,54,10,95,11:02,1743641444.752,Return,Swords Dance,Sleep Powder,Attract
+Lyra,Tangrowth,Pokemon Trainer Red,4:22:35,75,10,98,11:42,1743643351.42,Return,Swords Dance,AncientPower,Rest

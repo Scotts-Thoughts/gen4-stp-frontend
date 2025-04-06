@@ -605,6 +605,8 @@ const app = Vue.createApp({
                 "Ambipom"      : "line-height: 16.25px;",
                 "Lickitung"    : "line-height: 15.48px;",
                 "Lickilicky"   : "line-height: 14.55px;",
+                "Tangela"      : "line-height: 18px;",
+                "Tangrowth"    : "line-height: 15.99px;",
             },
             simple_natures: {
                 "0" : "Hardy",
