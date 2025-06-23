@@ -611,6 +611,9 @@ const app = Vue.createApp({
                 "Lickilicky"   : "line-height: 14.55px;",
                 "Tangela"      : "line-height: 18px;",
                 "Tangrowth"    : "line-height: 15.99px;",
+                "Chatot"       : "line-height: 20px;",
+                "Bronzor"      : "line-height: 18.4px;",
+                "Bronzong"     : "line-height: 15.47px;",
             },
             simple_natures: {
                 "0" : "Hardy",
@@ -3856,6 +3859,13 @@ const app = Vue.createApp({
                     if (power > 200) { power = 200 } // Ensure power does not exceed 200
                     return power
                 }
+                let held_item_2 = this.mapper.properties.player.team[0].held_item.value
+                if (held_item_2 == 'Wise Glasses' && move.category == 'Special') {
+                    if (move.power != "—" && move.power != 0 && move.power != 1) {
+                        return Math.floor(move.power * 1.1)
+                    }
+                }
+
                 if (move.power == "—") { return "—"}
                 if (move.power == 0) { return "—"}
                 if (move.power == 1) { return "—"}

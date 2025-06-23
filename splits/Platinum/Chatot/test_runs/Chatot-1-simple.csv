@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Chatot,Rival,9:58,0,0,12,0:36,1750083408.24,Peck,Growl,Return,Mirror Move
+Dawn,Chatot,Leader Roark,21:57,1,0,21,1:20,1750084127.63,Chatter,Peck,Return,Sing
+Dawn,Chatot,Commander Mars,26:15,1,0,23,1:36,1750085034.088,Chatter,Peck,Return,Sing
+Dawn,Chatot,Leader Gardenia,32:35,1,0,28,1:59,1750085413.906,Chatter,Taunt,Return,Sing
+Dawn,Chatot,Commander Jupiter,35:24,1,0,29,2:09,1750086155.622,Chatter,Taunt,Return,Sing
+Dawn,Chatot,Leader Fantina,44:03,1,0,33,2:40,1750086673.901,Chatter,Thief,Return,Roost
+Dawn,Chatot,Rival,45:06,1,0,34,2:44,1750087321.654,Chatter,Thief,Return,Roost
+Dawn,Chatot,Leader Maylene,53:47,1,0,37,3:14,1750087843.454,Chatter,Thief,Return,Roost
+Dawn,Chatot,Rival,1:03:27,1,0,44,3:49,1750089855.024,Chatter,FeatherDance,Return,Roost
+Dawn,Chatot,Leader Wake,1:06:42,2,0,45,3:59,1750090050.75,Chatter,FeatherDance,Hyper Voice,Roost
+Dawn,Chatot,Galactic Boss Cyrus,1:12:53,2,0,48,4:21,1750090421.296,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Rival,1:15:39,2,0,49,4:31,1750090629.788,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Leader Byron,1:24:12,6,0,59,4:49,1750091142.901,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Commander Saturn,1:26:58,6,0,59,4:59,1750093492.053,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Commander Mars,1:28:53,6,0,60,5:06,1750093607.174,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Leader Candice,1:37:17,10,0,61,5:25,1750094330.156,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Galactic Boss Cyrus,1:42:38,10,0,63,5:44,1750094989.53,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Commander Saturn,1:43:17,10,0,63,5:47,1750095027.978,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Commander Mars,1:49:12,10,0,64,6:09,1750095403.452,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Galactic Boss Cyrus,1:54:23,10,0,65,6:24,1750095714.421,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Leader Volkner,2:03:35,11,0,69,6:55,1750096266.616,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Rival,2:12:55,12,0,71,7:26,1750097229.235,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Elite Four Aaron,2:13:53,12,0,72,7:29,1750097287.395,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Elite Four Bertha,2:15:25,12,0,85,7:35,1750097378.851,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Elite Four Flint,2:16:14,12,0,85,7:39,1750097428.279,Hyper Voice,FeatherDance,Chatter,Roost
+Dawn,Chatot,Elite Four Lucian,2:17:56,13,0,85,7:44,1750097529.888,Hyper Voice,Aerial Ace,Chatter,Roost
+Dawn,Chatot,Champion Cynthia,2:22:19,15,1,86,7:50,1750097793.489,Hyper Voice,Fly,Chatter,Roost
