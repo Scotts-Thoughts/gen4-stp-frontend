@@ -614,6 +614,9 @@ const app = Vue.createApp({
                 "Chatot"       : "line-height: 20px;",
                 "Bronzor"      : "line-height: 18.4px;",
                 "Bronzong"     : "line-height: 15.47px;",
+                "Rhyhorn"      : "line-height: 18.05px;",
+                "Rhydon"       : "line-height: 14.35px;",
+                "Rhyperior"    : "line-height: 13.74px;",
             },
             simple_natures: {
                 "0" : "Hardy",

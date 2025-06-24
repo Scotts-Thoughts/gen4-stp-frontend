@@ -1,0 +1,47 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Rhyhorn,Passerby Boy,4:26,0,0,7,0:14,1750690963.302,Horn Attack,Tail Whip,,
+Lyra,Rhyhorn,Passerby Boy,4:34,0,0,6,0:13,1750693175.431,Horn Attack,Tail Whip,,
+Lyra,Rhyhorn,Leader Falkner,13:03,0,0,12,0:41,1750693685.12,Horn Attack,Tail Whip,Stomp,
+Lyra,Rhyhorn,Leader Bugsy,26:05,0,0,18,1:23,1750694466.935,Horn Attack,Tail Whip,Stomp,Rock Tomb
+Lyra,Rhyhorn,Rival Silver,31:11,1,6,20,1:38,1750694772.681,Horn Attack,Tail Whip,Stomp,Rock Tomb
+Lyra,Rhyhorn,Leader Whitney,41:31,1,6,21,2:12,1750695477.373,Substitute,Swords Dance,Headbutt,Rock Tomb
+Lyra,Rhyhorn,Rival Silver,53:44,1,6,26,2:52,1750697477.672,Substitute,Swords Dance,Headbutt,Rock Tomb
+Lyra,Rhyhorn,Leader Morty,58:59,1,7,29,3:09,1750697793.33,Substitute,Swords Dance,Headbutt,Rock Tomb
+Lyra,Rhyhorn,Leader Chuck,1:29:07,6,7,37,4:15,1750699600.825,Substitute,Swords Dance,Headbutt,Rock Tomb
+Lyra,Rhyhorn,Leader Jasmine,1:33:29,6,7,37,4:29,1750701618.672,Dig,Swords Dance,Headbutt,Rock Tomb
+Lyra,Rhydon,Leader Pryce,1:40:08,7,7,42,4:49,1750702055.71,Dig,Swords Dance,Hammer Arm,Rock Tomb
+Lyra,Rhydon,Rival Silver,1:53:38,11,7,44,5:24,1750702866.054,Shadow Claw,Swords Dance,Hammer Arm,Return
+Lyra,Rhydon,Leader Clair,2:07:36,14,8,48,6:05,1750703703.382,Stone Edge,Swords Dance,Hammer Arm,Return
+Lyra,Rhydon,Rival Silver,2:25:15,16,8,52,6:57,1750706193.146,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Will,2:27:05,16,8,53,7:03,1750706303.244,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Koga,2:27:53,16,8,53,7:06,1750706351.095,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Bruno,2:28:44,16,8,54,7:09,1750706402.443,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Karen,2:30:14,17,8,55,7:12,1750706492.451,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Will,2:32:26,19,9,55,7:17,1750706623.691,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Koga,2:33:15,19,9,56,7:20,1750706672.91,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Will,2:34:36,19,10,57,7:25,1750706754.356,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Koga,2:35:34,19,10,57,7:29,1750706811.81,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Bruno,2:36:19,19,10,58,7:31,1750706857.382,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Will,2:37:43,19,11,59,7:36,1750706941.379,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Koga,2:38:23,19,11,59,7:39,1750706981.118,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Bruno,2:39:05,19,11,60,7:41,1750707023.09,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Karen,2:39:49,19,11,60,7:44,1750707066.887,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Will,2:40:56,19,12,61,7:48,1750707133.672,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Koga,2:41:34,19,12,61,7:50,1750707172.467,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Bruno,2:42:11,19,12,62,7:53,1750707209.121,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Elite Four Karen,2:42:55,19,12,62,7:55,1750707253.583,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Champion Lance,2:46:42,24,12,64,8:00,1750707480.398,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Leader Lt. Surge,2:50:41,24,12,65,8:12,1750709143.645,Earthquake,Swords Dance,Stone Edge,Return
+Lyra,Rhydon,Leader Sabrina,2:53:49,25,12,65,8:20,1750709331.5,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Misty,3:01:05,25,12,67,8:43,1750709767.3,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Brock,3:05:09,25,12,67,8:56,1750710011.445,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Blaine,3:09:15,25,12,68,9:08,1750710257.098,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Janine,3:13:37,25,12,69,9:21,1750710518.897,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Erika,3:16:37,27,12,70,9:27,1750710698.793,Earthquake,Swords Dance,Stone Edge,Rock Polish
+Lyra,Rhydon,Leader Blue,3:22:46,31,12,70,9:42,1750711068.258,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Elite Four Will,3:33:50,31,12,71,10:16,1750711825.223,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Elite Four Koga,3:34:49,31,12,72,10:20,1750711883.474,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Elite Four Bruno,3:35:45,31,12,72,10:23,1750711939.489,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Elite Four Karen,3:37:03,31,12,73,10:28,1750712017.398,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Champion Lance,3:38:15,31,12,74,10:32,1750712089.604,Earthquake,Swords Dance,Rock Slide,Rock Polish
+Lyra,Rhyperior,Pokemon Trainer Red,3:43:14,31,12,75,10:47,1750712389.241,Earthquake,Swords Dance,Rock Slide,Rock Polish
