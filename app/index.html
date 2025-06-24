@@ -652,7 +652,7 @@
                 </div>
                 <!-- Movepool - Only level up -->
                 <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
+                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
                             <th class="movepool_header movepool_move">Move</th>
@@ -677,7 +677,7 @@
                 </div>
                 <!-- Movepool - TMHM -->
                 <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
+                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
                             <th class="movepool_header movepool_move">Move</th>
@@ -703,7 +703,7 @@
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
                 <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" style="line-height: 19px;">
+                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
                             <th class="movepool_header movepool_move">Move</th>
@@ -728,7 +728,7 @@
                 </div>
                 <!-- Movepool -->
                 <div v-else key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" :style="customFormats()">
+                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
                             <th class="movepool_header movepool_move">Move</th>

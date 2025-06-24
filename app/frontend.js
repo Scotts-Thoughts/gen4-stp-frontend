@@ -1087,7 +1087,7 @@ const app = Vue.createApp({
             this.pkmn_ability           = MyStorage[`${game}_${starter}`]?.pkmn_ability          ?? this.g4PokemonData[starter].abilities[0],
             this.hidden_power_type      = MyStorage[`${game}_${starter}`]?.hidden_power_type     ?? "Dark",
             this.pkmn_gender            = MyStorage[`${game}_${starter}`]?.pkmn_gender           ?? "Female"
-            // this.movepoolResize();
+            this.movepoolResize();
         },
         ui_stat_arrangement(newValue) {
             if (newValue == 'HP, Atk, Def, SpA, SpD, Spe') {
@@ -3287,6 +3287,50 @@ const app = Vue.createApp({
             }
             return obj
         }, 
+
+        movepoolResize() {
+            console.log("movepool")
+            let out = this.movepoolResizeCalc();
+            if(this.mapper.properties.meta.state.value == "From Battle") {
+                return out;
+            }
+            this.mapper.properties.player.team[0].species.change((newProp, oldProp) => {
+                out = this.movepoolResizeCalc();
+            })
+            return out;
+        },
+        movepoolResizeCalc() {
+            console.log("calc")
+            if(!this.game.dexData){ 
+                return;
+            }
+            this.movepoolDefaultFontSize = 15;
+            this.movepoolDefaultLineHeight = 16;
+            this.movepoolDefaultContainerHeight = 992-(this.movepoolDefaultLineHeight+0);
+
+            //calculate new sizes
+            let currentStarter = this.starter;
+            if(currentStarter == undefined || currentStarter == null) {
+                if(this.mapper.properties.player.team[0].species) {
+                    currentStarter = this.mapper.properties.player.team[0].species.value;
+                }
+                else {
+                    currentStarter = this.starter;
+                }
+            }
+            let movepoolSize = this.game.dexData[currentStarter].tm_hm_learnset.length + this.game.dexData[currentStarter].levelup_moveset.length;
+            if (this.show_tutor_moves) {
+                movepoolSize = movepoolSize + this.game.dexData[currentStarter].tutor_learnset.length;
+            }
+            let maxSize = this.movepoolDefaultContainerHeight / this.movepoolDefaultLineHeight;
+            let correctedLineHeight = this.movepoolDefaultContainerHeight / movepoolSize;
+            let fontShrinkFactor = 0.77; //make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
+            //This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
+            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight,fontShrinkFactor); 
+            if(movepoolSize > (maxSize)){
+                return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
+            }
+        },
         
         // MOVE ACCURACY
         getAccuracy(accuracy, move) {
