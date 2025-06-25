@@ -18740,8 +18740,8 @@ const g4PokemonData =
             ],
             "weight": 6.4
         },
-        "Wormadam - Sandy": {
-            "species": "Wormadam - Sandy",
+        "Wormadam (Sandy)": {
+            "species": "Wormadam (Sandy)",
             "rom_id": 499,
             "base_hp": 60,
             "base_atk": 79,
@@ -32687,8 +32687,8 @@ const g4PokemonData =
             ],
             "weight": 75.0
         },
-        "Wormadam - Trash": {
-            "species": "Wormadam - Trash",
+        "Wormadam (Trash)": {
+            "species": "Wormadam (Trash)",
             "rom_id": 500,
             "base_hp": 60,
             "base_atk": 69,

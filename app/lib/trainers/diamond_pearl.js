@@ -25142,7 +25142,7 @@ const trainers_dp = {
         "items": [],
         "party": [
             {
-                "species": "Wormadam (Plant Cloak)",
+                "species": "Wormadam (Plant)",
                 "level": 25,
                 "experience_yield": 850,
                 "nature": "Rash",

@@ -25031,7 +25031,7 @@ const platinum_trainers = {
         "items": [],
         "party": [
             {
-                "species": "Wormadam (Plant Cloak)",
+                "species": "Wormadam (Plant)",
                 "level": 24,
                 "experience_yield": 817,
                 "nature": "Jolly",
@@ -25053,7 +25053,7 @@ const platinum_trainers = {
                 ]
             },
             {
-                "species": "Wormadam (Trash Cloak)",
+                "species": "Wormadam (Trash)",
                 "level": 24,
                 "experience_yield": 817,
                 "nature": "Jolly",
@@ -25075,7 +25075,7 @@ const platinum_trainers = {
                 ]
             },
             {
-                "species": "Wormadam (Sandy Cloak)",
+                "species": "Wormadam (Sandy)",
                 "level": 24,
                 "experience_yield": 817,
                 "nature": "Jolly",

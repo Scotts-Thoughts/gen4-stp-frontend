@@ -1206,9 +1206,9 @@ const pokedex_dp = {
         "weight": 3.4,
         "evolution_family": [
             {"species": "Burmy", "method": null, "parameter": null},
-            {"species": "Wormadam (Plant Cloak)", "method": "level_female_plant_cloak", "parameter": 20},
-            {"species": "Wormadam (Sandy Cloak)", "method": "level_female_sandy_cloak", "parameter": 20},
-            {"species": "Wormadam (Trash Cloak)", "method": "level_female_trash_cloak", "parameter": 20},
+            {"species": "Wormadam (Plant)", "method": "level_female_plant_cloak", "parameter": 20},
+            {"species": "Wormadam (Sandy)", "method": "level_female_sandy_cloak", "parameter": 20},
+            {"species": "Wormadam (Trash)", "method": "level_female_trash_cloak", "parameter": 20},
             {"species": "Mothim", "method": "level_male", "parameter": 20}
         ]
     },
@@ -14435,8 +14435,8 @@ const pokedex_dp = {
             {"species": "Victreebel", "method": "item", "parameter": "Leaf Stone"}
         ]
     },
-    "Wormadam (Sandy Cloak)": {
-        "species": "Wormadam (Sandy Cloak)",
+    "Wormadam (Sandy)": {
+        "species": "Wormadam (Sandy)",
         "rom_id": 499,
         "national_dex_number": 413,
         "base_stats": {
@@ -14533,9 +14533,9 @@ const pokedex_dp = {
         "weight": 6.5,
         "evolution_family": [
             {"species": "Burmy", "method": null, "parameter": null},
-            {"species": "Wormadam (Plant Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Sandy Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Trash Cloak)", "method": null, "parameter": null},
+            {"species": "Wormadam (Plant)", "method": null, "parameter": null},
+            {"species": "Wormadam (Sandy)", "method": null, "parameter": null},
+            {"species": "Wormadam (Trash)", "method": null, "parameter": null},
             {"species": "Mothim", "method": null, "parameter": null}
         ]
     },
@@ -21284,8 +21284,8 @@ const pokedex_dp = {
             {"species": "Sandslash", "method": null, "parameter": null}
         ]
     },
-    "Wormadam (Plant Cloak)": {
-        "species": "Wormadam (Plant Cloak)",
+    "Wormadam (Plant)": {
+        "species": "Wormadam (Plant)",
         "rom_id": 413,
         "national_dex_number": 413,
         "base_stats": {
@@ -21384,9 +21384,9 @@ const pokedex_dp = {
         "weight": 6.5,
         "evolution_family": [
             {"species": "Burmy", "method": null, "parameter": null},
-            {"species": "Wormadam (Plant Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Sandy Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Trash Cloak)", "method": null, "parameter": null},
+            {"species": "Wormadam (Plant)", "method": null, "parameter": null},
+            {"species": "Wormadam (Sandy)", "method": null, "parameter": null},
+            {"species": "Wormadam (Trash)", "method": null, "parameter": null},
             {"species": "Mothim", "method": null, "parameter": null}
         ]
     },
@@ -25149,8 +25149,8 @@ const pokedex_dp = {
             {"species": "Quagsire", "method": null, "parameter": null}
         ]
     },
-    "Wormadam (Trash Cloak)": {
-        "species": "Wormadam (Trash Cloak)",
+    "Wormadam (Trash)": {
+        "species": "Wormadam (Trash)",
         "rom_id": 500,
         "national_dex_number": 413,
         "base_stats": {
@@ -25248,9 +25248,9 @@ const pokedex_dp = {
         "weight": 6.5,
         "evolution_family": [
             {"species": "Burmy", "method": null, "parameter": null},
-            {"species": "Wormadam (Plant Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Sandy Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Trash Cloak)", "method": null, "parameter": null},
+            {"species": "Wormadam (Plant)", "method": null, "parameter": null},
+            {"species": "Wormadam (Sandy)", "method": null, "parameter": null},
+            {"species": "Wormadam (Trash)", "method": null, "parameter": null},
             {"species": "Mothim", "method": null, "parameter": null}
         ]
     },
@@ -42825,9 +42825,9 @@ const pokedex_dp = {
         "weight": 23.3,
         "evolution_family": [
             {"species": "Burmy", "method": null, "parameter": null},
-            {"species": "Wormadam (Plant Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Sandy Cloak)", "method": null, "parameter": null},
-            {"species": "Wormadam (Trash Cloak)", "method": null, "parameter": null},
+            {"species": "Wormadam (Plant)", "method": null, "parameter": null},
+            {"species": "Wormadam (Sandy)", "method": null, "parameter": null},
+            {"species": "Wormadam (Trash)", "method": null, "parameter": null},
             {"species": "Mothim", "method": null, "parameter": null}
         ]
     },
