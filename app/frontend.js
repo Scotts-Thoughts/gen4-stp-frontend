@@ -500,6 +500,7 @@ const app = Vue.createApp({
             available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice        : "Turtwig",
             refilming_mode        : false,
+            show_advanced_settings: MyStorage['show_advanced_settings'] ?? false,
 
             // Fix for Resets and Blackouts incrementing twice instead of just once
             disallow_faults: false,
@@ -2193,8 +2194,9 @@ const app = Vue.createApp({
             MyStorage[to].evolution             = MyStorage[from].evolution 
         },
         load_all_settings() {
-            const game_name = this.mapper.properties.meta.game_name.value
-            this.starter = MyStorage["starter"] ?? "Heatran"
+            const game_name             = this.mapper.properties.meta.game_name.value
+            this.starter                = MyStorage["starter"]                ?? "Heatran"
+            this.show_advanced_settings = MyStorage['show_advanced_settings'] ?? false
             if (game_name == "HeartGold and SoulSilver") {
                 this.starter_choice = MyStorage["starter_choice"] ?? "Chikorita"
             }
@@ -2691,6 +2693,8 @@ const app = Vue.createApp({
                 case "Mr Mime":    return "Mr. Mime"
                 case "Farfetchd":  return "Farfetch'd"
                 case "Mime Jr.":   return "Mime Jr."
+                case "Mime Jr":    return "Mime Jr."
+                case "MimeJr":     return "Mime Jr."
                 case "HoOh":       return "Ho-oh"
                 case "Ho Oh":      return "Ho-oh"
                 default:           return species

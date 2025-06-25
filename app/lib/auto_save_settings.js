@@ -64,4 +64,5 @@ const auto_save_settings = [
     "selected_game",
     "right_display",
     "starter_choice",
+    "show_advanced_settings",
 ]
