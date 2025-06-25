@@ -487,20 +487,22 @@ function transition(fn, ms) {
 const app = Vue.createApp({
     data() {
         return {
-            ready                 : false,
-            mapper                : null,
-            state                 : "No Pokemon",
-            editor                : false,
-            game_variables        : null,
-            autosplitter_toggle   : true,
-            evolution             : false,
-            evolution_splits_label: "",
-            frame                 : false,
-            selected_game         : MyStorage['selected_game'] ?? "Platinum",
-            available_games       : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
-            starter_choice        : "Turtwig",
-            refilming_mode        : false,
-            show_advanced_settings: MyStorage['show_advanced_settings'] ?? false,
+            ready                        : false,
+            mapper                       : null,
+            state                        : "No Pokemon",
+            editor                       : false,
+            game_variables               : null,
+            autosplitter_toggle          : true,
+            evolution                    : false,
+            evolution_splits_label       : "",
+            frame                        : false,
+            selected_game                : MyStorage['selected_game'] ?? "Platinum",
+            available_games              : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
+            starter_choice               : "Turtwig",
+            refilming_mode               : false,
+            show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
+            legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
+            set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
 
             // Fix for Resets and Blackouts incrementing twice instead of just once
             disallow_faults: false,
@@ -522,6 +524,7 @@ const app = Vue.createApp({
             pkmn_gender            : "Female",
             pkmn_ability           : null,
             hidden_power_type      : "Dark",
+            hidden_power_index     : 0,
             overlayNew             : "Chimchar",
             overlayOld             : "Chimchar",
             scott_mode             : true,
@@ -694,6 +697,7 @@ const app = Vue.createApp({
             game_variables           : game_variables,
             natural_gift             : natural_gift,
             cross_generation_moves   : cross_generation_moves,
+            hiddenpowers             : hiddenpowers,
 
             // Data (New as of 2024-06-02)
             // These files contain the most up-to-date data for both trainers and pokemon.
@@ -819,6 +823,7 @@ const app = Vue.createApp({
                 "pkmnNature",
                 "pkmn_ability",
                 "hidden_power_type",
+                "hidden_power_index",
                 "pkmn_gender",
                 "finished_run_count",
                 "evolution",
@@ -1090,6 +1095,7 @@ const app = Vue.createApp({
             this.pkmnNature             = MyStorage[`${game}_${starter}`]?.pkmnNature            ?? "Hardy",
             this.pkmn_ability           = MyStorage[`${game}_${starter}`]?.pkmn_ability          ?? this.g4PokemonData[starter].abilities[0],
             this.hidden_power_type      = MyStorage[`${game}_${starter}`]?.hidden_power_type     ?? "Dark",
+            this.hidden_power_index     = MyStorage[`${game}_${starter}`]?.hidden_power_index    ?? 0,
             this.pkmn_gender            = MyStorage[`${game}_${starter}`]?.pkmn_gender           ?? "Female"
             this.movepoolResize();
         },
@@ -1736,6 +1742,18 @@ const app = Vue.createApp({
                 default: return ""
             }
         },
+        async update_rom_starter_and_intro_mon() {
+            let starter = this.starter
+            let game = this.selected_game
+            if (game == "Platinum") {
+                await Promise.all([
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, false), 
+                ])
+            }
+            if (game == "HeartGold and SoulSilver") {
+                //! NOT IMPLEMENTED YET WITHIN THE PATCH
+            }
+        },
         async update_items() {
             var item1 = this.item1_replacement
             var item2 = this.item2_replacement
@@ -2194,9 +2212,11 @@ const app = Vue.createApp({
             MyStorage[to].evolution             = MyStorage[from].evolution 
         },
         load_all_settings() {
-            const game_name             = this.mapper.properties.meta.game_name.value
-            this.starter                = MyStorage["starter"]                ?? "Heatran"
-            this.show_advanced_settings = MyStorage['show_advanced_settings'] ?? false
+            const game_name                    = this.mapper.properties.meta.game_name.value
+            this.starter                       = MyStorage["starter"]                ?? "Heatran"
+            this.show_advanced_settings        = MyStorage['show_advanced_settings'] ?? false
+            this.set_rom_starter_automatically = MyStorage['set_rom_starter_automatically'] ?? true,
+            this.legacy_starter_assignment = MyStorage['legacy_starter_assignment'] ?? false
             if (game_name == "HeartGold and SoulSilver") {
                 this.starter_choice = MyStorage["starter_choice"] ?? "Chikorita"
             }
@@ -2684,6 +2704,10 @@ const app = Vue.createApp({
             // this.playerName = "NINTEN"
 
             this.updateTime()
+            if (this.set_rom_starter_automatically && this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
+                console.log('Setting ROM starter automatically')
+                this.update_rom_starter_and_intro_mon()
+            }
         },
         //fixes species that contain special characters in their names
         speciesSpecialCharacters(species) {
@@ -4492,6 +4516,7 @@ const app = Vue.createApp({
                 // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
                 if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
                     this.startTime()
+                    if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
                     this.attempt_number++
                 }
                 if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
@@ -4505,6 +4530,7 @@ const app = Vue.createApp({
             this.mapper.properties?.variables?.game_started.change(async (newProp, oldProp) => {
                 if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
                     this.startTime()
+                    if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
                     this.blackout = false;
                     this.attempt_number++
                 }
@@ -4574,36 +4600,47 @@ const app = Vue.createApp({
             const pkmnData  = this.g4PokemonData[this.starter]
             const level     = 5
             const natures   = this.natures[this.pkmnNature]
-            const iv_values = this.hiddenpower_type_selector[this.hidden_power_type]
             let player_starter = this.starter_choice
 
-            //Calculates the Pokemon's starting stats with the desired DVs
-            var hitpoints      = Math.floor((((2 * pkmnData.base_hp + iv_values.hp + 0) * level)/100) + level + 10)
-            var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + iv_values.attack + 0) * level)/100) + 5)) * natures["nature_attack"])
-            var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + iv_values.defense + 0) * level)/100) + 5)) * natures["nature_defense"])
-            var specialAttack  = Math.floor(Math.floor(((((2 * pkmnData.base_spc_atk + iv_values.special_attack + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
-            var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + iv_values.special_defense + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
-            var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + iv_values.speed + 0) * level)/100) + 5)) * natures["nature_speed"])
+            //* IV BLOCK CALCULATION
+            var hp_data       = this.hiddenpowers
+            var pkmn_hp       = this.hidden_power_type  
+            var pkmn_hp_index = this.hidden_power_index
 
+            var ivHp  = hp_data[pkmn_hp][pkmn_hp_index][0]
+            var ivAtk = hp_data[pkmn_hp][pkmn_hp_index][1]
+            var ivDef = hp_data[pkmn_hp][pkmn_hp_index][2]
+            var ivSpe = hp_data[pkmn_hp][pkmn_hp_index][3]
+            var ivSpA = hp_data[pkmn_hp][pkmn_hp_index][4]
+            var ivSpD = hp_data[pkmn_hp][pkmn_hp_index][5]
+
+            //Calculates the Pokemon's starting stats with the desired DVs
+            var hitpoints      = Math.floor((((2 * pkmnData.base_hp + ivHp + 0) * level)/100) + level + 10)
+            var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + ivAtk + 0) * level)/100) + 5)) * natures["nature_attack"])
+            var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + ivDef + 0) * level)/100) + 5)) * natures["nature_defense"])
+            var specialAttack  = Math.floor(Math.floor(((((2 * pkmnData.base_spc_atk + ivSpA + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
+            var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
+            var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
+
+            if (this.legacy_starter_assignment) { this.mapper.properties.player.starter.set(player_starter, false) } //this needs to be turned off refilming Sudowoodo
             await Promise.all([
                 //Set personality value & ablity
-                await this.mapper.properties.player.starter.set(player_starter, false), //this needs to be turned off refilming Sudowoodo
-                await this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
-                await this.mapper.properties.player.team[0].ability.set(ability, false), 
-                await this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
-                await this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
-                await this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
-                await this.mapper.properties.player.team[0].stats.defense.set(defense, false), 
-                await this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
-                await this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
-                await this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
-                await this.mapper.setBits([
-                    {path: 'player.team.0.ivs.hp',              value: iv_values.hp,              freeze: false},
-                    {path: 'player.team.0.ivs.attack',          value: iv_values.attack,          freeze: false},
-                    {path: 'player.team.0.ivs.defense',         value: iv_values.defense,         freeze: false},
-                    {path: 'player.team.0.ivs.speed',           value: iv_values.speed,           freeze: false},
-                    {path: 'player.team.0.ivs.special_attack',  value: iv_values.special_attack,  freeze: false},
-                    {path: 'player.team.0.ivs.special_defense', value: iv_values.special_defense, freeze: false},
+                this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
+                this.mapper.properties.player.team[0].ability.set(ability, false), 
+                this.mapper.properties.player.team[0].stats.hp.set(hitpoints, false), 
+                this.mapper.properties.player.team[0].stats.hp_max.set(hitpoints, false), 
+                this.mapper.properties.player.team[0].stats.attack.set(attack, false), 
+                this.mapper.properties.player.team[0].stats.defense.set(defense, false), 
+                this.mapper.properties.player.team[0].stats.special_attack.set(specialAttack, false), 
+                this.mapper.properties.player.team[0].stats.special_defense.set(specialDefense, false), 
+                this.mapper.properties.player.team[0].stats.speed.set(speed, false), 
+                this.mapper.setBits([
+                    {path: 'player.team.0.ivs.hp',              value: ivHp,  freeze: false},
+                    {path: 'player.team.0.ivs.attack',          value: ivAtk, freeze: false},
+                    {path: 'player.team.0.ivs.defense',         value: ivDef, freeze: false},
+                    {path: 'player.team.0.ivs.speed',           value: ivSpe, freeze: false},
+                    {path: 'player.team.0.ivs.special_attack',  value: ivSpA, freeze: false},
+                    {path: 'player.team.0.ivs.special_defense', value: ivSpD, freeze: false},
                 ]),
             ])
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {

@@ -65,4 +65,6 @@ const auto_save_settings = [
     "right_display",
     "starter_choice",
     "show_advanced_settings",
+    "legacy_starter_assignment",
+    "set_rom_starter_automatically",
 ]
