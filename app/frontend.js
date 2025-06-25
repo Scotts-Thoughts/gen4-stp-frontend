@@ -2690,7 +2690,7 @@ const app = Vue.createApp({
                 case "MrMime":     return "Mr. Mime"
                 case "Mr Mime":    return "Mr. Mime"
                 case "Farfetchd":  return "Farfetch'd"
-                case "Mime Jr.":   return "Mime Jr"
+                case "Mime Jr.":   return "Mime Jr."
                 case "HoOh":       return "Ho-oh"
                 case "Ho Oh":      return "Ho-oh"
                 default:           return species
