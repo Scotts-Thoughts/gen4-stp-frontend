@@ -4461,8 +4461,8 @@ const app = Vue.createApp({
     mounted: async function () {
         const that = this
         this.mapper = new GameHookMapperClient()
-        this.mapper.onConnected = (x) => this.ready = true
-        this.mapper.onDisconnected = (x) => this.ready = false
+        this.mapper.onMapperLoaded = (x) => this.ready = true
+        this.mapper.onMapperUnloaded = (x) => this.ready = false
         this.mapper._debouceTimeout = 10
         // this.mapper.deboucePath("battle.player.active_pokemon.modifiers")
         this.mapper.deboucePath("battle.opponent.active_pokemon")
