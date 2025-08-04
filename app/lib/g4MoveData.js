@@ -2044,7 +2044,7 @@ const g4MoveData = {
     "Sweet Kiss":
     {
         Move: "Sweet Kiss",
-        Type: "Fairy",
+        Type: "Normal",
         Category: "Status",
         PP: "10",
         Power: "—",
