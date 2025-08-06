@@ -1,0 +1,8 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Misdreavus,Passerby Boy,4:22,0,0,7,0:16,1754429899.207,Psywave,Growl,Spite,
+Lyra,Misdreavus,Leader Falkner,14:20,0,0,15,0:55,1754430496.688,Psywave,Confuse Ray,Spite,Astonish
+Lyra,Misdreavus,Leader Falkner,14:41,1,0,15,0:53,1754430518.253,Psywave,Confuse Ray,Spite,Astonish
+Lyra,Misdreavus,Leader Bugsy,25:59,3,0,20,1:33,1754431196.538,Psywave,Confuse Ray,Spite,Astonish
+Lyra,Misdreavus,Rival Silver,27:11,3,0,21,1:38,1754431268.476,Psywave,Confuse Ray,Spite,Astonish
+Lyra,Misdreavus,Leader Whitney,35:17,3,0,24,2:09,1754431753.958,Psybeam,Confuse Ray,Charge Beam,Thunderbolt
+Lyra,Misdreavus,Rival Silver,39:54,4,0,26,2:25,1754432030.909,Psybeam,Confuse Ray,Charge Beam,Thunderbolt

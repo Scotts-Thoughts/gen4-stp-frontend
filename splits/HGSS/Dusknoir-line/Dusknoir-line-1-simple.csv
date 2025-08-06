@@ -1,0 +1,34 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Duskull,Passerby Boy,5:39,0,0,8,0:18,1754430894.826,Night Shade,Leer,Disable,
+Lyra,Duskull,Leader Falkner,1:13:32,17,1,25,3:32,1754435074.391,Shadow Sneak,Astonish,Confuse Ray,Pursuit
+Lyra,Duskull,Leader Bugsy,1:20:15,17,1,27,3:55,1754441801.913,Shadow Sneak,Astonish,Confuse Ray,Pursuit
+Lyra,Duskull,Rival Silver,1:26:58,21,1,27,4:08,1754442204.413,Shadow Sneak,Astonish,Confuse Ray,Pursuit
+Lyra,Duskull,Leader Whitney,1:38:41,21,2,30,4:49,1754442907.697,Shadow Sneak,Headbutt,Ice Beam,Charge Beam
+Lyra,Duskull,Rival Silver,1:43:41,21,2,31,5:06,1754443208.116,Shadow Sneak,Headbutt,Ice Beam,Charge Beam
+Lyra,Duskull,Leader Morty,1:50:34,22,2,35,5:28,1754443620.606,Shadow Sneak,Headbutt,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Chuck,1:55:19,22,2,38,5:45,1754443921.867,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Pryce,2:06:54,23,2,43,6:22,1754444616.554,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Jasmine,2:09:40,25,2,44,6:28,1754444783.021,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Rival Silver,2:14:35,25,2,46,6:45,1754445078.073,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Clair,2:33:55,31,2,58,7:37,1754446237.6,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Rival Silver,2:53:24,32,6,63,8:41,1754447406.727,Shadow Sneak,Shadow Punch,Ice Beam,Charge Beam
+Lyra,Dusclops,Elite Four Will,2:55:16,33,6,64,8:46,1754447518.96,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Elite Four Koga,2:56:38,34,6,64,8:49,1754447600.242,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Elite Four Bruno,2:57:54,34,6,65,8:54,1754447677.2,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Elite Four Karen,3:02:36,39,6,72,8:59,1754447958.963,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Champion Lance,3:04:35,40,6,72,9:03,1754448077.747,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Erika,3:09:30,40,6,73,9:19,1754448372.633,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Sabrina,3:11:12,40,6,74,9:25,1754448474.325,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Misty,3:17:12,40,6,76,9:46,1754448835.187,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Lt. Surge,3:20:00,40,6,77,9:55,1754449002.359,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Lt. Surge,3:21:39,41,6,77,9:55,1754449102.074,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Brock,3:23:57,41,6,78,10:02,1754449240.111,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Blaine,3:28:11,42,6,79,10:14,1754449493.752,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Janine,3:32:07,42,6,80,10:27,1754449729.896,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusclops,Leader Blue,3:34:55,43,6,80,10:34,1754449897.764,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Elite Four Will,3:39:20,43,6,81,10:50,1754450182.117,Shadow Sneak,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Elite Four Koga,3:43:20,45,6,82,10:56,1754450422.202,Psychic,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Elite Four Bruno,3:44:49,45,6,88,11:02,1754450511.755,Psychic,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Elite Four Karen,3:46:32,46,6,88,11:06,1754450614.518,Psychic,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Champion Lance,3:52:26,51,6,89,11:15,1754450968.332,Rest,Shadow Ball,Ice Beam,Charge Beam
+Lyra,Dusknoir,Pokemon Trainer Red,4:03:46,56,6,92,11:37,1754451648.351,Rest,Shadow Ball,Attract,Charge Beam
