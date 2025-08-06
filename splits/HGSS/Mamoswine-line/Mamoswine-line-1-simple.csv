@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Swinub,Passerby Boy,5:35,0,1,6,0:18,1754499144.305,Tackle,Odor Sleuth,Mud Sport,
+Lyra,Swinub,Leader Falkner,16:08,2,2,13,0:51,1754499777.488,Tackle,Odor Sleuth,Powder Snow,Mud-Slap
+Lyra,Swinub,Leader Bugsy,28:02,2,3,18,1:33,1754500491.683,Tackle,Rock Tomb,Powder Snow,Mud-Slap
+Lyra,Swinub,Rival Silver,34:20,3,6,20,1:54,1754500889.201,Tackle,Rock Tomb,Powder Snow,Mud Bomb
+Lyra,Swinub,Leader Whitney,51:20,5,6,25,2:50,1754501909.015,Headbutt,Rock Tomb,Ice Beam,Dig
+Lyra,Piloswine,Rival Silver,1:21:38,6,6,37,3:51,1754503739.618,Ice Shard,Rock Tomb,Ice Beam,Earthquake
+Lyra,Piloswine,Leader Morty,1:24:03,6,6,38,3:59,1754503884.07,Ice Shard,Rock Tomb,Ice Beam,Earthquake
+Lyra,Piloswine,Leader Chuck,1:27:44,6,6,40,4:12,1754504105.627,Ice Shard,Rock Tomb,Ice Beam,Earthquake
+Lyra,Piloswine,Leader Jasmine,1:30:19,6,6,40,4:21,1754504259.894,Earthquake,Rock Tomb,Ice Beam,Ice Shard
+Lyra,Piloswine,Leader Pryce,1:37:00,6,6,43,4:45,1754505212.008,Earthquake,Rock Tomb,Ice Beam,Ice Shard
+Lyra,Piloswine,Rival Silver,1:41:34,6,6,44,5:00,1754505486.023,Earthquake,Rock Tomb,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Clair,1:52:37,6,6,48,5:38,1754506163.647,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Rival Silver,2:05:37,6,6,51,6:22,1754506943.424,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Will,2:06:49,6,6,52,6:26,1754507015.727,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Koga,2:07:55,6,6,53,6:30,1754507082.178,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Bruno,2:08:42,6,6,54,6:33,1754507129.136,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Karen,2:09:31,6,6,54,6:36,1754507177.967,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Champion Lance,2:11:35,8,6,63,6:41,1754507301.702,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Erika,2:16:28,8,6,64,6:57,1754507594.832,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Sabrina,2:17:54,8,6,64,7:01,1754507681.231,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Misty,2:23:36,8,6,66,7:22,1754508022.873,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Lt. Surge,2:26:24,8,6,66,7:31,1754508191.317,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Brock,2:28:09,8,6,67,7:37,1754508296.218,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Blaine,2:30:44,8,6,68,7:46,1754508451.014,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Janine,2:34:09,8,6,69,7:57,1754508655.886,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Leader Blue,2:36:08,8,6,69,8:04,1754508774.479,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Will,2:38:52,8,6,70,8:14,1754508938.698,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Koga,2:39:46,8,6,71,8:17,1754508992.933,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Bruno,2:41:38,9,6,71,8:21,1754509104.539,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Elite Four Karen,2:46:25,17,6,72,8:26,1754509392.028,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Champion Lance,2:49:53,21,6,78,8:32,1754509599.831,Earthquake,AncientPower,Ice Beam,Ice Shard
+Lyra,Mamoswine,Pokemon Trainer Red,3:00:01,24,6,81,9:00,1754510208.001,Earthquake,AncientPower,Rock Slide,Attract

@@ -4502,10 +4502,14 @@ const app = Vue.createApp({
                 const length = evolution_family.length
                 const evolved = evolution_family.includes(newProp.value)
                 const buffer_evolution_splits_label = this.evolution_splits_label
+                const resets = this.playerResets
+                const blackout_counter = this.blackout_counter
                 this.buffer_battle_exp = this.mapper.properties.player.team[0].exp.value
                 if (evolved == true) {
                     this.starter = newProp.value
                     this.evolution_splits_label = buffer_evolution_splits_label
+                    this.playerResets = resets
+                    this.blackout_counter = blackout_counter
                 }
             }
         })
