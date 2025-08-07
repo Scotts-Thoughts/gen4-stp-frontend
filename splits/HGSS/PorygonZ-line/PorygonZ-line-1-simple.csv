@@ -1,0 +1,35 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Porygon,Passerby Boy,3:56,0,0,6,0:12,1754583362.112,Tackle,Sharpen,Conversion,Conversion 2
+Lyra,Porygon,Leader Falkner,10:31,0,0,12,0:36,1754583757.34,Psybeam,Tackle,Sharpen,Conversion
+Lyra,Porygon,Leader Bugsy,24:20,4,4,18,1:17,1754584586.358,Psybeam,Tackle,Sharpen,Recover
+Lyra,Porygon,Rival Silver,25:20,4,4,19,1:20,1754584646.491,Psybeam,Tackle,Sharpen,Recover
+Lyra,Porygon,Leader Whitney,34:47,4,4,21,1:54,1754585213.642,Psybeam,Ice Beam,Sharpen,Thunderbolt
+Lyra,Porygon,Rival Silver,46:03,7,4,26,2:30,1754585889.366,Psybeam,Ice Beam,Sharpen,Thunderbolt
+Lyra,Porygon,Leader Morty,49:18,8,4,29,2:40,1754586084.43,Psybeam,Ice Beam,Sharpen,Thunderbolt
+Lyra,Porygon,Leader Chuck,52:51,8,4,32,2:53,1754586297.148,Psybeam,Ice Beam,Thunderbolt,Sharpen
+Lyra,Porygon,Leader Pryce,1:05:02,12,4,37,3:26,1754587028.464,Psybeam,Ice Beam,Thunderbolt,Charge Beam
+Lyra,Porygon,Leader Jasmine,1:07:50,12,4,38,3:35,1754587195.72,Psybeam,Ice Beam,Thunderbolt,Charge Beam
+Lyra,Porygon,Rival Silver,1:14:19,16,4,40,3:52,1754587584.947,Psybeam,Ice Beam,Thunderbolt,Charge Beam
+Lyra,Porygon,Leader Clair,1:26:48,20,4,50,4:28,1754588334.477,Psybeam,Ice Beam,Thunderbolt,Charge Beam
+Lyra,Porygon,Rival Silver,1:44:25,21,8,54,5:27,1754589391.394,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Will,1:46:19,21,9,55,5:34,1754589504.999,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Koga,1:47:19,21,9,56,5:38,1754589565.264,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Will,1:52:07,25,10,57,5:50,1754589852.822,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Koga,1:53:01,25,10,58,5:54,1754589906.798,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Bruno,1:53:56,25,10,58,5:57,1754589962.087,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Elite Four Karen,1:55:18,26,10,59,6:00,1754590043.72,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon,Champion Lance,1:57:21,27,10,67,6:06,1754590167.555,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Erika,2:03:09,27,10,68,6:25,1754590531.697,Psybeam,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Sabrina,2:04:41,27,10,68,6:31,1754590623.909,Shadow Ball,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Misty,2:10:00,27,10,70,6:50,1754590943.183,Shadow Ball,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Lt. Surge,2:12:51,27,10,71,7:00,1754591113.682,Shadow Ball,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Brock,2:14:46,27,10,71,7:07,1754591228.861,Shadow Ball,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Blaine,2:17:22,27,10,72,7:16,1754591385.157,Shadow Ball,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Janine,2:19:23,27,10,73,7:23,1754591505.37,Psychic,Ice Beam,Thunderbolt,Return
+Lyra,Porygon2,Leader Blue,2:21:27,27,10,73,7:30,1754591630.05,Psychic,Ice Beam,Thunderbolt,Return
+Lyra,Porygon-Z,Elite Four Will,2:25:57,27,10,74,7:47,1754591919.152,Psychic,Ice Beam,Thunderbolt,Nasty Plot
+Lyra,Porygon-Z,Elite Four Koga,2:26:50,27,10,79,7:50,1754591972.22,Psychic,Ice Beam,Thunderbolt,Nasty Plot
+Lyra,Porygon-Z,Elite Four Bruno,2:27:34,27,10,79,7:53,1754592016.743,Psychic,Ice Beam,Thunderbolt,Nasty Plot
+Lyra,Porygon-Z,Elite Four Karen,2:28:34,27,10,80,7:57,1754592076.52,Psychic,Ice Beam,Thunderbolt,Nasty Plot
+Lyra,Porygon-Z,Champion Lance,2:29:36,27,10,81,8:01,1754592137.85,Psychic,Ice Beam,Thunderbolt,Nasty Plot
+Lyra,Porygon-Z,Pokemon Trainer Red,2:42:39,37,10,84,8:26,1754592920.807,Recover,Ice Beam,Thunderbolt,Nasty Plot
