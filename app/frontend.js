@@ -503,6 +503,7 @@ const app = Vue.createApp({
             show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
             legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
             set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
+            catch_rate                   : false,
 
             // Fix for Resets and Blackouts incrementing twice instead of just once
             disallow_faults: false,
@@ -667,6 +668,8 @@ const app = Vue.createApp({
                 14: "Dragon",
                 2 : "Poison",
             },
+            encounter_settings: [
+            ],
             pokemon_list: [],
             
             // USER CONFIG (components) ------------------------------------------------------------------------// 
@@ -1051,8 +1054,27 @@ const app = Vue.createApp({
             );
         }
         this.hgss_trainers = this.extractTrainerInfo(this.trainers_hgss)
+
+        for (let i = 0; i < this.encounter_settings.length; i++) {
+            let propName = this.encounter_settings[i];
+            this.$watch(
+                () => this[propName], // Using a function to return the property's value
+                (newValue) => {
+                    MyStorage[`${propName}`] = newValue;
+                    this.freezeEncounters();
+                }
+            );
+        }
     },
     watch: {
+        catch_rate(newValue) {
+            if (newValue == true) {
+                this.mapper.properties.patch.stpCatchRate.set(1,false); 
+            }
+            else {
+                this.mapper.properties.patch.stpCatchRate.set(0,false); 
+            }
+        },
         starter(newValue, oldValue) {
             const starter = newValue
             const game = this.mapper?.properties.meta.game_name.value
@@ -1726,6 +1748,20 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        async transfer_metrics(previous_mon_resets, previous_mon_blackouts, previous_mon_finished_runs, previous_mon_attempt_number) {
+            await this.sleep(50)
+            this.playerResets = previous_mon_resets
+            this.blackout_counter = previous_mon_blackouts
+            this.finished_run_count = previous_mon_finished_runs
+            this.attempt_number = previous_mon_attempt_number
+        },
+        freezeEncounters() {
+            const catch_state = this.mapper.properties.patch.stpCatchRate.value
+            // Catch rate logic is not implemented yet within generation 4
+            if (catch_state == 0 && this.catch_rate == true) { 
+                this.mapper.properties.patch.stpCatchRate.set(1,false); 
+            }
+        },
         async disallow_faults_function() {
             this.disallow_faults = true
             await this.sleep(this.disallow_delay)
@@ -1751,7 +1787,9 @@ const app = Vue.createApp({
                 ])
             }
             if (game == "HeartGold and SoulSilver") {
-                //! NOT IMPLEMENTED YET WITHIN THE PATCH
+                await Promise.all([
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, false), 
+                ])
             }
         },
         async update_items() {
@@ -4502,17 +4540,25 @@ const app = Vue.createApp({
                 const length = evolution_family.length
                 const evolved = evolution_family.includes(newProp.value)
                 const buffer_evolution_splits_label = this.evolution_splits_label
-                const resets = this.playerResets
-                const blackout_counter = this.blackout_counter
+                const previous_mon_resets = this.playerResets
+                const previous_mon_blackouts = this.blackout_counter
+                const previous_mon_finished_runs = this.finished_run_count
+                const previous_mon_attempt_number = this.attempt_number
+                console.log(previous_mon_resets, previous_mon_blackouts)
                 this.buffer_battle_exp = this.mapper.properties.player.team[0].exp.value
                 if (evolved == true) {
+                    console.log("Starter evolved!")
                     this.starter = newProp.value
                     this.evolution_splits_label = buffer_evolution_splits_label
-                    this.playerResets = resets
-                    this.blackout_counter = blackout_counter
+                    this.transfer_metrics(previous_mon_resets, previous_mon_blackouts, previous_mon_finished_runs, previous_mon_attempt_number)
                 }
             }
         })
+
+        // Encounters
+        this.mapper.properties.overworld.map_name.change(async (newProp) => {
+            this.freezeEncounters();
+        });
 
         // Resets
         if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
@@ -4626,7 +4672,9 @@ const app = Vue.createApp({
             var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
             var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
 
-            if (this.legacy_starter_assignment) { this.mapper.properties.player.starter.set(player_starter, false) } //this needs to be turned off refilming Sudowoodo
+            if (this.legacy_starter_assignment) { 
+                this.mapper.properties.player.starter.set(player_starter, false) 
+            } //this needs to be turned off refilming Sudowoodo
             await Promise.all([
                 //Set personality value & ablity
                 this.mapper.properties.player.team[0].internals.personality_value.set(personalityValue, false), 
@@ -4668,15 +4716,12 @@ const app = Vue.createApp({
         });
 
         this.mapper.properties.player.starter.change(async (newProp) => {
-            if (newProp.value != this.starter_choice && this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver" && this.mapper.properties.overworld?.map_index?.value == 61) {
+            if (newProp.value != this.starter_choice && this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver" && this.mapper.properties.overworld?.map_index?.value == 61 && this.legacy_starter_assignment) {
                 await Promise.all([
                     await this.mapper.properties.player.starter.set(this.starter_choice, false),
                 ])
             }
         })
-        // this.mapper.properties.overworld.map_name.change(async (newProp) => {
-        //     console.log(newProp)
-        // });
 
         //Styling for stats in case they go above 999
         const stat_size_3_digit = "56px"

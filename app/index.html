@@ -135,6 +135,8 @@
                             <tr><td>Enemy Team Count:</td><td>{{double_battle_team_size}}</td></tr>
                             <tr><td>Enemy Graphic:</td><td>{{enemy_graphic}}</td></tr>
                             <tr><td>Battle Outcome:</td><td>{{this.mapper.properties.battle.outcome.value}}</td></tr>
+                            <tr><td>Catch Rate:</td><td>{{this.mapper.properties.patch.stpCatchRate.value}}</td></tr>
+                            <tr><td>Catch Rate:</td><td>{{catch_rate}}</td></tr>
                         </table>
                     </div>
                 </div>
@@ -147,7 +149,6 @@
                     <div>Search Pokemon:</div>
                     <input type="text" v-model="search_term" placeholder="Search for a species">
                     <button class="buttonStyle set_starter_button" @click="update_rom_starter_and_intro_mon">Set ROM Starter</button><br>
-                    <br>
                     <table>
                         <tr>
                             <td>Attempt Number:</td>
@@ -180,13 +181,15 @@
                     </table>
                     <br>
                     <table>
+                        <!-- <tr v-if="show_advanced_settings"><td>Display Wild Pokemon:</td><td><input class="checkBoxStyle" type="checkbox" v-model="wild_pokemon_display"/></td></tr> -->
+                        <tr v-if="show_advanced_settings"><td>Catch Rate:</td><td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td></tr>
                         <tr v-if="show_advanced_settings"><td>Display Wild Pokemon:</td><td><input class="checkBoxStyle" type="checkbox" v-model="wild_pokemon_display"/></td></tr>
                         <tr v-if="show_advanced_settings"><td>Show nature arrows:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_nature_changes"/></td></tr>
-                        <tr><td>Evolution:</td><td><input class="checkBoxStyle" type="checkbox" v-model="evolution"/></td></tr>
+                        <tr v-if="show_advanced_settings"><td>Evolution:</td><td><input class="checkBoxStyle" type="checkbox" v-model="evolution"/></td></tr>
                         <tr><td>Show Tutor Moves:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_tutor_moves"/></td></tr>
                         <!-- <tr><td>Frame:</td><td><input class="checkBoxStyle" type="checkbox" v-model="frame"/></td></tr> -->
                     </table>
-                    <div v-if="evolution == true">
+                    <div v-if="evolution == true && show_advanced_settings">
                         <!-- <div>Forms:</div>
                         <div v-for="evolution in g4PokemonData[starter].evolution_family">
                             <div>- {{evolution.species}}</div>
