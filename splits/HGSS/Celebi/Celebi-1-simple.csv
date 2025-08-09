@@ -1,0 +1,34 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Celebi,Passerby Boy,3:49,0,0,8,0:12,1754754789.226,Confusion,Leech Seed,Recover,Heal Bell
+Lyra,Celebi,Leader Falkner,10:10,0,0,15,0:34,1754755170.924,Confusion,Leech Seed,Recover,Heal Bell
+Lyra,Celebi,Rival Silver,18:38,1,0,21,1:01,1754755678.397,Confusion,Magical Leaf,Recover,Heal Bell
+Lyra,Celebi,Leader Bugsy,19:40,1,0,22,1:05,1754755740.364,Confusion,Magical Leaf,Recover,Heal Bell
+Lyra,Celebi,Leader Whitney,26:41,1,0,24,1:29,1754761961.241,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Rival Silver,31:37,1,0,26,1:45,1754762257.146,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Morty,33:58,1,0,29,1:54,1754762399.008,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Chuck,39:53,1,0,33,2:14,1754762753.822,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Pryce,48:55,1,0,39,2:44,1754763295.222,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Jasmine,51:52,1,0,39,2:54,1754763472.277,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Rival Silver,55:49,1,0,41,3:08,1754763709.375,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Clair,1:06:16,1,0,46,3:42,1754764336.954,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Rival Silver,1:18:36,2,0,54,4:19,1754765076.342,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Elite Four Will,1:19:54,2,0,55,4:24,1754765154.048,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Elite Four Koga,1:20:36,2,0,56,4:26,1754765196.581,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Elite Four Bruno,1:21:15,2,0,56,4:29,1754765235.959,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Elite Four Karen,1:22:05,2,0,57,4:32,1754765285.998,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Champion Lance,1:23:00,2,0,58,4:35,1754765340.538,Return,Recover,Swords Dance,Confusion
+Lyra,Celebi,Leader Erika,1:28:27,2,0,59,4:52,1754765667.187,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Sabrina,1:29:45,2,0,60,4:56,1754765745.139,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Misty,1:35:09,2,0,62,5:14,1754766069.195,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Lt. Surge,1:37:39,2,0,63,5:22,1754766219.373,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Brock,1:39:36,2,0,63,5:28,1754766336.413,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Blaine,1:42:54,2,0,64,5:39,1754766610.179,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Janine,1:45:03,2,0,65,5:46,1754766739.252,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Blue,1:47:00,2,0,66,5:53,1754766856.722,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Leader Blue,1:49:25,3,0,66,5:53,1754767001.564,Return,Recover,Swords Dance,Psychic
+Lyra,Celebi,Elite Four Will,1:52:49,3,0,67,6:05,1754767204.784,Return,Recover,Swords Dance,Aerial Ace
+Lyra,Celebi,Elite Four Koga,1:53:49,3,0,68,6:08,1754767265.224,Return,Recover,Swords Dance,Aerial Ace
+Lyra,Celebi,Elite Four Bruno,1:54:48,3,0,69,6:12,1754767324.751,Return,Recover,Swords Dance,Aerial Ace
+Lyra,Celebi,Elite Four Karen,1:58:31,8,0,76,6:16,1754767546.89,Return,Recover,Swords Dance,Aerial Ace
+Lyra,Celebi,Champion Lance,2:01:19,9,0,76,6:25,1754767715.101,Return,Recover,Swords Dance,Aerial Ace
+Lyra,Celebi,Pokemon Trainer Red,2:07:55,11,0,78,6:42,1754768111.579,Return,Recover,Swords Dance,Aerial Ace
