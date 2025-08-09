@@ -1,0 +1,52 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Magnemite,Passerby Boy,4:16,0,0,7,0:14,1754670869.922,ThunderShock,Metal Sound,Tackle,
+Lyra,Magnemite,Leader Falkner,11:17,0,0,13,0:40,1754671290.728,ThunderShock,Metal Sound,Tackle,Supersonic
+Lyra,Magnemite,Leader Bugsy,20:48,0,0,19,1:13,1754671861.716,ThunderShock,Metal Sound,Thunder Wave,SonicBoom
+Lyra,Magnemite,Rival Silver,21:48,0,0,20,1:17,1754671922.311,ThunderShock,Metal Sound,Thunder Wave,SonicBoom
+Lyra,Magnemite,Leader Whitney,30:49,0,0,22,1:49,1754672462.545,Thunderbolt,Charge Beam,Thunder Wave,SonicBoom
+Lyra,Magnemite,Rival Silver,39:38,0,0,27,2:20,1754672991.781,Thunderbolt,Charge Beam,Thunder Wave,SonicBoom
+Lyra,Magneton,Leader Morty,42:47,0,0,30,2:32,1754673180.581,Thunderbolt,Charge Beam,Thunder Wave,Magnet Bomb
+Lyra,Magneton,Leader Chuck,46:26,0,0,33,2:44,1754673399.49,Thunderbolt,Charge Beam,Thunder Wave,Magnet Bomb
+Lyra,Magneton,Leader Pryce,55:45,0,0,38,3:17,1754673959.058,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Jasmine,59:43,0,0,39,3:31,1754674196.431,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Rival Silver,1:03:33,0,0,41,3:45,1754674426.654,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Clair,1:15:34,0,0,50,4:27,1754675167.468,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Rival Silver,1:33:54,2,2,53,5:06,1754676267.761,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,1:35:04,2,2,54,5:10,1754676337.24,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,1:35:48,2,2,55,5:13,1754676381.85,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,1:36:44,2,2,56,5:16,1754676437.413,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Karen,1:37:33,2,2,57,5:19,1754676486.088,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Champion Lance,1:38:52,3,2,57,5:22,1754676910.787,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Sabrina,1:43:09,3,2,59,5:37,1754680016.431,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Brock,1:53:46,6,2,61,6:08,1754680652.918,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Blaine,1:57:38,8,2,70,6:18,1754680885.182,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Janine,1:59:58,8,2,70,6:26,1754681025.351,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Misty,2:01:14,8,2,71,6:31,1754681101.219,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Erika,2:03:05,8,2,72,6:37,1754681211.99,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Lt. Surge,2:06:55,9,2,72,6:48,1754681480.469,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Leader Blue,2:08:52,9,2,73,6:55,1754681597.27,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:13:02,9,2,73,7:10,1754681847.325,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:14:02,9,2,74,7:13,1754681907.579,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,2:14:57,9,2,75,7:17,1754681962.219,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Karen,2:16:12,9,2,76,7:22,1754682037.148,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:18:09,10,3,80,7:28,1754682154.122,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:18:57,10,3,80,7:31,1754682202.375,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,2:19:40,10,3,81,7:34,1754682245.38,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:21:22,10,4,82,7:40,1754682347.365,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:22:06,10,4,83,7:43,1754682390.748,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,2:22:45,10,4,83,7:45,1754682430.197,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Karen,2:23:26,10,4,84,7:48,1754682471.655,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:24:48,11,5,85,7:52,1754682553.22,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:25:30,11,5,85,7:55,1754682595.5,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:26:41,11,6,86,7:59,1754682666.265,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:27:25,11,6,87,8:02,1754682709.813,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,2:28:03,11,6,87,8:05,1754682748.475,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Karen,2:28:53,11,6,88,8:08,1754682798.649,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:29:53,11,7,89,8:12,1754682858.362,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:30:41,11,7,89,8:15,1754682906.419,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Will,2:31:48,11,8,90,8:19,1754682973.398,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Koga,2:32:35,11,8,90,8:22,1754683020.498,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Bruno,2:33:21,11,8,91,8:25,1754683065.767,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Elite Four Karen,2:34:14,11,8,91,8:28,1754683119.112,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Champion Lance,2:35:25,11,8,92,8:33,1754683206.119,Thunderbolt,Charge Beam,Thunder Wave,Flash Cannon
+Lyra,Magneton,Pokemon Trainer Red,2:44:20,16,8,95,8:51,1754683741.674,Thunderbolt,Charge Beam,Rest,Flash Cannon
