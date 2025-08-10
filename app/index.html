@@ -711,15 +711,15 @@
                 </div>
                 <!-- Movepool - TMHM -->
                 <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
+                    <table class="movepoolDemo" cellspacing="0" style="line-height: 10.66px; font-size: 9px;">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
-                            <th class="movepool_header movepool_way">Way</th>
-                            <th class="movepool_header movepool_move">Move</th>
-                            <th class="movepool_header movepool_type">Type</th>
-                            <th class="movepool_header movepool_type">DC</th>
-                            <th class="movepool_header movepool_tableC">Pwr.</th>
-                            <th class="movepool_header movepool_tableC">Acc.</th>
-                            <th class="movepool_header movepool_tableC">PP</th>
+                            <th style="line-height: 12px;" class="movepool_way">Way</th>
+                            <th style="line-height: 12px;" class="movepool_move">Move</th>
+                            <th style="line-height: 12px;" class="movepool_type">Type</th>
+                            <th style="line-height: 12px;" class="movepool_type">DC</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">Pwr.</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">Acc.</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">PP</th>
                         </tr>
                         <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :class="{ 'first-row': index === 0 }">
                             <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
@@ -762,26 +762,17 @@
                 </div>
                 <!-- Movepool -->
                 <div v-else key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
-                    <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
+                    <table class="movepoolDemo" cellspacing="0" style="line-height: 10.66px; font-size: 9px;">
                         <tr :style="{'background-color': `var(--${ui_type_color_modifier}${starting_type_fix})`, 'outline': '2px solid #000'}">
-                            <th class="movepool_header movepool_way">Way</th>
-                            <th class="movepool_header movepool_move">Move</th>
-                            <th class="movepool_header movepool_type">Type</th>
-                            <th class="movepool_header movepool_type">DC</th>
-                            <th class="movepool_header movepool_tableC">Pwr.</th>
-                            <th class="movepool_header movepool_tableC">Acc.</th>
-                            <th class="movepool_header movepool_tableC">PP</th>
+                            <th style="line-height: 12px;" class="movepool_way">Way</th>
+                            <th style="line-height: 12px;" class="movepool_move">Move</th>
+                            <th style="line-height: 12px;" class="movepool_type">Type</th>
+                            <th style="line-height: 12px;" class="movepool_type">DC</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">Pwr.</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">Acc.</th>
+                            <th style="line-height: 12px;" class="movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level" :class="{ 'first-row': index === 0 }">
-                            <td class="movepool_way">{{x.Level}}</td>
-                            <td class="movepool_move">{{x.Move}}</td>
-                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
-                            <td class="movepool_type" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}">{{getMoveCategory(x.Category)[0]}}</td>
-                            <td class="movepool_tableC">{{movepoolPower(x)}}</td>
-                            <td class="movepool_tableC">{{x.Accuracy}}%</td>
-                            <td class="movepool_tableC">{{x.PP}}</td>
-                        </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :style="post_game_move_style(x)?.tmhm">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :class="{ 'first-row': index === 0 }">
                             <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
                             <td v-else class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
@@ -790,15 +781,6 @@
                             <td class="movepool_tableC">{{movepoolPower(x)}}</td>
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
-                        </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tutor">
-                            <td v-if="show_tutor_moves == true" class="movepool_way">Tutor</td>
-                            <td v-if="show_tutor_moves == true" class="movepool_move">{{x.Move}}</td>
-                            <td v-if="show_tutor_moves == true" :style="{'background-color': `var(--${ui_type_color_modifier}${x.Type?.toLowerCase()})`}" class="movepool_type">{{x.Type}}</td>
-                            <td v-if="show_tutor_moves == true" :style="{'background-color': `var(--${ui_type_color_modifier}${getMoveCategory(x.Category, x)[1].toLowerCase()})`}" class="movepool_type">{{x.Category}}</td>
-                            <td v-if="show_tutor_moves == true" class="movepool_tableC">{{x.Power}}</td>
-                            <td v-if="show_tutor_moves == true" class="movepool_tableC">{{x.Accuracy}}%</td>
-                            <td v-if="show_tutor_moves == true" class="movepool_tableC">{{x.PP}}</td>
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>

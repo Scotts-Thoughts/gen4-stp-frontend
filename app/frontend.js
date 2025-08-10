@@ -3335,12 +3335,12 @@ const app = Vue.createApp({
         getMovepool(gen3PkmnData, moveData, tmhmMapping, species) {
             const pkmn = this.dataSearch(gen3PkmnData, species)
             let obj = {
-                level: pkmn.level_up_learnset.map(x => {
-                    return {
-                        ...{Level: x[0]},
-                        ...this.dataSearch(moveData, x[1]) //searching for index 1
-                    }
-                }), 
+                // level: pkmn.level_up_learnset.map(x => {
+                //     return {
+                //         ...{Level: x[0]},
+                //         ...this.dataSearch(moveData, x[1]) //searching for index 1
+                //     }
+                // }), 
                 tmhm: pkmn.tm_hm_learnset.map(x => {
                     return {
                         ...{tmhm: tmhmMapping.find(y => y.Move == x)?.tmhmIndex??"TM01"},
