@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Spiritomb,Rival,8:14,0,0,8,0:28,1754856211.056,Faint Attack,Confuse Ray,Shadow Sneak,Pursuit
+Dawn,Spiritomb,Leader Roark,13:41,0,0,14,0:48,1754856537.769,Faint Attack,Hypnosis,Shadow Sneak,Pursuit
+Dawn,Spiritomb,Commander Mars,19:32,0,0,17,1:08,1754856888.374,Faint Attack,Hypnosis,Shadow Sneak,Pursuit
+Dawn,Spiritomb,Leader Gardenia,29:42,6,0,23,1:31,1754857498.936,Faint Attack,Hypnosis,Shadow Sneak,Dream Eater
+Dawn,Spiritomb,Commander Jupiter,33:17,6,0,24,1:43,1754857713.387,Faint Attack,Hypnosis,Shadow Sneak,Dream Eater
+Dawn,Spiritomb,Leader Fantina,39:31,6,0,26,2:04,1754858087.516,Faint Attack,Hypnosis,Ominous Wind,Dream Eater
+Dawn,Spiritomb,Rival,40:45,6,0,27,2:08,1754858161.455,Faint Attack,Hypnosis,Ominous Wind,Dream Eater
+Dawn,Spiritomb,Leader Maylene,48:12,7,0,31,2:31,1754858608.907,Faint Attack,Hypnosis,Ominous Wind,Dream Eater
+Dawn,Spiritomb,Rival,54:00,7,0,34,2:50,1754858956.249,Faint Attack,Hypnosis,Ominous Wind,Dream Eater
+Dawn,Spiritomb,Leader Wake,1:10:38,14,0,49,3:39,1754859954.93,Dark Pulse,Hypnosis,Ominous Wind,Nasty Plot
+Dawn,Spiritomb,Galactic Boss Cyrus,1:16:03,14,0,50,3:56,1754860279.821,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Rival,1:19:10,14,0,51,4:07,1754860466.598,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Leader Byron,1:22:49,14,0,53,4:20,1754860685.633,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Commander Saturn,1:25:39,14,0,53,4:29,1754860856.024,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Commander Mars,1:27:11,14,0,54,4:35,1754860947.488,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Leader Candice,1:32:19,14,0,56,4:52,1754861255.909,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Galactic Boss Cyrus,1:38:13,15,0,57,5:10,1754861609.616,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Commander Saturn,1:39:14,15,0,58,5:14,1754861670.414,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Commander Mars,1:44:52,15,0,59,5:34,1754862372.554,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Galactic Boss Cyrus,1:53:42,23,0,70,5:51,1754862902.283,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Leader Volkner,1:59:36,23,0,71,6:12,1754863256.185,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Rival,2:07:20,23,0,74,6:39,1754863720.018,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Elite Four Aaron,2:08:28,23,0,75,6:43,1754863788.297,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Elite Four Bertha,2:09:21,23,0,75,6:47,1754863840.826,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Elite Four Flint,2:11:20,25,0,76,6:50,1754863960.324,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Elite Four Lucian,2:12:27,25,0,80,6:55,1754864027.205,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
+Dawn,Spiritomb,Champion Cynthia,2:15:29,27,0,80,6:59,1754864209.026,Dark Pulse,Hypnosis,Shadow Ball,Nasty Plot
