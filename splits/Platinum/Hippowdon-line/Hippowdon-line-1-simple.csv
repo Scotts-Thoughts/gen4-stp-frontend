@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Hippopotas,Rival,9:48,0,0,9,0:33,1754944072.483,Bite,Sand-Attack,Tackle,
+Dawn,Hippopotas,Leader Roark,15:35,0,0,14,0:54,1754944419.366,Bite,Sand-Attack,Tackle,Yawn
+Dawn,Hippopotas,Commander Mars,24:44,2,0,18,1:23,1754944968.313,Bite,Rock Tomb,Tackle,Yawn
+Dawn,Hippopotas,Leader Gardenia,1:01:47,5,3,31,3:20,1754947192.094,Crunch,Rock Tomb,Take Down,Yawn
+Dawn,Hippopotas,Commander Jupiter,1:05:18,5,3,32,3:32,1754947555.166,Crunch,Rock Tomb,Take Down,Yawn
+Dawn,Hippowdon,Leader Fantina,1:15:31,5,3,35,4:07,1754948188.659,Earthquake,Rock Tomb,Crunch,Yawn
+Dawn,Hippowdon,Rival,1:16:48,5,3,35,4:11,1754948265.713,Earthquake,Rock Tomb,Crunch,Yawn
+Dawn,Hippowdon,Leader Maylene,1:22:31,5,3,37,4:30,1754948615.289,Earthquake,Rock Tomb,Crunch,Yawn
+Dawn,Hippowdon,Rival,1:29:31,5,3,41,4:54,1754949035.613,Earthquake,Rock Tomb,Crunch,Yawn
+Dawn,Hippowdon,Leader Wake,1:32:45,5,3,50,5:06,1754949229.2,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Galactic Boss Cyrus,1:37:17,5,3,51,5:21,1754949501.934,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Rival,1:40:07,5,3,51,5:31,1754949671.098,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Leader Byron,1:42:36,5,3,53,5:39,1754949820.422,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Commander Saturn,1:46:06,5,3,53,5:51,1754950030.265,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Commander Mars,1:47:42,5,3,54,5:57,1754950126.855,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Leader Candice,1:59:02,9,3,63,6:27,1754950806.408,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Galactic Boss Cyrus,2:03:57,9,3,63,6:44,1754951101.417,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Commander Saturn,2:04:47,9,3,64,6:47,1754951151.258,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Commander Mars,2:09:44,9,3,65,7:05,1754951448.382,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Galactic Boss Cyrus,2:15:25,10,3,65,7:20,1754951789.365,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Leader Volkner,2:20:43,10,3,67,7:39,1754952107.689,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Rival,2:30:02,11,3,69,8:09,1754952666.094,Earthquake,Thunder Fang,Crunch,Yawn
+Dawn,Hippowdon,Elite Four Aaron,2:32:19,11,3,70,8:17,1754952803.976,Earthquake,Thunder Fang,Crunch,Ice Fang
+Dawn,Hippowdon,Elite Four Bertha,2:33:19,11,3,71,8:21,1754952863.977,Earthquake,Thunder Fang,Crunch,Ice Fang
+Dawn,Hippowdon,Elite Four Flint,2:34:11,11,3,71,8:24,1754952915.743,Earthquake,Thunder Fang,Crunch,Ice Fang
+Dawn,Hippowdon,Elite Four Lucian,2:35:17,11,3,78,8:28,1754952981.163,Earthquake,Thunder Fang,Crunch,Ice Fang
+Dawn,Hippowdon,Champion Cynthia,2:40:45,15,3,78,8:36,1754953309.935,Earthquake,Thunder Fang,Substitute,Ice Fang
