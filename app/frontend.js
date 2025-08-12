@@ -4604,6 +4604,7 @@ const app = Vue.createApp({
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         if (this.disallow_faults == false) { this.blackout_counter++ }
+                        this.blackout = false;
                         this.disallow_faults_function()
                     }
                 }
