@@ -2015,6 +2015,7 @@ const app = Vue.createApp({
         get_stat() {
             const state = this.mapper.properties.meta.state.value
             const held_item = this.mapper.properties.player.team[0].held_item.value
+            var ability = this.pkmn_ability
             var status_condition = this.mapper.properties.player.team[0].status_condition.value
             function choice_specs(stat) {
                 return Math.floor(stat * 1.5)
@@ -2033,7 +2034,14 @@ const app = Vue.createApp({
                 Def = this.mapper.properties.player.team[0].stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
-                SpE = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.player.team[0].stats.speed.value / 4) : this.mapper.properties.player.team[0].stats.speed.value
+                SpE = this.mapper.properties.player.team[0].stats.speed.value
+                if (status_condition == 'Paralyzed') {
+                    SpE = Math.floor(SpE / 4)
+                }
+                if (ability == 'Slow Start') {
+                    Atk = Math.floor(Atk * 0.5)
+                    SpE = Math.floor(SpE * 0.5)
+                }
                 if (this.stat_fix_toggle_2 > 0) {
                     this.stat_fix_toggle_2 -= 1
                     HP = this.stat_fix_hp
@@ -2062,6 +2070,9 @@ const app = Vue.createApp({
             }
             if (state == `Battle`) {
                 this.stat_fix_toggle = true
+                ability = this.mapper.properties.battle.player.active_pokemon.ability.value
+                const turn_count = this.mapper.properties.battle.turn_counter.value
+
                 const mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
                 const mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
                 const mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
@@ -2070,15 +2081,22 @@ const app = Vue.createApp({
                 HP  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                 Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
                 Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
-                SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
+                SpA = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                 SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                Spe = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.battle.player.active_pokemon.stats.speed.value / 4) : this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                SpE = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                if (status_condition == 'Paralyzed') {
+                    SpE = Math.floor(SpE / 4)
+                }
+                if (ability == 'Slow Start' && turn_count < 5) {
+                    Atk = Math.floor(Atk * 0.5)
+                    SpE = Math.floor(SpE * 0.5)
+                }
                 let battle_hp  = HP
                 let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
                 let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def])
                 let battle_spa = Math.floor(SpA * this.stageModifiersData.stats[mod_spa])
                 let battle_spd = Math.floor(SpD * this.stageModifiersData.stats[mod_spd])
-                let battle_spe = Math.floor(Spe * this.stageModifiersData.stats[mod_spe])
+                let battle_spe = Math.floor(SpE * this.stageModifiersData.stats[mod_spe])
                 return {
                     "Hp" : battle_hp,
                     "Atk": battle_atk,
@@ -2096,7 +2114,14 @@ const app = Vue.createApp({
                     Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
                     SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                     SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
-                    Spe = status_condition == 'Paralyzed' ? Math.floor(this.mapper.properties.battle.player.active_pokemon.stats.speed.value / 4) : this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    SpE = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    if (status_condition == 'Paralyzed') {
+                        SpE = Math.floor(SpE / 4)
+                    }
+                    if (ability == 'Slow Start') {
+                        Atk = Math.floor(Atk * 0.5)
+                        SpE = Math.floor(SpE * 0.5)
+                    }
                     if (this.mapper.properties.battle.player.active_pokemon.stats.defense.value < 2000) {
                         this.stat_fix_lvl = this.mapper.properties.battle.player.active_pokemon.level.value
                         this.stat_fix_hp  = HP
@@ -2104,7 +2129,7 @@ const app = Vue.createApp({
                         this.stat_fix_def = Def
                         this.stat_fix_spa = SpA
                         this.stat_fix_spd = SpD
-                        this.stat_fix_spe = Spe
+                        this.stat_fix_spe = SpE
                         this.stat_fix_toggle_2 = 500
                     }
                 }
@@ -3373,7 +3398,7 @@ const app = Vue.createApp({
             if(!this.game.dexData){ 
                 return;
             }
-            this.movepoolDefaultFontSize = 15;
+            this.movepoolDefaultFontSize = 14;
             this.movepoolDefaultLineHeight = 21;
             this.movepoolDefaultContainerHeight = 992-(this.movepoolDefaultLineHeight+0);
 
@@ -3393,7 +3418,7 @@ const app = Vue.createApp({
             }
             let maxSize = this.movepoolDefaultContainerHeight / this.movepoolDefaultLineHeight;
             let correctedLineHeight = this.movepoolDefaultContainerHeight / movepoolSize;
-            let fontShrinkFactor = 0.77; //make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
+            let fontShrinkFactor = 0; //make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
             //This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
             let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight,fontShrinkFactor); 
             if(movepoolSize > (maxSize)){
