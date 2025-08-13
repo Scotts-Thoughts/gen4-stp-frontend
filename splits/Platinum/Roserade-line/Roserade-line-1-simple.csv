@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Budew,Rival,9:06,0,0,11,0:31,1755023969.637,Absorb,Growth,Water Sport,Stun Spore
+Dawn,Budew,Leader Roark,13:08,0,0,15,0:47,1755024212.162,Mega Drain,Growth,Absorb,Stun Spore
+Dawn,Budew,Commander Mars,20:22,3,0,20,1:08,1755024646.282,Mega Drain,Growth,Absorb,Return
+Dawn,Budew,Leader Gardenia,30:25,3,0,27,1:44,1755025249.356,Mega Drain,Growth,Absorb,Return
+Dawn,Budew,Commander Jupiter,59:29,12,0,36,3:17,1755026993.014,Mega Drain,Growth,Absorb,Return
+Dawn,Roselia,Leader Fantina,1:10:15,12,0,39,3:55,1755032088.062,Mega Drain,Growth,Absorb,Return
+Dawn,Roselia,Rival,1:11:30,12,0,39,3:59,1755032163.452,Mega Drain,Growth,Absorb,Return
+Dawn,Roselia,Leader Maylene,1:18:20,12,0,41,4:22,1755032572.935,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roselia,Rival,1:24:20,13,0,43,4:40,1755033034.089,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roselia,Leader Wake,1:26:33,13,0,45,4:48,1755033166.487,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roselia,Galactic Boss Cyrus,1:36:27,18,1,53,5:14,1755033760.841,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roselia,Rival,1:39:16,18,1,53,5:23,1755033929.64,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roserade,Leader Byron,1:46:02,19,1,56,5:46,1755034335.861,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roserade,Commander Saturn,1:49:00,19,1,57,5:57,1755034514.378,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roserade,Commander Mars,1:50:51,19,1,58,6:03,1755034625.08,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roserade,Leader Candice,1:55:39,19,1,59,6:19,1755034912.958,Mega Drain,Growth,Petal Dance,Return
+Dawn,Roserade,Galactic Boss Cyrus,2:02:17,20,1,60,6:41,1755035311.176,Giga Drain,Growth,Sludge Bomb,Return
+Dawn,Roserade,Commander Saturn,2:03:21,20,1,61,6:45,1755035374.95,Giga Drain,Growth,Sludge Bomb,Return
+Dawn,Roserade,Commander Mars,2:08:42,20,1,73,7:05,1755035695.61,Giga Drain,Growth,Sludge Bomb,Return
+Dawn,Roserade,Galactic Boss Cyrus,2:13:42,20,1,73,7:19,1755035995.916,Giga Drain,Growth,Sludge Bomb,Return
+Dawn,Roserade,Leader Volkner,2:18:58,20,1,75,7:38,1755036312.03,Giga Drain,Growth,Sludge Bomb,Return
+Dawn,Roserade,Rival,2:27:01,20,1,77,8:06,1755036795.174,Giga Drain,Growth,Sludge Bomb,Shadow Ball
+Dawn,Roserade,Elite Four Aaron,2:28:03,20,1,78,8:10,1755036856.934,Giga Drain,Growth,Sludge Bomb,Shadow Ball
+Dawn,Roserade,Elite Four Bertha,2:28:55,20,1,78,8:13,1755036908.695,Giga Drain,Growth,Sludge Bomb,Shadow Ball
+Dawn,Roserade,Elite Four Flint,2:29:36,20,1,79,8:16,1755036949.853,Giga Drain,Growth,Sludge Bomb,Shadow Ball
+Dawn,Roserade,Elite Four Lucian,2:30:28,20,1,79,8:19,1755037001.813,Giga Drain,Growth,Sludge Bomb,Shadow Ball
+Dawn,Roserade,Champion Cynthia,2:31:51,20,1,83,8:25,1755037084.894,Giga Drain,Growth,Sludge Bomb,Shadow Ball

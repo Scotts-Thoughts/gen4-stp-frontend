@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Bronzor,Rival,7:56,0,0,8,0:26,1755011686.448,Confusion,Tackle,Hypnosis,
+Dawn,Bronzor,Leader Roark,13:25,1,0,13,0:44,1755013271.578,Confusion,Tackle,Hypnosis,Imprison
+Dawn,Bronzor,Commander Mars,23:49,3,0,19,1:16,1755013895.783,Extrasensory,Tackle,Hypnosis,Confuse Ray
+Dawn,Bronzor,Leader Gardenia,38:28,7,3,26,2:00,1755014775.225,Extrasensory,Tackle,Hypnosis,Iron Defense
+Dawn,Bronzor,Commander Jupiter,43:24,9,3,27,2:11,1755015070.974,Extrasensory,Return,Hypnosis,Iron Defense
+Dawn,Bronzor,Leader Fantina,58:06,11,3,30,2:57,1755015952.458,Extrasensory,Return,Substitute,Iron Defense
+Dawn,Bronzor,Rival,59:14,11,3,30,3:01,1755016020.823,Extrasensory,Return,Substitute,Iron Defense
+Dawn,Bronzong,Leader Maylene,1:07:14,12,3,33,3:25,1755016500.756,Extrasensory,Return,Substitute,Iron Defense
+Dawn,Bronzong,Rival,1:14:59,15,3,37,3:46,1755016965.741,Extrasensory,Return,Substitute,Iron Defense
+Dawn,Bronzong,Leader Wake,1:18:43,15,3,47,4:00,1755017190.015,Extrasensory,Return,Substitute,Gyro Ball
+Dawn,Bronzong,Galactic Boss Cyrus,1:25:27,16,3,49,4:20,1755017594.237,Extrasensory,Return,Substitute,Gyro Ball
+Dawn,Bronzong,Rival,1:28:18,16,3,49,4:30,1755017764.776,Extrasensory,Return,Substitute,Gyro Ball
+Dawn,Bronzong,Leader Byron,1:31:57,16,3,52,4:43,1755018019.115,Extrasensory,Earthquake,Substitute,Gyro Ball
+Dawn,Bronzong,Commander Saturn,1:34:34,16,3,52,4:52,1755018175.689,Extrasensory,Earthquake,Substitute,Gyro Ball
+Dawn,Bronzong,Commander Mars,1:37:17,16,3,53,5:02,1755018338.36,Extrasensory,Earthquake,Substitute,Gyro Ball
+Dawn,Bronzong,Leader Candice,1:43:03,17,3,54,5:18,1755018691.901,Extrasensory,Earthquake,Substitute,Gyro Ball
+Dawn,Bronzong,Galactic Boss Cyrus,1:50:27,18,3,63,5:41,1755019135.252,Extrasensory,Earthquake,Substitute,Rock Tomb
+Dawn,Bronzong,Commander Saturn,1:51:33,18,3,63,5:45,1755019201.712,Extrasensory,Earthquake,Substitute,Rock Tomb
+Dawn,Bronzong,Commander Mars,1:57:25,18,3,64,6:07,1755019553.556,Extrasensory,Earthquake,Substitute,Rock Tomb
+Dawn,Bronzong,Galactic Boss Cyrus,2:03:04,18,3,65,6:24,1755019893.187,Extrasensory,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Leader Volkner,2:08:28,18,3,67,6:43,1755020217.171,Extrasensory,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Rival,2:15:22,18,3,70,7:08,1755020630.633,Extrasensory,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Elite Four Aaron,2:16:28,18,3,71,7:12,1755020696.911,Extrasensory,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Elite Four Bertha,2:17:46,18,3,78,7:17,1755020774.512,Grass Knot,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Elite Four Flint,2:18:40,18,3,78,7:20,1755020828.882,Grass Knot,Earthquake,Rock Polish,Rock Slide
+Dawn,Bronzong,Elite Four Lucian,2:19:55,18,3,79,7:25,1755020903.849,Grass Knot,Charge Beam,Rock Polish,Shadow Ball
+Dawn,Bronzong,Champion Cynthia,2:21:34,18,3,79,7:31,1755021002.607,Grass Knot,Charge Beam,Rock Polish,Psychic

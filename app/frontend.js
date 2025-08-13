@@ -3374,7 +3374,7 @@ const app = Vue.createApp({
                 return;
             }
             this.movepoolDefaultFontSize = 15;
-            this.movepoolDefaultLineHeight = 16;
+            this.movepoolDefaultLineHeight = 21;
             this.movepoolDefaultContainerHeight = 992-(this.movepoolDefaultLineHeight+0);
 
             //calculate new sizes
@@ -3947,6 +3947,7 @@ const app = Vue.createApp({
                     return move.power * 2
                 }
                 else if (y == "Gyro Ball") {
+                    if (state != "Battle") { return "—" }
                     const user_speed = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
                     const target_speed = this.mapper.properties.battle.opponent.active_pokemon.stats.speed.value
                     var base_power = Math.min(((25 * target_speed) / user_speed) + 1)
