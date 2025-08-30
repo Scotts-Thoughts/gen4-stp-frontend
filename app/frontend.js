@@ -751,9 +751,9 @@ const app = Vue.createApp({
                 {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",  base_stat_path: "base_hp",      object_identifier: "hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
                 {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", path: "attack",          mod_path: "Attack",         mod_abrv: "atk", base_stat_path: "base_atk",     object_identifier: "atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
                 {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", path: "defense",         mod_path: "Defense",        mod_abrv: "def", base_stat_path: "base_def",     object_identifier: "def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
-                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", object_identifier: "spc_atk", dv: "dvSpecial", hp_spe_label_row: 1, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 2, value_column: 4,}, 
-                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", object_identifier: "spc_def", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 3, value_column: 4,}, 
-                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     object_identifier: "spd",     dv: "dvSpeed",   hp_spe_label_row: 3, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 1, value_column: 4,}, 
+                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", object_identifier: "spc_atk", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 4,}, 
+                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", object_identifier: "spc_def", dv: "dvSpecial", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 4,}, 
+                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     object_identifier: "spd",     dv: "dvSpeed",   hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 4,}, 
             ],
 
             //VARIABLES THAT TRACK IN GAME PROGRESS ------------------------------------------------------------//
@@ -990,14 +990,10 @@ const app = Vue.createApp({
 
             // UI
             ui_saturation:                MyStorage["ui_saturation"]                ?? .6,
-            ui_type_colors:               MyStorage["ui_type_colors"]               ?? "Current",
-            ui_type_color_modifier:       MyStorage["ui_type_color_modifier"]       ?? "current_",
             ui_type_icons:                MyStorage["ui_type_icons"]                ?? "2024",
             ui_type_icons_modifier:       MyStorage["ui_type_icons_modifier"]       ?? "2024/",
             ui_stats_styling:             MyStorage["ui_stats_styling"]             ?? "2024",
             ui_stats_styling_modifier:    MyStorage["ui_stats_styling_modifier"]    ?? "",
-            ui_stat_arrangement:          MyStorage['ui_stat_arrangement']          ?? "HP, Atk, Def, Spe, SpA, SpD",
-            ui_stat_arrangement_modifier: MyStorage['ui_stat_arrangement_modifier'] ?? "hp_spe_",
         }
     },
     created() {
@@ -1121,22 +1117,6 @@ const app = Vue.createApp({
             this.pkmn_gender            = MyStorage[`${game}_${starter}`]?.pkmn_gender           ?? "Female"
             this.movepoolResize();
         },
-        ui_stat_arrangement(newValue) {
-            if (newValue == 'HP, Atk, Def, SpA, SpD, Spe') {
-                this.ui_stat_arrangement_modifier = "hp_spe_"
-            }
-            if (newValue == 'HP, Atk, Def, Spe, SpA, SpD') {
-                this.ui_stat_arrangement_modifier = "hp_spd_"
-            }
-        },
-        ui_type_colors(newValue) {
-            if (newValue == 'Current') {
-                this.ui_type_color_modifier = "current_"
-            }
-            if (newValue == 'Legacy') {
-                this.ui_type_color_modifier = "legacy_"
-            }
-        },
         playerId(newValue) {
             MyStorage["playerId"] = newValue
             this.game_over = false;
@@ -1230,6 +1210,23 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        blackouts_resets() {
+            const resets = this.playerResets
+            const blackouts = this.blackout_counter
+            const allow_none = true // Toggle that allows for the UI to display no border if there are no faults
+            if (allow_none == true && blackouts == 0 && resets == 0) {
+                return "None"
+            }
+            else if (blackouts == 0 && resets > 0) {
+                return "Resets"
+            }
+            else if (blackouts > 0 && resets == 0) {
+                return "Blackouts"
+            }
+            else {
+                return "Both"
+            }
+        },
         g4PokemonData() {
             const game = this.mapper.properties.meta.game_name.value
             switch (game) {
@@ -1393,7 +1390,7 @@ const app = Vue.createApp({
             return object
         },
         enemy_2_mon_static() {
-            const opponent_id = this.mapper.properties.battle.opponent_2.id.value
+            const opponent_id = this.mapper.properties.battle.opponent_2?.trainer?.bytes
             const object      = this.platinum_trainers[opponent_id].party
             return object
         },
@@ -1748,6 +1745,57 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        speed_comparison(enemy_slot, enemy_speed_incoming) {
+            let object = {
+                comparison: "Outspeeds",
+                color: "background-color: rgba(255, 63, 63, 0.6)",
+            }
+            if (this.mapper.properties.battle.mode.value != 'Trainer') { return object }
+
+            const state          = this.mapper.properties.meta.state.value
+            const trainer_number = this.mapper.properties.battle.opponent.id.value
+            let data = this.selected_game == 'Platinum' ? this.trainers_plat : this.selected_game == 'Diamond and Pearl' ? this.trainers_dp : this.trainers_hgss
+            let enemy_hp = this.mapper.properties.battle.opponent.team[enemy_slot]?.stats.hp.value
+            let player_speed   = this.get_stat().Spe
+
+            let enemy_speed = enemy_speed_incoming
+            let enemy_modifier = this.mapper.properties.battle.opponent.active_pokemon.modifiers.speed.value
+            let stage_modifier = 1
+            if (enemy_modifier != '0' && state == 'Battle' && enemy_slot == this.mapper.properties.battle.opponent.party_position.value) {
+                stage_modifier = this.stageModifiersData.stats[enemy_modifier]
+                enemy_speed = Math.floor(enemy_speed * stage_modifier)
+            }
+            console.log("Enemy Speed:", enemy_slot, enemy_speed)
+
+            if (state == 'To Battle') {
+                enemy_speed = data[`${trainer_number}`].pokemon[enemy_slot]?.spe
+            }
+            if (player_speed > enemy_speed) {
+                object.comparison = "Outsped"
+                object.color      = "background-color: rgba(28, 255, 58, 0.4)"
+            }
+            else if (player_speed == enemy_speed) {
+                object.comparison = "Speed-tie"
+                object.color      = "background-color: rgba(255, 255, 0, 0.5)"
+            }
+            if (enemy_hp == 0) {
+                object.color      = "background-color: rgba(28, 255, 58, 0.5); opacity: 0.0; filter: grayscale(100%)"
+            }
+            return object
+        },
+        svgColorClass(speed_comparison, enemy_data) {
+            const isFainted = enemy_data?.stats.hp.value
+            if (isFainted == 0) {
+                return 'grey-svg';
+            }
+            if (speed_comparison === 'Outsped') {
+                return 'blue-svg';
+            } 
+            else if (speed_comparison === 'Speed-tie') {
+                return 'yellow-svg';
+            }
+            return 'red-svg';
+        },
         async transfer_metrics(previous_mon_resets, previous_mon_blackouts, previous_mon_finished_runs, previous_mon_attempt_number) {
             await this.sleep(50)
             this.playerResets = previous_mon_resets
@@ -2558,6 +2606,16 @@ const app = Vue.createApp({
             }
             else {
                 return
+            }
+        },
+        enemyPkmnUI(pkmnData) {
+            const state = this.mapper.properties.meta.state.value
+            if (state != `Battle` && state != `From Battle`) { return "opacity: 1" }
+            if (pkmnData.stats.hp.value == 0 || state == `From Battle`) {
+                return "opacity: .5;"
+            }
+            else {
+                return "opacity: 1"
             }
         },
         enemy2Faint(slotIndex) {
@@ -3383,7 +3441,7 @@ const app = Vue.createApp({
         }, 
 
         movepoolResize() {
-            console.log("movepool")
+            // console.log("movepool")
             let out = this.movepoolResizeCalc();
             if(this.mapper.properties.meta.state.value == "From Battle") {
                 return out;
@@ -3394,13 +3452,13 @@ const app = Vue.createApp({
             return out;
         },
         movepoolResizeCalc() {
-            console.log("calc")
+            // console.log("calc")
             if(!this.game.dexData){ 
                 return;
             }
             this.movepoolDefaultFontSize = 14;
             this.movepoolDefaultLineHeight = 21;
-            this.movepoolDefaultContainerHeight = 992-(this.movepoolDefaultLineHeight+0);
+            this.movepoolDefaultContainerHeight = 996-(this.movepoolDefaultLineHeight+0);
 
             //calculate new sizes
             let currentStarter = this.starter;
@@ -4215,11 +4273,29 @@ const app = Vue.createApp({
         //         return
         // },
         enemyStatLabelOpacity(modifier, slot) {
+            modifier_table = {
+                0x00: "-6", 
+                0x01: "-5", 
+                0x02: "-4", 
+                0x03: "-3", 
+                0x04: "-2", 
+                0x05: "-1", 
+                0x06: "0",
+                0x07: "1",
+                0x08: "2",
+                0x09: "3",
+                0x0A: "4",
+                0x0B: "5",
+                0x0C: "6",
+                0x0D: "6",
+            }
+            // console.log(slot, modifier.bytes)
+            modifier = modifier_table[modifier.bytes]
             if (this.mapper.properties.battle.opponent.party_position.value == slot) {
                 if (this.mapper.properties.battle.opponent.team[0].internals.personality_value.value == null)
                     return
                 else if (this.mapper.properties.meta.state.value == "Battle") {
-                    if (modifier.value != 0)
+                    if (modifier != "0")
                         return `opacity: ${this.statLabelOpacityValue};`
                 }
             }

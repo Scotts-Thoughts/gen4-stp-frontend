@@ -22,25 +22,25 @@
     --outline3: #000000;
 
     /* Movepool Type Colours */
-    --normal:   #a8a878;
-    --fighting: #c03028;
-    --grass:    #78c850;
-    --fire:     #f08030;
-    --water:    #6890f0;
-    --electric: #f3d230;
-    --ground:   #e0c068;
-    --rock:     #b8a038;
-    --psychic:  #f85888;
-    --poison:   #a040a0;
-    --flying:   #a890f0;
-    --bug:      #a8b820;
-    --ice:      #98d8d8;
-    --ghost:    #705898;
-    --dragon:   #7038f8;
-    --steel:    #b8b8d0;
-    --dark:     #705848;
-    --fairy:    #ee99ac;
-    --curse:    #2e9fa3;
+    --normal:   #9fa19f;
+    --fighting: #ff8000;
+    --grass:    #3fa129;
+    --fire:     #e62829;
+    --water:    #2980ef;
+    --electric: #fac000;
+    --ground:   #915121;
+    --rock:     #8d896c;
+    --psychic:  #ef4179;
+    --poison:   #9141cb;
+    --flying:   #81b9ef;
+    --bug:      #91a119;
+    --ice:      #3dcef3;
+    --ghost:    #704170;
+    --dragon:   #5060e1;
+    --steel:    #60a1b8;
+    --dark:     #624d4e;
+    --fairy:    #ef70ef;
+    --curse:    #68A090;
 
     /* Bulbapedia (present) */
     --current_normal:   #9fa19f;
@@ -172,7 +172,10 @@
     --expBarBackground: linear-gradient(rgb(239, 239, 239), rgb(157, 157, 157));
     --expBarExperience: linear-gradient(90deg,hsl(189, 92%, 45%), hsl(187, 100%, 69%));
 }
-
+.grey-svg {   filter: invert(29%) sepia(96%)  saturate(0%)    hue-rotate(180deg) brightness(95%)  contrast(101%) drop-shadow(0px 1px 2px #000000); opacity: .2;}
+.blue-svg {   filter: invert(29%) sepia(96%)  saturate(748%)  hue-rotate(180deg) brightness(95%)  contrast(101%) drop-shadow(0px 1px 2px #000000); }
+.yellow-svg { filter: invert(29%) sepia(100%) saturate(300%)  hue-rotate(10deg)  brightness(110%) contrast(101%) drop-shadow(0px 1px 2px #000000); }
+.red-svg {    filter: invert(29%) sepia(96%)  saturate(1448%) hue-rotate(310deg) brightness(95%)  contrast(101%) drop-shadow(0px 1px 2px #000000); }
 html {
     height: 100%;
     width: 100%;
@@ -962,16 +965,50 @@ body {
     width: 102px;
     /* border: 1px solid #000; */
 }
-
-.ePkmnMoveStyle {
+.fault_label {
     position: absolute;
-    /* border: 1px solid rgb(47, 0, 255); */
-    width: 190px;
-    font-size: 20px;
-    line-height: 32px;
     text-align: center;
-    left: 190px;
+    font-size: 15px;
+    width: 150px;
+    border: 1px solid #ff000000;
+    font-family: titan;
+    opacity: .7;
 }
+.timer_reset_label {
+    top: 166px;
+    left: 149px;
+}
+.timer_2_reset_label {
+    top: 166px;
+    left: 70px;
+}
+.blackout_2_reset_label {
+    top: 166px;
+    left: 227px;
+}
+.faults_value {
+    position: absolute;
+    font-size: 68px;
+    z-index: 5;
+    line-height: 60px;
+    text-align: center;
+    font-family: oseb;
+    font-weight: 700;
+    width: 150px;
+    border: 1px solid rgba(255, 0, 0, 0);
+    top: 186px;
+}
+.timer_reset_value {
+    left: 149px;
+}
+.timer_2_reset_value {
+    left: 70px;
+}
+.timer_2_blackout_value {
+    left: 227px;
+}
+
+
 .opacityTransition { transition: opacity 500ms ease-in-out;}
 .ePkmnMove1 { top: 12px; }
 .ePkmnMove2 { top: 48px; }
@@ -991,19 +1028,6 @@ body {
 .ePkmnEnemyRange { 
     top: 84px; 
 }
-
-.ePkmnStatsStyle {
-    position: absolute;
-    /* border: 1px solid rgb(255, 0, 0); */
-    width: 50px;
-    text-align: center;
-    left: 146.5px;
-}
-.ePkmnHp  { top: 11px; }
-.ePkmnAtk { top: 39px; }
-.ePkmnDef { top: 67px; }
-.ePkmnSpd { top: 124px; }
-.ePkmnSpc { top: 95px; }
 
 .ePkmnStats {
     position: absolute;
@@ -1029,9 +1053,9 @@ img, span, div {
 }
 
 .ePkmnMoves {
-    top: -3px;
+    top: -6px;
     position: absolute;
-    left: 236px;
+    left: 203px;
     padding: 0;
     margin: 0;
 }
@@ -1047,15 +1071,15 @@ img, span, div {
     /* font-size: 18px; */
     table-layout: fixed;
     position: absolute;
-    border: 1px solid #00000000;
-    line-height: 29px;
+    border: 1px solid #008dc400;
+    line-height: 30.8px;
     padding: 1px;
-    width: 171px;
+    width: 163px;
     top: 22px;
     overflow: visible;
 }
 .ePkmnMoveType {
-    width: 26px;
+    width: 30px;
 }
 .enemyMovesetTable tr:nth-child(2) {
     width: 46px;
@@ -1068,11 +1092,11 @@ img, span, div {
     width: 26px;
 } */
 .enemyMovesetTable th:nth-child(1) {
-    width: 13px;
+    width: 14px;
     /* border: 1px solid #ff0000; */
 }
 .enemyMovesetTable th:nth-child(2) {
-    width: 56px;
+    width: 55px;
     /* border: 1px solid #9dff00; */
 }
 .enemyMovesetTable th:nth-child(3) {
@@ -1103,6 +1127,67 @@ img, span, div {
     vertical-align: middle;
 }
 
+.ePkmnStatsLabelsStyle {
+    position: absolute;
+    text-align: center;
+    line-height: 20px;
+    font-size: 11px;
+    opacity: .7;
+    width: 68px;
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+.ePkmnStatsLabelColumn1 {
+    left: -19px;
+}
+.ePkmnStatsLabelColumn2 {
+    left: 51px;
+}
+.ePkmnHpLabel {
+    top: 35px;
+}
+.ePkmnAtkLabel {
+    top: 73px;
+}
+.ePkmnDefLabel {
+    top: 110px;
+}
+.ePkmnSpaLabel {
+    top: 73px;
+}
+.ePkmnSpdLabel {
+    top: 110px;
+}
+.ePkmnSpeLabel {
+    top: 35px;
+}
+
+.ePkmnStatsStyle {
+    position: absolute;
+    text-align: center;
+    line-height: 20px;
+    font-size: 19px;
+    width: 68px;
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+.ePkmnHp {
+    top: 50px;
+}
+.ePkmnAtk {
+    top: 88px;
+}
+.ePkmnDef {
+    top: 125px;
+}
+.ePkmnSpa {
+    top: 88px;
+}
+.ePkmnSpd {
+    top: 125px;
+}
+.ePkmnSpe {
+    top: 50px;
+}
+
 .enemyStatTable th:nth-child(1) {
     width: 58px;
 }
@@ -1120,8 +1205,8 @@ img, span, div {
     height: 32px;
 }
 .moveIcon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     margin-bottom: 2px;
 }
 
@@ -1911,9 +1996,9 @@ img, span, div {
 .hp_spd_speMod { position: absolute; left: 226px; top: 71px; }
 .hp_spe_atkMod { position: absolute; left: 23px; top: 134px; }
 .hp_spe_defMod { position: absolute; left: 23px; top: 197px; }
-.hp_spe_spAMod { position: absolute; left: 226px; top: 71px; }
-.hp_spe_spDMod { position: absolute; left: 226px; top: 134px; }
-.hp_spe_speMod { position: absolute; left: 226px; top: 197px; }
+.hp_spe_spAMod { position: absolute; left: 226px; top: 134px; }
+.hp_spe_spDMod { position: absolute; left: 226px; top: 197px; }
+.hp_spe_speMod { position: absolute; left: 226px; top: 71px; }
 
 
 .aDMods {
@@ -2004,6 +2089,7 @@ img, span, div {
     font-size: 14px;
     /* text-decoration: underline; */
     opacity: .72;
+    border: 1px solid #da565600;
 }
 .timerLabel {
     top: 24px;
@@ -2039,24 +2125,27 @@ img, span, div {
     font-size: 16px;
 }
 
-.accuracyModLabel {
+.mod_label {
     position: absolute;
-    top: 245px;
-    left: 31px;
+    width: 124px;
+    top: 261px;
+    text-align: center;
+}
+.accuracyModLabel {
+    left: 30px;
 }
 .evasionModLabel {
-    position: absolute;
-    top: 245px;
-    left: 158px;
+    left: 292px;
 }
 .popUpsStyle {
     position: absolute;
     font-family: play;
     font-size: 36px;
     border: 1px solid #ff000000;
-    width: 108px;
+    width: 124px;
     height: 40px;
     text-align: center;
+    top: 277px;
 }
 .nature {
     font-size: 20px;
@@ -2691,37 +2780,62 @@ img, span, div {
     border: 1px solid rgba(0, 255, 149, 0);
     font-size: 14px;
     font-family: play;
-    width: 140px;
+    width: 128px;
     text-align: center;
     top: -1px;
-    left: 0px;
+    left: -2px;
     opacity: .7;
     filter: drop-shadow(1px 1px 1px #00000078)
 }
 .ePkmnLvl {
     position: absolute;
-    border: 1px solid rgba(0, 255, 149, 0);
-    font-size: 17px;
-    width: 130px;
-    text-align: left;
-    top: 100px;
-    left: 0px;
+    border: 1px solid rgb(0, 255, 149);
+    font-size: 12px;
+    line-height: 17px;
+    font-family: play;
+    width: 140px;
+    text-align: center;
+    top: -1px;
+    opacity: .7;
+    width: 140px;
+    left: 126px;
+}
+.ePkmnAbility {
+    position: absolute;
+    text-align: right;
+    border: 1px solid rgba(255, 0, 0, 0);
+    /* color:rgb(70, 70, 70); */
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    width: 109px;
+    top: 1px;
+    left: 283px;
     opacity: .7;
 }
 .ePkmnLevel {
     position: absolute;
-    /* border: 1px solid rgb(0, 255, 149); */
-    font-size: 18px;
-    font-family: titan;
-    width: 68px;
-    opacity: .7;
+    text-align: right;
+    border: 1px solid rgba(255, 0, 0, 0);
+    /* color:rgb(70, 70, 70); */
+    font-size: 12px;
+    line-height: 17px;
     text-align: center;
-    top: 128px;
-    left: 11px;
-    background:hwb(0 53% 47% / 0.9);
-    border: 1px solid #000;
-    border-radius: 5px;
-    filter: drop-shadow(0px 0px 5px)
+    width: 138px;
+    top: 1px;
+    left: 128px;
+    opacity: .7;
+}
+.ePkmnSpeedComparison {
+    position: absolute;
+    border: 1px solid rgba(255, 0, 0, 0);
+    text-align: center;
+    color:rgb(70, 70, 70);
+    font-size: 12px;
+    line-height: 13px;
+    width: 140px;
+    top: 22px;
+    left: 127px;
 }
 .ePkmnSprite {
     /* position: absolute;
@@ -2736,126 +2850,32 @@ img, span, div {
     transform-origin: top left;
     display: inline-block; /* to ensure it's treated as an inline-level element */
     vertical-align: middle; /* to align it with the text */
-    width: 132px;
-    height: 128px;
-    top: 15px;
-    left: 3px;
+    width: 122px;
+    height: 118px;
+    top: 18px;
+    left: 0px;
     filter: drop-shadow(1px 1px 2px);
 }
-.ePkmnMove1 {
+.ePkmnMoveStyle {
     position: absolute;
     border: 1px solid rgba(47, 0, 255, 0);
-    width: 158px;
-    font-size: 20px;
-    line-height: 33px;
-    text-align: center;
-    left: 183px;
-    top: 6px;
-    /* font-size: 22px; */
+    width: 128px;
+    font-size: 14px;
+    line-height: 31px;
+    text-align: left;
+    left: 94px;
+}
+.ePkmnMove1 {
+    top: 24px;
 }
 .ePkmnMove2 {
-    position: absolute;
-    border: 1px solid rgba(47, 0, 255, 0);
-    width: 158px;
-    font-size: 20px;
-    line-height: 33px;
-    text-align: center;
-    left: 183px;
-    top: 42px;
+    top: 57px;
 }
 .ePkmnMove3 {
-    position: absolute;
-    border: 1px solid rgba(47, 0, 255, 0);
-    width: 158px;
-    font-size: 20px;
-    line-height: 33px;
-    text-align: center;
-    left: 183px;
-    top: 79px;
+    top: 90px;
 }
 .ePkmnMove4 {
-    position: absolute;
-    border: 1px solid rgba(47, 0, 255, 0);
-    width: 158px;
-    font-size: 20px;
-    line-height: 33px;
-    text-align: center;
-    left: 183px;
-    top: 116px;
-}
-.ePkmnHp {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    width: 46px;
-    font-size: 19px;
-    text-align: center;
-    line-height: 20px;
-    top: 8px;
-    left: 134px;
-}
-.ePkmnAtk {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    width: 46px;
-    font-size: 19px;
-    text-align: center;
-    line-height: 20px;
-    top: 32px;
-    left: 134px;
-
-}
-.ePkmnDef {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    text-align: center;
-    font-size: 19px;
-    line-height: 20px;
-    width: 46px;
-    top: 56px;
-    left: 134px;
-
-}
-.ePkmnSpa {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    text-align: center;
-    font-size: 19px;
-    line-height: 20px;
-    width: 46px;
-    top: 80px;
-    left: 134px;
-}
-.ePkmnSpd {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    text-align: center;
-    font-size: 19px;
-    line-height: 20px;
-    width: 46px;
-    top: 105px;
-    left: 134px;
-}
-.ePkmnSpe {
-    position: absolute;
-    border: 1px solid rgba(255, 0, 0, 0);
-    text-align: center;
-    font-size: 19px;
-    line-height: 20px;
-    width: 46px;
-    top: 128.5px;
-    left: 134px;
-}
-.ePkmnAbility {
-    position: absolute;
-    text-align: right;
-    border: 1px solid rgba(255, 0, 0, 0);
-    /* color:rgb(70, 70, 70); */
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    width: 146px;
-    top: 1px;
-    left: 250px;
+    top: 123px;
 }
 .seHp {
     position: absolute;
@@ -3097,7 +3117,7 @@ img, span, div {
 }
 .voltorb_flip {
     position: absolute;
-    top: 252px;
+    top: 268px;
     left: 88px;
 }
 .enemyStatsArea {
@@ -3106,7 +3126,7 @@ img, span, div {
     max-height:1080px;
     position: fixed;
     top: 0px;
-    left: 0px;
+    left: -1px;
     transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
 }
 .uiPngElement {
@@ -3136,16 +3156,14 @@ img, span, div {
     top: 380px;
 }
 .accuracyMod {
-    left: 13px;
-    top: 260px;
+    left: 30px;
 }
 .evasionLabel {
     left: 137px;
     top: 230px;
 }
 .evasionMod {
-    left: 137px;
-    top: 260px;
+    left: 292px;
 }
 .playerFieldEffects {
     position: absolute;
@@ -3198,15 +3216,16 @@ img, span, div {
 .enemyMod {
     position: absolute;
     border: 1px solid #00000000;
-    width: 28px;
+    width: 68px;
     text-align: center;
+    font-size: 14px;
 }
 .stcd { top: -18px; width: 42px; height: 18px; left: -5px; font-size: 14px; }
-.e_attack { top: 2px; }
-.e_defense { top: 26px; }
-.e_special_attack { top: 50px; }
-.e_special_defense { top: 75px; }
-.e_speed { top: 98px; }
+.e_attack          { top: 51px; left: -20px; }
+.e_defense         { top: 88px; left: -20px; }
+.e_special_attack  { top: 51px; left: 50px; }
+.e_special_defense { top: 88px; left: 50px; }
+.e_speed           { top: 13px; left: 50px; }
 
 .attackMod {
     top: 32px;

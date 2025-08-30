@@ -18,13 +18,6 @@
       <stop offset="1" stop-color="#1e993d"/>
       <stop offset="1" stop-color="#1e993d"/>
     </linearGradient>
-    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
-      <feOffset dx="0" dy="1"/>
-      <feGaussianBlur result="blur-2" stdDeviation="2"/>
-      <feFlood flood-color="#000" flood-opacity=".9"/>
-      <feComposite in2="blur-2" operator="in"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
     <linearGradient id="Stat_Atk_New_Sat" data-name="Stat Atk New Sat" x1="1618" y1="667.5" x2="1686" y2="667.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#9b8b2d"/>
       <stop offset=".04" stop-color="#a69638"/>
@@ -92,7 +85,9 @@
   <g id="Layer_22" data-name="Layer 22">
     <g id="Slot1_copy" data-name="Slot1 copy">
       <g id="slot4_stats" data-name="slot4 stats" style="filter: url(#drop-shadow-1);">
-        <rect id="hp" x="1618" y="612" width="68" height="35.68" rx="6" ry="6" style="fill: url(#Stat_HP_New_Sat); filter: url(#drop-shadow-2); stroke-width: 0px;"/>
+        <g id="hp">
+          <rect x="1618" y="612" width="68" height="35.68" rx="6" ry="6" style="fill: url(#Stat_HP_New_Sat); stroke-width: 0px;"/>
+        </g>
         <g id="atk">
           <rect x="1618" y="649.66" width="68" height="35.68" rx="6" ry="6" style="fill: url(#Stat_Atk_New_Sat); stroke-width: 0px;"/>
         </g>

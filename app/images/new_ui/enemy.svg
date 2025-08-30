@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1487" y1="981.5" x2="1904" y2="981.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#999"/>
+      <stop offset=".04" stop-color="#a0a0a0"/>
+      <stop offset=".21" stop-color="#b8b8b8"/>
+      <stop offset=".37" stop-color="#c6c6c6"/>
+      <stop offset=".5" stop-color="#ccc"/>
+      <stop offset=".63" stop-color="#c6c6c6"/>
+      <stop offset=".79" stop-color="#b7b7b7"/>
+      <stop offset=".97" stop-color="#9d9d9d"/>
+      <stop offset="1" stop-color="#999"/>
+    </linearGradient>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" y1="815.5" y2="815.5" xlink:href="#linear-gradient"/>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur-2" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-3" y1="648.5" y2="648.5" xlink:href="#linear-gradient"/>
+    <filter id="drop-shadow-3" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur-3" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-3" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-4" y1="482.5" y2="482.5" xlink:href="#linear-gradient"/>
+    <filter id="drop-shadow-4" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur-4" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-4" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-5" y1="315.5" y2="315.5" xlink:href="#linear-gradient"/>
+    <filter id="drop-shadow-5" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur-5" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-5" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-6" y1="149.5" y2="149.5" xlink:href="#linear-gradient"/>
+    <filter id="drop-shadow-6" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="-1"/>
+      <feGaussianBlur result="blur-6" stdDeviation="1"/>
+      <feFlood flood-color="#000" flood-opacity=".5"/>
+      <feComposite in2="blur-6" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-7" y1="40.5" y2="40.5" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Enemy">
+    <g id="Layer_34" data-name="Layer 34">
+      <g>
+        <rect x="1487" y="903" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient); stroke-width: 0px;"/>
+        <path d="m1898,905c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-145c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,903c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-145c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,901c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-145c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-145c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_" data-name="&amp;lt;highlight&amp;gt;" points="1489 1031.94 1508 1050 1902 1050.34 1902 1058 1489 1058 1489 1031.94" style="fill: gray; filter: url(#drop-shadow-1); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_27" data-name="Layer 27">
+      <g>
+        <rect x="1487" y="737" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient-2); stroke-width: 0px;"/>
+        <path d="m1898,739c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-145c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,737c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-145c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,735c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-145c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-145c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_-2" data-name="&amp;lt;highlight&amp;gt;" points="1489 865.94 1508 884 1902 884.34 1902 892 1489 892 1489 865.94" style="fill: gray; filter: url(#drop-shadow-2); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_28" data-name="Layer 28">
+      <g>
+        <rect x="1487" y="570" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient-3); stroke-width: 0px;"/>
+        <path d="m1898,572c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-145c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,570c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-145c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,568c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-145c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-145c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_-3" data-name="&amp;lt;highlight&amp;gt;" points="1489 698.94 1508 717 1902 717.34 1902 725 1489 725 1489 698.94" style="fill: gray; filter: url(#drop-shadow-3); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_29" data-name="Layer 29">
+      <g>
+        <rect x="1487" y="404" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient-4); stroke-width: 0px;"/>
+        <path d="m1898,406c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-145c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,404c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-145c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,402c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-145c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-145c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_-4" data-name="&amp;lt;highlight&amp;gt;" points="1489 532.94 1508 551 1902 551.34 1902 559 1489 559 1489 532.94" style="fill: gray; filter: url(#drop-shadow-4); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_31" data-name="Layer 31">
+      <g>
+        <rect x="1487" y="237" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient-5); stroke-width: 0px;"/>
+        <path d="m1898,239c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-145c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,237c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-145c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-145c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,235c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-145c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-145c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_-5" data-name="&amp;lt;highlight&amp;gt;" points="1489 365.94 1508 384 1902 384.34 1902 392 1489 392 1489 365.94" style="fill: gray; filter: url(#drop-shadow-5); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_32" data-name="Layer 32">
+      <g>
+        <rect x="1487" y="71" width="417" height="157" rx="6" ry="6" style="fill: url(#linear-gradient-6); stroke-width: 0px;"/>
+        <path d="m1898,73c2.21,0,4,1.79,4,4v145c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4V77c0-2.21,1.79-4,4-4h405m0-4h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8V77c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,71c3.31,0,6,2.69,6,6v145c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6V77c0-3.31,2.69-6,6-6h405m0-2h-405c-4.42,0-8,3.58-8,8v145c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8V77c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,69c4.42,0,8,3.58,8,8v145c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8V77c0-4.42,3.58-8,8-8h405m0-1h-405c-4.96,0-9,4.04-9,9v145c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9V77c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+      <polygon id="_highlight_-6" data-name="&amp;lt;highlight&amp;gt;" points="1489 199.94 1508 218 1902 218.34 1902 226 1489 226 1489 199.94" style="fill: gray; filter: url(#drop-shadow-6); opacity: .2; stroke: #6e5597; stroke-miterlimit: 10;"/>
+    </g>
+    <g id="Layer_33" data-name="Layer 33">
+      <g id="Movepool_Template" data-name="Movepool Template">
+        <path d="m1493,61c-3.31,0-6-2.69-6-6v-14.82c0-1.56.6-3.04,1.68-4.16l12.49-14.25c1.06-1.1,2.64-1.77,4.26-1.77h392.57c3.31,0,6,2.69,6,6v29c0,3.31-2.69,6-6,6h-405Z" style="fill: url(#linear-gradient-7); stroke-width: 0px;"/>
+        <path d="m1898,22c2.21,0,4,1.79,4,4v29c0,2.21-1.79,4-4,4h-405c-2.21,0-4-1.79-4-4v-14.82c0-1.04.4-2.03,1.12-2.78l.06-.07.06-.07,12.36-14.1c.75-.74,1.77-1.17,2.83-1.17h392.57m0-4h-392.57c-2.17,0-4.25.88-5.76,2.45l-12.43,14.18c-1.44,1.49-2.24,3.48-2.24,5.55v14.82c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-29c0-4.42-3.58-8-8-8h0Z" style="fill: gray; stroke-width: 0px;"/>
+        <path d="m1898,20c3.31,0,6,2.69,6,6v29c0,3.31-2.69,6-6,6h-405c-3.31,0-6-2.69-6-6v-14.82c0-1.56.6-3.04,1.68-4.16l.03-.03.03-.04,12.4-14.14c1.12-1.15,2.68-1.81,4.29-1.81h392.57m0-2h-392.57c-2.17,0-4.25.88-5.76,2.45l-12.43,14.18c-1.44,1.49-2.24,3.48-2.24,5.55v14.82c0,4.42,3.58,8,8,8h405c4.42,0,8-3.58,8-8v-29c0-4.42-3.58-8-8-8h0Z" style="fill: #4d4d4d; stroke-width: 0px;"/>
+        <path d="m1898,18c4.42,0,8,3.58,8,8v29c0,4.42-3.58,8-8,8h-405c-4.42,0-8-3.58-8-8v-14.82c0-2.07.8-4.06,2.24-5.55l12.43-14.18c1.51-1.57,3.59-2.45,5.76-2.45h392.57m0-1h-392.57c-2.43,0-4.8,1.01-6.48,2.76l-12.46,14.21c-1.59,1.65-2.49,3.87-2.49,6.21v14.82c0,4.96,4.04,9,9,9h405c4.96,0,9-4.04,9-9v-29c0-4.96-4.04-9-9-9h0Z" style="stroke-width: 0px;"/>
+      </g>
+    </g>
+  </g>
+</svg>
