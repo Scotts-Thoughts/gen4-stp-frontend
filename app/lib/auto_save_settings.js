@@ -62,4 +62,8 @@ const auto_save_settings = [
     "show_advanced_settings",
     "legacy_starter_assignment",
     "set_rom_starter_automatically",
+    "previous_splits",
+    "current_splits",
+    "collect_split_data",
+    "automatic_post_battle_splits",
 ]

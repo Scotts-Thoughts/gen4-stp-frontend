@@ -18,6 +18,19 @@ const MyStorage = new Proxy({}, {
     }
 });
 
+async function loadCsvFile() {
+    const file = await window.showOpenFilePicker({
+        id: "SplitsFolder",
+        types: [{
+            description: "Split files",
+            accept: { "text/csv": [".csv"] }
+        }]
+    });
+    const contents = await file[0].getFile();
+    const text = await contents.text();
+    return text;
+}
+
 // Open the folder ./splits/ in the file explorer with node.js
 function openFolder(folderName) {
     require('child_process').exec(`start .\\${folderName}\\`);
@@ -504,6 +517,14 @@ const app = Vue.createApp({
             legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
             set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
             catch_rate                   : false,
+            previous_splits              : MyStorage['previous_splits']     ?? [],
+            current_splits               : MyStorage['current_splits']      ?? [],
+            collect_split_data           : MyStorage["collect_split_data"]  ?? true,
+            previous_label               : MyStorage['previous_label'] ?? "Previous",
+            current_label                : MyStorage['current_label']  ?? "Current",
+            automatic_post_battle_splits : MyStorage['automatic_post_battle_splits'] ?? true,
+            split_type                   : MyStorage['split_type']       ?? "First",
+            right_ui: "Automatic",
 
             // Fix for Resets and Blackouts incrementing twice instead of just once
             disallow_faults: false,
@@ -835,7 +856,9 @@ const app = Vue.createApp({
                 "blackout_counter",
                 "ui_saturation",
                 "frame",
-                // "TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","HM01","HM02","HM03","HM04","HM05","HM06","HM07","HM08",
+                "previous_label",
+                "current_label",
+                "split_type",
             ],
             //timer variables
             timer_startTimeOffset: MyStorage["timer_startTimeOffset"] ?? "00:00:00.00",
@@ -1063,6 +1086,18 @@ const app = Vue.createApp({
         }
     },
     watch: {
+        current_splits: {
+            handler: function (newVal, oldVal) {
+                MyStorage['current_splits'] = newVal
+            },
+            deep: true,
+        },
+        previous_splits: {
+            handler: function (newVal, oldVal) {
+                MyStorage['previous_splits'] = newVal
+            },
+            deep: true,
+        },
         catch_rate(newValue) {
             if (newValue == true) {
                 this.mapper.properties.patch.stpCatchRate.set(1,false); 
@@ -1210,6 +1245,51 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        compare_splits() {
+            debugging_mode = false
+            if (debugging_mode == true) { console.log("compare_splits starting...") } 
+            if (debugging_mode == true) { console.log("...") } 
+            if (this.collect_split_data == true) {
+                if (debugging_mode == true) { console.log("collect_split_data == true") } 
+                const result = []
+
+                let lastPushedTrainer = null; // Keep track of the last pushed trainer
+                if (debugging_mode == true) { console.log("lastPushedTrainer:", lastPushedTrainer) } 
+
+                const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]; // Trainers to skip
+                for (const x of this.previous_splits) {
+                    if (debugging_mode == true) { console.log("Loop X:", x.trainer) } 
+                    if (this.game.splits.includes(x.trainer)) {
+                        const default_string = "-"
+                        const cur_split = this.current_splits.find(y => y.trainer === x.trainer)
+                        const prev = this.convertDurationToSeconds(x.time)
+                        if (cur_split == undefined) { 
+                            if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
+                                result.push({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: default_string, difference: default_string}) 
+                                lastPushedTrainer = x.trainer; // Update the last pushed trainer
+                            }
+                            continue
+                        }
+                        const cur = this.convertDurationToSeconds(cur_split.time)
+                        const diff = cur - prev;
+                        const diff_abs = Math.abs(diff);
+                        const diff_sign = Math.sign(diff);
+                        const diff_m = Math.floor(diff_abs / 60);
+                        const diff_s = diff_abs % 60;
+                        var diff_str = `${diff_sign === -1 ? "-" : "+"}${diff_m}:${diff_s.toString().padStart(2, "0")}`;
+                        if (diff_str == "+0:00") { diff_str = "0:00" }
+                        if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) }
+                        if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
+                            if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) }
+                            
+                            result.push({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str})
+                            lastPushedTrainer = x.trainer; // Update the last pushed trainer
+                        }
+                    }
+                }
+                return result
+            }
+        },
         blackouts_resets() {
             const resets = this.playerResets
             const blackouts = this.blackout_counter
@@ -1745,6 +1825,31 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        split_image(splitName) {
+            let return_value = ""
+            switch (splitName) {
+                case "Leader Roark":        return_value = "Roark";        break;
+                case "Leader Gardenia":     return_value = "Gardenia";     break;
+                case "Leader Fantina":      return_value = "Fantina";      break;
+                case "Leader Maylene":      return_value = "Maylene";      break;
+                case "Leader Wake":         return_value = "Crasher Wake"; break;
+                case "Leader Byron":        return_value = "Byron";        break;
+                case "Leader Candice":      return_value = "Candice";      break;
+                case "Leader Volkner":      return_value = "Volkner";      break;
+                case "Elite Four Aaron":    return_value = "Aaron";        break;
+                case "Elite Four Bertha":   return_value = "Bertha";       break;
+                case "Elite Four Flint":    return_value = "Flint";        break;
+                case "Elite Four Lucian":   return_value = "Lucian";       break;
+                case "Champion Cynthia":    return_value = "Cynthia";      break;
+                case "Galactic Boss Cyrus": return_value = "Cyrus";        break;
+                case "Commander Mars":      return_value = "Mars";         break;
+                case "Commander Jupiter":   return_value = "Jupiter";      break;
+                case "Commander Saturn":    return_value = "Saturn";       break;
+                case "Rival":               return_value = "Rival";        break;
+            }
+            // console.log("Return Value:", return_value)
+            return return_value
+        },
         speed_comparison(enemy_slot, enemy_speed_incoming) {
             let object = {
                 comparison: "Outspeeds",
@@ -4594,6 +4699,57 @@ const app = Vue.createApp({
                 else 
                     return Math.floor(power * stabModifier * ability * itemBoost * burnModifier)
         },
+        split_diff_color(difference_string) {
+            if (difference_string === "-")          { return "color: black" }
+            if (difference_string === "+0:00")      { return "color: black" }
+            if (difference_string.charAt(0) == "+") { return "color: red" }
+            if (difference_string.charAt(0) == "-") { return "color: green" }
+        },
+        convertDurationToSeconds(duration) {
+            const parts = duration.split(':').map(part => parseInt(part, 10));
+            if (parts.length === 1) {
+                return parts[0];
+            } else if (parts.length === 2) {
+                return parts[0] * 60 + parts[1];
+            } else if (parts.length === 3) {
+                return parts[0] * 3600 + parts[1] * 60 + parts[2];
+            }
+        },
+        convertSecondsToDuration(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const remainingSeconds = seconds % 60;
+        
+            if (hours > 0) {
+                return `${hours}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+            } else if (minutes > 0) {
+                return `${minutes}:${String(remainingSeconds).padStart(2, '0')}`;
+            } else {
+                var seconds = remainingSeconds
+                if (remainingSeconds < 10) { seconds = "0" + remainingSeconds.toString() }
+                return `0:${String(seconds)}`
+            }
+        },
+        async load_temp_splits() {
+            const text = await loadCsvFile();
+            const rows = text.split("\n").slice(1).filter(x => x !== '');
+            const results = []
+            for (const row of rows) {
+                const columns = row.split(",");
+                results.push({trainer: columns[2], time: columns[3]})
+            }
+            return results
+        },
+        async load_splits() {
+            const text = await loadCsvFile();
+            const rows = text.split("\n").slice(1).filter(x => x !== '');
+            const results = []
+            for (const row of rows) {
+                const columns = row.split(",");
+                results.push({trainer: columns[2], time: columns[3]})
+            }
+            this.previous_splits = results;
+        },
     },
     
 
@@ -5147,6 +5303,9 @@ const app = Vue.createApp({
         this.mapper.properties.meta.state.change(async (prop) => {
             console.log(`State Changed to "${prop.value}"`)
             if (prop.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
+            if (newProp.value == "To Battle" && oldProp.value == "Overworld" && this.automatic_post_battle_splits == true) {
+                this.right_ui = "Automatic"
+            }
             autosplitter_process()
             console.log('Autosplitter Attempted to Run')
             if (prop.value == 'From Battle') {
@@ -5189,6 +5348,9 @@ const app = Vue.createApp({
                 if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
                     console.log("Simple split attempted to be collected...")
                     simpleSplit();
+                    if (this.automatic_post_battle_splits == true) {
+                        this.right_ui = "Splits"
+                    }
                 }
         
                 if (this.game.champion.includes(trainer)) {

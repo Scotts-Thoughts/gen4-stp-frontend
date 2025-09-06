@@ -159,6 +159,7 @@
                     <div>Search Pokemon:</div>
                     <input type="text" v-model="search_term" placeholder="Search for a species">
                     <button class="buttonStyle set_starter_button" @click="update_rom_starter_and_intro_mon">Set ROM Starter</button><br>
+                    <button class="buttonStyle comparison_button" @click="load_splits()">Load split file to compare splits</button><br>
                     <table>
                         <tr>
                             <td>Attempt Number:</td>
@@ -275,14 +276,13 @@
                                 <option>Trainer</option>
                             </select><br>
                     </div>
-                    <br>
                     <div v-if="right_display == 'Trainer' && show_advanced_settings">
                         <div>Search Trainers:</div>
                         <input type="text" v-model="search_trainers" placeholder="Search for a trainer">
                         <div>Trainer:</div>
                         <select v-model="examined_trainer" class="dropdownMenu">
                             <option v-for="trainer in filtered_trainer_list" :key="trainer" :value="trainer">{{ trainer }}</option>
-                        </select><br>
+                        </select>
                     </div>
                     <div v-if="right_display != 'Trainer' || !show_advanced_settings">
                         <div>Movepool Mode:</div>
@@ -291,6 +291,17 @@
                             <option>Level Up Moves</option>
                             <option>TMHM Moves</option>
                             <option>Tutor Moves</option>
+                        </select><br>
+                        <div>Right UI:</div>
+                        <select v-model="right_ui" class="dropdownMenu">
+                            <option>Automatic</option>
+                            <option>Splits</option>
+                            <option>Movepool</option>
+                        </select><br>
+                        <div>Split Type:</div>
+                        <select v-model="split_type" class="dropdownMenu">
+                            <option>First</option>
+                            <option>Followup</option>
                         </select><br>
                         <br>
                         <div>Pokemon Image Settings</div>
@@ -705,8 +716,53 @@
                     </div> 
                     <img v-if="getTrainerGraphic().state == true" :src="getTrainerGraphic().graphic" style="position: absolute; top: 0px;">
                 </div>
+                <!-- Splits -->
+                <div v-else-if="right_ui == 'Splits'" key="3" class="posAbs">
+                    <!-- Followup -->
+                    <div v-if="split_type == 'Followup'">
+                        <div class="posAbs movepoolLabel">Splits</div>
+                        <table class="splits_table" cellspacing="0">
+                            <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}" style="line-height: 20px;">
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 30px;  text-align: left; padding-left: 3px;">Split</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 150px; text-align: right;"></td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;">{{previous_label}}</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;">{{current_label}}</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;">Diff</td>
+                            </tr>
+                            <tr v-for="split in compare_splits">
+                                <td style="font-size: 14px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.trainer)}.png`"></td>
+                                <td style="font-size: 14px; width: 150px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
+                                <td style="font-size: 14px; width: 78px;  text-align: right;">{{split.previous_time}}</td>
+                                <td style="font-size: 14px; width: 78px;  text-align: right;">{{split.current_time}}</td>
+                                <td style="font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;" :style="split_diff_color(split.difference)">{{split.difference}}</td>
+                            </tr>
+                        </table>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    </div>
+                    <!-- First -->
+                    <div v-else-if="split_type == 'First'">
+                        <div class="posAbs movepoolLabel">Splits</div>
+                        <table class="splits_table" cellspacing="0">
+                            <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}" style="line-height: 20px;">
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 30px;  text-align: left; padding-left: 3px;">Split</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 150px; text-align: right;"></td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;"></td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;"></td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;">Diff</td>
+                            </tr>
+                            <tr v-for="split in compare_splits">
+                                <td style="font-size: 14px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.trainer)}.png`"></td>
+                                <td style="font-size: 14px; width: 150px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
+                                <td style="font-size: 14px; width: 78px;  text-align: right;"></td>
+                                <td style="font-size: 14px; width: 78px;  text-align: right;"></td>
+                                <td style="font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;">{{split.current_time}}</td>
+                            </tr>
+                        </table>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    </div>
+                </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -731,7 +787,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -757,7 +813,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -782,7 +838,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px)`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
