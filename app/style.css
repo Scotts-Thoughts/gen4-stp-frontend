@@ -196,14 +196,14 @@ body {
     height: 1080px;
 }
 .ui1 {
-    font-size: 13px;
+    font-size: 12px;
     position: fixed;
     left: 462px;
     top: 24px;
     width: 350px;
     z-index: 5;
     height: 780px;
-    line-height: 14x;
+    line-height: 13x;
     text-transform: capitalize;
     text-align: left;
     font-family: play;
@@ -212,14 +212,14 @@ body {
     border: 1px solid #ff000000;
 }
 .ui2 {
-    font-size: 16px;
+    font-size: 12px;
     position: fixed;
     left: 772px;
     top: 30px;
     width: 320px;
     z-index: 5;
     height: 740px;
-    line-height: 18px;
+    line-height: 13px;
     text-transform: capitalize;
     text-align: left;
     font-family: play;
@@ -246,10 +246,10 @@ body {
 .dropdownMenu {
     pointer-events: auto; 
     position: relative; 
-    width: 300px; 
-    height: 20px; 
+    width: 280px; 
+    height: 22px; 
     font-size: 14px; 
-    background: #72fd4f; 
+    background: #9eff86; 
     font-family: Play;
     border-radius: 10px;
     filter: drop-shadow(0px 0px 2px #000000c5);
@@ -257,12 +257,19 @@ body {
 .dropdownMenu:hover {
     background: #11ce18; 
 }
+.inputContainer {
+    background-color: #d8ffc9;
+    height: 24px;
+    font-family: play;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 .buttonStyle {
     pointer-events: auto; 
     position: relative; 
     width: 280px; 
-    height: 26px; 
-    font-size: 18px; 
+    height: 22px; 
+    font-size: 14px; 
     background: #72fd4f; 
     font-family: Play;
     border-radius: 10px;
@@ -455,6 +462,7 @@ body {
     -webkit-mask-image: var(--url); /* fallback, just to be safe */
     mask-image: var(--url); /* use the alpha channel of provided image as a mask of this layer */
     mix-blend-mode: color; /* color blend mode, I'm not sure if 'color' is the right one - might need to be changed */
+    transition: background-color 1s ease-in-out;
 }
 .ds {
     filter: drop-shadow(0px 0px 1px #000000c5);
@@ -465,7 +473,13 @@ body {
 .movepoolDemo tr:nth-child(odd) {
     background-color: #cfcfcf;
 }
-
+.gametimeLabel {
+    top: 637px;
+    left: 149px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid #ff000000;
+}
 
 /* CSS BOTTOM LAYERS - OVERLAY ELEMENTS (-100 to -50) */
 .overlay {
@@ -3427,4 +3441,168 @@ img, span, div {
     text-align: center; /* Center the content horizontally */
     width: 30px;
     filter: saturate(1.1) contrast(1.1);
+}
+
+/* Popup Modal Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50000;
+}
+
+.popup-content {
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px 6px 0 0;
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-family: play;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.popup-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.popup-body {
+    padding: 20px;
+    font-family: play;
+    line-height: 1.5;
+}
+
+.popup-body p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+.popup-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Popup Menu Styles */
+.popup-overlay {
+    font-family: play;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+}
+
+.popup-menu {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.popup-header {
+    background: linear-gradient(135deg, #0a9406 0%, #6aea66 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.popup-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.popup-content {
+    padding: 0;
+}
+
+.popup-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-item:hover {
+    background-color: #e8f4f8;
+}
+
+.popup-item:last-child {
+    border-bottom: none;
+}
+
+.popup-item:active {
+    background-color: #d0e8f0;
 }

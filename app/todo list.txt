@@ -1,0 +1,13 @@
+Backport features from Generation5
+- Copy texture settings fixes
+- Keyboard shortcuts menu
+    - Still need to update all the key bindings for generation 4 to mirror generation 5
+- Evolution logic
+- Final gametime popup
+    - Implemented the graphic and text
+    - I need to setup the triggers so that it displays at the right time, currently "run_complete" isn't Implemented
+    - I need to find a way to print the gametime when it shows on screen at the end of platinum? OR just show this UI element in HeartGold
+- Splits
+- Better type effectiveness (abilities, items)
+
+Fix end of battle stat errors for enemy Pokemon (Misty from Magneton playthrough)

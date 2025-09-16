@@ -525,6 +525,10 @@ const app = Vue.createApp({
             automatic_post_battle_splits : MyStorage['automatic_post_battle_splits'] ?? true,
             split_type                   : MyStorage['split_type']       ?? "First",
             right_ui: "Automatic",
+            debugging_mode               : MyStorage['debugging_mode']     ?? true,
+            collect_split_data           : MyStorage['collect_split_data'] ?? true,
+            showPopup                    : false,
+            unobtainable_moves_toggle    : MyStorage['unobtainable_moves_toggle'] ?? "Always Cross Out",
 
             // Fix for Resets and Blackouts incrementing twice instead of just once
             disallow_faults: false,
@@ -651,6 +655,7 @@ const app = Vue.createApp({
             natural_gift             : natural_gift,
             cross_generation_moves   : cross_generation_moves,
             hiddenpowers             : hiddenpowers,
+            unobtainable_moves_object: unobtainable_moves,
 
             // Data (New as of 2024-06-02)
             // These files contain the most up-to-date data for both trainers and pokemon.
@@ -824,6 +829,7 @@ const app = Vue.createApp({
             testRun                  : MyStorage['testRun']             ?? false,
             copy_overlay_pokemon_from: "",
             copy_overlay_pokemon_to  : "",
+            run_complete             : MyStorage["run_complete"]       ?? false,
 
             // buffer properties
             buffer_battle_level          : 0,
@@ -835,7 +841,7 @@ const app = Vue.createApp({
             buffer_battle_special_defense: 0,
             buffer_battle_friendship     : 0,
 
-            search_term: "",
+            search_term: MyStorage["search_term"] ?? "",
 
             track_TMHM_viability: false,
             // tmhm tracking
@@ -1174,6 +1180,22 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        hp_tracker_style() {
+            const state = this.mapper.properties.meta.state.value
+            const hp = this.mapper.properties.player.team[0].stats.hp.value
+            const hp_max = this.mapper.properties.player.team[0].stats.hp_max.value
+            const hp_percentage = hp / hp_max
+            const status_condition = this.mapper.properties.player.team[0].status_condition.value
+            if (state == "Overworld" && hp_percentage != 1) {
+                return "--overlay-color: rgb(255, 98, 98);"
+            }
+            else if (status_condition != null) {
+                return "--overlay-color: rgb(98, 192, 255);"
+            }
+            else {
+                return "--overlay-color: #39b54a;"
+            }
+        },
         compare_splits() {
             debugging_mode = false
             if (debugging_mode == true) { console.log("compare_splits starting...") } 
@@ -1754,6 +1776,109 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        getUnobtainableMoveStyle(move_object, type_of_move) {
+            const unobtainable_moves_toggle = this.unobtainable_moves_toggle
+            const state = this.mapper.properties.meta.state.value
+            const move_name = move_object.Move
+            const unobtainable_moves = this.unobtainable_moves_object[type_of_move]
+            const opacity = 0.4
+            const animation_duration = 1.5 // seconds
+
+            if (unobtainable_moves_toggle == "Never Cross Out") {
+                return `transition: opacity ${animation_duration}s;`
+            }
+            else if (state != "No Pokemon" && unobtainable_moves_toggle == "Cross Out When Starter is Obtained" && unobtainable_moves.includes(move_name)) {
+                return `transition: opacity ${animation_duration}s; opacity: ${opacity}; text-decoration: line-through;`
+            }
+            else if (this.mapper.properties.player.badges[0].value == true && unobtainable_moves_toggle == "Cross Out After First Badge" && unobtainable_moves.includes(move_name)) {
+                return `transition: opacity ${animation_duration}s; opacity: ${opacity}; text-decoration: line-through;`
+            }
+            else if (unobtainable_moves_toggle == "Always Cross Out" && unobtainable_moves.includes(move_name)) {
+                return `transition: opacity ${animation_duration}s; opacity: ${opacity}; text-decoration: line-through;`
+            }
+            else {
+                return `transition: opacity ${animation_duration}s;`
+            }
+        },
+        calculate_ev_benefit(stat_name) {
+            const state = this.mapper.properties.meta.state.value
+            if (state == 'No Pokemon') {
+                return
+            }
+
+            let level = this.mapper.properties.player.team[0].level.value
+            let species = this.starter
+            let nature = this.mapper.properties.player.team[0].nature.value
+            let nature_modifiers = this.natures[nature]
+
+            let iv_hp = this.mapper.properties.player.team[0].ivs.hp.value
+            let iv_atk = this.mapper.properties.player.team[0].ivs.attack.value
+            let iv_def = this.mapper.properties.player.team[0].ivs.defense.value
+            let iv_spa = this.mapper.properties.player.team[0].ivs.special_attack.value
+            let iv_spd = this.mapper.properties.player.team[0].ivs.special_defense.value
+            let iv_spe = this.mapper.properties.player.team[0].ivs.speed.value
+            
+            function calculate_hp(iv, effort_value, level, base_stat) {
+                return Math.floor((2 * base_stat + iv + Math.floor(effort_value / 4)) * level / 100) + level + 10
+            }
+            function calculate_other_stat(iv, effort_value, level, base_stat, nature_modifier) {
+                return Math.floor((Math.floor((2 * base_stat + iv + Math.floor(effort_value / 4)) * level / 100) + 5) * nature_modifier)
+            }
+
+            switch (stat_name) {
+                case 'hp': {
+                    let current_stat = this.get_stat().Hp
+                    let no_ev_stat   = calculate_hp(iv_hp, 0, level, this.g4PokemonData[species].base_stats.hp)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                case 'attack': {
+                    let current_stat = this.get_stat().Atk
+                    let no_ev_stat   = calculate_other_stat(iv_atk, 0, level, this.g4PokemonData[species].base_stats.attack, nature_modifiers.nature_attack)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                case 'defense': {
+                    let current_stat = this.get_stat().Def
+                    let no_ev_stat   = calculate_other_stat(iv_def, 0, level, this.g4PokemonData[species].base_stats.defense, nature_modifiers.nature_defense)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                case 'special_attack': {
+                    let current_stat = this.get_stat().SpA
+                    let no_ev_stat   = calculate_other_stat(iv_spa, 0, level, this.g4PokemonData[species].base_stats.special_attack, nature_modifiers.nature_specialAttack)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                case 'special_defense': {
+                    let current_stat = this.get_stat().SpD
+                    let no_ev_stat   = calculate_other_stat(iv_spd, 0, level, this.g4PokemonData[species].base_stats.special_defense, nature_modifiers.nature_specialDefense)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                case 'speed': {
+                    let current_stat = this.get_stat().Spe
+                    let no_ev_stat   = calculate_other_stat(iv_spe, 0, level, this.g4PokemonData[species].base_stats.speed, nature_modifiers.nature_speed)
+                    let difference   = current_stat - no_ev_stat
+                    return difference
+                }
+                default: {
+                    return
+                }
+            }
+
+        },
+        togglePopup() {
+            this.showPopup = !this.showPopup;
+        },
+        closePopup() {
+            this.showPopup = false;
+        },
+        popupAction(action) {
+            console.log(`Popup action selected: ${action}`);
+            // Add your custom logic here for each menu option
+            this.closePopup();
+        },
         split_image(splitName) {
             let return_value = ""
             switch (splitName) {
@@ -2415,6 +2540,15 @@ const app = Vue.createApp({
             this.time_ms =                    MyStorage['time_ms']                    ?? 0
             this.time_split_start =           MyStorage['time_split_start']           ?? "00:00:00:00"
             this.battle_start =               MyStorage['battle_start']               ?? 0
+            this.editor =                     MyStorage['editor']                     ?? false
+            this.debugging_mode =             MyStorage['debugging_mode']             ?? true
+            this.collect_split_data =         MyStorage['collect_split_data']         ?? true
+            this.copy_overlay_pokemon_from =  MyStorage['copy_overlay_pokemon_from']  ?? ""
+            this.copy_overlay_pokemon_to =    MyStorage['copy_overlay_pokemon_to']    ?? ""
+            this.move1_replacement =          MyStorage['move1_replacement']          ?? ""
+            this.move2_replacement =          MyStorage['move2_replacement']          ?? ""
+            this.move3_replacement =          MyStorage['move3_replacement']          ?? ""
+            this.move4_replacement =          MyStorage['move4_replacement']          ?? ""
 
             //Pokemon settings for local storage
             this.overlay_color = MyStorage[`${game_name}_${this.starter}`]?.overlay_color ?? this.default_colors[`${this.g4PokemonData[this.starter].type_1}`]
