@@ -199,18 +199,13 @@
                         <tr v-if="show_advanced_settings"><td>Catch Rate:</td><td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td></tr>
                         <!-- <tr v-if="show_advanced_settings"><td>Display Wild Pokemon:</td><td><input class="checkBoxStyle" type="checkbox" v-model="wild_pokemon_display"/></td></tr> -->
                         <!-- <tr v-if="show_advanced_settings"><td>Show nature arrows:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_nature_changes"/></td></tr> -->
-                        <tr v-if="show_advanced_settings"><td>Evolution:</td><td><input class="checkBoxStyle" type="checkbox" v-model="evolution"/></td></tr>
+                        <tr v-if="show_advanced_settings">
+                            <td>Evolution:</td>
+                            <td><input class="checkBoxStyle" type="checkbox" v-model="evolution"/></td>
+                            <td><input class="inputContainer" style="width: 150px; height: 20px;" type="text" v-if="evolution == true && show_advanced_settings" v-model="evolution_splits_label"/></td>
+                        </tr>
                         <tr><td>Show Tutor Moves:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_tutor_moves"/></td></tr>
-                        <!-- <tr><td>Frame:</td><td><input class="checkBoxStyle" type="checkbox" v-model="frame"/></td></tr> -->
                     </table>
-                    <div v-if="evolution == true && show_advanced_settings">
-                        <!-- <div>Forms:</div>
-                        <div v-for="evolution in g4PokemonData[starter].evolution_family">
-                            <div>- {{evolution.species}}</div>
-                        </div>
-                        <br> -->
-                        Splits Label: <input type="text" v-model="evolution_splits_label"/><br>
-                    </div>
                     <br>
                     <div>Hidden Power:</div>
                     <select v-model="hidden_power_type" class="dropdownMenu dropdown_menu_column3">
@@ -283,6 +278,7 @@
                         </table>
                     </div>
                     <div v-if="mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver' && show_advanced_settings && legacy_starter_assignment">
+                        <br>
                         <div>Starter Player Chooses (legacy):</div>
                         <select v-model="starter_choice" class="dropdownMenu">
                             <option>Turtwig</option>
@@ -292,6 +288,7 @@
                         <div>Rival chooses: {{rival_starter}}</div>
                     </div>
                     <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver' && show_advanced_settings && legacy_starter_assignment">
+                        <br>
                         <div>Starter Player Chooses:</div>
                         <select v-model="starter_choice" class="dropdownMenu">
                             <option>Chikorita</option>
