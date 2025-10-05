@@ -21,7 +21,6 @@
                 'filter': `blur(${backgroundBlur}px) hue-rotate(${backgroundHue}deg) brightness(${backgroundBrightness}%) contrast(${backgroundContrast}%) saturate(${backgroundSaturation}%)` ,
                 'transform': `scale(${backgroundScale}%) ${backgroundFlip ? 'rotateY(180deg)' : ''} translate(${backgroundXOffset}px, ${-backgroundYOffset}px)`
             }"/>
-            <img v-if="frame == true" class="canvas" src="images/elements/frame.png" />
             <img class="canvas" :src="`images/elements/pokeball.png`" />
             <img class="pokemon_art" ref="pokemon_art"
             :style="{
@@ -84,8 +83,9 @@
 
             <div>
                 <img v-if="mapper.properties.meta.game_name.value == 'Diamond and Pearl'"        class="canvas" :src="`images/new_ui/progress sinnoh.png`" />
-                <img v-if="mapper.properties.meta.game_name.value == 'Platinum'"                 class="canvas" :src="`images/new_ui/progress sinnoh.png`" />
-                <img v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" class="canvas" :src="`images/new_ui/progress johto.png`" />
+                <img v-else-if="mapper.properties.meta.game_name.value == 'Platinum'"                 class="canvas" :src="`images/new_ui/progress sinnoh.png`" />
+                <img style="top: 1px; position: absolute;" v-else-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver' && kanto_badges == true" class="canvas" :src="`images/new_ui/progress kanto.png`" />
+                <img style="top: 1px; position: absolute;" v-else-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" class="canvas" :src="`images/new_ui/progress johto.png`" />
             </div>
 
             <div>
@@ -150,7 +150,7 @@
                             <tr><td>Enemy Graphic:</td><td>{{enemy_graphic}}</td></tr>
                             <tr><td>Battle Outcome:</td><td>{{this.mapper.properties.battle.outcome.value}}</td></tr>
                             <tr><td>Final Gametime:</td><td>{{simple_data[7]}}</td></tr>
-
+                            <tr><td>Progress Kanto:</td><td>{{kanto_badges}}</td></tr>
                         </table>
                     </div>
                 </div>
@@ -458,9 +458,18 @@
 
             <!--------- BADGE ICONS ---------------------------------------------------------------------------------------------------------------------->
             <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
-                <div v-for="x in badges">
-                    <div v-if="hgss_badge_check(x) == true">
-                        <img class="badge" :src="`images/new_ui/johto/${x}.png`"/>
+                <div v-if="kanto_badges == false" style="position: absolute; top: 1px;">
+                    <div v-for="x in johto_badge_indexes">
+                        <div v-if="hgss_badge_check(x) == true">
+                            <img class="badge" :src="`images/new_ui/johto/${x}.png`"/>
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div v-for="x in kanto_badge_indexes" style="position: absolute; top: 1px;">
+                        <div v-if="hgss_badge_check(x) == true">
+                            <img class="badge" :src="`images/new_ui/johto/${x}.png`"/>
+                        </div>
                     </div>
                 </div>
             </div>

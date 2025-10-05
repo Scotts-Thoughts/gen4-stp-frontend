@@ -508,7 +508,6 @@ const app = Vue.createApp({
             autosplitter_toggle          : true,
             evolution                    : false,
             evolution_splits_label       : "",
-            frame                        : false,
             selected_game                : MyStorage['selected_game'] ?? "Platinum",
             available_games              : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
             starter_choice               : "Turtwig",
@@ -670,7 +669,9 @@ const app = Vue.createApp({
             tmhm         : tmhm,
 
             //LOOPS
-            badges:          [0, 1, 2, 3, 4, 5, 6, 7],
+            badges: [0, 1, 2, 3, 4, 5, 6, 7],
+            johto_badge_indexes: [0, 1, 2, 3, 4, 5, 6, 7],
+            kanto_badge_indexes: [8, 9, 10, 11, 12, 13, 14, 15],
             badgeBoosts:     ["badge1", "badge3", "badge5", "badge7"],
             moves:           ["move1","move2","move3","move4",],
             pkmnSlots:       [0, 1, 2, 3, 4, 5],
@@ -755,6 +756,8 @@ const app = Vue.createApp({
             backgroundContrast   : MyStorage["backgroundContrast"]    ?? 100,
             backgroundSaturation : MyStorage["backgroundSaturation"]  ?? 100,
 
+            kanto_badges: MyStorage["kanto_badges"] ?? false,
+
             //backed up pokemon specific settings
             pokemon_settings: [
                 "overlay_color",
@@ -793,6 +796,7 @@ const app = Vue.createApp({
                 "previous_label",
                 "current_label",
                 "split_type",
+                "kanto_badges",
             ],
             //timer variables
             timer_startTimeOffset: MyStorage["timer_startTimeOffset"] ?? "00:00:00.00",
@@ -844,107 +848,6 @@ const app = Vue.createApp({
             search_term: MyStorage["search_term"] ?? "",
 
             track_TMHM_viability: false,
-            // tmhm tracking
-            TM01: false, //Focus Punch
-            TM02: false, //Dragon Claw
-            TM03: false, //Water Pulse
-            TM04: false, //Calm Mind
-            TM05: false, //Roar
-            TM06: false, //Toxic
-            TM07: false, //Hail
-            TM08: false, //Bulk Up
-            TM09: false, //Bullet Seed
-            TM10: false, //Hidden Power
-            TM11: false, //Sunny Day
-            TM12: false, //Taunt
-            TM13: false, //Ice Beam
-            TM14: false, //Blizzard
-            TM15: false, //Hyper Beam
-            TM16: false, //Light Screen
-            TM17: false, //Protect
-            TM18: false, //Rain Dance
-            TM19: false, //Giga Drain
-            TM20: false, //Safeguard
-            TM21: false, //Frustration
-            TM22: false, //SolarBeam
-            TM23: false, //Iron Tail
-            TM24: false, //Thunderbolt
-            TM25: false, //Thunder
-            TM26: false, //Earthquake
-            TM27: false, //Return
-            TM28: false, //Dig
-            TM29: false, //Psychic
-            TM30: false, //Shadow Ball
-            TM31: false, //Brick Break
-            TM32: false, //Double Team
-            TM33: false, //Reflect
-            TM34: false, //Shock Wave
-            TM35: false, //Flamethrower
-            TM36: false, //Sludge Bomb
-            TM37: false, //Sandstorm
-            TM38: false, //Fire Blast
-            TM39: false, //Rock Tomb
-            TM40: false, //Aerial Ace
-            TM41: false, //Torment
-            TM42: false, //Facade
-            TM43: false, //Secret Power
-            TM44: false, //Rest
-            TM45: false, //Attract
-            TM46: false, //Thief
-            TM47: false, //Steel Wing
-            TM48: false, //Skill Swap
-            TM49: false, //Snatch
-            TM50: false, //Overheat
-            TM51: false, //Roost
-            TM52: false, //Focus Blast
-            TM53: false, //Energy Ball
-            TM54: false, //False Swipe
-            TM55: false, //Brine
-            TM56: false, //Fling
-            TM57: false, //Charge Beam
-            TM58: false, //Endure
-            TM59: false, //Dragon Pulse
-            TM60: false, //Drain Punch
-            TM61: false, //Will-O-Wisp
-            TM62: false, //Silver Wind
-            TM63: false, //Embargo
-            TM64: false, //Explosion
-            TM65: false, //Shadow Claw
-            TM66: false, //Payback
-            TM67: false, //Recycle
-            TM68: false, //Giga Impact
-            TM69: false, //Rock Polish
-            TM70: false, //Flash
-            TM71: false, //Stone Edge
-            TM72: false, //Avalanche
-            TM73: false, //Thunder Wave
-            TM74: false, //Gyro Ball
-            TM75: false, //Swords Dance
-            TM76: false, //Stealth Rock
-            TM77: false, //Psych Up
-            TM78: false, //Captivate
-            TM79: false, //Dark Pulse
-            TM80: false, //Rock Slide
-            TM81: false, //X-Scissor
-            TM82: false, //Sleep Talk
-            TM83: false, //Natural Gift
-            TM84: false, //Poison Jab
-            TM85: false, //Dream Eater
-            TM86: false, //Grass Knot
-            TM87: false, //Swagger
-            TM88: false, //Pluck
-            TM89: false, //U-turn
-            TM90: false, //Substitute
-            TM91: false, //Flash Cannon
-            TM92: false, //Trick Room
-            HM01: false, //Cut
-            HM02: false, //Fly
-            HM03: false, //Surf
-            HM04: false, //Strength
-            HM05: false, //Defog
-            HM06: false, //Rock Smash
-            HM07: false, //Waterfall
-            HM08: false, //Rock Climb
 
             // UI
             ui_saturation:                MyStorage["ui_saturation"]                ?? .6,
@@ -978,7 +881,6 @@ const app = Vue.createApp({
             this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.blackout_counter       ?? 0
             this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution              ?? 0
             this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution_splits_label ?? 0
-            this.frame                  = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.frame                  ?? 0
         }
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
@@ -1054,7 +956,6 @@ const app = Vue.createApp({
             this.evolution              = MyStorage[`${game}_${starter}`]?.evolution ?? false
             this.evolution_splits_label = MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
             
-            this.frame                  = MyStorage[`${game}_${starter}`]?.frame ?? false
             this.imageXOffset           = MyStorage[`${game}_${starter}`]?.imageXOffset     ?? 0;
             this.imageYOffset           = MyStorage[`${game}_${starter}`]?.imageYOffset     ?? 0;
             this.imageScale             = MyStorage[`${game}_${starter}`]?.imageScale       ?? 1;
@@ -2557,7 +2458,6 @@ const app = Vue.createApp({
             this.imageFlip =     MyStorage[`${game_name}_${this.starter}`]?.imageFlip ?? false
             this.imageSat =      MyStorage[`${game_name}_${this.starter}`]?.imageSat ?? 100
             this.imageRotation = MyStorage[`${game_name}_${this.starter}`]?.imageRotation ?? 0
-            this.frame =         MyStorage[`${game_name}_${this.starter}`]?.frame ?? false
 
             //background texture settings
             this.backgroundBlur =        MyStorage[`${game_name}_${this.starter}`]?.backgroundBlur ?? 0
@@ -2872,107 +2772,7 @@ const app = Vue.createApp({
             const timeOffset = timeOffsetArray[0] * 3600000 + timeOffsetArray[1] * 60000 + timeOffsetArray[2] * 1000 + timeOffsetArray[3] * 10;
             this.starter_received = false,
 
-            this.TM01 = false
-            this.TM02 = false
-            this.TM03 = false
-            this.TM04 = false
-            this.TM05 = false
-            this.TM06 = false
-            this.TM07 = false
-            this.TM08 = false
-            this.TM09 = false
-            this.TM10 = false
-            this.TM11 = false
-            this.TM12 = false
-            this.TM13 = false
-            this.TM14 = false
-            this.TM15 = false
-            this.TM16 = false
-            this.TM17 = false
-            this.TM18 = false
-            this.TM19 = false
-            this.TM20 = false
-            this.TM21 = false
-            this.TM22 = false
-            this.TM23 = false
-            this.TM24 = false
-            this.TM25 = false
-            this.TM26 = false
-            this.TM27 = false
-            this.TM28 = false
-            this.TM29 = false
-            this.TM30 = false
-            this.TM31 = false
-            this.TM32 = false
-            this.TM33 = false
-            this.TM34 = false
-            this.TM35 = false
-            this.TM36 = false
-            this.TM37 = false
-            this.TM38 = false
-            this.TM39 = false
-            this.TM40 = false
-            this.TM41 = false
-            this.TM42 = false
-            this.TM43 = false
-            this.TM44 = false
-            this.TM45 = false
-            this.TM46 = false
-            this.TM47 = false
-            this.TM48 = false
-            this.TM49 = false
-            this.TM50 = false
-            this.TM51 = false
-            this.TM52 = false
-            this.TM53 = false
-            this.TM54 = false
-            this.TM55 = false
-            this.TM56 = false
-            this.TM57 = false
-            this.TM58 = false
-            this.TM59 = false
-            this.TM60 = false
-            this.TM61 = false
-            this.TM62 = false
-            this.TM63 = false
-            this.TM64 = false
-            this.TM65 = false
-            this.TM66 = false
-            this.TM67 = false
-            this.TM68 = false
-            this.TM69 = false
-            this.TM70 = false
-            this.TM71 = false
-            this.TM72 = false
-            this.TM73 = false
-            this.TM74 = false
-            this.TM75 = false
-            this.TM76 = false
-            this.TM77 = false
-            this.TM78 = false
-            this.TM79 = false
-            this.TM80 = false
-            this.TM81 = false
-            this.TM82 = false
-            this.TM83 = false
-            this.TM84 = false
-            this.TM85 = false
-            this.TM86 = false
-            this.TM87 = false
-            this.TM88 = false
-            this.TM89 = false
-            this.TM90 = false
-            this.TM91 = false
-            this.TM92 = false
-            this.HM01 = false
-            this.HM02 = false
-            this.HM03 = false
-            this.HM04 = false
-            this.HM05 = false
-            this.HM06 = false
-            this.HM07 = false
-            this.HM08 = false
-
+            this.kanto_badges = false
             this.timer_pause = true
             this.timer_startTime = Date.now() - timeOffset
             this.timer_pause_time = Date.now()
@@ -6126,6 +5926,9 @@ const app = Vue.createApp({
         
                 if (this.game.champion.includes(trainer)) {
                     this.hallOfFameReset = true;
+                    if (this.selected_game == "HeartGold and SoulSilver") {
+                        this.kanto_badges = true;
+                    }
                 }
 
                 //stop timer

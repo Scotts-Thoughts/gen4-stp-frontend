@@ -1,6 +1,5 @@
 const auto_save_settings = [
     "graphicOverlay",
-    "frame",
     "gameArea",
     "pokeballFloor",
     "dynamicOverlay",
