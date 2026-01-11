@@ -33,11 +33,16 @@
                 drop-shadow(0 0 0.4px #000)
                 drop-shadow(0 0 0.4px #000)
                 drop-shadow(${imageFlip ? '-3px' : '3px'} 3px 3px #000)
-                `
+                `,
+                'opacity': pokemonArtOpacity,
+                'transition': pokemonArtTransition
             }" 
-            :src="`images/pokemon/${starter}.png`" />
-            <div class="colored-image ds" :style="hp_tracker_style" style="--url: url(images/ui/game_area.svg)"></div>
-
+            :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
+            <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/resets.svg)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/badges.svg)"></div>
             <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
             <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.svg)"></div>
             <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.svg)"></div>
@@ -206,6 +211,15 @@
                         </tr>
                         <tr><td>Show Tutor Moves:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_tutor_moves"/></td></tr>
                     </table>
+                    <div v-if="evolution == true && show_advanced_settings && evolution_family_list.length > 0">
+                        <div>Evolution Family Style:</div>
+                        <select v-model="selected_evolution_species" class="dropdownMenu" style="width: 180px;">
+                            <option disabled value="">Select a species in the evolution family</option>
+                            <option v-for="species in evolution_family_list" :value="`${species}`">{{species}}</option>
+                        </select>
+                        <button @click="copyCurrentStylesToAllFamilyMembers()" class="buttonStyle" style="font-size: 13px; width: 100px; height: 23px; top: -2px;">Unify Styles</button>
+                        <br>
+                    </div>
                     <br>
                     <div>Hidden Power:</div>
                     <select v-model="hidden_power_type" class="dropdownMenu dropdown_menu_column3">
@@ -441,16 +455,16 @@
                             <div v-if="stat.name != 'Hp' && mapper.properties.meta.state.value == 'Battle'">
                                 <div :class="`playerMods hp_spe_${stat.mod_abrv}Mod`" style="font-family: play;">{{ stageModifiers(mapper.properties.battle.player.active_pokemon.modifiers[stat.path].value) }}</div>
                             </div>
-                            <div :style="{ opacity: statLabelOpacity()[stat.name]}" :class="`stat_label_style stat_row_${stat[`hp_spe_label_row`]} stat_column_${stat.label_column}`">{{stat.label}}</div>
-                            <div v-if="stats_setting == 'Base Stats'"          :class="`stat_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column}`">{{g4PokemonData[starter]?.base_stats[stat.path]}}</div>
-                            <div v-if="stats_setting == 'IVs'"                 :class="`stat_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column} dv`">{{get_iv(`${stat.name}`)}}/31</div>
-                            <div v-if="stats_setting == 'EVs'"                 :class="`stat_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
-                            <div v-if="stats_setting == 'Detailed EVs'"        :class="`stat_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column} evs`">{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
-                            <div v-if="stats_setting == 'Automatic'"           :class="`stat_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column}`" :id="stat.abrv">{{get_stat()[stat.abrv]}}</div>
-                            <div v-if="stats_setting == 'Base Stats Median'"   :class="`average_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column}`">{{average_median_stats(stat.object_identifier).median}}</div>
-                            <div v-if="stats_setting == 'Base Stats Average'"  :class="`average_value_style stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column}`">{{average_median_stats(stat.object_identifier).average}}</div>
-                            <!-- <div v-if="stats_setting == 'Base Stats Detailed'" :class="`stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column} avrg_value_style `">{{average_median_stats(stat.object_identifier).average}}</div> -->
-                            <!-- <div v-if="stats_setting == 'Base Stats Detailed'" :class="`stat_row_${stat[`hp_spe_value_row`]} stat_column_${stat.value_column} mdin_value_style `">{{average_median_stats(stat.object_identifier).median}}</div> -->
+                            <div :style="{ opacity: statLabelOpacity()[stat.name]}" :class="`stat_label_style stat_row_${stat[`${ui_stat_arrangement_modifier}label_row`]} stat_column_${stat.label_column}`"           >{{stat.label}}</div>
+                            <div v-if="stats_setting == 'Base Stats'"          :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`"                >{{get_base_stat(stat.path)}}</div>
+                            <div v-if="stats_setting == 'IVs'"                 :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} dv`"             >{{get_iv(`${stat.name}`)}}/31</div>
+                            <div v-if="stats_setting == 'EVs'"                 :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`"            >{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
+                            <div v-if="stats_setting == 'Detailed EVs'"        :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} evs`"            >{{mapper.properties.player.team[0].evs[stat.path].value}}/255</div>
+                            <div v-if="stats_setting == 'Automatic'"           :class="`stat_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`" :id="stat.abrv">{{get_stat()[stat.abrv]}}</div>
+                            <div v-if="stats_setting == 'Base Stats Median'"   :class="`average_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`"             >{{average_median_stats(stat.object_identifier).median}}</div>
+                            <div v-if="stats_setting == 'Base Stats Average'"  :class="`average_value_style stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column}`"             >{{average_median_stats(stat.object_identifier).average}}</div>
+                            <!-- <div v-if="stats_setting == 'Base Stats Detailed'" :class="`stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} avrg_value_style `">{{average_median_stats(stat.object_identifier).average}}</div> -->
+                            <!-- <div v-if="stats_setting == 'Base Stats Detailed'" :class="`stat_row_${stat[`${ui_stat_arrangement_modifier}value_row`]} stat_column_${stat.value_column} mdin_value_style `">{{average_median_stats(stat.object_identifier).median}}</div> -->
                         </div>
                     </div>
                 </div>
@@ -821,7 +835,7 @@
                     </div>
                 </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="3" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -832,7 +846,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level" :class="{ 'first-row': index === 0 }">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).level" :class="{ 'first-row': index === 0 }">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -846,7 +860,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -857,7 +871,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :class="{ 'first-row': index === 0 }">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).tmhm" :class="{ 'first-row': index === 0 }">
                             <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
                             <td v-else class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
@@ -872,7 +886,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -883,7 +897,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tutor" :class="{ 'first-row': index === 0 }">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).tutor" :class="{ 'first-row': index === 0 }">
                             <td class="movepool_way">Tutor</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td :style="{'background-color': `var(--${x.Type?.toLowerCase()})`}" class="movepool_type">{{x.Type}}</td>
@@ -897,7 +911,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px)`">
+                <div v-else key="6" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -908,7 +922,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).level" :class="{ 'first-row': index === 0 }">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).level" :class="{ 'first-row': index === 0 }">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
@@ -917,7 +931,7 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, starter).tmhm" :style="getUnobtainableMoveStyle(x, selected_game)">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).tmhm" :style="post_game_move_style(x)?.tmhm">
                             <td v-if="x.Move == 'Whirlpool'" class="movepool_way">HM05</td>
                             <td v-else class="movepool_way">{{x.tmhm}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
@@ -927,7 +941,7 @@
                             <td class="movepool_tableC">{{x.Accuracy}}%</td>
                             <td class="movepool_tableC">{{x.PP}}</td>
                         </tr>
-                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, mapper.properties.player.team[0].species.value ?? starter).tutor" :style="getUnobtainableMoveStyle(x, selected_game)">
+                        <tr v-for="x in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).tutor">
                             <td v-if="show_tutor_moves == true" class="movepool_way">Tutor</td>
                             <td v-if="show_tutor_moves == true" class="movepool_move">{{x.Move}}</td>
                             <td v-if="show_tutor_moves == true" :style="{'background-color': `var(--${x.Type?.toLowerCase()})`}" class="movepool_type">{{x.Type}}</td>
