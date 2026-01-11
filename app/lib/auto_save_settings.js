@@ -77,4 +77,5 @@ const auto_save_settings = [
     "unobtainable_moves_toggle",
     "search_term",
     "run_complete",
+    "banned_hidden_power",
 ]

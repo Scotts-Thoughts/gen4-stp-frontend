@@ -1,4 +1,7 @@
 const unobtainable_moves = {
+    "First Playthrough": [
+        "Hidden Power",
+    ],
     "Banned": [
         "Double Team",
         "Minimize",
