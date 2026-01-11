@@ -2339,7 +2339,7 @@ const app = Vue.createApp({
             function choice_specs(stat) {
                 return Math.floor(stat * 1.5)
             }
-            let HP = 0
+            let HP  = 0
             let Atk = 0
             let Def = 0
             let SpA = 0
@@ -2354,9 +2354,13 @@ const app = Vue.createApp({
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
                 SpE = this.mapper.properties.player.team[0].stats.speed.value
-                if (status_condition == 'Paralyzed') {
+                if (status_condition && ability == 'Quick Feet') {
+                    SpE = Math.floor(SpE * 1.5)
+                }
+                if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                     SpE = Math.floor(SpE / 4)
                 }
+
                 if (ability == 'Slow Start') {
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
@@ -5488,6 +5492,9 @@ const app = Vue.createApp({
         }, 
         determineItemBoost(x, pkmn_object) { //x - move1.value
             if (pkmn_object.species.value == null) { return }
+            if (pkmn_object.ability.value == 'Klutz') {
+                return 1
+            }
             var heldItemValue = pkmn_object.held_item?.value
             var itemType = this.typeBoostingItems[heldItemValue]
             if (itemType == this.moveType(x)) {
@@ -5659,6 +5666,9 @@ const app = Vue.createApp({
 
             var player_ability_modifier = 1
             var player_ability = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.ability.value : this.mapper.properties.player.team[0].ability.value
+            if (player_ability == 'Normalize') {
+                attackingType = 'Normal'
+            }
             if (player_ability == "Iron Fist" && (x == 'Hammer Arm' || x == 'Sky Uppercut' || x == 'Ice Hammer' || x == 'Double Iron Bash' || x.includes("Punch"))) {
                 player_ability_modifier = 1.2
             }
@@ -5668,12 +5678,42 @@ const app = Vue.createApp({
             // if (defendingType1 && attackingType) {
             //     var defendingType1Effectiveness = this.typeEffectivenessArray[attackingType][defendingType1]
             // }
-            if (defendingType2 && attackingType && (defendingType1 != defendingType2)) {
-                var defendingType2Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType2]
+            if (state == 'Battle') {
+                if (defendingType2 && attackingType && (defendingType1 != defendingType2)) {
+                    var defendingType2Effectiveness = this.typeData.find(x => x.moveType == attackingType)[defendingType2]
+                }
+
+                // Filter ability
+                if (enemy_pokemon_data?.ability.value == 'Filter' && defendingType1Effectiveness == 2) {
+                    defendingType1Effectiveness = 1.5 
+                }
+                if (enemy_pokemon_data?.ability.value == 'Filter' && defendingType2Effectiveness == 2) {
+                    defendingType2Effectiveness = 1.5 
+                }
+
+                // Solid Rock ability
+                if (enemy_pokemon_data?.ability.value == 'Solid Rock' && defendingType1Effectiveness == 2) {
+                    defendingType1Effectiveness = 1.5 
+                }
+                if (enemy_pokemon_data?.ability.value == 'Solid Rock' && defendingType2Effectiveness == 2) {
+                    defendingType2Effectiveness = 1.5 
+                }
             }
+
+            if (pkmn_ability == 'Scrappy' && (attackingType == 'Fighting' || attackingType == 'Normal')) {
+                if (defendingType1 == 'Ghost') {
+                    defendingType1Effectiveness = 1
+                }
+                if (defendingType2 == 'Ghost') {
+                    defendingType2Effectiveness = 1
+                }
+            }
+
             var stabModifier = this.determineSTAB(x)
-            
-            
+            if (player_ability == "Adaptability") {
+                stabModifier = 2
+            }
+
             var ability = this.abilityModifier(this.mapper.properties.player.team[0].ability.value, attackingType, 'player')
             
             if (this.mapper.properties.battle.opponent.active_pokemon.ability.value == 'Levitate' && attackingType == 'Ground') {
@@ -5682,11 +5722,39 @@ const app = Vue.createApp({
             if (enemy_pokemon_data?.ability.value == 'Storm Drain' && attackingType == 'Water') {
                 ability = 0 
             }
+            if (enemy_pokemon_data?.ability.value == 'Dry Skin' && attackingType == 'Water') {
+                ability = 0 
+            }
             if (enemy_pokemon_data?.ability.value == 'Lightningrod' && attackingType == 'Electric') {
                 ability = 0 
             }
             if (enemy_pokemon_data?.ability.value == 'Flash Fire' && attackingType == 'Fire') {
                 ability = 0 
+            }
+            if (enemy_pokemon_data?.ability.value == 'Heatproof' && attackingType == 'Fire') {
+                ability = 0.5 
+            }
+            if (enemy_pokemon_data?.ability.value == 'Motor Drive' && attackingType == 'Electric') {
+                ability = 0
+            }
+            var recklessMoves = [
+                "Axe Kick",
+                "Brave Bird",
+                "Double-Edge",
+                "Double Edge",
+                "Flare Blitz",
+                "Head Charge",
+                "Head Smash",
+                "High Jump Kick",
+                "Jump Kick",
+                "Submission",
+                "Supercell Slam",
+                "Take Down",
+                "Wave Crash",
+                "Wild Charge",
+            ]
+            if (enemy_pokemon_data?.ability.value == 'Reckless' && recklessMoves.includes(x)) {
+                ability = 1.2
             }
 
             var player_item = ""
