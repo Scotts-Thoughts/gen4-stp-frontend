@@ -212,7 +212,7 @@ body {
     border: 1px solid #ff000000;
 }
 .ui2 {
-    font-size: 13px;
+    font-size: 12px;
     position: fixed;
     left: 772px;
     top: 30px;
@@ -246,10 +246,10 @@ body {
 .dropdownMenu {
     pointer-events: auto; 
     position: relative; 
-    width: 300px; 
+    width: 280px; 
     height: 22px; 
-    font-size: 13px; 
-    background: #72fd4f; 
+    font-size: 14px; 
+    background: #9eff86; 
     font-family: Play;
     border-radius: 10px;
     filter: drop-shadow(0px 0px 2px #000000c5);
@@ -269,7 +269,7 @@ body {
     position: relative; 
     width: 280px; 
     height: 22px; 
-    font-size: 13px; 
+    font-size: 14px; 
     background: #72fd4f; 
     font-family: Play;
     border-radius: 10px;
