@@ -4479,7 +4479,7 @@ const app = Vue.createApp({
         },
         stageModifiers(y) {
             if (y === null) {
-                return "nu"
+                return ""
             }
             else
                 if (y > 0) {
