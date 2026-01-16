@@ -583,7 +583,7 @@
                             <div :style="enemyPkmnUI(mapper.properties.battle.opponent.team[x])">
                                 <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.svg)`"></div>
                             </div>
-                            <img class="enemyStatsArea" :class="svgColorClass(speed_comparison(x, mapper.properties.battle.opponent.team[x]?.stats.speed.value).comparison, mapper.properties.battle.opponent.team[x])" :src="`images/new_ui/comp/${x}.svg`"/>
+                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, mapper.properties.battle.opponent.team[x]?.stats.speed.value).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.svg`"/>
                             <img :src="`images/new_ui/stats/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                         </div>
                     </div>

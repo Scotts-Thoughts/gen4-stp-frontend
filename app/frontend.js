@@ -4274,6 +4274,36 @@ const app = Vue.createApp({
                 return "Underspeeds"
             }
         },
+        speed_comparison(slotIndex, enemySpeedValue) {
+            // Compare player's active pokemon speed with enemy pokemon speed
+            const playerSpeed = this.mapper.properties?.battle?.player?.active_pokemon?.stats?.speed?.value || 0
+            const enemySpeed = enemySpeedValue || 0
+            
+            let comparison
+            if (playerSpeed > enemySpeed) {
+                comparison = "Outspeeds"
+            } else if (playerSpeed == enemySpeed) {
+                comparison = "Speed-Tied"
+            } else {
+                comparison = "Underspeeds"
+            }
+            
+            return { comparison }
+        },
+        svgColorClass(comparison, enemyPkmnData) {
+            // Return appropriate CSS class based on speed comparison
+            if (!comparison) return "grey-svg"
+            
+            if (comparison === "Outspeeds") {
+                return "blue-svg"  // Player is faster
+            } else if (comparison === "Speed-Tied") {
+                return "yellow-svg"  // Speed tie
+            } else if (comparison === "Underspeeds") {
+                return "red-svg"  // Enemy is faster
+            }
+            
+            return "grey-svg"  // Default fallback
+        },
         
         // STAGE MULTIPLIERS
         enemyStatModification(activePkmn, currentSlot, statLabel, stat, modifier, pkmnData) {
@@ -6658,15 +6688,15 @@ const app = Vue.createApp({
         }
 
         //write to file at the end of a key battle
-        this.mapper.properties.meta.state.change(async (prop) => {
-            console.log(`State Changed to "${prop.value}"`)
-            if (prop.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
+        this.mapper.properties.meta.state.change(async (newProp, oldProp) => {
+            console.log(`State Changed to "${newProp.value}"`)
+            if (newProp.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
             if (newProp.value == "To Battle" && oldProp.value == "Overworld" && this.automatic_post_battle_splits == true) {
                 this.right_ui = "Automatic"
             }
             autosplitter_process()
             console.log('Autosplitter Attempted to Run')
-            if (prop.value == 'From Battle') {
+            if (newProp.value == 'From Battle') {
                 // console.log('Starting split log process')
                 let trainer = this.mapper.properties.battle.opponent.name.value
                 let id = this.mapper.properties.battle.opponent.id.value
