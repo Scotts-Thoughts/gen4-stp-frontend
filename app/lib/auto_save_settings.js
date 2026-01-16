@@ -78,4 +78,7 @@ const auto_save_settings = [
     "search_term",
     "run_complete",
     "banned_hidden_power",
+    "right_ui",
+    "split_type",
+    "catch_rate",
 ]

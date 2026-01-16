@@ -530,7 +530,7 @@ const app = Vue.createApp({
             show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
             legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
             set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
-            catch_rate                   : false,
+            catch_rate                   : MyStorage['catch_rate'] ?? false,
             previous_splits              : MyStorage['previous_splits']     ?? [],
             current_splits               : MyStorage['current_splits']      ?? [],
             collect_split_data           : MyStorage["collect_split_data"]  ?? true,
@@ -1339,15 +1339,71 @@ const app = Vue.createApp({
                 if (debugging_mode == true) { console.log("lastPushedTrainer:", lastPushedTrainer) } 
 
                 const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]; // Trainers to skip
+                
+                // Track occurrences for Rival and Cyrus
+                const rivalCount = { count: 0 }
+                const cyrusCount = { count: 0 }
+                
+                // If no previous splits are loaded, return default list from game.splits
+                if (!this.previous_splits || this.previous_splits.length === 0) {
+                    if (!this.game || !this.game.splits) {
+                        return result
+                    }
+                    const default_string = "-"
+                    for (const trainer of this.game.splits) {
+                        if (!trainersToSkip.includes(trainer)) {
+                            // Track occurrences
+                            let baseName = trainer
+                            if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
+                            else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
+                            else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                            
+                            if (baseName === "Rival") {
+                                rivalCount.count++
+                                const displayName = this.format_display_name(trainer, rivalCount.count)
+                                if (displayName === null) continue // Skip Rival 1
+                            } else if (baseName === "Cyrus") {
+                                cyrusCount.count++
+                            }
+                            
+                            const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
+                            if (displayName === null) continue // Skip if null (Rival 1)
+                            
+                            if (this.split_type == 'First') {
+                                result.push({trainer: displayName, original_trainer: trainer, current_time: default_string})
+                            } else {
+                                result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: default_string, difference: default_string})
+                            }
+                        }
+                    }
+                    return result
+                }
+                
                 for (const x of this.previous_splits) {
                     if (debugging_mode == true) { console.log("Loop X:", x.trainer) } 
                     if (this.game.splits.includes(x.trainer)) {
                         const default_string = "-"
                         const cur_split = this.current_splits.find(y => y.trainer === x.trainer)
                         const prev = this.convertDurationToSeconds(x.time)
+                        
+                        // Track occurrences
+                        let baseName = x.trainer
+                        if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
+                        else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
+                        else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                        
+                        if (baseName === "Rival") {
+                            rivalCount.count++
+                        } else if (baseName === "Cyrus") {
+                            cyrusCount.count++
+                        }
+                        
+                        const displayName = this.format_display_name(x.trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
+                        if (displayName === null) continue // Skip Rival 1
+                        
                         if (cur_split == undefined) { 
                             if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
-                                result.push({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: default_string, difference: default_string}) 
+                                result.push({trainer: displayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: default_string, difference: default_string}) 
                                 lastPushedTrainer = x.trainer; // Update the last pushed trainer
                             }
                             continue
@@ -1360,17 +1416,53 @@ const app = Vue.createApp({
                         const diff_s = diff_abs % 60;
                         var diff_str = `${diff_sign === -1 ? "-" : "+"}${diff_m}:${diff_s.toString().padStart(2, "0")}`;
                         if (diff_str == "+0:00") { diff_str = "0:00" }
-                        if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) }
+                        if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) } 
                         if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
-                            if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) }
+                            if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) } 
                             
-                            result.push({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str})
+                            result.push({trainer: displayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str})
                             lastPushedTrainer = x.trainer; // Update the last pushed trainer
                         }
                     }
                 }
                 return result
             }
+            // If collect_split_data is false, still return default list
+            if (!this.game || !this.game.splits) {
+                return []
+            }
+            const result = []
+            const default_string = "-"
+            const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]
+            const rivalCount = { count: 0 }
+            const cyrusCount = { count: 0 }
+            for (const trainer of this.game.splits) {
+                if (!trainersToSkip.includes(trainer)) {
+                    // Track occurrences
+                    let baseName = trainer
+                    if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
+                    else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
+                    else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                    
+                    if (baseName === "Rival") {
+                        rivalCount.count++
+                        const displayName = this.format_display_name(trainer, rivalCount.count)
+                        if (displayName === null) continue // Skip Rival 1
+                    } else if (baseName === "Cyrus") {
+                        cyrusCount.count++
+                    }
+                    
+                    const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
+                    if (displayName === null) continue // Skip if null (Rival 1)
+                    
+                    if (this.split_type == 'First') {
+                        result.push({trainer: displayName, original_trainer: trainer, current_time: default_string})
+                    } else {
+                        result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: default_string, difference: default_string})
+                    }
+                }
+            }
+            return result
         },
         blackouts_resets() {
             const resets = this.playerResets
@@ -2098,12 +2190,12 @@ const app = Vue.createApp({
             let game = this.selected_game
             if (game == "Platinum") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, false), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
                 ])
             }
             if (game == "HeartGold and SoulSilver") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, false), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
                 ])
             }
         },
@@ -2832,6 +2924,9 @@ const app = Vue.createApp({
             this.move2_replacement =          MyStorage['move2_replacement']          ?? ""
             this.move3_replacement =          MyStorage['move3_replacement']          ?? ""
             this.move4_replacement =          MyStorage['move4_replacement']          ?? ""
+            this.right_ui =                   MyStorage['right_ui']                   ?? "Automatic"
+            this.split_type =                 MyStorage['split_type']                 ?? "First"
+            this.catch_rate =                 MyStorage['catch_rate']                 ?? false
 
             const evolution_family = (this.g4PokemonData && this.starter) ? (this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]) : [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
             this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
@@ -3850,6 +3945,75 @@ const app = Vue.createApp({
             var split = splits.find(x => x.trainer_name === splitName)
             if (split == undefined) return
             return split["realtime.end.hours"] + ":" + split["realtime.end.minutes"] + ":" + split["realtime.end.seconds"]
+        },
+        split_image(trainer) {
+            // Convert trainer name to image filename
+            // Handle both original names (with prefixes) and display names (with numbers)
+            if (!trainer) return ""
+            let imageName = trainer
+            // Remove numbers from names like "Rival 2" -> "Rival", "Cyrus 1" -> "Cyrus"
+            // This handles display names that have numbers added
+            const numberMatch = imageName.match(/^(.+?)\s+\d+$/)
+            if (numberMatch) {
+                imageName = numberMatch[1]
+                // If we removed a number from "Cyrus 1", add back "Galactic Boss " prefix
+                // since the image file is "Galactic Boss Cyrus.png"
+                if (imageName === "Cyrus") {
+                    imageName = "Galactic Boss Cyrus"
+                }
+            } else {
+                // Remove "Leader " prefix (image files don't have this prefix)
+                if (imageName.startsWith("Leader ")) {
+                    imageName = imageName.substring(7)
+                }
+                // Remove "Elite Four " prefix (image files don't have this prefix)
+                if (imageName.startsWith("Elite Four ")) {
+                    imageName = imageName.substring(11)
+                }
+                // Remove "Commander " prefix (image files don't have this prefix)
+                if (imageName.startsWith("Commander ")) {
+                    imageName = imageName.substring(10)
+                }
+                // Keep "Galactic Boss " prefix because image file is "Galactic Boss Cyrus.png"
+                // (don't remove it)
+            }
+            return imageName
+        },
+        format_display_name(trainer, occurrenceCount) {
+            // Format the display name by removing prefixes and adding numbers where needed
+            if (!trainer) return ""
+            let displayName = trainer
+            
+            // Remove prefixes
+            if (displayName.startsWith("Leader ")) {
+                displayName = displayName.substring(7)
+            } else if (displayName.startsWith("Commander ")) {
+                displayName = displayName.substring(10)
+            } else if (displayName.startsWith("Galactic Boss ")) {
+                displayName = displayName.substring(14)
+            }
+            
+            // Handle Rival numbering (skip first occurrence, number 2-6)
+            if (displayName === "Rival") {
+                if (occurrenceCount > 1) {
+                    // occurrenceCount is 1-indexed, so for display we want 2-6
+                    const displayNumber = occurrenceCount
+                    if (displayNumber >= 2 && displayNumber <= 6) {
+                        return `Rival ${displayNumber}`
+                    }
+                }
+                // Skip first occurrence (don't display)
+                return null
+            }
+            
+            // Handle Cyrus numbering (1-3)
+            if (displayName === "Cyrus") {
+                if (occurrenceCount >= 1 && occurrenceCount <= 3) {
+                    return `Cyrus ${occurrenceCount}`
+                }
+            }
+            
+            return displayName
         },
 
         curseType(x) {
