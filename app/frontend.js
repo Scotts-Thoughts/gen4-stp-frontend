@@ -1662,41 +1662,47 @@ const app = Vue.createApp({
             }
         },
         enemy_graphic() {
+            const state = this.mapper.properties.meta.state.value
             let show = false
             let delay = false
             let trainer = this.mapper?.properties.battle.opponent.trainer?.value ?? "none"
             let id = this.mapper?.properties.battle.opponent.id.value
-            if (id == 0) { return false }
+            if (id == 0) { 
+                return false 
+            }
             switch (trainer) {
-                case "Leader Roark":         delay == true;
-                case "Leader Gardenia":      delay == true;
-                case "Leader Fantina":       delay == true;
-                case "Leader Maylene":       delay == true;
-                case "Leader Wake":          delay == true;
-                case "Leader Byron":         delay == true;
-                case "Leader Candice":       delay == true;
-                case "Leader Volkner":       delay == true;
-                case "Commander Mars":       delay == true;
-                case "Commander Jupiter":    delay == true;
-                case "Commander Saturn":     delay == true;
-                case "Galactica Boss Cyrus": delay == true;
-                case "Elite Four Aaron":     delay == true;
-                case "Elite Four Bertha":    delay == true;
-                case "Elite Four Flint":     delay == true;
-                case "Elite Four Lucian":    delay == true;
-                case "Champion Cynthia":     delay == true; break;
+                // case "School Kid Christine": delay = true; break; // test case
+                case "Leader Roark":         delay = true; break;
+                case "Leader Gardenia":      delay = true; break;
+                case "Leader Fantina":       delay = true; break;
+                case "Leader Maylene":       delay = true; break;
+                case "Leader Wake":          delay = true; break;
+                case "Leader Byron":         delay = true; break;
+                case "Leader Candice":       delay = true; break;
+                case "Leader Volkner":       delay = true; break;
+                case "Commander Mars":       delay = true; break;
+                case "Commander Jupiter":    delay = true; break;
+                case "Commander Saturn":     delay = true; break;
+                case "Galactica Boss Cyrus": delay = true; break;
+                case "Elite Four Aaron":     delay = true; break;
+                case "Elite Four Bertha":    delay = true; break;
+                case "Elite Four Flint":     delay = true; break;
+                case "Elite Four Lucian":    delay = true; break;
+                case "Champion Cynthia":     delay = true; break;
                 default: delay = false; break;
             }
             if (this.mapper.properties.battle.opponent.trainer.value != null) {
                 show = true
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == true) {
+            
+            console.log(show, delay, trainer, this.mapper.properties.battle.opponent.trainer.value, this.mapper.properties.meta.state.value)
+            if (delay == true && state == `Battle`) {
                 return true
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.meta.state_enemy.value != `Battle Finished` && show == true && delay == false) {
+            else if (delay == true && state == `From Battle`) {
                 return true
             }
-            if (this.mapper.properties.meta.state.value == `Battle` && delay == true) {
+            else if (delay == false && state == `Battle`) {
                 return true
             }
             else {
@@ -3752,7 +3758,7 @@ const app = Vue.createApp({
             }
         },
         enemyMove(slot, moveNumber) {
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (this.mapper.properties.meta.state.value == `Battle` || this.mapper.properties.meta.state.value == `From Battle`) {
                 return this.enemy_mon_static[slot].moves[moveNumber]
             }
             else {
