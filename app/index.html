@@ -572,7 +572,7 @@
             </table>
 
             <!-- Right Hand Information Area -->
-            <transition name="fade1">
+            <transition name="fadeBattle">
                 <!-- Enemy Team Display -->
                 <div v-if="enemy_graphic == true" style="position: absolute;" key="1">
                     <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
@@ -827,7 +827,7 @@
                     </div>
                 </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -852,7 +852,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -878,7 +878,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -903,7 +903,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition}`">
+                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>

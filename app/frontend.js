@@ -4261,20 +4261,8 @@ const app = Vue.createApp({
 
             return [damageMin, damageMax, minPercentage, maxPercentage, recoilMin, recoilMax,]
         },
-        speedComparison(playerPkmnData, enemyPkmnData) {
-            var playerSpeed = playerPkmnData.speed.value
-            var enemySpeed = enemyPkmnData.speed.value
-            if (playerSpeed > enemySpeed) {
-                return "Outspeeds"
-            }
-            if (playerSpeed == enemySpeed) {
-                return "Speed-Tied"
-            }
-            if (playerSpeed < enemySpeed) {
-                return "Underspeeds"
-            }
-        },
         speed_comparison(slotIndex, enemySpeedValue) {
+            const state = this.mapper.properties.meta.state.value
             // Compare player's active pokemon speed with enemy pokemon speed
             const playerSpeed = this.mapper.properties?.battle?.player?.active_pokemon?.stats?.speed?.value || 0
             const enemySpeed = enemySpeedValue || 0
