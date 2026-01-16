@@ -2729,10 +2729,10 @@ img, span, div {
 
 .fadeBattle-enter-from { opacity: 0; }
 .fadeBattle-enter-to { opacity: 1; }
-.fadeBattle-enter-active { transition: opacity 300ms ease-in-out; }
+.fadeBattle-enter-active { transition: opacity 300ms ease-in-out 50ms; }
 .fadeBattle-leave-from { opacity: 1; }
 .fadeBattle-leave-to { opacity: 0; }
-.fadeBattle-leave-active { transition: opacity 300ms ease-in-out; }
+.fadeBattle-leave-active { transition: opacity 300ms ease-in-out 50ms; }
 
 
 .fadeBattleEnemy-enter-from { opacity: 0; }

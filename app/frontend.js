@@ -5573,6 +5573,9 @@ const app = Vue.createApp({
         //         return
         // },
         enemyStatLabelOpacity(modifier, slot) {
+            // Return early if modifier is undefined/null to prevent .bytes access error
+            if (!modifier || modifier.bytes === undefined)
+                return
             // console.log(modifier.bytes, slot)
             modifier_table = {
                 0x00: "-6", 
@@ -5604,6 +5607,9 @@ const app = Vue.createApp({
                 return
         },
         enemyStatusLabelOpacity(status, slot) {
+            // Return early if status is undefined/null to prevent .bytes access error
+            if (!status || status.bytes === undefined)
+                return
             if (this.mapper.properties.battle.opponent.party_position.value == slot) {
                 if (this.mapper.properties.battle.opponent.team[0].internals.personality_value.value == null)
                     return
