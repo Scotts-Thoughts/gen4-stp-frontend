@@ -603,12 +603,12 @@
                                         class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[enemy_mon_static[x]?.species]?.type_2?.toLowerCase()}.png`" />
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' || mapper.properties.meta.state.value == 'From Battle'" class="border ePkmnStats">
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnHpLabel  opacityTransition" :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)"        >Hp:</div> 
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnAtkLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)"         >Atk:</div>
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnDefLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)"        >Def:</div>
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpeLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)"          >Spe:</div>
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpaLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)" >SpA:</div>
-                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpdLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnHpLabel " :style="enemyStatusLabelOpacity(mapper.properties.battle.opponent.active_pokemon.status_condition, x)"        >Hp:</div> 
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnAtkLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.attack, x)"         >Atk:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnDefLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.defense, x)"        >Def:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpeLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.speed, x)"          >Spe:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpaLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_attack, x)" >SpA:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpdLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</div>
 
                                     <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnHp  opacityTransition">{{enemy_mon_static[x]?.stats.hp}}</div>
                                     <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnAtk opacityTransition">{{getEnemyStat("attack", enemy_mon_static[x]?.stats.attack, x)}}</div>

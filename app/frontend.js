@@ -1695,7 +1695,7 @@ const app = Vue.createApp({
                 show = true
             }
             
-            console.log(show, delay, trainer, this.mapper.properties.battle.opponent.trainer.value, this.mapper.properties.meta.state.value)
+            // console.log(show, delay, trainer, this.mapper.properties.battle.opponent.trainer.value, this.mapper.properties.meta.state.value)
             if (delay == true && state == `Battle`) {
                 return true
             }
@@ -3093,8 +3093,8 @@ const app = Vue.createApp({
             const storageKey = useEvolutionLine ? this.getStorageKey(species, true) : this.getStorageKey(species, false);
             
             // Debug: Log what we're trying to load
-            console.log(`Loading styles for ${species} (useEvolutionLine: ${useEvolutionLine}, key: ${storageKey})`);
-            console.log(`Storage data for ${species}:`, MyStorage[storageKey]);
+            // console.log(`Loading styles for ${species} (useEvolutionLine: ${useEvolutionLine}, key: ${storageKey})`);
+            // console.log(`Storage data for ${species}:`, MyStorage[storageKey]);
             
             // Load overlay and image settings
             this.overlay_color = MyStorage[storageKey]?.overlay_color ?? this.default_colors[this.g4PokemonData?.[species]?.type_1] ?? this.default_colors.Normal;
@@ -3150,19 +3150,19 @@ const app = Vue.createApp({
                 }
             }
             
-            // Debug: Log what was actually loaded
-            console.log(`Loaded background settings for ${species}:`, {
-                backgroundTexture: this.backgroundTexture,
-                backgroundXOffset: this.backgroundXOffset,
-                backgroundYOffset: this.backgroundYOffset,
-                backgroundScale: this.backgroundScale,
-                backgroundBrightness: this.backgroundBrightness,
-                backgroundContrast: this.backgroundContrast,
-                backgroundSaturation: this.backgroundSaturation,
-                backgroundBlur: this.backgroundBlur,
-                backgroundHue: this.backgroundHue,
-                backgroundFlip: this.backgroundFlip
-            });
+            // // Debug: Log what was actually loaded
+            // console.log(`Loaded background settings for ${species}:`, {
+            //     backgroundTexture: this.backgroundTexture,
+            //     backgroundXOffset: this.backgroundXOffset,
+            //     backgroundYOffset: this.backgroundYOffset,
+            //     backgroundScale: this.backgroundScale,
+            //     backgroundBrightness: this.backgroundBrightness,
+            //     backgroundContrast: this.backgroundContrast,
+            //     backgroundSaturation: this.backgroundSaturation,
+            //     backgroundBlur: this.backgroundBlur,
+            //     backgroundHue: this.backgroundHue,
+            //     backgroundFlip: this.backgroundFlip
+            // });
             
             // Clear flag after loading is complete, use $nextTick to ensure all watchers have fired
             this.$nextTick(() => {
@@ -3746,7 +3746,7 @@ const app = Vue.createApp({
         getEnemyStat(statName, statValue, slotIndex) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             let currentStat = 0
             let modifier = this.mapper?.properties?.battle?.opponent?.active_pokemon?.modifiers[statName].value
-            console.log('Enemy Stat:', statValue)
+            // console.log('Enemy Stat:', statValue)
             if (modifier == null) {
                 return statValue
             }
@@ -5573,6 +5573,7 @@ const app = Vue.createApp({
         //         return
         // },
         enemyStatLabelOpacity(modifier, slot) {
+            // console.log(modifier.bytes, slot)
             modifier_table = {
                 0x00: "-6", 
                 0x01: "-5", 
