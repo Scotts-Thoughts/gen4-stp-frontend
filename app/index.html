@@ -583,7 +583,7 @@
                             <div :style="enemyPkmnUI(mapper.properties.battle.opponent.team[x])">
                                 <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.svg)`"></div>
                             </div>
-                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, mapper.properties.battle.opponent.team[x]?.stats.speed.value).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.svg`"/>
+                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, getEnemyStat('speed', enemy_mon_static[x]?.stats.speed, x)).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.svg`"/>
                             <img :src="`images/new_ui/stats/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                         </div>
                     </div>
@@ -611,11 +611,11 @@
                                     <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpdLabel opacityTransition" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent.active_pokemon.modifiers?.special_defense, x)">SpD:</div>
 
                                     <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnHp  opacityTransition">{{enemy_mon_static[x]?.stats.hp}}</div>
-                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnAtk opacityTransition">{{getEnemyStat("attack", enemy_mon_static[x]?.stats.atk, x)}}</div>
-                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnDef opacityTransition">{{getEnemyStat("defense", enemy_mon_static[x]?.stats.def, x)}}</div>
-                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpe opacityTransition">{{getEnemyStat("speed", enemy_mon_static[x]?.stats.spe, x)}}</div>
-                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpa opacityTransition">{{getEnemyStat("special_attack", enemy_mon_static[x]?.stats.spa, x)}}</div>
-                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpd opacityTransition">{{getEnemyStat("special_defense", enemy_mon_static[x]?.stats.spd, x)}}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnAtk opacityTransition">{{getEnemyStat("attack", enemy_mon_static[x]?.stats.attack, x)}}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnDef opacityTransition">{{getEnemyStat("defense", enemy_mon_static[x]?.stats.defense, x)}}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpe opacityTransition">{{getEnemyStat("speed", enemy_mon_static[x]?.stats.speed, x)}}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpa opacityTransition">{{getEnemyStat("special_attack", enemy_mon_static[x]?.stats.special_attack, x)}}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpd opacityTransition">{{getEnemyStat("special_defense", enemy_mon_static[x]?.stats.special_defense, x)}}</div>
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
                                     <div class="enemyStatModTable">
@@ -639,7 +639,7 @@
                                     <div v-if="enemy_mon_static[x]?.moves[3] != undefined" class="ePkmnMoveStyle ePkmnMove4">{{enemy_mon_static[x]?.moves[3]}}</div>
                                 </div>
                                 <transition name="fade">
-                                    <div class="ePkmnSpeedComparison">{{speed_comparison(x, mapper.properties.battle.opponent.team[x]?.stats.speed.value).comparison}}</div>
+                                    <div class="ePkmnSpeedComparison">{{speed_comparison(x, getEnemyStat("speed", enemy_mon_static[x]?.stats.speed, x)).comparison}}</div>
                                 </transition>
                             </div>
                         </div>
@@ -671,11 +671,11 @@
                                         <div class="enemyStatLabel" :style="enemyStatLabelOpacity(mapper.properties.battle.opponent_2.active_pokemon.modifiers?.speed, x)"          >Spe:</div>
                                     </div>
                                         <div>{{enemy_2_mon_static[x]?.stats.hp}}</div>
-                                        <div>{{getEnemyStat("attack", enemy_2_mon_static[x]?.stats.atk, x)}}</div>
-                                        <div>{{getEnemyStat("defense", enemy_2_mon_static[x]?.stats.def, x)}}</div>
-                                        <div>{{getEnemyStat("speed", enemy_2_mon_static[x]?.stats.spe, x)}}</div>
-                                        <div>{{getEnemyStat("special_attack", enemy_2_mon_static[x]?.stats.spa, x)}}</div>
-                                        <div>{{getEnemyStat("special_defense", enemy_2_mon_static[x]?.stats.spd, x)}}</div>
+                                        <div>{{getEnemyStat("attack", enemy_2_mon_static[x]?.stats.attack, x)}}</div>
+                                        <div>{{getEnemyStat("defense", enemy_2_mon_static[x]?.stats.defense, x)}}</div>
+                                        <div>{{getEnemyStat("speed", enemy_2_mon_static[x]?.stats.speed, x)}}</div>
+                                        <div>{{getEnemyStat("special_attack", enemy_2_mon_static[x]?.stats.special_attack, x)}}</div>
+                                        <div>{{getEnemyStat("special_defense", enemy_2_mon_static[x]?.stats.special_defense, x)}}</div>
                                     <div>
                                         <div>{{enemy_2_mon_static[x]?.stats.hp}}</div>
                                         <div>{{enemy_2_mon_static[x]?.stats.attack}}</div>

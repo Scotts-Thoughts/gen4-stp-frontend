@@ -3745,13 +3745,22 @@ const app = Vue.createApp({
         },
         getEnemyStat(statName, statValue, slotIndex) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             let currentStat = 0
-            if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.opponent.party_position == slotIndex) {
+            let modifier = this.mapper?.properties?.battle?.opponent?.active_pokemon?.modifiers[statName].value
+            console.log('Enemy Stat:', statValue)
+            if (modifier == null) {
+                return statValue
+            }
+            else if (this.mapper.properties.meta.state.value == `Battle` && this.mapper.properties.battle.opponent.party_position == slotIndex) {
                 currentStat = this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
-                modifier = this.mapper?.properties?.battle?.opponent?.active_pokemon?.modifiers[statName].value
+                
                 stageModification = this.stageModifiersData.stats[modifier]
                 calculated_stats = Math.floor(currentStat * stageModification)
-                if (calculated_stats == 0 || calculated_stats > 1500) { return statValue } 
-                return calculated_stats
+                if (calculated_stats == 0 || calculated_stats > 1500) { 
+                    return statValue 
+                } 
+                else {
+                    return calculated_stats
+                }
             }
             else {
                 return this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
