@@ -3567,10 +3567,10 @@ const app = Vue.createApp({
             var move = move
             var categoryText = category
             if (this.ready == false) { return ["", "",]}
-            if (category == "Physical") { return [category, "Physical"] }
-            if (category == "Special")  { return [category, "Special"] }
-            if (category == "Status")   { return [category, "Status"] }
-            else {return [category, "Physical"]}
+            if (category == "Physical") { return [category, "current_physical"] }
+            if (category == "Special")  { return [category, "current_special"] }
+            if (category == "Status")   { return [category, "current_status"] }
+            else {return [category, "current_physical"]}
         },
         getStat(stat) { //stat = the name of the stat ie. "hp", "attack", "defense", etc.
             const state = this.mapper.properties.meta.state.value
