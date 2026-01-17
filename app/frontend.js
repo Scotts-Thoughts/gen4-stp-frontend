@@ -3455,6 +3455,8 @@ const app = Vue.createApp({
             this.blackout_counter = 0
             this.playerId = 0
             // this.playerName = "NINTEN"
+            this.current_splits = []
+            this.previous_splits = []
 
             this.updateTime()
             if (this.set_rom_starter_automatically && this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
