@@ -1379,12 +1379,14 @@ const app = Vue.createApp({
                     return result
                 }
                 
+                // Track current_splits indices separately for Rival and Cyrus to match by order
+                let currentRivalIndex = 0
+                let currentCyrusIndex = 0
+                
                 for (const x of this.previous_splits) {
                     if (debugging_mode == true) { console.log("Loop X:", x.trainer) } 
                     if (this.game.splits.includes(x.trainer)) {
                         const default_string = "-"
-                        const cur_split = this.current_splits.find(y => y.trainer === x.trainer)
-                        const prev = this.convertDurationToSeconds(x.time)
                         
                         // Track occurrences
                         let baseName = x.trainer
@@ -1397,6 +1399,49 @@ const app = Vue.createApp({
                         } else if (baseName === "Cyrus") {
                             cyrusCount.count++
                         }
+                        
+                        // Find matching split in current_splits by order for Rival/Cyrus, by name for others
+                        let cur_split = undefined
+                        if (x.trainer === "Rival") {
+                            // Find the Nth Rival in current_splits based on order
+                            const rivalsInCurrent = this.current_splits.filter(s => s.trainer === "Rival")
+                            if (currentRivalIndex < rivalsInCurrent.length) {
+                                // Find the index in the full current_splits array
+                                let found = 0
+                                for (let i = 0; i < this.current_splits.length; i++) {
+                                    if (this.current_splits[i].trainer === "Rival") {
+                                        if (found === currentRivalIndex) {
+                                            cur_split = this.current_splits[i]
+                                            break
+                                        }
+                                        found++
+                                    }
+                                }
+                            }
+                            currentRivalIndex++
+                        } else if (x.trainer === "Cyrus") {
+                            // Find the Nth Cyrus in current_splits based on order
+                            const cyrusInCurrent = this.current_splits.filter(s => s.trainer === "Cyrus")
+                            if (currentCyrusIndex < cyrusInCurrent.length) {
+                                // Find the index in the full current_splits array
+                                let found = 0
+                                for (let i = 0; i < this.current_splits.length; i++) {
+                                    if (this.current_splits[i].trainer === "Cyrus") {
+                                        if (found === currentCyrusIndex) {
+                                            cur_split = this.current_splits[i]
+                                            break
+                                        }
+                                        found++
+                                    }
+                                }
+                            }
+                            currentCyrusIndex++
+                        } else {
+                            // For other trainers, find by exact name match
+                            cur_split = this.current_splits.find(y => y.trainer === x.trainer)
+                        }
+                        
+                        const prev = this.convertDurationToSeconds(x.time)
                         
                         const displayName = this.format_display_name(x.trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
                         if (displayName === null) continue // Skip Rival 1
@@ -3400,7 +3445,7 @@ const app = Vue.createApp({
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
                 let bytes = this.mapper.properties.battle.opponent.trainer.bytes
                 let id_value = this.mapper.properties.battle.opponent.id.value
-                let displayGraphicState = true
+                let displayGraphicState = this.enemy_graphic = true ? true : false
                 if (this.selected_game == `Platinum` || this.selected_game == `Diamond and Pearl`) {
                     switch (trainer) {
                         case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
@@ -4162,8 +4207,8 @@ const app = Vue.createApp({
                 return calculated_accuracy
             }
             if (state == `Battle`) {
-                let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value.toString()
-                let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value.toString()
+                let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value?.toString()
+                let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value?.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
                 let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
@@ -6700,10 +6745,13 @@ const app = Vue.createApp({
         //write to file at the end of a key battle
         this.mapper.properties.meta.state.change(async (newProp, oldProp) => {
             console.log(`State Changed to "${newProp.value}"`)
-            if (newProp.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
-            if (newProp.value == "To Battle" && oldProp.value == "Overworld" && this.automatic_post_battle_splits == true) {
+            // Reset right_ui to Automatic when entering Battle (unless it's a major trainer battle)
+            if (newProp.value == "Battle" && this.automatic_post_battle_splits == true) {
+                // Only reset if we're not currently showing splits for a major trainer
+                // The split check happens below when 'From Battle' state is processed
                 this.right_ui = "Automatic"
             }
+            if (newProp.value != 'From Battle' || this.mapper.properties.battle.player.team[0].stats.hp.value == 0) { return }
             autosplitter_process()
             console.log('Autosplitter Attempted to Run')
             if (newProp.value == 'From Battle') {
@@ -6742,6 +6790,25 @@ const app = Vue.createApp({
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
                         ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
                         split_data: this.split_data
+                    }
+                    // Update current_splits so the split appears in the display
+                    // simple_data format: [player_name, pokemon, trainer_name, real_time_hmmss, ...]
+                    // current_splits format: [{trainer: ..., time: ...}, ...]
+                    const trainerName = this.simple_data[2] // trainer_name is at index 2
+                    const timeStr = this.simple_data[3]     // real_time_hmmss is at index 3
+                    // For trainers that appear multiple times (Rival, Cyrus), always add as new entry
+                    // For other trainers, update if exists, otherwise add new
+                    if (trainerName === "Rival" || trainerName === "Cyrus") {
+                        // Always add as new entry to track multiple instances
+                        this.current_splits.push({trainer: trainerName, time: timeStr})
+                    } else {
+                        // Check if this trainer already exists in current_splits and update it, or add new
+                        const existingIndex = this.current_splits.findIndex(s => s.trainer === trainerName)
+                        if (existingIndex >= 0) {
+                            this.current_splits[existingIndex].time = timeStr
+                        } else {
+                            this.current_splits.push({trainer: trainerName, time: timeStr})
+                        }
                     }
                 }
                 if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
@@ -6782,6 +6849,25 @@ const app = Vue.createApp({
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
                         ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
                         split_data: this.split_data
+                    }
+                    // Update current_splits so the split appears in the display
+                    // simple_data format: [player_name, pokemon, trainer_name, real_time_hmmss, ...]
+                    // current_splits format: [{trainer: ..., time: ...}, ...]
+                    const trainerName = this.simple_data[2] // trainer_name is at index 2
+                    const timeStr = this.simple_data[3]     // real_time_hmmss is at index 3
+                    // For trainers that appear multiple times (Rival, Cyrus), always add as new entry
+                    // For other trainers, update if exists, otherwise add new
+                    if (trainerName === "Rival" || trainerName === "Cyrus") {
+                        // Always add as new entry to track multiple instances
+                        this.current_splits.push({trainer: trainerName, time: timeStr})
+                    } else {
+                        // Check if this trainer already exists in current_splits and update it, or add new
+                        const existingIndex = this.current_splits.findIndex(s => s.trainer === trainerName)
+                        if (existingIndex >= 0) {
+                            this.current_splits[existingIndex].time = timeStr
+                        } else {
+                            this.current_splits.push({trainer: trainerName, time: timeStr})
+                        }
                     }
                     // console.log("Data transfer finished.")
                 }
