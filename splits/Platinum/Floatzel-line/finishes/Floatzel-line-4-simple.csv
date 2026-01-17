@@ -1,0 +1,4 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Floatzel,Champion Cynthia,50.53,0,0,78,6:50,1768688461.254,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Hall of Fame,50.55,0,0,79,6:52,1768688482.676,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Champion Cynthia,50.55,0,0,78,6:50,1768688555.999,Surf,Ice Fang,Dig,Return

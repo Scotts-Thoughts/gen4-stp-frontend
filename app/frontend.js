@@ -1360,7 +1360,7 @@ const app = Vue.createApp({
                 
                 // If no previous splits are loaded, return default list from game.splits
                 if (!this.previous_splits || this.previous_splits.length === 0) {
-                    if (!this.game || !this.game.splits) {
+                    if (!this.game || !Array.isArray(this.game.splits)) {
                         return result
                     }
                     const default_string = "-"
@@ -1399,7 +1399,7 @@ const app = Vue.createApp({
                 
                 for (const x of this.previous_splits) {
                     if (debugging_mode == true) { console.log("Loop X:", x.trainer) } 
-                    if (this.game.splits.includes(x.trainer) && shouldDisplayTrainer(x.trainer)) {
+                    if (Array.isArray(this.game?.splits) && this.game.splits.includes(x.trainer) && shouldDisplayTrainer(x.trainer)) {
                         const default_string = "-"
                         
                         // Track occurrences
@@ -1416,16 +1416,17 @@ const app = Vue.createApp({
                         
                         // Find matching split in current_splits by order for Rival/Cyrus, by name for others
                         let cur_split = undefined
+                        const currentSplits = Array.isArray(this.current_splits) ? this.current_splits : []
                         if (x.trainer === "Rival") {
                             // Find the Nth Rival in current_splits based on order
-                            const rivalsInCurrent = this.current_splits.filter(s => s.trainer === "Rival")
+                            const rivalsInCurrent = currentSplits.filter(s => s.trainer === "Rival")
                             if (currentRivalIndex < rivalsInCurrent.length) {
                                 // Find the index in the full current_splits array
                                 let found = 0
-                                for (let i = 0; i < this.current_splits.length; i++) {
-                                    if (this.current_splits[i].trainer === "Rival") {
+                                for (let i = 0; i < currentSplits.length; i++) {
+                                    if (currentSplits[i].trainer === "Rival") {
                                         if (found === currentRivalIndex) {
-                                            cur_split = this.current_splits[i]
+                                            cur_split = currentSplits[i]
                                             break
                                         }
                                         found++
@@ -1435,14 +1436,14 @@ const app = Vue.createApp({
                             currentRivalIndex++
                         } else if (x.trainer === "Cyrus") {
                             // Find the Nth Cyrus in current_splits based on order
-                            const cyrusInCurrent = this.current_splits.filter(s => s.trainer === "Cyrus")
+                            const cyrusInCurrent = currentSplits.filter(s => s.trainer === "Cyrus")
                             if (currentCyrusIndex < cyrusInCurrent.length) {
                                 // Find the index in the full current_splits array
                                 let found = 0
-                                for (let i = 0; i < this.current_splits.length; i++) {
-                                    if (this.current_splits[i].trainer === "Cyrus") {
+                                for (let i = 0; i < currentSplits.length; i++) {
+                                    if (currentSplits[i].trainer === "Cyrus") {
                                         if (found === currentCyrusIndex) {
-                                            cur_split = this.current_splits[i]
+                                            cur_split = currentSplits[i]
                                             break
                                         }
                                         found++
@@ -1452,7 +1453,7 @@ const app = Vue.createApp({
                             currentCyrusIndex++
                         } else {
                             // For other trainers, find by exact name match
-                            cur_split = this.current_splits.find(y => y.trainer === x.trainer)
+                            cur_split = currentSplits.find(y => y.trainer === x.trainer)
                         }
                         
                         const prev = this.convertDurationToSeconds(x.time)
@@ -1487,7 +1488,7 @@ const app = Vue.createApp({
                 return result
             }
             // If collect_split_data is false, still return default list
-            if (!this.game || !this.game.splits) {
+            if (!this.game || !Array.isArray(this.game.splits)) {
                 return []
             }
             
@@ -2660,13 +2661,25 @@ const app = Vue.createApp({
                 }
             }
             if (state == `No Pokemon`) {
+                const pokemonData = this.g4PokemonData?.[starter]
+                const baseStats = pokemonData?.base_stats
+                if (!pokemonData || !baseStats) {
+                    return {
+                        "Hp" : 0,
+                        "Atk": 0,
+                        "Def": 0,
+                        "SpA": 0,
+                        "SpD": 0,
+                        "Spe": 0,
+                    }
+                }
                 return {
-                    "Hp" : this.g4PokemonData[starter].base_stats.hp,
-                    "Atk": this.g4PokemonData[starter].base_stats.attack,
-                    "Def": this.g4PokemonData[starter].base_stats.defense,
-                    "SpA": this.g4PokemonData[starter].base_stats.special_attack,
-                    "SpD": this.g4PokemonData[starter].base_stats.special_defense,
-                    "Spe": this.g4PokemonData[starter].base_stats.speed,
+                    "Hp" : baseStats.hp ?? 0,
+                    "Atk": baseStats.attack ?? 0,
+                    "Def": baseStats.defense ?? 0,
+                    "SpA": baseStats.special_attack ?? 0,
+                    "SpD": baseStats.special_defense ?? 0,
+                    "Spe": baseStats.speed ?? 0,
                 }
             }
         },
@@ -4151,20 +4164,28 @@ const app = Vue.createApp({
         },
         getMovepool(gen3PkmnData, moveData, tmhmMapping, species) {
             const pkmn = this.dataSearch(gen3PkmnData, species)
+            if (!pkmn || typeof pkmn !== 'object' || pkmn === "ERROR") {
+                return {
+                    level: [],
+                    tmhm: [],
+                    tutor: []
+                }
+            }
             let obj = {
-                level: pkmn.level_up_learnset.map(x => {
+                level: (Array.isArray(pkmn.level_up_learnset) ? pkmn.level_up_learnset : []).map(x => {
+                    if (!Array.isArray(x) || x.length < 2) return null
                     return {
                         ...{Level: x[0]},
                         ...this.dataSearch(moveData, x[1]) //searching for index 1
                     }
-                }), 
-                tmhm: pkmn.tm_hm_learnset.map(x => {
+                }).filter(x => x !== null), 
+                tmhm: (Array.isArray(pkmn.tm_hm_learnset) ? pkmn.tm_hm_learnset : []).map(x => {
                     return {
                         ...{tmhm: tmhmMapping.find(y => y.Move == x)?.tmhmIndex??"TM01"},
                         ...this.dataSearch(moveData, x)
                     }
                 }),     
-                tutor: pkmn.tutor_learnset.map(x => {
+                tutor: (Array.isArray(pkmn.tutor_learnset) ? pkmn.tutor_learnset : []).map(x => {
                     return this.dataSearch(moveData, x)
                 }),    
                 // egg: pkmn.egg_moves.map(x => {
@@ -6239,8 +6260,27 @@ const app = Vue.createApp({
                         const oldSpecies = this.starter;
                         const newSpecies = newProp.value;
 
+                        // Only proceed if both oldProp and newSpecies are valid
+                        // Check that oldProp has a valid species (not 0x00 0x00 bytes)
+                        let oldPropValid = false;
+                        if (oldProp && oldProp.value != null && oldProp.value !== undefined) {
+                            // Check if bytes is valid (not 0x00 0x00)
+                            if (oldProp.bytes != null) {
+                                if (Array.isArray(oldProp.bytes)) {
+                                    // Array format: [0x00, 0x00] is invalid
+                                    oldPropValid = !(oldProp.bytes.length === 2 && oldProp.bytes[0] === 0x00 && oldProp.bytes[1] === 0x00);
+                                } else {
+                                    // Number format: 0x00 or 0x0000 is invalid
+                                    oldPropValid = oldProp.bytes !== 0x00 && oldProp.bytes !== 0;
+                                }
+                            } else {
+                                // If bytes is null/undefined but value exists, consider it valid
+                                oldPropValid = true;
+                            }
+                        }
+                        
                         // Only proceed if newSpecies is valid
-                        if (newSpecies && newSpecies !== undefined && newSpecies !== null) {
+                        if (oldPropValid && newSpecies && newSpecies !== undefined && newSpecies !== null) {
                             this.stats_setting = "Base Stats";
                             
                             // Update starter
@@ -6506,24 +6546,29 @@ const app = Vue.createApp({
         if (document.getElementById("Spe") && this.get_stat()["Spe"].toString().length <= 3) { document.getElementById("Spe").style.fontSize = stat_size_3_digit }
         if (document.getElementById("Spe") && this.get_stat()["Spe"].toString().length >= 4) { document.getElementById("Spe").style.fontSize = stat_size_4_digit }
         this.mapper.properties.battle.player.active_pokemon.modifiers.attack.change(async () => {
-            if (this.get_stat()["Atk"].toString().length <= 3) { document.getElementById("Atk").style.fontSize = stat_size_3_digit }
-            if (this.get_stat()["Atk"].toString().length >= 4) { document.getElementById("Atk").style.fontSize = stat_size_4_digit }
+            const atkElement = document.getElementById("Atk")
+            if (atkElement && this.get_stat()["Atk"].toString().length <= 3) { atkElement.style.fontSize = stat_size_3_digit }
+            if (atkElement && this.get_stat()["Atk"].toString().length >= 4) { atkElement.style.fontSize = stat_size_4_digit }
         })
         this.mapper.properties.battle.player.active_pokemon.modifiers.defense.change(async () => {
-            if (this.get_stat()["Def"].toString().length <= 3) { document.getElementById("Def").style.fontSize = stat_size_3_digit }
-            if (this.get_stat()["Def"].toString().length >= 4) { document.getElementById("Def").style.fontSize = stat_size_4_digit }
+            const defElement = document.getElementById("Def")
+            if (defElement && this.get_stat()["Def"].toString().length <= 3) { defElement.style.fontSize = stat_size_3_digit }
+            if (defElement && this.get_stat()["Def"].toString().length >= 4) { defElement.style.fontSize = stat_size_4_digit }
         })
         this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.change(async () => {
-            if (this.get_stat()["SpA"].toString().length <= 3) { document.getElementById("SpA").style.fontSize = stat_size_3_digit }
-            if (this.get_stat()["SpA"].toString().length >= 4) { document.getElementById("SpA").style.fontSize = stat_size_4_digit }
+            const spaElement = document.getElementById("SpA")
+            if (spaElement && this.get_stat()["SpA"].toString().length <= 3) { spaElement.style.fontSize = stat_size_3_digit }
+            if (spaElement && this.get_stat()["SpA"].toString().length >= 4) { spaElement.style.fontSize = stat_size_4_digit }
         })
         this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.change(async () => {
-            if (this.get_stat()["SpD"].toString().length <= 3) { document.getElementById("SpD").style.fontSize = stat_size_3_digit }
-            if (this.get_stat()["SpD"].toString().length >= 4) { document.getElementById("SpD").style.fontSize = stat_size_4_digit }
+            const spdElement = document.getElementById("SpD")
+            if (spdElement && this.get_stat()["SpD"].toString().length <= 3) { spdElement.style.fontSize = stat_size_3_digit }
+            if (spdElement && this.get_stat()["SpD"].toString().length >= 4) { spdElement.style.fontSize = stat_size_4_digit }
         })
         this.mapper.properties.battle.player.active_pokemon.modifiers.speed.change(async () => {
-            if (this.get_stat()["Spe"].toString().length <= 3) { document.getElementById("Spe").style.fontSize = stat_size_3_digit }
-            if (this.get_stat()["Spe"].toString().length >= 4) { document.getElementById("Spe").style.fontSize = stat_size_4_digit }
+            const speElement = document.getElementById("Spe")
+            if (speElement && this.get_stat()["Spe"].toString().length <= 3) { speElement.style.fontSize = stat_size_3_digit }
+            if (speElement && this.get_stat()["Spe"].toString().length >= 4) { speElement.style.fontSize = stat_size_4_digit }
         })
 
         //*Autosplitter
