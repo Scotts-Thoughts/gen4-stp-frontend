@@ -961,7 +961,7 @@ const app = Vue.createApp({
     },
     created() {
         if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {  
-            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter].type_1];
+            this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter]?.type_1];
             this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset            ?? 0;
             this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset            ?? 0;
             this.imageScale             = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageScale              ?? 1;
@@ -975,8 +975,8 @@ const app = Vue.createApp({
             this.use_custom_background  = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].use_custom_background   ?? false
             this.backgroundXOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundXOffset       ?? 0
             this.backgroundYOffset      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundYOffset       ?? 0
-            this.backgroundTexture      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture       ?? `${this.g4PokemonData[this.starter].type_1}`
-            this.pkmn_ability           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability           ?? g4PokemonData[this.starter].abilities[0]
+            this.backgroundTexture      = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].backgroundTexture       ?? `${this.g4PokemonData[this.starter]?.type_1 ?? ''}`
+            this.pkmn_ability           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.pkmn_ability           ?? g4PokemonData[this.starter]?.abilities?.[0] ?? null
             this.attempt_number         = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.attempt_number         ?? 0
             this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count     ?? 0
             this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.playerResets           ?? 0
@@ -2111,6 +2111,42 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        get_trainer_name(trainer_name, trainer_id) {
+            // console.log(trainer_name, trainer_id)
+            switch (trainer_id) {
+                case 850: return 'Rival 1'
+                case 851: return 'Rival 1'
+                case 852: return 'Rival 1'
+                case 247: return 'Rival 2'
+                case 248: return 'Rival 2'
+                case 249: return 'Rival 2'
+                case 470: return 'Rival 3'
+                case 471: return 'Rival 3'
+                case 472: return 'Rival 3'
+                case 473: return 'Rival 4'
+                case 474: return 'Rival 4'
+                case 475: return 'Rival 4'
+                case 476: return 'Rival 5'
+                case 477: return 'Rival 5'
+                case 478: return 'Rival 5'
+                case 479: return 'Rival 6'
+                case 480: return 'Rival 6'
+                case 481: return 'Rival 6'
+                case 295: return 'Mars 1'
+                case 405: return 'Mars 2'
+                case 528: return 'Mars 3'
+                case 926: return 'Mars 4'
+                case 406: return 'Jupiter 1'
+                case 407: return 'Jupiter 2'
+                case 927: return 'Jupiter 3'
+                case 408: return 'Saturn 1'
+                case 409: return 'Saturn 2'
+                case 403: return 'Cyrus 1'
+                case 404: return 'Cyrus 2'
+                case 913: return 'Cyrus 3'
+                default : return trainer_name
+            }
+        },
         getUnobtainableMoveStyle(move_object, type_of_move) {
             const unobtainable_moves_toggle = this.unobtainable_moves_toggle
             const state = this.mapper.properties.meta.state.value
@@ -2823,7 +2859,7 @@ const app = Vue.createApp({
             // Copy all style settings from the currently selected evolution family member
             // to all other members of the evolution family
             if (!this.evolution || !this.selected_evolution_species || this.evolution_family_list.length <= 1) {
-                console.log("Evolution mode must be enabled and you must have multiple species in the evolution family.")
+                // console.log("Evolution mode must be enabled and you must have multiple species in the evolution family.")
                 return
             }
             
@@ -2909,13 +2945,13 @@ const app = Vue.createApp({
                     
                     copiedCount++;
                     // Debug: Log what was copied for this species
-                    console.log(`Copied to ${targetSpecies} (key: ${targetStorageKey}):`, copiedValues[targetSpecies]);
+                    // console.log(`Copied to ${targetSpecies} (key: ${targetStorageKey}):`, copiedValues[targetSpecies]);
                     // Verify what was actually saved
-                    console.log(`Verified storage for ${targetSpecies}:`, verifiedData);
+                    // console.log(`Verified storage for ${targetSpecies}:`, verifiedData);
                 }
             });
             
-            console.log(`Successfully copied style settings from "${sourceSpecies}" (key: ${sourceStorageKey}) to ${copiedCount} other family member(s).`);
+            // console.log(`Successfully copied style settings from "${sourceSpecies}" (key: ${sourceStorageKey}) to ${copiedCount} other family member(s).`);
         },
         load_all_settings() {
             const game_name                    = this.mapper.properties.meta.game_name.value
@@ -3105,10 +3141,12 @@ const app = Vue.createApp({
             // console.log(MyStorage.entries())
         },
         clear_overlay_color() {
-            starterType = this.g4PokemonData[this.starter].type_1;
-            newColor = getComputedStyle(document.documentElement).getPropertyValue("--"+starterType.toLowerCase());
-            this.set_pokemon_prop("overlay_color", newColor)
-            this.overlay_color = newColor;
+            starterType = this.g4PokemonData[this.starter]?.type_1;
+            if (starterType) {
+                newColor = getComputedStyle(document.documentElement).getPropertyValue("--"+starterType.toLowerCase());
+                this.set_pokemon_prop("overlay_color", newColor)
+                this.overlay_color = newColor;
+            }
             // this.load_pokemon_sprite_settings()
         },
         set_pokemon_prop(property_name, value) {
@@ -3445,7 +3483,7 @@ const app = Vue.createApp({
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
                 let bytes = this.mapper.properties.battle.opponent.trainer.bytes
                 let id_value = this.mapper.properties.battle.opponent.id.value
-                let displayGraphicState = this.enemy_graphic = true ? true : false
+                let displayGraphicState = this.enemy_graphic == true ? true : false
                 if (this.selected_game == `Platinum` || this.selected_game == `Diamond and Pearl`) {
                     switch (trainer) {
                         case "Leader Roark":      graphic = `images/trainers/roark.png`;       break;
@@ -4226,16 +4264,16 @@ const app = Vue.createApp({
                 }
                 let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) : 100
                 if (calculated_accuracy == "err") {
-                    console.log(
-                        accuracy,
-                        playerStage,
-                        oppAStage,
-                        accuracyModifier,
-                        evasionModifier,
-                        calculated_accuracy,
-                        state,
-                        this.mapper.properties.meta.state_enemy.value,
-                    )
+                    // console.log(
+                    //     accuracy,
+                    //     playerStage,
+                    //     oppAStage,
+                    //     accuracyModifier,
+                    //     evasionModifier,
+                    //     calculated_accuracy,
+                    //     state,
+                    //     this.mapper.properties.meta.state_enemy.value,
+                    // )
                 }
                 return calculated_accuracy
             }
@@ -6208,7 +6246,7 @@ const app = Vue.createApp({
             this.last_known_species = newProp.value;
             this.last_known_personality_value = currentPersonalityValue;
             
-            if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram.pokemon_0_ram.stats.hp.value != 0) {
+            if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
                 this.starter = newProp.value
             }
             else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
@@ -6329,8 +6367,9 @@ const app = Vue.createApp({
             }
             //the odd/evenness may need to be flipped according to the selected ability
             //this code prevents abilities from swapping when the Pokemon evolves
-            if ((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
-            (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0])) {
+            if (this.g4PokemonData[this.starter]?.abilities && 
+                ((personalityValue % 2 == 0 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[1]) ||
+                (personalityValue % 2 == 1 && this.pkmn_ability == this.g4PokemonData[this.starter].abilities[0]))) {
             //     these checks are trying to flip the odd/even by adding an odd number multiple of 25
             //     in order to not disturb the nature calc. It's trying to maintain the gender calc too.
                 if (personalityValue % 256 <= 11 && this.pkmn_gender != "Male") {
@@ -6461,7 +6500,7 @@ const app = Vue.createApp({
 
         //*Autosplitter
         const log_split = (x) => console.log(`Autosplitter - Battle Ended - Split: ${this.mapper.properties.battle.opponent.name.value} at ${this.timer_formatted_time[0]}${this.timer_formatted_time[1]} (Gametime: ${this.gametimeSplit})`)
-        const autosplitter_process = () => {
+        const autosplitter_process = (optional_trainer_data = null) => {
             // console.log("Checking if autosplitter is on...")
             if (this.autosplitter_toggle == true) {
                 // console.log("Began Autosplitter Process")
@@ -6478,7 +6517,7 @@ const app = Vue.createApp({
                 let time_string  = d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0") + ":" + d.getSeconds().toString().padStart(2, "0")
                 let player_name  = this.mapper.properties.player.name.value
                 let pokemon      = this.starter
-                let trainer_name = this.mapper.properties.battle.opponent.name.value
+                let trainer_name = optional_trainer_data ? optional_trainer_data : this.get_trainer_name(this.mapper.properties.battle.opponent.name.value, this.mapper.properties.battle.opponent.id.value)
                 let trainer_id           = this.mapper.properties.battle.opponent.id.value
                 let location             = this.mapper.properties.overworld.map_name.value
                 let total_pokemon        = this.mapper.properties.battle.opponent.team_count.value
@@ -6521,7 +6560,7 @@ const app = Vue.createApp({
                 
                 //deprecated properties
                 let runIdentifier  = this.starter.toString() + this.attempt_number.toString()
-                let trainerName    = this.mapper.properties.battle.opponent.name.value
+                let trainerName    = trainer_name
                 let RTHours        = this.time_h
                 let RTMinutes      = this.time_m
                 let RTSeconds      = this.time_s
@@ -6737,14 +6776,14 @@ const app = Vue.createApp({
                 this.full_data_str = full_data_str
                 this.simple_data = simple_data
                 this.deprecated_data_str = deprecated_data_str
-                console.log("Simple Data: ", simple_data)
-                console.log("Deprecated Data: ", deprecated_data_str)
+                // console.log("Simple Data: ", simple_data)
+                // console.log("Deprecated Data: ", deprecated_data_str)
             }
         }
 
         //write to file at the end of a key battle
         this.mapper.properties.meta.state.change(async (newProp, oldProp) => {
-            console.log(`State Changed to "${newProp.value}"`)
+            // console.log(`State Changed to "${newProp.value}"`)
             // Reset right_ui to Automatic when entering Battle (unless it's a major trainer battle)
             if (newProp.value == "Battle" && this.automatic_post_battle_splits == true) {
                 // Only reset if we're not currently showing splits for a major trainer
@@ -6771,13 +6810,13 @@ const app = Vue.createApp({
                 logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                 
                 //write deprecated split data
-                console.log("Autosplitter[this.game.gameName]:" + this.autosplitter[this.game.gameName])
-                console.log(this.autosplitter)
-                console.log("this.game:" + this.game)
-                console.log("this.game.gameName:" + this.game.gameName)
-                console.log("Trainer: " + trainer)
+                // console.log("Autosplitter[this.game.gameName]:" + this.autosplitter[this.game.gameName])
+                // console.log(this.autosplitter)
+                // console.log("this.game:" + this.game)
+                // console.log("this.game.gameName:" + this.game.gameName)
+                // console.log("Trainer: " + trainer)
                 if (this.autosplitter[this.game.gameName][trainer]) {
-                    console.log("Deprecated split attempted to be collected...")
+                    // console.log("Deprecated split attempted to be collected...")
                     logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                 }
                 
@@ -6812,7 +6851,7 @@ const app = Vue.createApp({
                     }
                 }
                 if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
-                    console.log("Simple split attempted to be collected...")
+                    // console.log("Simple split attempted to be collected...")
                     simpleSplit();
                     if (this.automatic_post_battle_splits == true) {
                         this.right_ui = "Splits"
@@ -6874,8 +6913,58 @@ const app = Vue.createApp({
             }
         });
 
+        this.mapper.properties.audio.save_sound.change(async (newProp, oldProp) => {
+            if (this.mapper.properties.overworld.map_name.value == "Pokemon League - Map 16" && newProp.value == 36445048) { //magic number for Hall of Fame, may need to be updated with new versions of the patch
+                const splitFileName = this.getSplitFileName();
+                let gameName = 'Platinum'
+                let game_name = 'Platinum'
+                if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
+                    gameName = 'HGSS'
+                    game_name = 'HeartGold and SoulSilver'
+                }
+                
+                autosplitter_process("Hall of Fame")
+                    //write full split data
+                logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+
+                //write simple split data
+                const simpleSplit = () => {
+                    log_split()
+                    logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                    this.split_data.push(this.simple_data)
+                    MyStorage["split_data"] = this.split_data
+                    MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
+                        ...MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`],
+                        split_data: this.split_data
+                    }
+                    // Update current_splits so the split appears in the display
+                    // simple_data format: [player_name, pokemon, trainer_name, real_time_hmmss, ...]
+                    // current_splits format: [{trainer: ..., time: ...}, ...]
+                    const trainerName = this.simple_data[2] // trainer_name is at index 2
+                    const timeStr = this.simple_data[3]     // real_time_hmmss is at index 3
+                    // For trainers that appear multiple times (Rival, Cyrus), always add as new entry
+                    // For other trainers, update if exists, otherwise add new
+                    if (trainerName === "Rival" || trainerName === "Cyrus") {
+                        // Always add as new entry to track multiple instances
+                        this.current_splits.push({trainer: trainerName, time: timeStr})
+                    } else {
+                        // Check if this trainer already exists in current_splits and update it, or add new
+                        const existingIndex = this.current_splits.findIndex(s => s.trainer === trainerName)
+                        if (existingIndex >= 0) {
+                            this.current_splits[existingIndex].time = timeStr
+                        } else {
+                            this.current_splits.push({trainer: trainerName, time: timeStr})
+                        }
+                    }
+                }
+                simpleSplit()
+            }
+        });
+
+        //EXP Bar Animation
         this.mapper.properties.player.team[0].exp.change(async (newProp, oldProp) => {
-            console.log("State - EXP Function 1", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
+            // console.log("State - EXP Function 1", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
             if (this.expBarAnimation == true) {
                 // console.log("Exp Bar function got here (1)...")
                 const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
@@ -6892,7 +6981,7 @@ const app = Vue.createApp({
             }
         })
         this.mapper.properties.battle.player.active_pokemon.exp.change(async (newProp, oldProp) => {
-            console.log("State - EXP Function 2", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
+            // console.log("State - EXP Function 2", this.mapper.properties.meta.state.value, this.mapper.properties.player.team[0].exp.value)
             if (this.mapper.properties.meta.state.value == "Battle") {
                 if (this.expBarAnimation == true) {
                     // console.log("Exp Bar function got here (2)...")

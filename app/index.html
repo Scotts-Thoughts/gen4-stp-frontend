@@ -236,12 +236,12 @@
                         <tr><td>Def:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][2]}}</td><td style="padding-left: 10px;">SpD:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][5]}}</td></tr>
                     </table>
                     <br>
-                    <div>Abilities: ({{starter}} has {{g4PokemonData[starter].abilities.length}})</div>
+                    <div>Abilities: ({{starter}} has {{g4PokemonData[starter]?.abilities?.length ?? 0}})</div>
                     <select v-model="pkmn_ability" class="dropdownMenu dropdown_menu_column3">
                         <option disabled value="">Select an ability</option>
-                        <option v-for="key in values_function(g4PokemonData[starter].abilities)" :value="`${key}`">{{key}}</option>
+                        <option v-for="key in values_function(g4PokemonData[starter]?.abilities ?? [])" :value="`${key}`">{{key}}</option>
                     </select><br>
-                    <div style="font-size: 11px; line-height: 14px;">Ability: {{g4PokemonData[starter].abilities.indexOf(pkmn_ability) + 1}}</div>
+                    <div style="font-size: 11px; line-height: 14px;">Ability: {{g4PokemonData[starter]?.abilities?.indexOf(pkmn_ability) != null && g4PokemonData[starter]?.abilities ? g4PokemonData[starter].abilities.indexOf(pkmn_ability) + 1 : 0}}</div>
                     <br>
                     <div>Nature:</div>
                     <select v-model="pkmnNature" class="dropdownMenu dropdown_menu_column3">
@@ -575,7 +575,7 @@
             <transition name="fadeBattle">
                 <!-- Enemy Team Display -->
                 <div v-if="enemy_graphic == true" style="position: absolute;" key="1">
-                    <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{mapper.properties.battle.opponent.trainer.value}}</div>
+                    <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{get_trainer_name(mapper.properties.battle.opponent.trainer.value, mapper.properties.battle.opponent.id.value)}}</div>
                     <div v-else class="trainerLabel">Double Battle Team</div>
                     <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/new_ui/enemy.svg)"></div>
                     <div v-for="x in pkmnSlots">
