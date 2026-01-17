@@ -3444,15 +3444,14 @@ img, span, div {
     font-size: 18px;
 }
 .splits_table {
-    display: block;
+    display: table;
     position: absolute;
     /* border: 1px solid #00ff0d00; */
     background-color: #ffffff;
     font-size: 12px;
     line-height: 15.25px;
     width: 405px;
-    height: 724px;
-    /* height: 723px; */
+    height: 723px;  /* Add this line - adjust the value as needed */
     font-family: play;
     left: 1495px;
     top: 57px;
@@ -3466,7 +3465,7 @@ img, span, div {
     padding-top: 3px;
     margin: 0; /* Remove any margin */
     text-align: center; /* Center the content horizontally */
-    width: 30px;
+    width: 48px;
     filter: saturate(1.1) contrast(1.1) drop-shadow(0px 0px 1px);
 }
 

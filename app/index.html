@@ -793,14 +793,14 @@
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 150px; text-align: right;"></td>
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;">{{previous_label}}</td>
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;">{{current_label}}</td>
-                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;">Diff</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 8px;">Diff</td>
                             </tr>
                             <tr v-for="split in compare_splits">
-                                <td style="font-size: 14px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.original_trainer || split.trainer)}.png`"></td>
-                                <td style="font-size: 14px; width: 150px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
-                                <td style="font-size: 14px; width: 78px;  text-align: right;">{{split.previous_time}}</td>
-                                <td style="font-size: 14px; width: 78px;  text-align: right;">{{split.current_time}}</td>
-                                <td style="font-size: 14px; width: 63px;  text-align: right; padding-right: 3px;" :style="split_diff_color(split.difference)">{{split.difference}}</td>
+                                <td style="font-size: 15px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.original_trainer || split.trainer)}.png`"></td>
+                                <td style="font-size: 15px; width: 150px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
+                                <td style="font-size: 15px; width: 78px;  text-align: right;">{{split.previous_time}}</td>
+                                <td style="font-size: 15px; width: 78px;  text-align: right;">{{split.current_time}}</td>
+                                <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;" :style="split_diff_color(split.difference)">{{split.difference}}</td>
                             </tr>
                         </table>
                         <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>
@@ -814,14 +814,14 @@
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 150px; text-align: right;"></td>
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;"></td>
                                 <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 78px;  text-align: right;"></td>
-                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 5px;">Time</td>
+                                <td class="movepool_header" style="padding-top: 2px; font-size: 14px; width: 63px;  text-align: right; padding-right: 8px;">Time</td>
                             </tr>
                             <tr v-for="split in compare_splits">
-                                <td style="font-size: 14px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.original_trainer || split.trainer)}.png`"></td>
-                                <td style="font-size: 14px; width: 150px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
-                                <td style="font-size: 14px; width: 78px;  text-align: right;"></td>
-                                <td style="font-size: 14px; width: 78px;  text-align: right;"></td>
-                                <td style="font-size: 14px; width: 63px;  text-align: right; padding-right: 5px;">{{split.current_time}}</td>
+                                <td style="font-size: 15px; text-align: left; padding-left: 3px;"><img class="scaled_icon" :src="`images/split_images/${selected_game}/${split_image(split.original_trainer || split.trainer)}.png`"></td>
+                                <td style="font-size: 15px; width: 100px; text-align: left; padding-left: 3px;">{{split.trainer}}</td>
+                                <td style="font-size: 15px; width: 78px;  text-align: right;"></td>
+                                <td style="font-size: 15px; width: 78px;  text-align: right;"></td>
+                                <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;">{{split.current_time}}</td>
                             </tr>
                         </table>
                         <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>

@@ -1331,6 +1331,12 @@ const app = Vue.createApp({
             debugging_mode = false
             if (debugging_mode == true) { console.log("compare_splits starting...") } 
             if (debugging_mode == true) { console.log("...") } 
+            
+            // Helper function to check if trainer should be displayed (only gym leaders, elite four, champion)
+            const shouldDisplayTrainer = (trainer) => {
+                return trainer.startsWith("Leader ") || trainer.startsWith("Elite Four ") || trainer.startsWith("Champion ")
+            }
+            
             if (this.collect_split_data == true) {
                 if (debugging_mode == true) { console.log("collect_split_data == true") } 
                 const result = []
@@ -1351,7 +1357,7 @@ const app = Vue.createApp({
                     }
                     const default_string = "-"
                     for (const trainer of this.game.splits) {
-                        if (!trainersToSkip.includes(trainer)) {
+                        if (!trainersToSkip.includes(trainer) && shouldDisplayTrainer(trainer)) {
                             // Track occurrences
                             let baseName = trainer
                             if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
@@ -1385,7 +1391,7 @@ const app = Vue.createApp({
                 
                 for (const x of this.previous_splits) {
                     if (debugging_mode == true) { console.log("Loop X:", x.trainer) } 
-                    if (this.game.splits.includes(x.trainer)) {
+                    if (this.game.splits.includes(x.trainer) && shouldDisplayTrainer(x.trainer)) {
                         const default_string = "-"
                         
                         // Track occurrences
@@ -1476,13 +1482,14 @@ const app = Vue.createApp({
             if (!this.game || !this.game.splits) {
                 return []
             }
+            
             const result = []
             const default_string = "-"
             const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]
             const rivalCount = { count: 0 }
             const cyrusCount = { count: 0 }
             for (const trainer of this.game.splits) {
-                if (!trainersToSkip.includes(trainer)) {
+                if (!trainersToSkip.includes(trainer) && shouldDisplayTrainer(trainer)) {
                     // Track occurrences
                     let baseName = trainer
                     if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
@@ -4087,6 +4094,10 @@ const app = Vue.createApp({
             // Remove prefixes
             if (displayName.startsWith("Leader ")) {
                 displayName = displayName.substring(7)
+            } else if (displayName.startsWith("Elite Four ")) {
+                displayName = displayName.substring(11)
+            } else if (displayName.startsWith("Champion ")) {
+                displayName = displayName.substring(9)
             } else if (displayName.startsWith("Commander ")) {
                 displayName = displayName.substring(10)
             } else if (displayName.startsWith("Galactic Boss ")) {
