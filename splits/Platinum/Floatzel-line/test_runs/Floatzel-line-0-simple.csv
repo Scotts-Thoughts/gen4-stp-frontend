@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Buizel,Rival 1,1:17.26,0,0,5,0:03,1768680279.566,SonicBoom,Growl,Water Sport,Quick Attack
+Dawn,Buizel,Rival 2,7:13.35,0,0,9,0:27,1768680635.655,SonicBoom,Growl,Water Gun,Quick Attack
+Dawn,Buizel,Leader Roark,10:41.75,0,0,13,0:41,1768680844.049,SonicBoom,Pursuit,Water Gun,Quick Attack
+Dawn,Buizel,Mars 1,25:18.60,5,0,21,1:31,1768682108.142,Aqua Jet,Pursuit,SonicBoom,Return
+Dawn,Floatzel,Leader Gardenia,33:35.29,5,1,27,2:04,1768682604.83,Aqua Jet,Crunch,SonicBoom,Return
+Dawn,Floatzel,Jupiter 1,36:00.39,5,1,28,2:13,1768682749.934,Aqua Jet,Crunch,SonicBoom,Return
+Dawn,Floatzel,Leader Fantina,40:50.55,5,1,30,2:33,1768683040.1,Aqua Jet,Crunch,SonicBoom,Return
+Dawn,Floatzel,Rival 3,43:30.82,8,1,34,2:39,1768683200.365,Aqua Jet,Crunch,SonicBoom,Return
+Dawn,Floatzel,Leader Maylene,51:08.75,8,1,37,3:10,1768683716.197,Aqua Jet,Crunch,Dig,Return
+Dawn,Floatzel,Rival 4,55:19.76,8,1,38,3:26,1768683967.195,Ice Fang,Crunch,Dig,Return
+Dawn,Floatzel,Leader Wake,59:47.69,9,1,45,3:43,1768684235.146,Ice Fang,Crunch,Dig,Return
+Dawn,Floatzel,Cyrus 3,1:04:34.70,9,1,47,4:02,1768684522.148,Ice Fang,Crunch,Dig,Return
+Dawn,Floatzel,Rival 5,1:07:21.97,9,1,47,4:13,1768684689.412,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Leader Byron,1:09:48.81,9,1,49,4:23,1768684836.257,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Saturn 1,1:12:26.81,9,1,50,4:33,1768684994.252,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Mars 2,1:13:51.65,9,1,51,4:39,1768685079.085,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Leader Candice,1:18:23.18,10,1,60,4:55,1768685368.382,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Cyrus 1,1:22:28.01,10,1,61,5:11,1768685613.201,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Saturn 2,1:23:01.12,10,1,61,5:13,1768685646.313,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Mars 3,1:27:27.46,10,1,63,5:31,1768685912.655,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Cyrus 2,1:31:30.15,10,1,63,5:47,1768686155.351,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Leader Volkner,1:35:59.02,10,1,66,6:05,1768686424.216,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Rival 6,1:42:44.27,10,1,69,6:32,1768686829.462,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Elite Four Aaron,1:43:41.44,10,1,70,6:36,1768686886.632,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Elite Four Bertha,1:44:31.81,10,1,77,6:39,1768686937.007,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Elite Four Flint,1:45:05.31,10,1,77,6:42,1768686970.507,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Elite Four Lucian,1:45:57.76,10,1,78,6:45,1768687022.955,Surf,Ice Fang,Dig,Return
+Dawn,Floatzel,Champion Cynthia,1:47:15.24,10,1,78,6:50,1768687100.444,Surf,Ice Fang,Dig,Return

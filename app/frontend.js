@@ -1128,6 +1128,14 @@ const app = Vue.createApp({
             }
         },
         starter(newValue, oldValue) {
+            // Prevent starter from becoming undefined
+            if (!newValue || newValue === undefined || newValue === null) {
+                // Fallback to stored value or default
+                const fallback = MyStorage['starter'] ?? "Heatran";
+                this.starter = fallback;
+                return;
+            }
+            
             const starter = newValue
             const game = this.mapper?.properties.meta.game_name.value
             const state = this.mapper?.properties.meta.state.value
@@ -2675,7 +2683,7 @@ const app = Vue.createApp({
             }
 
             let level = this.mapper.properties.player.team[0].level.value
-            let species = this.starter
+            let species = this.evolution ? this.selected_evolution_species : this.starter
             let nature = this.mapper.properties.player.team[0].nature.value
             let nature_modifiers = this.natures[nature]
 
@@ -2696,37 +2704,37 @@ const app = Vue.createApp({
             switch (stat_name) {
                 case 'hp': {
                     let current_stat = this.get_stat().Hp
-                    let no_ev_stat   = calculate_hp(iv_hp, 0, level, this.g4PokemonData[species].base_stats?.hp ?? 1)
+                    let no_ev_stat   = calculate_hp(iv_hp, 0, level, this.g4PokemonData[species]?.base_stats?.hp ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
                 case 'attack': {
                     let current_stat = this.get_stat().Atk
-                    let no_ev_stat   = calculate_other_stat(iv_atk, 0, level, this.g4PokemonData[species].base_stats.attack, nature_modifiers?.nature_attack ?? 1)
+                    let no_ev_stat   = calculate_other_stat(iv_atk, 0, level, this.g4PokemonData[species]?.base_stats.attack, nature_modifiers?.nature_attack ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
                 case 'defense': {
                     let current_stat = this.get_stat().Def
-                    let no_ev_stat   = calculate_other_stat(iv_def, 0, level, this.g4PokemonData[species].base_stats.defense, nature_modifiers?.nature_defense ?? 1)
+                    let no_ev_stat   = calculate_other_stat(iv_def, 0, level, this.g4PokemonData[species]?.base_stats.defense, nature_modifiers?.nature_defense ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
                 case 'special_attack': {
                     let current_stat = this.get_stat().SpA
-                    let no_ev_stat   = calculate_other_stat(iv_spa, 0, level, this.g4PokemonData[species].base_stats.special_attack, nature_modifiers?.nature_specialAttack ?? 1)
+                    let no_ev_stat   = calculate_other_stat(iv_spa, 0, level, this.g4PokemonData[species]?.base_stats.special_attack, nature_modifiers?.nature_specialAttack ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
                 case 'special_defense': {
                     let current_stat = this.get_stat().SpD
-                    let no_ev_stat   = calculate_other_stat(iv_spd, 0, level, this.g4PokemonData[species].base_stats.special_defense, nature_modifiers?.nature_specialDefense ?? 1)
+                    let no_ev_stat   = calculate_other_stat(iv_spd, 0, level, this.g4PokemonData[species]?.base_stats.special_defense, nature_modifiers?.nature_specialDefense ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
                 case 'speed': {
                     let current_stat = this.get_stat().Spe
-                    let no_ev_stat   = calculate_other_stat(iv_spe, 0, level, this.g4PokemonData[species].base_stats.speed, nature_modifiers?.nature_speed ?? 1)
+                    let no_ev_stat   = calculate_other_stat(iv_spe, 0, level, this.g4PokemonData[species]?.base_stats.speed, nature_modifiers?.nature_speed ?? 1)
                     let difference   = current_stat - no_ev_stat
                     return difference
                 }
@@ -3487,7 +3495,7 @@ const app = Vue.createApp({
             }
         },
         getTrainerGraphic() {
-            if (this.mapper.properties.meta.state == `Battle`) {
+            if (this.mapper.properties.meta.state == `Battle` || this.mapper.properties.meta.state == `From Battle`) {
                 let graphic = `images/trainers/roark.png`
                 let trainer = this.mapper.properties.battle.opponent.trainer.value
                 let bytes = this.mapper.properties.battle.opponent.trainer.bytes
@@ -6019,9 +6027,9 @@ const app = Vue.createApp({
             if (this.mapper.properties.battle.opponent.active_pokemon.ability.value == 'Levitate' && attackingType == 'Ground') {
                 ability = 0 
             }
-            if (enemy_pokemon_data?.ability.value == 'Storm Drain' && attackingType == 'Water') {
-                ability = 0 
-            }
+            // if (enemy_pokemon_data?.ability.value == 'Storm Drain' && attackingType == 'Water') {
+            //     ability = 0 
+            // }
             if (enemy_pokemon_data?.ability.value == 'Dry Skin' && attackingType == 'Water') {
                 ability = 0 
             }
@@ -6231,42 +6239,49 @@ const app = Vue.createApp({
                         const oldSpecies = this.starter;
                         const newSpecies = newProp.value;
 
-                        this.stats_setting = "Base Stats";
-                        
-                        // Update starter
-                        this.starter = newSpecies;
-                        this.last_known_species = newSpecies;
-                        
-                        // Update the dropdown to the new evolved species
-                        // This will trigger the watcher to load the new species' styles
-                        this.selected_evolution_species = newSpecies;
-                        
-                        // Show base stats of new evolved species until next battle
-                        this.show_evolved_base_stats = true;
-                        this.evolved_species_for_stats = newSpecies;
-                        
-                        // Perform fade transition
-                        await this.performEvolutionTransition(oldSpecies, newSpecies);
-                        
-                        // Update personality value tracking
-                        this.last_known_personality_value = currentPersonalityValue;
-                        return; // Don't process as normal species change
+                        // Only proceed if newSpecies is valid
+                        if (newSpecies && newSpecies !== undefined && newSpecies !== null) {
+                            this.stats_setting = "Base Stats";
+                            
+                            // Update starter
+                            this.starter = newSpecies;
+                            this.last_known_species = newSpecies;
+                            
+                            // Update the dropdown to the new evolved species
+                            // This will trigger the watcher to load the new species' styles
+                            this.selected_evolution_species = newSpecies;
+                            
+                            // Show base stats of new evolved species until next battle
+                            this.show_evolved_base_stats = true;
+                            this.evolved_species_for_stats = newSpecies;
+                            
+                            // Perform fade transition
+                            await this.performEvolutionTransition(oldSpecies, newSpecies);
+                            
+                            // Update personality value tracking
+                            this.last_known_personality_value = currentPersonalityValue;
+                            return; // Don't process as normal species change
+                        }
                     }
                 }
             }
             
             // Normal species change handling (not an evolution)
-            this.last_known_species = newProp.value;
-            this.last_known_personality_value = currentPersonalityValue;
-            
-            if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
-                this.starter = newProp.value
-            }
-            else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
-                // Special handling for Reshiram
-            }
-            else if (state == "Overworld") {
-                this.starter = newProp.value
+            // Only update if newProp.value is valid (not undefined/null)
+            if (newProp.value && newProp.value !== undefined && newProp.value !== null) {
+                this.last_known_species = newProp.value;
+                this.last_known_personality_value = currentPersonalityValue;
+                
+                // Only update starter if newProp.value is valid (not undefined/null)
+                if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
+                    this.starter = newProp.value
+                }
+                else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
+                    // Special handling for Reshiram
+                }
+                else if (state == "Overworld") {
+                    this.starter = newProp.value
+                }
             }
         })
         this.mapper.properties.player.team[0].level.change(async (newProp, oldProp) => {
@@ -6926,8 +6941,8 @@ const app = Vue.createApp({
             }
         });
 
-        this.mapper.properties.audio.save_sound.change(async (newProp, oldProp) => {
-            if (this.mapper.properties.overworld.map_name.value == "Pokemon League - Map 16" && newProp.value == 36445048) { //magic number for Hall of Fame, may need to be updated with new versions of the patch
+        this.mapper.properties.screen.menu.cursor.flag.change(async (newProp, oldProp) => {
+            if (this.mapper.properties.overworld.map_name.value == "Pokemon League - Map 16" && newProp.value == 156) { //magic number for Hall of Fame, may need to be updated with new versions of the patch
                 const splitFileName = this.getSplitFileName();
                 let gameName = 'Platinum'
                 let game_name = 'Platinum'

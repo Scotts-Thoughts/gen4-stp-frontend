@@ -1,0 +1,4 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Buizel,Rival 1,1:17.26,0,0,5,0:03,1768680279.566,SonicBoom,Growl,Water Sport,Quick Attack
+Dawn,Buizel,Rival 2,7:13.35,0,0,9,0:27,1768680635.655,SonicBoom,Growl,Water Gun,Quick Attack
+Dawn,Buizel,Leader Roark,10:41.75,0,0,13,0:41,1768680844.049,SonicBoom,Pursuit,Water Gun,Quick Attack
