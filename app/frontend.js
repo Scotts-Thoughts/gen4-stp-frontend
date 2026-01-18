@@ -305,7 +305,7 @@ function logData(gameName, str, file_name, split_file_prefix, log_type, testStat
         var dirPath  = refilming_mode == true ? `./splits/${gameName}/refilmed/${split_file_prefix}/` : `./splits/${gameName}/${split_file_prefix}/`;
         var filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-simple.csv`);
         // Header
-        var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "failures," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
+        var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
         if (testStatus == true) { 
             dirPath = `./splits/${gameName}/${split_file_prefix}/test_runs`; 
             switch (log_type) {
