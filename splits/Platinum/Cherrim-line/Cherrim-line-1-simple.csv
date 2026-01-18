@@ -1,4 +1,4 @@
-player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
 Dawn,Cherubi,Rival 1,1:28.25,0,0,5,0:04,1768735926.076,Tackle,,,
 Dawn,Cherubi,Rival 2,10:37.12,0,1,10,0:41,1768736474.956,Tackle,Growth,Leech Seed,
 Dawn,Cherubi,Leader Roark,26:02.79,0,2,19,1:43,1768737400.627,Tackle,Growth,Leech Seed,Magical Leaf
