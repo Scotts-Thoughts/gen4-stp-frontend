@@ -646,7 +646,7 @@
                         </div>
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x + 6)">
                             <div v-if="x < mapper.properties.battle.opponent_2.team_count.value && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :class="`border slots ePkmnStyle ePkmn${x + mapper.properties.battle.opponent.team_count.value}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_2_mon_static[x]?.species)}.png`" />
+                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_2_mon_static?.[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_2_mon_static[x]?.species}} Lv: {{enemy_2_mon_static[x]?.level}}</div>
                                 <div class="ePkmnAbility" style="opacity: .7;">{{enemy_2_mon_static[x]?.ability}}</div>
                                 <div style="left: 2px;" class="border ePkmnTyping">

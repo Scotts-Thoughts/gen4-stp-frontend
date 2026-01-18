@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Cherubi,Rival 1,1:28.25,0,0,5,0:04,1768735926.076,Tackle,,,
+Dawn,Cherubi,Rival 2,10:37.12,0,1,10,0:41,1768736474.956,Tackle,Growth,Leech Seed,
+Dawn,Cherubi,Leader Roark,26:02.79,0,2,19,1:43,1768737400.627,Tackle,Growth,Leech Seed,Magical Leaf
+Dawn,Cherubi,Mars 1,32:21.82,1,2,21,2:06,1768737786.452,Magical Leaf,Growth,Return,Leech Seed
+Dawn,Cherrim,Leader Gardenia,44:18.51,4,2,26,2:40,1768738553.763,Magical Leaf,Growth,Return,Petal Dance
+Dawn,Cherrim,Jupiter 1,49:03.93,7,2,28,2:53,1768738839.183,Magical Leaf,Growth,Return,Petal Dance
+Dawn,Cherrim,Leader Fantina,55:53.84,7,2,30,3:21,1768739249.088,Magical Leaf,Growth,Return,Substitute
+Dawn,Cherrim,Rival 3,57:03.17,7,2,31,3:25,1768739318.424,Magical Leaf,Growth,Return,Substitute
+Dawn,Cherrim,Leader Maylene,1:10:09.94,10,2,36,4:12,1768740321.859,Bullet Seed,Swords Dance,Return,Substitute
+Dawn,Cherrim,Rival 4,1:14:03.08,10,2,37,4:27,1768740554.996,Bullet Seed,Swords Dance,Return,Substitute
+Dawn,Cherrim,Leader Wake,1:17:10.18,11,2,43,4:38,1768740742.097,Bullet Seed,Swords Dance,Return,Substitute
+Dawn,Cherrim,Cyrus 3,1:22:48.01,11,2,45,5:01,1768741079.936,Return,Swords Dance,Substitute,Bullet Seed
+Dawn,Cherrim,Rival 5,1:25:18.15,14,2,46,5:07,1768741230.068,Return,Swords Dance,Substitute,Bullet Seed
+Dawn,Cherrim,Leader Byron,1:39:50.93,28,2,53,5:46,1768742186.999,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Saturn 1,1:41:56.66,28,2,54,5:54,1768742312.732,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Mars 2,1:44:19.85,29,2,54,6:02,1768742455.923,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Leader Candice,1:50:15.35,31,2,56,6:23,1768742811.416,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Cyrus 1,1:55:20.02,33,3,58,6:39,1768743116.088,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Saturn 2,1:56:47.77,34,3,58,6:43,1768743203.838,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Mars 3,2:01:38.79,34,3,60,7:03,1768743494.857,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Cyrus 2,2:05:48.94,34,3,60,7:19,1768743745.017,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Leader Volkner,2:13:28.78,37,3,63,7:43,1768744204.844,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Rival 6,2:22:08.99,37,3,75,8:18,1768744889.2,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Elite Four Aaron,2:24:05.96,38,3,76,8:24,1768745006.177,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Elite Four Bertha,2:25:12.79,38,3,76,8:29,1768745073.001,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Elite Four Flint,2:27:05.34,40,3,78,8:32,1768752910.525,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Elite Four Lucian,2:28:28.41,41,3,78,8:36,1768752993.594,Return,Swords Dance,Natural Gift,Bullet Seed
+Dawn,Cherrim,Champion Cynthia,2:32:22.93,46,3,79,8:41,1768753228.101,Return,Swords Dance,Natural Gift,Substitute
+Dawn,Cherrim,Hall of Fame,2:32:22.94,46,4,80,8:43,1768753255.111,Return,Swords Dance,Natural Gift,Substitute

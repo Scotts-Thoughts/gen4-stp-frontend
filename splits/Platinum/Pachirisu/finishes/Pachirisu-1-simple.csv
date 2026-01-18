@@ -1,30 +1,15 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,failures,level,game_time,battle_duration,move1,move2,move3,move4,
-Dawn,Pachirisu,Rival,1:31,0,0,5,0:04,1768602666.779,Growl,Bide,Quick Attack,
-Dawn,Pachirisu,Rival,8:55,0,0,9,0:34,1768603593.373,Quick Attack,Bide,Growl,Charm
-Dawn,Pachirisu,Leader Roark,28:51,1,4,21,1:52,1768605291.031,Spark,Bide,Quick Attack,Swift
-Dawn,Pachirisu,Commander Mars,32:55,1,4,22,2:08,1768605666.54,Spark,Bide,Return,Swift
-Dawn,Pachirisu,Leader Gardenia,45:10,2,6,28,2:56,1768606454.387,Spark,Sweet Kiss,Return,Swift
-Dawn,Pachirisu,Commander Jupiter,46:36,2,6,29,3:01,1768606539.783,Spark,Discharge,Return,Swift
-Dawn,Pachirisu,Leader Fantina,54:35,2,6,30,3:33,1768607019.348,Spark,Discharge,Return,Swift
-Dawn,Pachirisu,Rival,55:53,3,6,31,3:37,1768607096.67,Spark,Discharge,Return,Swift
-Dawn,Pachirisu,Leader Maylene,1:03:55,5,6,41,4:05,1768607579.043,Spark,Discharge,Return,Dig
-Dawn,Pachirisu,Rival,1:08:15,6,6,41,4:20,1768607838.874,Spark,Discharge,Return,Dig
-Dawn,Pachirisu,Leader Wake,1:10:45,7,6,43,4:28,1768607988.57,Grass Knot,Discharge,Return,Dig
-Dawn,Pachirisu,Galactic Boss Cyrus,1:15:04,7,6,45,4:45,1768608313.873,Grass Knot,Discharge,Return,Dig
-Dawn,Pachirisu,Rival,1:27:01,9,17,52,5:28,1768609082.018,Grass Knot,Thunderbolt,Substitute,Dig
-Dawn,Pachirisu,Leader Byron,1:32:54,10,18,54,5:49,1768609499.778,Grass Knot,Thunderbolt,Substitute,Dig
-Dawn,Pachirisu,Commander Saturn,1:36:19,10,18,55,6:02,1768609704.362,Grass Knot,Thunderbolt,Substitute,Dig
-Dawn,Pachirisu,Commander Mars,1:38:08,10,18,56,6:10,1768612688.675,Grass Knot,Thunderbolt,Substitute,Dig
-Dawn,Pachirisu,Leader Candice,1:53:07,14,23,59,7:00,1768613779.505,Grass Knot,Thunderbolt,U-turn,Dig
-Dawn,Pachirisu,Galactic Boss Cyrus,1:57:52,14,23,60,7:19,1768614064.327,Thunderbolt,Grass Knot,U-turn,Dig
-Dawn,Pachirisu,Commander Saturn,1:58:37,14,23,61,7:22,1768614109.129,Thunderbolt,Grass Knot,U-turn,Dig
-Dawn,Pachirisu,Commander Mars,2:04:07,14,23,62,7:44,1768614439.18,Thunderbolt,Grass Knot,U-turn,Dig
-Dawn,Pachirisu,Galactic Boss Cyrus,2:08:12,14,23,63,8:00,1768614683.861,Thunderbolt,Grass Knot,U-turn,Dig
-Dawn,Pachirisu,Leader Volkner,2:13:13,14,23,65,8:20,1768614985.176,Thunderbolt,Grass Knot,U-turn,Dig
-Dawn,Pachirisu,Rival,2:23:34,14,23,82,9:02,1768618555.143,Thunderbolt,Grass Knot,Charge Beam,Dig
-Dawn,Pachirisu,Elite Four Aaron,2:24:27,14,23,82,9:05,1768618637.11,Thunderbolt,Grass Knot,Charge Beam,Dig
-Dawn,Pachirisu,Elite Four Aaron,2:30:41,17,24,83,9:21,1768619070.335,Thunderbolt,Grass Knot,Charge Beam,Dig
-Dawn,Pachirisu,Elite Four Bertha,2:31:57,17,24,83,9:26,1768619146.975,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
-Dawn,Pachirisu,Elite Four Flint,2:32:55,17,24,84,9:30,1768619204.574,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
-Dawn,Pachirisu,Elite Four Lucian,2:33:47,17,24,85,9:33,1768619256.296,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
-Dawn,Pachirisu,Champion Cynthia,2:36:46,20,24,85,9:39,1768619447.223,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
+Dawn,Pachirisu,Leader Roark,28:51.58,1,4,21,1:52,1768714693.543,Spark,Bide,Quick Attack,Swift
+Dawn,Pachirisu,Leader Gardenia,45:11.06,2,6,28,2:56,1768715673.03,Spark,Sweet Kiss,Return,Swift
+Dawn,Pachirisu,Leader Fantina,54:36.10,2,6,30,3:33,1768716238.07,Spark,Discharge,Return,Swift
+Dawn,Pachirisu,Leader Maylene,1:03:55.87,5,6,41,4:05,1768716797.844,Spark,Discharge,Return,Dig
+Dawn,Pachirisu,Leader Wake,1:10:45.44,7,6,43,4:28,1768717207.407,Grass Knot,Discharge,Return,Dig
+Dawn,Pachirisu,Leader Byron,1:32:55.43,10,18,54,5:49,1768718537.401,Grass Knot,Thunderbolt,Substitute,Dig
+Dawn,Pachirisu,Leader Candice,1:53:08.72,14,23,59,7:00,1768719750.689,Grass Knot,Thunderbolt,U-turn,Dig
+Dawn,Pachirisu,Leader Volkner,2:13:15.32,14,23,65,8:20,1768720957.286,Thunderbolt,Grass Knot,U-turn,Dig
+Dawn,Pachirisu,Elite Four Aaron,2:24:28.87,14,23,82,9:05,1768721630.844,Thunderbolt,Grass Knot,Charge Beam,Dig
+Dawn,Pachirisu,Elite Four Aaron,2:30:42.99,17,24,83,9:21,1768722004.958,Thunderbolt,Grass Knot,Charge Beam,Dig
+Dawn,Pachirisu,Elite Four Bertha,2:31:59.74,17,24,83,9:26,1768722081.711,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
+Dawn,Pachirisu,Elite Four Flint,2:32:57.34,17,24,84,9:30,1768722139.321,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
+Dawn,Pachirisu,Elite Four Lucian,2:33:49.11,17,24,85,9:33,1768722191.076,Thunderbolt,Grass Knot,Charge Beam,Natural Gift
+Dawn,Pachirisu,Champion Cynthia,2:36:48.41,20,24,85,9:39,1768722370.379,Thunderbolt,Grass Knot,Charge Beam,Natural Gift

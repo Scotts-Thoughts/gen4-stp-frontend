@@ -1358,12 +1358,16 @@ const app = Vue.createApp({
                 const rivalCount = { count: 0 }
                 const cyrusCount = { count: 0 }
                 
-                // If no previous splits are loaded, return default list from game.splits
+                // If no previous splits are loaded, return default list from game.splits but populate times from current_splits
                 if (!this.previous_splits || this.previous_splits.length === 0) {
                     if (!this.game || !Array.isArray(this.game.splits)) {
                         return result
                     }
                     const default_string = "-"
+                    const currentSplits = Array.isArray(this.current_splits) ? this.current_splits : []
+                    let currentRivalIndex = 0
+                    let currentCyrusIndex = 0
+                    
                     for (const trainer of this.game.splits) {
                         if (!trainersToSkip.includes(trainer) && shouldDisplayTrainer(trainer)) {
                             // Track occurrences
@@ -1383,10 +1387,39 @@ const app = Vue.createApp({
                             const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
                             if (displayName === null) continue // Skip if null (Rival 1)
                             
-                            if (this.split_type == 'First') {
-                                result.push({trainer: displayName, original_trainer: trainer, current_time: default_string})
+                            // Find matching split in current_splits
+                            let currentTime = default_string
+                            if (trainer === "Rival") {
+                                // Find the Nth Rival in current_splits based on order
+                                const rivalsInCurrent = currentSplits.filter(s => s.trainer === "Rival")
+                                if (currentRivalIndex < rivalsInCurrent.length) {
+                                    currentTime = rivalsInCurrent[currentRivalIndex].time || default_string
+                                }
+                                currentRivalIndex++
+                            } else if (trainer === "Cyrus") {
+                                // Find the Nth Cyrus in current_splits based on order
+                                const cyrusInCurrent = currentSplits.filter(s => s.trainer === "Cyrus")
+                                if (currentCyrusIndex < cyrusInCurrent.length) {
+                                    currentTime = cyrusInCurrent[currentCyrusIndex].time || default_string
+                                }
+                                currentCyrusIndex++
                             } else {
-                                result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: default_string, difference: default_string})
+                                // For other trainers, find by exact name match
+                                const matchingSplit = currentSplits.find(s => s.trainer === trainer)
+                                if (matchingSplit) {
+                                    currentTime = matchingSplit.time || default_string
+                                }
+                            }
+                            
+                            // Truncate milliseconds from time display (format: "M:SS.XX" -> "M:SS")
+                            if (currentTime !== default_string && currentTime.includes('.')) {
+                                currentTime = currentTime.split('.')[0]
+                            }
+                            
+                            if (this.split_type == 'First') {
+                                result.push({trainer: displayName, original_trainer: trainer, current_time: currentTime})
+                            } else {
+                                result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: currentTime, difference: default_string})
                             }
                         }
                     }
@@ -1709,7 +1742,9 @@ const app = Vue.createApp({
         },
         enemy_2_mon_static() {
             const opponent_id = this.mapper.properties.battle.opponent_2?.trainer?.bytes
-            const object      = this.platinum_trainers[opponent_id].party
+            const object      = this.selected_game == 'Platinum' ? this.platinum_trainers[opponent_id].party : 
+                this.selected_game == 'HeartGold and SoulSilver' ? this.trainers_hgss[opponent_id].party :
+                this.trainers_dp[opponent_id].party
             return object
         },
         heldItem() {
@@ -4404,7 +4439,8 @@ const app = Vue.createApp({
         speed_comparison(slotIndex, enemySpeedValue) {
             const state = this.mapper.properties.meta.state.value
             // Compare player's active pokemon speed with enemy pokemon speed
-            const playerSpeed = this.mapper.properties?.battle?.player?.active_pokemon?.stats?.speed?.value || 0
+            // Use getStat to get player speed with modifiers applied
+            const playerSpeed = this.getStat('speed') || 0
             const enemySpeed = enemySpeedValue || 0
             
             let comparison
@@ -6283,9 +6319,34 @@ const app = Vue.createApp({
                         if (oldPropValid && newSpecies && newSpecies !== undefined && newSpecies !== null) {
                             this.stats_setting = "Base Stats";
                             
+                            // Preserve attempt_number, finished_run_count, resets, and blackouts when evolving
+                            const preservedAttemptNumber = this.attempt_number;
+                            const preservedFinishedRunCount = this.finished_run_count;
+                            const preservedResets = this.playerResets;
+                            const preservedBlackouts = this.blackout_counter;
+                            
                             // Update starter
                             this.starter = newSpecies;
                             this.last_known_species = newSpecies;
+                            
+                            // Restore preserved values after starter update (before watcher loads from storage)
+                            this.attempt_number = preservedAttemptNumber;
+                            this.finished_run_count = preservedFinishedRunCount;
+                            this.playerResets = preservedResets;
+                            this.blackout_counter = preservedBlackouts;
+                            
+                            // Save preserved values to storage for the new species
+                            const game = this.mapper?.properties.meta.game_name.value;
+                            if (!MyStorage[`${game}_${newSpecies}`]) {
+                                MyStorage[`${game}_${newSpecies}`] = {};
+                            }
+                            MyStorage[`${game}_${newSpecies}`] = {
+                                ...MyStorage[`${game}_${newSpecies}`],
+                                attempt_number: preservedAttemptNumber,
+                                finished_run_count: preservedFinishedRunCount,
+                                playerResets: preservedResets,
+                                blackout_counter: preservedBlackouts
+                            };
                             
                             // Update the dropdown to the new evolved species
                             // This will trigger the watcher to load the new species' styles
@@ -6897,6 +6958,18 @@ const app = Vue.createApp({
                 const simpleSplit = () => {
                     log_split()
                     logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                    
+                    // Ensure current_splits is an array
+                    if (!Array.isArray(this.current_splits)) {
+                        this.current_splits = []
+                    }
+                    
+                    // Ensure simple_data is an array before accessing it
+                    if (!Array.isArray(this.simple_data) || this.simple_data.length < 4) {
+                        console.error("simpleSplit: this.simple_data is not a valid array:", this.simple_data)
+                        return
+                    }
+                    
                     this.split_data.push(this.simple_data)
                     MyStorage["split_data"] = this.split_data
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
@@ -6908,6 +6981,12 @@ const app = Vue.createApp({
                     // current_splits format: [{trainer: ..., time: ...}, ...]
                     const trainerName = this.simple_data[2] // trainer_name is at index 2
                     const timeStr = this.simple_data[3]     // real_time_hmmss is at index 3
+                    
+                    if (!trainerName || !timeStr) {
+                        console.error("simpleSplit: Missing trainerName or timeStr:", {trainerName, timeStr, simple_data: this.simple_data})
+                        return
+                    }
+                    
                     // For trainers that appear multiple times (Rival, Cyrus), always add as new entry
                     // For other trainers, update if exists, otherwise add new
                     if (trainerName === "Rival" || trainerName === "Cyrus") {
@@ -6922,9 +7001,39 @@ const app = Vue.createApp({
                             this.current_splits.push({trainer: trainerName, time: timeStr})
                         }
                     }
+                    console.log("simpleSplit: Updated current_splits with", {trainer: trainerName, time: timeStr}, "Total splits:", this.current_splits.length)
                 }
-                if(this.game.splits.includes(trainer) && !this.game.finalBattle.includes(trainer)) {
-                    const trainer_name = this.simple_data[2]
+                // Use the processed trainer name from simple_data for the check, since that's what's actually in game.splits
+                const trainer_name = Array.isArray(this.simple_data) && this.simple_data.length > 2 ? this.simple_data[2] : this.get_trainer_name(trainer, id)
+                
+                // Helper to check if trainer should be written to file (includes Rival, Cyrus, Mars, Jupiter, Saturn)
+                const shouldWriteSplit = (name) => {
+                    // Check exact match first
+                    if (this.game.splits.includes(name)) {
+                        return true
+                    }
+                    // Check base name for numbered variants (e.g., "Rival 1" -> "Rival", "Mars 1" -> "Commander Mars")
+                    const baseName = name.split(' ')[0] // Get first word before number
+                    if (baseName === "Rival" && this.game.splits.includes("Rival")) {
+                        return true
+                    }
+                    if (baseName === "Mars" && this.game.splits.includes("Commander Mars")) {
+                        return true
+                    }
+                    if (baseName === "Jupiter" && this.game.splits.includes("Commander Jupiter")) {
+                        return true
+                    }
+                    if (baseName === "Saturn" && this.game.splits.includes("Commander Saturn")) {
+                        return true
+                    }
+                    if (baseName === "Cyrus" && this.game.splits.includes("Galactic Boss Cyrus")) {
+                        return true
+                    }
+                    return false
+                }
+                
+                console.log("Split check:", {trainer, trainer_name, shouldWrite: shouldWriteSplit(trainer_name), notFinalBattle: !this.game.finalBattle.includes(trainer_name), simple_data: this.simple_data})
+                if(shouldWriteSplit(trainer_name) && !this.game.finalBattle.includes(trainer_name)) {
                     // console.log("Simple split attempted to be collected...")
                     simpleSplit();
                     if (this.automatic_post_battle_splits == true && 
@@ -6986,6 +7095,10 @@ const app = Vue.createApp({
                         } else {
                             this.current_splits.push({trainer: trainerName, time: timeStr})
                         }
+                    }
+                    // Show splits after final battle if automatic_post_battle_splits is enabled
+                    if (this.automatic_post_battle_splits == true) {
+                        this.right_ui = "Splits"
                     }
                     // console.log("Data transfer finished.")
                 }
