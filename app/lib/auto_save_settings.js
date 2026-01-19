@@ -81,4 +81,5 @@ const auto_save_settings = [
     "right_ui",
     "split_type",
     "catch_rate",
+    "shuckie_timer",
 ]
