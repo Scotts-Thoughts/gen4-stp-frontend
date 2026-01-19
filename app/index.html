@@ -922,7 +922,7 @@
                             <th class="movepool_header movepool_tableC">Acc.</th>
                             <th class="movepool_header movepool_tableC">PP</th>
                         </tr>
-                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).level" :class="{ 'first-row': index === 0 }" :style="getUnobtainableMoveStyle(x, selected_game)">
+                        <tr v-for="(x, index) in getMovepool(g4PokemonData, platinum_moves, g4tmhmMapping, displayedPokemonSpecies).level" :class="{ 'first-row': index === 0 }" :style="getUnobtainableMoveStyle(x, 'Banned')">
                             <td class="movepool_way">{{x.Level}}</td>
                             <td class="movepool_move">{{x.Move}}</td>
                             <td class="movepool_type" :style="{'background-color': `var(--${movepoolTypeColor(x)?.toLowerCase()})`}">{{movepoolType(x)}}</td>
