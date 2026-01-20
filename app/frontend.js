@@ -305,7 +305,7 @@ function logData(gameName, str, file_name, split_file_prefix, log_type, testStat
         var dirPath  = refilming_mode == true ? `./splits/${gameName}/refilmed/${split_file_prefix}/` : `./splits/${gameName}/${split_file_prefix}/`;
         var filePath = path.join(dirPath, `${split_file_prefix}-${file_name}-simple.csv`);
         // Header
-        var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4," + "shuckie_time_hhmmss," + "shuckie_time_cs," + "shuckie_rt,\n"
+        var header = "player_name," + "pokemon," + "trainer_name," + "real_time_hmmss," + "resets," + "blackouts," + "level," + "game_time," + "battle_duration," + "move1," + "move2," + "move3," + "move4,\n"
         if (testStatus == true) { 
             dirPath = `./splits/${gameName}/${split_file_prefix}/test_runs`; 
             switch (log_type) {
@@ -6923,10 +6923,19 @@ const app = Vue.createApp({
                 let patch_movesLearnt                = 0
 
                 //definitions for what split data is logged to file
-                let simple_data = [
-                    player_name, pokemon, trainer_name, real_time_total, 
+                let simple_data = []
+                if (this.shuckie_timer == true) {
+                    simple_data = [
+                        player_name, pokemon, trainer_name, shuckie_rt, 
+                        resets, blackouts, level, game_time, battle_duration, 
+                        move1, move2, move3, move4
+                    ]
+                } else {
+                    simple_data = [
+                        player_name, pokemon, trainer_name, real_time_hmmss, 
+                    player_name, pokemon, trainer_name, shuckie_rt, 
                     resets, blackouts, level, game_time, battle_duration, 
-                    move1, move2, move3, move4, shuckie_time_hhmmss, shuckie_time_cs, shuckie_rt
+                    move1, move2, move3, move4
                 ]
                 let full_data = simple_data
                 if (this.scott_mode == true) {
