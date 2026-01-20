@@ -6933,10 +6933,11 @@ const app = Vue.createApp({
                 } else {
                     simple_data = [
                         player_name, pokemon, trainer_name, real_time_hmmss, 
-                    player_name, pokemon, trainer_name, shuckie_rt, 
-                    resets, blackouts, level, game_time, battle_duration, 
-                    move1, move2, move3, move4
-                ]
+                        player_name, pokemon, trainer_name, shuckie_rt, 
+                        resets, blackouts, level, game_time, battle_duration, 
+                        move1, move2, move3, move4
+                    ]
+                }
                 let full_data = simple_data
                 if (this.scott_mode == true) {
                     full_data = [

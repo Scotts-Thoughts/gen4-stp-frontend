@@ -627,7 +627,7 @@
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
                                     <div class="enemyStatModTable">
-                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">{{enemy_status(mapper.properties.battle.opponent.active_pokemon.status_condition?.value)}}</div>
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod ePkmnHpLabel">{{enemy_status(mapper.properties.battle.opponent.active_pokemon.status_condition?.value)}}</div>
                                         <div v-for="x in modifier_values">
                                             <div v-show="mapper.properties.battle.opponent.active_pokemon.modifiers?.[x].value != 0" class="enemyMod" :class="`e_${x}`">{{stageModifiers(mapper.properties.battle.opponent.active_pokemon.modifiers[x].value)}}</div>
                                         </div>
