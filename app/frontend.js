@@ -4548,7 +4548,7 @@ const app = Vue.createApp({
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
                 let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
                 let item_modifier = 1
-                console.log(playerStage, oppAStage, accuracyModifier, evasionModifier, modifiers, item_modifier)
+                // console.log(playerStage, oppAStage, accuracyModifier, evasionModifier, modifiers, item_modifier)
                 switch (held_item) {
                     case "Wide Lens": item_modifier = 4505/4096; break;
                     case "Zoom Lens": {
