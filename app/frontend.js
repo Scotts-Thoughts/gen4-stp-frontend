@@ -2656,7 +2656,6 @@ const app = Vue.createApp({
             var ability = this.pkmn_ability
             var status_condition = this.mapper.properties.player.team[0].status_condition.value
 
-
             var starter = this.evolution ? this.selected_evolution_species : this.starter
 
             function choice_specs(stat) {
@@ -2750,6 +2749,13 @@ const app = Vue.createApp({
                 }
                 if (weather == "Sun" && ability == "Chlorophyll") {
                     battle_spe = Math.floor(battle_spe * 2)
+                }
+                if (weather == "Sandstorm") {
+                    const type_1 = this.mapper.properties.battle.player.active_pokemon.type_1.value
+                    const type_2 = this.mapper.properties.battle.player.active_pokemon.type_2.value
+                    if (type_1 == "Rock" || type_2 == "Rock") {
+                        battle_spd = Math.floor(battle_def * 1.5)
+                    }
                 }
                 return {
                     "Hp" : battle_hp,
