@@ -4524,12 +4524,31 @@ const app = Vue.createApp({
                 return calculated_accuracy
             }
             if (state == `Battle`) {
+                if (
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.attack.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.defense.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.speed.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.special_attack.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.special_defense.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.accuracy.value == "-6" &&
+                    this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion.value == "-6"
+                ) {
+                    let item_modifier = 1
+                    switch (held_item) {
+                        case "Wide Lens": item_modifier = 4505/4096; break;
+                        case "Zoom Lens": item_modifier = 4915/4096; break;
+                        default: item_modifier = 1; break;
+                    }
+                    let calculated_accuracy = Math.floor(accuracy * item_modifier) <= 100 ? Math.floor(accuracy * item_modifier) : 100
+                    return calculated_accuracy
+                }
                 let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value?.toString()
                 let oppAStage = this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion?.value?.toString()
                 let accuracyModifier = this.stageModifiersData["accuracy"][playerStage]
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
                 let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
                 let item_modifier = 1
+                console.log(playerStage, oppAStage, accuracyModifier, evasionModifier, modifiers, item_modifier)
                 switch (held_item) {
                     case "Wide Lens": item_modifier = 4505/4096; break;
                     case "Zoom Lens": {
