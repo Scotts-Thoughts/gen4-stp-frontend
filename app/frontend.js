@@ -1178,15 +1178,24 @@ const app = Vue.createApp({
                 return;
             }
             
-            // IMPORTANT: When evolution is enabled, only allow starter changes to species within the current evolution family
+            // this.update_rom_starter_and_intro_mon()
+
+            // IMPORTANT: When evolution is enabled, only block programmatic changes to species outside the evolution family
             // This prevents error data from game resets from changing the displayed Pokemon
+            // However, allow changes to any valid Pokemon (exists in g4PokemonData) - this covers manual user changes
+            // The species change handler will still validate programmatic changes from game data
             if (this.evolution && oldValue && oldValue !== newValue) {
+                // Check if the new species is a valid Pokemon (exists in the data)
+                const isValidPokemon = this.g4PokemonData && this.g4PokemonData[newValue] !== undefined;
+                
                 // Get the evolution family of the current starter (before it changes)
-                // Use oldValue which is the current starter before the change
                 const currentEvolutionFamily = this.getEvolutionFamily(oldValue);
                 
-                // If the current starter has an evolution family, validate newValue is in it
-                if (currentEvolutionFamily.length > 0 && !currentEvolutionFamily.includes(newValue)) {
+                // Only block if:
+                // 1. The new species is NOT a valid Pokemon (error data), AND
+                // 2. The current starter has an evolution family, AND
+                // 3. The new species is not in that evolution family
+                if (!isValidPokemon && currentEvolutionFamily.length > 0 && !currentEvolutionFamily.includes(newValue)) {
                     // Reject invalid species - keep the current starter
                     this.is_validating_starter = true;
                     const currentStarter = oldValue; // Save the valid starter
@@ -1199,6 +1208,7 @@ const app = Vue.createApp({
                     });
                     return;
                 }
+                // If it's a valid Pokemon OR it's in the evolution family, allow the change (fall through to normal processing)
             }
             
             const starter = newValue
