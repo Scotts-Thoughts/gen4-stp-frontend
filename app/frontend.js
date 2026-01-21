@@ -6617,14 +6617,18 @@ const app = Vue.createApp({
             if (this.blackout == true) {
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
-                        if (this.disallow_faults == false) { this.blackout_counter++ }
+                        if (this.disallow_faults == false) { 
+                            this.blackout_counter++ 
+                        }
                         this.blackout = false;
                         this.disallow_faults_function()
                     }
                 }
                 if (game == 'HeartGold and SoulSilver') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
-                        if (this.disallow_faults == false) { this.blackout_counter++ }
+                        if (this.disallow_faults == false) { 
+                            this.blackout_counter++ 
+                        }
                         this.blackout = false;
                         this.disallow_faults_function()
                     }
@@ -6639,6 +6643,20 @@ const app = Vue.createApp({
                 this.evolved_species_for_stats = null;
             }
         });
+        this.mapper.properties.battle.player.party_position.change(async (newProp, oldProp) => {
+            const game = this.mapper.properties.meta.game_name.value
+            console.log(newProp.value, oldProp.value, this.blackout)
+            if (newProp.value == 255 && oldProp.value != 255 && this.blackout == true) {
+                console.log("Second step", newProp.value, oldProp.value, this.blackout)
+                if (game == 'Platinum' || game == 'Diamond and Pearl') {
+                    if (this.disallow_faults == false) { 
+                        this.blackout_counter++ 
+                    }
+                    this.blackout = false;
+                    this.disallow_faults_function()
+                }
+            }
+        })
 
         const setStartingStats = async () => {
             //256 * 25 * 10 = 70400, gives a clean starting point where modulo 25 and modulo 256 are both 0
