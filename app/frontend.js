@@ -2718,6 +2718,8 @@ const app = Vue.createApp({
                 this.stat_fix_toggle = true
                 ability = this.mapper.properties.battle.player.active_pokemon.ability.value
                 const turn_count = this.mapper.properties.battle.turn_counter.value
+                const weather = this.mapper.properties.battle.field.weather.value
+                // const ability = this.mapper.properties.battle.player.active_pokemon.ability.value
 
                 const mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
                 const mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
@@ -2743,6 +2745,12 @@ const app = Vue.createApp({
                 let battle_spa = Math.floor(SpA * this.stageModifiersData.stats[mod_spa])
                 let battle_spd = Math.floor(SpD * this.stageModifiersData.stats[mod_spd])
                 let battle_spe = Math.floor(SpE * this.stageModifiersData.stats[mod_spe])
+                if (weather == "Rain" && ability == "Swift Swim") {
+                    battle_spe = Math.floor(battle_spe * 2)
+                }
+                if (weather == "Sun" && ability == "Chlorophyll") {
+                    battle_spe = Math.floor(battle_spe * 2)
+                }
                 return {
                     "Hp" : battle_hp,
                     "Atk": battle_atk,
@@ -4114,6 +4122,10 @@ const app = Vue.createApp({
             }
         },
         getSoloMonType(pkmn, type) { //type == type_1 or type_2
+
+            if (this.evolution == true) {
+                return this.g4PokemonData[this.selected_evolution_species][type]
+            }
             // const species = pkmn
             const species = this.starter
             var held_item = ""
