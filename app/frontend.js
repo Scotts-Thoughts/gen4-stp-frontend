@@ -525,6 +525,8 @@ const app = Vue.createApp({
             show_evolved_base_stats      : false, // Flag to show base stats of evolved species until next battle
             evolved_species_for_stats    : null,  // Species to show base stats for
             is_loading_evolution_style   : false, // Flag to prevent watchers from saving during style loading
+            is_validating_starter        : false, // Flag to prevent recursive updates in starter watcher
+            is_validating_evolution_species: false, // Flag to prevent recursive updates in selected_evolution_species watcher
             frame                        : false,
             selected_game                : MyStorage['selected_game'] ?? "Platinum",
             available_games              : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
@@ -1099,12 +1101,40 @@ const app = Vue.createApp({
             }
         },
         selected_evolution_species(newValue, oldValue) {
+            // Prevent recursive updates
+            if (this.is_validating_evolution_species) {
+                return;
+            }
+            
             // When a different evolution family species is selected in the dropdown:
             // 1. The Pokemon art will automatically update via displayedPokemonSpecies computed property
             // 2. Load its styles from evolution line storage (e.g., "Unfezant-line-Pidove")
             // 3. If there's a transition (oldValue exists), perform a fade transition
             // 4. Save the selection to storage
+            // IMPORTANT: Only allow species within the current evolution family to prevent error data
             if (newValue && this.evolution) {
+                // Validate that newValue is in the evolution family
+                if (this.evolution_family_list.length > 0 && !this.evolution_family_list.includes(newValue)) {
+                    // Reject invalid species - revert to a valid one
+                    this.is_validating_evolution_species = true;
+                    let validSpecies = null;
+                    if (this.evolution_family_list.includes(this.starter)) {
+                        validSpecies = this.starter;
+                    } else if (this.evolution_family_list.length > 0) {
+                        validSpecies = this.evolution_family_list[0];
+                    } else {
+                        validSpecies = this.starter;
+                    }
+                    // Only update if different from current value to prevent infinite loop
+                    if (this.selected_evolution_species !== validSpecies) {
+                        this.selected_evolution_species = validSpecies;
+                    }
+                    this.$nextTick(() => {
+                        this.is_validating_evolution_species = false;
+                    });
+                    return;
+                }
+                
                 // Load evolution line styles first (before transition) to ensure styles are loaded
                 // The flag in loadEvolutionStyle will prevent watchers from overwriting
                 this.loadEvolutionStyle(newValue, true);
@@ -1131,12 +1161,44 @@ const app = Vue.createApp({
             }
         },
         starter(newValue, oldValue) {
+            // Prevent recursive updates
+            if (this.is_validating_starter) {
+                return;
+            }
+            
             // Prevent starter from becoming undefined
             if (!newValue || newValue === undefined || newValue === null) {
                 // Fallback to stored value or default
                 const fallback = MyStorage['starter'] ?? "Heatran";
+                this.is_validating_starter = true;
                 this.starter = fallback;
+                this.$nextTick(() => {
+                    this.is_validating_starter = false;
+                });
                 return;
+            }
+            
+            // IMPORTANT: When evolution is enabled, only allow starter changes to species within the current evolution family
+            // This prevents error data from game resets from changing the displayed Pokemon
+            if (this.evolution && oldValue && oldValue !== newValue) {
+                // Get the evolution family of the current starter (before it changes)
+                // Use oldValue which is the current starter before the change
+                const currentEvolutionFamily = this.getEvolutionFamily(oldValue);
+                
+                // If the current starter has an evolution family, validate newValue is in it
+                if (currentEvolutionFamily.length > 0 && !currentEvolutionFamily.includes(newValue)) {
+                    // Reject invalid species - keep the current starter
+                    this.is_validating_starter = true;
+                    const currentStarter = oldValue; // Save the valid starter
+                    // Only update if the current value is the invalid one
+                    if (this.starter === newValue && this.starter !== currentStarter) {
+                        this.starter = currentStarter;
+                    }
+                    this.$nextTick(() => {
+                        this.is_validating_starter = false;
+                    });
+                    return;
+                }
             }
             
             const starter = newValue
@@ -2157,8 +2219,27 @@ const app = Vue.createApp({
             // Return the Pokemon species to display in the art
             // When evolution is enabled, use selected_evolution_species from dropdown
             // Otherwise, use starter
+            // IMPORTANT: Only return species within the current evolution family to prevent error data from slipping through
             if (this.evolution && this.selected_evolution_species) {
-                return this.selected_evolution_species;
+                // Validate that selected_evolution_species is in the evolution family
+                if (this.evolution_family_list.length > 0 && this.evolution_family_list.includes(this.selected_evolution_species)) {
+                    return this.selected_evolution_species;
+                }
+                // If invalid, fallback to starter if it's in the family, otherwise use first valid family member
+                if (this.evolution_family_list.length > 0) {
+                    if (this.evolution_family_list.includes(this.starter)) {
+                        return this.starter;
+                    }
+                    return this.evolution_family_list[0];
+                }
+            }
+            // When evolution is disabled, still validate starter is valid if evolution family exists
+            if (this.evolution && this.evolution_family_list.length > 0) {
+                if (this.evolution_family_list.includes(this.starter)) {
+                    return this.starter;
+                }
+                // Fallback to first valid family member
+                return this.evolution_family_list[0];
             }
             return this.starter;
         },
@@ -6493,15 +6574,31 @@ const app = Vue.createApp({
                 this.last_known_species = newProp.value;
                 this.last_known_personality_value = currentPersonalityValue;
                 
-                // Only update starter if newProp.value is valid (not undefined/null)
-                if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
-                    this.starter = newProp.value
+                // IMPORTANT: When evolution is enabled, only update starter if new species is in the current evolution family
+                // This prevents error data from game resets from changing the displayed Pokemon
+                let shouldUpdateStarter = false;
+                if (this.evolution && this.evolution_family_list.length > 0) {
+                    // Only allow update if new species is in the evolution family
+                    if (this.evolution_family_list.includes(newProp.value)) {
+                        shouldUpdateStarter = true;
+                    }
+                    // If not in family, don't update starter (prevents error data from slipping through)
+                } else {
+                    // Evolution is disabled, allow normal updates
+                    shouldUpdateStarter = true;
                 }
-                else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
-                    // Special handling for Reshiram
-                }
-                else if (state == "Overworld") {
-                    this.starter = newProp.value
+                
+                // Only update starter if validation passed
+                if (shouldUpdateStarter) {
+                    if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
+                        this.starter = newProp.value
+                    }
+                    else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
+                        // Special handling for Reshiram
+                    }
+                    else if (state == "Overworld") {
+                        this.starter = newProp.value
+                    }
                 }
             }
         })
@@ -6645,9 +6742,9 @@ const app = Vue.createApp({
         });
         this.mapper.properties.battle.player.party_position.change(async (newProp, oldProp) => {
             const game = this.mapper.properties.meta.game_name.value
-            console.log(newProp.value, oldProp.value, this.blackout)
+            // console.log(newProp.value, oldProp.value, this.blackout)
             if (newProp.value == 255 && oldProp.value != 255 && this.blackout == true) {
-                console.log("Second step", newProp.value, oldProp.value, this.blackout)
+                // console.log("Second step", newProp.value, oldProp.value, this.blackout)
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (this.disallow_faults == false) { 
                         this.blackout_counter++ 
