@@ -6655,6 +6655,14 @@ const app = Vue.createApp({
                     this.blackout = false;
                     this.disallow_faults_function()
                 }
+                if (game == 'HeartGold and SoulSilver') {
+                    console.log("Is this blackout fix needed for HeartGold and SoulSilver?")
+                    if (this.disallow_faults == false) { 
+                        this.blackout_counter++ 
+                    }
+                    this.blackout = false;
+                    this.disallow_faults_function()
+                }
             }
         })
 
