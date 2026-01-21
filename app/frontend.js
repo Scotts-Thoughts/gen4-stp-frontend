@@ -6525,32 +6525,65 @@ const app = Vue.createApp({
         // Resets
         if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
             this.mapper.properties?.flags?.new_game_1.change(async (newProp, oldProp) => {
-                // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
-                if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
-                    this.startTime()
-                    if (this.shuckie_timer == true) { this.sendEmulatorStart(); }
-                    if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
-                    this.attempt_number++
+                if (this.shuckie_timer == true) {
+                    if (newProp.value == true && this.emulatorStats.time_current == null) {
+                        console.log("Sending emulator start")
+                        this.sendEmulatorStart();
+                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.blackout = false;
+                        this.attempt_number++
+                    }
+                    if (this.emulatorStats.time_current > 0 && newProp.value == false && oldProp.value == true) {
+                        this.blackout = false;
+                        if (this.disallow_faults == false) { this.playerResets++ }
+                        this.disallow_faults_function()
+                    }
                 }
-                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
-                    this.blackout = false;
-                    if (this.disallow_faults == false) { this.playerResets++ }
-                    this.disallow_faults_function()
+                else {
+                    // This should resolve the issue in Cynthia's chamber where the timer would restart when resetting against her
+                    if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
+                        this.startTime()
+                        // if (this.shuckie_timer == true) { this.sendEmulatorStart(); }
+                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.blackout = false;
+                        this.attempt_number++
+                    }
+                    if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
+                        this.blackout = false;
+                        if (this.disallow_faults == false) { this.playerResets++ }
+                        this.disallow_faults_function()
+                    }
                 }
             })
         }
         if (this.selected_game == "HeartGold and SoulSilver") {
             this.mapper.properties?.variables?.game_started.change(async (newProp, oldProp) => {
-                if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
-                    this.startTime()
-                    if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
-                    this.blackout = false;
-                    this.attempt_number++
+                if (this.shuckie_timer == true) {
+                    if (newProp.value == 56150 && this.emulatorStats.time_current == null) {
+                        console.log("Sending emulator start")
+                        this.sendEmulatorStart();
+                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.blackout = false;
+                        this.attempt_number++
+                    }
+                    if (this.emulatorStats.time_current > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') {
+                        this.blackout = false;
+                        if (this.disallow_faults == false) { this.playerResets++ }
+                        this.disallow_faults_function()
+                    }
                 }
-                if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
-                    this.blackout = false;
-                    if (this.disallow_faults == false) { this.playerResets++ }
-                    this.disallow_faults_function()
+                else {
+                    if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
+                        this.startTime()
+                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.blackout = false;
+                        this.attempt_number++
+                    }
+                    if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
+                        this.blackout = false;
+                        if (this.disallow_faults == false) { this.playerResets++ }
+                        this.disallow_faults_function()
+                    }
                 }
             })
         }
@@ -6933,7 +6966,6 @@ const app = Vue.createApp({
                 } else {
                     simple_data = [
                         player_name, pokemon, trainer_name, real_time_hmmss, 
-                        player_name, pokemon, trainer_name, shuckie_rt, 
                         resets, blackouts, level, game_time, battle_duration, 
                         move1, move2, move3, move4
                     ]
@@ -7174,7 +7206,9 @@ const app = Vue.createApp({
                 //stop timer
                 if (this.game.finalBattle.includes(trainer)) {
                     this.stopTime()
-                    if (this.shuckie_timer == true) { this.sendEmulatorEnd(); }
+                    if (this.shuckie_timer == true) { 
+                        this.sendEmulatorEnd(); 
+                    }
                     if (this.testRun == false) {
                         this.finished_run_count++
                     };
