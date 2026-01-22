@@ -514,6 +514,7 @@ const app = Vue.createApp({
             emulatorStatsInterval        : null,
             emulatorStats                : null,
             shuckie_timer                : MyStorage['shuckie_timer']                ?? false,
+            shuckie_counters             : MyStorage['shuckie_counters']             ?? false,
             selected_evolution_species   : null,  // Currently selected species in evolution family for styling
             evolution_family_list        : [],    // List of species in the current evolution family
             last_known_species           : null,  // Track last known species for evolution detection

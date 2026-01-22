@@ -82,4 +82,5 @@ const auto_save_settings = [
     "split_type",
     "catch_rate",
     "shuckie_timer",
+    "shuckie_counters",
 ]
