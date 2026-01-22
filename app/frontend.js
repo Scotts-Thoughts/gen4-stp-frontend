@@ -1394,6 +1394,21 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        not_valid_battle_state() {
+            const mod1 = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
+            const mod2 = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
+            const mod3 = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
+            const mod4 = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
+            const mod5 = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
+            const mod6 = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value
+            const mod7 = this.mapper.properties.battle.player.active_pokemon.modifiers.evasion.value
+            if (mod1 == "-6" && mod2 == "-6" && mod3 == "-6" && mod4 == "-6" && mod5 == "-6" && mod6 == "-6" && mod7 == "-6") {
+                return true
+            }
+            else {
+                return false
+            }
+        },
         hp_tracker_style() {
             const state = this.mapper.properties.meta.state.value
             const hp = this.mapper.properties.player.team[0].stats.hp.value
@@ -1754,6 +1769,9 @@ const app = Vue.createApp({
                         return `${total}/510 (${this.decimalToPercentage(total/510)}%)`
                     }
                     case "Automatic":    {
+                        if (this.not_valid_battle_state && state == "Battle") {
+                            return `Base Stats`
+                        }
                         switch (state) {
                             case "No Pokemon":  return `Base Stats`
                             case "Overworld":   return `Level ${this.mapper.properties.player.team[0].level.value}`
@@ -2742,6 +2760,7 @@ const app = Vue.createApp({
             }
         },
         get_stat() {
+            const logging = false
             const state = this.mapper.properties.meta.state.value
             const held_item = this.mapper.properties.player.team[0].held_item.value
             var ability = this.pkmn_ability
@@ -2761,6 +2780,7 @@ const app = Vue.createApp({
             // const active_pokemonPv = this.mapper.properties.battle.player.active_pokemon.internals.personality_value
             // const teamPokemonPv = this.mapper.properties.player.team[0].internals.personality_value
             if (state == `Overworld` || state == `To Battle`) {
+                if (logging) console.log("Overworld stats...")
                 HP = this.mapper.properties.player.team[0].stats.hp_max.value
                 Atk = this.mapper.properties.player.team[0].stats.attack.value
                 Def = this.mapper.properties.player.team[0].stats.defense.value
@@ -2795,6 +2815,28 @@ const app = Vue.createApp({
                         "Spe": SpE
                     }
                 }
+                // if (HP == 0, Atk == 0, Def == 0, SpA == 0, SpD == 0, SpE == 0) {
+                //     const pokemonData = this.g4PokemonData?.[starter]
+                //     const baseStats = pokemonData?.base_stats
+                //     if (!pokemonData || !baseStats) {
+                //         return {
+                //             "Hp" : 0,
+                //             "Atk": 0,
+                //             "Def": 0,
+                //             "SpA": 0,
+                //             "SpD": 0,
+                //             "Spe": 0,
+                //         }
+                //     }
+                //     return {
+                //         "Hp" : baseStats.hp,
+                //         "Atk": baseStats.attack,
+                //         "Def": baseStats.defense,
+                //         "SpA": baseStats.special_attack,
+                //         "SpD": baseStats.special_defense,
+                //         "Spe": baseStats.speed,
+                //     }
+                // }
                 return {
                     "Hp" : HP,
                     "Atk": Atk,
@@ -2804,7 +2846,43 @@ const app = Vue.createApp({
                     "Spe": SpE,
                 }
             }
-            if (state == `Battle`) {
+            else if (state == `Battle`) {
+                if (logging) console.log("Battle stats...")
+                var battle_overide = false
+                if (
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value == "-6" &&
+                    this.mapper.properties.battle.player.active_pokemon.modifiers.evasion.value == "-6"
+                ) {
+                    battle_overide = true
+                }
+                if (battle_overide == true) {
+                    const pokemonData = this.g4PokemonData?.[starter]
+                    const baseStats = pokemonData?.base_stats
+                    if (!pokemonData || !baseStats) {
+                        return {
+                            "Hp" : 0,
+                            "Atk": 0,
+                            "Def": 0,
+                            "SpA": 0,
+                            "SpD": 0,
+                            "Spe": 0,
+                        }
+                    }
+                    return {
+                        "Hp" : baseStats.hp ?? 0,
+                        "Atk": baseStats.attack ?? 0,
+                        "Def": baseStats.defense ?? 0,
+                        "SpA": baseStats.special_attack ?? 0,
+                        "SpD": baseStats.special_defense ?? 0,
+                        "Spe": baseStats.speed ?? 0,
+                    }
+                }
+
                 this.stat_fix_toggle = true
                 ability = this.mapper.properties.battle.player.active_pokemon.ability.value
                 const turn_count = this.mapper.properties.battle.turn_counter.value
@@ -2857,7 +2935,9 @@ const app = Vue.createApp({
                     "Spe": battle_spe,
                 }
             }
-            if (state == `From Battle`) {
+            else if (state == `From Battle`) {
+                if (logging) console.log("From Battle stats...")
+
                 if (this.stat_fix_toggle = true) {
                     this.stat_fix_toggle = false
                     HP = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
@@ -2893,7 +2973,9 @@ const app = Vue.createApp({
                     "Spe": this.stat_fix_spe
                 }
             }
-            if (state == `No Pokemon`) {
+            else if (state == `No Pokemon`) {
+                if (logging) console.log("No Pokemon stats...")
+
                 const pokemonData = this.g4PokemonData?.[starter]
                 const baseStats = pokemonData?.base_stats
                 if (!pokemonData || !baseStats) {
@@ -2992,11 +3074,11 @@ const app = Vue.createApp({
         statLabelOpacity() {
             let default_opacity = .63
             let faded_opacity = .1
-            let mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value != '0'          && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
-            let mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value != '0'         && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
-            let mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value != '0'  && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
-            let mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value != '0' && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
-            let mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value != '0'           && this.mapper.properties.meta.state.value == 'Battle' ? faded_opacity : default_opacity
+            let mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value != '0'          && this.mapper.properties.meta.state.value == 'Battle' && !this.not_valid_battle_state ? faded_opacity : default_opacity
+            let mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value != '0'         && this.mapper.properties.meta.state.value == 'Battle' && !this.not_valid_battle_state ? faded_opacity : default_opacity
+            let mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value != '0'  && this.mapper.properties.meta.state.value == 'Battle' && !this.not_valid_battle_state ? faded_opacity : default_opacity
+            let mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value != '0' && this.mapper.properties.meta.state.value == 'Battle' && !this.not_valid_battle_state ? faded_opacity : default_opacity
+            let mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value != '0'           && this.mapper.properties.meta.state.value == 'Battle' && !this.not_valid_battle_state ? faded_opacity : default_opacity
             let object = {
                 "HP":              default_opacity,
                 "Attack":          mod_atk,
@@ -6479,6 +6561,7 @@ const app = Vue.createApp({
         this.mapper.deboucePath("battle.opponent.active_pokemon")
         this.mapper.deboucePath("battle.opponent.team")
         this.mapper.deboucePath("player.team.0.species") // TODO: requires testing
+        this.mapper.deboucePath("meta.global_pointer") // TODO: requires testing
         await this.mapper.connect()
 
         // In mounted hook (around line 6897)
@@ -6545,8 +6628,11 @@ const app = Vue.createApp({
                             }
                         }
                         
-                        // Only proceed if newSpecies is valid
-                        if (oldPropValid && newSpecies && newSpecies !== undefined && newSpecies !== null) {
+                        // Only proceed if newSpecies is valid and within the evolution family
+                        if (oldPropValid && newSpecies && newSpecies !== undefined && newSpecies !== null && newSpecies != oldSpecies &&
+                            evolution_family && evolution_family.includes(newSpecies)) {
+                            console.log("Evolving to:", newSpecies)
+                            console.log("Showing base stats.")
                             this.stats_setting = "Base Stats";
                             
                             // Preserve attempt_number, finished_run_count, resets, and blackouts when evolving
@@ -6734,7 +6820,10 @@ const app = Vue.createApp({
         //Blackouts
         this.mapper.properties.battle.player.team[0].stats.hp.change((newProp, oldProp) => {
             const state = this.mapper.properties.meta.state.value
-            if (newProp.value == 0 && (state == `Battle`)) {
+            if (newProp.value == 0 && (state == `Battle`) && this.mapper.properties.player.player_id.value != 0) {
+                console.log(this.mapper.properties.player.player_id.value)
+                console.log(newProp.value)
+                console.log(state)
                 this.blackout = true;
             }
         })

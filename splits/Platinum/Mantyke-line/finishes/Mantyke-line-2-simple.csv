@@ -1,0 +1,58 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Mantyke,Rival 1,1:27.61,0,0,5,0:04,1769025309.019,Tackle,Bubble,Supersonic,
+Dawn,Mantyke,Rival 2,12:08.14,0,0,10,0:47,1769026063.861,BubbleBeam,Tackle,Supersonic,Bubble
+Dawn,Mantyke,Leader Roark,15:40.70,0,0,14,1:01,1769026276.424,BubbleBeam,Headbutt,Supersonic,Bubble
+Dawn,Mantyke,Mars 1,22:49.14,6,0,17,1:21,1769026704.87,BubbleBeam,Headbutt,Supersonic,Bubble
+Dawn,Mantyke,Leader Gardenia,36:45.75,9,4,26,2:11,1769027541.494,BubbleBeam,Headbutt,Supersonic,Wing Attack
+Dawn,Mantyke,Jupiter 1,39:23.79,9,4,27,2:22,1769027699.534,BubbleBeam,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Leader Fantina,53:58.99,13,4,33,3:03,1769028574.743,Water Pulse,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Rival 3,55:50.97,14,4,33,3:07,1769028686.728,Water Pulse,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Leader Maylene,1:10:14.33,14,4,36,4:05,1769029705.531,Water Pulse,Headbutt,Substitute,Air Cutter
+Dawn,Mantine,Rival 4,1:14:52.16,14,4,38,4:24,1769029983.364,Water Pulse,Confuse Ray,Substitute,Air Cutter
+Dawn,Mantine,Leader Wake,1:17:41.73,15,4,39,4:33,1769030152.952,Water Pulse,Confuse Ray,Substitute,Air Cutter
+Dawn,Mantine,Cyrus 3,1:27:45.14,17,8,41,5:11,1769030823.382,Water Pulse,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Rival 5,1:30:14.84,17,8,42,5:21,1769030978.004,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Byron,1:32:54.76,18,8,44,5:30,1769031137.93,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Saturn 1,1:35:05.23,18,8,45,5:39,1769031268.402,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Mars 2,1:36:40.97,18,8,45,5:45,1769031364.143,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Candice,1:43:17.74,21,8,59,6:07,1769031760.917,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Cyrus 1,1:48:11.44,21,8,60,6:27,1769032054.623,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Saturn 2,1:48:42.73,21,8,60,6:29,1769032085.91,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Mars 3,1:53:04.13,21,8,61,6:47,1769032347.309,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Cyrus 2,2:00:28.38,26,8,65,7:04,1769032791.566,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Volkner,2:07:01.31,31,8,66,7:23,1769033189.528,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Rival 6,2:15:54.37,32,9,69,7:54,1769033722.589,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Aaron,2:17:03.00,32,9,69,7:59,1769033791.223,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Bertha,2:17:52.14,32,9,70,8:02,1769033840.36,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Flint,2:18:47.52,32,9,74,8:06,1769034081.703,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Lucian,2:19:39.53,32,9,74,8:09,1769034133.731,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Champion Cynthia,2:24:34.49,35,9,75,8:16,1769034428.68,Surf,Ice Beam,Rain Dance,Return
+Dawn,Mantine,Hall of Fame,2:24:34.49,35,9,75,8:18,1769034449.961,Surf,Ice Beam,Rain Dance,Return
+Dawn,Mantyke,Rival 1,1:27.61,0,0,5,0:04,1769040202.169,Tackle,Bubble,Supersonic,
+Dawn,Mantyke,Rival 2,12:08.14,0,0,10,0:47,1769040843.016,BubbleBeam,Tackle,Supersonic,Bubble
+Dawn,Mantyke,Leader Roark,15:40.70,0,0,14,1:01,1769041055.589,BubbleBeam,Headbutt,Supersonic,Bubble
+Dawn,Mantyke,Mars 1,22:49.14,6,0,17,1:21,1769041485.439,BubbleBeam,Headbutt,Supersonic,Bubble
+Dawn,Mantyke,Leader Gardenia,36:45.75,9,4,26,2:11,1769042323.05,BubbleBeam,Headbutt,Supersonic,Wing Attack
+Dawn,Mantyke,Jupiter 1,39:23.79,9,4,27,2:22,1769042481.888,BubbleBeam,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Leader Fantina,53:58.98,13,4,33,3:03,1769043362.956,Water Pulse,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Rival 3,55:50.97,14,4,33,3:07,1769043475.709,Water Pulse,Headbutt,Substitute,Wing Attack
+Dawn,Mantyke,Leader Maylene,1:10:14.32,14,4,36,4:05,1769044359.775,Water Pulse,Headbutt,Substitute,Air Cutter
+Dawn,Mantine,Rival 4,1:14:52.15,14,4,38,4:24,1769044645.382,Water Pulse,Confuse Ray,Substitute,Air Cutter
+Dawn,Mantine,Leader Wake,1:17:41.74,15,4,39,4:33,1769044815.219,Water Pulse,Confuse Ray,Substitute,Air Cutter
+Dawn,Mantine,Cyrus 3,1:27:45.14,17,9,41,5:11,1769045424.005,Water Pulse,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Rival 5,1:30:14.83,17,9,42,5:21,1769045574.791,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Byron,1:32:54.76,18,9,44,5:30,1769045735.155,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Saturn 1,1:35:05.24,18,9,45,5:39,1769045867.279,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Mars 2,1:36:40.97,18,9,45,5:45,1769045963.413,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Candice,1:43:17.75,21,9,59,6:07,1769046362.456,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Cyrus 1,1:48:11.44,21,9,60,6:27,1769046657.725,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Saturn 2,1:48:42.73,21,9,60,6:29,1769046689.012,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Mars 3,1:53:04.12,21,9,61,6:47,1769046950.957,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Cyrus 2,2:00:28.38,26,13,65,7:04,1769047414.716,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Leader Volkner,2:07:01.31,31,16,66,7:23,1769047809.484,Surf,Confuse Ray,Blizzard,Air Cutter
+Dawn,Mantine,Rival 6,2:15:54.37,32,16,69,7:54,1769048344.39,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Aaron,2:17:03.01,32,16,69,7:59,1769048413.157,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Bertha,2:17:52.14,32,16,70,8:02,1769048462.291,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Flint,2:18:47.52,32,16,74,8:06,1769048517.997,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Elite Four Lucian,2:19:39.54,32,16,74,8:09,1769048570.221,Surf,Confuse Ray,Rain Dance,Air Cutter
+Dawn,Mantine,Champion Cynthia,2:24:34.49,35,16,75,8:16,1769048865.572,Surf,Ice Beam,Rain Dance,Return
