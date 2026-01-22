@@ -1306,16 +1306,16 @@ const app = Vue.createApp({
             document.documentElement.style.setProperty('--overlay-color', newColor);
         }, 
         async playerResets(newProp) {
-            if ((newProp + this.blackout_counter).toString().length == 1) {
+            if (newProp.toString().length == 1) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
-            if ((newProp + this.blackout_counter).toString().length == 2) {
+            if (newProp.toString().length == 2) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
-            if ((newProp + this.blackout_counter).toString().length == 3) {
+            if (newProp.toString().length == 3) {
                 document.getElementById("reset_counter").style.fontSize = "54px"
             }
-            if ((newProp + this.blackout_counter).toString().length == 4) {
+            if (newProp.toString().length == 4) {
                 document.getElementById("reset_counter").style.fontSize = "40px"
             }
 
@@ -1336,16 +1336,16 @@ const app = Vue.createApp({
             MyStorage["playerResets"] = this.playerResets
         },
         blackout_counter(newProp) {
-            if ((this.playerResets + newProp).toString().length == 1) {
+            if (this.playerResets.toString().length == 1) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
-            if ((this.playerResets + newProp).toString().length == 2) {
+            if (this.playerResets.toString().length == 2) {
                 document.getElementById("reset_counter").style.fontSize = "68px"
             }
-            if ((this.playerResets + newProp).toString().length == 3) {
+            if (this.playerResets.toString().length == 3) {
                 document.getElementById("reset_counter").style.fontSize = "54px"
             }
-            if ((this.playerResets + newProp).toString().length == 4) {
+            if (this.playerResets.toString().length == 4) {
                 document.getElementById("reset_counter").style.fontSize = "40px"
             }
             
@@ -2337,6 +2337,22 @@ const app = Vue.createApp({
                 return true;
             } catch (error) {
                 console.error('Error sending end command:', error);
+                return false;
+            }
+        },
+        // Add these methods to your Vue app methods section
+        async incrementEmulatorCounter(counter_name) {
+            try {
+                const response = await fetch(`http://127.0.0.1:30158/increment-counter?name=${counter_name}`, {
+                    method: 'POST'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                console.log('Emulator start command sent successfully');
+                return true;
+            } catch (error) {
+                console.error('Error sending start command:', error);
                 return false;
             }
         },
@@ -3467,6 +3483,9 @@ const app = Vue.createApp({
         },
         increment(property) {
             this[property]++;
+            // if (this.shuckie_timer) {
+            //     this.incrementEmulatorCounter(property)
+            // }
         },
         decrement(property) {
             if (this[property] == 0) {
@@ -6766,6 +6785,7 @@ const app = Vue.createApp({
                     if (this.emulatorStats.time_current > 0 && newProp.value == false && oldProp.value == true) {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
                 }
@@ -6781,6 +6801,7 @@ const app = Vue.createApp({
                     if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
                 }
@@ -6799,6 +6820,7 @@ const app = Vue.createApp({
                     if (this.emulatorStats.time_current > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
                 }
@@ -6812,6 +6834,7 @@ const app = Vue.createApp({
                     if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
                 }
@@ -6833,7 +6856,8 @@ const app = Vue.createApp({
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         if (this.disallow_faults == false) { 
-                            this.blackout_counter++ 
+                            this.blackout_counter++
+                            if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                         }
                         this.blackout = false;
                         this.disallow_faults_function()
@@ -6843,6 +6867,7 @@ const app = Vue.createApp({
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         if (this.disallow_faults == false) { 
                             this.blackout_counter++ 
+                            if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                         }
                         this.blackout = false;
                         this.disallow_faults_function()
@@ -6866,6 +6891,7 @@ const app = Vue.createApp({
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (this.disallow_faults == false) { 
                         this.blackout_counter++ 
+                        if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                     }
                     this.blackout = false;
                     this.disallow_faults_function()
@@ -6874,6 +6900,7 @@ const app = Vue.createApp({
                     console.log("Is this blackout fix needed for HeartGold and SoulSilver?")
                     if (this.disallow_faults == false) { 
                         this.blackout_counter++ 
+                        if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                     }
                     this.blackout = false;
                     this.disallow_faults_function()
