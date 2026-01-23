@@ -2978,7 +2978,7 @@ const app = Vue.createApp({
                     const type_1 = this.mapper.properties.battle.player.active_pokemon.type_1.value
                     const type_2 = this.mapper.properties.battle.player.active_pokemon.type_2.value
                     if (type_1 == "Rock" || type_2 == "Rock") {
-                        battle_spd = Math.floor(battle_def * 1.5)
+                        battle_spd = Math.floor(battle_spd * 1.5)
                     }
                 }
                 return {
