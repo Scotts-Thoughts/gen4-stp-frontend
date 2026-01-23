@@ -511,10 +511,13 @@ const app = Vue.createApp({
             autosplitter_toggle          : true,
             evolution                    : false,
             evolution_splits_label       : "",
+
             emulatorStatsInterval        : null,
             emulatorStats                : null,
+
             shuckie_timer                : MyStorage['shuckie_timer']                ?? false,
             shuckie_counters             : MyStorage['shuckie_counters']             ?? false,
+
             selected_evolution_species   : null,  // Currently selected species in evolution family for styling
             evolution_family_list        : [],    // List of species in the current evolution family
             last_known_species           : null,  // Track last known species for evolution detection
@@ -1395,6 +1398,28 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        shuckie_faults_check() {
+            shuckie_resets    = this.emulatorStats?.counters?.playerResets
+            shuckie_blackouts = this.emulatorStats?.counters?.blackout_counter
+            if (shuckie_resets == undefined && shuckie_blackouts == undefined) {
+                return true
+            }
+            else if (shuckie_resets == 0 && shuckie_blackouts == 0) {
+                return true
+            }
+            else if (shuckie_resets == undefined && shuckie_blackouts == 0) {
+                return true
+            }
+            else if (shuckie_resets == 0 && shuckie_blackouts == undefined) {
+                return true
+            }
+            else if (shuckie_resets > 0 || shuckie_blackouts > 0) {
+                return false
+            }
+            else {
+                return false
+            }
+        },
         not_valid_battle_state() {
             const mod1 = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
             const mod2 = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
@@ -2275,7 +2300,6 @@ const app = Vue.createApp({
     },
 
     methods: { 
-        // Add this method to your Vue app methods section (around line 4182)
         async fetchEmulatorStats() {
             try {
                 const response = await fetch('http://127.0.0.1:30158/stats');
@@ -2341,10 +2365,24 @@ const app = Vue.createApp({
                 return false;
             }
         },
-        // Add these methods to your Vue app methods section
         async incrementEmulatorCounter(counter_name) {
             try {
                 const response = await fetch(`http://127.0.0.1:30158/increment-counter?name=${counter_name}`, {
+                    method: 'POST'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                console.log('Emulator start command sent successfully');
+                return true;
+            } catch (error) {
+                console.error('Error sending start command:', error);
+                return false;
+            }
+        },
+        async incrementEmulatorCounterByAmount(counter_name, amount) {
+            try {
+                const response = await fetch(`http://127.0.0.1:30158/increment-counter?name=${counter_name}&by=${amount}`, {
                     method: 'POST'
                 });
                 if (!response.ok) {
@@ -3484,15 +3522,22 @@ const app = Vue.createApp({
         },
         increment(property) {
             this[property]++;
-            // if (this.shuckie_timer) {
-            //     this.incrementEmulatorCounter(property)
-            // }
+            if (this.shuckie_counters == true) { 
+                this.incrementEmulatorCounter(property) 
+            }
         },
         decrement(property) {
             if (this[property] == 0) {
                 return 0
             }
             this[property]--;
+
+            if (this.shuckie_counters == true) { 
+                if (this.emulatorStats?.counters?.[property] == undefined || this.emulatorStats?.counters?.[property] <= 0) {
+                    return
+                }
+                this.incrementEmulatorCounterByAmount(property, -1) 
+            }
         },
         async colorPick() {
             return new EyeDropper().open().then(res => res.sRGBHex)
