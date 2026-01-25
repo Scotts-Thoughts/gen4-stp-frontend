@@ -130,7 +130,7 @@
                         <tr v-if="show_advanced_settings"><td>Set Starter Automatically:</td><td><input class="checkBoxStyle" type="checkbox" v-model="set_rom_starter_automatically"/></td></tr>
                     </table>
                     <br>
-                    <button class="buttonStyle" onClick="openFolder('splits')">Open Splits Folder</button><br>
+                    <button class="buttonStyle" @click="openCurrentSplitsFolder()">Open Splits Folder</button><br>
                     <button class="buttonStyle" @click="togglePopup">Keyboard Shortcuts</button>
                     <br><br>
                     Pokemon Editor:<input class="checkBoxStyle" type="checkbox" v-model="editor"/>

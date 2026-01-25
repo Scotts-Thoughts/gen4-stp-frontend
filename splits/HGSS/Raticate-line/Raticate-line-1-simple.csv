@@ -1,0 +1,12 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Rattata,Passerby Boy,2:56.22,0,0,5,0:11,1769374062.569,Quick Attack,Tail Whip,Tackle,
+Lyra,Rattata,Leader Falkner,10:02.96,0,1,13,0:39,1769374489.321,Quick Attack,Bite,Tackle,Focus Energy
+Lyra,Raticate,Leader Bugsy,19:02.80,0,1,20,1:15,1769375029.161,Quick Attack,Bite,Hyper Fang,Sucker Punch
+Lyra,Raticate,Rival Silver,20:09.98,0,2,21,1:20,1769375245.505,Quick Attack,Bite,Hyper Fang,Sucker Punch
+Lyra,Raticate,Leader Whitney,26:55.90,0,2,22,1:47,1769375651.428,Swords Dance,Bite,Hyper Fang,Headbutt
+Lyra,Raticate,Rival Silver,31:19.67,0,2,25,2:04,1769375915.215,Swords Dance,Crunch,Hyper Fang,Headbutt
+Lyra,Raticate,Leader Morty,33:30.59,0,2,28,2:13,1769376046.123,Swords Dance,Crunch,Hyper Fang,Headbutt
+Lyra,Raticate,Leader Chuck,39:00.81,0,2,31,2:35,1769376376.348,Swords Dance,Crunch,Hyper Fang,Headbutt
+Lyra,Raticate,Leader Pryce,48:09.53,0,2,36,3:12,1769377058.483,Swords Dance,Crunch,Return,Headbutt
+Lyra,Raticate,Leader Jasmine,50:16.57,0,2,37,3:20,1769377185.539,Return,Swords Dance,Dig,Crunch
+Lyra,Raticate,Rival Silver,55:17.33,0,2,40,3:40,1769377486.3,Return,Swords Dance,Dig,Crunch

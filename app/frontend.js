@@ -1456,9 +1456,100 @@ const app = Vue.createApp({
             if (debugging_mode == true) { console.log("compare_splits starting...") } 
             if (debugging_mode == true) { console.log("...") } 
             
+            // Check if this is HeartGold and SoulSilver
+            const isHGSS = this.selected_game === "HeartGold and SoulSilver" || this.mapper?.properties?.meta?.game_name?.value === "HeartGold and SoulSilver"
+            
+            // For HGSS with "First" split type, return hardcoded default list
+            if (isHGSS && this.split_type === "First") {
+                const default_string = "-"
+                const currentSplits = Array.isArray(this.current_splits) ? this.current_splits : []
+                
+                // Default list of trainers in order for HGSS
+                const hgssDefaultTrainers = [
+                    { displayName: "Falkner", originalTrainer: "Leader Falkner" },
+                    { displayName: "Bugsy", originalTrainer: "Leader Bugsy" },
+                    { displayName: "Whitney", originalTrainer: "Leader Whitney" },
+                    { displayName: "Morty", originalTrainer: "Leader Morty" },
+                    { displayName: "Chuck", originalTrainer: "Leader Chuck" },
+                    { displayName: "Jasmine", originalTrainer: "Leader Jasmine" },
+                    { displayName: "Pryce", originalTrainer: "Leader Pryce" },
+                    { displayName: "Clair", originalTrainer: "Leader Clair" },
+                    { displayName: "Lance", originalTrainer: "Champion Lance" },
+                    { displayName: "Blue", originalTrainer: "Leader Blue" },
+                    { displayName: "Lance 2", originalTrainer: "Champion Lance" },
+                    { displayName: "Red", originalTrainer: "Pokemon Trainer Red" }
+                ]
+                
+                const result = []
+                let lanceIndex = 0 // Track which Lance occurrence we're on
+                
+                for (const trainerInfo of hgssDefaultTrainers) {
+                    // Find matching split in current_splits
+                    let currentTime = default_string
+                    
+                    if (trainerInfo.originalTrainer === "Champion Lance") {
+                        // For Lance, find the Nth occurrence
+                        const lanceSplits = currentSplits.filter(s => s.trainer === "Champion Lance")
+                        if (lanceIndex < lanceSplits.length) {
+                            currentTime = lanceSplits[lanceIndex].time || default_string
+                            lanceIndex++
+                        }
+                    } else {
+                        // For other trainers, find by exact name match
+                        const matchingSplit = currentSplits.find(s => s.trainer === trainerInfo.originalTrainer)
+                        if (matchingSplit) {
+                            currentTime = matchingSplit.time || default_string
+                        }
+                    }
+                    
+                    // Truncate milliseconds from time display (format: "M:SS.XX" -> "M:SS")
+                    if (currentTime !== default_string && currentTime.includes('.')) {
+                        currentTime = currentTime.split('.')[0]
+                    }
+                    
+                    result.push({
+                        trainer: trainerInfo.displayName,
+                        original_trainer: trainerInfo.originalTrainer,
+                        current_time: currentTime
+                    })
+                }
+                return result
+            }
+            
             // Helper function to check if trainer should be displayed (only gym leaders, elite four, champion)
             const shouldDisplayTrainer = (trainer) => {
+                // For HGSS, also allow "Pokemon Trainer Red"
+                if (isHGSS && trainer === "Pokemon Trainer Red") {
+                    return true
+                }
                 return trainer.startsWith("Leader ") || trainer.startsWith("Elite Four ") || trainer.startsWith("Champion ")
+            }
+            
+            // Helper function to check if trainer should be displayed for HeartGold and SoulSilver
+            const shouldDisplayTrainerHGSS = (displayName, originalTrainer, lanceCount) => {
+                // Allowed trainers for HGSS: Falkner, Bugsy, Morty, Chuck, Jasmine, Pryce, Clair, Lance, Blue, Lance 2, Red
+                const allowedTrainers = ["Falkner", "Bugsy", "Morty", "Chuck", "Jasmine", "Pryce", "Clair", "Lance", "Blue", "Red"]
+                
+                // Check if it's a base allowed trainer
+                if (allowedTrainers.includes(displayName)) {
+                    // Special handling for Lance - allow both "Lance" and "Lance 2"
+                    if (displayName === "Lance") {
+                        return true // First Lance is allowed
+                    }
+                    return true
+                }
+                
+                // Check for "Lance 2"
+                if (displayName === "Lance 2") {
+                    return true
+                }
+                
+                // Check for "Pokemon Trainer Red" which formats to "Red"
+                if (originalTrainer === "Pokemon Trainer Red" && displayName === "Red") {
+                    return true
+                }
+                
+                return false
             }
             
             if (this.collect_split_data == true) {
@@ -1470,9 +1561,10 @@ const app = Vue.createApp({
 
                 const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]; // Trainers to skip
                 
-                // Track occurrences for Rival and Cyrus
+                // Track occurrences for Rival, Cyrus, and Lance
                 const rivalCount = { count: 0 }
                 const cyrusCount = { count: 0 }
+                const lanceCount = { count: 0 }
                 
                 // If no previous splits are loaded, return default list from game.splits but populate times from current_splits
                 if (!this.previous_splits || this.previous_splits.length === 0) {
@@ -1491,6 +1583,7 @@ const app = Vue.createApp({
                             if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
                             else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
                             else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                            else if (baseName.startsWith("Champion ")) baseName = baseName.substring(9)
                             
                             if (baseName === "Rival") {
                                 rivalCount.count++
@@ -1498,10 +1591,23 @@ const app = Vue.createApp({
                                 if (displayName === null) continue // Skip Rival 1
                             } else if (baseName === "Cyrus") {
                                 cyrusCount.count++
+                            } else if (baseName === "Lance") {
+                                lanceCount.count++
                             }
                             
-                            const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
+                            const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : (baseName === "Lance" ? lanceCount.count : 1)))
                             if (displayName === null) continue // Skip if null (Rival 1)
+                            
+                            // For HGSS, filter to only allowed trainers
+                            if (isHGSS && !shouldDisplayTrainerHGSS(displayName, trainer, lanceCount.count)) {
+                                continue
+                            }
+                            
+                            // Handle Lance 2 for HGSS
+                            let finalDisplayName = displayName
+                            if (isHGSS && baseName === "Lance" && lanceCount.count === 2) {
+                                finalDisplayName = "Lance 2"
+                            }
                             
                             // Find matching split in current_splits
                             let currentTime = default_string
@@ -1519,6 +1625,12 @@ const app = Vue.createApp({
                                     currentTime = cyrusInCurrent[currentCyrusIndex].time || default_string
                                 }
                                 currentCyrusIndex++
+                            } else if (trainer === "Champion Lance" || trainer === "Pokemon Trainer Red") {
+                                // For Lance and Red, find by exact name match
+                                const matchingSplit = currentSplits.find(s => s.trainer === trainer)
+                                if (matchingSplit) {
+                                    currentTime = matchingSplit.time || default_string
+                                }
                             } else {
                                 // For other trainers, find by exact name match
                                 const matchingSplit = currentSplits.find(s => s.trainer === trainer)
@@ -1533,16 +1645,16 @@ const app = Vue.createApp({
                             }
                             
                             if (this.split_type == 'First') {
-                                result.push({trainer: displayName, original_trainer: trainer, current_time: currentTime})
+                                result.push({trainer: finalDisplayName, original_trainer: trainer, current_time: currentTime})
                             } else {
-                                result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: currentTime, difference: default_string})
+                                result.push({trainer: finalDisplayName, original_trainer: trainer, previous_time: default_string, current_time: currentTime, difference: default_string})
                             }
                         }
                     }
                     return result
                 }
                 
-                // Track current_splits indices separately for Rival and Cyrus to match by order
+                // Track current_splits indices separately for Rival, Cyrus, and Lance to match by order
                 let currentRivalIndex = 0
                 let currentCyrusIndex = 0
                 
@@ -1556,11 +1668,28 @@ const app = Vue.createApp({
                         if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
                         else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
                         else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                        else if (baseName.startsWith("Champion ")) baseName = baseName.substring(9)
                         
                         if (baseName === "Rival") {
                             rivalCount.count++
                         } else if (baseName === "Cyrus") {
                             cyrusCount.count++
+                        } else if (baseName === "Lance") {
+                            lanceCount.count++
+                        }
+                        
+                        const displayName = this.format_display_name(x.trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : (baseName === "Lance" ? lanceCount.count : 1)))
+                        if (displayName === null) continue // Skip Rival 1
+                        
+                        // For HGSS, filter to only allowed trainers
+                        if (isHGSS && !shouldDisplayTrainerHGSS(displayName, x.trainer, lanceCount.count)) {
+                            continue
+                        }
+                        
+                        // Handle Lance 2 for HGSS
+                        let finalDisplayName = displayName
+                        if (isHGSS && baseName === "Lance" && lanceCount.count === 2) {
+                            finalDisplayName = "Lance 2"
                         }
                         
                         // Find matching split in current_splits by order for Rival/Cyrus, by name for others
@@ -1600,6 +1729,9 @@ const app = Vue.createApp({
                                 }
                             }
                             currentCyrusIndex++
+                        } else if (x.trainer === "Champion Lance" || x.trainer === "Pokemon Trainer Red") {
+                            // For Lance and Red, find by exact name match
+                            cur_split = currentSplits.find(y => y.trainer === x.trainer)
                         } else {
                             // For other trainers, find by exact name match
                             cur_split = currentSplits.find(y => y.trainer === x.trainer)
@@ -1607,12 +1739,9 @@ const app = Vue.createApp({
                         
                         const prev = this.convertDurationToSeconds(x.time)
                         
-                        const displayName = this.format_display_name(x.trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
-                        if (displayName === null) continue // Skip Rival 1
-                        
                         if (cur_split == undefined) { 
                             if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
-                                result.push({trainer: displayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: default_string, difference: default_string}) 
+                                result.push({trainer: finalDisplayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: default_string, difference: default_string}) 
                                 lastPushedTrainer = x.trainer; // Update the last pushed trainer
                             }
                             continue
@@ -1629,7 +1758,7 @@ const app = Vue.createApp({
                         if (x.trainer !== lastPushedTrainer && !trainersToSkip.includes(x.trainer)) { // Check if the current trainer is the same as the last pushed one and if it should be skipped
                             if (debugging_mode == true) { console.log({trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str}) } 
                             
-                            result.push({trainer: displayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str})
+                            result.push({trainer: finalDisplayName, original_trainer: x.trainer, previous_time: this.convertSecondsToDuration(prev), current_time: this.convertSecondsToDuration(cur), difference: diff_str})
                             lastPushedTrainer = x.trainer; // Update the last pushed trainer
                         }
                     }
@@ -1646,6 +1775,7 @@ const app = Vue.createApp({
             const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]
             const rivalCount = { count: 0 }
             const cyrusCount = { count: 0 }
+            const lanceCount = { count: 0 }
             for (const trainer of this.game.splits) {
                 if (!trainersToSkip.includes(trainer) && shouldDisplayTrainer(trainer)) {
                     // Track occurrences
@@ -1653,6 +1783,7 @@ const app = Vue.createApp({
                     if (baseName.startsWith("Leader ")) baseName = baseName.substring(7)
                     else if (baseName.startsWith("Commander ")) baseName = baseName.substring(10)
                     else if (baseName.startsWith("Galactic Boss ")) baseName = baseName.substring(14)
+                    else if (baseName.startsWith("Champion ")) baseName = baseName.substring(9)
                     
                     if (baseName === "Rival") {
                         rivalCount.count++
@@ -1660,15 +1791,28 @@ const app = Vue.createApp({
                         if (displayName === null) continue // Skip Rival 1
                     } else if (baseName === "Cyrus") {
                         cyrusCount.count++
+                    } else if (baseName === "Lance") {
+                        lanceCount.count++
                     }
                     
-                    const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : 1))
+                    const displayName = this.format_display_name(trainer, baseName === "Rival" ? rivalCount.count : (baseName === "Cyrus" ? cyrusCount.count : (baseName === "Lance" ? lanceCount.count : 1)))
                     if (displayName === null) continue // Skip if null (Rival 1)
                     
+                    // For HGSS, filter to only allowed trainers
+                    if (isHGSS && !shouldDisplayTrainerHGSS(displayName, trainer, lanceCount.count)) {
+                        continue
+                    }
+                    
+                    // Handle Lance 2 for HGSS
+                    let finalDisplayName = displayName
+                    if (isHGSS && baseName === "Lance" && lanceCount.count === 2) {
+                        finalDisplayName = "Lance 2"
+                    }
+                    
                     if (this.split_type == 'First') {
-                        result.push({trainer: displayName, original_trainer: trainer, current_time: default_string})
+                        result.push({trainer: finalDisplayName, original_trainer: trainer, current_time: default_string})
                     } else {
-                        result.push({trainer: displayName, original_trainer: trainer, previous_time: default_string, current_time: default_string, difference: default_string})
+                        result.push({trainer: finalDisplayName, original_trainer: trainer, previous_time: default_string, current_time: default_string, difference: default_string})
                     }
                 }
             }
@@ -2718,6 +2862,28 @@ const app = Vue.createApp({
         openFolder(folderName) {
             require('child_process').exec(`start .\\${folderName}\\`);
         },
+        // Open the splits folder based on current configuration
+        openCurrentSplitsFolder() {
+            // Determine game name (uses same logic as logData function)
+            let gameName = 'Platinum';
+            const gameNameValue = this.mapper?.properties?.meta?.game_name?.value || this.selected_game;
+            if (gameNameValue === 'HeartGold and SoulSilver') {
+                gameName = 'HGSS';
+            }
+            
+            // Get split file name based on current settings
+            const splitFileName = this.getSplitFileName();
+            
+            // Build the path (matches the path used in logData)
+            let folderPath;
+            if (this.refilming_mode === true) {
+                folderPath = `.\\splits\\${gameName}\\refilmed\\${splitFileName}`;
+            } else {
+                folderPath = `.\\splits\\${gameName}\\${splitFileName}`;
+            }
+            
+            require('child_process').exec(`start "" "${folderPath}"`);
+        },
         average_median_stats(stat_label) {
             let sum = 0;
             let count = 0;
@@ -2940,7 +3106,12 @@ const app = Vue.createApp({
 
                 this.stat_fix_toggle = true
                 ability = this.mapper.properties.battle.player.active_pokemon.ability.value
-                const turn_count = this.mapper.properties.battle.turn_counter.value
+                if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
+                    
+                }
+                else {
+                    const turn_count = this.mapper.properties.battle.turn_counter.value
+                }
                 const weather = this.mapper.properties.battle.field.weather.value
                 // const ability = this.mapper.properties.battle.player.active_pokemon.ability.value
 
@@ -3352,6 +3523,9 @@ const app = Vue.createApp({
             // console.log(`Successfully copied style settings from "${sourceSpecies}" (key: ${sourceStorageKey}) to ${copiedCount} other family member(s).`);
         },
         load_all_settings() {
+            // Set flag to prevent watchers from saving during loading
+            this.is_loading_evolution_style = true;
+            
             const game_name                    = this.mapper.properties.meta.game_name.value
             this.starter                       = MyStorage["starter"]                ?? "Heatran"
             this.show_advanced_settings        = MyStorage['show_advanced_settings'] ?? false
@@ -3482,22 +3656,28 @@ const app = Vue.createApp({
                 
                 //UI styling
                 this.ui_saturation =  MyStorage[`${game_name}_${this.starter}`]?.ui_saturation ?? .6
+
+                //main pokemon settings (only load from individual storage when evolution is disabled)
+                this.pkmnNature   = MyStorage[`${game_name}_${this.starter}`]?.pkmnNature            ?? "Hardy"
+
+                if (this.g4PokemonData?.[this.starter]?.abilities && this.g4PokemonData[this.starter].abilities.indexOf(this.pkmn_ability) == -1 && !MyStorage[`${game_name}_${this.starter}`]?.pkmn_ability) {
+                    this.pkmn_ability = this.g4PokemonData[this.starter].abilities[0]
+                }
+                else {
+                    this.pkmn_ability = MyStorage[`${game_name}_${this.starter}`]?.pkmn_ability          ?? this.g4PokemonData?.[this.starter]?.abilities?.[0] ?? null
+                }
             }
 
-            //main pokemon settings
-            this.pkmnNature   = MyStorage[`${game_name}_${this.starter}`]?.pkmnNature            ?? "Hardy"
-
-            if (this.g4PokemonData?.[this.starter]?.abilities && this.g4PokemonData[this.starter].abilities.indexOf(this.pkmn_ability) == -1 && !MyStorage[`${game_name}_${this.starter}`]?.pkmn_ability) {
-                this.pkmn_ability = this.g4PokemonData[this.starter].abilities[0]
-            }
-            else {
-                this.pkmn_ability = MyStorage[`${game_name}_${this.starter}`]?.pkmn_ability          ?? this.g4PokemonData?.[this.starter]?.abilities?.[0] ?? null
-            }
             if (this.set_starter_stats_object) {
                 this.set_starter_stats_object.gender = this.pkmn_gender;
                 this.set_starter_stats_object.nature = this.pkmnNature;
                 this.set_starter_stats_object.ability = this.pkmn_ability;
             }
+            
+            // Clear flag after loading is complete, use $nextTick to ensure all watchers have fired
+            this.$nextTick(() => {
+                this.is_loading_evolution_style = false;
+            });
         },
         reset() {
             this.backgroundBlur =        0,
@@ -4463,7 +4643,7 @@ const app = Vue.createApp({
             // Handle both original names (with prefixes) and display names (with numbers)
             if (!trainer) return ""
             let imageName = trainer
-            // Remove numbers from names like "Rival 2" -> "Rival", "Cyrus 1" -> "Cyrus"
+            // Remove numbers from names like "Rival 2" -> "Rival", "Cyrus 1" -> "Cyrus", "Lance 2" -> "Lance"
             // This handles display names that have numbers added
             const numberMatch = imageName.match(/^(.+?)\s+\d+$/)
             if (numberMatch) {
@@ -4486,6 +4666,14 @@ const app = Vue.createApp({
                 if (imageName.startsWith("Commander ")) {
                     imageName = imageName.substring(10)
                 }
+                // Remove "Champion " prefix (image files don't have this prefix)
+                if (imageName.startsWith("Champion ")) {
+                    imageName = imageName.substring(9)
+                }
+                // Remove "Pokemon Trainer " prefix (image files don't have this prefix)
+                if (imageName.startsWith("Pokemon Trainer ")) {
+                    imageName = imageName.substring(16)
+                }
                 // Keep "Galactic Boss " prefix because image file is "Galactic Boss Cyrus.png"
                 // (don't remove it)
             }
@@ -4507,6 +4695,8 @@ const app = Vue.createApp({
                 displayName = displayName.substring(10)
             } else if (displayName.startsWith("Galactic Boss ")) {
                 displayName = displayName.substring(14)
+            } else if (displayName.startsWith("Pokemon Trainer ")) {
+                displayName = displayName.substring(16)
             }
             
             // Handle Rival numbering (skip first occurrence, number 2-6)
@@ -7469,9 +7659,19 @@ const app = Vue.createApp({
                         return
                     }
                     
-                    // For trainers that appear multiple times (Rival, Cyrus), always add as new entry
+                    // For trainers that appear multiple times (Rival, Cyrus, and HGSS Elite Four/Champion), always add as new entry
                     // For other trainers, update if exists, otherwise add new
-                    if (trainerName === "Rival" || trainerName === "Cyrus") {
+                    const multiInstanceTrainers = [
+                        "Rival", 
+                        "Cyrus",
+                        // HGSS Elite Four and Champion are fought twice (Johto E4 + Kanto rematch before Red)
+                        "Elite Four Will",
+                        "Elite Four Koga", 
+                        "Elite Four Bruno",
+                        "Elite Four Karen",
+                        "Champion Lance"
+                    ]
+                    if (multiInstanceTrainers.includes(trainerName)) {
                         // Always add as new entry to track multiple instances
                         this.current_splits.push({trainer: trainerName, time: timeStr})
                     } else {
