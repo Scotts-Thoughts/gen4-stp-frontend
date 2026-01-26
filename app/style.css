@@ -3261,7 +3261,7 @@ img, span, div {
     text-align: center;
     font-size: 14px;
 }
-.stcd { top: -18px; width: 42px; height: 18px; left: -5px; font-size: 14px; }
+.stcd { top: 14px; width: 42px; height: 18px; left: -5px; font-size: 14px; }
 .e_attack          { top: 51px; left: -20px; }
 .e_defense         { top: 88px; left: -20px; }
 .e_special_attack  { top: 51px; left: 50px; }

@@ -155,6 +155,37 @@
                         <br>
                     </div>
                     <br>
+                    <table>
+                        <tr><td>Player Party Count:</td><td style="text-align: right;">{{mapper.properties.player.team_count.value > 6 ? 0 : mapper.properties.player.team_count.value}}</td></tr>
+                        <tr><td>Overworld HP:</td>      <td style="text-align: right;">{{mapper.properties.player.team[0].stats.hp.value}} / {{mapper.properties.player.team[0].stats.hp_max.value}}</td></tr>
+                        <tr><td>Status:</td>            <td style="text-align: right;">{{mapper.properties.player.team[0].status_condition.value == null ? 'None' : mapper.properties.player.team[0].status_condition.value}}</td></tr>
+                    </table>
+                    <div>
+                        <div>EVs:</div>
+                        <table>
+                            <tr>
+                                <td>HP: </td>
+                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.hp}}</td>     
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('hp')}})</td>     
+                                <td>Spe:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.speed}}</td>          
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('speed')}})</td>
+                            </tr>
+                            <tr>
+                                <td>Atk:</td>
+                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.attack}}</td> 
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('attack')}})</td> 
+                                <td>SpA:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.special_attack}}</td> 
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('special_attack')}})</td>
+                            </tr>
+                            <tr>
+                                <td>Def:</td>
+                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.defense}}</td>
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('defense')}})</td>
+                                <td>SpD:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.special_defense}}</td>
+                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('special_defense')}})</td>
+                            </tr>
+                        </table>
+                    </div>
                     <div v-if="debugging_mode == true && editor == false && show_advanced_settings">
                         <div>Debugging:</div>
                         <table>
@@ -269,42 +300,20 @@
                         <option>Male</option>
                     </select>
                     <br><br>
-                    <!-- <div>Encounters:</div>
-                    <table style="font-size: 11px; line-height: 14px;">
-                        <tr><td>Route 1</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_1"/></td></tr>
+                    <div>Encounters:</div>
+                    <table v-if="mapper.properties.meta.game_name.value == 'Platinum'" style="font-size: 11px; line-height: 14px;">
+                        <tr><td>Route 201</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_201"/></td></tr>
+                        <tr><td>Route 202</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_202"/></td></tr>
+                        <tr><td>Route 203</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_203"/></td></tr>
+                        <tr><td>Oreburgh Gate</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_gate"/></td></tr>
+                        <tr><td>Oreburgh Mine</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_mine"/></td></tr>
                     </table>
-                    <br> -->
-                    <table>
-                        <tr><td>Player Party Count:</td><td style="text-align: right;">{{mapper.properties.player.team_count.value > 6 ? 0 : mapper.properties.player.team_count.value}}</td></tr>
-                        <tr><td>Overworld HP:</td>      <td style="text-align: right;">{{mapper.properties.player.team[0].stats.hp.value}} / {{mapper.properties.player.team[0].stats.hp_max.value}}</td></tr>
-                        <tr><td>Status:</td>            <td style="text-align: right;">{{mapper.properties.player.team[0].status_condition.value == null ? 'None' : mapper.properties.player.team[0].status_condition.value}}</td></tr>
+                    <table v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" style="font-size: 11px; line-height: 14px;">
+                        <tr><td>Route 29</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_29"/></td></tr>
+                        <tr><td>Route 30</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_30"/></td></tr>
+                        <tr><td>Sprout Tower</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_sprout_tower"/></td></tr>
                     </table>
-                    <div>
-                        <div>EVs:</div>
-                        <table>
-                            <tr>
-                                <td>HP: </td>
-                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.hp}}</td>     
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('hp')}})</td>     
-                                <td>Spe:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.speed}}</td>          
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('speed')}})</td>
-                            </tr>
-                            <tr>
-                                <td>Atk:</td>
-                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.attack}}</td> 
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('attack')}})</td> 
-                                <td>SpA:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.special_attack}}</td> 
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('special_attack')}})</td>
-                            </tr>
-                            <tr>
-                                <td>Def:</td>
-                                <td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.defense}}</td>
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; padding-right: 20px; opacity: .7;">(+{{calculate_ev_benefit('defense')}})</td>
-                                <td>SpD:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.special_defense}}</td>
-                                <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('special_defense')}})</td>
-                            </tr>
-                        </table>
-                    </div>
+                    <br>
                     <div v-if="mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver' && show_advanced_settings && legacy_starter_assignment">
                         <br>
                         <div>Starter Player Chooses (legacy):</div>
@@ -633,7 +642,7 @@
                                 </div>
                                 <div v-if="mapper.properties.meta.state.value == 'Battle' && mapper.properties.battle.opponent.party_position.value == x" class="ePkmnStats">
                                     <div class="enemyStatModTable">
-                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod ePkmnHpLabel">{{enemy_status(mapper.properties.battle.opponent.active_pokemon.status_condition?.value)}}</div>
+                                        <div v-show="statusConditionConverter(mapper.properties.battle.opponent.active_pokemon.status_condition?.value) != ``" class="enemyMod stcd">{{enemy_status(mapper.properties.battle.opponent.active_pokemon.status_condition?.value)}}</div>
                                         <div v-for="x in modifier_values">
                                             <div v-show="mapper.properties.battle.opponent.active_pokemon.modifiers?.[x].value != 0" class="enemyMod" :class="`e_${x}`">{{stageModifiers(mapper.properties.battle.opponent.active_pokemon.modifiers[x].value)}}</div>
                                         </div>

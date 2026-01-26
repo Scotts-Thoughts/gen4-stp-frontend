@@ -83,4 +83,5 @@ const auto_save_settings = [
     "catch_rate",
     "shuckie_timer",
     "shuckie_counters",
+    "encounters_route_201",
 ]

@@ -732,6 +732,16 @@ const app = Vue.createApp({
             },
             encounter_settings: [
             ],
+            encounters_route_201: MyStorage['encounters_route_201'] ?? true,
+            encounters_route_202: MyStorage['encounters_route_202'] ?? true,
+            encounters_route_203: MyStorage['encounters_route_203'] ?? true,
+            encounters_oreburgh_gate: MyStorage['encounters_oreburgh_gate'] ?? true,
+            encounters_oreburgh_mine: MyStorage['encounters_oreburgh_mine'] ?? true,
+
+            encounters_route_29: MyStorage['encounters_route_29'] ?? true,
+            encounters_route_30: MyStorage['encounters_route_30'] ?? true,
+            encounters_sprout_tower: MyStorage['encounters_sprout_tower'] ?? true,
+
             pokemon_list: [],
             
             // USER CONFIG (components) ------------------------------------------------------------------------// 
@@ -1057,6 +1067,38 @@ const app = Vue.createApp({
         }
     },
     watch: {
+        encounters_route_201(newValue) {
+            MyStorage['encounters_route_201'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_route_202(newValue) {
+            MyStorage['encounters_route_202'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_route_203(newValue) {
+            MyStorage['encounters_route_203'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_oreburgh_gate(newValue) {
+            MyStorage['encounters_oreburgh_gate'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_oreburgh_mine(newValue) {
+            MyStorage['encounters_oreburgh_mine'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_route_29(newValue) {
+            MyStorage['encounters_route_29'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_route_30(newValue) {
+            MyStorage['encounters_route_30'] = newValue;
+            this.disable_encounters();
+        },
+        encounters_sprout_tower(newValue) {
+            MyStorage['encounters_sprout_tower'] = newValue;
+            this.disable_encounters();
+        },
         current_splits: {
             handler: function (newVal, oldVal) {
                 MyStorage['current_splits'] = newVal
@@ -2707,6 +2749,96 @@ const app = Vue.createApp({
             if (catch_state == 0 && this.catch_rate == true) { 
                 this.mapper.properties.patch.stpCatchRate.set(1,false); 
             }
+            this.disable_encounters()
+        },
+        disable_encounters() {
+            const map = this.mapper.properties.overworld.map_name.value
+            var rate = 30
+            const team_0 = this.mapper.properties.player.team[0].species.value
+            const team_1 = this.mapper.properties.player.team[1].species.value
+            const team_2 = this.mapper.properties.player.team[2].species.value
+            const team_3 = this.mapper.properties.player.team[3].species.value
+            const team_4 = this.mapper.properties.player.team[4].species.value
+            const team_5 = this.mapper.properties.player.team[5].species.value
+            // console.log(team_0, team_1, team_2, team_3, team_4, team_5)
+            if (this.selected_game == 'Platinum') {
+                if (map == 'Route 201 - Map 1') {
+                    if (this.encounters_route_201) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        const hasBidoof = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Bidoof')
+                        const hasStarly = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Starly')
+                        if (hasBidoof && hasStarly) {
+                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        }
+                        else {
+                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        }
+                    }
+                }
+                else if (map == 'Route 202 - Map 1') {
+                    if (this.encounters_route_202) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+                else if (map == 'Oreburgh Gate - Map 1') {
+                    rate = 10
+                    if (this.encounters_oreburgh_gate) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        const hasGeodude = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Geodude')
+                        const hasPsyduck = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Psyduck')
+                        if (hasGeodude && hasPsyduck) {
+                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        }
+                        else {
+                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        }
+                    }
+                }
+                else if (map == 'Oreburgh Mine - Map 2' || map == 'Oreburgh Mine - Map 3') {
+                    rate = 10
+                    if (this.encounters_oreburgh_mine) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+            }
+            else if (this.selected_game == 'HeartGold and SoulSilver') {
+                rate = 25
+                if (map == 'Route 29 - Map 1') {
+                    if (this.encounters_route_29) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+                else if (map == 'Route 30 - Map 1') {
+                    if (this.encounters_route_30) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+                else if (map == 'Sprout Tower - Map 2' || map == 'Sprout Tower - Map 3') {
+                    rate = 5
+                    if (this.encounters_sprout_tower) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+            }
         },
         async disallow_faults_function() {
             this.disallow_faults = true
@@ -3014,6 +3146,9 @@ const app = Vue.createApp({
                 if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                     SpE = Math.floor(SpE / 4)
                 }
+                if ((status_condition == 'Paralyzed' || status_condition == 'Poisoned' || status_condition == 'Burned') && ability == 'Guts') {
+                    Atk = Math.floor(Atk * 1.5)
+                }
 
                 if (ability == 'Slow Start') {
                     Atk = Math.floor(Atk * 0.5)
@@ -3070,6 +3205,7 @@ const app = Vue.createApp({
             else if (state == `Battle`) {
                 if (logging) console.log("Battle stats...")
                 var battle_overide = false
+                status_condition = this.mapper.properties.battle.player.active_pokemon.status_condition.value
                 if (
                     this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value == "-6" &&
                     this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value == "-6" &&
@@ -3132,6 +3268,12 @@ const app = Vue.createApp({
                 if (ability == 'Slow Start' && turn_count < 5) {
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
+                }
+                if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
+                    SpE = Math.floor(SpE / 4)
+                }
+                if ((status_condition == 'Paralyzed' || status_condition == 'Poisoned' || status_condition == 'Burned') && ability == 'Guts') {
+                    Atk = Math.floor(Atk * 1.5)
                 }
                 let battle_hp  = HP
                 let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
@@ -6827,6 +6969,7 @@ const app = Vue.createApp({
             }
         }, 10); // 100ms = 10 times per second (adjust as needed)
 
+        this.disable_encounters();
         this.updateTime()
         this.load_all_settings()
         this.pokemon_list = this.keys_function(g4PokemonData)
