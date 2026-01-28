@@ -1,0 +1,37 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Hoothoot,Passerby Boy,2:25.02,0,0,5,0:08,1769448194.852,Tackle,Growl,Foresight,Hypnosis
+Lyra,Hoothoot,Leader Falkner,14:02.60,0,5,15,0:55,1769448892.583,Peck,Growl,Uproar,Hypnosis
+Lyra,Noctowl,Leader Bugsy,24:13.86,3,5,20,1:32,1769449614.345,Peck,Reflect,Uproar,Hypnosis
+Lyra,Noctowl,Rival Silver,25:01.89,3,5,20,1:35,1769449662.382,Peck,Reflect,Uproar,Hypnosis
+Lyra,Noctowl,Leader Whitney,36:36.56,7,5,23,2:12,1769450357.141,Peck,Confusion,Uproar,Hypnosis
+Lyra,Noctowl,Rival Silver,43:12.83,8,5,25,2:36,1769450753.458,Peck,Confusion,Uproar,Hypnosis
+Lyra,Noctowl,Leader Morty,45:28.99,8,5,28,2:45,1769450889.624,Peck,Confusion,Uproar,Hypnosis
+Lyra,Noctowl,Leader Chuck,53:49.04,8,6,33,3:18,1769451389.719,Air Slash,Confusion,Uproar,Hypnosis
+Lyra,Noctowl,Leader Pryce,1:04:48.62,10,6,38,3:58,1769452049.343,Air Slash,Zen Headbutt,Uproar,Hypnosis
+Lyra,Noctowl,Leader Jasmine,1:06:59.48,10,6,38,4:06,1769452180.213,Air Slash,Silver Wind,Substitute,Hypnosis
+Lyra,Noctowl,Rival Silver,1:11:48.45,10,6,41,4:26,1769452469.198,Air Slash,Silver Wind,Substitute,Hypnosis
+Lyra,Noctowl,Leader Clair,1:23:36.01,16,6,45,5:02,1769453176.798,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Rival Silver,1:39:42.62,21,6,49,5:53,1769454143.445,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Elite Four Will,1:41:22.66,21,6,50,6:00,1769454243.488,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Elite Four Will,1:44:21.36,21,7,52,6:11,1769454422.198,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Elite Four Will,1:46:12.30,21,9,53,6:19,1769454533.136,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Elite Four Bruno,1:48:09.30,21,9,55,6:27,1769454650.139,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Elite Four Karen,1:49:16.83,21,9,56,6:31,1769454717.678,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Champion Lance,1:54:48.41,27,9,68,6:38,1769455049.268,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Leader Erika,1:59:23.30,27,9,69,6:56,1769455324.16,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Leader Sabrina,2:00:57.02,27,9,69,7:02,1769455417.882,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Leader Misty,2:05:42.75,27,9,71,7:21,1769455703.617,Air Slash,Silver Wind,Extrasensory,Roost
+Lyra,Noctowl,Leader Brock,2:09:09.19,27,9,71,7:35,1769455910.061,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Leader Blaine,2:12:06.45,27,9,72,7:47,1769456087.324,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Leader Janine,2:16:52.13,27,10,74,8:06,1769456373.008,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Leader Lt. Surge,2:20:40.07,28,10,74,8:16,1769456600.957,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Leader Blue,2:23:14.06,28,10,74,8:26,1769456754.942,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Will,2:30:45.20,28,14,76,8:56,1769457206.087,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Will,2:35:13.10,29,16,78,9:11,1769457473.995,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Koga,2:38:22.80,33,16,78,9:16,1769457663.692,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Bruno,2:39:32.29,33,16,79,9:21,1769457733.182,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Karen,2:40:45.13,33,16,80,9:26,1769457806.03,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Champion Lance,2:44:20.93,35,16,87,9:36,1769458021.827,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Will,2:49:38.57,36,16,89,9:56,1769458339.467,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Elite Four Will,2:52:02.50,36,18,89,10:05,1769458483.406,Air Slash,Silver Wind,Psychic,Roost
+Lyra,Noctowl,Pokemon Trainer Red,3:03:54.59,47,19,92,10:42,1769459195.495,Air Slash,Silver Wind,Attract,Roost
