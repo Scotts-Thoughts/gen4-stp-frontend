@@ -1,9 +1,11 @@
+// Style Settings Manager for layered defaults + user overrides
+const styleSettingsManager = require('./lib/style_settings_manager.js');
+
 const MyStorage = new Proxy({}, {
     set: (_, prop, value) => {
-        if (value === undefined || value === null)
-            localStorage.removeItem(prop);
-        else
-            localStorage.setItem(prop, JSON.stringify(value));
+        // Use the style settings manager for style-related keys
+        styleSettingsManager.set(prop, value);
+        return true;
     },
     get: (_, prop) => {
         if (prop === "clear")
@@ -14,9 +16,75 @@ const MyStorage = new Proxy({}, {
             return () => Object.keys(localStorage);
         if (prop === "has")
             return (key) => localStorage.getItem(key) == null;
-        return JSON.parse(localStorage.getItem(prop));
+        
+        // Use the style settings manager for style-related keys
+        return styleSettingsManager.get(prop);
     }
 });
+
+// Utility functions for managing style settings
+const StyleSettingsUtils = {
+    /**
+     * Export current localStorage settings to the defaults file
+     * This migrates your existing settings to become the new defaults
+     */
+    exportCurrentAsDefaults: () => {
+        const exported = styleSettingsManager.exportCurrentAsDefaults();
+        console.log('[StyleSettings] Exported settings:', Object.keys(exported).length, 'entries');
+        
+        // In dev mode, this will update the defaults file
+        if (styleSettingsManager.isDev) {
+            Object.keys(exported).forEach(key => {
+                styleSettingsManager._saveToDefaults(key, exported[key]);
+            });
+            console.log('[StyleSettings] Settings exported to defaults file');
+        } else {
+            console.log('[StyleSettings] Export only available in dev mode. Exported data:', exported);
+        }
+        
+        return exported;
+    },
+    
+    /**
+     * Reset a specific Pokemon's style settings to defaults
+     * @param {string} key - The storage key (e.g., "Platinum_Chimchar")
+     */
+    resetToDefaults: (key) => {
+        styleSettingsManager.resetToDefaults(key);
+        console.log(`[StyleSettings] Reset "${key}" to defaults`);
+    },
+    
+    /**
+     * Reset all style settings to defaults (removes all user overrides)
+     */
+    resetAllToDefaults: () => {
+        styleSettingsManager.resetAllToDefaults();
+        console.log('[StyleSettings] All style settings reset to defaults');
+    },
+    
+    /**
+     * Check if running in development mode
+     */
+    isDevMode: () => styleSettingsManager.isDev,
+    
+    /**
+     * Get the default value for a key (ignoring user overrides)
+     * @param {string} key - The storage key
+     */
+    getDefault: (key) => styleSettingsManager.getDefault(key),
+    
+    /**
+     * Check if user has custom overrides for a key
+     * @param {string} key - The storage key
+     */
+    hasUserOverrides: (key) => styleSettingsManager.hasUserOverrides(key),
+    
+    /**
+     * Get only the user overrides for a key (not merged with defaults)
+     * @param {string} key - The storage key
+     */
+    getUserOverrides: (key) => styleSettingsManager.getUserOverrides(key)
+};
 
 async function loadCsvFile() {
     const file = await window.showOpenFilePicker({
@@ -504,6 +572,7 @@ const app = Vue.createApp({
     data() {
         return {
             ready                        : false,
+            isInDevMode                  : StyleSettingsUtils.isDevMode(), // Track if running in development mode
             mapper                       : null,
             state                        : "No Pokemon",
             editor                       : false,
@@ -979,6 +1048,10 @@ const app = Vue.createApp({
         }
     },
     created() {
+        // Log the current mode for style settings
+        console.log(`[StyleSettings] App initialized in ${this.isInDevMode ? 'DEVELOPMENT' : 'PRODUCTION'} mode`);
+        console.log(`[StyleSettings] ${this.isInDevMode ? 'Style changes will be saved to the defaults file' : 'User style overrides will be saved locally'}`);
+        
         if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {  
             this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter]?.type_1];
             this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset            ?? 0;
@@ -1123,8 +1196,16 @@ const app = Vue.createApp({
             // When evolution checkbox is toggled, update evolution family list
             if (newValue) {
                 this.updateEvolutionFamilyList();
+                
+                // Prevent enabling evolution for single-species families
+                if (this.evolution_family_list.length <= 1) {
+                    this.evolution = false;
+                    console.log(`[Evolution] Cannot enable evolution for ${this.starter} - single-species evolution family`);
+                    return;
+                }
+                
                 // Set default selected evolution species to the starter
-                if (!this.selected_evolution_species && this.evolution_family_list.length > 0) {
+                if (!this.selected_evolution_species && this.evolution_family_list.length > 1) {
                     this.selected_evolution_species = this.starter;
                     this.loadEvolutionStyle(this.selected_evolution_species, true);
                     
@@ -1440,6 +1521,16 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        /**
+         * Check if the current Pokemon has multiple evolution stages
+         * Returns true if evolution family has more than one species
+         * Used to show/hide evolution checkbox (hide for single-species families like Registeel)
+         */
+        hasMultipleEvolutionStages() {
+            // Get the evolution family for the current starter
+            const evolutionFamily = this.getEvolutionFamily(this.starter);
+            return evolutionFamily && evolutionFamily.length > 1;
+        },
         shuckie_faults_check() {
             shuckie_resets    = this.emulatorStats?.counters?.playerResets
             shuckie_blackouts = this.emulatorStats?.counters?.blackout_counter
@@ -2486,6 +2577,60 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        // ============ Style Settings Management Methods ============
+        /**
+         * Export current localStorage settings to the defaults file (dev mode only)
+         * This migrates your existing style settings to become the new app defaults
+         */
+        exportStyleSettingsAsDefaults() {
+            return StyleSettingsUtils.exportCurrentAsDefaults();
+        },
+        
+        /**
+         * Reset the current Pokemon's style settings to defaults
+         */
+        resetCurrentPokemonToDefaults() {
+            const storageKey = this.getCurrentStorageKey();
+            StyleSettingsUtils.resetToDefaults(storageKey);
+            // Reload the styles
+            if (this.evolution && this.selected_evolution_species) {
+                this.loadEvolutionStyle(this.selected_evolution_species, true);
+            } else {
+                this.loadEvolutionStyle(this.starter, false);
+            }
+            console.log(`[StyleSettings] Reset "${storageKey}" to defaults and reloaded`);
+        },
+        
+        /**
+         * Reset all style settings to defaults (removes all user overrides)
+         */
+        resetAllStyleSettingsToDefaults() {
+            StyleSettingsUtils.resetAllToDefaults();
+            // Reload current styles
+            if (this.evolution && this.selected_evolution_species) {
+                this.loadEvolutionStyle(this.selected_evolution_species, true);
+            } else {
+                this.loadEvolutionStyle(this.starter, false);
+            }
+            console.log('[StyleSettings] All style settings reset to defaults and reloaded');
+        },
+        
+        /**
+         * Check if running in development mode
+         */
+        isDevMode() {
+            return StyleSettingsUtils.isDevMode();
+        },
+        
+        /**
+         * Check if current Pokemon has user overrides
+         */
+        currentPokemonHasUserOverrides() {
+            const storageKey = this.getCurrentStorageKey();
+            return StyleSettingsUtils.hasUserOverrides(storageKey);
+        },
+        // ============ End Style Settings Management Methods ============
+        
         async fetchEmulatorStats() {
             try {
                 const response = await fetch('http://127.0.0.1:30158/stats');
@@ -2607,6 +2752,9 @@ const app = Vue.createApp({
         },
         get_trainer_name(trainer_name, trainer_id) {
             // console.log(trainer_name, trainer_id)
+            if (selected_game == "HeartGold and SoulSilver") {
+                return trainer_name
+            }
             switch (trainer_id) {
                 case 850: return 'Rival 1'
                 case 851: return 'Rival 1'
@@ -3276,11 +3424,11 @@ const app = Vue.createApp({
                     Atk = Math.floor(Atk * 1.5)
                 }
                 let battle_hp  = HP
-                let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
-                let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def])
-                let battle_spa = Math.floor(SpA * this.stageModifiersData.stats[mod_spa])
-                let battle_spd = Math.floor(SpD * this.stageModifiersData.stats[mod_spd])
-                let battle_spe = Math.floor(SpE * this.stageModifiersData.stats[mod_spe])
+                let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk]) == 0 ? 1 : Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
+                let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def]) == 0 ? 1 : Math.floor(Def * this.stageModifiersData.stats[mod_def])
+                let battle_spa = Math.floor(SpA * this.stageModifiersData.stats[mod_spa]) == 0 ? 1 : Math.floor(SpA * this.stageModifiersData.stats[mod_spa])
+                let battle_spd = Math.floor(SpD * this.stageModifiersData.stats[mod_spd]) == 0 ? 1 : Math.floor(SpD * this.stageModifiersData.stats[mod_spd])
+                let battle_spe = Math.floor(SpE * this.stageModifiersData.stats[mod_spe]) == 0 ? 1 : Math.floor(SpE * this.stageModifiersData.stats[mod_spe])
                 if (weather == "Rain" && ability == "Swift Swim") {
                     battle_spe = Math.floor(battle_spe * 2)
                 }
@@ -3484,6 +3632,7 @@ const app = Vue.createApp({
             //! EVOLUTION_FIX needed here, recall base stats from the selected evolution species when evolution mode is enabled
             var starter = this.evolution ? this.selected_evolution_species : this.starter
             const data    = this.g4PokemonData[starter]
+            if (!data?.base_stats) return 0
             const hp      = data.base_stats.hp
             const atk     = data.base_stats.attack
             const def     = data.base_stats.defense
@@ -3496,7 +3645,7 @@ const app = Vue.createApp({
         get_base_stat(stat_path) {
             //! EVOLUTION_FIX needed here, recall base stats from the selected evolution species when evolution mode is enabled
             var starter = this.evolution ? this.selected_evolution_species : this.starter
-            return this.g4PokemonData[starter]?.base_stats[stat_path]
+            return this.g4PokemonData[starter]?.base_stats?.[stat_path]
         },
         post_game_move_style(move_object) {
             const game_name = 'Platinum' //change this to be dynamic when adding more games
@@ -3890,8 +4039,18 @@ const app = Vue.createApp({
         updateEvolutionFamilyList() {
             // Update the evolution family list when starter changes
             this.evolution_family_list = this.getEvolutionFamily(this.starter);
+            
+            // If the evolution family has only one member (e.g., Registeel), disable evolution
+            if (this.evolution_family_list.length <= 1) {
+                if (this.evolution) {
+                    this.evolution = false;
+                    console.log(`[Evolution] Disabled evolution for ${this.starter} - single-species evolution family`);
+                }
+                return;
+            }
+            
             // Set default selected evolution species to the starter if not set
-            if (this.evolution && this.evolution_family_list.length > 0) {
+            if (this.evolution && this.evolution_family_list.length > 1) {
                 if (!this.selected_evolution_species || !this.evolution_family_list.includes(this.selected_evolution_species)) {
                     this.selected_evolution_species = this.starter;
                 }
@@ -4690,7 +4849,7 @@ const app = Vue.createApp({
         getSoloMonType(pkmn, type) { //type == type_1 or type_2
 
             if (this.evolution == true) {
-                return this.g4PokemonData[this.selected_evolution_species][type]
+                return this.g4PokemonData[this.selected_evolution_species]?.[type]
             }
             // const species = pkmn
             const species = this.starter
@@ -4699,12 +4858,12 @@ const app = Vue.createApp({
                 return this.arceus_plate_check()
             }
             if (this.mapper.properties.meta?.state?.value == `From Battle`) {
-                return this.g4PokemonData[species][type]
+                return this.g4PokemonData[species]?.[type]
             }
-            if (this.mapper.properties.meta.state.value == `From Battle`) {
-                return this.g4PokemonData[species][type]
+            if (this.mapper.properties.meta?.state?.value == `From Battle`) {
+                return this.g4PokemonData[species]?.[type]
             }
-            if (this.mapper.properties.meta.state.value == `Battle`) {
+            if (this.mapper.properties.meta?.state?.value == `Battle`) {
                 typeString = "type_1"
                 if (type == "type_2") {
                     typeString = "type_2"
@@ -4713,7 +4872,7 @@ const app = Vue.createApp({
                 return this.mapper.properties.battle?.player?.active_pokemon[typeString]?.value
             }
             if (this.mapper.properties.meta?.state?.value == `No Pokemon` || this.mapper.properties.meta?.state?.value == `Overworld`) {
-                return this.g4PokemonData[species][type]
+                return this.g4PokemonData[species]?.[type]
             }
         },
         move_name(move_string) { //converts move strings so that they are formatted correctly
