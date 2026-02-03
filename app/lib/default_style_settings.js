@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-01-30T00:47:25.687Z
+ * Last updated: 2026-02-03T17:57:32.471Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -730,7 +730,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundYOffset": 0,
         "backgroundBrightness": 100,
         "backgroundContrast": "171",
-        "backgroundSaturation": 100
+        "backgroundSaturation": 100,
+        "playerResets": 39,
+        "blackout_counter": 6
     },
     "Platinum_Floatzel-line-Floatzel": {
         "overlay_color": "#e58555",
@@ -901,7 +903,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundYOffset": 0,
         "backgroundBrightness": 100,
         "backgroundContrast": "171",
-        "backgroundSaturation": 100
+        "backgroundSaturation": 100,
+        "playerResets": 1
     },
     "Platinum_Mamoswine": {
         "overlay_color": "#98d8d8",
@@ -1887,6 +1890,15 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageXOffset": "53",
         "overlay_color": "#76c9dd",
         "ui_saturation": "1.6"
+    },
+    "HeartGold and SoulSilver_Vaporeon": {},
+    "HeartGold and SoulSilver_Weedle": {
+        "evolution": true,
+        "selected_evolution_species": "Weedle"
+    },
+    "HeartGold and SoulSilver_Beedrill": {
+        "selected_evolution_species": "Beedrill",
+        "evolution": true
     }
 };
 
@@ -1894,6 +1906,3 @@ const DEFAULT_STYLE_SETTINGS = {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = DEFAULT_STYLE_SETTINGS;
 }
-
-
-

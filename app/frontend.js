@@ -1481,6 +1481,22 @@ const app = Vue.createApp({
             }
             MyStorage["blackout_counter"] = this.blackout_counter
         },
+        emulatorStats(newProp, oldProp) {
+            console.log(newProp, oldProp)
+            if (this.shuckie_counters == true) {
+                const old_resets = oldProp?.counters?.playerResets ?? 0
+                const old_blackouts = oldProp?.counters?.blackout_counter ?? 0
+                const new_resets = newProp?.counters?.playerResets ?? 0
+                const new_blackouts = newProp?.counters?.blackout_counter ?? 0
+    
+                if (old_resets != new_resets) {
+                    this.playerResets = new_resets
+                }
+                if (old_blackouts != new_blackouts) {
+                    this.blackout_counter = new_blackouts
+                }
+            }
+        },
         playerNameChoice() {
             this.overlay_color = `lch(75% 100 ${hash(this.playerNameChoice) % 360})`
             MyStorage["playerNameChoice"] = this.playerNameChoice
