@@ -2752,7 +2752,7 @@ const app = Vue.createApp({
         },
         get_trainer_name(trainer_name, trainer_id) {
             // console.log(trainer_name, trainer_id)
-            if (selected_game == "HeartGold and SoulSilver") {
+            if (this.selected_game == "HeartGold and SoulSilver") {
                 return trainer_name
             }
             switch (trainer_id) {
