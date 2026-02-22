@@ -32262,8 +32262,8 @@ const g4PokemonData =
             "tutor_learnset": [],
             "egg_moves": []
         },
-        "Nidoran_M": {
-            "species": "Nidoran_M",
+        "Nidoran-M": {
+            "species": "Nidoran-M",
             "rom_id": 32,
             "base_hp": 46,
             "base_atk": 57,
@@ -38889,8 +38889,8 @@ const g4PokemonData =
             ],
             "weight": 12.0
         },
-        "Nidoran_F": {
-            "species": "Nidoran_F",
+        "Nidoran-F": {
+            "species": "Nidoran-F",
             "rom_id": 29,
             "base_hp": 55,
             "base_atk": 47,
