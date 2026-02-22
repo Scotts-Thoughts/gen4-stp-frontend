@@ -1482,7 +1482,7 @@ const app = Vue.createApp({
             MyStorage["blackout_counter"] = this.blackout_counter
         },
         emulatorStats(newProp, oldProp) {
-            console.log(newProp, oldProp)
+            //console.log(newProp, oldProp) - 
             if (this.shuckie_counters == true) {
                 const old_resets = oldProp?.counters?.playerResets ?? 0
                 const old_blackouts = oldProp?.counters?.blackout_counter ?? 0
@@ -6441,7 +6441,7 @@ const app = Vue.createApp({
         moveCategoryIcon(move) { //move = move.value
             if (move) {
                 var move = this.generation4_moves_new[move]
-                if (move) return `images/damageCategory/${move.category.toLowerCase()}.png`
+                if (move) return `images/damageCategory/${move.category}.png`
             }
             return ""
         },
