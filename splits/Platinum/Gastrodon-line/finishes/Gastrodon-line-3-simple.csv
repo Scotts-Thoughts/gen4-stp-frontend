@@ -1,0 +1,31 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Shellos,Rival 2,10:05.14,0,1,8,0:39,1771723054.225,Water Pulse,Mud-Slap,Return,Harden
+Dawn,Shellos,Leader Roark,12:45.35,0,1,12,0:49,1771723214.432,Water Pulse,Mud Bomb,Return,Harden
+Dawn,Shellos,Mars 1,22:07.76,2,1,18,1:23,1771723777.38,Water Pulse,Mud Bomb,Return,Harden
+Dawn,Gastrodon,Leader Gardenia,41:04.48,2,3,30,2:39,1771724915.034,Water Pulse,Mud Bomb,Return,Body Slam
+Dawn,Gastrodon,Jupiter 1,43:11.06,2,3,31,2:48,1771725042.019,Water Pulse,Mud Bomb,Return,Body Slam
+Dawn,Gastrodon,Leader Fantina,51:20.74,3,3,33,3:18,1771725533.891,Water Pulse,Substitute,Earthquake,Body Slam
+Dawn,Gastrodon,Rival 3,52:22.83,3,3,33,3:22,1771725596.528,Water Pulse,Substitute,Earthquake,Body Slam
+Dawn,Gastrodon,Leader Maylene,57:17.40,3,3,36,3:42,1771725893.787,Water Pulse,Substitute,Earthquake,Body Slam
+Dawn,Gastrodon,Rival 4,1:01:46.23,3,3,38,4:00,1771726165.827,Water Pulse,Substitute,Earthquake,Body Slam
+Dawn,Gastrodon,Leader Wake,1:06:34.94,4,3,48,4:17,1771726455.57,Muddy Water,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Cyrus 3,1:10:22.90,4,3,49,4:33,1771726684.451,Muddy Water,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Rival 5,1:12:51.05,4,3,50,4:43,1771726833.278,Surf,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Leader Byron,1:15:31.74,4,3,52,4:53,1771726994.369,Surf,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Saturn 1,1:17:36.05,4,3,52,5:02,1771727119.404,Surf,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Mars 2,1:18:57.07,4,3,53,5:07,1771727200.68,Surf,Substitute,Earthquake,Blizzard
+Dawn,Gastrodon,Leader Candice,1:25:11.07,7,3,61,5:27,1771727576.206,Surf,Natural Gift,Earthquake,Blizzard
+Dawn,Gastrodon,Cyrus 1,1:30:06.70,7,3,62,5:46,1771727875.001,Surf,Natural Gift,Earthquake,Blizzard
+Dawn,Gastrodon,Saturn 2,1:30:39.42,7,3,62,5:49,1771727907.719,Surf,Natural Gift,Earthquake,Blizzard
+Dawn,Gastrodon,Mars 3,1:34:45.98,7,3,64,6:05,1771728154.763,Surf,Natural Gift,Earthquake,Blizzard
+Dawn,Gastrodon,Cyrus 2,1:40:27.30,9,3,64,6:23,1771728515.255,Surf,Ice Beam,Earthquake,Blizzard
+Dawn,Gastrodon,Leader Volkner,1:45:15.10,9,3,66,6:42,1771728805.104,Surf,Ice Beam,Earthquake,Blizzard
+Dawn,Gastrodon,Rival 6,1:52:42.10,9,3,70,7:12,1771729252.957,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Aaron,1:53:54.68,9,3,71,7:17,1771729326.27,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Bertha,1:54:40.98,9,3,71,7:20,1771729372.563,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Aaron,1:56:05.31,10,3,71,7:16,1771729456.902,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Bertha,1:56:52.29,10,3,71,7:20,1771729503.88,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Flint,1:57:39.53,10,3,76,7:23,1771729551.293,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Flint,1:58:41.39,11,3,76,7:23,1771729613.153,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Elite Four Lucian,2:12:36.20,38,3,76,7:28,1771730448.683,Surf,Ice Beam,Earthquake,Recover
+Dawn,Gastrodon,Champion Cynthia,2:18:17.91,46,3,77,7:35,1771730790.776,Surf,Ice Beam,Earthquake,Recover

@@ -1482,7 +1482,7 @@ const app = Vue.createApp({
             MyStorage["blackout_counter"] = this.blackout_counter
         },
         emulatorStats(newProp, oldProp) {
-            console.log(newProp, oldProp)
+            // console.log(newProp, oldProp)
             if (this.shuckie_counters == true) {
                 const old_resets = oldProp?.counters?.playerResets ?? 0
                 const old_blackouts = oldProp?.counters?.blackout_counter ?? 0
@@ -2593,6 +2593,59 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        /**
+         * Send an OBS WebSocket 5 "CreateRecordChapter" request (Add Chapter Marker).
+         * Connects to ws://localhost:4455 (or MyStorage.obs_websocket_url), identifies,
+         * sends the chapter name, then closes. Fails silently if OBS is not running.
+         * Optional: set MyStorage.obs_websocket_password if OBS has authentication enabled.
+         * @param {string} chapterName - Name for the chapter marker (e.g. "Overworld", "Battle")
+         */
+        sendObsChapterMarker(chapterName) {
+            const url = (typeof MyStorage !== 'undefined' && MyStorage.obs_websocket_url) ? MyStorage.obs_websocket_url : 'ws://localhost:4455';
+            const password = (typeof MyStorage !== 'undefined' && MyStorage.obs_websocket_password) ? MyStorage.obs_websocket_password : null;
+            const requestId = 'chapter-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+            let ws;
+            try {
+                ws = new WebSocket(url);
+            } catch (e) {
+                return;
+            }
+            ws.onerror = () => { try { ws.close(); } catch (_) {} };
+            ws.onclose = () => {};
+            ws.onmessage = (event) => {
+                try {
+                    const msg = JSON.parse(event.data);
+                    const op = msg.op;
+                    const d = msg.d || {};
+                    if (op === 0) {
+                        // Hello - send Identify (with optional auth)
+                        let identifyPayload = { rpcVersion: 1 };
+                        const auth = d.authentication;
+                        if (auth && auth.challenge && auth.salt && password) {
+                            try {
+                                const crypto = require('crypto');
+                                const secret = crypto.createHash('sha256').update(password + auth.salt, 'utf8').digest('base64');
+                                identifyPayload.authentication = crypto.createHash('sha256').update(secret + auth.challenge, 'utf8').digest('base64');
+                            } catch (_) {}
+                        }
+                        ws.send(JSON.stringify({ op: 1, d: identifyPayload }));
+                    } else if (op === 2) {
+                        // Identified - send CreateRecordChapter
+                        ws.send(JSON.stringify({
+                            op: 6,
+                            d: {
+                                requestId: requestId,
+                                requestType: 'CreateRecordChapter',
+                                requestData: { chapterName: String(chapterName) }
+                            }
+                        }));
+                    } else if (op === 7 && d.requestId === requestId) {
+                        try { ws.close(); } catch (_) {}
+                    }
+                } catch (_) {}
+            };
+            ws.onopen = () => {};
+        },
         // ============ Style Settings Management Methods ============
         /**
          * Export current localStorage settings to the defaults file (dev mode only)
@@ -7363,6 +7416,7 @@ const app = Vue.createApp({
                     if (this.emulatorStats.time_current > 0 && newProp.value == false && oldProp.value == true) {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        this.sendObsChapterMarker("RESET")
                         if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
@@ -7379,6 +7433,7 @@ const app = Vue.createApp({
                     if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value == false && oldProp.value == true) {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        this.sendObsChapterMarker("RESET")
                         if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
@@ -7398,6 +7453,7 @@ const app = Vue.createApp({
                     if (this.emulatorStats.time_current > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') {
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        this.sendObsChapterMarker("RESET")
                         if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
@@ -7412,6 +7468,7 @@ const app = Vue.createApp({
                     if (parseInt(this.timer_formatted_time[0]) > 0 && newProp.value != 0 && this.mapper.properties.overworld.map_name.value != 'Pokemon League - Map 7') { // TODO How do resets work in HGSS?
                         this.blackout = false;
                         if (this.disallow_faults == false) { this.playerResets++ }
+                        this.sendObsChapterMarker("RESET")
                         if (this.shuckie_timer && this.disallow_faults == false) { this.incrementEmulatorCounter("playerResets") }
                         this.disallow_faults_function()
                     }
@@ -7428,13 +7485,35 @@ const app = Vue.createApp({
                 this.blackout = true;
             }
         })
+
+        this.mapper.properties.battle.opponent.trainer.change(async (newProp, oldProp) => { 
+            const trainer = newProp.value == null ? oldProp.value : newProp.value
+            const state = newProp.value == null ? "OUT" : "IN"
+            const stateName = state
+            this.sendObsChapterMarker(stateName + " - " + trainer)
+        })
+
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
+            // if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
+            //     const trainer = this.mapper.properties.battle.opponent.trainer.value
+            //     const state = "OUT"
+            //     const stateName = state
+            //     this.sendObsChapterMarker(stateName)
+            // }
+            // else if (newProp.value == "Battle" && oldProp.value == "Overworld") {
+            //     const trainer = newProp.value
+            //     const state = "IN"
+            //     const stateName = state + " - " + trainer
+            //     this.sendObsChapterMarker(stateName)
+            // }
+
             const game = this.mapper.properties.meta.game_name.value
             if (this.blackout == true) {
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         if (this.disallow_faults == false) { 
                             this.blackout_counter++
+                            this.sendObsChapterMarker("BLACKOUT")
                             if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                         }
                         this.blackout = false;
@@ -7445,6 +7524,7 @@ const app = Vue.createApp({
                     if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
                         if (this.disallow_faults == false) { 
                             this.blackout_counter++ 
+                            this.sendObsChapterMarker("BLACKOUT")
                             if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                         }
                         this.blackout = false;
@@ -7469,6 +7549,7 @@ const app = Vue.createApp({
                 if (game == 'Platinum' || game == 'Diamond and Pearl') {
                     if (this.disallow_faults == false) { 
                         this.blackout_counter++ 
+                        this.sendObsChapterMarker("BLACKOUT")
                         if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                     }
                     this.blackout = false;
@@ -7478,6 +7559,7 @@ const app = Vue.createApp({
                     console.log("Is this blackout fix needed for HeartGold and SoulSilver?")
                     if (this.disallow_faults == false) { 
                         this.blackout_counter++ 
+                        this.sendObsChapterMarker("BLACKOUT")
                         if (this.shuckie_timer) { this.incrementEmulatorCounter("blackout_counter") }
                     }
                     this.blackout = false;
@@ -8360,6 +8442,19 @@ const app = Vue.createApp({
                     this.evolution = enabled;
                     if (enabled && query.species) {
                         this.selected_evolution_species = query.species;
+                    }
+                    // Save evolution to storage so it persists after refresh
+                    const game_name = this.mapper?.properties.meta.game_name.value;
+                    if (game_name && this.starter) {
+                        const storageKey = `${game_name}_${this.starter}`;
+                        if (!MyStorage[storageKey]) {
+                            MyStorage[storageKey] = {};
+                        }
+                        MyStorage[storageKey].evolution = enabled;
+                        if (enabled && query.species) {
+                            MyStorage[storageKey].selected_evolution_species = query.species;
+                        }
+                        localStorage.setItem(storageKey, JSON.stringify(MyStorage[storageKey]));
                     }
                     res.end(JSON.stringify({ ok: true, evolution: this.evolution, selected_evolution_species: this.selected_evolution_species }));
                 }
