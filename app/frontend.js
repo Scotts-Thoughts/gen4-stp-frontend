@@ -670,77 +670,6 @@ const app = Vue.createApp({
             stat_fix_spa           : 0,
             stat_fix_spd           : 0,
 
-            customMovepool: {
-                "Torterra"     : "line-height: 16px;",
-                "Infernape"    : "line-height: 15px;",
-                "Empoleon"     : "line-height: 15px;",
-                "Cresselia"    : "line-height: 18px;",
-                "Heatran"      : "line-height: 18px;",
-                "Machop"       : "line-height: 16.54px;",
-                "Machoke"      : "line-height: 16.26px;",
-                "Machamp"      : "line-height: 15.47px;",
-                "Combee"       : "line-height: 19px;",
-                "Vespiquen"    : "line-height: 16.82px;",
-                "Shellos"      : "line-height: 19px;",
-                "Gastrodon"    : "line-height: 16.54px;",
-                "Swinub"       : "line-height: 18.42px;",
-                "Piloswine"    : "line-height: 15.99px;",
-                "Mamoswine"    : "line-height: 14.77px;",
-                "Bonsly"       : "line-height: 19.13px;",
-                "Sudowoodo"    : "line-height: 18.41px;",
-                "Snorunt"      : "line-height: 19px;",    // no tutor moves
-                "Froslass"     : "line-height: 17.42px;", // no tutor moves
-                "Carnivine"    : "line-height: 18.42px;", // no tutor moves
-                "Snover"       : "line-height: 18.06px;",
-                "Abomasnow"    : "line-height: 16.25px;", // no tutor moves
-                "Riolu"        : "line-height: 16.54px;",
-                "Lucario"      : "line-height: 15.47px;", // no tutor moves
-                "Giratina"     : "line-height: 16.25px;", // no tutor moves
-                "Arceus"       : "line-height: 13.74px;", // no tutor moves
-                "Gible"        : "line-height: 17.42px;", // no tutor moves
-                "Gabite"       : "line-height: 16.82px;", // no tutor moves
-                "Garchomp"     : "line-height: 13.74px;", // no tutor moves
-                "Shaymin"      : "line-height: 19.52px;",
-                "Shaymin - Sky": "line-height: 19.52px;",
-                "Feraligatr"   : "line-height: 15.49px;",
-                "Mewtwo"       : "line-height: 11.62px;",
-                "Pidgey"       : "line-height: 19px;",
-                "Pidgeotto"    : "line-height: 19px;",
-                "Pidgeot"      : "line-height: 19px;",
-                "Glameow"      : "line-height: 17.5px;",
-                "Purugly"      : "line-height: 17.5px;",
-                "Starly"       : "line-height: 19px;",
-                "Staravia"     : "line-height: 19px;",
-                "Staraptor"    : "line-height: 19px;",
-                "Heracross"    : "line-height: 19px;",
-                "Stunky"       : "line-height: 20px;",
-                "Skuntank"     : "line-height: 18px;",
-                "Croagunk"     : "line-height: 17.75px;",
-                "Toxicroak"    : "line-height: 15.74px;",
-                "Yanma"        : "line-height: 20px;",
-                "Yanmega"      : "line-height: 18.75px;",
-                "Zubat"        : "line-height: 19px;",
-                "Golbat"       : "line-height: 17.75px;",
-                "Crobat"       : "line-height: 18.75px;",
-                "Murkrow"      : "line-height: 20.34px;",
-                "Honchkrow"    : "line-height: 20.75px;",
-                "Sneasel"      : "line-height: 15.99px;",
-                "Weavile"      : "line-height: 14.35px;",
-                "Drifloon"     : "line-height: 18.4px;",
-                "Drifblim"     : "line-height: 16.82px;",
-                "Aipom"        : "line-height: 17.41px;",
-                "Ambipom"      : "line-height: 16.25px;",
-                "Lickitung"    : "line-height: 15.48px;",
-                "Lickilicky"   : "line-height: 14.55px;",
-                "Tangela"      : "line-height: 18px;",
-                "Tangrowth"    : "line-height: 15.99px;",
-                "Chatot"       : "line-height: 20px;",
-                "Bronzor"      : "line-height: 18.4px;",
-                "Bronzong"     : "line-height: 15.47px;",
-                "Rhyhorn"      : "line-height: 18.05px;",
-                "Rhydon"       : "line-height: 14.35px;",
-                "Rhyperior"    : "line-height: 13.74px;",
-            },
             set_starter_stats_object: {
                 ivs: {
                     hp: 31,
@@ -5174,54 +5103,83 @@ const app = Vue.createApp({
             })
             return out;
         },
+        /** Species used for movepool display (and sizing) - same source as getMovepool in template */
+        movepoolResizeSpecies() {
+            if (this.evolution && this.selected_evolution_species) {
+                if (this.evolution_family_list.length > 0 && this.evolution_family_list.includes(this.selected_evolution_species)) {
+                    return this.selected_evolution_species;
+                }
+                if (this.evolution_family_list.length > 0) {
+                    return this.evolution_family_list.includes(this.starter) ? this.starter : this.evolution_family_list[0];
+                }
+            }
+            if (this.evolution && this.evolution_family_list.length > 0) {
+                return this.evolution_family_list.includes(this.starter) ? this.starter : this.evolution_family_list[0];
+            }
+            return this.starter;
+        },
         movepoolResizeCalc() {
             // console.log("calc")
-            if(!this.game.dexData){ 
+            if(!this.g4PokemonData){
                 return;
             }
 
-            let small_line_height = 19;
-            let resize_threshold = 20;
             this.movepoolDefaultFontSize = 14;
             this.movepoolDefaultLineHeight = 21;
-            this.movepoolDefaultContainerHeight = 997-(this.movepoolDefaultLineHeight);
-            let maxSize = this.movepoolDefaultContainerHeight / this.movepoolDefaultLineHeight;
+            this.movepoolDefaultContainerHeight = 995;
 
             //calculate new sizes
-            // Use displayedPokemonSpecies to get the correct species for movepool sizing
-            // This ensures the movepool size is based on the selected evolution family member
-            let currentStarter = this.displayedPokemonSpecies;
-            if(currentStarter == undefined || currentStarter == null) {
-                if(this.mapper.properties.player.team[0].species) {
-                    currentStarter = this.mapper.properties.player.team[0].species.value;
-                }
-                else {
-                    currentStarter = this.starter;
-                }
+            // Use same species as movepool display (evolution dropdown) so sizing matches visible rows
+            let currentStarter = this.movepoolResizeSpecies();
+            if (currentStarter == undefined || currentStarter == null) {
+                currentStarter = this.starter;
             }
 
-            let movepoolSize = this.game.dexData[currentStarter].tm_hm_learnset.length + this.game.dexData[currentStarter].levelup_moveset.length;
-            
-            if (this.show_tutor_moves) {
-                movepoolSize = movepoolSize + this.game.dexData[currentStarter].tutor_learnset.length;
+            // Safely count moves for the current species
+            // Use this.g4PokemonData (same data source as template's getMovepool) to ensure counts match rendered rows
+            const dexEntry = this.g4PokemonData[currentStarter] || {};
+            const tmhmMoves   = Array.isArray(dexEntry.tm_hm_learnset)   ? dexEntry.tm_hm_learnset.length   : 0;
+            const levelMoves  = Array.isArray(dexEntry.level_up_learnset)  ? dexEntry.level_up_learnset.length  : 0;
+            const tutorMoves  = Array.isArray(dexEntry.tutor_learnset)   ? dexEntry.tutor_learnset.length   : 0;
+
+            // Determine how many rows are actually being rendered, based on the current movepool view
+            let visibleMoveRows = 0;
+            if (this.movepool_isolation === "Level Up Moves") {
+                visibleMoveRows = levelMoves;
+            } else if (this.movepool_isolation === "TMHM Moves") {
+                visibleMoveRows = tmhmMoves;
+            } else if (this.movepool_isolation === "Tutor Moves") {
+                visibleMoveRows = this.show_tutor_moves ? tutorMoves : 0;
+            } else {
+                // "Automatic" / full view: level + tmhm + (optional tutor)
+                visibleMoveRows = levelMoves + tmhmMoves + (this.show_tutor_moves ? tutorMoves : 0);
             }
-            let correctedLineHeight = this.movepoolDefaultContainerHeight / movepoolSize;
-            let fontShrinkFactor = 0.77; //make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
-            //This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
+
+            // Add one extra row for the table header
+            let movepoolSize = visibleMoveRows > 0 ? visibleMoveRows + 1 : 0;
+
+            // Fallback to default sizing if we somehow have no moves
+            if (!movepoolSize || movepoolSize <= 0) {
+                return "line-height: " + this.movepoolDefaultLineHeight + "px; font-size: "+this.movepoolDefaultFontSize+"px;";
+            }
+
+            // If the Pokemon has only a very small number of moves, don't stretch rows to fill the
+            // entire area (that would look awkwardly tall). In that case keep the default sizing.
+            const minRowsToFill = 12; // treat fewer than this as a "limited" movepool
+            if (visibleMoveRows < minRowsToFill) {
+                return "line-height: " + this.movepoolDefaultLineHeight + "px; font-size: "+this.movepoolDefaultFontSize+"px;";
+            }
+
+            // Otherwise, size rows to use all available vertical space based on the number of visible rows
+            // The header row has a fixed line-height of 17px (from .movepool_header CSS), so subtract
+            // that from the container and divide the remaining space among content rows only
+            let headerLineHeight = 17;
+            let correctedLineHeight = (this.movepoolDefaultContainerHeight - headerLineHeight) / visibleMoveRows;
+            let fontShrinkFactor = 0.77; // make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
+            // This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
             let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor); 
-
-            if (movepoolSize > (maxSize)) {
-                return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
-            }
-            else if (movepoolSize < resize_threshold) {
-                return "line-height: " + small_line_height + "px; font-size: "+this.movepoolDefaultFontSize+"px;";
-            }
-            else if (movepoolSize < resize_threshold) {
-                return "line-height: " + small_line_height + "px; font-size: "+this.movepoolDefaultFontSize+"px;";
-            }
-            else {
-                return "line-height: " + correctedLineHeight + "px; font-size: "+this.movepoolDefaultFontSize+"px;";
-            }
+            
+            return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
         },
         
         // MOVE ACCURACY

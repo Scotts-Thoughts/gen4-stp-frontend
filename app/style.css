@@ -3126,6 +3126,11 @@ img, span, div {
 .first-row td {
     padding-top: 2px;
 }
+.movepoolDemo td,
+.movepoolDemo th {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .movepoolBorder {
     z-index: 1;
 }
