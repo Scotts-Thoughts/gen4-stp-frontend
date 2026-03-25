@@ -1,0 +1,42 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Zubat,Passerby Boy,10:03.41,0,1,8,0:39,1774293775.11,Leech Life,Supersonic,,
+Lyra,Zubat,Leader Falkner,21:24.57,0,3,14,1:25,1774294456.258,Bite,Leech Life,Astonish,Supersonic
+Lyra,Zubat,Leader Bugsy,29:33.82,0,4,19,1:57,1774294945.508,Wing Attack,Bite,Astonish,Roost
+Lyra,Zubat,Rival Silver,30:37.05,0,4,20,2:01,1774295008.741,Wing Attack,Bite,Astonish,Roost
+Lyra,Golbat,Leader Whitney,36:51.91,0,4,22,2:26,1774295383.598,Wing Attack,Bite,Confuse Ray,Roost
+Lyra,Golbat,Rival Silver,48:07.41,0,5,27,3:12,1774296059.098,Wing Attack,Bite,Confuse Ray,Roost
+Lyra,Golbat,Leader Morty,50:09.98,0,5,30,3:20,1774296181.664,Wing Attack,Bite,Confuse Ray,Roost
+Lyra,Golbat,Leader Chuck,53:24.21,0,5,33,3:33,1774296375.895,Wing Attack,Bite,Confuse Ray,Roost
+Lyra,Crobat,Leader Pryce,1:02:47.86,1,5,37,4:06,1774296939.542,Wing Attack,Bite,Confuse Ray,Roost
+Lyra,Crobat,Leader Jasmine,1:14:37.00,4,8,40,4:46,1774297766.326,Shadow Ball,Substitute,Confuse Ray,Roost
+Lyra,Crobat,Rival Silver,1:20:06.92,4,8,43,5:08,1774298096.238,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Clair,1:29:47.67,4,8,47,5:47,1774298676.996,Fly,Substitute,Return,Roost
+Lyra,Crobat,Rival Silver,1:42:23.06,4,8,52,6:38,1774299432.381,Fly,Substitute,Return,Roost
+Lyra,Crobat,Elite Four Will,1:46:09.18,4,12,53,6:53,1774299658.505,Fly,Substitute,Return,Roost
+Lyra,Crobat,Elite Four Koga,1:47:40.94,4,12,54,6:59,1774299750.266,Fly,Substitute,Return,Roost
+Lyra,Crobat,Elite Four Bruno,1:49:02.29,4,12,55,7:04,1774299831.621,Fly,Substitute,Return,Roost
+Lyra,Crobat,Elite Four Karen,1:50:01.17,4,12,56,7:08,1774299890.496,Fly,Substitute,Return,Roost
+Lyra,Crobat,Champion Lance,1:52:40.47,4,12,56,7:19,1774300049.789,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Erika,1:56:59.44,4,12,58,7:36,1774300308.774,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Sabrina,1:58:20.77,4,12,59,7:41,1774300390.115,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Lt. Surge,2:17:51.11,9,12,64,8:40,1774301560.519,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Misty,2:20:25.64,11,12,64,8:47,1774301715.05,Fly,Substitute,Return,Roost
+Lyra,Crobat,Leader Brock,2:21:35.58,11,12,65,8:51,1774301785.003,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Leader Blaine,2:24:01.55,12,12,65,8:57,1774301930.97,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Leader Janine,2:25:50.21,12,12,66,9:04,1774302039.645,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Leader Blue,2:30:12.31,14,12,67,9:16,1774302301.758,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Elite Four Will,2:42:23.56,14,14,86,10:05,1774303033.03,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Elite Four Koga,2:43:30.70,14,14,86,10:10,1774303100.176,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Elite Four Bruno,2:45:04.47,15,14,87,10:14,1774303193.949,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Elite Four Karen,2:49:06.37,19,14,87,10:20,1774303435.861,Fly,Giga Drain,Return,Roost
+Lyra,Crobat,Elite Four Will,2:54:33.53,19,15,88,10:42,1774303763.02,Giga Drain,Return,Roost,Bite
+Lyra,Crobat,Elite Four Koga,2:55:34.64,19,15,89,10:46,1774303824.142,Giga Drain,Return,Roost,Bite
+Lyra,Crobat,Elite Four Will,2:57:48.66,19,16,90,10:55,1774303958.151,Giga Drain,Return,Roost,Bite
+Lyra,Crobat,Elite Four Koga,2:58:46.24,19,16,90,10:59,1774304015.741,Giga Drain,Return,Roost,Bite
+Lyra,Crobat,Elite Four Bruno,2:59:43.68,19,16,91,11:03,1774304073.189,Fly,Return,Roost,Bite
+Lyra,Crobat,Elite Four Will,3:03:54.99,19,17,92,11:20,1774304324.5,Fly,Return,Roost,Bite
+Lyra,Crobat,Elite Four Koga,3:04:57.65,19,17,92,11:24,1774304387.162,Fly,Return,Roost,Bite
+Lyra,Crobat,Elite Four Bruno,3:05:57.62,19,17,93,11:28,1774304447.14,Fly,Return,Roost,Bite
+Lyra,Crobat,Elite Four Karen,3:08:06.11,20,17,93,11:33,1774304575.615,Fly,Return,Roost,Bite
+Lyra,Crobat,Champion Lance,3:11:53.65,21,17,94,11:42,1774304803.174,Fly,Sludge Bomb,Roost,Substitute
+Lyra,Crobat,Pokemon Trainer Red,3:18:41.91,21,17,96,12:09,1774305211.426,Fly,Cross Poison,Roost,Substitute
