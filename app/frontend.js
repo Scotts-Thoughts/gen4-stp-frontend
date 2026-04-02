@@ -6984,6 +6984,33 @@ const app = Vue.createApp({
                 }
             }
 
+            var multi_hit_modifier = 1;
+            const double_hit_moves = [
+                "Bonemerang",
+                "Double Hit",
+                "Double Iron Bash",
+                "Double Kick",
+                "Dragon Darts",
+                "Dual Chop",
+                "Dual Wingbeat",
+                "Gear Grind",
+                "Tachyon Cutter",
+                "Triple Dive",
+                "Twin Beam",
+                "Twineedle",
+            ];
+            const triple_hit_moves = [
+                "Surging Strikes",
+                "Triple Dive",
+                "Water Shuriken",
+            ];
+            if (double_hit_moves.includes(x)) {
+                multi_hit_modifier = 2;
+            }
+            if (triple_hit_moves.includes(x)) {
+                multi_hit_modifier = 3;
+            }
+
             var stabModifier = this.determineSTAB(x)
             if (player_ability == "Adaptability") {
                 stabModifier = 2
@@ -7095,13 +7122,13 @@ const app = Vue.createApp({
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
                 if (power == "-") { return "—" }
-                return Math.floor(power * stabModifier * defendingType1Effectiveness * defendingType2Effectiveness * ability * itemBoost * weatherBoost * burnModifier * player_ability_modifier)
+                return Math.floor(power * stabModifier * defendingType1Effectiveness * defendingType2Effectiveness * ability * itemBoost * weatherBoost * burnModifier * player_ability_modifier * multi_hit_modifier)
             }
             else //handles out of battle cases
                 if (power == "—") { return power }
                 if (power == "-") { return "—" }
                 else 
-                    return Math.floor(power * stabModifier * ability * itemBoost * burnModifier * player_ability_modifier)
+                    return Math.floor(power * stabModifier * ability * itemBoost * burnModifier * player_ability_modifier * multi_hit_modifier)
         },
         split_diff_color(difference_string) {
             if (difference_string === "-")          { return "color: black" }
@@ -8439,6 +8466,47 @@ const app = Vue.createApp({
                         res.end(JSON.stringify({ ok: false, error: 'Missing panel parameter' }));
                     }
                 }
+                else if (pathname === '/set-hidden-power') {
+                    // Set the Hidden Power type
+                    // Usage: /set-hidden-power?type=Ice
+                    if (query.type) {
+                        this.hidden_power_type = query.type;
+                        res.end(JSON.stringify({ ok: true, hidden_power_type: this.hidden_power_type }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing type parameter' }));
+                    }
+                }
+                else if (pathname === '/set-splits') {
+                    // Set the splits display mode
+                    // Usage: /set-splits?mode=First  or  /set-splits?mode=Followup
+                    if (query.mode) {
+                        this.split_type = query.mode;
+                        res.end(JSON.stringify({ ok: true, splits: this.split_type }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing mode parameter' }));
+                    }
+                }
+                else if (pathname === '/load-split-file') {
+                    // Load a split comparison CSV file from disk
+                    // Usage: /load-split-file?file=C%3A%5Cpath%5Cto%5Csplits.csv
+                    if (query.file) {
+                        const fs = require('fs');
+                        const csvText = fs.readFileSync(query.file, 'utf-8');
+                        const rows = csvText.split("\n").slice(1).filter(x => x !== '');
+                        const results = [];
+                        for (const row of rows) {
+                            const columns = row.split(",");
+                            results.push({ trainer: columns[2], time: columns[3] });
+                        }
+                        this.previous_splits = results;
+                        res.end(JSON.stringify({ ok: true, splits_loaded: results.length }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing file parameter' }));
+                    }
+                }
                 else if (pathname === '/reload') {
                     // Trigger a full page reload (like Ctrl+Shift+R)
                     // Usage: /reload
@@ -8459,6 +8527,8 @@ const app = Vue.createApp({
                         selected_evolution_species: this.selected_evolution_species,
                         gameName: this.mapper?.properties.meta.game_name.value,
                         right_ui: this.right_ui,
+                        hidden_power_type: this.hidden_power_type,
+                        splits: this.split_type,
                     }));
                 }
                 else {
