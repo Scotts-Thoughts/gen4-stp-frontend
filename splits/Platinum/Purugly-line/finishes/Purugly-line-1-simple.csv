@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Glameow,Rival 1,1:22.14,0,0,5,0:04,1775153878.763,Fake Out,Scratch,,
+Dawn,Glameow,Rival 2,7:18.44,0,0,9,0:27,1775154235.072,Scratch,Fake Out,Growl,
+Dawn,Glameow,Leader Roark,18:30.58,0,3,18,1:12,1775154932.03,Scratch,Return,Faint Attack,Hypnosis
+Dawn,Glameow,Mars 1,23:04.51,0,3,20,1:31,1775155205.971,Return,Scratch,Faint Attack,Hypnosis
+Dawn,Glameow,Leader Gardenia,30:38.87,0,5,27,2:01,1775155660.34,Return,Scratch,Faint Attack,Hypnosis
+Dawn,Glameow,Jupiter 1,33:10.22,1,5,28,2:09,1775155811.683,Return,Substitute,Faint Attack,Hypnosis
+Dawn,Glameow,Leader Fantina,41:34.04,1,6,31,2:43,1775156315.513,Return,Substitute,Faint Attack,Hypnosis
+Dawn,Glameow,Rival 3,43:08.44,2,6,32,2:47,1775156409.923,Return,Substitute,Faint Attack,Hypnosis
+Dawn,Purugly,Leader Maylene,52:25.61,4,6,38,3:20,1775156967.084,Return,Substitute,Faint Attack,Dig
+Dawn,Purugly,Rival 4,56:27.64,4,6,39,3:36,1775157209.129,Return,Substitute,Faint Attack,Dig
+Dawn,Purugly,Leader Wake,58:57.19,5,6,45,3:45,1775157358.684,Return,Substitute,Faint Attack,Dig
+Dawn,Purugly,Cyrus 3,1:03:00.74,5,6,47,4:01,1775157602.233,Return,Substitute,Faint Attack,Dig
+Dawn,Purugly,Rival 5,1:09:47.25,9,6,51,4:21,1775158008.751,Return,Aerial Ace,Water Pulse,Dig
+Dawn,Purugly,Leader Byron,1:13:04.01,9,6,53,4:34,1775158205.498,Return,Aerial Ace,Water Pulse,Dig
+Dawn,Purugly,Saturn 1,1:16:03.39,9,6,54,4:46,1775158392.423,Return,Aerial Ace,Water Pulse,Dig
+Dawn,Purugly,Mars 2,1:17:28.70,9,6,55,4:51,1775158477.734,Return,Aerial Ace,Water Pulse,Dig
+Dawn,Purugly,Leader Candice,1:25:28.92,12,7,57,5:15,1775158957.954,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Cyrus 1,1:30:08.72,12,7,59,5:34,1775159237.761,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Saturn 2,1:30:50.06,12,7,60,5:37,1775159279.104,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Mars 3,1:36:20.60,12,7,62,5:59,1775159609.647,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Cyrus 2,1:40:45.18,12,7,63,6:16,1775159874.232,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Leader Volkner,1:45:21.71,12,7,65,6:35,1775160150.767,Return,Shadow Claw,Water Pulse,Dig
+Dawn,Purugly,Rival 6,1:53:24.39,13,7,81,7:05,1775160845.633,Return,Shadow Claw,Water Pulse,Swagger
+Dawn,Purugly,Elite Four Aaron,1:54:05.69,13,7,81,7:08,1775160886.938,Return,Shadow Claw,Water Pulse,Swagger
+Dawn,Purugly,Elite Four Bertha,1:54:58.03,13,7,82,7:12,1775160939.273,Return,Shadow Claw,Water Pulse,Swagger
+Dawn,Purugly,Elite Four Flint,1:55:40.13,13,7,83,7:14,1775160981.371,Return,Shadow Claw,Water Pulse,Swagger
+Dawn,Purugly,Elite Four Lucian,1:56:24.72,13,7,83,7:17,1775161025.964,Return,Shadow Claw,Water Pulse,Swagger
+Dawn,Purugly,Champion Cynthia,1:57:29.93,13,7,84,7:22,1775161091.181,Return,Shadow Claw,Psych Up,Swagger

@@ -1191,12 +1191,29 @@ const app = Vue.createApp({
                     return;
                 }
                 
+                // Preserve ability slot (1→1, 2→2) across family members; family storage keeps one name
+                const abilityBeforeSpeciesChange =
+                    oldValue && oldValue !== newValue ? this.pkmn_ability : null;
+                
                 // Load evolution line styles first (before transition) to ensure styles are loaded
                 // The flag in loadEvolutionStyle will prevent watchers from overwriting
                 this.loadEvolutionStyle(newValue, true);
                 
-                // Recalculate movepool size for the new species
+                const mappedAbility =
+                    abilityBeforeSpeciesChange != null
+                        ? this.mapAbilityByEvolutionSlot(
+                              oldValue,
+                              newValue,
+                              abilityBeforeSpeciesChange
+                          )
+                        : null;
+                
+                // After loadEvolutionStyle clears is_loading_evolution_style, apply mapped ability so
+                // the pkmn_ability watcher persists to family storage; then refresh movepool.
                 this.$nextTick(() => {
+                    if (mappedAbility != null) {
+                        this.pkmn_ability = mappedAbility;
+                    }
                     this.movepoolResize();
                 });
                 
@@ -4072,6 +4089,28 @@ const app = Vue.createApp({
                     this.selected_evolution_species = this.starter;
                 }
             }
+        },
+        /**
+         * Map an ability when switching evolution family style species: same slot index on the new species
+         * (e.g. Glameow Limber slot 1 → Purugly Thick Fat slot 1).
+         */
+        mapAbilityByEvolutionSlot(oldSpecies, newSpecies, previousAbilityName) {
+            const oldAbilities = this.g4PokemonData?.[oldSpecies]?.abilities;
+            const newAbilities = this.g4PokemonData?.[newSpecies]?.abilities;
+            if (!newAbilities?.length) {
+                return previousAbilityName;
+            }
+            let slot = 0;
+            if (oldAbilities?.length && previousAbilityName != null && previousAbilityName !== '') {
+                const idx = oldAbilities.indexOf(previousAbilityName);
+                if (idx >= 0) {
+                    slot = idx;
+                }
+            }
+            if (slot >= newAbilities.length) {
+                slot = Math.max(0, newAbilities.length - 1);
+            }
+            return newAbilities[slot] ?? null;
         },
         loadEvolutionStyle(species, useEvolutionLine = false) {
             // Set flag to prevent watchers from saving during loading
