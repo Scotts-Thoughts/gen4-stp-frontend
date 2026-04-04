@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Manaphy,Rival 1,1:29.45,0,0,5,0:04,1775227465.441,Tail Glow,Bubble,Water Sport,
+Dawn,Manaphy,Rival 1,1:25.76,0,0,5,0:04,1775230096.831,Tail Glow,Bubble,Water Sport,
+Dawn,Manaphy,Rival 2,5:48.34,0,0,6,0:22,1775230359.43,Tail Glow,Bubble,Water Sport,Return
+Dawn,Manaphy,Leader Roark,12:16.95,0,6,14,0:48,1775230748.029,Tail Glow,Bubble,Charm,Return
+Dawn,Manaphy,Mars 1,17:08.67,0,6,17,1:07,1775231039.755,Tail Glow,Bubble,Charm,Return
+Dawn,Manaphy,Leader Gardenia,25:59.12,1,6,24,1:40,1775231570.208,Tail Glow,BubbleBeam,Charm,Return
+Dawn,Manaphy,Jupiter 1,27:30.60,1,6,24,1:46,1775231661.696,Tail Glow,BubbleBeam,Grass Knot,Return
+Dawn,Manaphy,Leader Fantina,32:22.62,1,6,27,2:06,1775231953.727,Tail Glow,BubbleBeam,Grass Knot,Return
+Dawn,Manaphy,Rival 3,33:06.74,1,6,28,2:08,1775231997.835,Tail Glow,BubbleBeam,Grass Knot,Return
+Dawn,Manaphy,Leader Maylene,38:34.61,2,6,30,2:29,1775232325.715,Tail Glow,BubbleBeam,Grass Knot,Return
+Dawn,Manaphy,Rival 4,42:42.90,2,6,32,2:45,1775232574.008,Tail Glow,BubbleBeam,Grass Knot,Blizzard
+Dawn,Manaphy,Leader Wake,45:11.60,2,6,34,2:55,1775232722.707,Tail Glow,BubbleBeam,Grass Knot,Blizzard
+Dawn,Manaphy,Cyrus 3,49:33.59,2,6,36,3:13,1775232984.707,Tail Glow,BubbleBeam,Grass Knot,Blizzard
+Dawn,Manaphy,Rival 5,51:30.81,2,6,37,3:20,1775233101.929,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Leader Byron,54:09.49,2,6,40,3:31,1775233260.611,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Saturn 1,57:33.59,2,7,41,3:45,1775233464.71,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Mars 2,58:54.25,2,7,42,3:50,1775233545.369,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Leader Candice,1:03:06.11,2,7,53,4:07,1775233797.231,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Cyrus 1,1:08:17.15,2,7,54,4:27,1775234108.278,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Saturn 2,1:08:51.02,2,7,54,4:30,1775234142.153,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Mars 3,1:12:54.98,2,7,55,4:46,1775234386.11,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Cyrus 2,1:17:46.45,3,7,56,5:03,1775234677.584,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Leader Volkner,1:22:20.04,3,7,59,5:21,1775234951.181,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Rival 6,1:31:00.63,3,8,62,5:56,1775235471.777,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Elite Four Aaron,1:31:43.74,3,8,63,5:58,1775235514.89,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Elite Four Bertha,1:32:19.44,3,8,64,6:01,1775235550.585,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Elite Four Flint,1:33:03.29,3,8,67,6:04,1775235594.437,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Elite Four Lucian,1:33:38.67,3,8,67,6:06,1775235629.817,Tail Glow,Surf,Grass Knot,Blizzard
+Dawn,Manaphy,Champion Cynthia,1:34:39.93,3,8,68,6:10,1775235691.081,Tail Glow,Surf,Grass Knot,Blizzard

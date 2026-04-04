@@ -3123,13 +3123,13 @@ img, span, div {
     opacity: .9;
     border: none;
 }
-.first-row td {
-    padding-top: 2px;
-}
 .movepoolDemo td,
 .movepoolDemo th {
     padding-top: 0;
     padding-bottom: 0;
+}
+.movepoolDemo .first-row td {
+    padding-top: 2px;
 }
 .movepoolBorder {
     z-index: 1;

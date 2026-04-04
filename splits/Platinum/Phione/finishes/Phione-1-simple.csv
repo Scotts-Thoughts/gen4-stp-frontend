@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Phione,Rival 1,1:30.84,0,0,5,0:04,1775237785.21,Bubble,Water Sport,,
+Dawn,Phione,Rival 2,6:38.16,0,0,7,0:25,1775238092.534,Bubble,Water Sport,Return,
+Dawn,Phione,Leader Roark,16:32.89,0,11,17,1:05,1775238687.278,Bubble,Supersonic,Return,Charm
+Dawn,Phione,Mars 1,21:12.68,0,11,19,1:23,1775238967.072,Bubble,Supersonic,Return,Charm
+Dawn,Phione,Leader Gardenia,30:35.67,0,14,25,2:01,1775239530.064,BubbleBeam,Supersonic,Return,Charm
+Dawn,Phione,Jupiter 1,32:51.20,0,14,26,2:10,1775239665.6,BubbleBeam,Supersonic,Return,Charm
+Dawn,Phione,Leader Fantina,42:04.57,4,14,32,2:39,1775240385.788,BubbleBeam,Substitute,Return,Charm
+Dawn,Phione,Rival 3,44:04.61,6,14,32,2:43,1775240505.83,BubbleBeam,Substitute,Return,Charm
+Dawn,Phione,Leader Maylene,51:01.51,6,14,37,3:11,1775240922.737,BubbleBeam,Substitute,Return,Charm
+Dawn,Phione,Rival 4,56:02.56,6,14,39,3:31,1775241223.786,BubbleBeam,Grass Knot,Return,Blizzard
+Dawn,Phione,Leader Wake,58:46.50,7,14,40,3:40,1775241387.729,BubbleBeam,Grass Knot,Return,Blizzard
+Dawn,Phione,Cyrus 3,1:03:40.20,7,14,42,3:59,1775241681.43,BubbleBeam,Grass Knot,Return,Blizzard
+Dawn,Phione,Rival 5,1:05:38.83,7,14,43,4:07,1775241800.067,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Leader Byron,1:07:54.41,7,14,45,4:16,1775241935.644,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Saturn 1,1:10:09.94,7,14,46,4:25,1775242071.184,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Mars 2,1:12:07.01,7,14,46,4:33,1775242188.248,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Leader Candice,1:16:56.90,8,14,55,4:50,1775242478.148,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Cyrus 1,1:21:48.45,8,14,56,5:09,1775242769.694,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Saturn 2,1:22:27.64,8,14,56,5:12,1775242808.89,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Mars 3,1:27:36.45,8,14,62,5:33,1775243117.699,Surf,Grass Knot,Return,Blizzard
+Dawn,Phione,Cyrus 2,1:34:18.71,14,14,62,5:49,1775243570.404,Surf,Swagger,Return,Psych Up
+Dawn,Phione,Leader Volkner,1:38:52.65,14,14,64,6:07,1775243844.35,Surf,Swagger,Return,Psych Up
+Dawn,Phione,Rival 6,1:46:44.36,15,14,70,6:37,1775244316.069,Swagger,Return,Psych Up,Waterfall
+Dawn,Phione,Elite Four Aaron,1:47:47.79,15,14,70,6:42,1775244379.497,Swagger,Return,Psych Up,Waterfall
+Dawn,Phione,Elite Four Bertha,1:48:37.03,15,14,71,6:45,1775244428.739,Swagger,Return,Psych Up,Waterfall
+Dawn,Phione,Elite Four Flint,1:49:24.01,15,14,71,6:48,1775244475.716,Swagger,Return,Psych Up,Waterfall
+Dawn,Phione,Elite Four Lucian,1:50:01.95,15,14,72,6:51,1775244513.663,Swagger,Return,Psych Up,Waterfall
+Dawn,Phione,Champion Cynthia,1:51:04.67,15,14,72,6:55,1775244576.38,Swagger,Return,Psych Up,Waterfall

@@ -5213,7 +5213,8 @@ const app = Vue.createApp({
             // The header row has a fixed line-height of 17px (from .movepool_header CSS), so subtract
             // that from the container and divide the remaining space among content rows only
             let headerLineHeight = 17;
-            let correctedLineHeight = (this.movepoolDefaultContainerHeight - headerLineHeight) / visibleMoveRows;
+            let firstRowPadding = 2;
+            let correctedLineHeight = (this.movepoolDefaultContainerHeight - headerLineHeight - firstRowPadding) / visibleMoveRows;
             let fontShrinkFactor = 0.77; // make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
             // This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
             let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor); 
