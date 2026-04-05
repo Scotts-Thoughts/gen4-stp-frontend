@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Lickitung,Rival 2,8:15.68,0,2,9,0:31,1775315921.37,Return,Supersonic,Lick,Defense Curl
+Dawn,Lickitung,Leader Roark,18:17.79,0,11,18,1:12,1775316523.491,Return,Knock Off,Rock Smash,Defense Curl
+Dawn,Lickitung,Mars 1,22:36.09,0,11,20,1:29,1775316781.794,Return,Knock Off,Rock Smash,Defense Curl
+Dawn,Lickitung,Leader Gardenia,33:17.46,0,17,28,2:12,1775317423.175,Return,Stomp,Rock Smash,Defense Curl
+Dawn,Lickitung,Jupiter 1,36:14.17,0,17,29,2:23,1775317599.881,Return,Stomp,Rock Smash,Defense Curl
+Dawn,Lickitung,Leader Fantina,42:31.32,0,17,30,2:49,1775317977.042,Return,Rock Tomb,Rock Smash,Thief
+Dawn,Lickilicky,Rival 3,43:39.81,0,17,33,2:53,1775318045.534,Return,Rollout,Rock Smash,Thief
+Dawn,Lickilicky,Leader Maylene,53:54.86,0,17,40,3:34,1775318660.594,Return,Thunder,Rock Smash,Fire Blast
+Dawn,Lickilicky,Rival 4,55:55.65,0,17,40,3:42,1775318781.38,Return,Thunder,Rock Smash,Fire Blast
+Dawn,Lickilicky,Leader Wake,57:55.33,0,17,42,3:50,1775318901.06,Return,Thunder,Rock Smash,Fire Blast
+Dawn,Lickilicky,Cyrus 3,1:02:10.90,1,17,44,4:06,1775319156.629,Return,Thunder,Rock Smash,Fire Blast
+Dawn,Lickilicky,Rival 5,1:06:24.39,2,17,45,4:21,1775319410.126,Return,Swords Dance,Fire Blast,Surf
+Dawn,Lickilicky,Leader Byron,1:08:31.95,2,17,47,4:30,1775319537.686,Return,Swords Dance,Fire Blast,Surf
+Dawn,Lickilicky,Saturn 1,1:11:15.30,2,17,48,4:41,1775319701.045,Return,Swords Dance,Fire Blast,Surf
+Dawn,Lickilicky,Mars 2,1:12:46.73,2,17,49,4:47,1775319792.474,Return,Swords Dance,Fire Blast,Surf
+Dawn,Lickilicky,Leader Candice,1:17:13.28,2,17,57,5:04,1775320059.025,Return,Swords Dance,Fire Blast,Surf
+Dawn,Lickilicky,Cyrus 1,1:22:14.77,2,17,58,5:25,1775320360.516,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Saturn 2,1:22:51.07,2,17,59,5:27,1775320396.824,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Mars 3,1:27:29.08,2,17,60,5:46,1775320674.834,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Cyrus 2,1:31:21.71,2,17,60,6:01,1775320907.468,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Leader Volkner,1:36:04.02,2,17,63,6:20,1775321189.783,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Rival 6,1:43:01.52,2,17,73,6:47,1775321607.282,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Elite Four Aaron,1:43:47.34,2,17,73,6:50,1775321653.108,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Elite Four Bertha,1:44:35.30,2,17,74,6:54,1775321701.061,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Elite Four Flint,1:45:27.43,2,17,75,6:57,1775321753.194,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Elite Four Lucian,1:46:20.99,2,17,75,7:01,1775321806.755,Return,Swords Dance,Fire Blast,Power Whip
+Dawn,Lickilicky,Champion Cynthia,1:47:36.69,2,17,76,7:06,1775321882.457,Return,Swords Dance,Rock Slide,Power Whip

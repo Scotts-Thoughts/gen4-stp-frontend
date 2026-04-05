@@ -1,29 +1,29 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Dawn,Chingling,Rival 1,1:34.51,0,0,5,0:04,1775169398.822,Wrap,,,
-Dawn,Chingling,Rival 2,10:27.19,0,0,10,0:40,1775169931.507,Return,Growl,Wrap,Astonish
-Dawn,Chingling,Leader Roark,15:15.40,0,0,15,0:59,1775170219.722,Confusion,Return,Wrap,Astonish
-Dawn,Chingling,Mars 1,25:59.45,3,0,23,1:38,1775170863.789,Confusion,Return,Uproar,Astonish
-Dawn,Chingling,Leader Gardenia,32:06.50,3,2,28,2:02,1775171236.763,Confusion,Return,Uproar,Astonish
-Dawn,Chimecho,Jupiter 1,47:57.10,5,2,35,3:02,1775172192.699,Confusion,Substitute,Uproar,Grass Knot
-Dawn,Chimecho,Leader Fantina,52:41.98,5,2,36,3:21,1775172477.585,Confusion,Substitute,Uproar,Grass Knot
-Dawn,Chimecho,Rival 3,53:40.40,5,2,36,3:25,1775172536.001,Confusion,Substitute,Uproar,Grass Knot
-Dawn,Chimecho,Leader Maylene,59:32.82,5,2,39,3:49,1775172888.431,Confusion,Substitute,Uproar,Grass Knot
-Dawn,Chimecho,Rival 4,1:04:26.25,5,2,41,4:08,1775173181.86,Confusion,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Leader Wake,1:06:32.90,5,2,48,4:17,1775173308.522,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Cyrus 3,1:11:08.37,5,3,50,4:35,1775173583.99,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Rival 5,1:13:18.96,5,3,51,4:44,1775173714.574,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Leader Byron,1:16:41.32,5,4,53,4:57,1775173916.941,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Saturn 1,1:19:21.68,5,4,55,5:08,1775174077.299,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Mars 2,1:21:05.84,5,4,55,5:15,1775174181.462,Extrasensory,Substitute,Shock Wave,Grass Knot
-Dawn,Chimecho,Leader Candice,1:27:26.70,6,4,65,5:38,1775174562.324,Extrasensory,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Cyrus 1,1:33:37.54,6,4,66,6:03,1775174933.17,Psychic,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Saturn 2,1:34:19.26,6,4,66,6:06,1775174974.894,Psychic,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Mars 3,1:40:21.87,7,4,68,6:27,1775175337.508,Psychic,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Cyrus 2,2:02:34.04,18,5,74,7:35,1775183863.358,Psychic,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Leader Volkner,2:07:28.78,18,5,76,7:55,1775184158.109,Psychic,Shadow Ball,Shock Wave,Grass Knot
-Dawn,Chimecho,Rival 6,2:14:13.67,18,5,79,8:22,1775184563.004,Psychic,Shadow Ball,Charge Beam,Grass Knot
-Dawn,Chimecho,Elite Four Aaron,2:15:50.67,18,6,85,8:28,1775184660.005,Psychic,Shadow Ball,Charge Beam,Grass Knot
-Dawn,Chimecho,Elite Four Bertha,2:16:37.44,18,6,85,8:31,1775184706.77,Psychic,Shadow Ball,Charge Beam,Grass Knot
-Dawn,Chimecho,Elite Four Flint,2:17:26.72,18,6,86,8:35,1775184756.06,Psychic,Shadow Ball,Charge Beam,Grass Knot
-Dawn,Chimecho,Elite Four Lucian,2:18:13.76,18,6,87,8:38,1775184803.098,Psychic,Shadow Ball,Charge Beam,Grass Knot
-Dawn,Chimecho,Champion Cynthia,2:19:22.43,18,6,87,8:42,1775184871.764,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chingling,Rival 1,1:34.51,0,0,5,0:04,1775279901.272,Wrap,,,
+Dawn,Chingling,Rival 2,10:27.18,0,0,10,0:40,1775280433.956,Return,Growl,Wrap,Astonish
+Dawn,Chingling,Leader Roark,15:15.39,0,0,15,0:59,1775280722.214,Confusion,Return,Wrap,Astonish
+Dawn,Chingling,Mars 1,25:59.45,3,0,23,1:38,1775281367.725,Confusion,Return,Uproar,Astonish
+Dawn,Chingling,Leader Gardenia,32:06.50,3,2,28,2:02,1775281735.376,Confusion,Return,Uproar,Astonish
+Dawn,Chimecho,Jupiter 1,47:57.08,5,2,35,3:02,1775282687.497,Confusion,Substitute,Uproar,Grass Knot
+Dawn,Chimecho,Leader Fantina,52:41.97,5,2,36,3:21,1775282974.86,Confusion,Substitute,Uproar,Grass Knot
+Dawn,Chimecho,Rival 3,53:40.39,5,2,36,3:25,1775283033.96,Confusion,Substitute,Uproar,Grass Knot
+Dawn,Chimecho,Leader Maylene,59:32.82,5,2,39,3:49,1775283392.454,Confusion,Substitute,Uproar,Grass Knot
+Dawn,Chimecho,Rival 4,1:04:26.24,5,2,41,4:08,1775283692.402,Confusion,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Leader Wake,1:06:32.91,5,2,48,4:17,1775283819.285,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Cyrus 3,1:11:08.36,5,3,50,4:35,1775284100.443,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Rival 5,1:13:18.96,5,3,51,4:44,1775284232.609,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Leader Byron,1:16:41.32,5,4,53,4:57,1775284436.231,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Saturn 1,1:19:21.68,5,4,55,5:08,1775284598.916,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Mars 2,1:21:05.84,5,4,55,5:15,1775284703.731,Extrasensory,Substitute,Shock Wave,Grass Knot
+Dawn,Chimecho,Leader Candice,1:27:26.70,6,4,65,5:38,1775285087.111,Extrasensory,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Cyrus 1,1:33:37.52,6,4,66,6:03,1775285461.67,Psychic,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Saturn 2,1:34:19.26,6,4,66,6:06,1775285503.402,Psychic,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Mars 3,1:40:21.86,7,4,68,6:27,1775285867.269,Psychic,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Cyrus 2,2:02:34.03,18,5,74,7:35,1775287239.203,Psychic,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Leader Volkner,2:07:28.78,18,5,76,7:55,1775287536.218,Psychic,Shadow Ball,Shock Wave,Grass Knot
+Dawn,Chimecho,Rival 6,2:14:13.67,18,5,79,8:22,1775287942.821,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chimecho,Elite Four Aaron,2:15:50.67,18,6,85,8:28,1775288039.818,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chimecho,Elite Four Bertha,2:16:37.43,18,6,85,8:31,1775288086.835,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chimecho,Elite Four Flint,2:17:26.72,18,6,86,8:35,1775288136.128,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chimecho,Elite Four Lucian,2:18:13.76,18,6,87,8:38,1775288183.342,Psychic,Shadow Ball,Charge Beam,Grass Knot
+Dawn,Chimecho,Champion Cynthia,2:19:22.42,18,6,87,8:42,1775288252.216,Psychic,Shadow Ball,Charge Beam,Grass Knot

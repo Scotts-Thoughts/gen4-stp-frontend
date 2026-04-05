@@ -1,0 +1,31 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Finneon,Rival 1,1:33.06,0,0,5,0:04,1775343125.656,Pound,,,
+Dawn,Finneon,Rival 2,12:10.48,0,1,10,0:47,1775343763.094,Water Gun,Pound,Return,Attract
+Dawn,Finneon,Leader Roark,21:08.69,0,15,17,1:23,1775344301.308,Water Gun,Gust,Return,Attract
+Dawn,Finneon,Mars 1,28:49.10,5,15,19,1:44,1775344761.728,Water Gun,Gust,Return,Attract
+Dawn,Finneon,Leader Gardenia,44:54.52,5,28,27,2:49,1775345727.154,Water Pulse,Gust,Return,Attract
+Dawn,Finneon,Jupiter 1,47:34.20,5,28,28,3:00,1775345886.839,Water Pulse,Gust,Return,Attract
+Dawn,Lumineon,Leader Fantina,54:37.80,6,28,33,3:26,1775346310.447,Water Pulse,Gust,Return,Substitute
+Dawn,Lumineon,Rival 3,55:35.65,6,28,33,3:29,1775346368.297,Water Pulse,Gust,Return,Substitute
+Dawn,Lumineon,Leader Maylene,1:03:09.74,6,28,40,4:00,1775349460.821,Water Pulse,Gust,Return,Substitute
+Dawn,Lumineon,Rival 4,1:05:53.75,8,28,40,4:08,1775349624.829,Water Pulse,Gust,Return,Substitute
+Dawn,Lumineon,Leader Wake,1:09:34.71,9,28,43,4:20,1775349845.795,Water Pulse,Blizzard,Return,Substitute
+Dawn,Lumineon,Cyrus 3,1:14:44.30,9,28,45,4:41,1775350155.392,Water Pulse,Blizzard,Return,Rain Dance
+Dawn,Lumineon,Rival 5,1:16:36.93,9,28,46,4:48,1775350268.019,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Leader Byron,1:18:53.36,9,28,49,4:57,1775350404.453,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Saturn 1,1:21:23.42,9,28,50,5:07,1775352705.979,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Mars 2,1:22:51.60,9,28,51,5:13,1775352794.167,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Leader Candice,1:27:50.93,10,28,58,5:31,1775353093.493,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Cyrus 1,1:31:56.58,10,28,59,5:47,1775353339.149,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Saturn 2,1:32:33.01,10,28,60,5:50,1775353375.582,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Mars 3,1:37:00.72,10,28,64,6:07,1775353643.288,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Cyrus 2,1:41:58.62,11,28,65,6:24,1775353941.2,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Leader Volkner,1:46:42.95,11,28,68,6:43,1775354225.527,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Rival 6,1:53:59.12,11,28,73,7:12,1775354661.703,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Elite Four Aaron,1:54:56.15,11,28,74,7:16,1775354718.734,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Elite Four Aaron,1:56:03.27,12,28,74,7:16,1775354785.855,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Elite Four Bertha,1:56:47.09,12,28,75,7:19,1775354829.681,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Elite Four Flint,1:57:20.94,12,28,76,7:21,1775354863.529,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Elite Four Lucian,1:59:02.02,13,28,77,7:26,1775354964.611,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Champion Cynthia,2:04:45.95,20,28,80,7:31,1775355308.545,Surf,Rain Dance,Blizzard,Return
+Dawn,Lumineon,Hall of Fame,2:04:45.96,20,28,81,7:33,1775355329.975,Surf,Rain Dance,Blizzard,Return
