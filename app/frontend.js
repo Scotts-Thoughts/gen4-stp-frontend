@@ -2817,9 +2817,10 @@ const app = Vue.createApp({
                 case 927: return 'Jupiter 3'
                 case 408: return 'Saturn 1'
                 case 409: return 'Saturn 2'
-                case 403: return 'Cyrus 1'
-                case 404: return 'Cyrus 2'
-                case 913: return 'Cyrus 3'
+                // Chronological Platinum: Celestic (913) → HQ (403) → Distortion World (404)
+                case 913: return 'Cyrus 1'
+                case 403: return 'Cyrus 2'
+                case 404: return 'Cyrus 3'
                 default : return trainer_name
             }
         },
