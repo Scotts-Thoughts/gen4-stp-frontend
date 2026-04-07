@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Cranidos,Rival 1,1:21.19,0,0,5,0:04,1775489532.411,Headbutt,Leer,,
+Dawn,Cranidos,Rival 2,6:05.22,0,0,6,0:23,1775489816.442,Headbutt,Leer,Focus Energy,
+Dawn,Cranidos,Leader Roark,18:09.52,0,10,16,1:11,1775490540.749,Headbutt,Take Down,Pursuit,Rock Smash
+Dawn,Cranidos,Mars 1,23:07.90,0,10,18,1:31,1775490839.135,Headbutt,Take Down,Rock Tomb,Rock Smash
+Dawn,Cranidos,Leader Gardenia,34:59.59,0,19,27,2:19,1775491550.832,Headbutt,Take Down,Rock Tomb,Rock Smash
+Dawn,Cranidos,Jupiter 1,37:45.03,0,19,27,2:30,1775491716.281,Headbutt,Take Down,Rock Tomb,Rock Smash
+Dawn,Rampardos,Leader Fantina,45:14.92,0,19,30,3:00,1775492166.174,Headbutt,Earthquake,Rock Tomb,Rock Smash
+Dawn,Rampardos,Rival 3,46:29.94,1,19,30,3:03,1775492241.195,Headbutt,Earthquake,Rock Tomb,Rock Smash
+Dawn,Rampardos,Leader Maylene,51:52.04,2,19,37,3:23,1775492563.301,Headbutt,Earthquake,Rock Tomb,Rock Smash
+Dawn,Rampardos,Rival 4,56:58.52,2,19,38,3:43,1775492869.778,Headbutt,Earthquake,Rock Tomb,Rock Smash
+Dawn,Rampardos,Leader Wake,59:31.99,2,19,43,3:53,1775493023.252,Swords Dance,Earthquake,Rock Tomb,Rock Smash
+Dawn,Rampardos,Cyrus 1,1:03:47.21,2,19,45,4:10,1775493278.481,Swords Dance,Earthquake,Return,Rock Smash
+Dawn,Rampardos,Rival 5,1:06:09.69,3,19,46,4:17,1775493420.96,Swords Dance,Earthquake,Return,
+Dawn,Rampardos,Leader Byron,1:08:20.61,3,19,49,4:26,1775493551.881,Swords Dance,Earthquake,Return,
+Dawn,Rampardos,Saturn 1,1:12:23.14,3,19,50,4:42,1775493794.415,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Mars 2,1:14:08.87,4,19,51,4:48,1775493900.146,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Leader Candice,1:17:46.32,4,19,52,5:02,1775494117.6,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Cyrus 2,1:21:41.53,4,19,54,5:18,1775494352.812,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Saturn 2,1:22:25.30,4,19,55,5:21,1775494396.585,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Mars 3,1:27:34.62,4,19,64,5:42,1775494705.903,Swords Dance,Earthquake,Return,Rock Polish
+Dawn,Rampardos,Cyrus 3,1:31:47.45,4,19,65,5:58,1775494958.736,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Leader Volkner,1:36:40.77,4,19,68,6:18,1775495252.063,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Rival 6,1:44:43.21,6,19,73,6:46,1775495734.515,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Elite Four Aaron,1:45:30.23,6,19,74,6:49,1775495781.527,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Elite Four Bertha,1:46:12.72,6,19,75,6:51,1775495824.019,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Elite Four Flint,1:46:46.94,6,19,76,6:54,1775495858.243,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Elite Four Lucian,1:47:44.81,6,19,77,6:58,1775495916.114,Swords Dance,Earthquake,Rock Slide,Rock Polish
+Dawn,Rampardos,Champion Cynthia,1:48:45.96,6,19,81,7:02,1775495977.259,Swords Dance,Earthquake,Rock Slide,Rock Polish

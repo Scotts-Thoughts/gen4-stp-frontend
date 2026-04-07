@@ -23122,7 +23122,7 @@ const pokedex_plat = {
         "egg_group_2": "Bug",
         "abilities": [
             "Speed Boost",
-            "Compoundeyes"
+            "Compound Eyes"
         ],
         "level_up_learnset": [
             [1, "Tackle"],

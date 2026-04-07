@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Munchlax,Rival 1,1:23.08,0,0,5,0:04,1775467382.638,Metronome,Odor Sleuth,Tackle,Defense Curl
+Dawn,Munchlax,Rival 2,8:23.47,0,1,9,0:32,1775467803.114,Return,Odor Sleuth,Amnesia,Defense Curl
+Dawn,Munchlax,Leader Roark,17:20.90,0,9,16,1:08,1775468340.594,Return,Rock Smash,Amnesia,Lick
+Dawn,Munchlax,Mars 1,23:09.84,0,9,19,1:31,1775468691.722,Return,Rock Smash,Amnesia,Rock Tomb
+Dawn,Munchlax,Leader Gardenia,31:37.09,0,9,25,2:05,1775469200.181,Return,Rock Smash,Stockpile,Rock Tomb
+Dawn,Munchlax,Jupiter 1,33:57.92,0,9,26,2:14,1775469341.691,Return,Rock Smash,Stockpile,Rock Tomb
+Dawn,Munchlax,Leader Fantina,49:59.77,3,10,33,3:14,1775470308.317,Return,Rock Smash,Substitute,Rock Tomb
+Dawn,Munchlax,Rival 3,51:19.50,3,10,33,3:18,1775470388.968,Return,Rock Smash,Substitute,Rock Tomb
+Dawn,Snorlax,Leader Maylene,1:00:46.52,3,10,36,3:55,1775470963.156,Return,Rock Smash,Fire Blast,Rock Tomb
+Dawn,Snorlax,Rival 4,1:04:38.39,5,10,37,4:08,1775471198.007,Return,Rock Smash,Fire Blast,Thunder
+Dawn,Snorlax,Leader Wake,1:07:46.05,7,10,40,4:19,1775471385.841,Return,Rock Smash,Fire Blast,Thunder
+Dawn,Snorlax,Cyrus 1,1:11:35.80,7,10,41,4:34,1775471618.607,Return,Rock Smash,Fire Blast,Thunder
+Dawn,Snorlax,Rival 5,1:16:52.42,10,10,48,4:47,1775471937.634,Return,Fire Blast,Crunch,Belly Drum
+Dawn,Snorlax,Leader Byron,1:20:52.86,12,10,49,4:57,1775472179.601,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Saturn 1,1:23:17.80,12,10,50,5:07,1775472326.436,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Mars 2,1:24:38.59,12,10,50,5:12,1775472407.806,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Leader Candice,1:30:29.28,13,10,56,5:33,1775472761.741,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Cyrus 2,1:35:04.40,13,10,57,5:51,1775473039.009,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Saturn 2,1:35:53.75,13,10,57,5:55,1775473088.631,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Mars 3,1:40:54.96,13,10,58,6:15,1775473391.651,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Cyrus 3,1:47:36.46,19,10,63,6:34,1775473815.732,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Leader Volkner,1:52:30.06,19,10,64,6:53,1775474110.936,Return,Earthquake,Crunch,Belly Drum
+Dawn,Snorlax,Rival 6,2:02:46.36,22,10,67,7:28,1775474732.702,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Elite Four Aaron,2:04:04.01,22,10,68,7:33,1775474810.548,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Elite Four Bertha,2:05:22.86,22,10,72,7:38,1775474889.598,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Elite Four Flint,2:06:11.59,22,10,72,7:42,1775474938.582,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Elite Four Lucian,2:07:09.43,22,10,73,7:45,1775474996.612,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Champion Cynthia,2:11:08.96,25,10,73,7:53,1775475236.748,Return,Earthquake,Rest,Belly Drum
+Dawn,Snorlax,Hall of Fame,2:11:08.97,25,10,74,7:54,1775475257.994,Return,Earthquake,Rest,Belly Drum

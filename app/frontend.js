@@ -3298,7 +3298,7 @@ const app = Vue.createApp({
         get_stat() {
             const logging = false
             const state = this.mapper.properties.meta.state.value
-            const held_item = this.mapper.properties.player.team[0].held_item.value
+            const held_item = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.held_item.value : this.mapper.properties.player.team[0].held_item.value
             var ability = this.pkmn_ability
             var status_condition = this.mapper.properties.player.team[0].status_condition.value
 
@@ -3476,6 +3476,9 @@ const app = Vue.createApp({
                     if (type_1 == "Rock" || type_2 == "Rock") {
                         battle_spd = Math.floor(battle_spd * 1.5)
                     }
+                }
+                if (held_item == 'Choice Specs') {
+                    battle_spa = choice_specs(battle_spa)
                 }
                 return {
                     "Hp" : battle_hp,
@@ -5391,10 +5394,11 @@ const app = Vue.createApp({
             const state = this.mapper.properties.meta.state.value
             // Compare player's active pokemon speed with enemy pokemon speed
             // Use getStat to get player speed with modifiers applied
-            const playerSpeed = this.getStat('speed') || 0
+            const playerSpeed = this.get_stat().Spe || 0
             const enemySpeed = enemySpeedValue || 0
             
-            let comparison
+
+            let comparison = ""
             if (playerSpeed > enemySpeed) {
                 comparison = "Outspeeds"
             } else if (playerSpeed == enemySpeed) {
@@ -5403,6 +5407,9 @@ const app = Vue.createApp({
                 comparison = "Underspeeds"
             }
             
+            console.log(slotIndex, playerSpeed, enemySpeed, comparison)
+
+
             return { comparison }
         },
         svgColorClass(comparison, enemyPkmnData) {
@@ -7079,6 +7086,9 @@ const app = Vue.createApp({
             }
             if (enemy_pokemon_data?.ability.value == 'Motor Drive' && attackingType == 'Electric') {
                 ability = 0
+            }
+            if (enemy_pokemon_data?.ability.value == 'Thick Fat' && (attackingType == 'Ice' || attackingType == 'Fire')) {
+                ability = 0.5
             }
             var recklessMoves = [
                 "Axe Kick",
