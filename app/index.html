@@ -205,6 +205,10 @@
                                 <td>SpD:</td><td style="padding-left: 5px;">{{mapper.properties.player.team[0].evs.special_defense}}</td>
                                 <td v-show="mapper.properties.meta.state.value != 'Battle'" style="text-align: right; opacity: .7;">(+{{calculate_ev_benefit('special_defense')}})</td>
                             </tr>
+                            <tr>
+                                <td>Total:</td>
+                                <td style="padding-left: 5px;">{{get_effort_values()}}</td>
+                            </tr>
                         </table>
                     </div>
                     <div v-if="debugging_mode == true && editor == false && show_advanced_settings">

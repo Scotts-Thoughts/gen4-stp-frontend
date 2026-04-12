@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Rhyhorn,Rival 2,6:10.57,0,0,7,0:23,1776021355.248,Horn Attack,Tail Whip,,
+Dawn,Rhyhorn,Leader Roark,12:28.19,0,4,13,0:48,1776021732.872,Rock Smash,Tail Whip,Stomp,Horn Attack
+Dawn,Rhyhorn,Mars 1,17:13.80,0,4,17,1:07,1776022018.482,Rock Smash,Rock Tomb,Stomp,Tail Whip
+Dawn,Rhyhorn,Leader Gardenia,56:51.78,2,21,34,3:43,1776024403.828,Return,Rock Tomb,Rock Smash,Rock Blast
+Dawn,Rhyhorn,Jupiter 1,58:43.91,2,21,35,3:50,1776024515.964,Return,Rock Tomb,Rock Smash,Rock Blast
+Dawn,Rhyhorn,Leader Fantina,1:04:42.34,3,21,35,4:13,1776024874.395,Return,Substitute,Rock Smash,Rock Blast
+Dawn,Rhyhorn,Rival 3,1:07:52.39,5,24,36,4:22,1776025064.443,Return,Substitute,Rock Smash,Rock Blast
+Dawn,Rhyhorn,Leader Maylene,1:14:22.49,6,24,38,4:46,1776025454.562,Return,Substitute,Rock Smash,Earthquake
+Dawn,Rhydon,Rival 4,1:22:15.04,8,24,48,5:14,1776025927.113,Stone Edge,Thunder,Rock Smash,Earthquake
+Dawn,Rhydon,Leader Wake,1:25:19.96,11,24,49,5:22,1776026112.03,Stone Edge,Thunder,Rock Smash,Earthquake
+Dawn,Rhydon,Cyrus 1,1:30:36.82,11,24,50,5:43,1776026428.891,Stone Edge,Thunder,Rock Smash,Earthquake
+Dawn,Rhydon,Rival 5,1:33:51.74,12,24,50,5:54,1776026650.744,Stone Edge,Thunder,Earthquake,Blizzard
+Dawn,Rhyperior,Leader Byron,1:36:46.31,12,24,52,6:06,1776026833.258,Stone Edge,Fire Blast,Earthquake,Blizzard
+Dawn,Rhyperior,Saturn 1,1:38:52.24,12,24,52,6:14,1776026959.186,Stone Edge,Fire Blast,Earthquake,Blizzard
+Dawn,Rhyperior,Mars 2,1:40:18.10,12,24,53,6:20,1776027045.045,Stone Edge,Fire Blast,Earthquake,Blizzard
+Dawn,Rhyperior,Leader Candice,1:44:14.44,12,24,54,6:36,1776027281.391,Stone Edge,Fire Blast,Earthquake,Rock Polish
+Dawn,Rhyperior,Cyrus 2,1:49:26.33,12,24,61,6:57,1776027715.691,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Saturn 2,1:50:04.91,12,24,61,6:59,1776027754.265,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Mars 3,1:54:21.47,12,24,62,7:16,1776028010.833,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Cyrus 3,1:58:16.84,12,24,63,7:32,1776028246.204,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Leader Volkner,2:02:49.97,12,24,65,7:50,1776028519.34,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Rival 6,2:09:39.00,13,24,67,8:16,1776028955.501,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Elite Four Aaron,2:10:31.41,13,24,68,8:19,1776029007.905,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Elite Four Bertha,2:11:33.34,13,24,72,8:23,1776029069.837,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Elite Four Flint,2:12:22.51,13,24,72,8:26,1776029119.003,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Elite Four Lucian,2:13:12.44,13,24,73,8:30,1776029168.937,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Champion Cynthia,2:14:10.11,13,24,73,8:34,1776029226.605,Stone Edge,Swords Dance,Earthquake,Rock Polish
+Dawn,Rhyperior,Hall of Fame,2:14:10.11,13,24,74,8:35,1776029247.805,Stone Edge,Swords Dance,Earthquake,Rock Polish

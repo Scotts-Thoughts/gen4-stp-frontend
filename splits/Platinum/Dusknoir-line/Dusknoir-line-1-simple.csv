@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Duskull,Rival 1,1:24.76,0,0,5,0:04,1775933576.592,Leer,Night Shade,,
+Dawn,Duskull,Rival 2,8:38.99,0,0,10,0:33,1775934010.82,Leer,Night Shade,Return,Disable
+Dawn,Duskull,Leader Roark,18:05.97,0,6,19,1:11,1775934577.812,Confuse Ray,Night Shade,Return,Disable
+Dawn,Duskull,Mars 1,24:45.80,0,6,23,1:37,1775934977.648,Return,Shadow Sneak,Confuse Ray,Disable
+Dawn,Duskull,Leader Gardenia,39:40.95,1,13,31,2:35,1775935872.811,Return,Shadow Sneak,Confuse Ray,Disable
+Dawn,Duskull,Jupiter 1,46:01.43,5,13,33,2:53,1775936253.291,Return,Shadow Sneak,Taunt,Disable
+Dawn,Duskull,Leader Fantina,51:37.14,5,13,35,3:15,1775936589.001,Return,Shadow Sneak,Substitute,Disable
+Dawn,Dusclops,Rival 3,53:07.70,5,13,37,3:21,1775936679.562,Shadow Punch,Shadow Sneak,Substitute,Return
+Dawn,Dusclops,Leader Maylene,1:01:43.24,5,13,41,3:56,1775937234.901,Shadow Punch,ThunderPunch,Ice Punch,Return
+Dawn,Dusclops,Rival 4,1:03:49.22,5,13,42,4:04,1775937360.888,Shadow Punch,ThunderPunch,Ice Punch,Return
+Dawn,Dusclops,Leader Wake,1:07:09.04,6,13,49,4:16,1775937560.704,Shadow Punch,ThunderPunch,Ice Punch,Return
+Dawn,Dusclops,Cyrus 1,1:12:11.97,6,13,51,4:36,1775937863.644,Shadow Punch,ThunderPunch,Ice Punch,Return
+Dawn,Dusclops,Rival 5,1:15:59.16,7,13,52,4:48,1775938090.84,Shadow Punch,ThunderPunch,Ice Punch,Return
+Dawn,Dusclops,Leader Byron,1:19:13.27,7,13,54,5:01,1775938284.951,Shadow Punch,Brick Break,Ice Punch,Return
+Dawn,Dusclops,Saturn 1,1:22:04.13,7,13,55,5:13,1775938595.199,Shadow Punch,Brick Break,Ice Punch,Return
+Dawn,Dusclops,Mars 2,1:24:55.84,9,13,56,5:20,1775938766.918,Shadow Punch,Brick Break,Ice Punch,Return
+Dawn,Dusclops,Leader Candice,1:29:35.57,9,13,57,5:39,1775939046.643,Shadow Punch,Brick Break,Ice Punch,Return
+Dawn,Dusknoir,Cyrus 2,1:34:49.28,9,13,59,6:00,1775939360.361,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Saturn 2,1:35:36.02,9,13,59,6:03,1775939407.097,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Mars 3,1:40:26.95,9,13,61,6:22,1775939698.031,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Cyrus 3,1:44:37.46,9,13,69,6:39,1775939948.553,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Leader Volkner,1:49:16.56,9,13,71,6:57,1775940227.652,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Rival 6,1:56:21.34,9,13,77,7:26,1775940652.442,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Elite Four Aaron,1:57:12.16,9,13,77,7:29,1775940703.252,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Elite Four Bertha,1:58:36.69,10,13,78,7:32,1775940787.784,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Elite Four Flint,1:59:28.63,10,13,79,7:36,1775940839.729,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Elite Four Lucian,2:00:13.74,10,13,80,7:39,1775940884.841,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Champion Cynthia,2:01:17.62,10,13,80,7:43,1775940948.717,Shadow Punch,Brick Break,Swagger,Psych Up
+Dawn,Dusknoir,Hall of Fame,2:01:17.63,10,13,81,7:44,1775940970.008,Shadow Punch,Brick Break,Swagger,Psych Up

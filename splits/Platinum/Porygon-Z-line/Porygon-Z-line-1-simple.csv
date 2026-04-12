@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Porygon,Rival 1,1:24.85,0,0,5,0:04,1775956287.031,Conversion 2,Tackle,Conversion,Sharpen
+Dawn,Porygon,Rival 2,6:35.73,0,0,8,0:25,1775956597.922,Psybeam,Tackle,Conversion 2,Sharpen
+Dawn,Porygon,Leader Roark,11:16.96,0,4,15,0:43,1775956879.142,Psybeam,Tackle,Agility,Sharpen
+Dawn,Porygon,Mars 1,15:42.25,0,4,18,1:01,1775957144.435,Psybeam,Recover,Agility,Sharpen
+Dawn,Porygon,Leader Gardenia,21:10.14,1,4,22,1:22,1775957472.331,Psybeam,Recover,Return,Sharpen
+Dawn,Porygon2,Jupiter 1,23:40.61,1,4,24,1:32,1775957652.441,Psybeam,Recover,Return,Sharpen
+Dawn,Porygon2,Leader Fantina,29:26.82,2,4,25,1:50,1775957998.653,Psybeam,Recover,Return,Substitute
+Dawn,Porygon2,Rival 3,30:37.57,3,4,26,1:54,1775958069.404,Psybeam,Recover,Return,Substitute
+Dawn,Porygon2,Leader Maylene,47:16.34,7,4,42,2:52,1775959068.191,Psybeam,Recover,Discharge,Signal Beam
+Dawn,Porygon2,Rival 4,49:27.15,7,4,42,3:01,1775959198.996,Psybeam,Recover,Discharge,Signal Beam
+Dawn,Porygon2,Leader Wake,51:49.76,7,4,45,3:11,1775959341.617,Psybeam,Recover,Discharge,Signal Beam
+Dawn,Porygon2,Cyrus 1,56:03.23,7,4,46,3:28,1775959595.102,Psybeam,Recover,Discharge,Signal Beam
+Dawn,Porygon2,Rival 5,57:54.68,7,4,47,3:35,1775959706.537,Psybeam,Recover,Discharge,Signal Beam
+Dawn,Porygon2,Leader Byron,1:02:21.76,7,4,49,3:53,1775959994.921,SolarBeam,Recover,Discharge,Sunny Day
+Dawn,Porygon2,Saturn 1,1:04:47.45,7,4,50,4:03,1775960140.613,SolarBeam,Recover,Discharge,Sunny Day
+Dawn,Porygon2,Mars 2,1:06:19.36,7,4,51,4:09,1775960232.523,Tri Attack,Recover,Discharge,Sunny Day
+Dawn,Porygon2,Leader Candice,1:12:01.32,9,4,52,4:26,1775960574.487,Tri Attack,Recover,Discharge,Shadow Ball
+Dawn,Porygon-Z,Cyrus 2,1:16:32.76,9,4,54,4:44,1775960854.978,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Saturn 2,1:17:17.91,9,4,54,4:47,1775960900.122,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Mars 3,1:21:47.39,9,4,63,5:05,1775961169.605,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Cyrus 3,1:25:38.88,9,4,63,5:21,1775961401.103,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Leader Volkner,1:30:14.44,9,4,65,5:39,1775961676.659,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Rival 6,1:37:00.29,10,4,69,6:04,1775962082.519,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Elite Four Aaron,1:37:46.20,10,4,70,6:07,1775962128.424,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Elite Four Bertha,1:38:34.15,10,4,70,6:10,1775962176.391,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Elite Four Flint,1:39:21.41,10,4,71,6:14,1775962223.647,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Elite Four Lucian,1:40:07.99,10,4,74,6:17,1775962270.228,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Champion Cynthia,1:41:07.07,10,4,74,6:21,1775962329.31,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
+Dawn,Porygon-Z,Hall of Fame,1:41:07.08,10,4,75,6:22,1775962350.528,Tri Attack,Nasty Plot,Thunderbolt,Shadow Ball
