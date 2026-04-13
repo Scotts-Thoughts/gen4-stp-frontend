@@ -3445,9 +3445,6 @@ const app = Vue.createApp({
                 SpA = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                 SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
                 SpE = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
-                if (status_condition == 'Paralyzed') {
-                    SpE = Math.floor(SpE / 4)
-                }
                 if (ability == 'Slow Start' && turn_count < 5) {
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
@@ -5436,7 +5433,7 @@ const app = Vue.createApp({
             var mod_ability = 1
             var mod_weather = 1
 
-            if (pkmnData.status1.value == "Paralyzed" && statLabel == "speed") { status_paralysis = .25 } // sets modifier for paralysis if the Pokemon is paralyzed
+            if (pkmnData.status1.value == "Paralyzed" && statLabel == "speed") { status_paralysis = .25 } // DPP/HGSS: paralyzed Speed is 25% of normal
             if (pkmnData.status1.value == "Burned" && statLabel == "attack")   { status_burn = .25 }      // sets modifier for burn if the Pokemon is burned
 
             //ABILITIES
