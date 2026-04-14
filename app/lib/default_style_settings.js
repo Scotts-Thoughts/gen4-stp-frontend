@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-04-14T02:37:07.330Z
+ * Last updated: 2026-04-14T02:54:10.560Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -581433,7 +581433,7 @@ const DEFAULT_STYLE_SETTINGS = {
         ]
     },
     "Platinum_Ambipom-line": {
-        "pkmn_ability": "Run Away"
+        "pkmn_ability": "Technician"
     },
     "Platinum_Ambipom-line-Ambipom": {
         "imageFlip": true,
@@ -581458,7 +581458,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": 100,
         "playerResets": 0,
         "finished_run_count": 1,
-        "blackout_counter": 0
+        "blackout_counter": 0,
+        "attempt_number": 1
     },
     "Platinum_Ambipom-line-Aipom": {
         "overlay_color": "#9d78af",
@@ -581486,7 +581487,7 @@ const DEFAULT_STYLE_SETTINGS = {
         "playerResets": 1
     },
     "Platinum_Ambipom": {
-        "attempt_number": 0,
+        "attempt_number": 1,
         "finished_run_count": 0,
         "playerResets": 1,
         "blackout_counter": 8,

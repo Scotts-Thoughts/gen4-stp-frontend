@@ -2111,6 +2111,8 @@ const app = Vue.createApp({
             switch (state) {
                 case "Battle":
                     return this.mapper.properties.battle.player.active_pokemon.held_item.value
+                case "From Battle":
+                    return this.mapper.properties.battle.player.active_pokemon.held_item.value
                 default:
                     return this.mapper.properties.player.team[0].held_item.value
             }
