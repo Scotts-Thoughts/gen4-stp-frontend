@@ -5406,7 +5406,7 @@ const app = Vue.createApp({
                 comparison = "Underspeeds"
             }
             
-            console.log(slotIndex, playerSpeed, enemySpeed, comparison)
+            // console.log(slotIndex, playerSpeed, enemySpeed, comparison)
 
 
             return { comparison }
