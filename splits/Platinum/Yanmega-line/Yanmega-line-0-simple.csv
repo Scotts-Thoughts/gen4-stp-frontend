@@ -1,3 +1,32 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
 Dawn,Yanma,Rival 6,1:41:44.94,14,27,70,6:43,1775533196.561,Bug Buzz,Roost,Air Slash,AncientPower
 Dawn,Yanma,Elite Four Aaron,1:42:28.10,14,27,70,6:46,1775533239.721,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanma,Rival 1,1:22.51,0,0,5,0:04,1776509072.26,Tackle,Foresight,,
+Dawn,Yanma,Rival 2,8:07.00,0,0,10,0:31,1776509476.759,Tackle,Foresight,Return,Quick Attack
+Dawn,Yanma,Leader Roark,16:50.50,0,3,17,1:06,1776510000.475,SonicBoom,Return,Detect,Quick Attack
+Dawn,Yanma,Mars 1,21:31.46,0,3,19,1:25,1776510281.824,Return,SonicBoom,Detect,Quick Attack
+Dawn,Yanma,Leader Gardenia,28:46.05,0,5,24,1:54,1776510716.506,Return,SonicBoom,Detect,Supersonic
+Dawn,Yanma,Jupiter 1,31:32.95,0,5,27,2:05,1776510883.683,Return,Uproar,Detect,Supersonic
+Dawn,Yanmega,Leader Fantina,43:50.28,0,6,33,2:54,1776511622.794,Return,Substitute,Thief,AncientPower
+Dawn,Yanmega,Rival 3,44:42.39,0,6,34,2:57,1776511675.084,Return,Substitute,Thief,AncientPower
+Dawn,Yanmega,Leader Maylene,54:33.82,0,6,39,3:37,1776512268.589,Return,Substitute,Aerial Ace,AncientPower
+Dawn,Yanmega,Rival 4,57:59.25,0,6,41,3:50,1776512474.921,Return,Substitute,Aerial Ace,AncientPower
+Dawn,Yanmega,Leader Wake,1:01:00.00,1,6,43,4:01,1776512655.731,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Cyrus 1,1:05:06.13,1,6,45,4:17,1776512902.041,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Rival 5,1:06:56.53,1,6,50,4:24,1776513012.476,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Leader Byron,1:09:21.58,1,6,52,4:34,1776513157.588,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Saturn 1,1:11:46.01,1,6,52,4:44,1776513302.344,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Mars 2,1:13:34.36,1,6,53,4:51,1776513410.798,Silver Wind,Roost,Aerial Ace,AncientPower
+Dawn,Yanmega,Leader Candice,1:17:38.09,1,6,54,5:07,1776513654.715,Silver Wind,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Cyrus 2,1:21:26.75,1,6,57,5:22,1776513883.902,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Saturn 2,1:22:09.11,1,6,57,5:25,1776513926.287,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Mars 3,1:26:47.02,1,6,58,5:44,1776514204.424,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Cyrus 3,1:30:41.54,1,6,59,5:59,1776514443.119,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Leader Volkner,1:35:17.38,1,6,66,6:17,1776514719.013,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Rival 6,1:41:44.94,1,6,70,6:43,1776515107.008,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Elite Four Aaron,1:42:28.10,1,6,70,6:46,1776515150.168,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Elite Four Bertha,1:43:14.64,1,6,73,6:49,1776515196.755,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Elite Four Flint,1:44:37.52,2,6,73,6:52,1776515279.672,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Elite Four Lucian,1:45:38.81,3,6,74,6:55,1776515341.015,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Champion Cynthia,1:47:57.82,5,6,75,7:02,1776515480.153,Bug Buzz,Roost,Air Slash,AncientPower
+Dawn,Yanmega,Hall of Fame,1:47:57.83,5,6,75,7:04,1776515501.695,Bug Buzz,Roost,Air Slash,AncientPower

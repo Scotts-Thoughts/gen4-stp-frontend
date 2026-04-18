@@ -821,12 +821,12 @@ const app = Vue.createApp({
                 "24": "Quirky",
             },
             stat_object:     [
-                {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",  base_stat_path: "base_hp",      object_identifier: "hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
-                {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", path: "attack",          mod_path: "Attack",         mod_abrv: "atk", base_stat_path: "base_atk",     object_identifier: "atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
-                {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", path: "defense",         mod_path: "Defense",        mod_abrv: "def", base_stat_path: "base_def",     object_identifier: "def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
-                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", object_identifier: "spc_atk", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 4,}, 
-                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", object_identifier: "spc_def", dv: "dvSpecial", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 4,}, 
-                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     object_identifier: "spd",     dv: "dvSpeed",   hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 4,}, 
+                {abrv: "Hp",  name: "Hp",              name_stat_exp: "Hp",      label: "HP",   vitamin: "HP Up",   path: "hp",              mod_path: "Hp",             mod_abrv: "hp",  base_stat_path: "base_hp",      object_identifier: "hp",      dv: "dvHp",      hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 1, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 2,}, 
+                {abrv: "Atk", name: "Attack",          name_stat_exp: "Attack",  label: "Atk.", vitamin: "Protein", path: "attack",          mod_path: "Attack",         mod_abrv: "atk", base_stat_path: "base_atk",     object_identifier: "atk",     dv: "dvAttack",  hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 1, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 2,}, 
+                {abrv: "Def", name: "Defense",         name_stat_exp: "Defense", label: "Def.", vitamin: "Iron",    path: "defense",         mod_path: "Defense",        mod_abrv: "def", base_stat_path: "base_def",     object_identifier: "def",     dv: "dvDefense", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 1, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 2,}, 
+                {abrv: "SpA", name: "Special Attack",  name_stat_exp: "Special", label: "SpA.", vitamin: "Calcium", path: "special_attack",  mod_path: "SpecialAttack",  mod_abrv: "spA", base_stat_path: "base_spc_atk", object_identifier: "spc_atk", dv: "dvSpecial", hp_spe_label_row: 2, hp_spd_label_row: 2, label_column: 3, hp_spe_value_row: 2, hp_spd_value_row: 2, value_column: 4,}, 
+                {abrv: "SpD", name: "Special Defense", name_stat_exp: "Special", label: "SpD.", vitamin: "Calcium", path: "special_defense", mod_path: "SpecialDefense", mod_abrv: "spD", base_stat_path: "base_spc_def", object_identifier: "spc_def", dv: "dvSpecial", hp_spe_label_row: 3, hp_spd_label_row: 3, label_column: 3, hp_spe_value_row: 3, hp_spd_value_row: 3, value_column: 4,}, 
+                {abrv: "Spe", name: "Speed",           name_stat_exp: "Speed",   label: "Spe.", vitamin: "Carbos",  path: "speed",           mod_path: "Speed",          mod_abrv: "spe", base_stat_path: "base_spd",     object_identifier: "spd",     dv: "dvSpeed",   hp_spe_label_row: 1, hp_spd_label_row: 1, label_column: 3, hp_spe_value_row: 1, hp_spd_value_row: 1, value_column: 4,}, 
             ],
 
             //VARIABLES THAT TRACK IN GAME PROGRESS ------------------------------------------------------------//
@@ -1558,7 +1558,7 @@ const app = Vue.createApp({
             if (isHGSS && this.split_type === "First") {
                 const default_string = "-"
                 const currentSplits = Array.isArray(this.current_splits) ? this.current_splits : []
-                
+
                 // Default list of trainers in order for HGSS
                 const hgssDefaultTrainers = [
                     { displayName: "Falkner", originalTrainer: "Leader Falkner" },
@@ -1574,39 +1574,39 @@ const app = Vue.createApp({
                     { displayName: "Lance 2", originalTrainer: "Champion Lance" },
                     { displayName: "Red", originalTrainer: "Pokemon Trainer Red" }
                 ]
-                
+
                 const result = []
-                let lanceIndex = 0 // Track which Lance occurrence we're on
-                
-                for (const trainerInfo of hgssDefaultTrainers) {
-                    // Find matching split in current_splits
-                    let currentTime = default_string
-                    
-                    if (trainerInfo.originalTrainer === "Champion Lance") {
-                        // For Lance, find the Nth occurrence
-                        const lanceSplits = currentSplits.filter(s => s.trainer === "Champion Lance")
-                        if (lanceIndex < lanceSplits.length) {
-                            currentTime = lanceSplits[lanceIndex].time || default_string
-                            lanceIndex++
-                        }
-                    } else {
-                        // For other trainers, find by exact name match
-                        const matchingSplit = currentSplits.find(s => s.trainer === trainerInfo.originalTrainer)
-                        if (matchingSplit) {
-                            currentTime = matchingSplit.time || default_string
+                const completedIndices = new Set()
+
+                // Add completed splits first, in the order they were completed
+                for (const cur_split of currentSplits) {
+                    for (let i = 0; i < hgssDefaultTrainers.length; i++) {
+                        if (completedIndices.has(i)) continue
+                        if (hgssDefaultTrainers[i].originalTrainer === cur_split.trainer) {
+                            completedIndices.add(i)
+                            let currentTime = cur_split.time || default_string
+                            if (currentTime !== default_string && currentTime.includes('.')) {
+                                currentTime = currentTime.split('.')[0]
+                            }
+                            result.push({
+                                trainer: hgssDefaultTrainers[i].displayName,
+                                original_trainer: hgssDefaultTrainers[i].originalTrainer,
+                                current_time: currentTime
+                            })
+                            break
                         }
                     }
-                    
-                    // Truncate milliseconds from time display (format: "M:SS.XX" -> "M:SS")
-                    if (currentTime !== default_string && currentTime.includes('.')) {
-                        currentTime = currentTime.split('.')[0]
+                }
+
+                // Add remaining uncompleted splits in default order
+                for (let i = 0; i < hgssDefaultTrainers.length; i++) {
+                    if (!completedIndices.has(i)) {
+                        result.push({
+                            trainer: hgssDefaultTrainers[i].displayName,
+                            original_trainer: hgssDefaultTrainers[i].originalTrainer,
+                            current_time: default_string
+                        })
                     }
-                    
-                    result.push({
-                        trainer: trainerInfo.displayName,
-                        original_trainer: trainerInfo.originalTrainer,
-                        current_time: currentTime
-                    })
                 }
                 return result
             }
@@ -1655,12 +1655,51 @@ const app = Vue.createApp({
                 if (debugging_mode == true) { console.log("lastPushedTrainer:", lastPushedTrainer) } 
 
                 const trainersToSkip = ["ELITE_FOUR_LORELEI_2", "ELITE_FOUR_BRUNO_2"]; // Trainers to skip
-                
+
+                // First mode: use default order, no CSV needed (DPPt path — HGSS already returned above)
+                if (this.split_type === 'First') {
+                    if (!this.game || !Array.isArray(this.game.splits)) {
+                        return result
+                    }
+                    const default_string = "-"
+                    const currentSplits = Array.isArray(this.current_splits) ? this.current_splits : []
+                    const completedTrainers = new Set()
+
+                    // Add completed splits first, in the order they were completed
+                    for (const cur_split of currentSplits) {
+                        if (!this.game.splits.includes(cur_split.trainer) || !shouldDisplayTrainer(cur_split.trainer)) continue
+                        if (completedTrainers.has(cur_split.trainer)) continue
+
+                        const displayName = this.format_display_name(cur_split.trainer, 1)
+                        if (displayName === null) continue
+
+                        let currentTime = cur_split.time || default_string
+                        if (currentTime !== default_string && currentTime.includes('.')) {
+                            currentTime = currentTime.split('.')[0]
+                        }
+
+                        result.push({trainer: displayName, original_trainer: cur_split.trainer, current_time: currentTime})
+                        completedTrainers.add(cur_split.trainer)
+                    }
+
+                    // Add remaining uncompleted splits in default order
+                    for (const trainer of this.game.splits) {
+                        if (!shouldDisplayTrainer(trainer) || trainersToSkip.includes(trainer)) continue
+                        if (completedTrainers.has(trainer)) continue
+
+                        const displayName = this.format_display_name(trainer, 1)
+                        if (displayName === null) continue
+
+                        result.push({trainer: displayName, original_trainer: trainer, current_time: default_string})
+                    }
+                    return result
+                }
+
                 // Track occurrences for Rival, Cyrus, and Lance
                 const rivalCount = { count: 0 }
                 const cyrusCount = { count: 0 }
                 const lanceCount = { count: 0 }
-                
+
                 // If no previous splits are loaded, return default list from game.splits but populate times from current_splits
                 if (!this.previous_splits || this.previous_splits.length === 0) {
                     if (!this.game || !Array.isArray(this.game.splits)) {
@@ -2023,6 +2062,7 @@ const app = Vue.createApp({
                     case "IVs":          return `IVs`
                     case "Hidden Power": return `Hidden Power ${this.hpType}`
                     case "EVs":          return `EVs`
+                    case "Vitamins":     return `Vitamins`
                     case "Detailed EVs": {
                         let ev_hp  = this.mapper.properties.player.team[0].evs.hp.value
                         let ev_atk = this.mapper.properties.player.team[0].evs.attack.value
@@ -2541,6 +2581,16 @@ const app = Vue.createApp({
     },
 
     methods: { 
+        vitamins_remaining(evs, label) { //statExp = mapper.properties.player.team[0].statExpAttack.value
+            vitaminsUsed = (evs / 10)
+            usableVitamins = Math.ceil(10 - vitaminsUsed)
+            if (usableVitamins < 0) {
+                return 0
+            }
+            else {
+                return usableVitamins
+            }
+        },
         /**
          * Send an OBS WebSocket 5 "CreateRecordChapter" request (Add Chapter Marker).
          * Connects to ws://localhost:4455 (or MyStorage.obs_websocket_url), identifies,
@@ -7238,7 +7288,22 @@ const app = Vue.createApp({
     mounted: async function () {
         const that = this
         this.mapper = new GameHookMapperClient()
-        this.mapper.onMapperLoaded = (x) => this.ready = true
+        this.mapper.onMapperLoaded = (x) => {
+            this.ready = true
+            this.$nextTick(() => {
+                if (this.$refs.expBar) {
+                    const species = this.mapper.properties.player.team[0].species.value ?? this.starter;
+                    const expPoints = (this.mapper.properties.meta.state.value == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.exp.value :
+                        this.mapper.properties.player.team[0].exp.value) ?? 0;
+                    const growthRate = this.g4PokemonData[species]?.growth_rate;
+                    if (growthRate == null) { return; }
+                    const expStats = this.calcExpStats(growthRate, expPoints);
+                    this.$refs.expBar.style.width = (expStats.percent * 100) + "%";
+                    this.expBarState.species = species;
+                    this.expBarState.expPoints = expPoints;
+                }
+            })
+        }
         this.mapper.onMapperUnloaded = (x) => this.ready = false
         this.mapper._debouceTimeout = 10
         // this.mapper.deboucePath("battle.player.active_pokemon.modifiers")
@@ -7435,6 +7500,13 @@ const app = Vue.createApp({
         // Encounters
         this.mapper.properties.overworld.map_name.change(async (newProp) => {
             this.freezeEncounters();
+
+            if (newProp.value == 'Veilstone Store - Map 1' || newProp.value == 'Veilstone Store - Map 2' || newProp.value == 'Veilstone Store - Map 3' || newProp.value == 'Veilstone Store - Map 4' || newProp.value == 'Veilstone Store - Map 5' || newProp.value == 'Veilstone Store - Map 6' || newProp.value == 'Veilstone Store - Map 7') {
+                this.stats_setting = "Vitamins";
+            }
+            else {
+                this.stats_setting = "Automatic";
+            }
         });
 
         // Resets
