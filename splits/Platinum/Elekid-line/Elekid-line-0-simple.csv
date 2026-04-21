@@ -1,0 +1,9 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Electabuzz,Leader Gardenia,35:36.28,0,16,30,2:21,1776589304.579,ThunderPunch,Light Screen,Return,Swift
+Dawn,Electabuzz,Jupiter 1,37:12.11,0,16,30,2:27,1776589400.61,ThunderPunch,Light Screen,Return,Swift
+Dawn,Electabuzz,Leader Fantina,41:36.09,0,16,32,2:45,1776589664.974,ThunderPunch,Light Screen,Return,Swift
+Dawn,Electabuzz,Rival 3,42:44.83,0,16,33,2:49,1776589733.844,ThunderPunch,Light Screen,Return,Swift
+Dawn,Electabuzz,Leader Maylene,48:44.64,0,16,38,3:13,1776590094.133,ThunderPunch,Light Screen,Return,Discharge
+Dawn,Electabuzz,Rival 4,53:20.25,0,16,40,3:32,1776590370.536,ThunderPunch,Light Screen,Return,Discharge
+Dawn,Electabuzz,Leader Wake,55:48.63,0,16,43,3:42,1776590518.96,Thunderbolt,Hyper Beam,Return,Discharge
+Dawn,Electabuzz,Cyrus 1,1:00:24.56,0,16,45,4:00,1776590794.982,Thunderbolt,Low Kick,Return,Discharge

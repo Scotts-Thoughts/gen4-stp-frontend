@@ -1,0 +1,24 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Elekid,Rival 1,1:32.05,0,0,5,0:04,1776587259.898,Quick Attack,Leer,,
+Dawn,Elekid,Rival 2,6:59.25,0,0,8,0:26,1776587587.104,ThunderShock,Quick Attack,Return,Leer
+Dawn,Elekid,Leader Roark,15:43.47,0,7,17,1:01,1776588111.33,Low Kick,ThunderShock,Return,Swift
+Dawn,Elekid,Mars 1,20:00.99,0,7,19,1:18,1776588369.058,Low Kick,Shock Wave,Return,Swift
+Dawn,Electivire,Rival 5,1:05:04.17,0,16,46,4:19,1776591074.779,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Leader Byron,1:07:01.07,0,16,48,4:27,1776591191.721,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Saturn 1,1:09:15.30,0,16,49,4:36,1776591326.301,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Mars 2,1:10:33.71,0,16,50,4:41,1776591404.914,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Leader Candice,1:14:00.26,0,16,51,4:55,1776591611.549,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Cyrus 2,1:18:32.76,0,16,53,5:13,1776591884.399,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Saturn 2,1:19:09.13,0,16,54,5:15,1776591920.764,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Mars 3,1:23:12.75,0,16,55,5:32,1776592164.433,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Cyrus 3,1:27:57.22,0,16,57,5:50,1776592454.74,Thunderbolt,Low Kick,Flamethrower,Discharge
+Dawn,Electivire,Leader Volkner,1:34:36.79,0,16,70,6:17,1776592855.073,Thunderbolt,Dig,Flamethrower,Ice Punch
+Dawn,Electivire,Rival 6,1:40:40.62,0,16,73,6:41,1776593219.192,Thunderbolt,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Aaron,1:41:34.31,0,16,76,6:45,1776593272.883,Thunderbolt,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Aaron,1:44:57.70,3,17,76,6:52,1776593476.467,Focus Blast,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Aaron,1:46:19.24,3,18,78,6:57,1776593558.012,Focus Blast,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Bertha,1:47:35.78,4,18,78,7:00,1776593634.596,Focus Blast,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Flint,1:48:35.82,4,18,79,7:04,1776593694.737,Thunderbolt,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Elite Four Lucian,1:49:25.63,4,18,79,7:08,1776593744.624,Thunderbolt,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Champion Cynthia,1:50:22.12,4,18,80,7:11,1776593801.175,Thunderbolt,Charge Beam,Flamethrower,Ice Punch
+Dawn,Electivire,Hall of Fame,1:50:22.13,4,18,81,7:13,1776593822.565,Thunderbolt,Charge Beam,Flamethrower,Ice Punch

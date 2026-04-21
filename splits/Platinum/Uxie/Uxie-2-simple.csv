@@ -1,0 +1,4 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Uxie,Rival 1,1:21.92,0,0,5,0:04,1776543442.114,Rest,Confusion,,
+Dawn,Uxie,Rival 2,5:33.29,0,0,7,0:20,1776543693.487,Confusion,Rest,Return,Imprison
+Dawn,Uxie,Leader Roark,10:36.69,0,3,13,0:41,1776543996.888,Confusion,Rest,Return,Imprison

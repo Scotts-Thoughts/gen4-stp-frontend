@@ -1,0 +1,116 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Azelf,Rival 1,1:20.31,0,0,5,0:04,1775423334.918,Rest,Confusion,,
+Dawn,Azelf,Rival 2,5:45.95,0,0,7,0:21,1775423600.56,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Leader Roark,8:14.57,0,0,10,0:31,1775423749.182,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Mars 1,15:08.46,2,0,16,0:56,1775424180.869,Confusion,Rest,Return,Detect
+Dawn,Azelf,Leader Gardenia,19:49.08,3,0,20,1:12,1775424461.489,Confusion,Rest,Return,Detect
+Dawn,Azelf,Jupiter 1,23:15.90,6,0,21,1:21,1775424668.311,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Fantina,35:57.62,10,2,30,2:06,1775425462.195,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Rival 3,36:51.65,10,2,30,2:09,1775425516.221,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Maylene,42:32.64,10,2,33,2:32,1775425857.218,Confusion,Shock Wave,Return,Substitute
+Dawn,Azelf,Rival 4,46:29.69,10,2,34,2:48,1775426094.271,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Leader Wake,48:41.66,10,2,37,2:56,1775426226.243,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Cyrus 1,53:10.45,10,2,39,3:14,1775426495.04,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Rival 5,56:18.89,10,2,46,3:27,1775426683.479,Confusion,Shock Wave,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Byron,58:34.81,10,2,48,3:36,1775426819.4,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 1,1:00:50.18,10,2,48,3:45,1775426954.775,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 2,1:02:19.07,10,2,49,3:51,1775427043.669,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Candice,1:06:12.61,10,2,51,4:07,1775427277.213,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Cyrus 2,1:10:07.67,10,2,52,4:22,1775427512.27,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 2,1:10:45.95,10,2,53,4:25,1775427550.551,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 3,1:18:26.42,10,3,58,4:56,1775428011.03,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Cyrus 3,1:22:21.14,10,3,59,5:11,1775428245.752,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Leader Volkner,1:26:44.41,10,3,61,5:29,1775428509.026,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 6,1:34:24.58,11,4,64,5:58,1775428969.203,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Aaron,1:35:11.52,11,4,64,6:01,1775429016.146,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Bertha,1:35:52.73,11,4,65,6:04,1775429057.347,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Flint,1:36:36.63,11,4,66,6:07,1775429101.249,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Lucian,1:37:26.03,11,4,69,6:10,1775429150.655,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Champion Cynthia,1:38:26.20,11,4,69,6:14,1775429210.821,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Hall of Fame,1:38:26.21,11,4,70,6:16,1775429232.153,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 1,1:20.31,0,0,5,0:04,1775461366.656,Rest,Confusion,,
+Dawn,Azelf,Rival 2,5:45.94,0,0,7,0:21,1775461632.412,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Leader Roark,8:14.57,0,0,10,0:31,1775461781.043,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Mars 1,15:08.46,2,0,16,0:56,1775462196.494,Confusion,Rest,Return,Detect
+Dawn,Azelf,Leader Gardenia,19:49.08,3,0,20,1:12,1775462477.502,Confusion,Rest,Return,Detect
+Dawn,Azelf,Jupiter 1,23:15.90,6,0,21,1:21,1775462684.602,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Fantina,35:57.62,10,2,30,2:06,1775463449.865,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Rival 3,36:51.65,10,2,30,2:09,1775463504.421,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Maylene,42:32.64,10,2,33,2:32,1775463850.106,Confusion,Shock Wave,Return,Substitute
+Dawn,Azelf,Rival 4,46:29.69,10,2,34,2:48,1775464091.884,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Leader Wake,48:41.65,10,2,37,2:56,1775464223.999,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Cyrus 1,53:10.44,10,2,39,3:14,1775464494.962,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Rival 5,56:18.88,10,2,46,3:27,1775464683.893,Confusion,Shock Wave,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Byron,58:34.80,10,2,48,3:36,1775464820.01,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 1,1:00:50.18,10,2,48,3:45,1775464956.566,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 2,1:02:19.08,10,2,49,3:51,1775465045.921,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Candice,1:06:12.61,10,2,51,4:07,1775465280.425,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Cyrus 2,1:10:07.67,10,2,52,4:22,1775465517.951,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 2,1:10:45.94,10,2,53,4:25,1775465556.463,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 3,1:18:26.42,10,3,58,4:56,1775466020.443,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Cyrus 3,1:22:21.14,10,3,59,5:11,1775466275.529,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Leader Volkner,1:26:44.41,10,3,61,5:29,1775466541.414,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 6,1:34:24.58,11,4,64,5:58,1775467004.138,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Aaron,1:35:11.52,11,4,64,6:01,1775467051.272,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Bertha,1:35:52.73,11,4,65,6:04,1775467092.477,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Flint,1:36:36.63,11,4,66,6:07,1775467136.379,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Lucian,1:37:26.02,11,4,69,6:10,1775467185.994,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Champion Cynthia,1:38:26.21,11,4,69,6:14,1775467246.438,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Hall of Fame,1:38:26.21,11,4,70,6:16,1775467267.763,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 1,1:20.31,0,0,5,0:04,1776050830.757,Rest,Confusion,,
+Dawn,Azelf,Rival 2,5:45.95,0,0,7,0:21,1776051096.408,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Leader Roark,8:14.57,0,0,10,0:31,1776051245.03,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Mars 1,15:08.46,2,0,16,0:56,1776051659.638,Confusion,Rest,Return,Detect
+Dawn,Azelf,Leader Gardenia,19:49.09,3,0,20,1:12,1776051940.436,Confusion,Rest,Return,Detect
+Dawn,Azelf,Jupiter 1,23:15.91,6,0,21,1:21,1776052147.399,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Fantina,35:57.62,11,2,30,2:06,1776052911.312,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Rival 3,36:51.64,11,2,30,2:09,1776052965.732,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Maylene,42:32.64,11,2,33,2:32,1776053309.445,Confusion,Shock Wave,Return,Substitute
+Dawn,Azelf,Rival 4,46:29.69,11,2,34,2:48,1776053549.84,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Leader Wake,48:41.66,11,2,37,2:56,1776053681.967,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Cyrus 1,53:10.45,11,2,39,3:14,1776053951.221,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Rival 5,56:18.88,11,2,46,3:27,1776054139.959,Confusion,Shock Wave,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Byron,58:34.81,11,2,48,3:36,1776054276.047,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 1,1:00:50.18,11,2,48,3:45,1776054412.342,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 2,1:02:19.08,11,2,49,3:51,1776054501.547,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Candice,1:06:12.62,11,2,51,4:07,1776054735.841,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Cyrus 2,1:10:07.67,11,2,52,4:22,1776054972.711,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 2,1:10:45.96,11,2,53,4:25,1776055011.146,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 3,1:18:26.42,11,3,58,4:56,1776055473.607,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Cyrus 3,1:22:21.14,11,3,59,5:11,1776055725.006,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Leader Volkner,1:26:44.41,11,3,61,5:29,1776055989.692,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 6,1:34:24.57,11,4,64,5:58,1776056451.452,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Aaron,1:35:11.52,11,4,64,6:01,1776056498.578,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Bertha,1:35:52.73,11,4,65,6:04,1776056539.776,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Flint,1:36:36.62,11,4,66,6:07,1776056583.678,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Lucian,1:37:26.03,11,4,69,6:10,1776056633.256,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Champion Cynthia,1:38:26.20,11,4,69,6:14,1776056693.586,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Hall of Fame,1:38:26.21,11,4,70,6:16,1776056714.919,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 1,1:20.30,0,0,5,0:04,1776659362.687,Rest,Confusion,,
+Dawn,Azelf,Rival 2,5:45.94,0,0,7,0:21,1776659628.33,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Leader Roark,8:14.57,0,0,10,0:31,1776659776.954,Confusion,Rest,Return,Imprison
+Dawn,Azelf,Mars 1,15:08.46,2,0,16,0:56,1776660191.315,Confusion,Rest,Return,Detect
+Dawn,Azelf,Leader Gardenia,19:49.08,3,0,20,1:12,1776660471.988,Confusion,Rest,Return,Detect
+Dawn,Azelf,Jupiter 1,23:15.90,6,0,21,1:21,1776660678.862,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Fantina,35:57.62,10,2,30,2:06,1776661441.048,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Rival 3,36:51.63,10,2,30,2:09,1776661495.186,Confusion,Rest,Return,Substitute
+Dawn,Azelf,Leader Maylene,42:32.64,10,2,33,2:32,1776661836.587,Confusion,Shock Wave,Return,Substitute
+Dawn,Azelf,Rival 4,46:29.69,10,2,34,2:48,1776662074.628,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Leader Wake,48:41.66,10,2,37,2:56,1776662206.65,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Cyrus 1,53:10.46,10,2,39,3:14,1776662475.519,Confusion,Shock Wave,Return,Grass Knot
+Dawn,Azelf,Rival 5,56:18.88,10,2,46,3:27,1776662664.017,Confusion,Shock Wave,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Byron,58:34.80,10,2,48,3:36,1776662800.031,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 1,1:00:50.17,10,2,48,3:45,1776662935.732,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 2,1:02:19.07,10,2,49,3:51,1776663024.71,Confusion,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Leader Candice,1:06:12.61,10,2,51,4:07,1776663258.365,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Cyrus 2,1:10:07.67,10,2,52,4:22,1776663493.527,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Saturn 2,1:10:45.95,10,2,53,4:25,1776663531.854,Extrasensory,Fire Blast,Nasty Plot,Grass Knot
+Dawn,Azelf,Mars 3,1:18:26.42,10,3,58,4:56,1776663992.386,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Cyrus 3,1:22:21.14,10,3,59,5:11,1776664232.154,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Leader Volkner,1:26:44.42,10,3,61,5:29,1776664495.586,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Rival 6,1:34:24.58,11,4,64,5:58,1776664956.066,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Aaron,1:35:11.52,11,4,64,6:01,1776665003.057,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Bertha,1:35:52.73,11,4,65,6:04,1776665044.255,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Flint,1:36:36.62,11,4,66,6:07,1776665088.159,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Elite Four Lucian,1:37:26.03,11,4,69,6:10,1776665137.622,Psychic,Fire Blast,Nasty Plot,Thunderbolt
+Dawn,Azelf,Champion Cynthia,1:38:26.20,11,4,69,6:14,1776665197.854,Psychic,Fire Blast,Nasty Plot,Thunderbolt

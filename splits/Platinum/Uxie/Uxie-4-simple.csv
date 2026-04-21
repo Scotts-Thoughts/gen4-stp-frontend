@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Uxie,Rival 1,1:20.17,0,0,5,0:04,1776671837.768,Rest,Confusion,,
+Dawn,Uxie,Rival 2,6:00.43,0,0,7,0:22,1776672118.032,Confusion,Rest,Return,Imprison
+Dawn,Uxie,Leader Roark,10:34.10,0,2,13,0:41,1776672391.712,Confusion,Rest,Return,Imprison
+Dawn,Uxie,Mars 1,14:29.88,0,2,16,0:56,1776672627.827,Confusion,Rest,Return,Imprison
+Dawn,Uxie,Leader Gardenia,20:34.07,0,2,22,1:21,1776672992.019,Confusion,Rest,Return,Swift
+Dawn,Uxie,Jupiter 1,23:24.34,1,2,23,1:30,1776673162.572,Confusion,Rest,Return,Substitute
+Dawn,Uxie,Leader Fantina,39:41.20,9,4,31,2:14,1776674140.114,Confusion,Rest,Yawn,Substitute
+Dawn,Uxie,Rival 3,40:28.84,9,4,31,2:17,1776674187.753,Confusion,Rest,Yawn,Substitute
+Dawn,Uxie,Leader Maylene,46:55.85,9,4,33,2:43,1776674575.311,Confusion,Rest,Grass Knot,Substitute
+Dawn,Uxie,Rival 4,51:15.09,9,4,35,3:00,1776674835.345,Confusion,Thunder,Grass Knot,Substitute
+Dawn,Uxie,Leader Wake,53:49.25,9,4,38,3:10,1776674989.592,Confusion,Thunder,Grass Knot,Substitute
+Dawn,Uxie,Cyrus 1,59:03.22,9,4,40,3:31,1776675303.846,Confusion,Thunder,Grass Knot,Substitute
+Dawn,Uxie,Rival 5,1:02:32.20,9,4,47,3:45,1776675512.912,Confusion,Thunderbolt,Grass Knot,Substitute
+Dawn,Uxie,Leader Byron,1:05:32.29,9,4,48,3:57,1776675693.299,Confusion,Thunderbolt,Grass Knot,Substitute
+Dawn,Uxie,Saturn 1,1:07:53.36,9,4,49,4:07,1776675834.819,Confusion,Thunderbolt,Grass Knot,Substitute
+Dawn,Uxie,Mars 2,1:09:31.16,9,4,50,4:13,1776675932.678,Confusion,Thunderbolt,Grass Knot,Substitute
+Dawn,Uxie,Leader Candice,1:14:40.89,10,4,51,4:31,1776676242.602,Extrasensory,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Cyrus 2,1:18:42.77,10,4,52,4:48,1776676484.621,Extrasensory,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Saturn 2,1:19:22.17,10,4,53,4:50,1776676524.082,Extrasensory,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Mars 3,1:24:45.87,10,4,54,5:12,1776676847.877,Psychic,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Cyrus 3,1:30:07.27,12,4,60,5:28,1776677175.427,Psychic,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Leader Volkner,1:36:05.20,12,5,62,5:52,1776677533.485,Psychic,Thunderbolt,Grass Knot,Shadow Ball
+Dawn,Uxie,Rival 6,1:43:07.42,12,5,65,6:20,1776677956.142,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Elite Four Aaron,1:44:02.29,12,5,65,6:24,1776678011.085,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Elite Four Bertha,1:45:00.73,12,5,66,6:28,1776678069.581,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Elite Four Flint,1:46:23.47,13,5,69,6:32,1776678152.372,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Elite Four Lucian,1:47:18.19,13,5,69,6:35,1776678207.18,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Champion Cynthia,1:49:47.96,15,5,70,6:41,1776678357.073,Psychic,Thunderbolt,Grass Knot,Charge Beam
+Dawn,Uxie,Hall of Fame,1:49:47.97,15,5,71,6:43,1776678378.429,Psychic,Thunderbolt,Grass Knot,Charge Beam

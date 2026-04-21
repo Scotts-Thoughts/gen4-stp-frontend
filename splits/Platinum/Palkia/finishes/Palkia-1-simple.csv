@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Palkia,Rival 1,1:18.93,0,0,5,0:04,1776709378.299,DragonBreath,Scary Face,,
+Dawn,Palkia,Rival 2,5:18.39,0,0,7,0:20,1776709617.765,DragonBreath,Scary Face,,
+Dawn,Palkia,Leader Roark,7:45.57,0,0,10,0:29,1776709764.946,DragonBreath,Scary Face,Water Pulse,
+Dawn,Palkia,Mars 1,10:56.19,0,0,13,0:42,1776709955.576,DragonBreath,Scary Face,Water Pulse,
+Dawn,Palkia,Leader Gardenia,16:38.75,0,0,21,1:05,1776710298.133,DragonBreath,Scary Face,Water Pulse,AncientPower
+Dawn,Palkia,Jupiter 1,17:49.99,0,0,22,1:10,1776710369.381,DragonBreath,Scary Face,Water Pulse,AncientPower
+Dawn,Palkia,Leader Fantina,24:50.58,5,0,23,1:27,1776710789.985,DragonBreath,Scary Face,Water Pulse,AncientPower
+Dawn,Palkia,Rival 3,25:39.60,5,0,24,1:30,1776710838.995,DragonBreath,Scary Face,Water Pulse,AncientPower
+Dawn,Palkia,Leader Maylene,31:21.97,6,0,27,1:51,1776711181.365,DragonBreath,Fire Blast,Water Pulse,AncientPower
+Dawn,Palkia,Rival 4,35:06.97,6,0,29,2:06,1776711406.368,DragonBreath,Fire Blast,Water Pulse,AncientPower
+Dawn,Palkia,Leader Wake,37:22.12,6,0,32,2:15,1776711541.522,DragonBreath,Fire Blast,Thunder,AncientPower
+Dawn,Palkia,Cyrus 1,42:00.61,6,0,35,2:34,1776711820.013,DragonBreath,Fire Blast,Aerial Ace,AncientPower
+Dawn,Palkia,Rival 5,45:49.88,6,0,36,2:49,1776712049.285,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Leader Byron,47:43.21,6,0,39,2:57,1776712162.624,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Saturn 1,50:28.45,6,0,40,3:08,1776712327.867,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Mars 2,51:54.18,6,0,41,3:13,1776712413.59,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Leader Candice,55:28.08,6,0,50,3:28,1776712627.495,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Cyrus 2,59:12.07,6,0,52,3:43,1776712851.492,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Saturn 2,59:48.33,6,0,52,3:45,1776712887.749,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Mars 3,1:03:32.66,6,0,57,4:00,1776713112.081,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Cyrus 3,1:07:20.10,6,0,58,4:15,1776713339.525,DragonBreath,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Leader Volkner,1:11:31.85,6,0,60,4:32,1776713591.273,Earth Power,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Rival 6,1:17:58.99,6,0,63,4:58,1776714127.414,Earth Power,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Elite Four Aaron,1:18:37.14,6,0,64,5:00,1776714165.564,Earth Power,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Elite Four Bertha,1:19:13.54,6,0,64,5:02,1776714201.97,Earth Power,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Elite Four Flint,1:19:48.83,6,0,65,5:05,1776714237.257,Earth Power,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Elite Four Lucian,1:20:53.29,6,0,66,5:09,1776714301.715,Dragon Pulse,Flamethrower,Surf,Thunderbolt
+Dawn,Palkia,Champion Cynthia,1:22:41.57,7,0,69,5:14,1776714409.997,Dragon Pulse,Flamethrower,Surf,Thunderbolt

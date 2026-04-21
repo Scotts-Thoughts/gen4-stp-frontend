@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Mesprit,Rival 1,1:23.43,0,0,5,0:04,1776665336.189,Rest,Confusion,,
+Dawn,Mesprit,Rival 2,5:39.21,0,0,7,0:21,1776665591.967,Confusion,Rest,Return,Imprison
+Dawn,Mesprit,Leader Roark,13:10.56,0,6,15,0:51,1776666043.321,Confusion,Rest,Return,Imprison
+Dawn,Mesprit,Mars 1,17:44.24,0,6,18,1:09,1776666317.44,Confusion,Rest,Return,Protect
+Dawn,Mesprit,Leader Gardenia,23:41.78,0,8,22,1:33,1776666674.982,Confusion,Rest,Return,Swift
+Dawn,Mesprit,Jupiter 1,25:55.56,1,8,23,1:40,1776666809.202,Confusion,Rest,Return,Swift
+Dawn,Mesprit,Leader Fantina,37:45.56,4,9,27,2:20,1776667519.95,Confusion,Rest,Return,Substitute
+Dawn,Mesprit,Rival 3,38:46.32,4,9,27,2:24,1776667580.97,Confusion,Rest,Return,Substitute
+Dawn,Mesprit,Leader Maylene,44:45.21,4,9,30,2:48,1776667940.461,Confusion,Rest,Return,Substitute
+Dawn,Mesprit,Rival 4,49:59.36,4,9,33,3:09,1776668255.802,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Leader Wake,52:47.90,5,9,36,3:19,1776668424.427,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Cyrus 1,58:17.36,5,9,38,3:41,1776668754.058,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Rival 5,1:01:10.44,5,9,48,3:52,1776668927.221,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Leader Byron,1:05:00.81,8,9,49,4:03,1776669157.767,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Saturn 1,1:07:15.74,8,9,50,4:12,1776669293.163,Confusion,Grass Knot,Blizzard,Thunder
+Dawn,Mesprit,Mars 2,1:08:49.05,8,9,50,4:18,1776669386.558,Confusion,Grass Knot,Blizzard,Thunderbolt
+Dawn,Mesprit,Leader Candice,1:14:09.13,10,9,55,4:35,1776669707.041,Extrasensory,Grass Knot,Shadow Ball,Thunderbolt
+Dawn,Mesprit,Cyrus 2,1:18:57.58,10,9,56,4:55,1776669995.712,Psychic,Thunderbolt,Shadow Ball,Grass Knot
+Dawn,Mesprit,Saturn 2,1:19:39.51,10,9,56,4:57,1776670037.721,Psychic,Thunderbolt,Shadow Ball,Grass Knot
+Dawn,Mesprit,Mars 3,1:24:29.59,10,9,57,5:17,1776670327.874,Psychic,Thunderbolt,Shadow Ball,Grass Knot
+Dawn,Mesprit,Cyrus 3,1:30:36.82,14,9,58,5:33,1776670701.093,Psychic,Thunderbolt,Shadow Ball,Grass Knot
+Dawn,Mesprit,Leader Volkner,1:35:07.10,14,9,60,5:51,1776670971.462,Psychic,Thunderbolt,Shadow Ball,Grass Knot
+Dawn,Mesprit,Rival 6,1:41:53.46,14,9,68,6:18,1776671378.11,Psychic,Thunderbolt,Charge Beam,Grass Knot
+Dawn,Mesprit,Elite Four Aaron,1:42:31.83,14,9,68,6:21,1776671416.476,Psychic,Thunderbolt,Charge Beam,Grass Knot
+Dawn,Mesprit,Elite Four Bertha,1:43:32.82,14,9,69,6:25,1776671477.534,Psychic,Thunderbolt,Charge Beam,Grass Knot
+Dawn,Mesprit,Elite Four Flint,1:45:26.43,16,9,70,6:29,1776671591.296,Psychic,Thunderbolt,Charge Beam,Grass Knot
+Dawn,Mesprit,Elite Four Lucian,1:46:18.90,16,9,70,6:32,1776671643.852,Psychic,Thunderbolt,Charge Beam,Grass Knot
+Dawn,Mesprit,Champion Cynthia,1:47:17.23,16,9,71,6:36,1776671702.253,Psychic,Thunderbolt,Charge Beam,Grass Knot

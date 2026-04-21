@@ -1,0 +1,58 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Dialga,Rival 1,1:19.74,0,0,5,0:04,1776715011.952,DragonBreath,Scary Face,,
+Dawn,Dialga,Rival 2,5:25.04,0,0,6,0:20,1776715257.262,DragonBreath,Scary Face,,
+Dawn,Dialga,Leader Roark,7:45.56,0,0,10,0:29,1776715397.779,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Mars 1,11:00.99,0,0,13,0:42,1776715593.208,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Leader Gardenia,16:15.51,0,0,18,1:03,1776715922.712,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Jupiter 1,17:13.70,0,0,20,1:07,1776715980.894,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Leader Fantina,21:41.91,0,0,22,1:25,1776716249.111,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Rival 3,22:29.70,0,0,23,1:28,1776716296.906,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Leader Maylene,29:18.27,1,0,27,1:54,1776716705.478,DragonBreath,Fire Blast,Metal Claw,AncientPower
+Dawn,Dialga,Rival 4,34:38.29,1,0,31,2:15,1776717025.501,DragonBreath,Fire Blast,Metal Claw,AncientPower
+Dawn,Dialga,Leader Wake,36:36.82,1,0,33,2:23,1776717144.036,DragonBreath,Fire Blast,Thunder,AncientPower
+Dawn,Dialga,Cyrus 1,41:34.46,1,0,36,2:43,1776717441.679,DragonBreath,Fire Blast,Aerial Ace,AncientPower
+Dawn,Dialga,Rival 5,44:47.00,1,0,37,2:56,1776717634.22,DragonBreath,Flamethrower,Thunderbolt,AncientPower
+Dawn,Dialga,Leader Byron,46:53.20,1,0,40,3:04,1776717760.418,DragonBreath,Flamethrower,Thunderbolt,AncientPower
+Dawn,Dialga,Saturn 1,49:35.20,1,0,41,3:15,1776717922.422,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Mars 2,51:02.27,1,0,42,3:21,1776718009.49,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Leader Candice,54:41.58,1,0,43,3:36,1776718228.808,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Cyrus 2,58:34.45,1,0,55,3:51,1776718461.684,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Saturn 2,59:07.75,1,0,55,3:53,1776718494.982,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Mars 3,1:03:01.73,1,0,56,4:09,1776718728.959,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Cyrus 3,1:07:06.18,1,0,57,4:25,1776718973.415,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Leader Volkner,1:11:55.75,1,0,60,4:44,1776719262.985,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Rival 6,1:18:59.50,1,0,63,5:13,1776719692.262,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Elite Four Aaron,1:19:47.43,1,0,67,5:16,1776719740.194,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Elite Four Bertha,1:21:21.59,2,0,67,5:20,1776719842.604,Earth Power,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Elite Four Flint,1:22:04.65,2,0,68,5:23,1776719885.665,Earth Power,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Elite Four Lucian,1:23:18.63,2,0,68,5:28,1776719959.647,Dragon Pulse,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Champion Cynthia,1:24:39.02,2,0,69,5:33,1776720040.034,Dragon Pulse,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Hall of Fame,1:24:39.03,2,0,70,5:34,1776720061.262,Dragon Pulse,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Rival 1,1:19.73,0,0,5,0:04,1776720727.671,DragonBreath,Scary Face,,
+Dawn,Dialga,Rival 2,5:25.04,0,0,6,0:20,1776720973.042,DragonBreath,Scary Face,,
+Dawn,Dialga,Leader Roark,7:45.56,0,0,10,0:29,1776721113.575,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Mars 1,11:00.99,0,0,13,0:42,1776721309.906,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Leader Gardenia,16:15.52,0,0,18,1:03,1776721625.053,DragonBreath,Scary Face,Metal Claw,
+Dawn,Dialga,Jupiter 1,17:13.70,0,0,20,1:07,1776721683.471,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Leader Fantina,21:41.91,0,0,22,1:25,1776721952.968,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Rival 3,22:29.70,0,0,23,1:28,1776722001.193,DragonBreath,Scary Face,Metal Claw,AncientPower
+Dawn,Dialga,Leader Maylene,29:18.28,1,0,27,1:54,1776722411.939,DragonBreath,Fire Blast,Metal Claw,AncientPower
+Dawn,Dialga,Rival 4,34:38.29,1,0,31,2:15,1776722736.388,DragonBreath,Fire Blast,Metal Claw,AncientPower
+Dawn,Dialga,Leader Wake,36:36.83,1,0,33,2:23,1776722855.074,DragonBreath,Fire Blast,Thunder,AncientPower
+Dawn,Dialga,Cyrus 1,41:34.46,1,0,36,2:43,1776723154.311,DragonBreath,Fire Blast,Aerial Ace,AncientPower
+Dawn,Dialga,Rival 5,44:47.00,1,0,37,2:56,1776723347.325,DragonBreath,Flamethrower,Thunderbolt,AncientPower
+Dawn,Dialga,Leader Byron,46:53.19,1,0,40,3:04,1776723473.692,DragonBreath,Flamethrower,Thunderbolt,AncientPower
+Dawn,Dialga,Saturn 1,49:35.20,1,0,41,3:15,1776723636.719,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Mars 2,51:02.27,1,0,42,3:21,1776723724.077,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Leader Candice,54:41.59,1,0,43,3:36,1776723943.762,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Cyrus 2,58:34.46,1,0,55,3:51,1776724178.366,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Saturn 2,59:07.75,1,0,55,3:53,1776724211.657,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Mars 3,1:03:01.72,1,0,56,4:09,1776724446.52,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Cyrus 3,1:07:06.18,1,0,57,4:25,1776724707.328,DragonBreath,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Leader Volkner,1:11:55.74,1,0,60,4:44,1776724997.88,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Rival 6,1:18:59.49,1,0,63,5:13,1776725423.28,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Elite Four Aaron,1:19:47.42,1,0,67,5:16,1776725471.204,Earth Power,Flamethrower,Thunderbolt,Flash Cannon
+Dawn,Dialga,Elite Four Bertha,1:21:21.58,2,0,67,5:20,1776725565.621,Earth Power,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Elite Four Flint,1:22:04.65,2,0,68,5:23,1776725608.69,Earth Power,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Elite Four Lucian,1:23:18.63,2,0,68,5:28,1776725682.883,Dragon Pulse,Flamethrower,Thunderbolt,Blizzard
+Dawn,Dialga,Champion Cynthia,1:24:39.02,2,0,69,5:33,1776725763.466,Dragon Pulse,Flamethrower,Thunderbolt,Blizzard

@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Togepi,Rival 2,10:51.88,0,1,10,0:42,1776679065.185,Return,Charm,Sweet Kiss,Metronome
+Dawn,Togepi,Leader Roark,22:37.26,0,11,21,1:29,1776679770.579,Rock Smash,Return,Sweet Kiss,Charm
+Dawn,Togepi,Mars 1,27:40.38,0,11,23,1:49,1776680075.042,Return,Rock Smash,Sweet Kiss,Charm
+Dawn,Togepi,Leader Gardenia,44:48.22,0,22,33,2:58,1776681104.932,Return,Rock Smash,AncientPower,Wish
+Dawn,Togepi,Jupiter 1,47:03.61,0,22,34,3:07,1776681241.087,Return,Rock Smash,AncientPower,Wish
+Dawn,Togetic,Leader Fantina,52:47.13,0,22,35,3:30,1776681587.604,Return,Rock Smash,AncientPower,Substitute
+Dawn,Togetic,Rival 3,53:48.79,0,22,36,3:34,1776681649.828,Return,Rock Smash,AncientPower,Substitute
+Dawn,Togetic,Leader Maylene,1:02:42.81,0,22,40,4:09,1776682195.834,Return,Rock Smash,AncientPower,Fire Blast
+Dawn,Togetic,Rival 4,1:04:48.92,0,22,41,4:18,1776682325.191,Return,Rock Smash,AncientPower,Fire Blast
+Dawn,Togetic,Leader Wake,1:08:41.50,2,22,44,4:29,1776682558.35,Return,Rock Smash,AncientPower,Shock Wave
+Dawn,Togetic,Cyrus 1,1:13:26.98,2,22,47,4:48,1776682847.924,Return,Rock Smash,AncientPower,Shock Wave
+Dawn,Togetic,Rival 5,1:16:30.52,2,22,47,5:01,1776683032.251,Return,AncientPower,Shock Wave,Fire Blast
+Dawn,Togetic,Leader Byron,1:20:05.94,4,22,55,5:11,1776683248.245,Return,AncientPower,Shock Wave,Fire Blast
+Dawn,Togekiss,Saturn 1,1:26:19.99,4,22,58,5:36,1776683623.891,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Mars 2,1:27:43.63,4,22,58,5:41,1776683707.983,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Leader Candice,1:31:12.87,4,22,59,5:55,1776683918.151,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Cyrus 2,1:34:46.59,4,22,61,6:09,1776684133.529,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Saturn 2,1:35:30.57,4,22,67,6:12,1776684177.516,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Mars 3,1:40:00.57,4,22,68,6:30,1776684447.884,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Cyrus 3,1:44:24.17,4,22,69,6:48,1776684734.463,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Leader Volkner,1:49:47.39,5,22,71,7:06,1776685058.594,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Rival 6,1:56:19.10,5,22,75,7:32,1776685452.173,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Elite Four Aaron,1:57:00.88,5,22,75,7:35,1776685493.957,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Elite Four Bertha,1:57:41.20,5,22,76,7:38,1776685534.445,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Elite Four Flint,1:58:23.28,5,22,77,7:41,1776685576.531,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Elite Four Lucian,1:59:18.31,5,22,81,7:44,1776685631.888,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Champion Cynthia,2:00:44.91,5,22,81,7:50,1776685718.813,Return,AncientPower,Air Slash,Aura Sphere
+Dawn,Togekiss,Hall of Fame,2:00:44.93,5,22,82,7:51,1776685740.328,Return,AncientPower,Air Slash,Aura Sphere

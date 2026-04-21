@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Giratina,Rival 1,1:19.81,0,0,5,0:03,1776725896.964,DragonBreath,Scary Face,,
+Dawn,Giratina,Rival 2,5:48.41,0,0,7,0:21,1776726165.561,DragonBreath,Scary Face,,
+Dawn,Giratina,Leader Roark,8:36.80,0,0,10,0:33,1776726333.951,DragonBreath,Scary Face,Ominous Wind,
+Dawn,Giratina,Mars 1,12:43.52,0,0,13,0:49,1776726581.55,DragonBreath,Scary Face,Ominous Wind,
+Dawn,Giratina,Leader Gardenia,18:56.97,0,1,20,1:14,1776726955.305,DragonBreath,Scary Face,Ominous Wind,AncientPower
+Dawn,Giratina,Jupiter 1,20:57.21,2,1,21,1:19,1776727075.913,DragonBreath,Scary Face,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Fantina,25:59.13,2,1,23,1:39,1776727379.955,DragonBreath,Scary Face,Ominous Wind,AncientPower
+Dawn,Giratina,Rival 3,26:56.61,2,1,24,1:43,1776727438.139,DragonBreath,Scary Face,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Maylene,35:28.14,2,1,29,2:17,1776727954.463,DragonBreath,Aerial Ace,Ominous Wind,AncientPower
+Dawn,Giratina,Rival 4,38:22.11,2,1,30,2:29,1776728131.637,Dragon Claw,Aerial Ace,Ominous Wind,AncientPower
+Dawn,Giratina,Leader Wake,43:05.26,3,1,38,2:45,1776728415.279,Dragon Claw,Aerial Ace,Thunder,AncientPower
+Dawn,Giratina,Cyrus 1,48:15.14,3,1,40,3:06,1776728729.639,Dragon Claw,Aerial Ace,Shadow Force,AncientPower
+Dawn,Giratina,Rival 5,52:15.86,4,1,43,3:18,1776728972.047,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Leader Byron,55:19.79,5,1,46,3:28,1776729156.883,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Saturn 1,57:43.40,5,1,46,3:38,1776729304.674,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Mars 2,59:08.15,5,1,47,3:43,1776729390.142,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Leader Candice,1:03:07.27,5,1,48,3:59,1776729632.411,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Cyrus 2,1:07:14.89,5,1,50,4:16,1776729884.159,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Saturn 2,1:08:00.68,5,1,50,4:19,1776729930.264,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Mars 3,1:12:29.77,5,1,52,4:37,1776730201.845,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Cyrus 3,1:16:37.91,5,1,58,4:53,1776730476.672,Dragon Claw,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Leader Volkner,1:21:30.00,5,1,60,5:13,1776730771.645,Earth Power,Thunderbolt,Shadow Ball,AncientPower
+Dawn,Giratina,Rival 6,1:28:14.57,5,1,63,5:40,1776731180.104,Earth Power,Thunderbolt,Shadow Ball,Charge Beam
+Dawn,Giratina,Elite Four Aaron,1:29:07.42,5,1,67,5:43,1776731232.961,Earth Power,Thunderbolt,Shadow Ball,Charge Beam
+Dawn,Giratina,Elite Four Bertha,1:30:16.80,5,1,67,5:48,1776731302.627,Earth Power,Thunderbolt,Shadow Ball,Charge Beam
+Dawn,Giratina,Elite Four Flint,1:31:07.81,5,1,68,5:51,1776731353.921,Earth Power,Thunderbolt,Shadow Ball,Charge Beam
+Dawn,Giratina,Elite Four Lucian,1:31:44.43,5,1,68,5:54,1776731390.533,Earth Power,Thunderbolt,Shadow Ball,Charge Beam
+Dawn,Giratina,Champion Cynthia,1:33:11.06,5,1,69,5:59,1776731477.452,Earth Power,Thunderbolt,Dragon Pulse,Charge Beam
