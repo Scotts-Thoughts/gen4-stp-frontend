@@ -3580,9 +3580,9 @@ const platinum_moves =
         "AffectedByKingsRock": false,
         "Description": "The user bites hard on the foe with its sharp front fangs. It may also make the target flinch."
     },
-    "Roar of Time": {
+    "Roar Of Time": {
         "rom_id": 459,
-        "Move": "Roar of Time",
+        "Move": "Roar Of Time",
         "Type": "Dragon",
         "Category": "Special",
         "PP": 5,

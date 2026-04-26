@@ -3579,9 +3579,9 @@ const generation4_moves_new = {
         "affected_by_kings_rock": false,
         "description": "The user bites hard on the foe with its sharp front fangs. It may also make the target flinch."
     },
-    "Roar of Time": {
+    "Roar Of Time": {
         "rom_id": 459,
-        "move": "Roar of Time",
+        "move": "Roar Of Time",
         "type": "Dragon",
         "category": "Special",
         "pp": 5,

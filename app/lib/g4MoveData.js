@@ -5033,9 +5033,9 @@ const g4MoveData = {
         Description: "The user slams the target with a long tail, vines, or a tentacle. The target is hit twice in a row."
     },
     
-    "Roar of Time":
+    "Roar Of Time":
     {
-        Move: "Roar of Time",
+        Move: "Roar Of Time",
         Type: "Dragon",
         Category: "Special",
         PP: "5",

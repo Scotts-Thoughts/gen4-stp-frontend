@@ -37722,7 +37722,7 @@ const pokedex_hgss = {
             [33, "Earth Power"],
             [37, "Aura Sphere"],
             [42, "Flash Cannon"],
-            [46, "Roar of Time"]
+            [46, "Roar Of Time"]
         ],
         "tm_hm_learnset": [
             "Dragon Claw",

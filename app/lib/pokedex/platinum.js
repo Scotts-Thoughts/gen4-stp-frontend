@@ -37805,7 +37805,7 @@ const pokedex_plat = {
             [10, "Metal Claw"],
             [20, "AncientPower"],
             [30, "Dragon Claw"],
-            [40, "Roar of Time"],
+            [40, "Roar Of Time"],
             [50, "Heal Block"],
             [60, "Earth Power"],
             [70, "Slash"],

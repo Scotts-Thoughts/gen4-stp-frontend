@@ -5012,6 +5012,7 @@ const app = Vue.createApp({
                 if (move_string.toLowerCase() == "smokescreen")  { return "SmokeScreen" }
                 if (move_string.toLowerCase() == "sonicboom")    { return "SonicBoom" }
                 if (move_string.toLowerCase() == "will-o-wisp")  { return "Will-O-Wisp" }
+                if (move_string.toLowerCase() == "roar of time") { return "Roar of Time" }
                 else { return move_string }
             }
             else { return move_string }

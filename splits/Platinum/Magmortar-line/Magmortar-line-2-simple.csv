@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Magby,Rival 1,1:26.55,0,0,5,0:04,1777068925.491,Smog,Leer,,
+Dawn,Magby,Rival 2,6:47.72,0,0,8,0:26,1777069246.665,Return,Ember,Smog,Leer
+Dawn,Magby,Leader Roark,17:41.71,1,0,18,1:06,1777069900.669,Return,Ember,Faint Attack,SmokeScreen
+Dawn,Magby,Mars 1,22:47.72,1,0,20,1:27,1777070206.68,Return,Ember,Faint Attack,SmokeScreen
+Dawn,Magby,Leader Gardenia,30:05.58,1,0,26,1:56,1777070644.55,Return,Ember,Faint Attack,Confuse Ray
+Dawn,Magby,Jupiter 1,33:01.29,1,0,28,2:08,1777070820.249,Return,Fire Punch,Faint Attack,Confuse Ray
+Dawn,Magby,Leader Fantina,39:17.32,2,0,29,2:30,1777071196.286,Return,Fire Punch,Faint Attack,Substitute
+Dawn,Magmortar,Leader Maylene,52:01.92,6,0,36,3:14,1777071960.904,Return,Lava Plume,Faint Attack,Substitute
+Dawn,Magmortar,Rival 4,55:12.43,6,0,37,3:27,1777072151.41,Sunny Day,Lava Plume,ThunderPunch,Substitute
+Dawn,Magmortar,Leader Wake,58:11.60,6,0,45,3:38,1777072330.584,Sunny Day,Flamethrower,ThunderPunch,Substitute
+Dawn,Magmortar,Cyrus 1,1:02:52.57,6,0,47,3:57,1777072611.551,Flamethrower,Sunny Day,ThunderPunch,Substitute
+Dawn,Magmortar,Rival 5,1:05:04.07,6,0,47,4:06,1777072743.053,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Leader Byron,1:06:42.43,6,0,50,4:13,1777072841.421,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Saturn 1,1:08:53.41,6,0,50,4:21,1777072972.395,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Mars 2,1:10:31.89,6,0,51,4:28,1777073070.884,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Leader Candice,1:13:58.87,6,0,52,4:42,1777073277.862,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Cyrus 2,1:17:28.37,6,0,54,4:56,1777073487.362,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Saturn 2,1:18:15.09,6,0,54,4:59,1777073534.082,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Mars 3,1:22:58.54,6,0,56,5:18,1777073817.534,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Cyrus 3,1:28:15.99,8,0,64,5:34,1777074134.991,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Leader Volkner,1:32:46.19,8,0,66,5:52,1777074405.195,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Rival 6,1:39:41.81,8,0,69,6:19,1777074820.819,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Elite Four Aaron,1:40:23.34,8,0,70,6:22,1777074862.352,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Elite Four Bertha,1:41:18.53,8,0,74,6:26,1777074917.537,Flamethrower,Sunny Day,Thunderbolt,Focus Blast
+Dawn,Magmortar,Elite Four Flint,1:42:48.37,9,0,74,6:30,1777075007.381,Flamethrower,Sunny Day,Rock Slide,Focus Blast
+Dawn,Magmortar,Elite Four Lucian,1:43:34.36,9,0,75,6:33,1777075053.372,Flamethrower,Sunny Day,Rock Slide,Focus Blast
+Dawn,Magmortar,Champion Cynthia,1:45:27.25,10,0,75,6:39,1777075166.263,Flamethrower,Sunny Day,SolarBeam,Natural Gift
+Dawn,Magmortar,Hall of Fame,1:45:27.26,10,0,76,6:40,1777075187.595,Flamethrower,Sunny Day,SolarBeam,Natural Gift
