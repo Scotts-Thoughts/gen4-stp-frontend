@@ -8251,11 +8251,7 @@ const app = Vue.createApp({
                     // console.log("Simple split attempted to be collected...")
                     simpleSplit();
                     if (this.automatic_post_battle_splits == true && 
-                        !trainer_name.startsWith("Rival") && 
-                        !trainer_name.startsWith("Mars") && 
-                        !trainer_name.startsWith("Jupiter") && 
-                        !trainer_name.startsWith("Saturn") && 
-                        !trainer_name.startsWith("Cyrus")) {
+                        !trainer_name.startsWith("Rival") && !trainer_name.startsWith("Mars") && !trainer_name.startsWith("Jupiter") && !trainer_name.startsWith("Saturn") && !trainer_name.startsWith("Cyrus") && (trainer_name != "Passerby Boy")) {
                         this.right_ui = "Splits"
                     }
                 }
