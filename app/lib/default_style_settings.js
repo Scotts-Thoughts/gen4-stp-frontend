@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-03T05:03:08.021Z
+ * Last updated: 2026-05-04T17:43:38.389Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2922984,6 +2922984,22 @@ const DEFAULT_STYLE_SETTINGS = {
                 "Rock Slide"
             ]
         ]
+    },
+    "HeartGold and SoulSilver_Corsola": {
+        "backgroundTexture": "Underwater Rocks",
+        "backgroundScale": "124",
+        "backgroundYOffset": "62",
+        "backgroundXOffset": "125",
+        "backgroundFlip": true,
+        "backgroundContrast": "141",
+        "backgroundBlur": "1",
+        "imageScale": "0.58",
+        "imageYOffset": "-62",
+        "imageXOffset": "9",
+        "overlay_color": "#f7acb3",
+        "ui_saturation": "1.2",
+        "pkmn_ability": "Hustle",
+        "attempt_number": 1
     }
 };
 

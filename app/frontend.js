@@ -3371,6 +3371,12 @@ const app = Vue.createApp({
                 if (logging) console.log("Overworld stats...")
                 HP = this.mapper.properties.player.team[0].stats.hp_max.value
                 Atk = this.mapper.properties.player.team[0].stats.attack.value
+                if (ability == 'Hustle') {
+                    Atk = Math.floor(Atk * 1.5)
+                }
+                else {
+                    Atk = this.mapper.properties.player.team[0].stats.attack.value
+                }
                 Def = this.mapper.properties.player.team[0].stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
@@ -3505,6 +3511,9 @@ const app = Vue.createApp({
                     SpE = Math.floor(SpE / 4)
                 }
                 if ((status_condition == 'Paralyzed' || status_condition == 'Poisoned' || status_condition == 'Burned') && ability == 'Guts') {
+                    Atk = Math.floor(Atk * 1.5)
+                }
+                if (ability == 'Hustle') {
                     Atk = Math.floor(Atk * 1.5)
                 }
                 let battle_hp  = HP
@@ -5281,6 +5290,8 @@ const app = Vue.createApp({
             const weather   = this.mapper.properties.battle.field.weather.value
             const state     = this.mapper.properties.meta.state.value
             const held_item = this.mapper.properties.player.team[0].held_item.value
+            const move_category = this.platinum_moves[move]?.Category
+            let ability = this.mapper.properties.player.team[0].ability.value
             if (accuracy == `-`) {
                 return `—`
             }
@@ -5298,12 +5309,16 @@ const app = Vue.createApp({
             }
             if (state == `Overworld`) {
                 let item_modifier = 1
+                let ability_modifier = 1
+                if (move_category == "Physical" && ability == 'Hustle') {
+                    ability_modifier = 3277/4096
+                }
                 switch (held_item) {
                     case "Wide Lens": item_modifier = 4505/4096; break;
                     case "Zoom Lens": item_modifier = 4915/4096; break;
                     default: item_modifier = 1; break;
                 }
-                let calculated_accuracy = Math.floor(accuracy * item_modifier) <= 100 ? Math.floor(accuracy * item_modifier) : 100
+                let calculated_accuracy = Math.floor(accuracy * item_modifier * ability_modifier) <= 100 ? Math.floor(accuracy * item_modifier * ability_modifier) : 100
                 return calculated_accuracy
             }
             if (state == `Battle`) {
@@ -5317,12 +5332,16 @@ const app = Vue.createApp({
                     this.mapper.properties.battle.opponent.active_pokemon.modifiers.evasion.value == "-6"
                 ) {
                     let item_modifier = 1
+                    let ability_modifier = 1
                     switch (held_item) {
                         case "Wide Lens": item_modifier = 4505/4096; break;
                         case "Zoom Lens": item_modifier = 4915/4096; break;
                         default: item_modifier = 1; break;
                     }
-                    let calculated_accuracy = Math.floor(accuracy * item_modifier) <= 100 ? Math.floor(accuracy * item_modifier) : 100
+                    if (move_category == "Physical" && ability == "Hustle") {
+                        ability_modifier = 3277/4096
+                    }
+                    let calculated_accuracy = Math.floor(accuracy * item_modifier * ability_modifier) <= 100 ? Math.floor(accuracy * item_modifier * ability_modifier) : 100
                     return calculated_accuracy
                 }
                 let playerStage = this.mapper.properties.battle.player.active_pokemon.modifiers.accuracy?.value?.toString()
@@ -5331,6 +5350,7 @@ const app = Vue.createApp({
                 let evasionModifier = this.stageModifiersData["evasion"][oppAStage]
                 let modifiers = this.mapper.properties.battle.player.active_pokemon.modifiers
                 let item_modifier = 1
+                let ability_modifier = 1
                 // console.log(playerStage, oppAStage, accuracyModifier, evasionModifier, modifiers, item_modifier)
                 switch (held_item) {
                     case "Wide Lens": item_modifier = 4505/4096; break;
@@ -5343,7 +5363,10 @@ const app = Vue.createApp({
                     }
                     default: item_modifier = 1; break;
                 }
-                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier) : 100
+                if (move_category == "Physical" && ability == "Hustle") {
+                    ability_modifier = 3277/4096
+                }
+                let calculated_accuracy = Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier * ability_modifier) <= 100 ? Math.floor(accuracy * accuracyModifier * evasionModifier * item_modifier * ability_modifier) : 100
                 if (calculated_accuracy == "err") {
                     // console.log(
                     //     accuracy,
