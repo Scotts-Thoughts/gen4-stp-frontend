@@ -1,0 +1,36 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Wooper,Passerby Boy,6:53.77,0,0,9,0:26,1777670955.96,Mud Shot,Tail Whip,Water Gun,Mud Sport
+Lyra,Wooper,Leader Falkner,16:07.24,0,2,15,1:03,1777671516.974,Water Gun,Tail Whip,Mud Shot,Slam
+Lyra,Quagsire,Leader Bugsy,27:28.32,0,2,21,1:49,1777672198.064,Water Gun,Tail Whip,Mud Bomb,Slam
+Lyra,Quagsire,Rival Silver,28:27.34,0,2,22,1:53,1777672257.082,Water Gun,Tail Whip,Mud Bomb,Slam
+Lyra,Quagsire,Leader Whitney,36:41.05,0,2,23,2:26,1777672750.796,Water Gun,Ice Beam,Mud Bomb,Headbutt
+Lyra,Quagsire,Rival Silver,41:53.28,1,2,26,2:45,1777673063.035,Surf,Ice Beam,Dig,Headbutt
+Lyra,Quagsire,Leader Morty,44:11.94,1,2,28,2:54,1777673404.293,Surf,Ice Beam,Dig,Headbutt
+Lyra,Quagsire,Leader Chuck,50:22.07,1,2,34,3:19,1777673774.423,Surf,Ice Beam,Dig,Headbutt
+Lyra,Quagsire,Leader Pryce,1:00:38.60,2,2,38,3:58,1777674973.109,Surf,Ice Beam,Earthquake,Headbutt
+Lyra,Quagsire,Leader Jasmine,1:02:00.01,2,2,39,4:03,1777675054.526,Surf,Ice Beam,Earthquake,Headbutt
+Lyra,Quagsire,Rival Silver,1:25:45.90,6,2,46,5:31,1777676575.895,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Clair,1:38:20.82,8,2,50,6:16,1777677339.252,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Rival Silver,1:53:15.73,14,2,55,7:05,1777678256.789,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Will,1:54:49.39,14,2,55,7:12,1777678350.445,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Koga,1:55:36.83,14,2,56,7:15,1777678397.887,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Bruno,1:57:36.79,17,2,57,7:18,1777678517.85,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Karen,1:58:25.92,17,2,57,7:21,1777678566.981,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Champion Lance,2:00:57.93,18,2,58,7:27,1777678866.525,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Misty,2:09:35.54,19,2,62,8:01,1777679389.66,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Lt. Surge,2:12:14.34,19,2,62,8:12,1777679548.464,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Brock,2:13:53.28,19,2,63,8:18,1777679647.408,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Blaine,2:18:10.87,19,3,65,8:36,1777679905,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Janine,2:21:19.90,19,3,66,8:48,1777680094.037,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Erika,2:24:00.57,20,3,80,8:56,1777680254.703,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Sabrina,2:25:05.59,20,3,80,9:01,1777680319.723,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Leader Blue,2:27:36.91,22,3,80,9:09,1777680471.049,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Will,2:33:37.41,22,4,81,9:33,1777680831.557,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Koga,2:34:45.84,22,4,82,9:37,1777680899.982,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Bruno,2:35:48.49,22,4,83,9:41,1777680962.631,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Will,2:37:22.06,22,5,83,9:48,1777681056.204,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Koga,2:38:20.71,22,5,84,9:52,1777681114.859,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Bruno,2:39:18.21,22,5,85,9:55,1777681172.354,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Elite Four Karen,2:40:32.88,22,5,85,10:00,1777681247.03,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Champion Lance,2:42:24.23,23,5,90,10:05,1777681358.375,Surf,Ice Beam,Earthquake,Return
+Lyra,Quagsire,Pokemon Trainer Red,3:23:30.72,54,5,93,11:05,1777689278.132,Blizzard,Earthquake,Rest,Amnesia

@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Happiny,Rival 2,10:08.10,0,1,11,0:39,1777691609.993,Return,Charm,Copycat,Pound
+Dawn,Happiny,Leader Roark,30:14.94,3,1,23,1:52,1777692817.086,Return,Charm,Copycat,Sweet Kiss
+Dawn,Happiny,Mars 1,35:23.48,4,1,25,2:10,1777693126.102,Return,Charm,Copycat,Sweet Kiss
+Dawn,Happiny,Mars 1,39:18.42,5,1,25,2:10,1777693361.046,Return,Charm,Copycat,Sweet Kiss
+Dawn,Happiny,Leader Gardenia,54:20.09,5,2,33,3:10,1777694264.795,Return,Charm,Copycat,Sweet Kiss
+Dawn,Happiny,Jupiter 1,58:24.71,5,2,35,3:26,1777694509.956,Return,Charm,Copycat,Sweet Kiss
+Dawn,Happiny,Leader Fantina,1:19:53.16,10,2,43,4:31,1777695804.767,Grass Knot,Substitute,Copycat,Sweet Kiss
+Dawn,Happiny,Rival 3,1:21:35.83,10,2,43,4:38,1777695908.021,Grass Knot,Substitute,Attract,Secret Power
+Dawn,Blissey,Leader Maylene,1:31:37.02,10,2,47,5:18,1777696512.781,Grass Knot,Substitute,Shock Wave,Fire Blast
+Dawn,Blissey,Rival 4,1:34:57.27,10,2,48,5:32,1777696714.906,Grass Knot,Hyper Beam,Shock Wave,Fire Blast
+Dawn,Blissey,Leader Wake,1:36:41.75,10,2,50,5:39,1777696819.493,Grass Knot,Hyper Beam,Shock Wave,Fire Blast
+Dawn,Blissey,Cyrus 1,1:41:19.91,10,2,52,5:57,1777697098.835,Grass Knot,Hyper Beam,Shock Wave,Fire Blast
+Dawn,Blissey,Rival 5,1:43:10.51,10,2,52,6:05,1777697209.541,Grass Knot,Hyper Beam,Shock Wave,Fire Blast
+Dawn,Blissey,Leader Byron,1:45:24.92,10,2,54,6:14,1777697344.079,Grass Knot,Hyper Beam,Shock Wave,Fire Blast
+Dawn,Blissey,Saturn 1,1:48:40.97,11,2,55,6:25,1777697540.661,Grass Knot,Hyper Beam,Thunderbolt,Fire Blast
+Dawn,Blissey,Mars 2,1:50:20.99,11,2,56,6:31,1777697641.005,Blizzard,Hyper Beam,Thunderbolt,Fire Blast
+Dawn,Blissey,Leader Candice,1:54:05.02,11,2,57,6:46,1777697865.491,Blizzard,Hyper Beam,Thunderbolt,Fire Blast
+Dawn,Blissey,Cyrus 2,1:58:17.22,11,2,59,7:03,1777698118.114,Blizzard,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Saturn 2,1:59:04.27,11,2,59,7:06,1777698165.334,Blizzard,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Mars 3,2:03:41.02,11,2,70,7:25,1777698442.261,Blizzard,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Cyrus 3,2:07:47.16,11,2,70,7:41,1777698696.411,Focus Blast,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Leader Volkner,2:15:33.06,12,3,73,8:09,1777699162.857,Focus Blast,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Rival 6,2:22:40.51,12,3,76,8:38,1777699590.988,Charge Beam,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Elite Four Aaron,2:23:24.98,12,3,77,8:41,1777699635.463,Charge Beam,Psychic,Thunderbolt,Fire Blast
+Dawn,Blissey,Elite Four Bertha,2:24:51.38,12,3,80,8:46,1777699722.121,Charge Beam,Psychic,Thunderbolt,Blizzard
+Dawn,Blissey,Elite Four Flint,2:25:45.94,12,3,80,8:50,1777699776.8,Charge Beam,Psychic,Thunderbolt,Blizzard
+Dawn,Blissey,Elite Four Lucian,2:26:54.20,12,3,81,8:55,1777699845.137,Charge Beam,Shadow Ball,Thunderbolt,Blizzard
+Dawn,Blissey,Champion Cynthia,2:27:58.53,12,3,82,8:59,1777699909.553,Charge Beam,Shadow Ball,Thunderbolt,Blizzard
+Dawn,Blissey,Hall of Fame,2:27:58.54,12,3,83,9:00,1777699930.84,Charge Beam,Shadow Ball,Thunderbolt,Blizzard

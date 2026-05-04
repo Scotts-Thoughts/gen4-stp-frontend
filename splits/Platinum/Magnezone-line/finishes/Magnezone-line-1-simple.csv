@@ -1,29 +1,29 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Dawn,Magnemite,Rival 1,1:36.30,0,0,5,0:05,1777135423.284,Metal Sound,Tackle,,
-Dawn,Magnemite,Rival 2,6:36.90,0,0,8,0:25,1777135723.89,ThunderShock,Tackle,Metal Sound,
-Dawn,Magnemite,Leader Roark,12:15.42,1,0,14,0:45,1777136078.882,ThunderShock,SonicBoom,Metal Sound,Supersonic
-Dawn,Magnemite,Mars 1,16:10.08,1,0,17,1:00,1777136313.544,ThunderShock,SonicBoom,Metal Sound,Thunder Wave
-Dawn,Magnemite,Leader Gardenia,34:00.82,5,6,29,2:08,1777137394.749,ThunderShock,SonicBoom,Metal Sound,Thunder Wave
-Dawn,Magnezone,Jupiter 1,36:38.66,5,6,31,2:19,1777137552.587,ThunderShock,Magnet Bomb,Metal Sound,Thunder Wave
-Dawn,Magnezone,Leader Fantina,41:15.45,5,6,32,2:37,1777137829.376,ThunderShock,Magnet Bomb,Metal Sound,Substitute
-Dawn,Magnezone,Rival 3,42:34.70,5,6,33,2:43,1777137921.804,ThunderShock,Magnet Bomb,Metal Sound,Substitute
-Dawn,Magnezone,Leader Maylene,48:47.94,6,6,36,3:05,1777138295.047,Shock Wave,Magnet Bomb,Thunder,Substitute
-Dawn,Magnezone,Rival 4,52:56.38,6,6,38,3:22,1777138543.48,Shock Wave,Magnet Bomb,Thunder,Substitute
-Dawn,Magnezone,Leader Wake,56:28.28,6,6,40,3:36,1777138755.386,Discharge,Magnet Bomb,Hyper Beam,Substitute
-Dawn,Magnezone,Cyrus 1,1:00:40.11,6,6,42,3:53,1777139060.882,Discharge,Magnet Bomb,Hyper Beam,Substitute
-Dawn,Magnezone,Rival 5,1:03:18.21,6,6,50,4:03,1777139218.981,Discharge,Mirror Shot,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Leader Byron,1:05:44.73,6,6,52,4:13,1777139418.053,Thunderbolt,Mirror Shot,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Saturn 1,1:08:17.87,6,6,52,4:23,1777139571.195,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Mars 2,1:09:36.74,6,6,53,4:29,1777139650.066,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Leader Candice,1:13:27.44,7,6,54,4:42,1777139880.764,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Cyrus 2,1:16:50.90,7,6,56,4:55,1777140084.233,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Saturn 2,1:17:22.99,7,6,56,4:58,1777140116.324,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Mars 3,1:21:34.60,7,6,57,5:14,1777140367.936,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Cyrus 3,1:25:13.48,7,6,58,5:29,1777140586.812,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Leader Volkner,1:31:02.95,8,6,67,5:49,1777140936.286,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
-Dawn,Magnezone,Rival 6,1:37:33.46,8,6,70,6:15,1777144980.62,Thunderbolt,Flash Cannon,Return,Magnet Rise
-Dawn,Magnezone,Elite Four Aaron,1:38:25.71,8,6,71,6:19,1777145032.872,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
-Dawn,Magnezone,Elite Four Bertha,1:39:31.07,8,6,71,6:23,1777145098.242,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
-Dawn,Magnezone,Elite Four Flint,1:40:17.00,8,6,72,6:26,1777145144.173,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
-Dawn,Magnezone,Elite Four Lucian,1:40:56.24,8,6,73,6:29,1777145183.403,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
-Dawn,Magnezone,Champion Cynthia,1:42:04.64,8,6,76,6:33,1777145251.811,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
+Dawn,Magnemite,Rival 1,1:36.30,0,0,5,0:05,1777700062.289,Metal Sound,Tackle,,
+Dawn,Magnemite,Rival 2,6:36.91,0,0,8,0:25,1777700362.899,ThunderShock,Tackle,Metal Sound,
+Dawn,Magnemite,Leader Roark,12:15.42,1,0,14,0:45,1777700701.824,ThunderShock,SonicBoom,Metal Sound,Supersonic
+Dawn,Magnemite,Mars 1,16:10.07,1,0,17,1:00,1777700936.969,ThunderShock,SonicBoom,Metal Sound,Thunder Wave
+Dawn,Magnemite,Leader Gardenia,34:00.83,5,6,29,2:08,1777702008.806,ThunderShock,SonicBoom,Metal Sound,Thunder Wave
+Dawn,Magnezone,Jupiter 1,36:38.66,5,6,31,2:19,1777702167.04,ThunderShock,Magnet Bomb,Metal Sound,Thunder Wave
+Dawn,Magnezone,Leader Fantina,41:15.44,5,6,32,2:37,1777702444.288,ThunderShock,Magnet Bomb,Metal Sound,Substitute
+Dawn,Magnezone,Rival 3,42:34.70,5,6,33,2:43,1777702524.327,ThunderShock,Magnet Bomb,Metal Sound,Substitute
+Dawn,Magnezone,Leader Maylene,48:47.95,6,6,36,3:05,1777702898.729,Shock Wave,Magnet Bomb,Thunder,Substitute
+Dawn,Magnezone,Rival 4,52:56.37,6,6,38,3:22,1777703149.077,Shock Wave,Magnet Bomb,Thunder,Substitute
+Dawn,Magnezone,Leader Wake,56:28.28,6,6,40,3:36,1777703361.084,Discharge,Magnet Bomb,Hyper Beam,Substitute
+Dawn,Magnezone,Cyrus 1,1:00:40.11,6,6,42,3:53,1777703613.171,Discharge,Magnet Bomb,Hyper Beam,Substitute
+Dawn,Magnezone,Rival 5,1:03:18.21,6,6,50,4:03,1777703771.393,Discharge,Mirror Shot,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Leader Byron,1:05:44.74,6,6,52,4:13,1777703918.19,Thunderbolt,Mirror Shot,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Saturn 1,1:08:17.87,6,6,52,4:23,1777704071.978,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Mars 2,1:09:36.74,6,6,53,4:29,1777704151.046,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Leader Candice,1:13:27.44,7,6,54,4:42,1777704382.088,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Cyrus 2,1:16:50.90,7,6,56,4:55,1777704585.86,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Saturn 2,1:17:22.99,7,6,56,4:58,1777704617.952,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Mars 3,1:21:34.60,7,6,57,5:14,1777704869.673,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Cyrus 3,1:25:13.48,7,6,58,5:29,1777705097.593,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Leader Volkner,1:31:02.95,8,6,67,5:49,1777705447.552,Thunderbolt,Flash Cannon,Hyper Beam,Magnet Rise
+Dawn,Magnezone,Rival 6,1:37:33.45,8,6,70,6:15,1777705838.732,Thunderbolt,Flash Cannon,Return,Magnet Rise
+Dawn,Magnezone,Elite Four Aaron,1:38:25.71,8,6,71,6:19,1777705890.983,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
+Dawn,Magnezone,Elite Four Bertha,1:39:31.07,8,6,71,6:23,1777705956.472,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
+Dawn,Magnezone,Elite Four Flint,1:40:17.01,8,6,72,6:26,1777706002.509,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
+Dawn,Magnezone,Elite Four Lucian,1:40:56.23,8,6,73,6:29,1777706041.735,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
+Dawn,Magnezone,Champion Cynthia,1:42:04.64,8,6,76,6:33,1777706110.373,Thunderbolt,Flash Cannon,Charge Beam,Magnet Rise
