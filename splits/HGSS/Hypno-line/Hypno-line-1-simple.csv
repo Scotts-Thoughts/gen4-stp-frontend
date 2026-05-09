@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Drowzee,Passerby Boy,4:01.64,0,0,7,0:15,1777932295.857,Pound,Hypnosis,Disable,
+Lyra,Drowzee,Leader Falkner,11:31.19,0,0,13,0:45,1777932745.418,Confusion,Hypnosis,Pound,Disable
+Lyra,Drowzee,Rival Silver,19:33.52,0,1,19,1:17,1777933251.162,Confusion,Hypnosis,Headbutt,Disable
+Lyra,Drowzee,Leader Bugsy,23:23.92,3,3,21,1:29,1777933481.566,Confusion,Hypnosis,Headbutt,Meditate
+Lyra,Drowzee,Leader Whitney,32:43.29,6,3,22,2:00,1777934061.541,Confusion,Hypnosis,Headbutt,Meditate
+Lyra,Hypno,Rival Silver,48:04.02,6,3,31,3:01,1777934982.285,Psybeam,Hypnosis,Headbutt,Meditate
+Lyra,Hypno,Leader Morty,50:57.38,6,3,33,3:13,1777935155.641,Psybeam,Substitute,Headbutt,Meditate
+Lyra,Hypno,Leader Chuck,57:06.48,6,3,37,3:38,1777935524.74,Psybeam,Substitute,Headbutt,Meditate
+Lyra,Hypno,Leader Pryce,1:07:07.85,6,3,41,4:18,1777936126.128,Psybeam,Focus Blast,Headbutt,Meditate
+Lyra,Hypno,Leader Jasmine,1:09:12.53,8,3,42,4:23,1777936250.802,Psybeam,Focus Blast,Headbutt,Meditate
+Lyra,Hypno,Rival Silver,1:12:09.05,8,3,43,4:35,1777936427.327,Psybeam,Focus Blast,Headbutt,Meditate
+Lyra,Hypno,Leader Clair,1:23:41.07,8,3,55,5:21,1777937119.352,Psychic,Focus Blast,Headbutt,Nasty Plot
+Lyra,Hypno,Rival Silver,1:36:03.40,8,5,58,6:11,1777937861.689,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Will,1:37:11.70,8,5,59,6:15,1777937929.98,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Koga,1:38:00.21,9,5,60,6:17,1777937978.503,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Bruno,1:38:37.87,9,5,60,6:20,1777938016.16,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Karen,1:39:21.84,9,5,61,6:23,1777938060.136,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Champion Lance,1:40:11.87,9,5,62,6:26,1777938110.152,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Erika,1:44:50.68,9,5,63,6:44,1777938394.896,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Sabrina,1:45:59.44,9,5,64,6:49,1777938463.672,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Misty,1:50:29.22,9,5,66,7:07,1777938733.443,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Lt. Surge,1:52:41.70,9,5,66,7:16,1777938865.94,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Brock,1:54:30.35,9,5,67,7:23,1777938974.574,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Blaine,1:57:00.17,9,5,68,7:33,1777939124.405,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Janine,1:58:45.99,9,5,69,7:40,1777939230.236,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Leader Blue,2:02:23.81,11,5,76,7:51,1777939448.045,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Will,2:05:49.62,11,5,76,8:04,1777939653.874,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Koga,2:06:40.59,11,5,77,8:08,1777939704.832,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Bruno,2:07:34.84,11,5,78,8:11,1777939759.084,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Elite Four Karen,2:16:27.91,31,5,82,8:17,1777940338.595,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Champion Lance,2:17:46.20,32,5,82,8:21,1777940416.883,Psychic,Focus Blast,Shadow Ball,Nasty Plot
+Lyra,Hypno,Pokemon Trainer Red,2:24:52.50,39,5,85,8:39,1777940843.187,Psychic,Attract,Shadow Ball,Nasty Plot

@@ -3381,6 +3381,10 @@ const app = Vue.createApp({
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
                 SpE = this.mapper.properties.player.team[0].stats.speed.value
+                if (held_item == 'Macho Brace') {
+                    SpE = Math.floor(SpE * 0.5)
+                }
+
                 if (status_condition && ability == 'Quick Feet') {
                     SpE = Math.floor(SpE * 1.5)
                 }
@@ -3503,6 +3507,10 @@ const app = Vue.createApp({
                 SpA = this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                 SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
                 SpE = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                if (held_item == 'Macho Brace') {
+                    SpE = Math.floor(SpE * 0.5)
+                }
+
                 if (ability == 'Slow Start' && turn_count < 5) {
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
@@ -3558,6 +3566,10 @@ const app = Vue.createApp({
                     SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                     SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
                     SpE = this.mapper.properties.battle.player.active_pokemon.stats.speed.value
+                    if (held_item == 'Macho Brace') {
+                        SpE = Math.floor(SpE * 0.5)
+                    }
+                    
                     if (status_condition == 'Paralyzed') {
                         SpE = Math.floor(SpE / 4)
                     }

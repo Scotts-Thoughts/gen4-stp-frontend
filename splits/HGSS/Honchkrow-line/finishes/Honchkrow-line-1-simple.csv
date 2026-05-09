@@ -1,0 +1,46 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Murkrow,Passerby Boy,3:20.57,0,0,8,0:12,1778002804.886,Pursuit,Peck,Astonish,
+Lyra,Murkrow,Leader Falkner,8:55.71,0,0,15,0:35,1778003141.833,Wing Attack,Peck,Astonish,Pursuit
+Lyra,Murkrow,Leader Bugsy,14:23.85,0,0,19,0:56,1778003469.978,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Rival Silver,15:14.34,0,0,20,1:00,1778003520.466,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Leader Whitney,22:10.81,0,0,22,1:28,1778003936.946,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Rival Silver,31:59.46,2,0,29,2:03,1778004525.603,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Morty,34:19.38,2,0,32,2:13,1778004665.524,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Chuck,37:22.92,2,0,34,2:25,1778004849.07,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Pryce,46:50.55,2,1,38,3:03,1778005416.709,Wing Attack,Substitute,Roost,Faint Attack
+Lyra,Murkrow,Leader Jasmine,1:09:37.75,15,2,48,3:56,1778006783.943,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Rival Silver,1:13:29.36,15,2,49,4:11,1778007015.558,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Leader Clair,1:26:10.51,16,2,54,4:56,1778007776.726,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Rival Silver,1:44:51.11,20,5,58,6:04,1778008897.336,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:45:55.55,20,5,59,6:09,1778008961.787,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:47:08.25,20,6,60,6:13,1778009034.483,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:48:12.98,20,7,60,6:18,1778009099.211,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Koga,1:49:13.00,20,7,61,6:22,1778009159.233,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Bruno,1:50:15.23,20,7,68,6:26,1778009221.459,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Karen,1:51:06.26,20,7,68,6:29,1778009272.494,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Champion Lance,1:56:56.28,25,7,69,6:36,1778009622.522,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Erika,2:01:49.94,25,7,70,6:55,1778009916.178,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Sabrina,2:03:44.64,25,7,70,7:03,1778010030.883,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Misty,2:09:04.71,25,7,72,7:24,1778010350.959,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Lt. Surge,2:11:09.08,25,7,72,7:33,1778010475.326,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Brock,2:12:42.78,25,7,73,7:39,1778010569.025,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Blaine,2:15:12.47,25,7,73,7:49,1778010718.717,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Janine,2:18:05.59,25,7,74,8:00,1778010891.858,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Leader Blue,2:20:09.99,25,7,75,8:09,1778011016.245,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:23:45.17,25,7,76,8:23,1778011231.431,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:25:09.71,25,8,77,8:29,1778011315.964,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:26:27.41,25,9,78,8:34,1778011393.67,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:27:59.29,25,10,79,8:40,1778011485.55,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Koga,2:28:48.52,25,10,80,8:43,1778011534.794,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Bruno,2:29:37.07,25,10,80,8:47,1778011583.327,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:30:42.54,25,11,81,8:51,1778011648.804,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:31:42.01,25,12,82,8:55,1778011708.271,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:33:07.46,25,13,83,9:01,1778011793.72,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Koga,2:33:52.77,25,13,83,9:04,1778011839.03,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Bruno,2:34:29.05,25,13,84,9:06,1778011875.31,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Will,2:36:13.84,25,14,84,9:13,1778011980.108,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Koga,2:37:23.26,25,14,91,9:18,1778012870.499,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Bruno,2:37:59.66,25,14,91,9:20,1778012906.894,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Elite Four Karen,2:39:08.17,25,14,91,9:25,1778012975.411,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Champion Lance,2:40:10.20,25,14,92,9:29,1778013037.438,Nasty Plot,Psychic,Roost,Dark Pulse
+Lyra,Honchkrow,Pokemon Trainer Red,2:45:37.57,26,14,95,9:46,1778013364.815,Nasty Plot,Psychic,Roost,Dark Pulse
