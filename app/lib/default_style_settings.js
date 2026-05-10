@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-09T20:17:43.805Z
+ * Last updated: 2026-05-10T19:16:43.723Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3364693,6 +3364693,21 @@ const DEFAULT_STYLE_SETTINGS = {
                 "Earthquake"
             ]
         ]
+    },
+    "HeartGold and SoulSilver_Bastiodon": {},
+    "HeartGold and SoulSilver_Girafarig": {
+        "imageFlip": true,
+        "imageScale": "0.87",
+        "imageYOffset": "31",
+        "imageXOffset": "-12",
+        "overlay_color": "#f0ad3c",
+        "ui_saturation": "1",
+        "backgroundTexture": "Psychic",
+        "backgroundContrast": "158",
+        "backgroundScale": "116",
+        "backgroundHue": "261",
+        "backgroundYOffset": "62",
+        "pkmn_ability": "Early Bird"
     }
 };
 
