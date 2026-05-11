@@ -1,0 +1,46 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Stantler,Passerby Boy,3:15.42,0,0,6,0:12,1778514809.569,Tackle,Leer,,
+Lyra,Stantler,Leader Falkner,9:48.53,0,1,12,0:38,1778515202.681,Tackle,Leer,Astonish,Hypnosis
+Lyra,Stantler,Leader Bugsy,15:31.58,0,1,16,1:01,1778515545.735,Stomp,Leer,Astonish,Hypnosis
+Lyra,Stantler,Rival Silver,16:16.28,0,1,17,1:04,1778515590.448,Stomp,Leer,Astonish,Hypnosis
+Lyra,Stantler,Leader Whitney,25:59.53,0,1,20,1:43,1778516173.712,Headbutt,Stomp,Thunderbolt,Charge Beam
+Lyra,Stantler,Rival Silver,33:02.78,1,1,23,2:09,1778516596.968,Headbutt,Stomp,Thunderbolt,Charge Beam
+Lyra,Stantler,Rival Silver,34:13.60,2,1,23,2:09,1778516667.793,Headbutt,Stomp,Thunderbolt,Charge Beam
+Lyra,Stantler,Leader Morty,36:52.67,2,1,26,2:19,1778516826.863,Headbutt,Stomp,Thunderbolt,Charge Beam
+Lyra,Stantler,Leader Chuck,41:20.62,4,1,29,2:33,1778517094.819,Headbutt,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Pryce,50:12.49,7,1,33,3:06,1778517626.699,Headbutt,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Jasmine,53:00.81,8,1,34,3:15,1778517910.77,Substitute,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Rival Silver,57:49.04,9,1,36,3:30,1778518199.007,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Clair,1:09:58.82,11,2,48,4:17,1778518935.92,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Rival Silver,1:19:59.67,11,2,50,4:57,1778519536.786,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Will,1:21:09.13,11,2,51,5:01,1778519606.249,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Koga,1:21:52.96,11,2,52,5:04,1778519650.076,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Bruno,1:22:46.35,11,2,52,5:08,1778519703.465,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Karen,1:23:41.47,11,2,53,5:12,1778519758.581,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Will,1:26:03.77,11,3,54,5:19,1778519900.893,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Koga,1:26:44.31,11,3,55,5:22,1778519941.424,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Bruno,1:27:32.22,11,3,55,5:25,1778519989.336,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Karen,1:28:30.20,11,3,56,5:29,1778520047.322,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Will,1:30:30.54,13,4,57,5:34,1778520172.086,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Koga,1:31:11.32,13,4,57,5:37,1778520212.866,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Bruno,1:31:48.79,13,4,58,5:39,1778520250.333,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Karen,1:32:37.35,13,4,58,5:42,1778520298.896,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Will,1:33:49.93,13,5,59,5:47,1778520371.478,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Koga,1:34:35.27,13,5,60,5:50,1778520416.816,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Bruno,1:35:22.66,13,5,60,5:53,1778520464.206,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Elite Four Karen,1:36:24.98,13,5,62,5:58,1778520526.527,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Champion Lance,1:37:31.37,13,5,62,6:02,1778520592.922,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Sabrina,1:41:40.79,13,5,63,6:18,1778520842.344,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Misty,1:47:40.41,13,6,65,6:42,1778521201.97,Return,Shadow Ball,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Lt. Surge,1:50:01.22,13,6,66,6:52,1778521342.776,Return,Earthquake,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Brock,1:51:32.66,13,6,66,6:58,1778521434.215,Return,Earthquake,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Blaine,1:55:33.62,13,6,68,7:14,1778521675.184,Return,Earthquake,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Janine,1:58:29.63,13,6,69,7:25,1778521851.195,Return,Earthquake,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Erika,2:00:44.79,14,6,69,7:31,1778521986.343,Return,Earthquake,Thunderbolt,Calm Mind
+Lyra,Stantler,Leader Blue,2:09:25.38,20,6,77,7:52,1778522506.948,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Elite Four Will,2:12:24.47,20,7,77,8:04,1778522686.04,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Elite Four Will,2:14:29.51,20,9,78,8:12,1778522811.088,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Elite Four Koga,2:15:59.50,21,9,79,8:17,1778522901.074,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Elite Four Bruno,2:17:16.52,22,9,79,8:21,1778522978.094,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Champion Lance,2:21:12.51,28,9,83,8:29,1778523219.51,Return,Earthquake,Psych Up,Swagger
+Lyra,Stantler,Pokemon Trainer Red,2:26:32.21,29,9,85,8:47,1778523539.211,Return,Earthquake,Psych Up,Swagger
