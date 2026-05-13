@@ -2148,13 +2148,14 @@ const app = Vue.createApp({
         heldItem() {
             const state = this.mapper.properties.meta.state.value
             if (this.mapper.properties.player?.team[0]?.held_item?.value == "Never-Melt Ice") { return "NeverMeltIce"}
+            const battleItem = this.mapper.properties.battle?.player?.active_pokemon?.held_item?.value
+            const teamItem   = this.mapper.properties.player?.team[0]?.held_item?.value
             switch (state) {
                 case "Battle":
-                    return this.mapper.properties.battle.player.active_pokemon.held_item.value
                 case "From Battle":
-                    return this.mapper.properties.battle.player.active_pokemon.held_item.value
+                    return battleItem || teamItem || null
                 default:
-                    return this.mapper.properties.player.team[0].held_item.value
+                    return teamItem || battleItem || null
             }
         },
         enemy_graphic() {

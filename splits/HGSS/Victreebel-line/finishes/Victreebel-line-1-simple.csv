@@ -1,33 +1,52 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Lyra,Bellsprout,Passerby Boy,5:30.63,0,0,10,0:21,1777235157.332,Vine Whip,Growth,,
-Lyra,Bellsprout,Leader Falkner,19:56.35,0,6,17,1:19,1777236052.803,Vine Whip,Stun Spore,Wrap,Sleep Powder
-Lyra,Weepinbell,Rival Silver,29:58.03,0,7,22,1:59,1777236678.406,Vine Whip,Stun Spore,Wrap,Sleep Powder
-Lyra,Weepinbell,Leader Bugsy,30:48.29,0,7,23,2:02,1777236728.674,Vine Whip,Acid,Wrap,Sleep Powder
-Lyra,Weepinbell,Leader Whitney,38:16.42,0,7,25,2:32,1777237221.328,Vine Whip,Swords Dance,Return,Sleep Powder
-Lyra,Weepinbell,Rival Silver,42:30.46,0,7,27,2:49,1777237475.363,Return,Swords Dance,Sleep Powder,Knock Off
-Lyra,Weepinbell,Leader Morty,45:05.24,0,7,30,2:59,1777237630.147,Return,Swords Dance,Sleep Powder,Knock Off
-Lyra,Weepinbell,Leader Chuck,51:41.03,0,7,34,3:26,1777238025.939,Return,Swords Dance,Sleep Powder,Knock Off
-Lyra,Victreebel,Leader Pryce,1:01:59.45,1,7,39,4:06,1777238644.375,Return,Swords Dance,Sleep Powder,Razor Leaf
-Lyra,Victreebel,Leader Jasmine,1:05:10.00,4,7,40,4:13,1777238834.92,Return,Swords Dance,Sleep Powder,Razor Leaf
-Lyra,Victreebel,Rival Silver,1:10:04.28,4,7,42,4:33,1777239129.206,Return,Swords Dance,Sleep Powder,Razor Leaf
-Lyra,Victreebel,Leader Clair,1:19:11.86,4,7,46,5:09,1777239711.043,Return,Swords Dance,Sleep Powder,Razor Leaf
-Lyra,Victreebel,Rival Silver,1:29:21.72,5,7,50,5:47,1777240320.911,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Will,1:30:26.61,5,7,51,5:51,1777240385.804,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Koga,1:31:37.81,6,7,52,5:55,1777240457.014,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Bruno,1:32:23.37,6,7,52,5:58,1777240502.567,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Karen,1:33:23.43,7,7,53,6:00,1777240562.633,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Champion Lance,1:34:21.20,7,7,54,6:04,1777240620.405,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Erika,1:38:47.56,8,7,56,6:18,1777240886.757,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Misty,1:46:05.18,9,8,59,6:47,1777241324.396,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Lt. Surge,1:48:59.14,9,8,60,6:58,1777241498.353,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Brock,1:50:37.32,9,8,61,7:05,1777241596.53,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Blaine,1:54:44.75,12,8,73,7:18,1777241843.962,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Janine,1:56:19.41,12,8,73,7:24,1777241938.619,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Sabrina,1:57:20.94,12,8,73,7:28,1777242000.161,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Leader Blue,2:00:09.50,15,8,74,7:36,1777242168.72,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Will,2:02:55.34,15,8,74,7:47,1777242334.56,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Koga,2:04:00.36,15,8,75,7:51,1777242399.579,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Bruno,2:04:56.87,15,8,76,7:55,1777242456.099,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Elite Four Karen,2:06:06.58,16,8,77,7:58,1777242525.807,Return,Swords Dance,Sleep Powder,Leaf Blade
-Lyra,Victreebel,Champion Lance,2:29:46.56,105,8,77,8:04,1777243945.809,Return,Swords Dance,Sleep Powder,Sunny Day
-Lyra,Victreebel,Pokemon Trainer Red,2:34:40.81,109,8,78,8:17,1777244240.058,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Bellsprout,Passerby Boy,5:30.63,0,0,10,0:21,1778525948.595,Vine Whip,Growth,,
+Lyra,Bellsprout,Leader Falkner,19:56.35,0,7,17,1:19,1778526815.492,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Rival Silver,29:58.04,0,7,22,1:59,1778527418.98,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Bugsy,30:48.32,0,7,23,2:02,1778527469.659,Vine Whip,Acid,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Whitney,38:16.45,0,7,25,2:32,1778527921.883,Vine Whip,Swords Dance,Return,Sleep Powder
+Lyra,Weepinbell,Rival Silver,42:30.47,0,7,27,2:49,1778528178.827,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Morty,45:05.25,0,7,30,2:59,1778528334.104,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Chuck,51:41.05,0,7,34,3:26,1778528736.715,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Victreebel,Leader Pryce,1:01:58.55,1,7,39,4:05,1778529364.09,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Victreebel,Rival Silver,1:10:04.30,4,7,42,4:33,1778532874.497,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Bellsprout,Passerby Boy,5:30.63,0,0,10,0:21,1778543153.525,Vine Whip,Growth,,
+Lyra,Bellsprout,Leader Falkner,19:56.36,0,7,17,1:19,1778544020.09,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Rival Silver,29:58.04,0,7,22,1:59,1778544623.243,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Bugsy,30:48.31,0,7,23,2:02,1778544673.831,Vine Whip,Acid,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Whitney,38:16.44,0,7,25,2:32,1778545125.651,Vine Whip,Swords Dance,Return,Sleep Powder
+Lyra,Weepinbell,Rival Silver,42:30.48,0,7,27,2:49,1778545381.671,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Morty,45:05.25,0,7,30,2:59,1778545536.877,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Chuck,51:41.04,0,7,34,3:26,1778545938.841,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Victreebel,Leader Pryce,1:01:58.56,1,7,39,4:05,1778546564.933,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Bellsprout,Passerby Boy,5:30.63,0,0,10,0:21,1778556490.056,Vine Whip,Growth,,
+Lyra,Bellsprout,Leader Falkner,19:56.36,0,7,17,1:19,1778557356.652,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Rival Silver,29:58.05,0,7,22,1:59,1778557960.437,Vine Whip,Stun Spore,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Bugsy,30:48.32,0,7,23,2:02,1778558011.106,Vine Whip,Acid,Wrap,Sleep Powder
+Lyra,Weepinbell,Leader Whitney,38:16.44,0,7,25,2:32,1778558463.077,Vine Whip,Swords Dance,Return,Sleep Powder
+Lyra,Weepinbell,Rival Silver,42:30.46,0,7,27,2:49,1778558719.11,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Morty,45:05.26,0,7,30,2:59,1778558874.297,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Weepinbell,Leader Chuck,51:41.03,0,7,34,3:26,1778559276.726,Return,Swords Dance,Sleep Powder,Knock Off
+Lyra,Victreebel,Leader Pryce,1:01:59.47,1,7,39,4:06,1778559904.651,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Victreebel,Leader Jasmine,1:05:10.02,4,7,40,4:13,1778560096.694,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Victreebel,Rival Silver,1:10:04.30,4,7,42,4:33,1778560395.126,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Victreebel,Leader Clair,1:19:11.87,4,7,46,5:09,1778560946.302,Return,Swords Dance,Sleep Powder,Razor Leaf
+Lyra,Victreebel,Rival Silver,1:29:21.73,5,7,50,5:47,1778561559.957,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Will,1:30:26.62,5,7,51,5:51,1778561625.249,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Koga,1:31:37.82,6,7,52,5:55,1778561696.839,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Bruno,1:32:23.39,6,7,52,5:58,1778561742.749,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Karen,1:33:23.45,7,7,53,6:00,1778561803.17,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Champion Lance,1:34:21.23,7,7,54,6:04,1778561861.348,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Erika,1:38:47.57,8,7,56,6:18,1778562129.978,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Misty,1:46:05.21,9,8,59,6:47,1778562571.958,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Lt. Surge,1:48:59.15,9,8,60,6:58,1778562748.165,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Brock,1:50:37.32,9,8,61,7:05,1778562847.947,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Blaine,1:54:44.77,12,8,73,7:18,1778563097.214,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Janine,1:56:19.41,12,8,73,7:24,1778563192.516,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Sabrina,1:57:20.96,12,8,73,7:28,1778563254.72,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Leader Blue,2:00:09.52,15,8,74,7:36,1778563423.867,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Will,2:02:55.36,15,8,74,7:47,1778563590.06,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Koga,2:04:00.36,15,8,75,7:51,1778563655.069,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Bruno,2:04:56.89,15,8,76,7:55,1778563711.933,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Elite Four Karen,2:06:06.60,16,8,77,7:58,1778563781.996,Return,Swords Dance,Sleep Powder,Leaf Blade
+Lyra,Victreebel,Champion Lance,2:29:46.57,105,8,77,8:04,1778565204.514,Return,Swords Dance,Sleep Powder,Sunny Day
+Lyra,Victreebel,Pokemon Trainer Red,2:34:40.81,109,8,78,8:17,1778565500.378,Return,Swords Dance,Sleep Powder,Sunny Day
