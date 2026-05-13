@@ -2152,10 +2152,11 @@ const app = Vue.createApp({
             const teamItem   = this.mapper.properties.player?.team[0]?.held_item?.value
             switch (state) {
                 case "Battle":
+                    return battleItem || null
                 case "From Battle":
                     return battleItem || teamItem || null
                 default:
-                    return teamItem || battleItem || null
+                    return teamItem || null
             }
         },
         enemy_graphic() {
