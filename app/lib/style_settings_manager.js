@@ -221,18 +221,52 @@ class StyleSettingsManager {
         if (value === undefined || value === null) {
             delete this.defaultSettings[key];
         } else {
-            // Merge with existing default to preserve other properties
+            // Only persist style fields — callers pass the whole game-state blob
+            // for a given key (including split_data, timers, counters), and
+            // letting that through bloats the defaults file into the megabytes.
+            const styleOnly = {};
+            for (const prop of this.stylePropertyKeys) {
+                if (prop in value) {
+                    styleOnly[prop] = value[prop];
+                }
+            }
             this.defaultSettings[key] = {
                 ...(this.defaultSettings[key] || {}),
-                ...value
+                ...styleOnly
             };
         }
-        
-        // Write to file
-        this._writeDefaultsFile();
-        
+
+        // Debounce the file write — the defaults file is huge and rewriting it
+        // on every slider tick blocks the main thread. Flush after idle instead.
+        this._scheduleWriteDefaultsFile();
+
         // Also update localStorage for immediate use (but as defaults, not user overrides)
         localStorage.setItem(key, JSON.stringify(this.defaultSettings[key]));
+    }
+
+    /**
+     * Debounced wrapper around _writeDefaultsFile.
+     * Coalesces rapid changes (e.g. slider drags) into a single disk write.
+     */
+    _scheduleWriteDefaultsFile() {
+        if (this._writeTimer) {
+            clearTimeout(this._writeTimer);
+        }
+        if (!this._unloadHandlerRegistered && typeof window !== 'undefined') {
+            // Flush synchronously on app close so we don't drop the last edits
+            window.addEventListener('beforeunload', () => {
+                if (this._writeTimer) {
+                    clearTimeout(this._writeTimer);
+                    this._writeTimer = null;
+                    this._writeDefaultsFile();
+                }
+            });
+            this._unloadHandlerRegistered = true;
+        }
+        this._writeTimer = setTimeout(() => {
+            this._writeTimer = null;
+            this._writeDefaultsFile();
+        }, 500);
     }
     
     /**

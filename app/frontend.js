@@ -607,7 +607,6 @@ const app = Vue.createApp({
             refilming_mode               : false,
             show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
             legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
-            set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
             catch_rate                   : MyStorage['catch_rate'] ?? false,
             previous_splits              : MyStorage['previous_splits']     ?? [],
             current_splits               : MyStorage['current_splits']      ?? [],
@@ -736,12 +735,91 @@ const app = Vue.createApp({
             encounters_oreburgh_gate: MyStorage['encounters_oreburgh_gate'] ?? true,
             encounters_oreburgh_mine: MyStorage['encounters_oreburgh_mine'] ?? true,
 
+            // Platinum HM force flags
+            hm_route_201_bidoof:        MyStorage['hm_route_201_bidoof']        ?? true,
+            hm_route_201_starly:        MyStorage['hm_route_201_starly']        ?? false,
+            hm_route_202_bidoof:        MyStorage['hm_route_202_bidoof']        ?? false,
+            hm_route_202_starly:        MyStorage['hm_route_202_starly']        ?? false,
+            hm_route_203_abra:          MyStorage['hm_route_203_abra']          ?? false,
+            hm_oreburgh_gate_zubat:     MyStorage['hm_oreburgh_gate_zubat']     ?? true,
+            hm_oreburgh_gate_geodude:   MyStorage['hm_oreburgh_gate_geodude']   ?? true,
+            hm_oreburgh_gate_psyduck:   MyStorage['hm_oreburgh_gate_psyduck']   ?? true,
+            hm_route_207_machop:        MyStorage['hm_route_207_machop']        ?? true,
+            hm_route_207_geodude:       MyStorage['hm_route_207_geodude']       ?? false,
+            hm_oreburgh_mine_geodude:   MyStorage['hm_oreburgh_mine_geodude']   ?? false,
+            hm_route_208_bibarel:       MyStorage['hm_route_208_bibarel']       ?? false,
+            hm_route_213_buizel:        MyStorage['hm_route_213_buizel']        ?? false,
+
             encounters_route_29: MyStorage['encounters_route_29'] ?? true,
             encounters_route_30: MyStorage['encounters_route_30'] ?? true,
             encounters_sprout_tower: MyStorage['encounters_sprout_tower'] ?? true,
 
             pokemon_list: [],
             
+            floaroma_berries: {
+                "Random Berry": 0,
+                "Cheri Berry": 1,
+                "Chesto Berry": 2,
+                "Pecha Berry": 3,
+                "Rawst Berry": 4,
+                "Aspear Berry": 5,
+            },
+
+            berry_master_berries: {
+                "Random Berry": 0,
+                "Cheri Berry": 1,
+                "Chesto Berry": 2,
+                "Pecha Berry": 3,
+                "Rawst Berry": 4,
+                "Aspear Berry": 5,
+                "Leppa Berry": 6,
+                "Oran Berry": 7,
+                "Persim Berry": 8,
+                "Lum Berry": 9,
+                "Sitrus Berry": 10,
+                "Figy Berry": 11,
+                "Wiki Berry": 12,
+                "Mago Berry": 13,
+                "Aguav Berry": 14,
+                "Iapapa Berry": 15,
+                "Razz Berry": 16,
+                "Bluk Berry": 17,
+                "Nanab Berry": 18,
+                "Wepear Berry": 19,
+                "Pinap Berry": 20,
+                "Pomeg Berry": 21,
+                "Kelpsy Berry": 22,
+                "Qualot Berry": 23,
+                "Hondew Berry": 24,
+                "Grepa Berry": 25,
+                "Tamato Berry": 26,
+                "Cornn Berry": 27,
+                "Magost Berry": 28,
+                "Rabuta Berry": 29,
+                "Nomel Berry": 30,
+            },
+
+            pastoria_berries: {
+                "Random Berry": 0, 
+                "Occa Berry": 1, 
+                "Passho Berry": 2, 
+                "Wacan Berry": 3, 
+                "Rindo Berry": 4, 
+                "Yache Berry": 5, 
+                "Chople Berry": 6, 
+                "Kebia Berry": 7, 
+                "Shuca Berry": 8, 
+                "Coba Berry": 9, 
+                "Payapa Berry": 10, 
+                "Tanga Berry": 11, 
+                "Charti Berry": 12, 
+                "Kasib Berry": 13, 
+                "Haban Berry": 14, 
+                "Colbur Berry": 15, 
+                "Babiri Berry": 16, 
+                "Chilan Berry": 17, 
+            },
+
             // USER CONFIG (components) ------------------------------------------------------------------------// 
             typeCalcs: true,
 
@@ -962,7 +1040,8 @@ const app = Vue.createApp({
             buffer_battle_special_defense: 0,
             buffer_battle_friendship     : 0,
 
-            search_term: MyStorage["search_term"] ?? "",
+            starter_input: MyStorage["starter"] ?? "Heatran",
+            starter_dropdown_open: false,
 
             track_TMHM_viability: false,
 
@@ -1101,6 +1180,58 @@ const app = Vue.createApp({
             MyStorage['encounters_sprout_tower'] = newValue;
             this.disable_encounters();
         },
+        hm_route_201_bidoof(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_BIDOOF?.set(newValue, false);
+            MyStorage['hm_route_201_bidoof'] = newValue;
+        },
+        hm_route_201_starly(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_STARLY?.set(newValue, false);
+            MyStorage['hm_route_201_starly'] = newValue;
+        },
+        hm_route_202_bidoof(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_BIDOOF?.set(newValue, false);
+            MyStorage['hm_route_202_bidoof'] = newValue;
+        },
+        hm_route_202_starly(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_STARLY?.set(newValue, false);
+            MyStorage['hm_route_202_starly'] = newValue;
+        },
+        hm_route_203_abra(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_203_ABRA?.set(newValue, false);
+            MyStorage['hm_route_203_abra'] = newValue;
+        },
+        hm_oreburgh_gate_zubat(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_zubat'] = newValue;
+        },
+        hm_oreburgh_gate_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_geodude'] = newValue;
+        },
+        hm_oreburgh_gate_psyduck(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_psyduck'] = newValue;
+        },
+        hm_route_207_machop(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_MACHOP?.set(newValue, false);
+            MyStorage['hm_route_207_machop'] = newValue;
+        },
+        hm_route_207_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_GEODUDE?.set(newValue, false);
+            MyStorage['hm_route_207_geodude'] = newValue;
+        },
+        hm_oreburgh_mine_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE?.set(newValue, false);
+            MyStorage['hm_oreburgh_mine_geodude'] = newValue;
+        },
+        hm_route_208_bibarel(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_208_BIBAREL?.set(newValue, false);
+            MyStorage['hm_route_208_bibarel'] = newValue;
+        },
+        hm_route_213_buizel(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_213_BUIZEL?.set(newValue, false);
+            MyStorage['hm_route_213_buizel'] = newValue;
+        },
         current_splits: {
             handler: function (newVal, oldVal) {
                 MyStorage['current_splits'] = newVal
@@ -1234,6 +1365,10 @@ const app = Vue.createApp({
             }
         },
         starter(newValue, oldValue) {
+            // Keep the filterable input in sync when starter is changed elsewhere (e.g. from game data)
+            if (newValue && this.starter_input !== newValue) {
+                this.starter_input = newValue
+            }
             // Prevent recursive updates
             if (this.is_validating_starter) {
                 return;
@@ -1251,7 +1386,9 @@ const app = Vue.createApp({
                 return;
             }
             
-            // this.update_rom_starter_and_intro_mon()
+            if (oldValue !== newValue) {
+                this.update_rom_starter_and_intro_mon()
+            }
 
             // IMPORTANT: When evolution is enabled, only block programmatic changes to species outside the evolution family
             // This prevents error data from game resets from changing the displayed Pokemon
@@ -2092,12 +2229,10 @@ const app = Vue.createApp({
         growth_rate() {
             return this.g4PokemonData[this.starter].growth_rate
         },
-        filtered_pokemon_list() {
-            if (this.search_term === '') {
-                return this.pokemon_list;
-            } else {
-                return this.pokemon_list.filter(pokemon => pokemon.toLowerCase().includes(this.search_term.toLowerCase()));
-            }
+        filtered_starter_options() {
+            const term = (this.starter_input || '').toLowerCase()
+            if (!term) return this.pokemon_list
+            return this.pokemon_list.filter(p => p.toLowerCase().includes(term))
         },
         filtered_trainer_list() {
             if (this.search_trainers === '') {
@@ -2990,6 +3125,7 @@ const app = Vue.createApp({
         },
         disable_encounters() {
             const map = this.mapper.properties.overworld.map_name.value
+            console.log(map)
             var rate = 30
             const team_0 = this.mapper.properties.player.team[0].species.value
             const team_1 = this.mapper.properties.player.team[1].species.value
@@ -3000,22 +3136,32 @@ const app = Vue.createApp({
             // console.log(team_0, team_1, team_2, team_3, team_4, team_5)
             if (this.selected_game == 'Platinum') {
                 if (map == 'Route 201 - Map 1') {
-                    if (this.encounters_route_201) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_BIDOOF.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_STARLY.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_201) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
-                        const hasBidoof = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Bidoof')
-                        const hasStarly = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Starly')
-                        if (hasBidoof && hasStarly) {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
-                        }
-                        else {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
-                        }
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
                     }
                 }
                 else if (map == 'Route 202 - Map 1') {
-                    if (this.encounters_route_202) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_BIDOOF.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_STARLY.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_202) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+                else if (map == 'Route 203 - Map 1') {
+                    if (this.mapper.properties.patch.FLAG_FORCE_ROUTE_203_ABRA.value) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_203) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
@@ -3024,23 +3170,33 @@ const app = Vue.createApp({
                 }
                 else if (map == 'Oreburgh Gate - Map 1') {
                     rate = 10
-                    if (this.encounters_oreburgh_gate) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT.value || this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE.value || this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_oreburgh_gate) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
-                        const hasGeodude = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Geodude')
-                        const hasPsyduck = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Psyduck')
-                        if (hasGeodude && hasPsyduck) {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
-                        }
-                        else {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
-                        }
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
                     }
+                }
+                else if (map == 'Route 207 - Map 1') {
+                    // if (this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_MACHOP.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_GEODUDE.value) {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    // }
+                    // else if (this.encounters_oreburgh_gate) {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    // }
+                    // else {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    // }
                 }
                 else if (map == 'Oreburgh Mine - Map 2' || map == 'Oreburgh Mine - Map 3') {
                     rate = 10
-                    if (this.encounters_oreburgh_mine) {
+                    if (this.mapper.properties.patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE.value && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_oreburgh_mine) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
@@ -3093,17 +3249,37 @@ const app = Vue.createApp({
                 default: return ""
             }
         },
+        commit_starter_input() {
+            if (this.pokemon_list.includes(this.starter_input)) {
+                this.starter = this.starter_input
+            } else {
+                this.starter_input = this.starter
+            }
+            this.starter_dropdown_open = false
+        },
+        select_starter_option(key) {
+            this.starter_input = key
+            this.starter = key
+            this.starter_dropdown_open = false
+        },
+        close_starter_dropdown() {
+            // Delay so a click on an option registers before the list hides
+            setTimeout(() => {
+                this.starter_dropdown_open = false
+                this.commit_starter_input()
+            }, 150)
+        },
         async update_rom_starter_and_intro_mon() {
             let starter = this.starter
             let game = this.selected_game
             if (game == "Platinum") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true),
                 ])
             }
             if (game == "HeartGold and SoulSilver") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true),
                 ])
             }
         },
@@ -4485,7 +4661,7 @@ const app = Vue.createApp({
             this.previous_splits = []
 
             this.updateTime()
-            if (this.set_rom_starter_automatically && this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
+            if (this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
                 console.log('Setting ROM starter automatically')
                 this.update_rom_starter_and_intro_mon()
             }
@@ -7364,6 +7540,8 @@ const app = Vue.createApp({
         this.load_all_settings()
         this.pokemon_list = this.keys_function(g4PokemonData)
 
+        this.update_rom_starter_and_intro_mon()
+
         // Initialize evolution family list
         this.updateEvolutionFamilyList();
 
@@ -7554,7 +7732,7 @@ const app = Vue.createApp({
                     if (newProp.value == true && this.emulatorStats.time_current == null) {
                         console.log("Sending emulator start")
                         this.sendEmulatorStart();
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7571,7 +7749,7 @@ const app = Vue.createApp({
                     if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
                         this.startTime()
                         // if (this.shuckie_timer == true) { this.sendEmulatorStart(); }
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7591,7 +7769,7 @@ const app = Vue.createApp({
                     if (newProp.value == 56150 && this.emulatorStats.time_current == null) {
                         console.log("Sending emulator start")
                         this.sendEmulatorStart();
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7606,7 +7784,7 @@ const app = Vue.createApp({
                 else {
                     if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
                         this.startTime()
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7651,6 +7829,10 @@ const app = Vue.createApp({
             //     const stateName = state + " - " + trainer
             //     this.sendObsChapterMarker(stateName)
             // }
+
+            if (newProp.value == "Overworld") {
+                this.freezeEncounters();
+            }
 
             const game = this.mapper.properties.meta.game_name.value
             if (this.blackout == true) {
@@ -8142,6 +8324,23 @@ const app = Vue.createApp({
                     {path: 'player.team.0.ivs.speed',           value: ivSpe, freeze: false},
                     {path: 'player.team.0.ivs.special_attack',  value: ivSpA, freeze: false},
                     {path: 'player.team.0.ivs.special_defense', value: ivSpD, freeze: false},
+                ]),
+                this.mapper.setBits([
+                    {path: 'patch.FLAG_FORCE_ROUTE_201_BIDOOF', value: this.hm_route_201_bidoof,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_201_STARLY', value: this.hm_route_201_starly,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_202_BIDOOF', value: this.hm_route_202_bidoof,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_202_STARLY', value: this.hm_route_202_starly,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_203_ABRA', value: this.hm_route_203_abra,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT', value: this.hm_oreburgh_gate_zubat,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE', value: this.hm_oreburgh_gate_geodude,  freeze: false},
+                ]),
+                this.mapper.setBits([
+                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK', value: this.hm_oreburgh_gate_psyduck,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_207_MACHOP', value: this.hm_route_207_machop,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_207_GEODUDE', value: this.hm_route_207_geodude,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE', value: this.hm_oreburgh_mine_geodude,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_208_BIBAREL', value: this.hm_route_208_bibarel,  freeze: false},
+                    {path: 'patch.FLAG_FORCE_ROUTE_213_BUIZEL', value: this.hm_route_213_buizel,  freeze: false},
                 ]),
             ])
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {

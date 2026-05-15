@@ -282,7 +282,36 @@ body {
     filter: drop-shadow(0px 0px 2px #000000c5);
 }
 .dropdownMenu:hover {
-    background: #11ce18; 
+    background: #11ce18;
+}
+.starter_combobox {
+    position: relative;
+    display: inline-block;
+}
+.starter_dropdown_list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    max-height: 220px;
+    overflow-y: auto;
+    background: #d8ffc9;
+    border: 1px solid #000;
+    border-radius: 6px;
+    margin: 2px 0 0 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+    font-family: Play;
+    font-size: 13px;
+    box-shadow: 0px 2px 6px #000000a0;
+}
+.starter_dropdown_list li {
+    padding: 3px 8px;
+    cursor: pointer;
+}
+.starter_dropdown_list li:hover {
+    background: #72fd4f;
 }
 .inputContainer {
     background-color: #d8ffc9;
