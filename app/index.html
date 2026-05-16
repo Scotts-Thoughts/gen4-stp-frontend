@@ -331,7 +331,7 @@
                         <tr>
                             <td>Catch Rate:</td>
                             <td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td>
-                            <td v-if="mapper.properties.meta.game_name.value == 'Platinum'"><button class="buttonStyle" style="margin-left: 8px; padding: 2px 10px; font-size: 12px;" @click="openRNGModal">RNG</button></td>
+                            <td v-if="(mapper?.properties?.meta?.game_name?.value || selected_game) == 'Platinum'"><button class="buttonStyle" style="margin-left: 8px; padding: 2px 10px; font-size: 12px;" @click="openRNGModal">RNG</button></td>
                         </tr>
                     </table>
                     <div v-if="mapper.properties.meta.game_name.value == 'Platinum'" style="display: flex; gap: 24px; align-items: flex-start;">

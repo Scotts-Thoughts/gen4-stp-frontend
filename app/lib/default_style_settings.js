@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-16T15:16:48.087Z
+ * Last updated: 2026-05-16T15:23:38.661Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2538,7 +2538,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "evolution": true,
         "selected_evolution_species": "Pineco"
     },
-    "HeartGold and SoulSilver_Forretress": {}
+    "HeartGold and SoulSilver_Forretress": {},
+    "Platinum_Forretress": {}
 };
 
 // Export for use in the application
