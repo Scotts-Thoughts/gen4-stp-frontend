@@ -1,34 +1,34 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Lyra,Sandshrew,Passerby Boy,5:04.23,0,0,8,0:19,1777735664.92,Scratch,Defense Curl,Sand-Attack,
-Lyra,Sandshrew,Leader Falkner,14:57.96,1,0,15,0:56,1777736846.101,Scratch,Defense Curl,Swift,Poison Sting
-Lyra,Sandshrew,Leader Bugsy,26:12.71,1,0,21,1:41,1777737529.709,Scratch,Defense Curl,Swift,Rollout
-Lyra,Sandslash,Rival Silver,28:09.68,2,0,22,1:48,1777737646.677,Crush Claw,Defense Curl,Swift,Rollout
-Lyra,Sandslash,Leader Whitney,36:52.61,2,0,23,2:23,1777738176.345,Headbutt,Swords Dance,Return,Rollout
-Lyra,Sandslash,Rival Silver,54:22.63,2,0,33,3:33,1777739230.406,Return,Swords Dance,Shadow Claw,Rollout
-Lyra,Sandslash,Leader Morty,56:31.24,2,0,35,3:41,1777739359.014,Return,Swords Dance,Shadow Claw,Rollout
-Lyra,Sandslash,Leader Chuck,59:32.11,2,0,37,3:54,1777739557.78,Return,Swords Dance,Shadow Claw,Rollout
-Lyra,Sandslash,Leader Pryce,1:07:06.34,2,0,40,4:24,1777740012.017,Return,Swords Dance,Shadow Claw,Rollout
-Lyra,Sandslash,Leader Jasmine,1:08:47.77,2,0,41,4:31,1777740113.448,Return,Swords Dance,Shadow Claw,Dig
-Lyra,Sandslash,Rival Silver,1:12:14.09,2,0,43,4:44,1777740319.765,Return,Swords Dance,Shadow Claw,Dig
-Lyra,Sandslash,Leader Clair,1:20:17.48,2,0,47,5:17,1777740803.169,Return,Swords Dance,Shadow Claw,Dig
-Lyra,Sandslash,Rival Silver,1:35:41.26,3,1,51,6:14,1777741789.572,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Elite Four Will,1:37:05.77,3,1,52,6:20,1777741895.09,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Elite Four Koga,1:37:43.58,3,1,53,6:22,1777741932.904,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Elite Four Bruno,1:38:13.88,3,1,54,6:24,1777741999.962,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Elite Four Karen,1:39:05.75,3,1,54,6:28,1777742051.847,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Champion Lance,1:40:35.21,4,1,58,6:32,1777742141.295,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Lt. Surge,1:43:44.15,4,1,59,6:44,1777742369.93,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Misty,1:51:47.66,5,2,62,7:15,1777742853.44,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Sabrina,1:54:10.36,5,2,62,7:25,1777742996.142,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Brock,1:55:56.13,5,2,63,7:32,1777743101.916,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Blaine,1:58:14.45,5,2,64,7:41,1777743240.237,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Janine,1:59:41.13,5,2,65,7:47,1777743326.918,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Erika,2:01:40.11,6,2,65,7:53,1777743445.902,Return,Swords Dance,Shadow Claw,Earthquake
-Lyra,Sandslash,Leader Blue,2:07:26.29,16,2,76,8:03,1777743792.082,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Elite Four Will,2:10:17.47,16,2,76,8:15,1777744003.361,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Elite Four Will,2:11:45.13,16,3,78,8:21,1777744091.01,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Elite Four Koga,2:12:42.74,16,3,78,8:25,1777744148.618,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Elite Four Bruno,2:13:31.76,16,3,79,8:28,1777744197.642,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Elite Four Karen,2:14:43.86,16,3,83,8:33,1777744269.742,Return,Swords Dance,Poison Jab,Earthquake
-Lyra,Sandslash,Champion Lance,2:16:00.49,16,3,83,8:38,1777744346.378,Return,Swords Dance,Rock Slide,Earthquake
-Lyra,Sandslash,Pokemon Trainer Red,2:19:32.33,16,3,85,8:51,1777744558.224,Return,Swords Dance,Rock Slide,Earthquake
+Lyra,Sandshrew,Passerby Boy,5:04.25,0,0,8,0:19,1778906324.442,Scratch,Defense Curl,Sand-Attack,
+Lyra,Sandshrew,Leader Falkner,14:57.97,1,0,15,0:56,1778906919.735,Scratch,Defense Curl,Swift,Poison Sting
+Lyra,Sandshrew,Leader Bugsy,26:12.73,1,0,21,1:41,1778907597.776,Scratch,Defense Curl,Swift,Rollout
+Lyra,Sandslash,Rival Silver,28:09.68,3,0,22,1:48,1778907716.625,Crush Claw,Defense Curl,Swift,Rollout
+Lyra,Sandslash,Leader Whitney,36:52.61,3,0,23,2:23,1778908244.541,Headbutt,Swords Dance,Return,Rollout
+Lyra,Sandslash,Rival Silver,54:22.64,3,0,33,3:33,1778909302.623,Return,Swords Dance,Shadow Claw,Rollout
+Lyra,Sandslash,Leader Morty,56:31.25,3,0,35,3:41,1778909431.736,Return,Swords Dance,Shadow Claw,Rollout
+Lyra,Sandslash,Leader Chuck,59:32.12,3,0,37,3:54,1778909613.908,Return,Swords Dance,Shadow Claw,Rollout
+Lyra,Sandslash,Leader Pryce,1:07:06.35,3,0,40,4:24,1778910075.489,Return,Swords Dance,Shadow Claw,Rollout
+Lyra,Sandslash,Leader Jasmine,1:08:47.78,3,0,41,4:31,1778910178.518,Return,Swords Dance,Shadow Claw,Dig
+Lyra,Sandslash,Rival Silver,1:12:14.10,3,0,43,4:44,1778910388.717,Return,Swords Dance,Shadow Claw,Dig
+Lyra,Sandslash,Leader Clair,1:20:17.50,3,0,47,5:17,1778910876.13,Return,Swords Dance,Shadow Claw,Dig
+Lyra,Sandslash,Rival Silver,1:35:41.26,3,1,51,6:14,1778911810.475,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Elite Four Will,1:37:05.79,3,1,52,6:20,1778911895.554,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Elite Four Koga,1:37:43.60,3,1,53,6:22,1778911933.364,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Elite Four Bruno,1:38:13.89,3,1,54,6:24,1778911963.727,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Elite Four Karen,1:39:05.78,3,1,54,6:28,1778912016.024,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Champion Lance,1:40:35.22,4,1,58,6:32,1778912106.339,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Lt. Surge,1:43:44.18,4,1,59,6:44,1778912297.227,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Misty,1:51:47.67,5,2,62,7:15,1778912787.776,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Sabrina,1:54:10.38,5,2,62,7:25,1778912932.493,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Brock,1:55:56.14,5,2,63,7:32,1778913039.218,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Blaine,1:58:14.45,5,2,64,7:41,1778913178.958,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Janine,1:59:41.15,5,2,65,7:47,1778913266.607,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Erika,2:01:40.13,6,2,65,7:53,1778913387.493,Return,Swords Dance,Shadow Claw,Earthquake
+Lyra,Sandslash,Leader Blue,2:07:26.30,16,2,76,8:03,1778913734.827,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Elite Four Will,2:10:17.50,16,2,76,8:15,1778913907.04,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Elite Four Will,2:11:45.13,16,3,78,8:21,1778913994.672,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Elite Four Koga,2:12:42.74,16,3,78,8:25,1778914052.282,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Elite Four Bruno,2:13:31.78,16,3,79,8:28,1778914101.739,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Elite Four Karen,2:14:43.88,16,3,83,8:33,1778914174.238,Return,Swords Dance,Poison Jab,Earthquake
+Lyra,Sandslash,Champion Lance,2:16:00.51,16,3,83,8:38,1778914251.289,Return,Swords Dance,Rock Slide,Earthquake
+Lyra,Sandslash,Pokemon Trainer Red,2:19:32.34,16,3,85,8:51,1778914464.243,Return,Swords Dance,Rock Slide,Earthquake

@@ -1,0 +1,55 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Pineco,Passerby Boy,6:14.85,0,0,9,0:24,1778914925.956,Tackle,Protect,Selfdestruct,Bug Bite
+Lyra,Pineco,Leader Falkner,18:14.62,0,3,16,1:12,1778915647.346,Bug Bite,Protect,Tackle,Take Down
+Lyra,Pineco,Leader Bugsy,26:48.65,0,3,20,1:46,1778916163.184,Bug Bite,Protect,Rock Tomb,Take Down
+Lyra,Pineco,Rival Silver,27:58.80,0,3,21,1:51,1778916234.642,Bug Bite,Protect,Rock Tomb,Take Down
+Lyra,Pineco,Leader Whitney,44:40.02,3,3,26,2:50,1778917245.018,Bug Bite,Protect,Rock Tomb,Natural Gift
+Lyra,Forretress,Rival Silver,1:02:29.28,3,3,33,4:01,1778918319.998,Bug Bite,Mirror Shot,Payback,Natural Gift
+Lyra,Forretress,Leader Morty,1:04:43.08,3,3,35,4:10,1778918454.413,Bug Bite,Mirror Shot,Payback,Natural Gift
+Lyra,Forretress,Leader Chuck,1:08:08.35,3,3,37,4:24,1778918661.069,Bug Bite,Mirror Shot,Return,Natural Gift
+Lyra,Forretress,Leader Pryce,1:17:01.88,3,3,41,4:59,1778919200.383,Bug Bite,Mirror Shot,Return,Natural Gift
+Lyra,Forretress,Leader Jasmine,1:20:45.10,3,3,42,5:14,1778919426.207,Bug Bite,Dig,Return,Natural Gift
+Lyra,Forretress,Rival Silver,1:27:46.81,5,3,43,5:31,1778919852.361,Bug Bite,Dig,Return,Natural Gift
+Lyra,Forretress,Leader Clair,2:00:30.27,13,3,53,7:19,1778921836.606,Swagger,Dig,Return,Natural Gift
+Lyra,Forretress,Rival Silver,2:13:35.79,13,3,57,8:11,1778922628.587,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Will,2:14:48.50,13,3,58,8:16,1778922701.445,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Koga,2:15:52.01,13,3,58,8:20,1778922765.357,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Will,2:18:28.16,13,4,59,8:31,1778922921.508,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Koga,2:19:14.96,13,4,60,8:34,1778922968.312,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Bruno,2:19:57.76,13,4,61,8:37,1778923011.121,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Karen,2:20:53.18,13,4,61,8:41,1778923066.537,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Will,2:23:03.19,13,5,62,8:46,1778923196.981,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Koga,2:23:44.73,13,5,63,8:49,1778923238.535,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Bruno,2:24:17.58,13,5,63,8:51,1778923271.378,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Elite Four Karen,2:25:21.35,13,5,64,8:55,1778923335.579,Return,Earthquake,Swagger,Natural Gift
+Lyra,Forretress,Champion Lance,2:31:01.95,19,5,75,9:04,1778923677.144,Substitute,Earthquake,Flash Cannon,Zap Cannon
+Lyra,Forretress,Leader Lt. Surge,2:35:29.41,19,5,75,9:21,1778923949.326,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Erika,2:37:45.56,19,5,76,9:30,1778924088.448,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Sabrina,2:38:55.51,19,5,76,9:35,1778924159.596,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Misty,2:46:11.60,22,5,78,9:54,1778924599.257,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Brock,2:48:59.50,22,5,78,10:05,1778924769.232,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Blaine,2:51:57.87,22,5,79,10:17,1778924948.832,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Janine,2:55:23.01,22,5,80,10:31,1778925156.504,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Leader Blue,2:58:33.59,23,5,81,10:41,1778925348.207,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Elite Four Will,3:03:54.85,23,5,81,11:03,1778925673.189,Flash Cannon,Earthquake,Substitute,Zap Cannon
+Lyra,Forretress,Elite Four Will,3:06:42.58,23,7,82,11:14,1778925840.923,Flash Cannon,Earthquake,Substitute,Rock Slide
+Lyra,Forretress,Elite Four Will,3:09:41.24,23,7,84,11:26,1778926019.599,Flash Cannon,Earthquake,Substitute,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:11:55.28,23,7,84,11:35,1778926153.628,Flash Cannon,Earthquake,Substitute,Rock Slide
+Lyra,Forretress,Elite Four Will,3:14:56.45,23,8,85,11:47,1778926335.042,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:16:03.83,23,8,85,11:52,1778926402.421,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Bruno,3:17:13.95,23,8,86,11:56,1778926472.988,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Will,3:19:16.06,23,9,87,12:04,1778926595.106,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:20:09.16,23,9,88,12:08,1778926648.2,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Bruno,3:21:08.56,23,9,88,12:12,1778926707.604,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Will,3:23:13.65,23,10,89,12:20,1778926833.116,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:24:04.09,23,10,90,12:24,1778926883.564,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Bruno,3:25:05.04,23,10,90,12:28,1778926944.516,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Karen,3:28:21.27,25,10,91,12:34,1778927141.569,Flash Cannon,Earthquake,Return,Rock Slide
+Lyra,Forretress,Elite Four Will,3:40:17.15,35,11,99,13:00,1778927860.448,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:41:16.39,35,11,99,13:04,1778927919.69,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Elite Four Will,3:46:59.40,35,13,100,13:27,1778928264.272,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Elite Four Koga,3:48:12.40,35,13,100,13:32,1778928337.673,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Elite Four Bruno,3:49:46.39,35,13,100,13:38,1778928432.071,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Elite Four Karen,3:55:15.26,40,13,100,13:45,1778928761.824,Return,Attract,Rock Polish,Rock Slide
+Lyra,Forretress,Champion Lance,4:53:43.31,206,13,100,14:02,1778932277.191,Attract,Rock Slide,Double Team,Return
+Lyra,Forretress,Pokemon Trainer Red,5:11:21.34,233,13,100,14:33,1778933339.723,Attract,Sandstorm,Double Team,Rock Slide

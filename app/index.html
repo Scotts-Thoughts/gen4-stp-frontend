@@ -328,7 +328,11 @@
                     </div>
                     <br>
                     <table v-if="show_advanced_settings">
-                        <tr><td>Catch Rate:</td><td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td></tr>
+                        <tr>
+                            <td>Catch Rate:</td>
+                            <td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td>
+                            <td v-if="mapper.properties.meta.game_name.value == 'Platinum'"><button class="buttonStyle" style="margin-left: 8px; padding: 2px 10px; font-size: 12px;" @click="openRNGModal">RNG</button></td>
+                        </tr>
                     </table>
                     <div v-if="mapper.properties.meta.game_name.value == 'Platinum'" style="display: flex; gap: 24px; align-items: flex-start;">
                         <div>
@@ -360,12 +364,34 @@
                             </table>
                         </div>
                     </div>
-                    <div v-if="mapper.properties.meta.game_name.value != 'Platinum'">Encounters:</div>
-                    <table v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" style="font-size: 11px; line-height: 14px;">
-                        <tr><td>Route 29</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_29"/></td></tr>
-                        <tr><td>Route 30</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_30"/></td></tr>
-                        <tr><td>Sprout Tower</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_sprout_tower"/></td></tr>
-                    </table>
+                    <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div>
+                            <div>Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 29</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_29"/></td></tr>
+                                <tr><td>Route 30</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_30"/></td></tr>
+                                <tr><td>Sprout Tower</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_sprout_tower"/></td></tr>
+                            </table>
+                        </div>
+                        <div>
+                            <div>HM Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 29 - Sentret</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_sentret"/></td></tr>
+                                <tr><td>Route 29 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_rattata"/></td></tr>
+                                <tr><td>Route 29 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_pidgey"/></td></tr>
+                                <tr><td>Route 30 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_30_rattata"/></td></tr>
+                                <tr><td>Route 30 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_30_pidgey"/></td></tr>
+                                <tr><td>Route 31 - Bellsprout</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_bellsprout"/></td></tr>
+                                <tr><td>Route 31 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_rattata"/></td></tr>
+                                <tr><td>Route 31 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_pidgey"/></td></tr>
+                                <tr><td>Route 32 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_32_rattata"/></td></tr>
+                                <tr><td>Route 32 - Wooper</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_32_wooper"/></td></tr>
+                                <tr><td>Union Cave - Sandshrew</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_union_cave_sandshrew"/></td></tr>
+                                <tr><td>Route 34 - Drowzee</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_34_drowzee"/></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div v-if="mapper.properties.meta.game_name.value != 'Platinum' && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'">Encounters:</div>
                     <br>
                     <div v-if="mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver' && show_advanced_settings && legacy_starter_assignment">
                         <br>
@@ -1138,6 +1164,31 @@
                         <tr><td>F23</td><td> - </td><td>New Run (clear timer and metrics)</td></tr>
                         <tr><td>F24</td><td> - </td><td>Pause/Unpause the timer</td></tr>
                     </table>
+                </div>
+            </div>
+
+            <!-- RNG Configuration Modal -->
+            <div v-if="showRNGModal" class="popup-overlay" @click="closeRNGModal">
+                <div class="popup-menu rng-modal" @click.stop>
+                    <div class="popup-header">
+                        <h3>RNG Configuration</h3>
+                        <button class="popup-close" @click="closeRNGModal">&times;</button>
+                    </div>
+                    <div class="rng-modal-body">
+                        <div v-for="npc in rng_npcs" :key="npc.key" class="rng-npc-block">
+                            <div class="rng-npc-header">
+                                <span class="rng-npc-title">{{ npc.label }}</span>
+                                <button class="smallButtonStyle increment" @click="addRNGTrip(npc.key)" title="Add trip">+</button>
+                            </div>
+                            <div v-for="(trip, idx) in rng_config[npc.key]" :key="idx" class="rng-trip-row">
+                                <span class="rng-trip-label">Trip {{ idx + 1 }}:</span>
+                                <select class="dropdownMenu rng-trip-select" v-model="rng_config[npc.key][idx]">
+                                    <option v-for="(val, name) in rngOptionsFor(npc.key)" :key="name" :value="name">{{ name }}</option>
+                                </select>
+                                <button v-if="idx > 0" class="smallButtonStyle2 decrement" @click="removeRNGTrip(npc.key, idx)" title="Remove trip">-</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

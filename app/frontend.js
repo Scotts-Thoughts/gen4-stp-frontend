@@ -750,13 +750,35 @@ const app = Vue.createApp({
             hm_route_208_bibarel:       MyStorage['hm_route_208_bibarel']       ?? false,
             hm_route_213_buizel:        MyStorage['hm_route_213_buizel']        ?? false,
 
+            // HeartGold HM force flags
+            hm_route_29_sentret:        MyStorage['hm_route_29_sentret']        ?? false,
+            hm_route_29_rattata:        MyStorage['hm_route_29_rattata']        ?? false,
+            hm_route_29_pidgey:         MyStorage['hm_route_29_pidgey']         ?? false,
+            hm_route_30_rattata:        MyStorage['hm_route_30_rattata']        ?? false,
+            hm_route_30_pidgey:         MyStorage['hm_route_30_pidgey']         ?? false,
+            hm_route_31_bellsprout:     MyStorage['hm_route_31_bellsprout']     ?? false,
+            hm_route_31_rattata:        MyStorage['hm_route_31_rattata']        ?? false,
+            hm_route_31_pidgey:         MyStorage['hm_route_31_pidgey']         ?? false,
+            hm_route_32_rattata:        MyStorage['hm_route_32_rattata']        ?? true,
+            hm_route_32_wooper:         MyStorage['hm_route_32_wooper']         ?? false,
+            hm_union_cave_sandshrew:    MyStorage['hm_union_cave_sandshrew']    ?? false,
+            hm_route_34_drowzee:        MyStorage['hm_route_34_drowzee']        ?? true,
+
             encounters_route_29: MyStorage['encounters_route_29'] ?? true,
             encounters_route_30: MyStorage['encounters_route_30'] ?? true,
             encounters_sprout_tower: MyStorage['encounters_sprout_tower'] ?? true,
 
             pokemon_list: [],
             
-            floaroma_berries: {
+            shard_giver: {
+                "Random Shard": 0,
+                "Red Shard": 1,
+                "Blue Shard": 2,
+                "Yellow Shard": 3,
+                "Green Shard": 4,
+            },
+
+            floaroma_berry_girl: {
                 "Random Berry": 0,
                 "Cheri Berry": 1,
                 "Chesto Berry": 2,
@@ -765,7 +787,7 @@ const app = Vue.createApp({
                 "Aspear Berry": 5,
             },
 
-            berry_master_berries: {
+            berry_master: {
                 "Random Berry": 0,
                 "Cheri Berry": 1,
                 "Chesto Berry": 2,
@@ -799,7 +821,7 @@ const app = Vue.createApp({
                 "Nomel Berry": 30,
             },
 
-            pastoria_berries: {
+            pastoria_berry_woman: {
                 "Random Berry": 0, 
                 "Occa Berry": 1, 
                 "Passho Berry": 2, 
@@ -816,11 +838,32 @@ const app = Vue.createApp({
                 "Kasib Berry": 13, 
                 "Haban Berry": 14, 
                 "Colbur Berry": 15, 
-                "Babiri Berry": 16, 
-                "Chilan Berry": 17, 
+                "Babiri Berry": 16,
+                "Chilan Berry": 17,
             },
 
-            // USER CONFIG (components) ------------------------------------------------------------------------// 
+            // RNG modal state
+            showRNGModal: false,
+            rng_npcs: [
+                { key: "shard_giver",          label: "Shard Giver",          map: "Great Marsh - Map 6",   bagCategory: "items",   patchProp: "stpGreatMarshShard", defaultItem: "Random Shard" },
+                { key: "floaroma_berry_girl",  label: "Floaroma Berry Girl",  map: "Flower Shop - Map 1",   bagCategory: "berries", patchProp: "stpFloaromaBerry",   defaultItem: "Random Berry" },
+                { key: "berry_master",         label: "Berry Master",         map: "Route 208 - Map 3",     bagCategory: "berries", patchProp: "stpBerryMaster",     defaultItem: "Random Berry" },
+                { key: "pastoria_berry_woman", label: "Pastoria Berry Woman", map: "Pastoria City - Map 8", bagCategory: "berries", patchProp: "stpPastoriaBerry",   defaultItem: "Random Berry" },
+            ],
+            rng_config: MyStorage['rng_config'] ?? {
+                shard_giver:          ["Random Shard"],
+                floaroma_berry_girl:  ["Random Berry"],
+                berry_master:         ["Random Berry"],
+                pastoria_berry_woman: ["Random Berry"],
+            },
+            rng_trip_index: {
+                shard_giver:          0,
+                floaroma_berry_girl:  0,
+                berry_master:         0,
+                pastoria_berry_woman: 0,
+            },
+
+            // USER CONFIG (components) ------------------------------------------------------------------------//
             typeCalcs: true,
 
             //CSS styling values
@@ -1231,6 +1274,54 @@ const app = Vue.createApp({
         hm_route_213_buizel(newValue) {
             this.mapper.properties.patch.FLAG_FORCE_ROUTE_213_BUIZEL?.set(newValue, false);
             MyStorage['hm_route_213_buizel'] = newValue;
+        },
+        hm_route_29_sentret(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_SENTRET?.set(newValue, false);
+            MyStorage['hm_route_29_sentret'] = newValue;
+        },
+        hm_route_29_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_29_rattata'] = newValue;
+        },
+        hm_route_29_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_29_pidgey'] = newValue;
+        },
+        hm_route_30_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R30_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_30_rattata'] = newValue;
+        },
+        hm_route_30_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R30_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_30_pidgey'] = newValue;
+        },
+        hm_route_31_bellsprout(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_BELLSPROUT?.set(newValue, false);
+            MyStorage['hm_route_31_bellsprout'] = newValue;
+        },
+        hm_route_31_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_31_rattata'] = newValue;
+        },
+        hm_route_31_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_31_pidgey'] = newValue;
+        },
+        hm_route_32_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R32_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_32_rattata'] = newValue;
+        },
+        hm_route_32_wooper(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R32_WOOPER?.set(newValue, false);
+            MyStorage['hm_route_32_wooper'] = newValue;
+        },
+        hm_union_cave_sandshrew(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_UNION_CAVE_SANDSHREW?.set(newValue, false);
+            MyStorage['hm_union_cave_sandshrew'] = newValue;
+        },
+        hm_route_34_drowzee(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R34_DROWZEE?.set(newValue, false);
+            MyStorage['hm_route_34_drowzee'] = newValue;
         },
         current_splits: {
             handler: function (newVal, oldVal) {
@@ -3806,6 +3897,38 @@ const app = Vue.createApp({
         closePopup() {
             this.showPopup = false;
         },
+        openRNGModal() {
+            for (const npc of this.rng_npcs) {
+                if (!Array.isArray(this.rng_config[npc.key]) || this.rng_config[npc.key].length === 0) {
+                    this.rng_config[npc.key] = [npc.defaultItem];
+                }
+            }
+            this.showRNGModal = true;
+        },
+        closeRNGModal() {
+            this.showRNGModal = false;
+            MyStorage['rng_config'] = this.rng_config;
+        },
+        addRNGTrip(npcKey) {
+            const npc = this.rng_npcs.find(n => n.key === npcKey);
+            if (!npc) return;
+            this.rng_config[npcKey].push(npc.defaultItem);
+        },
+        removeRNGTrip(npcKey, idx) {
+            if (idx <= 0) return;
+            this.rng_config[npcKey].splice(idx, 1);
+        },
+        rngPatchValueForTrip(npcKey, tripIdx) {
+            const npc = this.rng_npcs.find(n => n.key === npcKey);
+            if (!npc) return 0;
+            const itemName = this.rng_config[npcKey]?.[tripIdx];
+            if (itemName == null) return 0;
+            const lookup = this[npcKey];
+            return lookup?.[itemName] ?? 0;
+        },
+        rngOptionsFor(npcKey) {
+            return this[npcKey] ?? {};
+        },
         calculate_ev_benefit(stat_name) {
             const state = this.mapper.properties.meta.state.value
             if (state == 'No Pokemon') {
@@ -4163,6 +4286,7 @@ const app = Vue.createApp({
             this.right_ui =                   MyStorage['right_ui']                   ?? "Automatic"
             this.split_type =                 MyStorage['split_type']                 ?? "First"
             this.catch_rate =                 MyStorage['catch_rate']                 ?? false
+            this.rng_config =                 MyStorage['rng_config']                 ?? this.rng_config
 
             const evolution_family = (this.g4PokemonData && this.starter) ? (this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]) : [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
             this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
@@ -8228,6 +8352,66 @@ const app = Vue.createApp({
             }
         }
 
+        // RNG: watch bag.items (shards) and bag.berries (berries) for quantity increases.
+        // When the total quantity for a category grows while on a configured NPC's map,
+        // advance that NPC's trip and write the next trip's value to the PokeAByte property
+        // (or 0 when the configured trip list is exhausted).
+        const readBagCategoryTotal = (category) => {
+            let total = 0;
+            const root = this.mapper?.properties?.bag?.[category];
+            if (root) {
+                for (const k of Object.keys(root)) {
+                    total += root[k]?.quantity?.value ?? 0;
+                }
+            }
+            return total;
+        };
+
+        const lastBagTotals = {
+            items:   readBagCategoryTotal('items'),
+            berries: readBagCategoryTotal('berries'),
+        };
+
+        const advanceRNGForCategory = async (category) => {
+            const previous = lastBagTotals[category];
+            const current = readBagCategoryTotal(category);
+            lastBagTotals[category] = current;
+            if (current <= previous) return;
+            const currentMap = this.mapper?.properties?.overworld?.map_name?.value;
+            if (!currentMap) return;
+            for (const npc of this.rng_npcs) {
+                if (npc.bagCategory !== category) continue;
+                if (npc.map !== currentMap) continue;
+                this.rng_trip_index[npc.key] = (this.rng_trip_index[npc.key] ?? 0) + 1;
+                const nextValue = this.rng_trip_index[npc.key] < (this.rng_config[npc.key]?.length ?? 0)
+                    ? this.rngPatchValueForTrip(npc.key, this.rng_trip_index[npc.key])
+                    : 0;
+                const prop = this.mapper.properties.patch?.[npc.patchProp];
+                if (prop?.set) {
+                    await prop.set(nextValue, false);
+                }
+            }
+        };
+
+        const rngBagCheckTimers = { items: null, berries: null };
+        const scheduleRNGBagCheck = (category) => {
+            if (rngBagCheckTimers[category]) clearTimeout(rngBagCheckTimers[category]);
+            rngBagCheckTimers[category] = setTimeout(() => {
+                rngBagCheckTimers[category] = null;
+                advanceRNGForCategory(category);
+            }, 100);
+        };
+
+        for (const category of ['items', 'berries']) {
+            const root = this.mapper?.properties?.bag?.[category];
+            if (!root) continue;
+            for (const k of Object.keys(root)) {
+                const slot = root[k];
+                if (slot?.quantity?.change) slot.quantity.change(() => scheduleRNGBagCheck(category));
+                if (slot?.item?.change) slot.item.change(() => scheduleRNGBagCheck(category));
+            }
+        }
+
         // NEXT POKEMON CHAPTER MARKER (Battle only)
         // Fires "Next Pokemon" whenever battle.opponent.party_position changes during Battle.
         this.mapper.properties.battle.opponent.party_position?.change((newProp, oldProp) => {
@@ -8342,7 +8526,35 @@ const app = Vue.createApp({
                     {path: 'patch.FLAG_FORCE_ROUTE_208_BIBAREL', value: this.hm_route_208_bibarel,  freeze: false},
                     {path: 'patch.FLAG_FORCE_ROUTE_213_BUIZEL', value: this.hm_route_213_buizel,  freeze: false},
                 ]),
+                this.mapper.setBits([
+                    // byte 0x160 (flag IDs 0xB00-0xB07)
+                    {path: 'patch.FLAG_FORCE_R29_SENTRET',          value: this.hm_route_29_sentret,    freeze: false},
+                    {path: 'patch.FLAG_FORCE_R29_RATTATA',          value: this.hm_route_29_rattata,    freeze: false},
+                    {path: 'patch.FLAG_FORCE_R29_PIDGEY',           value: this.hm_route_29_pidgey,     freeze: false},
+                    {path: 'patch.FLAG_FORCE_R30_RATTATA',          value: this.hm_route_30_rattata,    freeze: false},
+                    {path: 'patch.FLAG_FORCE_R30_PIDGEY',           value: this.hm_route_30_pidgey,     freeze: false},
+                    {path: 'patch.FLAG_FORCE_R31_BELLSPROUT',       value: this.hm_route_31_bellsprout, freeze: false},
+                    {path: 'patch.FLAG_FORCE_R31_RATTATA',          value: this.hm_route_31_rattata,    freeze: false},
+                    {path: 'patch.FLAG_FORCE_R31_PIDGEY',           value: this.hm_route_31_pidgey,     freeze: false},
+                ]),
+                this.mapper.setBits([
+                    // byte 0x161 (flag IDs 0xB08-0xB0B)
+                    {path: 'patch.FLAG_FORCE_R32_RATTATA',          value: this.hm_route_32_rattata,    freeze: false},
+                    {path: 'patch.FLAG_FORCE_R32_WOOPER',           value: this.hm_route_32_wooper,     freeze: false},
+                    {path: 'patch.FLAG_FORCE_UNION_CAVE_SANDSHREW', value: this.hm_union_cave_sandshrew,freeze: false},
+                    {path: 'patch.FLAG_FORCE_R34_DROWZEE',          value: this.hm_route_34_drowzee,    freeze: false},
+                ]),
             ])
+            // RNG: reset trip indices and write first-trip values to PokeAByte properties.
+            for (const npc of this.rng_npcs) {
+                this.rng_trip_index[npc.key] = 0;
+                const value = this.rngPatchValueForTrip(npc.key, 0);
+                const prop = this.mapper.properties.patch?.[npc.patchProp];
+                if (prop?.set) {
+                    await prop.set(value, false);
+                }
+            }
+
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
                 await Promise.all([
                     await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),

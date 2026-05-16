@@ -14,8 +14,8 @@
  *   - User overrides are stored in localStorage and take precedence
  *   - Users can reset to defaults by clearing their local overrides
  * 
- * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you are doing)
- * Last updated: 2026-05-15T02:21:43.870Z
+ * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
+ * Last updated: 2026-05-16T15:16:48.087Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -1907,7 +1907,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "pkmn_ability": "Serene Grace"
     },
     "HeartGold and SoulSilver_Wooper": {
-        "imageScale": "0.48"
+        "imageScale": "0.48",
+        "evolution": true,
+        "selected_evolution_species": "Wooper"
     },
     "HeartGold and SoulSilver_Quagsire-line-Wooper": {
         "overlay_color": "#98c9e3",
@@ -2519,7 +2521,24 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundBrightness": "73",
         "backgroundContrast": "139",
         "backgroundSaturation": 100
-    }
+    },
+    "Platinum_Infernape": {
+        "pkmn_ability": "Blaze"
+    },
+    "HeartGold and SoulSilver_Cyndaquil": {},
+    "HeartGold and SoulSilver_Togekiss": {},
+    "HeartGold and SoulSilver_Manectric": {},
+    "HeartGold and SoulSilver_Quagsire": {},
+    "HeartGold and SoulSilver_Sandshrew": {
+        "evolution": true,
+        "selected_evolution_species": "Sandshrew"
+    },
+    "HeartGold and SoulSilver_Sandslash": {},
+    "HeartGold and SoulSilver_Pineco": {
+        "evolution": true,
+        "selected_evolution_species": "Pineco"
+    },
+    "HeartGold and SoulSilver_Forretress": {}
 };
 
 // Export for use in the application
