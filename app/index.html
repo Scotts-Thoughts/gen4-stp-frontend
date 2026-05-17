@@ -10,10 +10,14 @@
     <div id="app-container">
         <div id="app">
         <div v-if="ready == false">
-            <select v-model="selected_game" class="dropdownMenu">
-                <option disabled value="">Select a species</option>
-                <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
-            </select>
+            <div class="gameToggle">
+                <img v-for="game in available_games"
+                     :key="game"
+                     :src="`images/box_art/${game_box_art[game]}`"
+                     :title="game"
+                     :class="['gameToggleImg', { selected: selected_game == game }]"
+                     @click="selected_game = game"/>
+            </div>
             Not receiving data...
         </div>
         <div v-else class="">
@@ -104,10 +108,14 @@
             <div>
                 <div class="ui1">
                     <div>Game:</div>
-                    <select v-model="selected_game" class="dropdownMenu">
-                        <option disabled value="">Select a species</option>
-                        <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
-                    </select><br>
+                    <div class="gameToggle">
+                        <img v-for="game in available_games"
+                             :key="game"
+                             :src="`images/box_art/${game_box_art[game]}`"
+                             :title="game"
+                             :class="['gameToggleImg', { selected: selected_game == game }]"
+                             @click="selected_game = game"/>
+                    </div><br>
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
                     <br>

@@ -1,0 +1,9 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Raikou,Passerby Boy,3:13.56,0,0,6,0:12,1778956766.934,Bite,Leer,,
+Lyra,Raikou,Leader Falkner,8:11.83,0,0,11,0:32,1778957065.216,ThunderShock,Leer,Bite,
+Lyra,Raikou,Leader Bugsy,14:08.08,0,0,15,0:55,1778957421.473,ThunderShock,Leer,Bite,Roar
+Lyra,Raikou,Rival Silver,15:29.97,0,1,16,1:01,1778957503.362,ThunderShock,Leer,Bite,Roar
+Lyra,Raikou,Leader Whitney,22:40.72,0,1,18,1:30,1778957934.122,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Rival Silver,26:40.77,0,1,21,1:46,1778958174.17,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Leader Morty,28:41.44,0,1,24,1:54,1778958294.843,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Leader Chuck,33:00.88,0,1,28,2:11,1778958554.291,Thunderbolt,Charge Beam,Bite,Substitute

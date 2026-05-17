@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-16T15:23:38.661Z
+ * Last updated: 2026-05-17T13:58:46.910Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2059,10 +2059,13 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundXOffset": "125",
         "backgroundYOffset": "62",
         "backgroundContrast": "141",
-        "pkmn_ability": "Hustle"
+        "pkmn_ability": "Hustle",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Drowzee": {
-        "pkmn_ability": "Insomnia"
+        "pkmn_ability": "Insomnia",
+        "evolution": true,
+        "selected_evolution_species": "Drowzee"
     },
     "HeartGold and SoulSilver_Hypno-line-Drowzee": {
         "overlay_color": "#efcf47",
@@ -2539,7 +2542,116 @@ const DEFAULT_STYLE_SETTINGS = {
         "selected_evolution_species": "Pineco"
     },
     "HeartGold and SoulSilver_Forretress": {},
-    "Platinum_Forretress": {}
+    "Platinum_Forretress": {},
+    "HeartGold and SoulSilver_Raikou": {
+        "imageFlip": true,
+        "imageScale": "0.87",
+        "imageYOffset": "-5",
+        "imageXOffset": "-19",
+        "overlay_color": "#f8d055",
+        "ui_saturation": "1.3",
+        "backgroundScale": "168",
+        "backgroundYOffset": "37",
+        "backgroundXOffset": "125",
+        "backgroundContrast": "125",
+        "backgroundBrightness": "82",
+        "backgroundHue": "324",
+        "pkmn_ability": "Pressure"
+    },
+    "HeartGold and SoulSilver_Bulbasaur": {},
+    "Platinum_Raikou": {},
+    "Platinum_Piplup": {},
+    "Platinum_Empoleon-line-Piplup": {
+        "imageScale": "0.44",
+        "imageYOffset": "-132",
+        "imageXOffset": "52",
+        "overlay_color": "#4486ba",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Dark Water",
+        "backgroundScale": "119",
+        "backgroundContrast": "133",
+        "backgroundBrightness": "82",
+        "imageFlip": false,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Empoleon-line-Prinplup": {
+        "overlay_color": "#4486ba",
+        "ui_saturation": "1.6",
+        "imageXOffset": "59",
+        "imageYOffset": "-19",
+        "imageScale": "0.73",
+        "imageFlip": false,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Dark Water",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "119",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "82",
+        "backgroundContrast": "133",
+        "backgroundSaturation": 100
+    },
+    "Platinum_Empoleon-line-Empoleon": {
+        "overlay_color": "#4486ba",
+        "ui_saturation": "1.6",
+        "imageXOffset": "-40",
+        "imageYOffset": "52",
+        "imageScale": "1.09",
+        "imageFlip": true,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Dark Water",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "119",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "82",
+        "backgroundContrast": "133",
+        "backgroundSaturation": 100
+    },
+    "Platinum_Prinplup": {},
+    "Platinum_Empoleon": {},
+    "HeartGold and SoulSilver_Empoleon": {},
+    "HeartGold and SoulSilver_Primeape": {},
+    "HeartGold and SoulSilver_Nosepass": {},
+    "HeartGold and SoulSilver_Growlithe": {},
+    "HeartGold and SoulSilver_Horsea": {},
+    "HeartGold and SoulSilver_Crawdaunt": {},
+    "HeartGold and SoulSilver_Combusken": {},
+    "HeartGold and SoulSilver_Psyduck": {},
+    "HeartGold and SoulSilver_Muk": {},
+    "HeartGold and SoulSilver_Larvitar": {},
+    "HeartGold and SoulSilver_Charmander": {},
+    "HeartGold and SoulSilver_Dunsparce": {},
+    "HeartGold and SoulSilver_Ivysaur": {},
+    "HeartGold and SoulSilver_Charizard": {},
+    "HeartGold and SoulSilver_Venusaur": {},
+    "HeartGold and SoulSilver_Gulpin": {},
+    "HeartGold and SoulSilver_Rattata": {},
+    "HeartGold and SoulSilver_Beedrill": {},
+    "HeartGold and SoulSilver_Shuckle": {},
+    "HeartGold and SoulSilver_Linoone": {},
+    "HeartGold and SoulSilver_Raichu": {},
+    "HeartGold and SoulSilver_Skiploom": {},
+    "HeartGold and SoulSilver_Hypno": {}
 };
 
 // Export for use in the application

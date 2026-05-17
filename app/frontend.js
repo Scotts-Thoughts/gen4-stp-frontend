@@ -603,6 +603,11 @@ const app = Vue.createApp({
             frame                        : false,
             selected_game                : MyStorage['selected_game'] ?? "Platinum",
             available_games              : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
+            game_box_art                 : {
+                "Platinum"                : "4-Platinum.png",
+                "HeartGold and SoulSilver": "4-HeartGoldandSoulSilver.jpg",
+                "Diamond and Pearl"       : "4-DiamondandPearl.jpg",
+            },
             starter_choice               : "Turtwig",
             refilming_mode               : false,
             show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
@@ -7654,7 +7659,7 @@ const app = Vue.createApp({
         // In mounted hook (around line 6897)
         // Poll for emulator stats continuously
         this.emulatorStatsInterval = setInterval(async () => {
-            if (this.ready) { // Only poll when mapper is ready
+            if (this.ready && (this.shuckie_timer || this.shuckie_counters)) { // Only poll when mapper is ready and a shuckie feature is on
                 await this.fetchEmulatorStats();
             }
         }, 10); // 100ms = 10 times per second (adjust as needed)
@@ -7848,6 +7853,15 @@ const app = Vue.createApp({
                 this.stats_setting = "Automatic";
             }
         });
+        // HeartGold and SoulSilver fix
+        // if (this.selected_game == "HeartGold and SoulSilver") {
+        //     this.mapper.properties.overworld.encounter_rates.walking.change(async (newProp) => {
+        //         const map = this.mapper.properties.overworld.map_name.value
+        //         if (map == 'Route 29 - Map 1' || map == 'Route 30 - Map 1' || map == 'Sprout Tower - Map 2' || map == 'Sprout Tower - Map 3') {
+        //             this.disable_encounters();
+        //         }
+        //     })
+        // }
 
         // Resets
         if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
