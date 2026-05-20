@@ -1,0 +1,19 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Suicune,Passerby Boy,2:51.82,0,0,6,0:10,1779213129.97,Bite,Leer,,
+Lyra,Suicune,Leader Falkner,8:13.00,0,0,11,0:32,1779213451.158,Bite,Leer,BubbleBeam,
+Lyra,Suicune,Leader Bugsy,15:05.91,2,0,16,0:56,1779213864.068,Bite,Leer,BubbleBeam,Rain Dance
+Lyra,Suicune,Rival Silver,17:43.78,2,4,18,1:06,1779214021.947,Bite,Leer,BubbleBeam,Rain Dance
+Lyra,Suicune,Leader Whitney,25:32.00,2,4,20,1:38,1779214490.171,Bite,Ice Beam,BubbleBeam,Rain Dance
+Lyra,Suicune,Rival Silver,34:25.69,2,4,26,2:13,1779215126.744,Surf,Ice Beam,Rain Dance,Bite
+Lyra,Suicune,Leader Morty,36:53.23,2,4,28,2:23,1779215274.29,Surf,Ice Beam,Rain Dance,Bite
+Lyra,Suicune,Leader Chuck,40:42.69,3,4,30,2:36,1779215503.752,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Pryce,50:09.88,3,4,34,3:14,1779216135.337,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Jasmine,51:25.80,3,4,35,3:19,1779216211.247,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Rival Silver,55:28.81,3,4,37,3:35,1779216454.262,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Clair,1:03:38.71,3,4,42,4:08,1779216944.168,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Rival Silver,1:16:03.32,3,5,46,4:58,1779217688.785,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Will,1:17:22.06,3,5,47,5:03,1779217767.528,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Koga,1:18:02.84,3,5,48,5:06,1779217808.313,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Bruno,1:18:58.23,3,5,49,5:09,1779217863.705,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Karen,1:20:39.72,4,5,49,5:13,1779217965.196,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Champion Lance,1:21:53.62,4,5,50,5:18,1779218039.088,Surf,Ice Beam,Rain Dance,Shadow Ball

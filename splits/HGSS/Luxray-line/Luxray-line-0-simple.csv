@@ -1,0 +1,48 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Shinx,Passerby Boy,3:38.42,0,0,8,0:13,1779262902.94,Tackle,Leer,,
+Lyra,Luxio,Leader Falkner,9:38.54,0,0,15,0:37,1779263263.101,Spark,Tackle,Charge,Leer
+Lyra,Luxio,Leader Bugsy,15:31.67,0,0,20,1:01,1779263617.18,Spark,Tackle,Bite,Leer
+Lyra,Luxio,Rival Silver,16:14.52,0,0,21,1:04,1779263660.659,Spark,Tackle,Bite,Leer
+Lyra,Luxio,Leader Whitney,23:38.36,0,0,23,1:33,1779264106.182,Spark,Headbutt,Bite,Thunderbolt
+Lyra,Luxio,Rival Silver,30:13.95,0,0,28,2:00,1779264504.254,Spark,Headbutt,Bite,Thunderbolt
+Lyra,Luxray,Leader Morty,32:23.22,0,0,30,2:08,1779264634.006,Spark,Headbutt,Bite,Thunderbolt
+Lyra,Luxray,Leader Chuck,35:02.57,0,0,33,2:19,1779264794.774,Spark,Headbutt,Bite,Thunderbolt
+Lyra,Luxray,Leader Pryce,43:40.88,1,0,38,2:52,1779265318.535,Spark,Headbutt,Bite,Thunderbolt
+Lyra,Luxray,Leader Jasmine,49:47.18,3,0,42,3:10,1779265687.891,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Rival Silver,53:37.47,3,0,43,3:26,1779265921.272,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Clair,1:01:43.26,3,0,47,3:58,1779266409.809,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Rival Silver,1:12:23.29,3,0,51,4:41,1779267052.727,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,1:13:29.61,3,0,52,4:45,1779267119.11,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Koga,1:14:21.17,3,0,53,4:49,1779267171.036,Spark,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Bruno,1:17:06.58,6,0,53,4:53,1779267336.855,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Karen,1:18:12.74,6,0,54,4:57,1779267403.37,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Champion Lance,1:19:48.65,7,0,55,5:01,1779267499.648,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Sabrina,1:24:25.85,8,0,57,5:17,1779267778.846,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Misty,1:30:24.62,9,0,59,5:39,1779268140.413,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Lt. Surge,1:32:34.71,9,0,60,5:47,1779268272.285,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Blaine,1:36:45.41,9,0,61,6:04,1779268524.94,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Janine,1:40:40.91,10,0,63,6:17,1779268761.687,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Erika,1:42:37.87,10,0,63,6:25,1779268879.485,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Brock,1:44:58.77,11,0,64,6:31,1779269021.122,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Leader Blue,1:49:11.87,14,0,75,6:41,1779269275.52,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,1:52:53.63,14,0,75,6:56,1779269499.321,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,1:54:25.06,14,1,76,7:02,1779269591.149,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Koga,1:55:32.05,14,1,77,7:06,1779269658.534,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,1:57:12.55,14,2,78,7:13,1779269759.39,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Koga,1:58:03.19,14,2,79,7:16,1779269810.385,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Bruno,1:58:51.55,14,2,79,7:20,1779269858.739,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Karen,2:00:14.43,14,2,80,7:25,1779269941.996,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,2:02:09.24,14,4,81,7:31,1779270057.177,Iron Tail,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Koga,2:03:29.73,14,4,81,7:36,1779270137.664,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Bruno,2:04:30.01,14,4,82,7:40,1779270197.965,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Karen,2:05:29.41,14,4,82,7:44,1779270257.72,Charge Beam,Substitute,Crunch,Thunderbolt
+Lyra,Luxray,Elite Four Will,2:07:23.31,14,5,83,7:52,1779270372.325,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Koga,2:08:04.55,14,5,84,7:54,1779270413.573,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Bruno,2:08:57.81,14,5,84,7:58,1779270466.829,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Karen,2:09:41.46,14,5,85,8:01,1779270510.477,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Will,2:12:25.98,14,6,91,8:12,1779270675.81,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Koga,2:13:06.51,14,6,91,8:14,1779270716.34,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Bruno,2:13:57.14,14,6,91,8:18,1779270766.973,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Elite Four Karen,2:14:57.41,14,6,92,8:22,1779270827.626,Charge Beam,Substitute,Return,Thunderbolt
+Lyra,Luxray,Champion Lance,2:21:43.33,22,6,93,8:28,1779271235.041,Charge Beam,Attract,Return,Thunderbolt
+Lyra,Luxray,Pokemon Trainer Red,2:31:02.31,28,6,96,8:49,1779271795.57,Charge Beam,Attract,Return,Thunderbolt

@@ -2186,8 +2186,12 @@ const app = Vue.createApp({
             return result
         },
         blackouts_resets() {
-            const resets = this.playerResets
-            const blackouts = this.blackout_counter
+            const resets = this.shuckie_counters
+                ? (this.emulatorStats?.counters?.playerResets ?? 0)
+                : this.playerResets
+            const blackouts = this.shuckie_counters
+                ? (this.emulatorStats?.counters?.blackout_counter ?? 0)
+                : this.blackout_counter
             const allow_none = true // Toggle that allows for the UI to display no border if there are no faults
             if (allow_none == true && blackouts == 0 && resets == 0) {
                 return "None"
@@ -2219,6 +2223,10 @@ const app = Vue.createApp({
             }
         },
         faults() {
+            if (this.shuckie_counters) {
+                return (this.emulatorStats?.counters?.blackout_counter ?? 0)
+                     + (this.emulatorStats?.counters?.playerResets ?? 0)
+            }
             return this.blackout_counter + this.playerResets
         },
         voltorb_flip() {
@@ -8662,9 +8670,11 @@ const app = Vue.createApp({
                 let real_time_total      = this.timer_formatted_time[0] + this.timer_formatted_time[1]
                 let real_time_hmmss      = this.timer_formatted_time[0]
                 let real_time_file_label = this.timer_formatted_time[2]
-                let resets               = this.playerResets.toString()
-                let blackouts            = this.blackout_counter.toString()
-                let failures             = this.playerResets + this.blackout_counter
+                let resets_value         = this.shuckie_counters ? (this.emulatorStats?.counters?.playerResets ?? 0)     : this.playerResets
+                let blackouts_value      = this.shuckie_counters ? (this.emulatorStats?.counters?.blackout_counter ?? 0) : this.blackout_counter
+                let resets               = resets_value.toString()
+                let blackouts            = blackouts_value.toString()
+                let failures             = resets_value + blackouts_value
                 let level                = this.mapper.properties.player.team[0].level.value.toString()
                 let game_time            = this.gametimeSplit.toString()
                 let battle_duration      = (battle_end - this.battle_start)/1000 
@@ -8849,7 +8859,7 @@ const app = Vue.createApp({
                         playerTurns, enemyTurns, itemsInBag, money, rivalTeam,
                         statusCondition, type1, type2, experience,
                         runIdentifier, this.starter, trainerName,
-                        startTime, realTime, gameTime, level, this.playerResets,
+                        startTime, realTime, gameTime, level, resets_value,
                         RTHours, RTMinutes, RTSeconds, RTMilliseconds,
                         move1, move2, move3, move4, move1pp, move2pp, move3pp, move4pp, move1ppUp, move2ppUp, move3ppUp, move4ppUp,
                         hp, maxHp, atk, def, spA, spD, spe,
@@ -8886,7 +8896,7 @@ const app = Vue.createApp({
                 if (this.scott_mode == true) {
                     deprecated_data = [
                         runIdentifier, this.starter, trainerName,
-                        startTime, realTime, gameTime, level, this.playerResets,
+                        startTime, realTime, gameTime, level, resets_value,
                         RTHours, RTMinutes, RTSeconds, RTMilliseconds,
                         move1, move2, move3, move4,
                         atk, def, spA, spD, spe,

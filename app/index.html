@@ -64,28 +64,28 @@
                 <div v-show="blackouts_resets == 'None'">   
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
                     <div class="fault_label timer_reset_label">faults</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Blackouts'">
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
                     <div class="fault_label timer_reset_label">blackouts</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{blackout_counter}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Resets'">   
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
                     <div class="fault_label timer_reset_label">resets</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Both'">   
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer_2.svg)"></div>
                     <div class="fault_label timer_2_reset_label">resets</div>
                     <div class="fault_label blackout_2_reset_label">blackouts</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter"    class="faults_value timer_2_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter"    class="faults_value timer_2_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter"    class="faults_value timer_2_reset_value">{{playerResets}}</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="blackout_counter" class="faults_value timer_2_blackout_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="blackout_counter" class="faults_value timer_2_blackout_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
                     <div v-else id="blackout_counter" class="faults_value timer_2_blackout_value">{{blackout_counter}}</div>
                 </div>
             </div>
