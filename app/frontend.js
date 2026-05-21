@@ -4986,21 +4986,33 @@ const app = Vue.createApp({
                 }
                 if (this.selected_game == `HeartGold and SoulSilver`) {
                     switch (trainer) {
-                        case "Leader Falkner":   graphic = `images/trainers/falkner.png`;      break;
-                        case "Leader Bugsy":     graphic = `images/trainers/bugsy.png`;        break;
-                        case "Leader Whitney":   graphic = `images/trainers/whitney.png`;      break;
-                        case "Leader Morty":     graphic = `images/trainers/morty.png`;        break;
-                        case "Leader Chuck":     graphic = `images/trainers/chuck.png`;        break;
-                        case "Leader Pryce":     graphic = `images/trainers/pryce.png`;        break;
-                        case "Leader Jasmine":   graphic = `images/trainers/jasmine.png`;      break;
-                        case "Leader Clair":     graphic = `images/trainers/clair.png`;        break;
-                        case "Leader Brock":     graphic = `images/trainers/brock.png`;        break;
-                        case "Leader Misty":     graphic = `images/trainers/misty.png`;        break;
-                        case "Leader Lt. Surge": graphic = `images/trainers/surge.png`;        break;
-                        case "Leader Erika":     graphic = `images/trainers/erika.png`;        break;
-                        case "Leader Sabrina":   graphic = `images/trainers/sabrina.png`;      break;
-                        case "Leader Janine":    graphic = `images/trainers/janine.png`;       break;
-                        case "Leader Blaine":    graphic = `images/trainers/blaine.png`;       break;
+                        case "Leader Falkner":    graphic = `images/trainers/falkner.png`; break;
+                        case "Leader Bugsy":      graphic = `images/trainers/bugsy.png`;   break;
+                        case "Leader Whitney":    graphic = `images/trainers/whitney.png`; break;
+                        case "Leader Morty":      graphic = `images/trainers/morty.png`;   break;
+                        case "Leader Chuck":      graphic = `images/trainers/chuck.png`;   break;
+                        case "Leader Pryce":      graphic = `images/trainers/pryce.png`;   break;
+                        case "Leader Jasmine":    graphic = `images/trainers/jasmine.png`; break;
+                        case "Leader Clair":      graphic = `images/trainers/clair.png`;   break;
+                        case "Leader Brock":      graphic = `images/trainers/brock.png`;   break;
+                        case "Leader Misty":      graphic = `images/trainers/misty.png`;   break;
+                        case "Leader Lt. Surge":  graphic = `images/trainers/surge.png`;   break;
+                        case "Leader Erika":      graphic = `images/trainers/erika.png`;   break;
+                        case "Leader Sabrina":    graphic = `images/trainers/sabrina.png`; break;
+                        case "Leader Janine":     graphic = `images/trainers/janine.png`;  break;
+                        case "Leader Blaine":     graphic = `images/trainers/blaine.png`;  break;
+                        case "Fisherman Ralph":   graphic = `images/trainers/ralph.png`;   break;
+                        case "Hiker Anthony":     graphic = `images/trainers/anthony.png`; break;
+                        case "Fisherman Justin":  graphic = `images/trainers/justin.png`;  break;
+                        case "Black Belt Yoshi":  graphic = `images/trainers/yoshi.png`;   break;
+                        case "Black Belt Lao":    graphic = `images/trainers/lao.png`;     break;
+                        case "Black Belt Nob":    graphic = `images/trainers/nob.png`;     break;
+                        case "School Kid Chad":   graphic = `images/trainers/chad.png`;    break;
+                        case "Kimono Girl Zuki":  graphic = `images/trainers/zuki.png`;    break;
+                        case "Kimono Girl Naoko": graphic = `images/trainers/naoko.png`;   break;
+                        case "Kimono Girl Miki":  graphic = `images/trainers/miki.png`;    break;
+                        case "Kimono Girl Sayo":  graphic = `images/trainers/sayo.png`;    break;
+                        case "Kimono Girl Kuni":  graphic = `images/trainers/kuni.png`;    break;
                         case "Elite Four Will": {
                             switch (this.mapper.properties.battle.opponent.trainer.bytes) {
                                 case 245: graphic = `images/trainers/will.png`; break;
