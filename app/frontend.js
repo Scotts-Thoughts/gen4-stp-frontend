@@ -5746,7 +5746,9 @@ const app = Vue.createApp({
                 }
                 return calculated_accuracy
             }
-            else return accuracy
+            // Any other state (e.g. 'From Battle'): no battle modifiers apply, but still floor so
+            // an upstream decimal (e.g. Compound Eyes' 1.3x) never shows decimal places.
+            else return Math.floor(accuracy)
         },
         
         //DAMAGE CALCULATION
