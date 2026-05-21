@@ -1213,6 +1213,17 @@ const app = Vue.createApp({
         }
     },
     watch: {
+        iconGameName: {
+            immediate: true,
+            handler(newValue) {
+                // Update the taskbar/window icon to match the active game.
+                try {
+                    require('electron').ipcRenderer.send('set-game-icon', newValue)
+                } catch (e) {
+                    console.error('Failed to update game icon', e)
+                }
+            },
+        },
         encounters_route_201(newValue) {
             MyStorage['encounters_route_201'] = newValue;
             this.disable_encounters();
@@ -1735,6 +1746,13 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        /**
+         * The game whose cartridge icon should be shown in the taskbar:
+         * the connected mapper's game if available, otherwise the manual selection.
+         */
+        iconGameName() {
+            return this.mapper?.properties?.meta?.game_name?.value || this.selected_game;
+        },
         /**
          * Check if the current Pokemon has multiple evolution stages
          * Returns true if evolution family has more than one species
