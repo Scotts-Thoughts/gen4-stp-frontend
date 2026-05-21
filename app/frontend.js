@@ -9115,7 +9115,10 @@ const app = Vue.createApp({
                 if(shouldWriteSplit(trainer_name) && !this.game.finalBattle.includes(trainer_name)) {
                     // console.log("Simple split attempted to be collected...")
                     simpleSplit();
-                    if (this.automatic_post_battle_splits == true && 
+                    // In HGSS, don't auto-show the splits panel after the Kanto gym leaders (Blue is excluded from this list so his panel still shows)
+                    const hgssKantoLeadersToSkip = ["Leader Brock", "Leader Lt. Surge", "Leader Misty", "Leader Erika", "Leader Blaine", "Leader Janine", "Leader Sabrina"]
+                    const skipForHGSSKantoLeader = this.selected_game == "HeartGold and SoulSilver" && hgssKantoLeadersToSkip.includes(trainer_name)
+                    if (this.automatic_post_battle_splits == true && !skipForHGSSKantoLeader &&
                         !trainer_name.startsWith("Rival") && !trainer_name.startsWith("Mars") && !trainer_name.startsWith("Jupiter") && !trainer_name.startsWith("Saturn") && !trainer_name.startsWith("Cyrus") && (trainer_name != "Passerby Boy")) {
                         this.right_ui = "Splits"
                     }
