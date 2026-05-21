@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Tentacool,Passerby Boy,5:08.32,0,0,6,0:19,1779315630.931,Poison Sting,Supersonic,,
+Lyra,Tentacool,Leader Falkner,15:07.17,0,1,12,0:59,1779316229.78,Acid,Supersonic,Constrict,Poison Sting
+Lyra,Tentacool,Rival Silver,28:07.83,0,12,20,1:52,1779317010.441,Acid,Supersonic,BubbleBeam,Toxic Spikes
+Lyra,Tentacool,Leader Bugsy,30:15.18,1,13,21,1:59,1779317137.801,Acid,Supersonic,BubbleBeam,Toxic Spikes
+Lyra,Tentacool,Leader Whitney,41:38.55,1,13,24,2:45,1779317821.18,Return,Swords Dance,Substitute,Ice Beam
+Lyra,Tentacool,Rival Silver,45:36.61,1,13,25,3:00,1779318059.238,Surf,Ice Beam,Swords Dance,Return
+Lyra,Tentacruel,Leader Morty,51:43.68,1,13,30,3:25,1779318426.318,Surf,Ice Beam,Swords Dance,Return
+Lyra,Tentacruel,Leader Chuck,54:50.49,1,13,33,3:37,1779318613.135,Surf,Ice Beam,Swords Dance,Return
+Lyra,Tentacruel,Leader Pryce,1:02:55.19,1,13,37,4:10,1779319097.831,Surf,Poison Jab,Swords Dance,Return
+Lyra,Tentacruel,Leader Jasmine,1:04:11.86,1,13,38,4:15,1779319174.511,Surf,Poison Jab,Swords Dance,Return
+Lyra,Tentacruel,Rival Silver,1:08:33.67,1,13,39,4:32,1779319436.33,Surf,Poison Jab,Swords Dance,Return
+Lyra,Tentacruel,Leader Clair,1:15:55.99,1,14,43,5:02,1779319878.654,Surf,Poison Jab,Swords Dance,Return
+Lyra,Tentacruel,Rival Silver,1:29:19.29,1,15,47,5:56,1779320698.33,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Elite Four Will,1:30:33.59,1,15,48,6:01,1779320772.632,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Elite Four Koga,1:31:21.56,1,15,49,6:04,1779320820.607,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Elite Four Bruno,1:32:06.18,1,15,50,6:07,1779320865.224,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Elite Four Karen,1:32:52.33,1,15,51,6:10,1779320911.377,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Champion Lance,1:33:49.64,1,15,51,6:14,1779320968.684,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Leader Brock,1:47:36.65,7,15,55,6:56,1779326028.731,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Leader Blaine,1:50:04.40,7,15,56,7:05,1779326176.484,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Leader Janine,1:53:36.80,8,15,57,7:18,1779326388.894,Waterfall,Swords Dance,Poison Jab,Return
+Lyra,Tentacruel,Leader Lt. Surge,1:55:30.26,8,15,58,7:25,1779326502.346,Waterfall,Swords Dance,Poison Jab,Substitute
+Lyra,Tentacruel,Leader Misty,1:56:33.05,8,15,58,7:30,1779326565.136,Waterfall,Swords Dance,Poison Jab,Substitute
+Lyra,Tentacruel,Leader Sabrina,1:57:24.19,8,15,59,7:33,1779326616.282,Waterfall,Swords Dance,Poison Jab,Substitute
+Lyra,Tentacruel,Leader Erika,1:58:50.66,8,15,59,7:39,1779326702.749,Waterfall,Swords Dance,Poison Jab,Substitute
+Lyra,Tentacruel,Leader Blue,2:03:05.78,8,15,75,7:56,1779326957.876,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Elite Four Will,2:07:59.42,8,15,75,8:15,1779327251.519,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Elite Four Koga,2:08:48.73,8,15,76,8:19,1779327300.834,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Elite Four Bruno,2:09:38.03,8,15,76,8:22,1779327350.135,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Elite Four Karen,2:10:33.50,8,15,77,8:26,1779327405.598,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Champion Lance,2:12:47.50,9,15,83,8:32,1779327539.6,Waterfall,Swords Dance,Poison Jab,Blizzard
+Lyra,Tentacruel,Pokemon Trainer Red,2:17:09.04,9,15,85,8:48,1779327801.146,Waterfall,Swords Dance,Poison Jab,Attract

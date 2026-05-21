@@ -3633,6 +3633,7 @@ const app = Vue.createApp({
             const logging = false
             const state = this.mapper.properties.meta.state.value
             const held_item = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.held_item.value : this.mapper.properties.player.team[0].held_item.value
+            const species = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.species.value : this.mapper.properties.player.team[0].species.value
             var ability = this.pkmn_ability
             var status_condition = this.mapper.properties.player.team[0].status_condition.value
 
@@ -3656,9 +3657,20 @@ const app = Vue.createApp({
                 if (ability == 'Hustle') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+                else if (ability == 'Huge Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+                else if (ability == 'Pure Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
                 else {
                     Atk = this.mapper.properties.player.team[0].stats.attack.value
                 }
+
+                if (species == 'Marowak' && held_item == 'Thick Club') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
                 Def = this.mapper.properties.player.team[0].stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
@@ -3803,9 +3815,21 @@ const app = Vue.createApp({
                 if ((status_condition == 'Paralyzed' || status_condition == 'Poisoned' || status_condition == 'Burned') && ability == 'Guts') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+
                 if (ability == 'Hustle') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+                else if (ability == 'Huge Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+                else if (ability == 'Pure Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
+                if (species == 'Marowak' && held_item == 'Thick Club') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
                 let battle_hp  = HP
                 let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk]) == 0 ? 1 : Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
                 let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def]) == 0 ? 1 : Math.floor(Def * this.stageModifiersData.stats[mod_def])
@@ -3844,6 +3868,20 @@ const app = Vue.createApp({
                     this.stat_fix_toggle = false
                     HP = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                     Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                    if (ability == 'Hustle') {
+                        Atk = Math.floor(Atk * 1.5)
+                    }
+                    else if (ability == 'Huge Power') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+                    else if (ability == 'Pure Power') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+
+                    if (species == 'Marowak' && held_item == 'Thick Club') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+
                     Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
                     SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                     SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
@@ -7549,6 +7587,9 @@ const app = Vue.createApp({
             }
             else if (species == 'Mantyke' && player_item == 'Wave Incense' && attackingType == "Water") {
                 itemBoost = 1.2
+            }
+            else if (species == 'Pikachu' && player_item == 'Light Ball') {
+                itemBoost = 2
             }
             else if (player_item == null && x == 'Acrobatics') {
                 itemBoost = 2
