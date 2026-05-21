@@ -1129,27 +1129,44 @@ const app = Vue.createApp({
             this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count     ?? 0
             this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.playerResets           ?? 0
             this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.blackout_counter       ?? 0
-            this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution              ?? 0
-            this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution_splits_label ?? 0
+            // Evolution flags live in their own non-style key; fall back to the legacy base key
+            // for users whose data predates that change.
+            const evoStateKey = this.getEvolutionStateStorageKey()
+            const legacyKey = `${this.mapper?.properties.meta.game_name.value}_${this.starter}`
+            this.evolution              = MyStorage[evoStateKey]?.evolution              ?? MyStorage[legacyKey]?.evolution              ?? 0
+            this.evolution_splits_label = MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[legacyKey]?.evolution_splits_label ?? 0
         }
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
             this.$watch(
                 () => this[propName],
                 (newValue) => {
-                    // Skip saving if we're currently loading evolution styles to prevent overwriting
-                    if (this.is_loading_evolution_style) {
+                    // The evolution flag and its label are per-starter run settings, not per-species
+                    // styles. They get their own dedicated non-style storage key so the style layer
+                    // can't strip them in dev mode (which silently dropped the toggle, so it never
+                    // persisted across refreshes). See getEvolutionStateStorageKey().
+                    const baseStarterProperties = ['evolution', 'evolution_splits_label'];
+                    const isBaseStarterProperty = baseStarterProperties.includes(propName);
+
+                    // Skip saving if we're currently loading evolution styles to prevent overwriting.
+                    // The per-starter flags above are exempt: toggling evolution triggers a style load
+                    // (which sets is_loading_evolution_style) in the same flush as this save watcher,
+                    // so skipping them here would drop the very change the user just made.
+                    if (this.is_loading_evolution_style && !isBaseStarterProperty) {
                         return;
                     }
-                    
-                    // Shared evolution family properties (ability, nature, gender, hidden power) 
+
+                    // Shared evolution family properties (ability, nature, gender, hidden power)
                     // should be saved to the evolution family storage key when evolution is enabled
                     // These settings apply to all members of the evolution family
                     const sharedEvolutionFamilyProperties = ['pkmnNature', 'pkmn_ability', 'pkmn_gender', 'hidden_power_type', 'hidden_power_index'];
                     const isSharedFamilyProperty = sharedEvolutionFamilyProperties.includes(propName);
-                    
+
                     let storageKey;
-                    if (this.evolution && isSharedFamilyProperty) {
+                    if (isBaseStarterProperty) {
+                        // Dedicated non-style key (e.g., "evoState_Platinum_Chimchar")
+                        storageKey = this.getEvolutionStateStorageKey();
+                    } else if (this.evolution && isSharedFamilyProperty) {
                         // Use evolution family storage key for shared properties (e.g., "Black_Unfezant-line")
                         storageKey = this.getEvolutionFamilyStorageKey(this.starter);
                     } else {
@@ -1585,8 +1602,10 @@ const app = Vue.createApp({
             
             // Evolution management
             if (this.evolution != true) {
-                this.evolution              = MyStorage[`${game}_${starter}`]?.evolution              ?? false
-                this.evolution_splits_label = MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
+                // Evolution flags live in their own non-style key; fall back to the legacy base key.
+                const evoStateKey = this.getEvolutionStateStorageKey()
+                this.evolution              = MyStorage[evoStateKey]?.evolution              ?? MyStorage[`${game}_${starter}`]?.evolution              ?? false
+                this.evolution_splits_label = MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
 
                 this.attempt_number     = MyStorage[`${game}_${starter}`]?.attempt_number     ?? 0
                 this.finished_run_count = MyStorage[`${game}_${starter}`]?.finished_run_count ?? 0
@@ -3195,6 +3214,16 @@ const app = Vue.createApp({
             const fullyEvolved = this.getFullyEvolvedSpecies(species);
             return `${this.mapper?.properties?.meta?.game_name?.value || this.selected_game}_${fullyEvolved}-line`;
         },
+        getEvolutionStateStorageKey() {
+            // Storage key for the per-starter evolution toggle + label.
+            // The leading "evoState_" prefix is deliberate: it keeps this key from matching
+            // isStyleSettingsKey() (which only matches "Game_..." or "...-line"), so these flags
+            // are written straight to localStorage instead of being routed through the style
+            // layering. The style layer strips any non-style property in dev mode (see
+            // style_settings_manager._saveToDefaults), which would otherwise drop the toggle.
+            const game = this.mapper?.properties?.meta?.game_name?.value || this.selected_game;
+            return `evoState_${game}_${this.starter}`;
+        },
         getSplitFileName() {
             // Get the filename for split files
             // If evolution is enabled, use "FullyEvolved-line" format
@@ -4340,8 +4369,10 @@ const app = Vue.createApp({
             this.rng_config =                 MyStorage['rng_config']                 ?? this.rng_config
 
             const evolution_family = (this.g4PokemonData && this.starter) ? (this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]) : [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
-            this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
-            this.evolution_splits_label =  MyStorage[`${game_name}_${this.starter}`]?.evolution_splits_label ?? ""
+            // Evolution flags live in their own non-style key; fall back to the legacy base key.
+            const evoStateKey = this.getEvolutionStateStorageKey()
+            this.evolution =               MyStorage[evoStateKey]?.evolution              ?? MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
+            this.evolution_splits_label =  MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[`${game_name}_${this.starter}`]?.evolution_splits_label ?? ""
             this.copy_overlay_pokemon_from = MyStorage['copy_overlay_pokemon_from'] ?? ""
             this.copy_overlay_pokemon_to   = MyStorage['copy_overlay_pokemon_to']   ?? ""
 
@@ -5216,7 +5247,25 @@ const app = Vue.createApp({
                 currentStat = this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
                 
                 stageModification = this.stageModifiersData.stats[modifier]
-                calculated_stats = Math.floor(currentStat * stageModification)
+                let weatherMod = 1
+                if (statName == 'speed') {
+                    let ability = this.enemy_mon_static[slotIndex]?.ability
+                    if (this.mapper.properties.battle.field.weather.value == 'Sun' && ability == 'Chlorophyll') {
+                        weatherMod = 2
+                    }
+                    else if (this.mapper.properties.battle.field.weather.value == 'Rain' && ability == 'Swift Swim') {
+                        weatherMod = 2
+                    }
+                }
+                if (statName == 'special defense') {
+                    let type1 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_1
+                    let type2 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_2
+                    if (this.mapper.properties.battle.field.weather.value == 'Sandstorm' && (type1 == 'Rock' || type2 == 'Rock')) {
+                        weatherMod = 1.5
+                    }
+                }
+                calculated_stats = Math.floor(currentStat * stageModification * weatherMod)
+
                 if (calculated_stats == 0 || calculated_stats > 1500) { 
                     return statValue 
                 } 
@@ -5225,7 +5274,25 @@ const app = Vue.createApp({
                 }
             }
             else {
-                return this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
+                let weatherMod = 1
+                if (statName == 'speed') {
+                    let ability = this.enemy_mon_static[slotIndex]?.ability
+                    if (this.mapper.properties.battle.field.weather.value == 'Sun' && ability == 'Chlorophyll') {
+                        weatherMod = 2
+                    }
+                    else if (this.mapper.properties.battle.field.weather.value == 'Rain' && ability == 'Swift Swim') {
+                        weatherMod = 2
+                    }
+                }
+                if (statName == 'special defense') {
+                    let type1 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_1
+                    let type2 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_2
+                    if (this.mapper.properties.battle.field.weather.value == 'Sandstorm' && (type1 == 'Rock' || type2 == 'Rock')) {
+                        weatherMod = 1.5
+                    }
+                }
+
+                return Math.floor(this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value * weatherMod)
             }
         },
         enemyMove(slot, moveNumber) {

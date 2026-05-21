@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-21T01:45:49.294Z
+ * Last updated: 2026-05-21T16:03:11.972Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2876,7 +2876,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundContrast": "109",
         "backgroundSaturation": "133"
     },
-    "HeartGold and SoulSilver_Tentacruel": {}
+    "HeartGold and SoulSilver_Tentacruel": {},
+    "Platinum_Tentacruel": {},
+    "HeartGold and SoulSilver_Heatran": {}
 };
 
 // Export for use in the application
