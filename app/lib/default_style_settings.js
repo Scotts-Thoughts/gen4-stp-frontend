@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-21T17:39:42.817Z
+ * Last updated: 2026-05-22T17:09:47.420Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2657,7 +2657,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "HeartGold and SoulSilver_Linoone": {},
     "HeartGold and SoulSilver_Raichu": {},
     "HeartGold and SoulSilver_Skiploom": {},
-    "HeartGold and SoulSilver_Hypno": {},
+    "HeartGold and SoulSilver_Hypno": {
+        "pkmn_ability": "Insomnia",
+        "pkmnNature": "Hardy"
+    },
     "Platinum_Hypno": {},
     "Platinum_Gible": {},
     "Platinum_Garchomp-line-Gible": {
@@ -2878,7 +2881,10 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "HeartGold and SoulSilver_Tentacruel": {},
     "Platinum_Tentacruel": {},
-    "HeartGold and SoulSilver_Heatran": {}
+    "HeartGold and SoulSilver_Heatran": {},
+    "HeartGold and SoulSilver_Hypno-line": {
+        "pkmnNature": "Hardy"
+    }
 };
 
 // Export for use in the application

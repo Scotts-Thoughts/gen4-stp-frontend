@@ -892,6 +892,29 @@ const app = Vue.createApp({
             post_game_moves          : post_game_moves,
             auto_save_settings       : auto_save_settings,
             natures                  : natures,
+            // Button-grid nature selector (mirrors the dropdown). Order/labels match the natures' "raises"/"lowers" strings.
+            natureStats: [
+                { key: "Attack",          short: "Atk" },
+                { key: "Defense",         short: "Def" },
+                { key: "Special Attack",  short: "SpA" },
+                { key: "Special Defense", short: "SpD" },
+                { key: "Speed",           short: "Spe" },
+            ],
+            // Neutral natures don't store a stat, so map them onto the diagonal both ways.
+            neutralNatureByStat: {
+                "Attack": "Hardy",
+                "Defense": "Docile",
+                "Speed": "Serious",
+                "Special Attack": "Bashful",
+                "Special Defense": "Quirky",
+            },
+            neutralStatByNature: {
+                "Hardy": "Attack",
+                "Docile": "Defense",
+                "Serious": "Speed",
+                "Bashful": "Special Attack",
+                "Quirky": "Special Defense",
+            },
             hiddenpower_type_selector: hiddenpower_type_selector,
             game_variables           : game_variables,
             natural_gift             : natural_gift,
@@ -3652,6 +3675,35 @@ const app = Vue.createApp({
                     break;
             }
             return output;
+        },
+        // --- Button-grid nature selector (two-way synced with the pkmnNature dropdown) ---
+        // Stat currently raised by the selected nature (diagonal stat for neutral natures).
+        natureRaisedStat() {
+            const data = this.natures[this.pkmnNature];
+            if (!data) return null;
+            return data.raises === "Neutral" ? this.neutralStatByNature[this.pkmnNature] : data.raises;
+        },
+        // Stat currently lowered by the selected nature (diagonal stat for neutral natures).
+        natureLoweredStat() {
+            const data = this.natures[this.pkmnNature];
+            if (!data) return null;
+            return data.lowers === "Neutral" ? this.neutralStatByNature[this.pkmnNature] : data.lowers;
+        },
+        // Find the nature name matching a raised/lowered stat pair (same stat => neutral).
+        natureFromStats(raise, lower) {
+            if (raise === lower) return this.neutralNatureByStat[raise];
+            for (const [name, data] of Object.entries(this.natures)) {
+                if (data.raises === raise && data.lowers === lower) return name;
+            }
+            return this.pkmnNature;
+        },
+        // Clicking a "raises" button keeps the current lowered stat and updates the dropdown.
+        selectNatureRaise(stat) {
+            this.pkmnNature = this.natureFromStats(stat, this.natureLoweredStat());
+        },
+        // Clicking a "lowers" button keeps the current raised stat and updates the dropdown.
+        selectNatureLower(stat) {
+            this.pkmnNature = this.natureFromStats(this.natureRaisedStat(), stat);
         },
         get_iv(stat_name) {
             const state = this.mapper.properties.meta.state.value
@@ -7990,12 +8042,46 @@ const app = Vue.createApp({
             this.expBarState.expPoints = expPoints;
         }
 
+        // Vitamins Display (HGSS EV training areas)
+        const hgssEvBoxMaps = {
+            "Route 38 - Map 1":       { x_range: [344, 317], y_range: [170, 166] },
+            "Ecruteak City - Map 1":  { x_range: [405, 396], y_range: [160, 153] },
+            "Route 42 - Map 1":       { x_range: [482, 442], y_range: [1000, 0] },
+            "Route 43 - Map 1":       { x_range: [536, 526], y_range: [143, 104] },
+            "Route 35 - Map 1":       { x_range: [370, 360], y_range: [302, 291] },
+            "Route 44 - Map 1":       { x_range: [595, 583], y_range: [175, 172] },
+        }
+        const isInEvBox = (x, y, x_range, y_range) => {
+            const xMin = Math.min(x_range[0], x_range[1])
+            const xMax = Math.max(x_range[0], x_range[1])
+            const yMin = Math.min(y_range[0], y_range[1])
+            const yMax = Math.max(y_range[0], y_range[1])
+            return x >= xMin && x <= xMax && y >= yMin && y <= yMax
+        }
+        const updateHgssEvBoxStats = () => {
+            if (this.selected_game != "HeartGold and SoulSilver") { return }
+            const map = this.mapper.properties.overworld.map_name.value
+            const box = hgssEvBoxMaps[map]
+            if (!box) { return }
+            const x = this.mapper.properties.overworld.x.value
+            const y = this.mapper.properties.overworld.y.value
+            this.stats_setting = isInEvBox(x, y, box.x_range, box.y_range) ? "EVs" : "Automatic"
+        }
+        if (this.selected_game == "HeartGold and SoulSilver") {
+            this.mapper.properties.overworld.x.change(async () => { updateHgssEvBoxStats() })
+            this.mapper.properties.overworld.y.change(async () => { updateHgssEvBoxStats() })
+            updateHgssEvBoxStats()
+        }
+
         // Encounters
         this.mapper.properties.overworld.map_name.change(async (newProp) => {
             this.freezeEncounters();
 
             if (newProp.value == 'Veilstone Store - Map 1' || newProp.value == 'Veilstone Store - Map 2' || newProp.value == 'Veilstone Store - Map 3' || newProp.value == 'Veilstone Store - Map 4' || newProp.value == 'Veilstone Store - Map 5' || newProp.value == 'Veilstone Store - Map 6' || newProp.value == 'Veilstone Store - Map 7') {
                 this.stats_setting = "Vitamins";
+            }
+            else if (this.selected_game == "HeartGold and SoulSilver" && hgssEvBoxMaps[newProp.value]) {
+                updateHgssEvBoxStats()
             }
             else {
                 this.stats_setting = "Automatic";
