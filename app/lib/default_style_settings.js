@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-22T17:09:47.420Z
+ * Last updated: 2026-05-22T20:41:09.425Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2884,7 +2884,23 @@ const DEFAULT_STYLE_SETTINGS = {
     "HeartGold and SoulSilver_Heatran": {},
     "HeartGold and SoulSilver_Hypno-line": {
         "pkmnNature": "Hardy"
-    }
+    },
+    "HeartGold and SoulSilver_Entei": {
+        "imageScale": "0.91",
+        "imageFlip": true,
+        "imageYOffset": "31",
+        "imageXOffset": "-5",
+        "backgroundScale": "149",
+        "backgroundBlur": "2",
+        "backgroundBrightness": "50",
+        "backgroundContrast": "123",
+        "backgroundSaturation": "132",
+        "overlay_color": "#b23431",
+        "ui_saturation": "1.1",
+        "pkmn_ability": "Pressure"
+    },
+    "HeartGold and SoulSilver_Mantine": {},
+    "HeartGold and SoulSilver_Clefairy": {}
 };
 
 // Export for use in the application

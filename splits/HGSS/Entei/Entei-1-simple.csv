@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Entei,Passerby Boy,3:22.52,0,0,7,0:12,1779473852.004,Bite,Leer,,
+Lyra,Entei,Leader Falkner,8:36.37,0,0,11,0:33,1779474165.856,Bite,Leer,Ember,
+Lyra,Entei,Leader Bugsy,13:54.74,0,0,15,0:55,1779474484.229,Bite,Leer,Ember,Roar
+Lyra,Entei,Rival Silver,14:39.19,0,0,16,0:58,1779474528.68,Bite,Leer,Ember,Roar
+Lyra,Entei,Leader Whitney,21:06.37,0,0,18,1:23,1779474915.869,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Rival Silver,25:30.93,0,0,21,1:41,1779475180.433,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Leader Morty,27:43.50,0,0,24,1:50,1779475313.007,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Leader Chuck,54:55.03,0,0,37,3:39,1779476949.074,Headbutt,Substitute,Flamethrower,Bite
+Lyra,Entei,Leader Pryce,1:02:17.62,0,0,40,4:08,1779477391.665,Flamethrower,Bite,Headbutt,Substitute
+Lyra,Entei,Leader Jasmine,1:03:48.02,0,0,41,4:14,1779477482.068,Flamethrower,Bite,Headbutt,Substitute
+Lyra,Entei,Rival Silver,1:07:41.90,0,0,42,4:30,1779477715.949,Flamethrower,Bite,Return,Substitute
+Lyra,Entei,Leader Clair,1:22:00.73,2,2,47,5:23,1779478574.789,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Rival Silver,1:32:30.29,2,2,50,6:05,1779479204.363,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:33:49.40,2,2,51,6:11,1779479283.469,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:34:27.20,2,2,52,6:13,1779479321.274,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:35:21.31,2,3,52,6:17,1779479375.38,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:35:56.49,2,3,53,6:19,1779479410.56,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:36:45.98,2,3,54,6:22,1779479460.055,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:38:30.29,3,3,54,6:28,1779479564.362,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:41:29.68,4,5,55,6:34,1779479743.759,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:42:14.60,4,5,56,6:37,1779479788.677,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:42:55.28,4,5,57,6:40,1779479829.358,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:43:37.61,4,5,57,6:43,1779479871.685,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:44:39.25,4,6,58,6:47,1779479933.326,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:45:16.10,4,6,59,6:49,1779479970.185,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:45:46.97,4,6,59,6:52,1779480001.048,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:47:16.11,4,6,72,6:57,1779480239.561,Flamethrower,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Champion Lance,1:49:54.25,5,6,72,7:04,1779480397.705,Substitute,Hyper Beam,Return,Extrasensory
