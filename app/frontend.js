@@ -9743,6 +9743,7 @@ const app = Vue.createApp({
                         evolution_splits_label: this.evolution_splits_label,
                         selected_evolution_species: this.selected_evolution_species,
                         gameName: this.mapper?.properties.meta.game_name.value,
+                        selected_game: this.selected_game,
                         right_ui: this.right_ui,
                         hidden_power_type: this.hidden_power_type,
                         splits: this.split_type,
