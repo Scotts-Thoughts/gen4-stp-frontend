@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-23T18:39:42.011Z
+ * Last updated: 2026-05-23T22:07:01.455Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2975,7 +2975,23 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Luxio": {},
     "Platinum_Luxray-line": {
         "pkmn_ability": "Intimidate"
-    }
+    },
+    "HeartGold and SoulSilver_Heracross": {
+        "imageFlip": true,
+        "imageScale": "0.89",
+        "imageYOffset": "16",
+        "imageXOffset": "-26",
+        "overlay_color": "#386086",
+        "ui_saturation": "1.5",
+        "backgroundTexture": "Fighting",
+        "backgroundScale": "110",
+        "backgroundContrast": "116",
+        "backgroundBrightness": "70",
+        "backgroundBlur": "2",
+        "pkmn_ability": "Guts"
+    },
+    "HeartGold and SoulSilver_Delcatty": {},
+    "HeartGold and SoulSilver_Aggron": {}
 };
 
 // Export for use in the application
