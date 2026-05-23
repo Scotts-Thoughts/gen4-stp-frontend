@@ -1,0 +1,29 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Shinx,Rival 1,1:35.02,0,0,5,0:05,1779553232.242,Tackle,Leer,,
+Dawn,Shinx,Rival 2,7:32.54,0,1,10,0:29,1779553589.771,Return,Leer,Tackle,Charge
+Dawn,Luxio,Leader Roark,15:23.09,0,2,18,1:00,1779554060.326,Spark,Bite,Return,Charge
+Dawn,Luxio,Mars 1,19:41.43,0,2,21,1:17,1779554318.679,Spark,Bite,Return,Charge
+Dawn,Luxio,Leader Gardenia,29:57.87,0,7,29,1:58,1779554935.122,Spark,Bite,Return,Swagger
+Dawn,Luxray,Jupiter 1,32:14.53,0,7,30,2:07,1779555071.791,Spark,Bite,Return,Swagger
+Dawn,Luxray,Leader Fantina,36:49.38,0,7,32,2:26,1779555346.634,Spark,Bite,Return,Substitute
+Dawn,Luxray,Rival 3,37:49.10,0,7,33,2:30,1779555406.353,Spark,Bite,Return,Substitute
+Dawn,Luxray,Leader Maylene,43:19.64,0,7,35,2:52,1779555736.896,Spark,Bite,Return,Substitute
+Dawn,Luxray,Rival 4,51:51.69,0,7,41,3:26,1779556268.749,Spark,Bite,Return,Shock Wave
+Dawn,Luxray,Leader Wake,54:11.23,0,7,43,3:35,1779556408.294,Hyper Beam,Crunch,Return,Shock Wave
+Dawn,Luxray,Cyrus 1,58:16.29,0,7,45,3:52,1779556653.356,Shock Wave,Crunch,Return,Hyper Beam
+Dawn,Luxray,Rival 5,1:01:45.37,0,8,47,4:06,1779556862.428,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Leader Byron,1:07:10.77,2,8,55,4:23,1779557187.837,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Saturn 1,1:10:42.70,2,8,56,4:37,1779557399.767,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Mars 2,1:12:00.71,2,8,57,4:43,1779557477.777,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Leader Candice,1:17:14.88,4,8,58,4:59,1779557791.957,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Cyrus 2,1:20:40.52,4,8,59,5:12,1779557997.593,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Saturn 2,1:21:12.11,4,8,60,5:14,1779558029.186,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Mars 3,1:25:55.68,4,8,61,5:33,1779558312.757,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Cyrus 3,1:30:03.27,4,8,61,5:49,1779558560.356,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Leader Volkner,1:35:08.63,4,8,64,6:10,1779558865.718,Thunderbolt,Crunch,Return,Hyper Beam
+Dawn,Luxray,Rival 6,1:42:46.56,4,8,76,6:40,1779559323.658,Thunderbolt,Magnet Rise,Return,Hyper Beam
+Dawn,Luxray,Elite Four Aaron,1:43:33.36,4,8,76,6:44,1779559370.457,Thunderbolt,Magnet Rise,Return,Hyper Beam
+Dawn,Luxray,Elite Four Bertha,1:45:52.95,5,8,77,6:49,1779559510.051,Thunderbolt,Magnet Rise,Return,Iron Tail
+Dawn,Luxray,Elite Four Flint,1:46:52.11,5,8,77,6:53,1779559569.205,Thunderbolt,Magnet Rise,Return,Charge Beam
+Dawn,Luxray,Elite Four Lucian,1:47:39.86,5,8,78,6:56,1779559616.959,Thunderbolt,Magnet Rise,Return,Charge Beam
+Dawn,Luxray,Champion Cynthia,1:49:00.99,5,8,78,7:01,1779559698.086,Thunderbolt,Magnet Rise,Hyper Beam,Charge Beam

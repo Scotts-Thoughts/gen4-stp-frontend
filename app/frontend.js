@@ -5794,7 +5794,10 @@ const app = Vue.createApp({
             let correctedLineHeight = (this.movepoolDefaultContainerHeight - headerLineHeight - firstRowPadding) / visibleMoveRows;
             let fontShrinkFactor = 0.77; // make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
             // This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
-            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor); 
+            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor);
+            // Never grow the font above default — at larger sizes, long move names (e.g. "Thunder Wave")
+            // wrap onto a second line, breaking the one-row-per-move height assumption and overflowing the container.
+            correctedFontSize = Math.min(correctedFontSize, this.movepoolDefaultFontSize);
             
             return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
         },
@@ -9688,6 +9691,17 @@ const app = Vue.createApp({
                     } else {
                         res.statusCode = 400;
                         res.end(JSON.stringify({ ok: false, error: 'Missing enabled parameter' }));
+                    }
+                }
+                else if (pathname === '/set-game') {
+                    // Set the selected game (the Game dropdown)
+                    // Usage: /set-game?game=Platinum
+                    if (query.game) {
+                        this.selected_game = query.game;
+                        res.end(JSON.stringify({ ok: true, selected_game: this.selected_game }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing game parameter' }));
                     }
                 }
                 else if (pathname === '/set-show-tutor-moves') {

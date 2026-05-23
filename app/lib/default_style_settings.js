@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-22T20:41:09.425Z
+ * Last updated: 2026-05-23T18:39:42.011Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -1835,7 +1835,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundBlur": "3",
         "backgroundHue": "333",
         "backgroundContrast": "119",
-        "backgroundSaturation": "155"
+        "backgroundSaturation": "155",
+        "pkmn_ability": "Intimidate"
     },
     "Platinum_Happiny-line-Happiny": {
         "overlay_color": "#fcd5d6",
@@ -2900,7 +2901,81 @@ const DEFAULT_STYLE_SETTINGS = {
         "pkmn_ability": "Pressure"
     },
     "HeartGold and SoulSilver_Mantine": {},
-    "HeartGold and SoulSilver_Clefairy": {}
+    "HeartGold and SoulSilver_Clefairy": {},
+    "Platinum_Entei": {},
+    "Platinum_Shinx": {
+        "pkmn_ability": "Intimidate"
+    },
+    "Platinum_Luxray-line-Shinx": {
+        "imageScale": "0.58",
+        "imageYOffset": "-69",
+        "imageXOffset": "38",
+        "overlay_color": "#e9b335",
+        "ui_saturation": "1.2",
+        "backgroundBrightness": "36",
+        "backgroundContrast": "121",
+        "backgroundSaturation": "125",
+        "backgroundScale": "153",
+        "backgroundYOffset": "125",
+        "backgroundXOffset": "125",
+        "imageFlip": false,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false
+    },
+    "Platinum_Luxray-line-Luxio": {
+        "overlay_color": "#e9b335",
+        "ui_saturation": "1.2",
+        "imageXOffset": "-19",
+        "imageYOffset": "-12",
+        "imageScale": "0.75",
+        "imageFlip": true,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "153",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": "125",
+        "backgroundYOffset": "125",
+        "backgroundBrightness": "36",
+        "backgroundContrast": "121",
+        "backgroundSaturation": "125"
+    },
+    "Platinum_Luxray-line-Luxray": {
+        "overlay_color": "#e9b335",
+        "ui_saturation": "1.2",
+        "imageXOffset": "-5",
+        "imageYOffset": "16",
+        "imageScale": "0.89",
+        "imageFlip": true,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "153",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": "125",
+        "backgroundYOffset": "125",
+        "backgroundBrightness": "36",
+        "backgroundContrast": "121",
+        "backgroundSaturation": "125"
+    },
+    "Platinum_Luxio": {},
+    "Platinum_Luxray-line": {
+        "pkmn_ability": "Intimidate"
+    }
 };
 
 // Export for use in the application
