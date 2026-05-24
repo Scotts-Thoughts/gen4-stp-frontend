@@ -773,8 +773,6 @@ const app = Vue.createApp({
             encounters_route_30:      MyStorage['encounters_route_30']     ?? true,
             encounters_sprout_tower:  MyStorage['encounters_sprout_tower'] ?? true,
 
-            pokemon_list: [],
-            
             shard_giver: {
                 "Random Shard": 0,
                 "Red Shard": 1,
@@ -1572,7 +1570,9 @@ const app = Vue.createApp({
             const game = this.mapper?.properties.meta.game_name.value
             const state = this.mapper?.properties.meta.state.value
             MyStorage['starter'] = newValue
-            
+
+            this.syncWormadamFormByte(newValue);
+
             // Update evolution family list when starter changes
             this.updateEvolutionFamilyList();
             
@@ -1623,7 +1623,7 @@ const app = Vue.createApp({
             } else {
                 // Evolution is disabled, load from individual species storage
                 this.pkmnNature = MyStorage[`${game}_${starter}`]?.pkmnNature ?? "Hardy";
-                this.pkmn_ability = MyStorage[`${game}_${starter}`]?.pkmn_ability ?? null;
+                this.pkmn_ability = MyStorage[`${game}_${starter}`]?.pkmn_ability ?? (this.g4PokemonData?.[starter]?.abilities?.[0]) ?? null;
                 this.pkmn_gender = MyStorage[`${game}_${starter}`]?.pkmn_gender ?? "Female";
                 this.hidden_power_type = MyStorage[`${game}_${starter}`]?.hidden_power_type ?? "Dark";
                 this.hidden_power_index = MyStorage[`${game}_${starter}`]?.hidden_power_index ?? 0;
@@ -2392,6 +2392,12 @@ const app = Vue.createApp({
         },
         growth_rate() {
             return this.g4PokemonData[this.starter].growth_rate
+        },
+        pokemon_list() {
+            // Build the dropdown list from the active pokedex (canonical names), excluding
+            // any legacy/ROM alias keys mirrored on by applySpeciesAliases.
+            const aliasNames = new Set(Object.keys(this.speciesNameAliases()));
+            return Object.keys(this.g4PokemonData || {}).filter(name => !aliasNames.has(name));
         },
         filtered_starter_options() {
             const term = (this.starter_input || '').toLowerCase()
@@ -3424,16 +3430,21 @@ const app = Vue.createApp({
             }
         },
         commit_starter_input() {
-            if (this.pokemon_list.includes(this.starter_input)) {
-                this.starter = this.starter_input
+            const inPokemonList = this.pokemon_list.includes(this.starter_input)
+            const inPokedex = !!(this.g4PokemonData && this.g4PokemonData[this.starter_input])
+            if (inPokemonList || inPokedex) {
+                const canonical = this.normalizeSpeciesName(this.starter_input)
+                this.starter = canonical
+                this.starter_input = canonical
             } else {
                 this.starter_input = this.starter
             }
             this.starter_dropdown_open = false
         },
         select_starter_option(key) {
-            this.starter_input = key
-            this.starter = key
+            const canonical = this.normalizeSpeciesName(key)
+            this.starter_input = canonical
+            this.starter = canonical
             this.starter_dropdown_open = false
         },
         close_starter_dropdown() {
@@ -4375,8 +4386,15 @@ const app = Vue.createApp({
         load_all_settings() {
             // Set flag to prevent watchers from saving during loading
             this.is_loading_evolution_style = true;
-            
+
             const game_name                    = this.mapper.properties.meta.game_name.value
+            const storedStarter = MyStorage["starter"]
+            if (storedStarter != null) {
+                const canonical = this.normalizeSpeciesName(storedStarter)
+                if (canonical !== storedStarter) {
+                    MyStorage["starter"] = canonical
+                }
+            }
             this.starter                       = MyStorage["starter"]                ?? "Heatran"
             this.show_advanced_settings        = MyStorage['show_advanced_settings'] ?? false
             if (game_name == "HeartGold and SoulSilver") {
@@ -4783,6 +4801,55 @@ const app = Vue.createApp({
         },
         keys_function(object) {
             return Object.keys(object)
+        },
+        speciesNameAliases() {
+            // Map from the ROM/legacy species name to the canonical pokedex key.
+            return { "Wormadam": "Wormadam (Plant)" };
+        },
+        normalizeSpeciesName(name) {
+            if (name == null) return name;
+            const aliases = this.speciesNameAliases();
+            return aliases[name] || name;
+        },
+        resolveIncomingSpecies(rawName) {
+            // The emulator can hand us an ambiguous bare name (e.g. "Wormadam") whose actual
+            // cloak isn't carried in the species name. The user's Solo Pokemon selection is
+            // the source of truth: if it's already a Wormadam variant, preserve it; otherwise
+            // default to Plant and let the existing write paths sync the form byte.
+            if (rawName == null) return rawName;
+            if (rawName !== "Wormadam") return this.normalizeSpeciesName(rawName);
+
+            const wormadamVariants = ["Wormadam (Plant)", "Wormadam (Sandy)", "Wormadam (Trash)"];
+            if (wormadamVariants.includes(this.starter)) {
+                return this.starter;
+            }
+            return "Wormadam (Plant)";
+        },
+        syncWormadamFormByte(species) {
+            // Whenever the user picks a Wormadam variant, push the matching cloak byte to the
+            // emulator so the in-game form follows the dropdown selection without waiting for
+            // setStartingStats (which only fires when level becomes 5 at the starter map).
+            const wormadam_forms = {
+                "Wormadam (Plant)": 0,
+                "Wormadam (Sandy)": 1,
+                "Wormadam (Trash)": 2,
+            };
+            if (!(species in wormadam_forms)) return;
+            const prop = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms;
+            if (!prop?.set) return;
+            prop.set(wormadam_forms[species], false);
+        },
+        applySpeciesAliases() {
+            // Make each pokedex resolve both the legacy/ROM name and the canonical name
+            // to the same entry, so any incidental lookup by the legacy name still works.
+            const aliases = this.speciesNameAliases();
+            const dexes = [this.pokedex_plat, this.pokedex_dp, this.pokedex_hgss];
+            for (const dex of dexes) {
+                if (!dex) continue;
+                for (const [legacy, canonical] of Object.entries(aliases)) {
+                    if (dex[canonical] && !dex[legacy]) dex[legacy] = dex[canonical];
+                }
+            }
         },
         values_function(object) {
             return Object.values(object)
@@ -7394,8 +7461,10 @@ const app = Vue.createApp({
             return basePower
         },
         determineSTAB(x) { //x = move1.value
-            var pkmnType1 = this.g4PokemonData[this.starter].type_1
-            var pkmnType2 = this.g4PokemonData[this.starter].type_2
+            var pkmnData = this.g4PokemonData[this.starter]
+            if (!pkmnData) return 1
+            var pkmnType1 = pkmnData.type_1
+            var pkmnType2 = pkmnData.type_2
             if (this.starter == 'Arceus') {
                 pkmnType1 = this.arceus_plate_check()
             }
@@ -7404,7 +7473,7 @@ const app = Vue.createApp({
                 return 1.5
             else
                 return 1
-        }, 
+        },
         determineItemBoost(x, pkmn_object) { //x - move1.value
             if (pkmn_object.species.value == null) { return }
             if (pkmn_object.ability.value == 'Klutz') {
@@ -7869,8 +7938,10 @@ const app = Vue.createApp({
 
         this.disable_encounters();
         this.updateTime()
+        this.applySpeciesAliases();
         this.load_all_settings()
-        this.pokemon_list = this.keys_function(g4PokemonData)
+        // pokemon_list now derives from the active pokedex (see computed); leave the data
+        // field empty so the computed takes over.
 
         this.update_rom_starter_and_intro_mon()
 
@@ -7879,7 +7950,7 @@ const app = Vue.createApp({
 
         // Initial tracking of personality value and species
         this.last_known_personality_value = this.mapper.properties.player.team[0].internals.personality_value.value;
-        this.last_known_species = this.mapper.properties.player.team[0].species.value;
+        this.last_known_species = this.resolveIncomingSpecies(this.mapper.properties.player.team[0].species.value);
         
         // Track personality value changes
         this.mapper.properties.player.team[0].internals.personality_value.change(async (newProp, oldProp) => {
@@ -7891,21 +7962,23 @@ const app = Vue.createApp({
         this.mapper.properties.player.team[0].species.change(async (newProp, oldProp) => {
             const currentPersonalityValue = this.mapper.properties.player.team[0].internals.personality_value.value;
             const state = this.mapper.properties.meta.state.value
-            
+            const normalizedNew = this.resolveIncomingSpecies(newProp.value);
+            const normalizedOld = this.resolveIncomingSpecies(oldProp?.value);
+
             // Check if this is an evolution (same personality value, different species, evolution enabled)
-            if (this.evolution == true && newProp.value != oldProp.value && 
+            if (this.evolution == true && normalizedNew != normalizedOld &&
                 currentPersonalityValue === this.last_known_personality_value &&
                 this.last_known_personality_value != null) {
-                
+
                 const evolution_family_raw = this.g4PokemonData?.[this.starter]?.evolution_family;
                 if (evolution_family_raw && evolution_family_raw.length > 0) {
                     const evolution_family = evolution_family_raw.map(obj => obj.species).filter(s => s != null);
-                    const evolved = evolution_family.includes(newProp.value);
-                    
+                    const evolved = evolution_family.includes(normalizedNew);
+
                     if (evolved == true) {
                         // Store old species for transition
                         const oldSpecies = this.starter;
-                        const newSpecies = newProp.value;
+                        const newSpecies = normalizedNew;
 
                         // Only proceed if both oldProp and newSpecies are valid
                         // Check that oldProp has a valid species (not 0x00 0x00 bytes)
@@ -7984,15 +8057,16 @@ const app = Vue.createApp({
             // Normal species change handling (not an evolution)
             // Only update if newProp.value is valid (not undefined/null)
             if (newProp.value && newProp.value !== undefined && newProp.value !== null) {
-                this.last_known_species = newProp.value;
+                const incomingSpecies = normalizedNew;
+                this.last_known_species = incomingSpecies;
                 this.last_known_personality_value = currentPersonalityValue;
-                
+
                 // IMPORTANT: When evolution is enabled, only update starter if new species is in the current evolution family
                 // This prevents error data from game resets from changing the displayed Pokemon
                 let shouldUpdateStarter = false;
                 if (this.evolution && this.evolution_family_list.length > 0) {
                     // Only allow update if new species is in the evolution family
-                    if (this.evolution_family_list.includes(newProp.value)) {
+                    if (this.evolution_family_list.includes(incomingSpecies)) {
                         shouldUpdateStarter = true;
                     }
                     // If not in family, don't update starter (prevents error data from slipping through)
@@ -8004,14 +8078,21 @@ const app = Vue.createApp({
                 // Only update starter if validation passed
                 if (shouldUpdateStarter) {
                     if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
-                        this.starter = newProp.value
+                        this.starter = incomingSpecies
                     }
-                    else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
+                    else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && incomingSpecies == 'Reshiram') {
                         // Special handling for Reshiram
                     }
                     else if (state == "Overworld") {
-                        this.starter = newProp.value
+                        this.starter = incomingSpecies
                     }
+                }
+
+                // Push the Wormadam cloak byte to the emulator on every Wormadam appearance,
+                // so a fresh Wormadam (e.g. just-received starter) reflects the user's variant
+                // even when this.starter didn't change.
+                if (newProp.value === "Wormadam") {
+                    this.syncWormadamFormByte(this.starter);
                 }
             }
         })
@@ -8811,9 +8892,19 @@ const app = Vue.createApp({
                     await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),
                 ])
             }
-            if (species == 'Shaymin') {
+            if (species == 'Shaymin' || species == 'Mew' || species == 'Deoxys') {
                 await Promise.all([
                     await this.mapper.properties.player.team[0].flags.fateful_encounter.set(true, false),
+                ])
+            }
+            const wormadam_forms = {
+                "Wormadam (Plant)": 0,
+                "Wormadam (Sandy)": 1, 
+                "Wormadam (Trash)": 2, 
+            }
+            if (species.includes('Wormadam')) {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].flags.alternate_forms.set(wormadam_forms[species], false),
                 ])
             }
         }

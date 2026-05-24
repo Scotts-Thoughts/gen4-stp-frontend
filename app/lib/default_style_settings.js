@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-23T22:07:01.455Z
+ * Last updated: 2026-05-24T22:20:56.287Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2991,7 +2991,49 @@ const DEFAULT_STYLE_SETTINGS = {
         "pkmn_ability": "Guts"
     },
     "HeartGold and SoulSilver_Delcatty": {},
-    "HeartGold and SoulSilver_Aggron": {}
+    "HeartGold and SoulSilver_Aggron": {},
+    "HeartGold and SoulSilver_Zubat": {
+        "evolution": true,
+        "selected_evolution_species": "Zubat"
+    },
+    "Platinum_Wormadam (Sandy)": {
+        "pkmn_ability": "Anticipation",
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "3",
+        "backgroundBrightness": "25",
+        "imageScale": "0.81",
+        "imageYOffset": "200",
+        "imageXOffset": "23",
+        "overlay_color": "#a6814d",
+        "ui_saturation": "1.1"
+    },
+    "Platinum_Wormadam": {},
+    "Platinum_Wormadam (Plant)": {
+        "imageScale": "0.83",
+        "imageYOffset": "193",
+        "imageXOffset": "45",
+        "overlay_color": "#61a639",
+        "ui_saturation": "1.4",
+        "backgroundScale": "112",
+        "backgroundYOffset": "73",
+        "backgroundBlur": "5",
+        "backgroundBrightness": "31"
+    },
+    "Platinum_Wormadam (Trash)": {
+        "backgroundTexture": "Brushed Steel",
+        "backgroundFlip": false,
+        "backgroundScale": "125",
+        "backgroundContrast": "130",
+        "backgroundBrightness": "71",
+        "imageFlip": true,
+        "imageScale": "0.77",
+        "imageYOffset": "222",
+        "imageXOffset": "-12",
+        "overlay_color": "#e59596",
+        "ui_saturation": "0.7",
+        "pkmnNature": "Hardy",
+        "backgroundYOffset": "46"
+    }
 };
 
 // Export for use in the application
