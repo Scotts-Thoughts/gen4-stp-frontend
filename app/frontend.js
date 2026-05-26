@@ -1,5 +1,6 @@
 // Style Settings Manager for layered defaults + user overrides
 const styleSettingsManager = require('./lib/style_settings_manager.js');
+const enemySpriteScaleManager = require('./lib/enemy_sprite_scale_manager.js');
 
 const MyStorage = new Proxy({}, {
     set: (_, prop, value) => {
@@ -576,6 +577,10 @@ const app = Vue.createApp({
             mapper                       : null,
             state                        : "No Pokemon",
             editor                       : false,
+
+            // Enemy sprite resize tool (Ctrl+Click on an enemy sprite, dev-only)
+            enemyResize                  : { species: null, slot: null, baseSize: 108, spriteEl: null },
+            enemyScaleVersion            : 0,
             game_variables               : null,
             autosplitter_toggle          : true,
             evolution                    : false,
@@ -7896,8 +7901,106 @@ const app = Vue.createApp({
             }
             this.previous_splits = results;
         },
+
+        /* === Enemy sprite resize tool ============================================
+         * Ctrl+Click an enemy team sprite to enter resize mode. Drag the corner
+         * handle to scale, arrow keys to move (Shift+arrow = ±10px), F1 to flip.
+         * Enter commits to enemy_sprite_scales.js (dev mode); Escape cancels.
+         */
+        getEnemySpriteScale(species)   { this.enemyScaleVersion; return enemySpriteScaleManager.getScale(species); },
+        getEnemySpriteXOffset(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getXOffset(species); },
+        getEnemySpriteYOffset(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getYOffset(species); },
+        getEnemySpriteFlipped(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getFlipped(species); },
+        enemyTransformFor(species) {
+            const s = this.getEnemySpriteScale(species);
+            const x = this.getEnemySpriteXOffset(species);
+            const y = this.getEnemySpriteYOffset(species);
+            const sx = this.getEnemySpriteFlipped(species) ? -s : s;
+            return `translate(${x}px, ${y}px) scale(${sx}, ${s})`;
+        },
+        nudgeEnemySpriteY(deltaPx) {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getYOffset(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { yOffset: cur + deltaPx });
+            this.enemyScaleVersion++;
+        },
+        nudgeEnemySpriteX(deltaPx) {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getXOffset(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { xOffset: cur + deltaPx });
+            this.enemyScaleVersion++;
+        },
+        toggleEnemySpriteFlip() {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getFlipped(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { flipped: !cur });
+            this.enemyScaleVersion++;
+        },
+        _getAppScale() {
+            const el = document.getElementById('app-container');
+            if (!el) return 1;
+            const t = getComputedStyle(el).transform;
+            if (!t || t === 'none') return 1;
+            const m = t.match(/matrix\(([^)]+)\)/);
+            if (m) {
+                const parts = m[1].split(',').map(s => parseFloat(s));
+                if (!Number.isNaN(parts[0]) && parts[0] > 0) return parts[0];
+            }
+            return 1;
+        },
+        enemySpriteHandlePosition() {
+            this.enemyScaleVersion;
+            const slot = this.enemyResize.slot;
+            if (slot == null) return null;
+            const sprite = document.querySelector(`.ePkmnSprite[data-enemy-slot="${slot}"]`);
+            if (!sprite) return null;
+            const rect = sprite.getBoundingClientRect();
+            return { left: (rect.right - 8) + 'px', top: (rect.bottom - 8) + 'px' };
+        },
+        onEnemyResizeHandleMouseDown(event) {
+            if (!this.enemyResize.species) return;
+            event.preventDefault();
+            event.stopPropagation();
+            const startX = event.clientX;
+            const startY = event.clientY;
+            const baseSize = this.enemyResize.baseSize;
+            const species = this.enemyResize.species;
+            const startScale = enemySpriteScaleManager.getScale(species);
+            const startWidth = baseSize * startScale;
+            const appScale = this._getAppScale();
+            const onMove = (ev) => {
+                const dx = ev.clientX - startX;
+                const dy = ev.clientY - startY;
+                const delta = (dx + dy) / 2;
+                const designDelta = appScale > 0 ? delta / appScale : delta;
+                const newWidth = Math.max(20, startWidth + designDelta);
+                const newScale = newWidth / baseSize;
+                enemySpriteScaleManager.setLive(species, { scale: newScale });
+                this.enemyScaleVersion++;
+            };
+            const onUp = () => {
+                window.removeEventListener('mousemove', onMove);
+                window.removeEventListener('mouseup', onUp);
+            };
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+        },
+        commitEnemySpriteResize() {
+            if (!this.enemyResize.species) return;
+            enemySpriteScaleManager.commit(this.enemyResize.species);
+            this.enemyResize = { species: null, slot: null, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
+        cancelEnemySpriteResize() {
+            if (!this.enemyResize.species) return;
+            if (typeof localStorage !== 'undefined') {
+                localStorage.removeItem(`enemyScale_${this.enemyResize.species}`);
+            }
+            this.enemyResize = { species: null, slot: null, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
     },
-    
+
 
 //--------- PROGRAM MOUNTED ---------------------------------------------------------------------------------------------------------------//
     mounted: async function () {
@@ -9888,5 +9991,32 @@ const app = Vue.createApp({
                 await this.mapper.disconnect();
             }
         });
+
+        // Enemy sprite resize tool — dev mode only.
+        if (this.isInDevMode) {
+            window.addEventListener('keydown', (e) => {
+                if (!this.enemyResize.species) return;
+                if (e.key === 'Enter')           { e.preventDefault(); this.commitEnemySpriteResize(); }
+                else if (e.key === 'Escape')     { e.preventDefault(); this.cancelEnemySpriteResize(); }
+                else if (e.key === 'ArrowUp')    { e.preventDefault(); this.nudgeEnemySpriteY(e.shiftKey ? -10 : -1); }
+                else if (e.key === 'ArrowDown')  { e.preventDefault(); this.nudgeEnemySpriteY(e.shiftKey ?  10 :  1); }
+                else if (e.key === 'ArrowLeft')  { e.preventDefault(); this.nudgeEnemySpriteX(e.shiftKey ? -10 : -1); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); this.nudgeEnemySpriteX(e.shiftKey ?  10 :  1); }
+                else if (e.key === 'F1')         { e.preventDefault(); this.toggleEnemySpriteFlip(); }
+            });
+            window.addEventListener('mousedown', (e) => {
+                if (!e.ctrlKey || e.button !== 0) return;
+                const els = document.elementsFromPoint(e.clientX, e.clientY);
+                const sprite = els.find((el) => el && el.classList && el.classList.contains('ePkmnSprite'));
+                if (!sprite) return;
+                const slot = parseInt(sprite.dataset.enemySlot, 10);
+                const species = sprite.dataset.enemySpecies;
+                if (!species || Number.isNaN(slot)) return;
+                e.preventDefault();
+                e.stopPropagation();
+                this.enemyResize = { species, slot, baseSize: 108, spriteEl: sprite };
+                this.enemyScaleVersion++;
+            }, true);
+        }
     },
 }).mount('#app')

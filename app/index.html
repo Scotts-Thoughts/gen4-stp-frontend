@@ -738,7 +738,12 @@
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
+                                <img class="ePkmnSprite"
+                                    :class="{ ePkmnSpriteResizing: enemyResize.slot === x }"
+                                    :data-enemy-slot="x"
+                                    :data-enemy-species="enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species"
+                                    :style="{ transform: enemyTransformFor(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species) }"
+                                    :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}}</div>
                                 <div class="ePkmnLevel">Level: {{enemy_mon_static[x]?.level}}</div>
                                 <div class="ePkmnAbility">{{enemy_mon_static[x]?.ability}}</div>
@@ -1237,6 +1242,15 @@
                     </div>
                 </div>
             </transition>
+
+            <!-- Enemy sprite resize handle (dev mode only). Teleported to body. -->
+            <Teleport to="body" v-if="isInDevMode">
+                <div v-if="enemyResize.species && enemySpriteHandlePosition()"
+                    class="ePkmnSpriteResizeHandle"
+                    :style="enemySpriteHandlePosition()"
+                    @mousedown="onEnemyResizeHandleMouseDown($event)"
+                    title="Drag to resize. Arrows move (Shift = 10px). F1 flips. Enter saves, Escape cancels."></div>
+            </Teleport>
         </div>
     </div>
     </div>
