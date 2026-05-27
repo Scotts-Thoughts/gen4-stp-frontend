@@ -66,6 +66,7 @@ const auto_save_settings = [
     "automatic_post_battle_splits",
     "editor",
     "debugging_mode",
+    "enemy_sprite_styles_enabled",
     "collect_split_data",
     "copy_overlay_pokemon_from",
     "copy_overlay_pokemon_to",

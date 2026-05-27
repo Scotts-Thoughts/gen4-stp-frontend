@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-24T22:20:56.287Z
+ * Last updated: 2026-05-27T20:53:01.783Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3033,7 +3033,80 @@ const DEFAULT_STYLE_SETTINGS = {
         "ui_saturation": "0.7",
         "pkmnNature": "Hardy",
         "backgroundYOffset": "46"
-    }
+    },
+    "HeartGold and SoulSilver_Wormadam (Trash)": {},
+    "HeartGold and SoulSilver_Rhyhorn": {},
+    "HeartGold and SoulSilver_Rhyperior-line-Rhyhorn": {
+        "imageFlip": true,
+        "imageScale": "0.66",
+        "imageYOffset": "-26",
+        "imageXOffset": "-26",
+        "backgroundBrightness": "33",
+        "backgroundScale": "110",
+        "backgroundContrast": "128",
+        "backgroundSaturation": "114",
+        "backgroundBlur": "2",
+        "overlay_color": "#9ba4ab",
+        "ui_saturation": 0.6,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Ground",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0
+    },
+    "HeartGold and SoulSilver_Rhyperior-line-Rhydon": {
+        "overlay_color": "#9ba4ab",
+        "ui_saturation": 0.6,
+        "imageXOffset": "45",
+        "imageYOffset": "23",
+        "imageScale": "1.09",
+        "imageFlip": true,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "2",
+        "backgroundHue": 0,
+        "backgroundScale": "110",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "33",
+        "backgroundContrast": "128",
+        "backgroundSaturation": "114"
+    },
+    "HeartGold and SoulSilver_Rhyperior-line-Rhyperior": {
+        "overlay_color": "#927f7f",
+        "ui_saturation": "1.6",
+        "imageXOffset": "-5",
+        "imageYOffset": "16",
+        "imageScale": "1.3",
+        "imageFlip": true,
+        "imageSat": 100,
+        "imageRotation": 0,
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "2",
+        "backgroundHue": 0,
+        "backgroundScale": "110",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "33",
+        "backgroundContrast": "128",
+        "backgroundSaturation": "114"
+    },
+    "HeartGold and SoulSilver_Rhyperior-line": {
+        "pkmn_ability": "Solid Rock"
+    },
+    "HeartGold and SoulSilver_Rhydon": {},
+    "HeartGold and SoulSilver_Rhyperior": {}
 };
 
 // Export for use in the application
