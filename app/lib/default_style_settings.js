@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-28T03:02:02.254Z
+ * Last updated: 2026-05-28T13:01:03.436Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2835,7 +2835,10 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "HeartGold and SoulSilver_Croconaw": {},
     "HeartGold and SoulSilver_Feraligatr": {},
-    "HeartGold and SoulSilver_Tentacool": {},
+    "HeartGold and SoulSilver_Tentacool": {
+        "evolution": true,
+        "selected_evolution_species": "Tentacool"
+    },
     "HeartGold and SoulSilver_Tentacruel-line-Tentacool": {
         "imageFlip": true,
         "imageScale": "0.52",
@@ -3035,7 +3038,10 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundYOffset": "46"
     },
     "HeartGold and SoulSilver_Wormadam (Trash)": {},
-    "HeartGold and SoulSilver_Rhyhorn": {},
+    "HeartGold and SoulSilver_Rhyhorn": {
+        "evolution": true,
+        "selected_evolution_species": "Rhyhorn"
+    },
     "HeartGold and SoulSilver_Rhyperior-line-Rhyhorn": {
         "imageFlip": true,
         "imageScale": "0.66",
@@ -3103,11 +3109,12 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": "114"
     },
     "HeartGold and SoulSilver_Rhyperior-line": {
-        "pkmn_ability": "Solid Rock"
+        "pkmn_ability": "Lightningrod"
     },
     "HeartGold and SoulSilver_Rhydon": {},
     "HeartGold and SoulSilver_Rhyperior": {},
-    "Platinum_Rhyperior": {}
+    "Platinum_Rhyperior": {},
+    "HeartGold and SoulSilver_Piplup": {}
 };
 
 // Export for use in the application

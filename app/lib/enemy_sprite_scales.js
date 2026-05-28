@@ -8,7 +8,7 @@
  * Key: Pokemon species name (e.g. "Lillipup")
  * Value: scale factor (1.0 = native sprite size)
  *
- * AUTO-GENERATED - last updated: 2026-05-27T21:50:23.378Z
+ * AUTO-GENERATED - last updated: 2026-05-28T13:01:42.037Z
  */
 
 const ENEMY_SPRITE_SCALES = {
@@ -1429,9 +1429,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Zubat": {
-        "scale": 0.9183477519675982,
-        "xOffset": 0,
-        "yOffset": 0,
+        "scale": 0.9044588630787094,
+        "xOffset": -1,
+        "yOffset": -2,
         "flipped": false
     },
     "Kricketot": {
@@ -1627,7 +1627,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Gastly": {
-        "scale": 0.8270893571078551,
+        "scale": 0.7993115793300773,
         "xOffset": 0,
         "yOffset": -6,
         "flipped": false
@@ -1927,9 +1927,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": true
     },
     "Bayleef": {
-        "scale": 1.1585014226511328,
+        "scale": 1.1260940152437253,
         "xOffset": 1,
-        "yOffset": -6,
+        "yOffset": 1,
         "flipped": false
     },
     "Primeape": {

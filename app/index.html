@@ -818,7 +818,7 @@
                                     :class="{ ePkmnSpriteResizing: enemyResize.slot === x }"
                                     :data-enemy-slot="x"
                                     :data-enemy-species="enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species"
-                                    :style="{ transform: enemyTransformFor(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species) }"
+                                    :style="{ transform: enemyTransformFor(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species), filter: `drop-shadow(${getEnemySpriteFlipped(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species) ? -2 : 2}px 2px 2px #000) saturate(1.1)` }"
                                     :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}}</div>
                                 <div class="ePkmnLevel">Level: {{enemy_mon_static[x]?.level}}</div>
