@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-27T20:53:01.783Z
+ * Last updated: 2026-05-28T03:02:02.254Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3106,7 +3106,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "pkmn_ability": "Solid Rock"
     },
     "HeartGold and SoulSilver_Rhydon": {},
-    "HeartGold and SoulSilver_Rhyperior": {}
+    "HeartGold and SoulSilver_Rhyperior": {},
+    "Platinum_Rhyperior": {}
 };
 
 // Export for use in the application

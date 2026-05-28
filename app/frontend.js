@@ -4330,15 +4330,7 @@ const app = Vue.createApp({
                 // Overlay color and UI settings
                 'overlay_color',
                 'ui_saturation',
-                
-                // Pokemon image settings
-                'imageXOffset',
-                'imageYOffset',
-                'imageScale',
-                'imageFlip',
-                'imageSat',
-                'imageRotation',
-                
+
                 // Background texture settings
                 'backgroundTexture',
                 'backgroundBlur',
@@ -8458,11 +8450,45 @@ const app = Vue.createApp({
             }
         })
 
-        this.mapper.properties.battle.opponent.trainer.change(async (newProp, oldProp) => { 
+        // Battle-entry markers. A wild battle and a trainer battle can both fire near-simultaneously
+        // (battle.mode flips to 'Wild' while battle.opponent.trainer also briefly transitions). We
+        // debounce IN markers through a short queue so a 'Wild' entry pre-empts any trainer IN that
+        // would otherwise overwrite it. OUT markers fire immediately — they don't conflict.
+        const BATTLE_IN_DEBOUNCE_MS = 250;
+        let pendingBattleIn = null; // { name, isWild, timer }
+        const queueBattleInMarker = (name, isWild) => {
+            if (pendingBattleIn) {
+                if (isWild) {
+                    clearTimeout(pendingBattleIn.timer);
+                } else if (pendingBattleIn.isWild) {
+                    // Wild already queued — trainer write loses.
+                    return;
+                } else {
+                    clearTimeout(pendingBattleIn.timer);
+                }
+            }
+            const entry = { name, isWild, timer: null };
+            entry.timer = setTimeout(() => {
+                pendingBattleIn = null;
+                this.sendObsChapterMarker(entry.name);
+            }, BATTLE_IN_DEBOUNCE_MS);
+            pendingBattleIn = entry;
+        };
+
+        this.mapper.properties.battle.opponent.trainer.change(async (newProp, oldProp) => {
             const trainer = newProp.value == null ? oldProp.value : newProp.value
-            const state = newProp.value == null ? "OUT" : "IN"
-            const stateName = state
-            this.sendObsChapterMarker(stateName + " - " + trainer)
+            if (newProp.value == null) {
+                // OUT — fire immediately, no conflict to resolve.
+                this.sendObsChapterMarker("OUT - " + trainer)
+            } else {
+                queueBattleInMarker("IN - " + trainer, false)
+            }
+        })
+
+        this.mapper.properties.battle.mode?.change?.((newProp, oldProp) => {
+            if (newProp?.value === 'Wild' && oldProp?.value !== 'Wild') {
+                queueBattleInMarker("IN - Wild", true)
+            }
         })
 
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
@@ -8517,6 +8543,13 @@ const app = Vue.createApp({
                 this.evolved_species_for_stats = null;
             }
         });
+        // MAP CHANGE CHAPTER MARKER
+        // Fires "Map Change" whenever overworld.map_index changes value.
+        this.mapper.properties.overworld?.map_index?.change?.((newProp, oldProp) => {
+            if (newProp?.value === oldProp?.value) return;
+            this.sendObsChapterMarker("Map Change");
+        });
+
         this.mapper.properties.battle.player.party_position.change(async (newProp, oldProp) => {
             const game = this.mapper.properties.meta.game_name.value
             // console.log(newProp.value, oldProp.value, this.blackout)
@@ -8612,66 +8645,15 @@ const app = Vue.createApp({
             this.mapper.properties.battle.player.active_pokemon?.moves?.[i]?.move?.change(() => scheduleMoveCheck());
         }
 
-        // CRITICAL ITEM CHAPTER MARKERS (ported from gen2, expanded for gen4)
-        // Fires "Item - <name>" when the player obtains a critical item across any of the six gen4
-        // bag pockets (items / medicine / balls / tmhm / berries / battle_items) or onto a team
-        // member's held slot. Uses the mapper's exact item casing.
-        const vitaminItems = new Set([
-            'HP Up', 'Protein', 'Iron', 'Carbos', 'Calcium', 'Zinc',
-            'PP Up', 'PP Max', 'Rare Candy'
-        ]);
-        // Type boosters (held-item damage multipliers). Sourced from typeBoostingItems with the
-        // mapper-correct casing already baked in.
-        const typeBoosterItems = new Set(Object.keys(typeBoostingItems));
-        // Power / battle held items that meaningfully change a run. Casing matches the gen4 mapper.
-        const powerHeldItems = new Set([
-            'Choice Band', 'Choice Scarf', 'Choice Specs',
-            'Life Orb', 'Expert Belt', 'Wise Glasses', 'Muscle Band',
-            'Macho Brace', 'Zoom Lens', 'Wide Lens', 'Scope Lens',
-            'Razor Claw', 'Razor Fang', 'Quick Claw', "King's Rock",
-            'Bright Powder', 'Light Ball', 'Lucky Punch', 'Stick',
-            'Thick Club', 'Metal Powder', 'Quick Powder',
-            'DeepSeaScale', 'DeepSeaTooth',
-            'Light Clay', 'Damp Rock', 'Heat Rock', 'Smooth Rock', 'Icy Rock',
-            'Toxic Orb', 'Flame Orb', 'Iron Ball', 'Lagging Tail', 'Sticky Barb',
-            'Black Sludge', 'Big Root', 'Shell Bell', 'Leftovers',
-            'Mental Herb', 'White Herb', 'Power Herb',
-            'Focus Sash', 'Focus Band',
-            'Lax Incense', 'Sea Incense', 'Wave Incense', 'Odd Incense',
-            'Rock Incense', 'Rose Incense', 'Full Incense', 'Pure Incense',
-            'Lucky Egg', 'Amulet Coin', 'Cleanse Tag', 'Soothe Bell',
-            'Metronome', 'Eviolite'
-        ]);
-        // EV-training held items.
-        const evBoosterItems = new Set([
-            'Power Weight', 'Power Bracer', 'Power Belt',
-            'Power Lens', 'Power Band', 'Power Anklet'
-        ]);
-        // Berries with battle effects (status cures, healing, pinch, type-resist, jaboca/rowap).
-        // Filler/contest/EV-reduction berries are intentionally omitted as they're not run-critical.
-        const berryItems = new Set([
-            'Cheri Berry', 'Chesto Berry', 'Pecha Berry', 'Rawst Berry', 'Aspear Berry',
-            'Leppa Berry', 'Oran Berry', 'Persim Berry', 'Lum Berry', 'Sitrus Berry',
-            'Figy Berry', 'Wiki Berry', 'Mago Berry', 'Aguav Berry', 'Iapapa Berry',
-            'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry',
-            'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry',
-            'Tanga Berry', 'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry',
-            'Babiri Berry', 'Chilan Berry',
-            'Liechi Berry', 'Ganlon Berry', 'Salac Berry', 'Petaya Berry', 'Apicot Berry',
-            'Lansat Berry', 'Starf Berry', 'Enigma Berry',
-            'Micle Berry', 'Custap Berry', 'Jaboca Berry', 'Rowap Berry'
-        ]);
-        // Pre-evolution stones / soft-evolution items that gate access to forms.
-        const evolutionItems = new Set([
-            'Fire Stone', 'Water Stone', 'Thunder Stone', 'Leaf Stone', 'Moon Stone',
-            'Sun Stone', 'Shiny Stone', 'Dusk Stone', 'Dawn Stone', 'Oval Stone',
-            'Everstone',
-            'Up-Grade', 'Dubious Disc', 'Reaper Cloth', 'Magmarizer', 'Electirizer',
-            'Protector', 'Dragon Scale'
-        ]);
-        // Any new entry into the tmhm pocket fires (TMs are always interesting). Of the HMs we
-        // only fire HM03 Surf — match gen2 spec. Detection is via name prefix because the gen4
-        // mapper might serve "HM01" or "HM01 Cut" or "Cut" depending on glossary configuration.
+        // ITEM ACQUISITION CHAPTER MARKERS
+        // Fires "Item - <name>" whenever the total owned quantity of an item name increases
+        // (across all six gen4 bag pockets and team-held slots). HMs other than HM03 Surf are
+        // suppressed. Bursts within ITEM_BURST_MS for the same name collapse to a single marker,
+        // so buying 5 Potions at once fires once; buying 1 then 5 more after the window fires twice.
+        // Slot reshuffles and held↔bag moves don't change totals, so they don't fire.
+        const allPockets = ['items', 'medicine', 'balls', 'tmhm', 'berries', 'battle_items'];
+        const ITEM_BURST_MS = 1500;
+
         const hmBlocklist = new Set([
             'HM01', 'HM02', 'HM04', 'HM05', 'HM06', 'HM07', 'HM08',
             'Cut', 'Fly', 'Strength', 'Defog', 'Rock Smash', 'Waterfall', 'Rock Climb'
@@ -8681,126 +8663,82 @@ const app = Vue.createApp({
             return /^HM(?!03)\d{2}\b/.test(String(name));
         };
 
-        const isCriticalGenericItem = (name) =>
-            vitaminItems.has(name) ||
-            typeBoosterItems.has(name) ||
-            powerHeldItems.has(name) ||
-            evBoosterItems.has(name) ||
-            berryItems.has(name) ||
-            evolutionItems.has(name);
-
-        // Pockets keyed by gen4 mapper structure. Each pocket is iterated by Object.keys to absorb
-        // size differences between Diamond/Pearl/Platinum/HGSS without hardcoding slot counts.
-        const allPockets = ['items', 'medicine', 'balls', 'tmhm', 'berries', 'battle_items'];
-        const tmhmPocket = 'tmhm';
-
-        // For each item name, decide whether a new acquisition is critical. tmhm pocket items
-        // are always critical (minus the blocked HMs).
-        const isCriticalForPocket = (name, pocket) => {
-            if (name == null || name === '') return false;
-            if (pocket === tmhmPocket) return !isBlockedHm(name);
-            if (pocket === 'berries') return true;
-            return isCriticalGenericItem(name);
-        };
-
-        // Combined ownership snapshot = all pocket item names ∪ team-held items. A "new acquisition"
-        // is a name that wasn't recently observed in either source. Pocket reshuffles caused by
-        // using/selling other items don't fire because the name was already in the set.
-        const readOwnedItems = () => {
-            // Map of name -> pocket where first observed (so we can apply pocket-specific filters).
-            const map = new Map();
+        const readItemTotals = () => {
+            const totals = new Map();
             const bag = this.mapper?.properties?.bag;
             if (bag) {
                 for (const pocket of allPockets) {
                     const slots = bag[pocket];
                     if (!slots) continue;
                     for (const k of Object.keys(slots)) {
-                        const v = slots[k]?.item?.value;
-                        if (v != null && v !== '' && !map.has(v)) map.set(v, pocket);
+                        const slot = slots[k];
+                        const name = slot?.item?.value;
+                        if (name == null || name === '') continue;
+                        const qty = slot?.quantity?.value ?? 1;
+                        totals.set(name, (totals.get(name) || 0) + qty);
                     }
                 }
             }
             const team = this.mapper?.properties?.player?.team;
             if (team) {
                 for (let i = 0; i < 6; i++) {
-                    const v = team[i]?.held_item?.value;
-                    if (v != null && v !== '' && !map.has(v)) map.set(v, 'held');
+                    const name = team[i]?.held_item?.value;
+                    if (name == null || name === '') continue;
+                    totals.set(name, (totals.get(name) || 0) + 1);
                 }
             }
-            return map;
+            return totals;
         };
 
-        // Per-item "last seen owned" timestamps. An item is treated as a new acquisition only if
-        // it hasn't been observed within OWNERSHIP_MEMORY_MS. A held↔bag move fires two property
-        // changes that can be spaced apart; the timestamp window bridges that gap.
-        const OWNERSHIP_MEMORY_MS = 2000;
-        const lastSeenOwned = new Map();
-        {
-            const now = Date.now();
-            for (const name of readOwnedItems().keys()) lastSeenOwned.set(name, now);
-        }
+        const lastItemTotals = readItemTotals();
+        // Per-item "last fired" timestamp. A new fire is gated on (now - lastFired) >= ITEM_BURST_MS,
+        // so a burst of quantity bumps for one name collapses to one marker.
+        const lastItemFiredAt = new Map();
+        let itemCheckTimer = null;
 
-        // Periodic tick keeps timestamps fresh for items the player is currently sitting on with
-        // no other activity. Without this, a long-held item taken off the Pokemon would look new.
-        setInterval(() => {
+        const checkItemDeltas = () => {
+            const current = readItemTotals();
             const now = Date.now();
-            for (const name of readOwnedItems().keys()) {
-                if (lastSeenOwned.has(name)) lastSeenOwned.set(name, now);
-            }
-        }, 500);
-
-        let ownedCheckTimer = null;
-        const checkForNewOwnedItems = () => {
-            const now = Date.now();
-            const current = readOwnedItems();
-            for (const [name, pocket] of current) {
-                if (!isCriticalForPocket(name, pocket)) continue;
-                const lastSeen = lastSeenOwned.get(name);
-                const isNewlyAcquired = (lastSeen == null) || ((now - lastSeen) > OWNERSHIP_MEMORY_MS);
-                if (isNewlyAcquired) {
-                    const chapterName = "Item - " + name;
-                    console.log("Chapter Detected: " + chapterName);
-                    this.sendObsChapterMarker(chapterName);
+            for (const [name, qty] of current) {
+                const prev = lastItemTotals.get(name) ?? 0;
+                if (qty > prev && !isBlockedHm(name)) {
+                    const last = lastItemFiredAt.get(name) ?? 0;
+                    if (now - last >= ITEM_BURST_MS) {
+                        const chapterName = "Item - " + name;
+                        console.log("Chapter Detected: " + chapterName);
+                        this.sendObsChapterMarker(chapterName);
+                    }
+                    lastItemFiredAt.set(name, now);
                 }
-                lastSeenOwned.set(name, now);
             }
+            lastItemTotals.clear();
+            for (const [k, v] of current) lastItemTotals.set(k, v);
         };
 
-        const scheduleOwnedCheck = () => {
-            // Refresh timestamps for items currently observed AND within the memory window.
-            // Stale entries are not refreshed so genuine re-acquisitions after a long absence fire.
-            const now = Date.now();
-            for (const name of readOwnedItems().keys()) {
-                const lastSeen = lastSeenOwned.get(name);
-                if (lastSeen != null && (now - lastSeen) <= OWNERSHIP_MEMORY_MS) {
-                    lastSeenOwned.set(name, now);
-                }
-            }
-            if (ownedCheckTimer) clearTimeout(ownedCheckTimer);
-            ownedCheckTimer = setTimeout(() => {
-                ownedCheckTimer = null;
-                checkForNewOwnedItems();
+        const scheduleItemCheck = () => {
+            if (itemCheckTimer) clearTimeout(itemCheckTimer);
+            itemCheckTimer = setTimeout(() => {
+                itemCheckTimer = null;
+                checkItemDeltas();
             }, 100);
         };
 
-        // Wire change watchers across every pocket slot the mapper exposes, plus held items.
         const bagRoot = this.mapper?.properties?.bag;
         if (bagRoot) {
             for (const pocket of allPockets) {
                 const slots = bagRoot[pocket];
                 if (!slots) continue;
                 for (const k of Object.keys(slots)) {
-                    const itemProp = slots[k]?.item;
-                    if (itemProp && typeof itemProp.change === 'function') {
-                        itemProp.change(() => scheduleOwnedCheck());
-                    }
+                    const slot = slots[k];
+                    if (slot?.item?.change) slot.item.change(() => scheduleItemCheck());
+                    if (slot?.quantity?.change) slot.quantity.change(() => scheduleItemCheck());
                 }
             }
         }
         for (let i = 0; i < 6; i++) {
             const heldProp = this.mapper.properties.player.team[i]?.held_item;
             if (heldProp && typeof heldProp.change === 'function') {
-                heldProp.change(() => scheduleOwnedCheck());
+                heldProp.change(() => scheduleItemCheck());
             }
         }
 
