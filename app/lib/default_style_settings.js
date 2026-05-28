@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-28T13:01:03.436Z
+ * Last updated: 2026-05-28T18:51:33.283Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3114,7 +3114,49 @@ const DEFAULT_STYLE_SETTINGS = {
     "HeartGold and SoulSilver_Rhydon": {},
     "HeartGold and SoulSilver_Rhyperior": {},
     "Platinum_Rhyperior": {},
-    "HeartGold and SoulSilver_Piplup": {}
+    "HeartGold and SoulSilver_Piplup": {},
+    "Platinum_Rhydon": {},
+    "Platinum_Misdreavus": {},
+    "Platinum_Mismagius-line-Misdreavus": {
+        "imageScale": "0.52",
+        "imageYOffset": "94",
+        "imageXOffset": "38",
+        "overlay_color": "#2d5974",
+        "ui_saturation": "1.9",
+        "backgroundScale": "114",
+        "backgroundContrast": "119",
+        "backgroundYOffset": "-29",
+        "backgroundBrightness": "86",
+        "backgroundHue": "118",
+        "backgroundSaturation": "47",
+        "backgroundTexture": "Ghost",
+        "backgroundBlur": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0
+    },
+    "Platinum_Mismagius-line-Mismagius": {
+        "overlay_color": "#816395",
+        "ui_saturation": "1.9",
+        "backgroundTexture": "Ghost",
+        "backgroundBlur": 0,
+        "backgroundHue": "220",
+        "backgroundScale": "114",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "-29",
+        "backgroundBrightness": "86",
+        "backgroundContrast": "119",
+        "backgroundSaturation": "47",
+        "imageFlip": true,
+        "imageScale": "0.89",
+        "imageYOffset": "87",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Mismagius": {}
 };
 
 // Export for use in the application

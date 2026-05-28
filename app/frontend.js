@@ -9417,6 +9417,10 @@ const app = Vue.createApp({
                     gameName = 'HGSS'
                     game_name = 'HeartGold and SoulSilver'
                 }
+                if (this.mapper.properties.meta.game_name.value == 'Diamond and Pearl') {
+                    gameName = 'DP'
+                    game_name = 'Diamond and Pearl'
+                }
                 const splitFileName = this.getSplitFileName();
 
                 //write full split data
@@ -9556,8 +9560,11 @@ const app = Vue.createApp({
                     const splitFileName = this.getSplitFileName();
                     logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                     .then(() => {
-                            // console.log("Run complete - moving attempt files to finished folder.")
-                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                            // DPP defers the finishes/ copy until after the Hall of Fame split is recorded
+                            // so the HoF entry is included. HGSS has no HoF flow, so copy now.
+                            if (gameName !== 'Platinum') {
+                                logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                            }
                         })
                         .catch(error => {
                             console.error("Error:", error);
@@ -9598,6 +9605,7 @@ const app = Vue.createApp({
 
         this.mapper.properties.screen.menu.cursor.flag.change(async (newProp, oldProp) => {
             if (this.mapper.properties.overworld.map_name.value == "Pokemon League - Map 16" && newProp.value == 156) { //magic number for Hall of Fame, may need to be updated with new versions of the patch
+                console.log("Hall of Fame split.")
                 const splitFileName = this.getSplitFileName();
                 let gameName = 'Platinum'
                 let game_name = 'Platinum'
@@ -9608,13 +9616,14 @@ const app = Vue.createApp({
                 
                 autosplitter_process("Hall of Fame")
                     //write full split data
-                logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
-                logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                const fullP = logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                const deprecatedP = logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
 
                 //write simple split data
+                let simpleP;
                 const simpleSplit = () => {
                     log_split()
-                    logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                    simpleP = logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                     this.split_data.push(this.simple_data)
                     MyStorage["split_data"] = this.split_data
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
@@ -9642,6 +9651,19 @@ const app = Vue.createApp({
                     }
                 }
                 simpleSplit()
+
+                // DPP: now that the HoF split has been written, copy the species folder into finishes/.
+                // (The final-battle handler intentionally skipped this for Platinum to wait for HoF.)
+                // HGSS already copied at the final battle and doesn't reach this branch with a copy step.
+                if (gameName === 'Platinum') {
+                    Promise.all([fullP, deprecatedP, simpleP])
+                        .then(() => {
+                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                        })
+                        .catch(error => {
+                            console.error("logCopy after Hall of Fame failed:", error);
+                        });
+                }
             }
         });
 
