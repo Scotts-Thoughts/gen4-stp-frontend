@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-28T18:51:33.283Z
+ * Last updated: 2026-05-29T11:25:21.533Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2766,7 +2766,10 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "HeartGold and SoulSilver_Flaaffy": {},
     "HeartGold and SoulSilver_Ampharos": {},
-    "HeartGold and SoulSilver_Totodile": {},
+    "HeartGold and SoulSilver_Totodile": {
+        "evolution": true,
+        "selected_evolution_species": "Totodile"
+    },
     "HeartGold and SoulSilver_Feraligatr-line-Totodile": {
         "imageFlip": true,
         "imageScale": "0.6",
@@ -3156,7 +3159,161 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageYOffset": "87",
         "imageXOffset": "-26"
     },
-    "Platinum_Mismagius": {}
+    "Platinum_Mismagius": {},
+    "HeartGold and SoulSilver_Mismagius": {},
+    "HeartGold and SoulSilver_Teddiursa": {
+        "evolution": true,
+        "selected_evolution_species": "Teddiursa"
+    },
+    "HeartGold and SoulSilver_Ursaring-line-Teddiursa": {
+        "backgroundTexture": "Dragon",
+        "backgroundScale": "153",
+        "backgroundYOffset": "-18",
+        "backgroundContrast": "176",
+        "backgroundHue": "188",
+        "backgroundBlur": "1",
+        "backgroundBrightness": "80",
+        "imageFlip": true,
+        "imageScale": "0.58",
+        "imageYOffset": "-47",
+        "imageXOffset": "-40",
+        "overlay_color": "#e1915b",
+        "ui_saturation": "1.2",
+        "backgroundSaturation": "1",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0
+    },
+    "HeartGold and SoulSilver_Ursaring-line-Ursaring": {
+        "overlay_color": "#9c6e5b",
+        "ui_saturation": "1.7",
+        "backgroundTexture": "Dragon",
+        "backgroundBlur": "1",
+        "backgroundHue": "188",
+        "backgroundScale": "153",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "-18",
+        "backgroundBrightness": "80",
+        "backgroundContrast": "176",
+        "backgroundSaturation": "1",
+        "imageFlip": true,
+        "imageScale": "1.01",
+        "imageYOffset": "38",
+        "imageXOffset": "-19"
+    },
+    "HeartGold and SoulSilver_Ursaring-line": {
+        "pkmn_ability": "Quick Feet"
+    },
+    "HeartGold and SoulSilver_Ursaring": {},
+    "HeartGold and SoulSilver_Aipom": {
+        "evolution": true,
+        "selected_evolution_species": "Aipom"
+    },
+    "HeartGold and SoulSilver_Ambipom-line-Aipom": {
+        "backgroundTexture": "Brushed Steel",
+        "backgroundContrast": "158",
+        "backgroundScale": "123",
+        "backgroundBrightness": "89",
+        "imageScale": "0.68",
+        "imageYOffset": "-47",
+        "overlay_color": "#a178b5",
+        "ui_saturation": "1.4",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "HeartGold and SoulSilver_Ambipom-line-Ambipom": {
+        "overlay_color": "#a178b5",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Brushed Steel",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "123",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "89",
+        "backgroundContrast": "158",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "1.09",
+        "imageYOffset": "23",
+        "imageXOffset": "-33"
+    },
+    "HeartGold and SoulSilver_Ambipom-line": {
+        "pkmn_ability": "Technician"
+    },
+    "HeartGold and SoulSilver_Ambipom": {},
+    "HeartGold and SoulSilver_Magnemite": {
+        "evolution": true,
+        "selected_evolution_species": "Magnemite"
+    },
+    "HeartGold and SoulSilver_Magnezone-line-Magnemite": {
+        "imageScale": "0.5",
+        "imageYOffset": "144",
+        "imageXOffset": "45",
+        "overlay_color": "#92a6ab",
+        "backgroundScale": "180",
+        "backgroundYOffset": "117",
+        "backgroundXOffset": "125",
+        "backgroundBrightness": "57",
+        "backgroundContrast": "174",
+        "backgroundHue": "201",
+        "backgroundFlip": true,
+        "ui_saturation": 0.6,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundUrl": "",
+        "use_custom_background": false,
+        "backgroundSaturation": 100
+    },
+    "HeartGold and SoulSilver_Magnezone-line-Magneton": {
+        "overlay_color": "#92a6ab",
+        "ui_saturation": 0.6,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundHue": "201",
+        "backgroundScale": "180",
+        "backgroundUrl": "",
+        "backgroundFlip": true,
+        "use_custom_background": false,
+        "backgroundXOffset": "125",
+        "backgroundYOffset": "117",
+        "backgroundBrightness": "57",
+        "backgroundContrast": "174",
+        "backgroundSaturation": 100,
+        "imageScale": "0.71",
+        "imageYOffset": "101",
+        "imageXOffset": "31"
+    },
+    "HeartGold and SoulSilver_Magnezone-line-Magnezone": {
+        "overlay_color": "#92a6ab",
+        "ui_saturation": 0.6,
+        "backgroundTexture": "Electric",
+        "backgroundBlur": 0,
+        "backgroundHue": "201",
+        "backgroundScale": "180",
+        "backgroundUrl": "",
+        "backgroundFlip": true,
+        "use_custom_background": false,
+        "backgroundXOffset": "125",
+        "backgroundYOffset": "117",
+        "backgroundBrightness": "57",
+        "backgroundContrast": "174",
+        "backgroundSaturation": 100
+    },
+    "HeartGold and SoulSilver_Magneton": {}
 };
 
 // Export for use in the application

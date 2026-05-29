@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Aipom,Passerby Boy,3:29.02,0,0,7,0:13,1780004341.159,Scratch,Tail Whip,Sand-Attack,
+Lyra,Aipom,Leader Falkner,9:40.59,0,0,14,0:38,1780004712.735,Scratch,Tail Whip,Sand-Attack,Astonish
+Lyra,Aipom,Rival Silver,16:17.86,0,1,19,1:04,1780005110.019,Scratch,Tickle,Fury Swipes,Astonish
+Lyra,Aipom,Leader Bugsy,17:05.44,0,1,20,1:07,1780005157.601,Scratch,Tickle,Fury Swipes,Astonish
+Lyra,Aipom,Leader Whitney,23:26.90,0,1,22,1:33,1780005539.065,Headbutt,Tickle,Swift,Astonish
+Lyra,Aipom,Rival Silver,30:52.10,0,1,28,2:02,1780005984.265,Headbutt,Tickle,Swift,Shadow Claw
+Lyra,Ambipom,Leader Morty,33:13.70,0,1,32,2:12,1780006125.861,Double Hit,Tickle,Swift,Shadow Claw
+Lyra,Ambipom,Leader Chuck,36:39.91,0,1,35,2:26,1780006332.086,Double Hit,Tickle,Swift,Shadow Claw
+Lyra,Ambipom,Leader Pryce,52:29.46,0,1,44,3:29,1780007286.266,Thunderbolt,Return,Swift,Nasty Plot
+Lyra,Ambipom,Leader Jasmine,54:06.29,0,1,44,3:36,1780007383.104,Thunderbolt,Substitute,Swift,Nasty Plot
+Lyra,Ambipom,Rival Silver,57:19.56,0,1,46,3:48,1780007576.381,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Clair,1:04:39.78,0,1,51,4:18,1780008016.603,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Rival Silver,1:15:32.50,0,3,60,5:01,1780008669.331,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Will,1:16:30.53,0,3,61,5:05,1780008727.367,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Koga,1:17:17.14,0,3,61,5:08,1780008773.972,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Bruno,1:17:48.79,0,3,62,5:11,1780008805.627,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Karen,1:18:30.40,0,3,63,5:13,1780009345.272,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Champion Lance,1:19:20.04,0,3,64,5:17,1780009394.907,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Erika,1:23:11.58,0,3,65,5:32,1780009626.449,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Sabrina,1:24:01.76,0,3,66,5:35,1780009676.626,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Misty,1:28:26.51,0,3,73,5:53,1780009941.383,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Lt. Surge,1:30:13.68,0,3,74,6:00,1780010048.55,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Brock,1:31:43.27,0,3,74,6:06,1780010138.148,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Blaine,1:34:10.04,0,3,76,6:15,1780010284.92,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Janine,1:35:23.08,0,3,76,6:20,1780010357.957,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Leader Blue,1:38:03.23,0,4,78,6:31,1780010518.112,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Will,1:40:54.48,0,4,78,6:42,1780010689.358,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Koga,1:41:52.77,0,4,79,6:46,1780010747.653,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Bruno,1:42:39.27,0,4,80,6:49,1780010794.154,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Elite Four Karen,1:43:35.13,0,4,81,6:53,1780010850.015,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Champion Lance,1:44:33.20,0,4,82,6:57,1780010908.083,Swift,Substitute,Thunderbolt,Nasty Plot
+Lyra,Ambipom,Pokemon Trainer Red,1:48:03.48,0,4,86,7:10,1780011118.38,Swift,Attract,Thunderbolt,Nasty Plot

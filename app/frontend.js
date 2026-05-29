@@ -3941,6 +3941,9 @@ const app = Vue.createApp({
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
                 }
+                if (status_condition && ability == 'Quick Feet') {
+                    SpE = Math.floor(SpE * 1.5)
+                }
                 if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                     SpE = Math.floor(SpE / 4)
                 }
@@ -4022,7 +4025,10 @@ const app = Vue.createApp({
                         SpE = Math.floor(SpE * 0.5)
                     }
                     
-                    if (status_condition == 'Paralyzed') {
+                    if (status_condition && ability == 'Quick Feet') {
+                        SpE = Math.floor(SpE * 1.5)
+                    }
+                    if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                         SpE = Math.floor(SpE / 4)
                     }
                     if (ability == 'Slow Start') {
@@ -7847,6 +7853,17 @@ const app = Vue.createApp({
             if (power <= 60 && pkmn_ability == "Technician") {
                 power = power * 1.5
             }
+
+            // Metronome (item) - not implemented, no way to know what move was used previously. Also, the counter increments when your Pokemon uses the move, so we need to predictively assign power before the move is used.
+            // var metronome_counter = this.mapper.properties.battle.flags.player_active.metronome_item_turns.value
+            // console.log(metronome_counter)
+            // if (metronome_counter > 0 && state == 'Battle') {
+            //     itemBoost = 1 + (metronome_counter * 0.1)
+            //     if (itemBoost > 2) {
+            //         itemBoost = 2
+            //     }
+            // }
+
             // console.log("Recalculated:", defendingType2Effectiveness)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }

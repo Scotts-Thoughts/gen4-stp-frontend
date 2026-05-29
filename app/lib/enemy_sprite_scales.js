@@ -8,7 +8,7 @@
  * Key: Pokemon species name (e.g. "Lillipup")
  * Value: scale factor (1.0 = native sprite size)
  *
- * AUTO-GENERATED - last updated: 2026-05-28T18:25:25.863Z
+ * AUTO-GENERATED - last updated: 2026-05-28T20:34:11.085Z
  */
 
 const ENEMY_SPRITE_SCALES = {
@@ -542,8 +542,8 @@ const ENEMY_SPRITE_SCALES = {
     },
     "Ekans": {
         "scale": 0.783861696384819,
-        "xOffset": 1,
-        "yOffset": 1,
+        "xOffset": 3,
+        "yOffset": 2,
         "flipped": false
     },
     "Persian": {
@@ -1550,7 +1550,7 @@ const ENEMY_SPRITE_SCALES = {
     },
     "Murkrow": {
         "scale": 0.937560045622281,
-        "xOffset": 0,
+        "xOffset": 1,
         "yOffset": 0,
         "flipped": false
     },
@@ -2145,7 +2145,7 @@ const ENEMY_SPRITE_SCALES = {
     "Arbok": {
         "scale": 1.0048030734136706,
         "xOffset": 0,
-        "yOffset": 1,
+        "yOffset": 4,
         "flipped": false
     },
     "Bellossom": {
@@ -2833,9 +2833,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Umbreon": {
-        "scale": 1.1200768353417674,
+        "scale": 1.08766942793436,
         "xOffset": -2,
-        "yOffset": -3,
+        "yOffset": 1,
         "flipped": false
     },
     "Piloswine": {
