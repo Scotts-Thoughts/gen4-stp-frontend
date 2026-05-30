@@ -8,7 +8,7 @@
  * Key: Pokemon species name (e.g. "Lillipup")
  * Value: scale factor (1.0 = native sprite size)
  *
- * AUTO-GENERATED - last updated: 2026-05-28T20:34:11.085Z
+ * AUTO-GENERATED - last updated: 2026-05-30T18:05:19.807Z
  */
 
 const ENEMY_SPRITE_SCALES = {
@@ -31,7 +31,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Houndour": {
-        "scale": 0.8787090581699453,
+        "scale": 0.9111164655773527,
         "xOffset": -1,
         "yOffset": 2,
         "flipped": false
@@ -501,7 +501,7 @@ const ENEMY_SPRITE_SCALES = {
     "Mantine": {
         "scale": 1.014409220241012,
         "xOffset": 0,
-        "yOffset": 0,
+        "yOffset": -6,
         "flipped": false
     },
     "Xatu": {
@@ -631,7 +631,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Gyarados": {
-        "scale": 1.1152737619280966,
+        "scale": 1.0921256137799484,
         "xOffset": 0,
         "yOffset": -5,
         "flipped": false
@@ -757,7 +757,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": true
     },
     "Stunky": {
-        "scale": 0.9711815595179758,
+        "scale": 0.9619223002587165,
         "xOffset": -1,
         "yOffset": -3,
         "flipped": false
@@ -877,7 +877,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Meditite": {
-        "scale": 0.8222862836941843,
+        "scale": 0.7945085059164065,
         "xOffset": 0,
         "yOffset": 0,
         "flipped": false
@@ -1117,7 +1117,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Machoke": {
-        "scale": 1.0192122936546828,
+        "scale": 0.9636567380991272,
         "xOffset": 0,
         "yOffset": 1,
         "flipped": false
@@ -1201,9 +1201,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Heracross": {
-        "scale": 1.0384245873093656,
-        "xOffset": 2,
-        "yOffset": -4,
+        "scale": 0.9874986613834397,
+        "xOffset": 0,
+        "yOffset": -3,
         "flipped": false
     },
     "Kingler": {
@@ -1269,7 +1269,7 @@ const ENEMY_SPRITE_SCALES = {
     "Marill": {
         "scale": 0.889529311485574,
         "xOffset": 0,
-        "yOffset": 3,
+        "yOffset": 1,
         "flipped": true
     },
     "Poliwhirl": {
@@ -1327,9 +1327,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Lucario": {
-        "scale": 1.13928912899645,
+        "scale": 1.0698446845520055,
         "xOffset": 3,
-        "yOffset": -5,
+        "yOffset": -2,
         "flipped": false
     },
     "Clamperl": {
@@ -1513,9 +1513,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Gastrodon": {
-        "scale": 1.0912583948597432,
+        "scale": 1.0218139504152988,
         "xOffset": 0,
-        "yOffset": -4,
+        "yOffset": -1,
         "flipped": false
     },
     "Spinarak": {
@@ -1741,9 +1741,9 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": false
     },
     "Roserade": {
-        "scale": 1.1079223842932893,
+        "scale": 1.0523668287377337,
         "xOffset": 0,
-        "yOffset": 1,
+        "yOffset": -1,
         "flipped": false
     },
     "Manaphy": {
@@ -1893,7 +1893,7 @@ const ENEMY_SPRITE_SCALES = {
     "Magnemite": {
         "scale": 0.9279538987949396,
         "xOffset": 0,
-        "yOffset": 0,
+        "yOffset": -3,
         "flipped": false
     },
     "Castform": {
@@ -2109,7 +2109,7 @@ const ENEMY_SPRITE_SCALES = {
     "Floatzel": {
         "scale": 1.1096034695942205,
         "xOffset": 10,
-        "yOffset": -2,
+        "yOffset": 0,
         "flipped": false
     },
     "Sentret": {
@@ -2233,7 +2233,7 @@ const ENEMY_SPRITE_SCALES = {
         "flipped": true
     },
     "Staraptor": {
-        "scale": 1.0816522480324018,
+        "scale": 1.0631337295138832,
         "xOffset": 3,
         "yOffset": -3,
         "flipped": false
@@ -2391,7 +2391,7 @@ const ENEMY_SPRITE_SCALES = {
     "Roselia": {
         "scale": 0.9567723392769637,
         "xOffset": 0,
-        "yOffset": 0,
+        "yOffset": -3,
         "flipped": false
     },
     "Milotic": {

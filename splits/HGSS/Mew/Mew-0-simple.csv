@@ -1,0 +1,6 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Mew,Elite Four Koga,1:36:05.14,3,3,75,6:16,1780174206.677,Psychic,Charge Beam,Shadow Ball,Ice Beam
+Lyra,Mew,Elite Four Bruno,1:36:59.47,3,3,76,6:20,1780174260.996,Psychic,Charge Beam,Shadow Ball,Ice Beam
+Lyra,Mew,Elite Four Karen,1:38:42.14,5,3,77,6:24,1780174363.675,Psychic,Charge Beam,Shadow Ball,Ice Beam
+Lyra,Mew,Champion Lance,1:39:45.16,5,3,77,6:28,1780174426.685,Psychic,Charge Beam,Shadow Ball,Ice Beam
+Lyra,Mew,Pokemon Trainer Red,1:45:44.00,5,3,80,6:51,1780174785.54,Earthquake,Swords Dance,Return,Rock Slide

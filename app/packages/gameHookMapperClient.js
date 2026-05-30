@@ -359,45 +359,31 @@ class GameHookMapperClient {
     async _editPropertyValue(path, value, freeze) {
         path = path.replace('.', '/')
 
-        await fetch(`${this._connectionString}/mapper/set-property-value/`, {
+        const response = await fetch(`${this._connectionString}/mapper/set-property-value/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ path, value, freeze })
         })
-            .then(async (x) => { return { response: x } })
-            .then(x => {
-                if (x.response.status === 200) {
-                    return
-                } else {
-                    if (x.body) {
-                        throw new Error(x.body)
-                    } else {
-                        throw new Error('Unknown error')
-                    }
-                }
-            })
+
+        if (!response.ok) {
+            const detail = await response.text().catch(() => '')
+            console.warn(`[GameHook Client] Failed to set ${path} = ${value}: ${response.status} ${response.statusText}${detail ? ` - ${detail}` : ''}`)
+        }
     }
 
     async _editPropertyBytes(path, bytes, freeze) {
         path = path.replace('.', '/')
 
-        await fetch(`${this._connectionString}/mapper/set-property-bytes/`, {
+        const response = await fetch(`${this._connectionString}/mapper/set-property-bytes/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ path, bytes, freeze })
         })
-            .then(async (x) => { return { response: x } })
-            .then(x => {
-                if (x.response.status === 200) {
-                    return
-                } else {
-                    if (x.body) {
-                        throw new Error(x.body)
-                    } else {
-                        throw new Error('Unknown error')
-                    }
-                }
-            })
+
+        if (!response.ok) {
+            const detail = await response.text().catch(() => '')
+            console.warn(`[GameHook Client] Failed to set bytes for ${path}: ${response.status} ${response.statusText}${detail ? ` - ${detail}` : ''}`)
+        }
     }
 
     //For setting multiple bits within the same byte at the same time
@@ -407,23 +393,16 @@ class GameHookMapperClient {
             path: item.path.replace(/\./g, '/')
         }));
 
-        await fetch(`${this._connectionString}/mapper/set-properties-by-bits/`, {
+        const response = await fetch(`${this._connectionString}/mapper/set-properties-by-bits/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(modifiedArray)
         })
-            .then(async (x) => { return { response: x } })
-            .then(x => {
-                if (x.response.status === 200) {
-                    return
-                } else {
-                    if (x.body) {
-                        throw new Error(x.body)
-                    } else {
-                        throw new Error('Unknown error')
-                    }
-                }
-            })
+
+        if (!response.ok) {
+            const detail = await response.text().catch(() => '')
+            console.warn(`[GameHook Client] Failed to set bits: ${response.status} ${response.statusText}${detail ? ` - ${detail}` : ''}`)
+        }
     }
 
     onConnected() { /* Override this with your own function. */ }

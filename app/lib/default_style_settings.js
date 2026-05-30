@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-30T13:01:57.811Z
+ * Last updated: 2026-05-30T21:26:15.653Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3320,7 +3320,121 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Nidorina": {},
     "Platinum_Charmander": {},
     "Platinum_Sandshrew": {},
-    "HeartGold and SoulSilver_Phione": {}
+    "HeartGold and SoulSilver_Phione": {},
+    "Platinum_Turtwig": {},
+    "Platinum_Sentret": {},
+    "Platinum_Shaymin (Land)": {},
+    "Platinum_Rotom": {},
+    "Platinum_Riolu": {},
+    "Platinum_Lucario-line-Riolu": {
+        "imageFlip": true,
+        "imageScale": "0.58",
+        "imageYOffset": "-62",
+        "imageXOffset": "-26",
+        "overlay_color": "#7ea4b9",
+        "ui_saturation": "1.2",
+        "backgroundContrast": "107",
+        "backgroundScale": "112",
+        "backgroundBrightness": "45",
+        "backgroundBlur": "1",
+        "backgroundTexture": "Fighting",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Lucario-line-Lucario": {
+        "overlay_color": "#7ea4b9",
+        "ui_saturation": "1.2",
+        "backgroundTexture": "Fighting",
+        "backgroundBlur": "1",
+        "backgroundHue": 0,
+        "backgroundScale": "112",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "45",
+        "backgroundContrast": "107",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.93",
+        "imageYOffset": "45",
+        "imageXOffset": "-5"
+    },
+    "Platinum_Lucario-line": {
+        "pkmn_ability": "Inner Focus"
+    },
+    "Platinum_Lucario": {},
+    "HeartGold and SoulSilver_Lucario": {},
+    "HeartGold and SoulSilver_Sudowoodo": {
+        "pkmn_ability": "Rock Head"
+    },
+    "HeartGold and SoulSilver_Bonsly-line-Bonsly": {
+        "imageFlip": true,
+        "imageScale": "0.5",
+        "imageYOffset": "-90",
+        "imageXOffset": "-26",
+        "overlay_color": "#c0a171",
+        "ui_saturation": "1.2",
+        "backgroundScale": "118",
+        "backgroundContrast": "110",
+        "backgroundBlur": "2",
+        "backgroundBrightness": "57",
+        "backgroundTexture": "Rock",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "HeartGold and SoulSilver_Bonsly-line-Sudowoodo": {
+        "overlay_color": "#c0a171",
+        "ui_saturation": "1.2",
+        "backgroundTexture": "Rock",
+        "backgroundBlur": "2",
+        "backgroundHue": 0,
+        "backgroundScale": "118",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "57",
+        "backgroundContrast": "110",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.89",
+        "imageYOffset": "31",
+        "imageXOffset": "-12"
+    },
+    "HeartGold and SoulSilver_Bonsly": {},
+    "HeartGold and SoulSilver_Bonsly-line": {
+        "pkmn_ability": "Rock Head"
+    },
+    "HeartGold and SoulSilver_Mew": {
+        "imageFlip": false,
+        "imageScale": "0.6",
+        "imageYOffset": "123",
+        "imageXOffset": "23",
+        "overlay_color": "#f2c3d3",
+        "ui_saturation": "1.4",
+        "backgroundHue": "286",
+        "backgroundSaturation": "125",
+        "backgroundBrightness": "80",
+        "backgroundContrast": "133",
+        "backgroundScale": "100",
+        "backgroundBlur": "0"
+    },
+    "HeartGold and SoulSilver_Gliscor": {},
+    "HeartGold and SoulSilver_Wailord": {},
+    "HeartGold and SoulSilver_Pidgeot": {}
 };
 
 // Export for use in the application

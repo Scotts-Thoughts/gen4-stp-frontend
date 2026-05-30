@@ -8990,42 +8990,50 @@ const app = Vue.createApp({
                     {path: 'player.team.0.ivs.special_attack',  value: ivSpA, freeze: false},
                     {path: 'player.team.0.ivs.special_defense', value: ivSpD, freeze: false},
                 ]),
-                this.mapper.setBits([
-                    {path: 'patch.FLAG_FORCE_ROUTE_201_BIDOOF', value: this.hm_route_201_bidoof,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_201_STARLY', value: this.hm_route_201_starly,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_202_BIDOOF', value: this.hm_route_202_bidoof,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_202_STARLY', value: this.hm_route_202_starly,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_203_ABRA', value: this.hm_route_203_abra,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT', value: this.hm_oreburgh_gate_zubat,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE', value: this.hm_oreburgh_gate_geodude,  freeze: false},
-                ]),
-                this.mapper.setBits([
-                    {path: 'patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK', value: this.hm_oreburgh_gate_psyduck,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_207_MACHOP', value: this.hm_route_207_machop,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_207_GEODUDE', value: this.hm_route_207_geodude,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE', value: this.hm_oreburgh_mine_geodude,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_208_BIBAREL', value: this.hm_route_208_bibarel,  freeze: false},
-                    {path: 'patch.FLAG_FORCE_ROUTE_213_BUIZEL', value: this.hm_route_213_buizel,  freeze: false},
-                ]),
-                this.mapper.setBits([
-                    // byte 0x160 (flag IDs 0xB00-0xB07)
-                    {path: 'patch.FLAG_FORCE_R29_SENTRET',          value: this.hm_route_29_sentret,    freeze: false},
-                    {path: 'patch.FLAG_FORCE_R29_RATTATA',          value: this.hm_route_29_rattata,    freeze: false},
-                    {path: 'patch.FLAG_FORCE_R29_PIDGEY',           value: this.hm_route_29_pidgey,     freeze: false},
-                    {path: 'patch.FLAG_FORCE_R30_RATTATA',          value: this.hm_route_30_rattata,    freeze: false},
-                    {path: 'patch.FLAG_FORCE_R30_PIDGEY',           value: this.hm_route_30_pidgey,     freeze: false},
-                    {path: 'patch.FLAG_FORCE_R31_BELLSPROUT',       value: this.hm_route_31_bellsprout, freeze: false},
-                    {path: 'patch.FLAG_FORCE_R31_RATTATA',          value: this.hm_route_31_rattata,    freeze: false},
-                    {path: 'patch.FLAG_FORCE_R31_PIDGEY',           value: this.hm_route_31_pidgey,     freeze: false},
-                ]),
-                this.mapper.setBits([
-                    // byte 0x161 (flag IDs 0xB08-0xB0B)
-                    {path: 'patch.FLAG_FORCE_R32_RATTATA',          value: this.hm_route_32_rattata,    freeze: false},
-                    {path: 'patch.FLAG_FORCE_R32_WOOPER',           value: this.hm_route_32_wooper,     freeze: false},
-                    {path: 'patch.FLAG_FORCE_UNION_CAVE_SANDSHREW', value: this.hm_union_cave_sandshrew,freeze: false},
-                    {path: 'patch.FLAG_FORCE_R34_DROWZEE',          value: this.hm_route_34_drowzee,    freeze: false},
-                ]),
             ])
+            if (this.mapper.properties.meta.game_name.value == "Platinum") {
+                await Promise.all([
+                    this.mapper.setBits([
+                        {path: 'patch.FLAG_FORCE_ROUTE_201_BIDOOF', value: this.hm_route_201_bidoof,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_201_STARLY', value: this.hm_route_201_starly,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_202_BIDOOF', value: this.hm_route_202_bidoof,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_202_STARLY', value: this.hm_route_202_starly,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_203_ABRA', value: this.hm_route_203_abra,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT', value: this.hm_oreburgh_gate_zubat,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE', value: this.hm_oreburgh_gate_geodude,  freeze: false},
+                    ]),
+                    this.mapper.setBits([
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK', value: this.hm_oreburgh_gate_psyduck,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_207_MACHOP', value: this.hm_route_207_machop,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_207_GEODUDE', value: this.hm_route_207_geodude,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE', value: this.hm_oreburgh_mine_geodude,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_208_BIBAREL', value: this.hm_route_208_bibarel,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_213_BUIZEL', value: this.hm_route_213_buizel,  freeze: false},
+                    ]),
+                ])
+            }
+            if (this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver") {
+                await Promise.all([
+                    this.mapper.setBits([
+                        // byte 0x160 (flag IDs 0xB00-0xB07)
+                        {path: 'patch.FLAG_FORCE_R29_SENTRET',          value: this.hm_route_29_sentret,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R29_RATTATA',          value: this.hm_route_29_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R29_PIDGEY',           value: this.hm_route_29_pidgey,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_R30_RATTATA',          value: this.hm_route_30_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R30_PIDGEY',           value: this.hm_route_30_pidgey,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_BELLSPROUT',       value: this.hm_route_31_bellsprout, freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_RATTATA',          value: this.hm_route_31_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_PIDGEY',           value: this.hm_route_31_pidgey,     freeze: false},
+                    ]),
+                    this.mapper.setBits([
+                        // byte 0x161 (flag IDs 0xB08-0xB0B)
+                        {path: 'patch.FLAG_FORCE_R32_RATTATA',          value: this.hm_route_32_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R32_WOOPER',           value: this.hm_route_32_wooper,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_UNION_CAVE_SANDSHREW', value: this.hm_union_cave_sandshrew,freeze: false},
+                        {path: 'patch.FLAG_FORCE_R34_DROWZEE',          value: this.hm_route_34_drowzee,    freeze: false},
+                    ]),
+                ])
+            }
             // RNG: reset trip indices and write first-trip values to PokeAByte properties.
             for (const npc of this.rng_npcs) {
                 this.rng_trip_index[npc.key] = 0;
@@ -9041,7 +9049,7 @@ const app = Vue.createApp({
                     await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),
                 ])
             }
-            if (species == 'Shaymin' || species == 'Mew' || species == 'Deoxys') {
+            if (species == 'Shaymin' || species == 'Shaymin (Land)' || species == 'Shaymin (Sky)' || species == 'Mew' || species == 'Deoxys') {
                 await Promise.all([
                     await this.mapper.properties.player.team[0].flags.fateful_encounter.set(true, false),
                 ])
