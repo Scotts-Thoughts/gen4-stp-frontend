@@ -3407,30 +3407,31 @@ const app = Vue.createApp({
                 }
             }
             else if (this.selected_game == 'HeartGold and SoulSilver') {
-                rate = 25
+                encounters_on = 0
+                encounters_off = 1
                 if (map == 'Route 29 - Map 1') {
                     if (this.encounters_route_29) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
                 else if (map == 'Route 30 - Map 1') {
                     if (this.encounters_route_30) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
                 else if (map == 'Sprout Tower - Map 2' || map == 'Sprout Tower - Map 3') {
                     rate = 5
                     if (this.encounters_sprout_tower) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
             }

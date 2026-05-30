@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-29T11:25:21.533Z
+ * Last updated: 2026-05-30T13:01:57.811Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -342,7 +342,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundBrightness": "31",
         "backgroundContrast": "142",
         "backgroundSaturation": "151",
-        "pkmn_ability": "Hydration"
+        "pkmn_ability": "Hydration",
+        "evolution": false
     },
     "Platinum_Phione": {
         "overlay_color": "#3599d2",
@@ -357,7 +358,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundYOffset": "48",
         "backgroundBrightness": "71",
         "backgroundContrast": "130",
-        "pkmn_ability": "Hydration"
+        "pkmn_ability": "Hydration",
+        "evolution": false
     },
     "Platinum_Lickilicky-line-Lickitung": {
         "overlay_color": "#f6bbc1",
@@ -3313,7 +3315,12 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundContrast": "174",
         "backgroundSaturation": 100
     },
-    "HeartGold and SoulSilver_Magneton": {}
+    "HeartGold and SoulSilver_Magneton": {},
+    "Platinum_Magneton": {},
+    "Platinum_Nidorina": {},
+    "Platinum_Charmander": {},
+    "Platinum_Sandshrew": {},
+    "HeartGold and SoulSilver_Phione": {}
 };
 
 // Export for use in the application
