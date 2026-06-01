@@ -8498,7 +8498,8 @@ const app = Vue.createApp({
             if (newProp.value == null) {
                 // OUT — fire immediately, no conflict to resolve.
                 this.sendObsChapterMarker("OUT - " + trainer)
-            } else {
+            } 
+            else if (this.mapper.properties.meta.menu.app_overlay_id.value === 12) {
                 queueBattleInMarker("IN - " + trainer, false)
             }
         })
@@ -8507,6 +8508,10 @@ const app = Vue.createApp({
             if (newProp?.value === 'Wild' && oldProp?.value !== 'Wild') {
                 queueBattleInMarker("IN - Wild", true)
             }
+        })
+
+        this.mapper.properties.meta.menu.app_overlay_id.change(async (newProp, oldProp) => {
+            this.sendObsChapterMarker("MENU - " + newProp.value)
         })
 
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
@@ -8565,7 +8570,7 @@ const app = Vue.createApp({
         // Fires "Map Change" whenever overworld.map_index changes value.
         this.mapper.properties.overworld?.map_index?.change?.((newProp, oldProp) => {
             if (newProp?.value === oldProp?.value) return;
-            this.sendObsChapterMarker("Map Change");
+            this.sendObsChapterMarker(`Map Change - ${newProp.value}`);
         });
 
         this.mapper.properties.battle.player.party_position.change(async (newProp, oldProp) => {

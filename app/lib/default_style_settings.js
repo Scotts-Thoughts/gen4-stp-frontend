@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-05-30T21:26:15.653Z
+ * Last updated: 2026-06-01T05:43:24.424Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2187,7 +2187,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundScale": "124",
         "backgroundBrightness": "48",
         "backgroundContrast": "118",
-        "pkmn_ability": "Hyper Cutter"
+        "pkmn_ability": "Hyper Cutter",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Girafarig": {
         "overlay_color": "#f0ad3c",
@@ -3430,11 +3431,104 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundBrightness": "80",
         "backgroundContrast": "133",
         "backgroundScale": "100",
-        "backgroundBlur": "0"
+        "backgroundBlur": "0",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Gliscor": {},
     "HeartGold and SoulSilver_Wailord": {},
-    "HeartGold and SoulSilver_Pidgeot": {}
+    "HeartGold and SoulSilver_Pidgeot": {},
+    "HeartGold and SoulSilver_Kricketot": {},
+    "HeartGold and SoulSilver_Kricketune-line-Kricketot": {
+        "imageFlip": true,
+        "imageScale": "0.5",
+        "imageYOffset": "-97",
+        "imageXOffset": "-40",
+        "overlay_color": "#e8d39e",
+        "ui_saturation": "1.3",
+        "backgroundScale": "100",
+        "backgroundBlur": "3",
+        "backgroundSaturation": "94",
+        "backgroundBrightness": "33",
+        "backgroundContrast": "112",
+        "backgroundTexture": "Bug",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0
+    },
+    "HeartGold and SoulSilver_Kricketune-line-Kricketune": {
+        "overlay_color": "#e8d39e",
+        "ui_saturation": "1.3",
+        "backgroundTexture": "Bug",
+        "backgroundBlur": "3",
+        "backgroundHue": 0,
+        "backgroundScale": "100",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "33",
+        "backgroundContrast": "112",
+        "backgroundSaturation": "94",
+        "imageScale": "0.81",
+        "imageFlip": true,
+        "imageYOffset": "9",
+        "imageXOffset": "-12"
+    },
+    "HeartGold and SoulSilver_Kricketune-line": {
+        "pkmn_ability": "Swarm"
+    },
+    "Platinum_Kricketot": {},
+    "Platinum_Kricketune-line-Kricketot": {
+        "imageFlip": true,
+        "imageScale": "0.58",
+        "imageYOffset": "-62",
+        "imageXOffset": "-33",
+        "overlay_color": "#e38470",
+        "ui_saturation": "1.1",
+        "backgroundBrightness": "22",
+        "backgroundContrast": "105",
+        "backgroundScale": "114",
+        "backgroundTexture": "Bug",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Kricketune-line-Kricketune": {
+        "overlay_color": "#dd6646",
+        "ui_saturation": "1",
+        "backgroundTexture": "Bug",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "114",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "22",
+        "backgroundContrast": "105",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.83",
+        "imageYOffset": "16",
+        "imageXOffset": "-19"
+    },
+    "Platinum_Kricketune-line": {
+        "pkmn_ability": "Swarm"
+    },
+    "Platinum_Kricketune": {},
+    "HeartGold and SoulSilver_Kricketune": {},
+    "HeartGold and SoulSilver_Squirtle": {},
+    "HeartGold and SoulSilver_Slowbro": {}
 };
 
 // Export for use in the application
