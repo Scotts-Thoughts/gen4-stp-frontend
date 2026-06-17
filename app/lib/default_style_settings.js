@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-06-01T05:43:24.424Z
+ * Last updated: 2026-06-17T20:34:42.854Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -2485,7 +2485,10 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundBlur": "2",
         "backgroundScale": "173",
         "backgroundBrightness": "77",
-        "backgroundContrast": "167"
+        "backgroundContrast": "167",
+        "imageScale": "0.66",
+        "imageYOffset": "-26",
+        "imageXOffset": "-19"
     },
     "Platinum_Honchkrow-line": {
         "pkmn_ability": "Super Luck",
