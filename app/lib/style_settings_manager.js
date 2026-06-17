@@ -56,8 +56,6 @@ class StyleSettingsManager {
             'hidden_power_index',
             'frame'
         ];
-        
-        console.log(`[StyleSettingsManager] Initialized in ${this.isDev ? 'DEVELOPMENT' : 'PRODUCTION'} mode`);
     }
     
     /**
@@ -95,16 +93,7 @@ class StyleSettingsManager {
             // - Running from node_modules (dev mode) OR
             // - NOT in an asar archive (dev mode doesn't package to asar)
             const isDev = !isPackaged || nodeEnvDev || runningFromNodeModules || !inAsar;
-            
-            console.log('[StyleSettingsManager] Dev mode detection:', {
-                isPackaged,
-                nodeEnvDev,
-                runningFromNodeModules,
-                inAsar,
-                execPath: execPath.substring(0, 50) + '...',
-                result: isDev
-            });
-            
+
             return isDev;
         } catch (e) {
             // If we can't detect, default to production mode for safety
@@ -333,7 +322,6 @@ if (typeof module !== 'undefined' && module.exports) {
         
         try {
             fs.writeFileSync(this.defaultSettingsPath, content, 'utf8');
-            console.log('[StyleSettingsManager] Saved default settings to file');
         } catch (e) {
             console.error('[StyleSettingsManager] Failed to write default settings file:', e.message);
         }
@@ -372,8 +360,6 @@ if (typeof module !== 'undefined' && module.exports) {
         Object.keys(this.defaultSettings).forEach(key => {
             localStorage.setItem(key, JSON.stringify(this.defaultSettings[key]));
         });
-        
-        console.log('[StyleSettingsManager] Reset all style settings to defaults');
     }
     
     /**

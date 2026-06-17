@@ -250,6 +250,11 @@ class KeyHook {
 
         // general logging
         // this.process.on("spawn", () => console.log("Keyboard hook started!"));
+        // Handle the process failing to start (e.g. keyhook.exe missing) so it
+        // doesn't surface as an uncaught exception and crash the renderer.
+        this.process.on("error", (err) => {
+            console.warn(`Keyboard hook unavailable (${err.code || err.message}); shortcuts disabled.`);
+        });
         this.process.stderr.on("data", (data) => console.error(`${data}`));
         
         // handle output of the keyboard hook
@@ -1147,11 +1152,7 @@ const app = Vue.createApp({
         }
     },
     created() {
-        // Log the current mode for style settings
-        console.log(`[StyleSettings] App initialized in ${this.isInDevMode ? 'DEVELOPMENT' : 'PRODUCTION'} mode`);
-        console.log(`[StyleSettings] ${this.isInDevMode ? 'Style changes will be saved to the defaults file' : 'User style overrides will be saved locally'}`);
-        
-        if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {  
+        if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
             this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter]?.type_1];
             this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset            ?? 0;
             this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset            ?? 0;
@@ -3327,7 +3328,6 @@ const app = Vue.createApp({
         },
         disable_encounters() {
             const map = this.mapper.properties.overworld.map_name.value
-            console.log(map)
             var rate = 30
             const team_0 = this.mapper.properties.player.team[0].species.value
             const team_1 = this.mapper.properties.player.team[1].species.value
@@ -5387,15 +5387,7 @@ const app = Vue.createApp({
                 }
             }
             else if (state == `No Pokemon`) {
-                var statName = ""
-                switch (stat) {
-                    case "attack":          statName = "base_atk";     break;
-                    case "defense":         statName = "base_def";     break;
-                    case "speed":           statName = "base_spd";     break;
-                    case "special_attack":  statName = "base_spc_atk"; break;
-                    case "special_defense": statName = "base_spc_def"; break;
-                }
-                return_value = this.g4PokemonData[starter][statName]
+                return_value = this.g4PokemonData[starter]?.base_stats?.[stat]
             }
             else if (state == `Overworld` || state == `To Battle`) {
                 return_value = this.mapper?.properties?.player?.team[0].stats[stat].value
@@ -8499,7 +8491,7 @@ const app = Vue.createApp({
                 // OUT — fire immediately, no conflict to resolve.
                 this.sendObsChapterMarker("OUT - " + trainer)
             } 
-            else if (this.mapper.properties.meta.menu.app_overlay_id.value === 12) {
+            else if (this.selected_game == "HeartGold and SoulSilver" && this.mapper.properties.meta.menu.app_overlay_id.value === 12) {
                 queueBattleInMarker("IN - " + trainer, false)
             }
         })
@@ -8510,9 +8502,11 @@ const app = Vue.createApp({
             }
         })
 
-        this.mapper.properties.meta.menu.app_overlay_id.change(async (newProp, oldProp) => {
-            this.sendObsChapterMarker("MENU - " + newProp.value)
-        })
+        if (this.selected_game == "HeartGold and SoulSilver") {
+            this.mapper.properties.meta.menu.app_overlay_id.change(async (newProp, oldProp) => {
+                this.sendObsChapterMarker("MENU - " + newProp.value)
+            })
+        }
 
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
             // if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
@@ -8966,12 +8960,13 @@ const app = Vue.createApp({
             var ivSpD = hp_data[pkmn_hp][pkmn_hp_index][5]
 
             //Calculates the Pokemon's starting stats with the desired DVs
-            var hitpoints      = Math.floor((((2 * pkmnData.base_hp + ivHp + 0) * level)/100) + level + 10)
-            var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + ivAtk + 0) * level)/100) + 5)) * natures["nature_attack"])
-            var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + ivDef + 0) * level)/100) + 5)) * natures["nature_defense"])
-            var specialAttack  = Math.floor(Math.floor(((((2 * pkmnData.base_spc_atk + ivSpA + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
-            var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
-            var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
+            var base_stats     = pkmnData.base_stats
+            var hitpoints      = Math.floor((((2 * base_stats.hp + ivHp + 0) * level)/100) + level + 10)
+            var attack         = Math.floor(Math.floor(((((2 * base_stats.attack + ivAtk + 0) * level)/100) + 5)) * natures["nature_attack"])
+            var defense        = Math.floor(Math.floor(((((2 * base_stats.defense + ivDef + 0) * level)/100) + 5)) * natures["nature_defense"])
+            var specialAttack  = Math.floor(Math.floor(((((2 * base_stats.special_attack + ivSpA + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
+            var specialDefense = Math.floor(Math.floor(((((2 * base_stats.special_defense + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
+            var speed          = Math.floor(Math.floor(((((2 * base_stats.speed + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
 
             if (this.legacy_starter_assignment) { 
                 this.mapper.properties.player.starter.set(player_starter, false) 
@@ -10060,9 +10055,7 @@ const app = Vue.createApp({
                 res.end(JSON.stringify({ ok: false, error: err.message }));
             }
         });
-        controlServer.listen(30159, '127.0.0.1', () => {
-            console.log('Overlay control server listening on http://127.0.0.1:30159');
-        });
+        controlServer.listen(30159, '127.0.0.1');
 
         // Cleanup on page reload/unload to prevent emulator crashes
         window.addEventListener('beforeunload', async () => {

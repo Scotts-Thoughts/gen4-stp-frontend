@@ -349,6 +349,9 @@ class GameHookMapperClient {
         this._signalrClient.on('DriverError', (err) => { this.onDriverError(err) })
         this._signalrClient.on('SendDriverRecovered', () => { this.onDriverRecovered() })
         this._signalrClient.on('UiBuilderScreenSaved', (id) => { this.onUiBuilderScreenSaved(id) })
+        // GameHook sends a 'hello' keep-alive/handshake we don't use; register a
+        // no-op handler so SignalR doesn't log a "No client method 'hello' found" warning.
+        this._signalrClient.on('hello', () => {})
 
 
         const result = await this._establishConnection()

@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Scott's Thoughts - Gen4 Frontend</title>
+    <!-- Silence Electron's dev-only insecure-CSP warning. The Vue dev build needs
+         `unsafe-eval`, so a strict CSP isn't viable; this never shows once packaged. -->
+    <script>window.ELECTRON_DISABLE_SECURITY_WARNINGS = true;</script>
     <link rel="stylesheet" href="style.css" id="cssStylesheet">
 </head>
 
