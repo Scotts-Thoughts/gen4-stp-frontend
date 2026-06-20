@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-06-17T20:34:42.854Z
+ * Last updated: 2026-06-20T20:44:29.546Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3531,7 +3531,51 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Kricketune": {},
     "HeartGold and SoulSilver_Kricketune": {},
     "HeartGold and SoulSilver_Squirtle": {},
-    "HeartGold and SoulSilver_Slowbro": {}
+    "HeartGold and SoulSilver_Slowbro": {},
+    "Platinum_Bonsly": {},
+    "Platinum_Bonsly-line-Bonsly": {
+        "imageFlip": true,
+        "imageScale": "0.58",
+        "imageYOffset": "-47",
+        "imageXOffset": "-12",
+        "overlay_color": "#c2a573",
+        "ui_saturation": "1.2",
+        "backgroundBlur": "3",
+        "backgroundScale": "100",
+        "backgroundContrast": "110",
+        "backgroundTexture": "Rock",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": 100,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Bonsly-line-Sudowoodo": {
+        "overlay_color": "#b38874",
+        "ui_saturation": "1.2",
+        "backgroundTexture": "Rock",
+        "backgroundBlur": "3",
+        "backgroundHue": 0,
+        "backgroundScale": "100",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": 100,
+        "backgroundContrast": "110",
+        "backgroundSaturation": 100,
+        "imageScale": "0.95",
+        "imageYOffset": "38",
+        "imageXOffset": "38"
+    },
+    "Platinum_Bonsly-line": {
+        "pkmn_ability": "Rock Head"
+    },
+    "Platinum_Sudowoodo": {}
 };
 
 // Export for use in the application
