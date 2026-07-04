@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-06-20T20:44:29.546Z
+ * Last updated: 2026-07-02T13:02:43.649Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -950,7 +950,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundScale": "117",
         "backgroundBrightness": "82",
         "backgroundContrast": "160",
-        "backgroundSaturation": "149"
+        "backgroundSaturation": "149",
+        "evolution": true,
+        "selected_evolution_species": "Mime Jr."
     },
     "Platinum_Mime Jr.-line-Mime Jr.": {
         "overlay_color": "#f9e3e5",
@@ -3575,7 +3577,51 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Bonsly-line": {
         "pkmn_ability": "Rock Head"
     },
-    "Platinum_Sudowoodo": {}
+    "Platinum_Sudowoodo": {},
+    "Platinum_Arceus": {
+        "imageFlip": true,
+        "imageScale": "1.17",
+        "imageYOffset": "59",
+        "backgroundTexture": "Judgement",
+        "backgroundContrast": "146",
+        "backgroundHue": "210",
+        "backgroundSaturation": "0",
+        "overlay_color": "#cdb650",
+        "ui_saturation": "1.3"
+    },
+    "Platinum_Honchkrow": {},
+    "Platinum_Lickitung": {
+        "evolution": true,
+        "selected_evolution_species": "Lickitung"
+    },
+    "Platinum_Lickilicky": {},
+    "Platinum_Tangela": {
+        "evolution": true,
+        "selected_evolution_species": "Tangela"
+    },
+    "Platinum_Tangrowth": {},
+    "Platinum_Yanma": {
+        "evolution": true,
+        "selected_evolution_species": "Yanma"
+    },
+    "Platinum_Yanmega": {},
+    "Platinum_Mr. Mime": {},
+    "Platinum_Dusknoir": {
+        "evolution": true,
+        "selected_evolution_species": "Dusknoir"
+    },
+    "Platinum_Duskull": {},
+    "Platinum_Dusclops": {},
+    "Platinum_Rampardos": {
+        "evolution": true,
+        "selected_evolution_species": "Rampardos"
+    },
+    "Platinum_Cranidos": {},
+    "Platinum_Bastiodon": {
+        "evolution": true,
+        "selected_evolution_species": "Bastiodon"
+    },
+    "Platinum_Shieldon": {}
 };
 
 // Export for use in the application
