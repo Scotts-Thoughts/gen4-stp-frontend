@@ -8491,7 +8491,7 @@ const app = Vue.createApp({
                 // OUT — fire immediately, no conflict to resolve.
                 this.sendObsChapterMarker("OUT - " + trainer)
             } 
-            else if (this.selected_game == "Platinum") {
+            else if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
                 queueBattleInMarker("IN - " + trainer, false)
             }
             else if (this.selected_game == "HeartGold and SoulSilver" && this.mapper.properties.meta.menu.app_overlay_id.value === 12) {
