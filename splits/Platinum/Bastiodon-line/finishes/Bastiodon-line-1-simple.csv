@@ -1,30 +1,31 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Dawn,Shieldon,Rival 1,1:39.79,0,0,5,0:05,1778340115.178,Tackle,Protect,,
-Dawn,Shieldon,Rival 2,10:17.92,0,1,8,0:40,1778340633.313,Return,Protect,Tackle,Taunt
-Dawn,Shieldon,Leader Roark,23:57.99,0,11,16,1:34,1778341453.393,Return,Rock Smash,Take Down,Taunt
-Dawn,Shieldon,Mars 1,29:38.32,0,11,18,1:57,1778341793.735,Return,Rock Smash,Take Down,Taunt
-Dawn,Shieldon,Leader Gardenia,52:25.80,2,13,28,3:26,1778343255.137,Return,Rock Smash,AncientPower,Swagger
-Dawn,Bastiodon,Jupiter 1,56:57.13,2,13,30,3:45,1778343526.469,Return,Rock Smash,AncientPower,Swagger
-Dawn,Bastiodon,Leader Fantina,1:04:42.25,2,13,31,4:16,1778343991.592,Return,Rock Smash,AncientPower,Rock Tomb
-Dawn,Bastiodon,Rival 3,1:06:07.99,3,13,32,4:19,1778344077.339,Return,Rock Smash,AncientPower,Rock Tomb
-Dawn,Bastiodon,Leader Maylene,1:22:40.16,4,13,38,5:24,1778345069.516,Return,AncientPower,Iron Defense,Earthquake
-Dawn,Bastiodon,Rival 4,1:24:56.08,4,13,39,5:33,1778345205.435,Return,AncientPower,Iron Defense,Earthquake
-Dawn,Bastiodon,Leader Wake,1:36:38.50,22,13,47,5:53,1778345907.866,Blizzard,AncientPower,Thunder,Earthquake
-Dawn,Bastiodon,Cyrus 1,1:41:57.38,23,13,50,6:13,1778346226.74,Fire Blast,AncientPower,Thunder,Earthquake
-Dawn,Bastiodon,Rival 5,1:51:56.46,23,26,55,6:53,1778346825.833,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Leader Byron,1:54:06.67,23,26,58,7:02,1778346956.038,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Saturn 1,1:57:51.97,23,26,58,7:17,1778347181.342,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Mars 2,1:59:19.84,23,26,59,7:23,1778347269.21,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Leader Candice,2:03:23.57,23,26,61,7:39,1778347512.944,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Cyrus 2,2:07:34.24,23,26,63,7:56,1778347763.62,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Saturn 2,2:08:28.80,23,26,63,7:59,1778347818.174,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Mars 3,2:13:45.48,23,26,65,8:20,1778348134.859,Fire Blast,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Cyrus 3,2:18:48.13,24,26,67,8:38,1778348437.51,Rock Polish,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Leader Volkner,2:23:41.09,24,26,70,8:58,1778348730.474,Rock Polish,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Rival 6,2:32:36.20,26,26,88,9:29,1778349265.589,Rock Polish,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Elite Four Aaron,2:34:02.81,27,26,88,9:33,1778349352.195,Rock Polish,AncientPower,Iron Head,Earthquake
-Dawn,Bastiodon,Elite Four Aaron,2:40:44.04,32,27,90,9:45,1778349753.431,Rock Polish,Magnet Rise,Iron Head,Earthquake
-Dawn,Bastiodon,Elite Four Bertha,2:41:57.38,32,27,91,9:50,1778349826.778,Rock Polish,Magnet Rise,Iron Head,Earthquake
-Dawn,Bastiodon,Elite Four Flint,2:42:46.55,32,27,92,9:54,1778349875.944,Rock Polish,Magnet Rise,Iron Head,Earthquake
-Dawn,Bastiodon,Elite Four Lucian,2:43:56.50,32,27,93,9:58,1778349945.891,Rock Polish,Magnet Rise,Iron Head,Earthquake
-Dawn,Bastiodon,Champion Cynthia,2:46:53.38,34,27,94,10:04,1778350133.822,Rock Polish,Blizzard,Rock Slide,Earthquake
+Dawn,Shieldon,Rival 1,1:39.80,0,0,5,0:05,1783214460.959,Tackle,Protect,,
+Dawn,Shieldon,Rival 2,10:17.94,0,1,8,0:40,1783214983.19,Return,Protect,Tackle,Taunt
+Dawn,Shieldon,Leader Roark,23:57.98,0,11,16,1:34,1783215808.508,Return,Rock Smash,Take Down,Taunt
+Dawn,Shieldon,Mars 1,29:38.31,0,11,18,1:57,1783216157.418,Return,Rock Smash,Take Down,Taunt
+Dawn,Shieldon,Leader Gardenia,52:25.79,2,13,28,3:26,1783217549.962,Return,Rock Smash,AncientPower,Swagger
+Dawn,Bastiodon,Jupiter 1,56:57.12,2,13,30,3:45,1783217825.468,Return,Rock Smash,AncientPower,Swagger
+Dawn,Bastiodon,Leader Fantina,1:04:42.25,2,13,31,4:16,1783218307.173,Return,Rock Smash,AncientPower,Rock Tomb
+Dawn,Bastiodon,Rival 3,1:06:07.99,3,13,32,4:19,1783218395.229,Return,Rock Smash,AncientPower,Rock Tomb
+Dawn,Bastiodon,Leader Maylene,1:22:40.17,4,13,38,5:24,1783219436.546,Return,AncientPower,Iron Defense,Earthquake
+Dawn,Bastiodon,Rival 4,1:24:56.07,4,13,39,5:33,1783219579.487,Return,AncientPower,Iron Defense,Earthquake
+Dawn,Bastiodon,Leader Wake,1:36:38.50,22,13,47,5:53,1783220285.888,Blizzard,AncientPower,Thunder,Earthquake
+Dawn,Bastiodon,Cyrus 1,1:41:57.39,23,13,50,6:13,1783220619.995,Fire Blast,AncientPower,Thunder,Earthquake
+Dawn,Bastiodon,Rival 5,1:51:56.45,23,26,55,6:53,1783221227.219,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Leader Byron,1:54:06.67,23,26,58,7:02,1783221359.536,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Saturn 1,1:57:51.97,23,26,58,7:17,1783221591.832,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Mars 2,1:59:19.83,23,26,59,7:23,1783221680.992,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Leader Candice,2:03:23.57,23,26,61,7:39,1783221931.076,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Cyrus 2,2:07:34.24,23,26,63,7:56,1783222186.919,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Saturn 2,2:08:28.80,23,26,63,7:59,1783222241.827,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Mars 3,2:13:45.47,23,26,65,8:20,1783222563.205,Fire Blast,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Cyrus 3,2:18:48.13,24,26,67,8:38,1783222895.375,Rock Polish,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Leader Volkner,2:23:41.10,24,26,70,8:58,1783223194.512,Rock Polish,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Rival 6,2:32:36.20,26,26,88,9:29,1783223736.937,Rock Polish,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Elite Four Aaron,2:34:02.82,27,26,88,9:33,1783223823.957,Rock Polish,AncientPower,Iron Head,Earthquake
+Dawn,Bastiodon,Elite Four Aaron,2:40:44.04,32,27,90,9:45,1783224225.881,Rock Polish,Magnet Rise,Iron Head,Earthquake
+Dawn,Bastiodon,Elite Four Bertha,2:41:57.38,32,27,91,9:50,1783224299.589,Rock Polish,Magnet Rise,Iron Head,Earthquake
+Dawn,Bastiodon,Elite Four Flint,2:42:46.55,32,27,92,9:54,1783224349.143,Rock Polish,Magnet Rise,Iron Head,Earthquake
+Dawn,Bastiodon,Elite Four Lucian,2:43:56.50,32,27,93,9:58,1783224419.423,Rock Polish,Magnet Rise,Iron Head,Earthquake
+Dawn,Bastiodon,Champion Cynthia,2:46:53.39,34,27,94,10:04,1783224596.762,Rock Polish,Blizzard,Rock Slide,Earthquake
+Dawn,Bastiodon,Hall of Fame,2:46:53.39,34,27,95,10:06,1783224625.683,Rock Polish,Blizzard,Rock Slide,Earthquake

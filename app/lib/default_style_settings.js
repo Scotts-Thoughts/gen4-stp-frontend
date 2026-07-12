@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-07-02T13:02:43.649Z
+ * Last updated: 2026-07-12T15:19:53.881Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -692,7 +692,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": 100
     },
     "Platinum_Mothim-line": {
-        "pkmn_ability": "Anticipation"
+        "pkmn_ability": "Shed Skin",
+        "pkmn_gender": "Male"
     },
     "Platinum_Lumineon-line": {
         "pkmn_gender": "Male"
@@ -3127,7 +3128,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Rhyperior": {},
     "HeartGold and SoulSilver_Piplup": {},
     "Platinum_Rhydon": {},
-    "Platinum_Misdreavus": {},
+    "Platinum_Misdreavus": {
+        "evolution": true,
+        "selected_evolution_species": "Misdreavus"
+    },
     "Platinum_Mismagius-line-Misdreavus": {
         "imageScale": "0.52",
         "imageYOffset": "94",
@@ -3610,18 +3614,31 @@ const DEFAULT_STYLE_SETTINGS = {
         "evolution": true,
         "selected_evolution_species": "Dusknoir"
     },
-    "Platinum_Duskull": {},
+    "Platinum_Duskull": {
+        "evolution": true,
+        "selected_evolution_species": "Duskull"
+    },
     "Platinum_Dusclops": {},
     "Platinum_Rampardos": {
         "evolution": true,
         "selected_evolution_species": "Rampardos"
     },
-    "Platinum_Cranidos": {},
+    "Platinum_Cranidos": {
+        "evolution": true,
+        "selected_evolution_species": "Cranidos"
+    },
     "Platinum_Bastiodon": {
         "evolution": true,
         "selected_evolution_species": "Bastiodon"
     },
-    "Platinum_Shieldon": {}
+    "Platinum_Shieldon": {
+        "evolution": true,
+        "selected_evolution_species": "Shieldon"
+    },
+    "Platinum_Bulbasaur": {},
+    "Platinum_Psyduck": {},
+    "Platinum_Bidoof": {},
+    "Platinum_Burmy": {}
 };
 
 // Export for use in the application
