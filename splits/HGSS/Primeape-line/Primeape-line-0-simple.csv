@@ -1,0 +1,33 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Mankey,Passerby Boy,3:04.94,0,0,6,0:11,1788253170.946,Scratch,Low Kick,Leer,Focus Energy
+Lyra,Mankey,Leader Falkner,10:01.06,0,0,13,0:39,1788253587.116,Scratch,Low Kick,Karate Chop,Focus Energy
+Lyra,Mankey,Leader Bugsy,17:41.85,0,0,18,1:10,1788254048.576,Scratch,Low Kick,Karate Chop,Rock Tomb
+Lyra,Mankey,Rival Silver,18:42.89,0,0,20,1:14,1788254109.641,Scratch,Low Kick,Karate Chop,Rock Tomb
+Lyra,Mankey,Leader Whitney,28:56.93,4,0,23,1:48,1788254727.422,Headbutt,Low Kick,Karate Chop,Rock Tomb
+Lyra,Primeape,Rival Silver,36:55.83,4,0,28,2:20,1788255210.984,Rage,Low Kick,Karate Chop,Assurance
+Lyra,Primeape,Leader Morty,39:05.38,4,0,30,2:29,1788255341.281,Rage,Low Kick,Karate Chop,Assurance
+Lyra,Primeape,Leader Chuck,42:30.75,4,0,32,2:43,1788255547.982,Rage,Low Kick,Karate Chop,Assurance
+Lyra,Primeape,Leader Jasmine,46:40.42,5,0,33,2:57,1788255800.675,Rage,Low Kick,Karate Chop,Assurance
+Lyra,Primeape,Leader Pryce,54:07.67,5,0,38,3:27,1788256251.632,Return,Rage,Karate Chop,Low Kick
+Lyra,Primeape,Rival Silver,58:51.49,6,0,40,3:44,1788256539.113,Return,Rage,Karate Chop,Thief
+Lyra,Primeape,Leader Clair,1:07:42.47,6,0,45,4:19,1788257074.707,Return,Rage,Cross Chop,Thief
+Lyra,Primeape,Rival Silver,1:23:07.82,6,5,52,5:21,1788258008.148,Return,Rage,Cross Chop,Thief
+Lyra,Primeape,Elite Four Will,1:28:28.67,6,11,62,5:43,1788258329.163,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Elite Four Koga,1:29:02.27,6,11,63,5:45,1788258362.759,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Elite Four Bruno,1:29:47.75,6,11,63,5:48,1788258408.615,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Elite Four Karen,1:30:42.45,6,11,64,5:51,1788258463.716,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Champion Lance,1:32:14.65,7,11,64,5:55,1788258556.424,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Leader Erika,1:36:54.77,7,11,66,6:13,1788258839.716,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Leader Sabrina,1:38:00.58,7,11,66,6:17,1788258906.308,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Leader Misty,1:42:41.71,7,11,68,6:36,1788259191.167,Return,Rage,Close Combat,Punishment
+Lyra,Primeape,Leader Lt. Surge,1:44:47.71,7,11,69,6:44,1788259319.274,Return,Rage,Close Combat,Earthquake
+Lyra,Primeape,Leader Brock,1:46:10.23,7,11,69,6:50,1788259402.903,Return,Rage,Close Combat,Earthquake
+Lyra,Primeape,Leader Blaine,1:48:42.59,7,11,70,7:00,1788259556.207,Return,Rage,Close Combat,Earthquake
+Lyra,Primeape,Leader Janine,1:50:22.59,7,11,71,7:07,1788259656.79,Return,Rage,Close Combat,Earthquake
+Lyra,Primeape,Leader Blue,1:56:10.92,9,12,78,7:26,1788260006.532,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Elite Four Will,2:01:55.75,9,13,83,7:49,1788260353.833,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Elite Four Koga,2:03:00.23,9,13,83,7:53,1788260418.752,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Elite Four Bruno,2:04:02.28,9,13,84,7:57,1788260481.21,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Elite Four Karen,2:05:07.40,9,13,84,8:02,1788260546.691,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Champion Lance,2:06:13.45,9,13,85,8:06,1788260613.128,Return,Substitute,Close Combat,Earthquake
+Lyra,Primeape,Pokemon Trainer Red,2:14:39.66,23,13,86,8:18,1788261121.11,Return,Substitute,Close Combat,Earthquake

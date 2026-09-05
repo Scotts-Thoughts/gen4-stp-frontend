@@ -24,28 +24,34 @@
             Not receiving data...
         </div>
         <div v-else class="">
-            <img class="canvas" ref="background_texture" :src="textures[backgroundTexture]" 
-            :style="{ 
-                'filter': `blur(${backgroundBlur}px) hue-rotate(${backgroundHue}deg) brightness(${backgroundBrightness}%) contrast(${backgroundContrast}%) saturate(${backgroundSaturation}%)` ,
-                'transform': `scale(${backgroundScale}%) ${backgroundFlip ? 'rotateY(180deg)' : ''} translate(${backgroundXOffset}px, ${-backgroundYOffset}px)`
-            }"/>
+            <!-- Keyed by the texture path so swapping textures cross-fades old/new instead of popping -->
+            <transition name="styleFade">
+                <img class="canvas" ref="background_texture" :key="textures[backgroundTexture]" :src="textures[backgroundTexture]"
+                :style="{
+                    'filter': `blur(${backgroundBlur}px) hue-rotate(${backgroundHue}deg) brightness(${backgroundBrightness}%) contrast(${backgroundContrast}%) saturate(${backgroundSaturation}%)` ,
+                    'transform': `scale(${backgroundScale}%) ${backgroundFlip ? 'rotateY(180deg)' : ''} translate(${backgroundXOffset}px, ${-backgroundYOffset}px)`
+                }"/>
+            </transition>
             <img class="canvas" :src="`images/elements/pokeball.png`" />
-            <img class="pokemon_art" ref="pokemon_art"
-            :style="{
-                'transform': `scale(${imageScale}) ${imageFlip ? 'rotateY(180deg)' : ''} translate(${imageXOffset}px, ${-imageYOffset}px) rotate(${imageRotation}deg)`,
-                'filter': `saturate(${imageSat}%)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(${imageFlip ? '-3px' : '3px'} 3px 3px #000)
-                `,
-                'opacity': pokemonArtOpacity,
-                'transition': pokemonArtTransition
-            }" 
-            :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
+            <!-- Keyed by the displayed species so starter changes, evolution-dropdown swaps and
+                 mid-run evolutions cross-fade old/new art. No inline opacity here: it would
+                 override the styleFade classes, so the fade is left entirely to the transition -->
+            <transition name="styleFade">
+                <img class="pokemon_art" ref="pokemon_art" :key="displayedPokemonSpecies"
+                :style="{
+                    'transform': `scale(${imageScale}) ${imageFlip ? 'rotateY(180deg)' : ''} translate(${imageXOffset}px, ${-imageYOffset}px) rotate(${imageRotation}deg)`,
+                    'filter': `saturate(${imageSat}%)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(${imageFlip ? '-3px' : '3px'} 3px 3px #000)
+                    `
+                }"
+                :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
+            </transition>
             <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
             <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.svg)"></div>
             <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
@@ -1056,7 +1062,7 @@
                     </div>
                 </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -1081,7 +1087,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -1107,7 +1113,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -1132,7 +1138,7 @@
                     <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else key="7" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>

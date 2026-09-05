@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-07-12T15:19:53.881Z
+ * Last updated: 2026-09-01T11:12:01.632Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -634,18 +634,18 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageFlip": false,
         "imageSat": 100,
         "imageRotation": 0,
-        "backgroundTexture": "Bug",
-        "backgroundBlur": 0,
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "4",
         "backgroundHue": 0,
-        "backgroundScale": 100,
+        "backgroundScale": "113",
         "backgroundUrl": "",
-        "backgroundFlip": false,
+        "backgroundFlip": true,
         "use_custom_background": false,
         "backgroundXOffset": 0,
         "backgroundYOffset": 0,
         "backgroundBrightness": "47",
-        "backgroundContrast": "135",
-        "backgroundSaturation": 100
+        "backgroundContrast": "153",
+        "backgroundSaturation": "103"
     },
     "Platinum_Mothim-line-Wormadam (Trash)": {
         "overlay_color": "#c15b94",
@@ -656,17 +656,17 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageFlip": true,
         "imageSat": 100,
         "imageRotation": 0,
-        "backgroundTexture": "Bug",
+        "backgroundTexture": "Brushed Steel",
         "backgroundBlur": 0,
         "backgroundHue": 0,
-        "backgroundScale": 100,
+        "backgroundScale": "120",
         "backgroundUrl": "",
-        "backgroundFlip": false,
+        "backgroundFlip": true,
         "use_custom_background": false,
-        "backgroundXOffset": 0,
-        "backgroundYOffset": 0,
-        "backgroundBrightness": "47",
-        "backgroundContrast": "135",
+        "backgroundXOffset": "0",
+        "backgroundYOffset": "59",
+        "backgroundBrightness": "59",
+        "backgroundContrast": "158",
         "backgroundSaturation": 100
     },
     "Platinum_Mothim-line-Mothim": {
@@ -692,8 +692,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": 100
     },
     "Platinum_Mothim-line": {
-        "pkmn_ability": "Shed Skin",
-        "pkmn_gender": "Male"
+        "pkmn_ability": "Anticipation",
+        "pkmn_gender": "Female"
     },
     "Platinum_Lumineon-line": {
         "pkmn_gender": "Male"
@@ -725,7 +725,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundYOffset": "24",
         "backgroundBrightness": "40",
         "backgroundContrast": "114",
-        "pkmn_ability": "Thick Fat"
+        "pkmn_ability": "Thick Fat",
+        "evolution": true,
+        "selected_evolution_species": "Munchlax"
     },
     "Platinum_Munchlax-line-Munchlax": {
         "overlay_color": "#5b859e",
@@ -822,7 +824,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "pkmn_ability": "Speed Boost"
     },
     "Platinum_Aipom": {
-        "pkmn_ability": "Run Away"
+        "pkmn_ability": "Run Away",
+        "evolution": true,
+        "selected_evolution_species": "Aipom"
     },
     "Platinum_Ambipom-line": {
         "pkmn_ability": "Technician"
@@ -1326,7 +1330,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundScale": "133",
         "backgroundYOffset": "-125",
         "backgroundContrast": "87",
-        "backgroundSaturation": "183"
+        "backgroundSaturation": "183",
+        "evolution": true,
+        "selected_evolution_species": "Togepi"
     },
     "Platinum_Togekiss-line-Togepi": {
         "overlay_color": "#d5b4d8",
@@ -1414,7 +1420,9 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageXOffset": "-26",
         "imageYOffset": "-26",
         "imageScale": "0.89",
-        "imageFlip": true
+        "imageFlip": true,
+        "evolution": true,
+        "selected_evolution_species": "Elekid"
     },
     "Platinum_Electivire-line-Elekid": {
         "overlay_color": "#fde581",
@@ -2572,7 +2580,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundContrast": "125",
         "backgroundBrightness": "82",
         "backgroundHue": "324",
-        "pkmn_ability": "Pressure"
+        "pkmn_ability": "Pressure",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Bulbasaur": {},
     "Platinum_Raikou": {},
@@ -2764,7 +2773,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundContrast": "116",
         "backgroundBrightness": "22",
         "backgroundSaturation": "126",
-        "pkmn_ability": "Pressure"
+        "pkmn_ability": "Pressure",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Nidoran-F": {},
     "HeartGold and SoulSilver_Luxio": {},
@@ -2913,7 +2923,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": "132",
         "overlay_color": "#b23431",
         "ui_saturation": "1.1",
-        "pkmn_ability": "Pressure"
+        "pkmn_ability": "Pressure",
+        "evolution": false
     },
     "HeartGold and SoulSilver_Mantine": {},
     "HeartGold and SoulSilver_Clefairy": {},
@@ -3334,7 +3345,21 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Turtwig": {},
     "Platinum_Sentret": {},
     "Platinum_Shaymin (Land)": {},
-    "Platinum_Rotom": {},
+    "Platinum_Rotom": {
+        "overlay_color": "#89d1ce",
+        "ui_saturation": "1.8",
+        "imageScale": "0.58",
+        "imageYOffset": "66",
+        "imageXOffset": "59",
+        "backgroundFlip": true,
+        "backgroundScale": "200",
+        "backgroundYOffset": "125",
+        "backgroundXOffset": "125",
+        "backgroundHue": "27",
+        "backgroundBrightness": "64",
+        "backgroundContrast": "187",
+        "evolution": false
+    },
     "Platinum_Riolu": {},
     "Platinum_Lucario-line-Riolu": {
         "imageFlip": true,
@@ -3638,7 +3663,101 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Bulbasaur": {},
     "Platinum_Psyduck": {},
     "Platinum_Bidoof": {},
-    "Platinum_Burmy": {}
+    "Platinum_Burmy": {
+        "evolution": true,
+        "selected_evolution_species": "Burmy"
+    },
+    "Platinum_Mothim": {},
+    "HeartGold and SoulSilver_Chikorita": {
+        "evolution": true,
+        "selected_evolution_species": "Chikorita"
+    },
+    "HeartGold and SoulSilver_Meganium-line-Chikorita": {
+        "imageScale": "0.62",
+        "imageYOffset": "-40",
+        "imageXOffset": "66",
+        "overlay_color": "#cddea7",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Dark Grass",
+        "backgroundBrightness": "56",
+        "backgroundContrast": "167",
+        "backgroundScale": "187",
+        "backgroundYOffset": "-2",
+        "backgroundXOffset": "-14",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundSaturation": 100
+    },
+    "HeartGold and SoulSilver_Meganium-line-Bayleef": {
+        "overlay_color": "#cddea7",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Dark Grass",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "187",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": "-14",
+        "backgroundYOffset": "-2",
+        "backgroundBrightness": "56",
+        "backgroundContrast": "167",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.83",
+        "imageYOffset": "16",
+        "imageXOffset": "-19"
+    },
+    "HeartGold and SoulSilver_Meganium-line-Meganium": {
+        "overlay_color": "#cddea7",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Dark Grass",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "187",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": "-14",
+        "backgroundYOffset": "-2",
+        "backgroundBrightness": "56",
+        "backgroundContrast": "167",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.99",
+        "imageYOffset": "45",
+        "imageXOffset": "-12"
+    },
+    "HeartGold and SoulSilver_Bayleef": {},
+    "HeartGold and SoulSilver_Meganium": {},
+    "Platinum_Bayleef": {},
+    "Platinum_Growlithe": {},
+    "Platinum_Raichu": {},
+    "Platinum_Diglett": {},
+    "Platinum_Gulpin": {},
+    "Platinum_Finneon": {
+        "evolution": true,
+        "selected_evolution_species": "Finneon"
+    },
+    "Platinum_Lumineon": {},
+    "Platinum_Snorlax": {},
+    "Platinum_Rhyhorn": {
+        "evolution": true,
+        "selected_evolution_species": "Rhyhorn"
+    },
+    "Platinum_Magby": {
+        "evolution": true,
+        "selected_evolution_species": "Magby"
+    },
+    "Platinum_Magmar": {},
+    "Platinum_Magmortar": {},
+    "Platinum_Electabuzz": {},
+    "Platinum_Electivire": {},
+    "Platinum_Togetic": {},
+    "Platinum_Ambipom": {}
 };
 
 // Export for use in the application
