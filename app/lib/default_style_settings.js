@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-01T11:12:01.632Z
+ * Last updated: 2026-09-06T04:57:41.331Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3757,7 +3757,95 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Electabuzz": {},
     "Platinum_Electivire": {},
     "Platinum_Togetic": {},
-    "Platinum_Ambipom": {}
+    "Platinum_Ambipom": {},
+    "Platinum_Primeape": {},
+    "Platinum_Ralts": {},
+    "Platinum_Gallade-line-Ralts": {
+        "imageFlip": true,
+        "imageScale": "0.46",
+        "imageYOffset": "-111",
+        "imageXOffset": "-40",
+        "overlay_color": "#9cd2a2",
+        "ui_saturation": "1.6",
+        "backgroundScale": "164",
+        "backgroundContrast": "176",
+        "backgroundBrightness": "84",
+        "backgroundHue": "290",
+        "backgroundTexture": "Psychic",
+        "backgroundBlur": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Gallade-line-Kirlia": {
+        "overlay_color": "#9cd2a2",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Psychic",
+        "backgroundBlur": 0,
+        "backgroundHue": "290",
+        "backgroundScale": "164",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "84",
+        "backgroundContrast": "176",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.64",
+        "imageYOffset": "-33",
+        "imageXOffset": "-40"
+    },
+    "Platinum_Gallade-line-Gardevoir": {
+        "overlay_color": "#9cd2a2",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Psychic",
+        "backgroundBlur": 0,
+        "backgroundHue": "290",
+        "backgroundScale": "164",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "84",
+        "backgroundContrast": "176",
+        "backgroundSaturation": 100,
+        "imageScale": "0.87",
+        "imageYOffset": "23",
+        "imageXOffset": "9"
+    },
+    "Platinum_Gallade-line-Gallade": {
+        "overlay_color": "#469e65",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Fighting",
+        "backgroundBlur": "2",
+        "backgroundHue": "33",
+        "backgroundScale": "176",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "-87",
+        "backgroundBrightness": "57",
+        "backgroundContrast": "149",
+        "backgroundSaturation": "126",
+        "imageFlip": true,
+        "imageScale": "0.97",
+        "imageYOffset": "45",
+        "imageXOffset": "-47"
+    },
+    "Platinum_Gallade-line": {
+        "pkmn_ability": "Synchronize",
+        "pkmn_gender": "Male"
+    },
+    "Platinum_Kirlia": {},
+    "Platinum_Gallade": {},
+    "Platinum_Gardevoir": {}
 };
 
 // Export for use in the application
