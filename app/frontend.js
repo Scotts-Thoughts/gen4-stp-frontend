@@ -532,28 +532,32 @@ function logData(gameName, str, file_name, split_file_prefix, log_type, testStat
     );
 }
 
-function logCopy(gameName, file_name, splitFileName, finished_run_count, evolution, evolution_label) {
-    // Use splitFileName for directory paths and file names
+function logCopy(gameName, file_name, splitFileName, finished_run_count, finishFileName) {
+    // splitFileName names the attempts folder and its source files. finishFileName names the
+    // copies placed in finishes/ and is based on the species actually played to the end of the
+    // run, which can differ from splitFileName on a branching evolution line (see
+    // getFinishFileName). Fall back to splitFileName when no finish name was supplied.
+    const finishName = finishFileName || splitFileName;
     var dirPathAttempts = `./splits/${gameName}/${splitFileName}`;
     var dirPathFinishes = `./splits/${gameName}/${splitFileName}/finishes`;
     fs.mkdir(dirPathFinishes, { recursive: true }, (err) => {
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-simple.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-simple.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-simple.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
         });
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-full.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-full.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-full.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
         });
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-deprecated.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-deprecated.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-deprecated.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
@@ -3309,6 +3313,25 @@ const app = Vue.createApp({
             }
             const fullyEvolved = this.getFullyEvolvedSpecies(this.starter);
             return `${fullyEvolved}-line`;
+        },
+        getFinishFileName() {
+            // Name used for the copies written into finishes/ at the end of a playthrough.
+            //
+            // getSplitFileName() names the shared attempts folder after the evolution family,
+            // and getFullyEvolvedSpecies() just takes the last member of that family. That is
+            // fine for a single-path line (Piplup -> "Empoleon-line"), but on a branching line
+            // it always picks the same branch regardless of what is actually being played: an
+            // Eevee run lands in "Glaceon-line" whether it ends as Vaporeon, Umbreon or Eevee.
+            //
+            // A finished run is no longer ambiguous, so name it after the species in hand.
+            // this.starter tracks the live team[0] species (it is updated on evolution), and
+            // is already validated against the evolution family, so it is the species the user
+            // actually finished with.
+            const finishedSpecies = this.starter;
+            if (!this.evolution) {
+                return finishedSpecies;
+            }
+            return `${finishedSpecies}-line`;
         },
         getCurrentStorageKey() {
             // Get the current storage key based on whether evolution is enabled and which species is selected
@@ -9605,7 +9628,7 @@ const app = Vue.createApp({
                             // DPP defers the finishes/ copy until after the Hall of Fame split is recorded
                             // so the HoF entry is included. HGSS has no HoF flow, so copy now.
                             if (gameName !== 'Platinum') {
-                                logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                                logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.getFinishFileName());
                             }
                         })
                         .catch(error => {
@@ -9700,7 +9723,7 @@ const app = Vue.createApp({
                 if (gameName === 'Platinum') {
                     Promise.all([fullP, deprecatedP, simpleP])
                         .then(() => {
-                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.getFinishFileName());
                         })
                         .catch(error => {
                             console.error("logCopy after Hall of Fame failed:", error);

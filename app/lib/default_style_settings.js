@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-06T04:57:41.331Z
+ * Last updated: 2026-09-06T19:54:39.113Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3845,7 +3845,116 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "Platinum_Kirlia": {},
     "Platinum_Gallade": {},
-    "Platinum_Gardevoir": {}
+    "Platinum_Gardevoir": {},
+    "Platinum_Eevee": {},
+    "Platinum_Glaceon-line-Eevee": {
+        "backgroundTexture": "Fighting",
+        "backgroundContrast": "149",
+        "backgroundBlur": "3",
+        "backgroundScale": "184",
+        "backgroundBrightness": "56",
+        "imageFlip": true,
+        "imageScale": "0.68",
+        "imageYOffset": "-19",
+        "imageXOffset": "-5",
+        "overlay_color": "#c4905c",
+        "ui_saturation": "1.2"
+    },
+    "Platinum_Glaceon-line": {
+        "pkmn_ability": "Adaptability"
+    },
+    "Platinum_Glaceon-line-Vaporeon": {
+        "backgroundScale": "103",
+        "backgroundContrast": "123",
+        "backgroundBlur": "0",
+        "backgroundBrightness": "82",
+        "imageScale": "0.81",
+        "imageYOffset": "16",
+        "imageXOffset": "59",
+        "overlay_color": "#77cadf",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Dark Water"
+    },
+    "Platinum_Glaceon-line-Jolteon": {
+        "imageFlip": true,
+        "imageScale": "0.83",
+        "imageYOffset": "16",
+        "imageXOffset": "-19",
+        "overlay_color": "#f4cf6c",
+        "ui_saturation": "1.1",
+        "backgroundHue": "309",
+        "backgroundScale": "191",
+        "backgroundFlip": true,
+        "backgroundYOffset": "73",
+        "backgroundXOffset": "125",
+        "backgroundContrast": "105",
+        "backgroundBlur": "0"
+    },
+    "Platinum_Glaceon-line-Flareon": {
+        "imageFlip": true,
+        "imageScale": "0.87",
+        "imageYOffset": "2",
+        "imageXOffset": "-12",
+        "overlay_color": "#ec814d",
+        "ui_saturation": "1.2",
+        "backgroundScale": "191",
+        "backgroundYOffset": "-113",
+        "backgroundContrast": "109",
+        "backgroundBrightness": "82"
+    },
+    "Platinum_Glaceon-line-Espeon": {
+        "imageFlip": true,
+        "imageScale": "0.87",
+        "imageYOffset": "23",
+        "imageXOffset": "-19",
+        "backgroundHue": "258",
+        "backgroundScale": "145",
+        "backgroundFlip": true,
+        "backgroundBrightness": "71",
+        "backgroundContrast": "139",
+        "backgroundSaturation": "130",
+        "backgroundYOffset": "-5",
+        "backgroundXOffset": "9",
+        "overlay_color": "#cbadc3",
+        "ui_saturation": "1.6"
+    },
+    "Platinum_Glaceon-line-Umbreon": {
+        "backgroundTexture": "Dark",
+        "backgroundScale": "133",
+        "backgroundFlip": true,
+        "backgroundYOffset": "46",
+        "backgroundContrast": "130",
+        "backgroundBrightness": "109",
+        "backgroundHue": "0",
+        "imageScale": "0.89",
+        "imageYOffset": "9",
+        "imageXOffset": "2",
+        "overlay_color": "#36a94b",
+        "ui_saturation": "0"
+    },
+    "Platinum_Glaceon-line-Leafeon": {
+        "backgroundTexture": "Jungle Swamp",
+        "backgroundScale": "200",
+        "backgroundYOffset": "-125",
+        "backgroundBlur": "4",
+        "imageFlip": true,
+        "imageScale": "0.93",
+        "imageYOffset": "31",
+        "imageXOffset": "-19",
+        "overlay_color": "#85cba3",
+        "ui_saturation": "1.6"
+    },
+    "Platinum_Glaceon-line-Glaceon": {
+        "backgroundContrast": "110",
+        "backgroundBrightness": "29",
+        "backgroundBlur": "2",
+        "backgroundTexture": "Dark Ice",
+        "imageScale": "1.09",
+        "imageYOffset": "31",
+        "imageXOffset": "23",
+        "overlay_color": "#6bbdcb",
+        "ui_saturation": "1.3"
+    }
 };
 
 // Export for use in the application

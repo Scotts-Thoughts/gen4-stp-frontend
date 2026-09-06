@@ -1,0 +1,41 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Eevee,Rival 1,1:20.87,0,0,5,0:04,1788711893.489,Tail Whip,Tackle,Helping Hand,
+Dawn,Eevee,Rival 2,7:33.39,0,0,9,0:29,1788712266.017,Return,Tackle,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Roark,21:06.92,0,6,19,1:23,1788715217.586,Return,Growl,Tail Whip,Sand-Attack
+Dawn,Eevee,Mars 1,25:52.12,0,6,22,1:42,1788715502.788,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Gardenia,32:47.04,0,8,27,2:10,1788716004.72,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Jupiter 1,35:10.46,0,8,28,2:19,1788716148.132,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Fantina,42:36.43,0,8,31,2:49,1788717090.399,Bite,Quick Attack,Substitute,Return
+Dawn,Eevee,Rival 3,43:26.33,0,8,32,2:52,1788717140.303,Bite,Quick Attack,Substitute,Return
+Dawn,Eevee,Leader Maylene,58:50.46,1,8,45,3:52,1788718677.493,Return,Bite,Substitute,Dig
+Dawn,Eevee,Rival 4,1:00:58.88,1,8,45,4:01,1788718805.915,Return,Bite,Substitute,Dig
+Dawn,Eevee,Leader Wake,1:04:10.14,3,8,47,4:11,1788718997.179,Return,Bite,Substitute,Dig
+Dawn,Eevee,Cyrus 1,1:08:32.65,3,8,49,4:28,1788719259.694,Return,Bite,Substitute,Dig
+Dawn,Eevee,Rival 5,1:13:05.35,4,11,53,4:45,1788719536.514,Return,Bite,Substitute,Dig
+Dawn,Eevee,Leader Byron,1:28:53.15,5,14,60,5:45,1788720529.131,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Saturn 1,1:31:13.39,5,14,60,5:54,1788720669.371,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Mars 2,1:32:34.82,5,14,60,6:00,1788720750.799,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Leader Candice,1:37:51.39,7,14,66,6:17,1788721067.381,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Cyrus 2,1:42:08.13,7,14,67,6:35,1788721324.117,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Saturn 2,1:42:45.67,7,14,67,6:37,1788721361.662,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Mars 3,1:48:54.39,7,14,72,7:02,1788721730.398,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Cyrus 3,1:53:40.77,8,14,72,7:18,1788722016.775,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Leader Volkner,1:58:33.79,8,14,74,7:38,1788722309.794,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Rival 6,2:08:07.34,8,14,80,8:16,1788722883.36,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Elite Four Aaron,2:09:06.46,8,14,80,8:20,1788722942.477,Return,Bite,Trump Card,Dig
+Dawn,Eevee,Elite Four Aaron,2:10:51.05,8,15,81,8:27,1788723047.073,Return,Bite,Iron Tail,Dig
+Dawn,Eevee,Elite Four Aaron,2:12:20.50,8,16,82,8:33,1788723136.517,Return,Bite,Iron Tail,Dig
+Dawn,Eevee,Elite Four Aaron,2:14:00.84,8,17,83,8:40,1788723236.866,Return,Bite,Iron Tail,Dig
+Dawn,Eevee,Elite Four Aaron,2:15:34.97,8,18,84,8:46,1788723330.99,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:16:54.80,8,19,84,8:51,1788723410.821,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:18:12.53,8,20,85,8:56,1788723488.552,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:19:32.95,8,21,86,9:02,1788723568.986,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:21:08.08,8,22,87,9:08,1788723664.12,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:22:44.33,8,23,88,9:15,1788723760.359,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:23:55.46,8,24,88,9:19,1788723831.488,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Aaron,2:25:11.53,8,25,89,9:24,1788723907.557,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Bertha,2:26:11.14,8,25,89,9:28,1788723967.173,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Flint,2:26:56.65,8,25,90,9:31,1788724012.677,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Elite Four Lucian,2:27:51.67,8,25,90,9:35,1788724067.701,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Champion Cynthia,2:29:28.52,9,25,91,9:39,1788724164.563,Return,Bite,Iron Tail,Shadow Ball
+Dawn,Eevee,Hall of Fame,2:29:28.54,9,25,91,9:41,1788724185.816,Return,Bite,Iron Tail,Shadow Ball
