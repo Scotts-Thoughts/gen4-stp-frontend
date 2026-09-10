@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-06T19:54:39.113Z
+ * Last updated: 2026-09-08T14:01:11.815Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3861,7 +3861,7 @@ const DEFAULT_STYLE_SETTINGS = {
         "ui_saturation": "1.2"
     },
     "Platinum_Glaceon-line": {
-        "pkmn_ability": "Adaptability"
+        "pkmn_ability": "Water Absorb"
     },
     "Platinum_Glaceon-line-Vaporeon": {
         "backgroundScale": "103",
@@ -3954,7 +3954,11 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageXOffset": "23",
         "overlay_color": "#6bbdcb",
         "ui_saturation": "1.3"
-    }
+    },
+    "Platinum_Glaceon": {},
+    "Platinum_Espeon": {},
+    "Platinum_Vaporeon": {},
+    "HeartGold and SoulSilver_Vaporeon": {}
 };
 
 // Export for use in the application
