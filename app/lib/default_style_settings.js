@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-08T14:01:11.815Z
+ * Last updated: 2026-09-17T20:47:27.958Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3958,7 +3958,18 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Glaceon": {},
     "Platinum_Espeon": {},
     "Platinum_Vaporeon": {},
-    "HeartGold and SoulSilver_Vaporeon": {}
+    "HeartGold and SoulSilver_Vaporeon": {},
+    "Platinum_Corsola": {},
+    "Platinum_Heatran": {
+        "imageFlip": true,
+        "imageScale": "1.09",
+        "imageYOffset": "-40",
+        "imageXOffset": "-12",
+        "overlay_color": "#adadb0",
+        "backgroundScale": "143",
+        "backgroundContrast": "116",
+        "backgroundBrightness": "84"
+    }
 };
 
 // Export for use in the application
