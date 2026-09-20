@@ -4868,13 +4868,26 @@ const app = Vue.createApp({
             const aliases = this.speciesNameAliases();
             return aliases[name] || name;
         },
+        wormadamSpeciesFromFormByte() {
+            // The in-game cloak lives in the alternate_forms flag on the lead party slot:
+            // 0 = Plant, 1 = Sandy, 2 = Trash. Returns null when the byte isn't readable
+            // (mapper not loaded, or the game doesn't expose the flag).
+            const wormadamFormNames = ["Wormadam (Plant)", "Wormadam (Sandy)", "Wormadam (Trash)"];
+            const formByte = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms?.value;
+            return wormadamFormNames[formByte] ?? null;
+        },
         resolveIncomingSpecies(rawName) {
             // The emulator can hand us an ambiguous bare name (e.g. "Wormadam") whose actual
-            // cloak isn't carried in the species name. The user's Solo Pokemon selection is
-            // the source of truth: if it's already a Wormadam variant, preserve it; otherwise
-            // default to Plant and let the existing write paths sync the form byte.
+            // cloak isn't carried in the species name. The alternate_forms byte on the lead
+            // party slot is the source of truth (this matters when Burmy evolves under the
+            // evolution toggle, where this.starter is still "Burmy"). If the byte isn't
+            // readable, fall back to the user's Solo Pokemon selection if it's already a
+            // Wormadam variant, otherwise Plant, and let the existing write paths sync the byte.
             if (rawName == null) return rawName;
             if (rawName !== "Wormadam") return this.normalizeSpeciesName(rawName);
+
+            const speciesFromByte = this.wormadamSpeciesFromFormByte();
+            if (speciesFromByte) return speciesFromByte;
 
             const wormadamVariants = ["Wormadam (Plant)", "Wormadam (Sandy)", "Wormadam (Trash)"];
             if (wormadamVariants.includes(this.starter)) {

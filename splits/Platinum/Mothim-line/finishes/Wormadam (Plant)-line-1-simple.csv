@@ -1,0 +1,84 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Burmy,Rival 2,30:53.43,28,4,11,1:35,1784492512.882,Tackle,Protect,,
+Dawn,Mothim,Leader Roark,46:29.81,28,8,20,2:37,1784493452.424,Bug Bite,Protect,Tackle,Hidden Power
+Dawn,Mothim,Mars 1,51:00.15,28,8,21,2:55,1784493726.864,Bug Bite,Protect,Tackle,Hidden Power
+Dawn,Mothim,Leader Gardenia,56:03.16,28,8,25,3:15,1784494032.453,Bug Bite,Protect,Tackle,Confusion
+Dawn,Mothim,Jupiter 1,58:08.93,28,8,26,3:24,1784494158.873,Bug Bite,Protect,Gust,Confusion
+Dawn,Mothim,Leader Fantina,1:06:48.87,31,8,32,3:51,1784494686.087,Bug Bite,Substitute,Gust,Psybeam
+Dawn,Mothim,Rival 3,1:08:05.49,32,8,32,3:55,1784494763.62,Bug Bite,Substitute,Gust,Psybeam
+Dawn,Mothim,Leader Maylene,1:21:14.85,33,8,41,4:46,1784495571.979,Bug Bite,Silver Wind,Air Slash,Psybeam
+Dawn,Mothim,Rival 4,1:23:04.35,33,8,41,4:53,1784495685.53,Bug Bite,Silver Wind,Air Slash,Psybeam
+Dawn,Mothim,Leader Wake,1:29:11.52,39,8,45,5:05,1784496053.785,Air Slash,Silver Wind,Roost,Psychic
+Dawn,Mothim,Cyrus 1,1:33:24.76,39,8,46,5:22,1784496311.689,Air Slash,Silver Wind,Roost,Psychic
+Dawn,Mothim,Rival 5,1:35:49.66,39,8,47,5:32,1784496460.93,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Leader Byron,1:43:25.64,40,8,57,6:00,1784496919.924,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Saturn 1,1:45:15.08,40,8,57,6:08,1784497031.133,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Mars 2,1:46:30.31,40,8,57,6:13,1784497106.898,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Leader Candice,1:49:53.45,40,8,59,6:26,1784497312.022,Air Slash,Bug Buzz,Roost,Shadow Ball
+Dawn,Mothim,Cyrus 2,1:54:12.05,41,8,60,6:42,1784497572.946,Air Slash,Bug Buzz,Roost,Shadow Ball
+Dawn,Mothim,Saturn 2,1:54:56.59,41,8,60,6:45,1784497617.702,Air Slash,Bug Buzz,Roost,Shadow Ball
+Dawn,Mothim,Mars 3,2:01:44.14,41,8,62,7:12,1784498028.833,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Cyrus 3,2:05:58.19,41,8,70,7:29,1784498304.165,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Leader Volkner,2:10:17.66,41,8,71,7:46,1784498564.808,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Rival 6,2:17:29.07,42,8,74,8:13,1784498998.267,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Elite Four Aaron,2:19:25.24,42,8,75,8:20,1784499115.534,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Elite Four Bertha,2:20:26.40,42,8,79,8:24,1784499176.91,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Elite Four Flint,2:21:24.91,42,8,79,8:28,1784499235.645,Air Slash,Bug Buzz,Roost,Psychic
+Dawn,Mothim,Elite Four Lucian,2:22:17.78,42,8,80,8:32,1784499288.689,Air Slash,Bug Buzz,Roost,Silver Wind
+Dawn,Mothim,Champion Cynthia,2:24:05.93,42,8,80,8:39,1784499397.058,Air Slash,Bug Buzz,Roost,Silver Wind
+Dawn,Mothim,Hall of Fame,2:24:05.93,42,8,81,8:41,1784499425.754,Air Slash,Bug Buzz,Roost,Silver Wind
+Dawn,Burmy,Rival 2,32:21.07,28,3,12,1:39,1784501407.123,Tackle,Protect,,
+Dawn,Wormadam (Plant),Leader Roark,45:05.27,28,4,20,2:30,1784502174.293,Tackle,Protect,Bug Bite,Hidden Power
+Dawn,Wormadam (Plant),Mars 1,50:23.07,28,4,22,2:51,1784502495.809,Bug Bite,Protect,Tackle,Rock Tomb
+Dawn,Wormadam (Plant),Leader Gardenia,57:30.30,28,4,27,3:20,1784502925.744,Bug Bite,Confusion,Rock Blast,Rock Tomb
+Dawn,Wormadam (Plant),Jupiter 1,59:37.10,28,4,28,3:28,1784503053.197,Bug Bite,Confusion,Rock Blast,Rock Tomb
+Dawn,Wormadam (Plant),Leader Fantina,1:08:54.47,30,4,32,4:03,1784503617.028,Bug Bite,Substitute,Rock Blast,Earthquake
+Dawn,Wormadam (Plant),Rival 3,1:10:28.56,31,4,32,4:07,1784503712.435,Bug Bite,Substitute,Rock Blast,Earthquake
+Dawn,Wormadam (Plant),Leader Maylene,1:23:18.39,31,4,40,4:59,1784504498.446,Earthquake,Bug Bite,Rock Blast,Substitute
+Dawn,Wormadam (Plant),Rival 4,1:42:03.94,31,4,45,6:14,1784505629.555,Earthquake,Bug Bite,Rock Blast,Psychic
+Dawn,Wormadam (Plant),Leader Wake,1:44:16.60,31,4,48,6:23,1784505762.48,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 1,1:48:12.38,31,4,50,6:39,1784506003.414,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Rival 5,1:51:28.45,31,4,53,6:52,1784506201.839,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Leader Byron,1:53:40.35,31,4,54,7:01,1784506334.448,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Saturn 1,1:56:02.66,31,4,55,7:10,1784506478.861,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Mars 2,1:57:39.27,31,4,56,7:16,1784506575.965,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Leader Candice,2:02:41.16,33,4,65,7:32,1784506880.45,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 2,2:07:36.02,34,4,66,7:49,1784507177.594,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Saturn 2,2:08:19.19,34,4,66,7:52,1784507221.021,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Mars 3,2:13:06.33,34,4,67,8:11,1784507509.453,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 3,2:19:09.54,37,4,68,8:29,1784507891.622,Earthquake,Psych Up,Rock Blast,Swagger
+Dawn,Wormadam (Plant),Leader Volkner,2:23:40.46,37,4,70,8:47,1784508164.131,Earthquake,Psych Up,Rock Blast,Swagger
+Dawn,Wormadam (Plant),Rival 6,2:31:52.05,37,4,80,9:20,1784508657.472,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Aaron,2:32:58.49,37,4,80,9:24,1784508723.916,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Bertha,2:34:04.46,37,4,81,9:29,1784508790.671,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Flint,2:34:53.09,37,4,81,9:32,1784508839.501,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Lucian,2:35:55.81,37,4,82,9:36,1784508902.451,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Champion Cynthia,2:36:58.83,37,4,82,9:40,1784508965.691,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Hall of Fame,2:36:58.84,37,4,83,9:42,1784508986.911,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Leader Roark,45:01.46,29,4,20,2:30,1789918127.8,Tackle,Protect,Bug Bite,Hidden Power
+Dawn,Wormadam (Plant),Mars 1,50:16.59,29,4,22,2:51,1789918447.62,Tackle,Protect,Bug Bite,Hidden Power
+Dawn,Wormadam (Plant),Leader Gardenia,56:14.05,29,4,27,3:15,1789918805.084,Tackle,Mirror Shot,Bug Bite,Confusion
+Dawn,Wormadam (Plant),Jupiter 1,58:39.67,29,4,28,3:24,1789918950.705,Tackle,Mirror Shot,Bug Bite,Confusion
+Dawn,Wormadam (Plant),Leader Fantina,1:04:08.54,29,4,29,3:46,1789919306.141,Substitute,Mirror Shot,Bug Bite,Confusion
+Dawn,Wormadam (Plant),Rival 3,1:08:19.83,29,4,35,4:03,1789919557.433,Bug Bite,Mirror Shot,Substitute,Psybeam
+Dawn,Wormadam (Plant),Leader Maylene,1:18:40.19,29,4,40,4:45,1789920177.806,Bug Bite,Mirror Shot,Substitute,Psybeam
+Dawn,Wormadam (Plant),Rival 4,1:42:03.36,29,4,46,6:19,1789921580.981,Psybeam,Mirror Shot,Psychic,Bug Bite
+Dawn,Wormadam (Plant),Leader Wake,1:44:41.23,29,4,48,6:29,1789921738.863,Psybeam,Iron Head,Psychic,Bug Bite
+Dawn,Wormadam (Plant),Cyrus 1,1:49:00.65,29,4,49,6:46,1789921998.288,Psybeam,Iron Head,Psychic,Bug Bite
+Dawn,Wormadam (Plant),Rival 5,1:53:12.31,30,4,53,7:02,1789922262.335,Psybeam,Iron Head,Psychic,Bug Bite
+Dawn,Wormadam (Plant),Leader Byron,1:57:54.44,32,4,54,7:15,1789922544.463,Swagger,Iron Head,Psych Up,Bug Bite
+Dawn,Wormadam (Plant),Saturn 1,2:01:05.84,32,4,55,7:28,1789922735.871,Swagger,Iron Head,Psych Up,Bug Bite
+Dawn,Wormadam (Plant),Mars 2,2:02:37.52,32,4,55,7:34,1789922827.554,Swagger,Iron Head,Psych Up,Bug Bite
+Dawn,Wormadam (Plant),Leader Candice,2:09:25.46,34,5,57,7:58,1789923235.493,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Cyrus 2,2:13:38.10,34,5,59,8:15,1789923488.138,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Saturn 2,2:14:26.04,34,5,59,8:18,1789923536.08,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Mars 3,2:20:59.54,34,5,73,8:44,1789923929.582,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Cyrus 3,2:27:06.59,39,5,73,9:01,1789924296.631,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Leader Volkner,2:43:37.29,87,5,75,9:25,1789925287.347,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Rival 6,2:51:39.67,87,5,78,9:57,1789925769.732,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Elite Four Aaron,2:52:32.76,87,5,78,10:01,1789925822.83,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Elite Four Bertha,2:53:44.19,87,5,82,10:06,1789925894.258,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Elite Four Flint,2:54:34.07,87,5,82,10:09,1789925944.14,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Elite Four Lucian,2:55:32.32,87,5,83,10:13,1789926002.393,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Champion Cynthia,2:57:13.81,88,5,83,10:17,1789926103.885,Swagger,Iron Head,Psych Up,Return
+Dawn,Wormadam (Plant),Hall of Fame,2:57:13.83,88,5,84,10:19,1789926124.841,Swagger,Iron Head,Psych Up,Return

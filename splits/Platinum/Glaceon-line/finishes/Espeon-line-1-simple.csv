@@ -1,80 +1,51 @@
 player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
-Dawn,Eevee,Rival 1,1:20.87,0,0,5,0:04,1788711893.489,Tail Whip,Tackle,Helping Hand,
-Dawn,Eevee,Rival 2,7:33.39,0,0,9,0:29,1788712266.017,Return,Tackle,Tail Whip,Sand-Attack
-Dawn,Eevee,Leader Roark,21:06.92,0,6,19,1:23,1788715217.586,Return,Growl,Tail Whip,Sand-Attack
-Dawn,Eevee,Mars 1,25:52.12,0,6,22,1:42,1788715502.788,Return,Quick Attack,Tail Whip,Sand-Attack
-Dawn,Eevee,Leader Gardenia,32:47.04,0,8,27,2:10,1788716004.72,Return,Quick Attack,Tail Whip,Sand-Attack
-Dawn,Eevee,Jupiter 1,35:10.46,0,8,28,2:19,1788716148.132,Return,Quick Attack,Tail Whip,Sand-Attack
-Dawn,Eevee,Leader Fantina,42:36.43,0,8,31,2:49,1788717090.399,Bite,Quick Attack,Substitute,Return
-Dawn,Eevee,Rival 3,43:26.33,0,8,32,2:52,1788717140.303,Bite,Quick Attack,Substitute,Return
-Dawn,Eevee,Leader Maylene,58:50.46,1,8,45,3:52,1788718677.493,Return,Bite,Substitute,Dig
-Dawn,Eevee,Rival 4,1:00:58.88,1,8,45,4:01,1788718805.915,Return,Bite,Substitute,Dig
-Dawn,Eevee,Leader Wake,1:04:10.14,3,8,47,4:11,1788718997.179,Return,Bite,Substitute,Dig
-Dawn,Eevee,Cyrus 1,1:08:32.65,3,8,49,4:28,1788719259.694,Return,Bite,Substitute,Dig
-Dawn,Eevee,Rival 5,1:13:05.35,4,11,53,4:45,1788719536.514,Return,Bite,Substitute,Dig
-Dawn,Eevee,Leader Byron,1:28:53.15,5,14,60,5:45,1788720529.131,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Saturn 1,1:31:13.39,5,14,60,5:54,1788720669.371,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Mars 2,1:32:34.82,5,14,60,6:00,1788720750.799,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Leader Candice,1:37:51.39,7,14,66,6:17,1788721067.381,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Cyrus 2,1:42:08.13,7,14,67,6:35,1788721324.117,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Saturn 2,1:42:45.67,7,14,67,6:37,1788721361.662,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Mars 3,1:48:54.39,7,14,72,7:02,1788721730.398,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Cyrus 3,1:53:40.77,8,14,72,7:18,1788722016.775,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Leader Volkner,1:58:33.79,8,14,74,7:38,1788722309.794,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Rival 6,2:08:07.34,8,14,80,8:16,1788722883.36,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Elite Four Aaron,2:09:06.46,8,14,80,8:20,1788722942.477,Return,Bite,Trump Card,Dig
-Dawn,Eevee,Elite Four Aaron,2:10:51.05,8,15,81,8:27,1788723047.073,Return,Bite,Iron Tail,Dig
-Dawn,Eevee,Elite Four Aaron,2:12:20.50,8,16,82,8:33,1788723136.517,Return,Bite,Iron Tail,Dig
-Dawn,Eevee,Elite Four Aaron,2:14:00.84,8,17,83,8:40,1788723236.866,Return,Bite,Iron Tail,Dig
-Dawn,Eevee,Elite Four Aaron,2:15:34.97,8,18,84,8:46,1788723330.99,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:16:54.80,8,19,84,8:51,1788723410.821,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:18:12.53,8,20,85,8:56,1788723488.552,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:19:32.95,8,21,86,9:02,1788723568.986,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:21:08.08,8,22,87,9:08,1788723664.12,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:22:44.33,8,23,88,9:15,1788723760.359,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:23:55.46,8,24,88,9:19,1788723831.488,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Aaron,2:25:11.53,8,25,89,9:24,1788723907.557,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Bertha,2:26:11.14,8,25,89,9:28,1788723967.173,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Flint,2:26:56.65,8,25,90,9:31,1788724012.677,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Elite Four Lucian,2:27:51.67,8,25,90,9:35,1788724067.701,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Champion Cynthia,2:29:28.52,9,25,91,9:39,1788724164.563,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Eevee,Hall of Fame,2:29:28.54,9,25,91,9:41,1788724185.816,Return,Bite,Iron Tail,Shadow Ball
-Dawn,Glaceon,Leader Candice,1:37:34.11,5,14,62,6:20,1788725308.08,Return,Bite,Trump Card,Shadow Ball
-Dawn,Glaceon,Cyrus 2,1:42:32.38,5,14,63,6:40,1788725832.959,Return,Ice Beam,Trump Card,Shadow Ball
-Dawn,Glaceon,Saturn 2,1:43:15.74,5,14,63,6:43,1788725876.312,Return,Ice Beam,Trump Card,Shadow Ball
-Dawn,Glaceon,Mars 3,1:49:06.84,5,14,70,7:06,1788726227.427,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Cyrus 3,1:52:59.51,5,14,70,7:21,1788726598.191,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Leader Volkner,1:57:24.24,5,14,72,7:39,1788727015.871,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Rival 6,2:04:41.43,5,14,78,8:08,1788727640.444,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Aaron,2:05:30.83,5,14,78,8:12,1788727689.843,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Bertha,2:06:07.27,5,14,79,8:14,1788727726.283,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Flint,2:08:39.67,7,14,79,8:18,1788727878.68,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Lucian,2:09:30.52,7,14,80,8:22,1788727929.534,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Bertha,2:06:07.27,5,14,79,8:14,1788727975.98,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Flint,2:06:54.75,5,14,79,8:17,1788728033.331,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Elite Four Lucian,2:07:36.54,5,14,80,8:20,1788728075.119,Ice Beam,Water Pulse,Shadow Ball,Trump Card
-Dawn,Glaceon,Champion Cynthia,2:10:53.69,7,14,81,8:27,1788728398.86,Ice Beam,Water Pulse,Shadow Ball,Blizzard
-Dawn,Glaceon,Hall of Fame,2:10:53.70,7,14,81,8:29,1788728427.563,Ice Beam,Water Pulse,Shadow Ball,Blizzard
-Dawn,Espeon,Leader Maylene,54:36.28,0,8,37,3:37,1788731751.396,Psybeam,Grass Knot,Return,Substitute
-Dawn,Espeon,Rival 4,56:37.06,0,8,38,3:45,1788732055.557,Psybeam,Grass Knot,Return,Substitute
-Dawn,Espeon,Leader Wake,59:05.53,0,8,41,3:55,1788732204.032,Psybeam,Grass Knot,Return,Substitute
-Dawn,Espeon,Cyrus 1,1:05:02.61,0,8,44,4:19,1788732561.106,Psybeam,Grass Knot,Return,Shadow Ball
-Dawn,Espeon,Rival 5,1:08:00.36,0,8,53,4:31,1788732799.859,Psybeam,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Leader Byron,1:09:58.35,0,8,54,4:39,1788732917.846,Psybeam,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Saturn 1,1:12:23.02,0,8,55,4:48,1788733062.524,Psybeam,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Mars 2,1:13:39.87,0,8,56,4:53,1788733139.367,Psybeam,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Leader Candice,1:17:48.80,0,8,57,5:10,1788733388.303,Psybeam,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Cyrus 2,1:22:55.22,0,8,58,5:30,1788733694.728,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Saturn 2,1:23:40.28,0,8,59,5:33,1788733739.789,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Mars 3,1:30:07.70,1,8,69,5:57,1788734261.942,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Mars 3,1:30:09.09,1,8,69,5:57,1788735085.983,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Cyrus 3,1:45:31.61,12,8,71,6:29,1788735987.873,Swift,Grass Knot,Psychic,Shadow Ball
-Dawn,Espeon,Leader Volkner,1:50:16.02,12,8,72,6:48,1788736272.293,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Rival 6,1:56:25.62,12,9,77,7:13,1788736875.145,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Rival 6,1:56:25.47,12,9,77,7:13,1788736940.232,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Elite Four Aaron,1:59:13.43,12,12,78,7:24,1788737108.197,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Elite Four Bertha,2:00:06.50,12,12,79,7:28,1788737161.272,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Elite Four Flint,2:01:29.18,13,12,80,7:32,1788737243.949,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Elite Four Lucian,2:02:19.78,13,12,80,7:35,1788737294.552,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Champion Cynthia,2:04:17.82,14,12,81,7:40,1788737412.593,Psychic,Grass Knot,Swift,Shadow Ball
-Dawn,Espeon,Hall of Fame,2:04:17.83,14,12,82,7:42,1788737433.731,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Vaporeon,Leader Maylene,56:55.19,1,8,37,3:44,1788746910.46,Return,Blizzard,Water Gun,Aurora Beam
+Dawn,Vaporeon,Rival 4,59:32.78,1,8,38,3:54,1788747617.608,Return,Blizzard,Water Gun,Aurora Beam
+Dawn,Vaporeon,Leader Wake,1:02:49.64,1,8,46,4:08,1788747814.479,Return,Blizzard,Aqua Ring,Aurora Beam
+Dawn,Vaporeon,Cyrus 1,1:07:19.57,1,8,47,4:26,1788748679.987,Return,Blizzard,Brine,Aurora Beam
+Dawn,Vaporeon,Rival 5,1:09:45.06,1,8,48,4:35,1788748842.964,Surf,Blizzard,Shadow Ball,Aurora Beam
+Dawn,Vaporeon,Leader Byron,1:11:32.80,1,8,50,4:43,1788748950.691,Surf,Blizzard,Shadow Ball,Aurora Beam
+Dawn,Vaporeon,Saturn 1,1:13:59.71,1,8,51,4:52,1788749097.616,Surf,Blizzard,Shadow Ball,Aurora Beam
+Dawn,Vaporeon,Mars 2,1:15:09.21,1,8,51,4:57,1788749167.116,Surf,Blizzard,Shadow Ball,Aurora Beam
+Dawn,Vaporeon,Leader Candice,1:20:51.04,2,8,60,5:18,1788749508.949,Surf,Blizzard,Shadow Ball,Aurora Beam
+Dawn,Vaporeon,Cyrus 2,1:25:53.17,2,8,61,5:38,1788749811.085,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Saturn 2,1:26:31.11,2,8,61,5:41,1788749849.023,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Mars 3,1:30:54.44,2,8,66,5:58,1788750112.354,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Cyrus 3,1:34:41.14,2,8,66,6:13,1788750339.056,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Leader Volkner,1:39:07.42,2,8,68,6:31,1788750605.348,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Rival 6,1:45:20.84,2,8,71,6:56,1788750978.776,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Elite Four Aaron,1:46:06.58,2,8,72,6:59,1788751024.511,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Elite Four Bertha,1:46:50.60,2,8,75,7:02,1788751068.53,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Elite Four Flint,1:47:23.95,2,8,75,7:04,1788751101.877,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Elite Four Lucian,1:48:04.45,2,8,76,7:07,1788751142.383,Surf,Blizzard,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Champion Cynthia,1:50:47.47,3,8,76,7:14,1788751305.406,Surf,Strength,Shadow Ball,Ice Beam
+Dawn,Vaporeon,Hall of Fame,1:50:47.48,3,8,77,7:15,1788751326.602,Surf,Strength,Shadow Ball,Ice Beam
+Dawn,Eevee,Rival 1,1:20.87,0,0,5,0:04,1789805976.717,Tail Whip,Tackle,Helping Hand,
+Dawn,Eevee,Rival 2,7:33.40,0,0,9,0:29,1789806349.254,Return,Tackle,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Roark,21:06.92,0,6,19,1:23,1789807163.56,Return,Growl,Tail Whip,Sand-Attack
+Dawn,Eevee,Mars 1,25:52.12,0,6,22,1:42,1789807448.425,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Gardenia,32:47.06,0,8,27,2:10,1789807863.393,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Jupiter 1,35:10.46,0,8,28,2:19,1789808006.332,Return,Quick Attack,Tail Whip,Sand-Attack
+Dawn,Eevee,Leader Fantina,42:36.43,0,8,31,2:49,1789808452.392,Bite,Quick Attack,Substitute,Return
+Dawn,Eevee,Rival 3,43:26.35,0,8,32,2:52,1789808502.179,Bite,Quick Attack,Substitute,Return
+Dawn,Espeon,Leader Maylene,54:36.27,0,8,37,3:37,1789809173.235,Psybeam,Grass Knot,Return,Substitute
+Dawn,Espeon,Rival 4,56:37.06,0,8,38,3:45,1789809294.09,Psybeam,Grass Knot,Return,Substitute
+Dawn,Espeon,Leader Wake,59:05.53,0,8,41,3:55,1789809442.452,Psybeam,Grass Knot,Return,Substitute
+Dawn,Espeon,Cyrus 1,1:05:02.61,0,8,44,4:19,1789809799.57,Psybeam,Grass Knot,Return,Shadow Ball
+Dawn,Espeon,Rival 5,1:08:00.36,0,8,53,4:31,1789809977.556,Psybeam,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Leader Byron,1:09:58.35,0,8,54,4:39,1789810095.264,Psybeam,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Saturn 1,1:12:23.03,0,8,55,4:48,1789810240.153,Psybeam,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Mars 2,1:13:39.87,0,8,56,4:53,1789810316.914,Psybeam,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Leader Candice,1:17:48.80,0,8,57,5:10,1789810565.644,Psybeam,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Cyrus 2,1:22:55.22,0,8,58,5:30,1789810872.189,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Saturn 2,1:23:40.27,0,8,59,5:33,1789810917.145,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Mars 3,1:30:07.70,1,8,69,5:57,1789811304.681,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Cyrus 3,1:45:31.61,12,8,71,6:29,1789812225.661,Swift,Grass Knot,Psychic,Shadow Ball
+Dawn,Espeon,Leader Volkner,1:50:16.02,12,8,72,6:48,1789812510.14,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Rival 6,1:56:25.46,12,9,77,7:13,1789812879.46,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Elite Four Aaron,1:59:13.44,12,12,78,7:24,1789813047.439,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Elite Four Bertha,2:00:06.52,12,12,79,7:28,1789813100.043,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Elite Four Flint,2:01:29.19,13,12,80,7:32,1789813183.002,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Elite Four Lucian,2:02:19.78,13,12,80,7:35,1789813233.486,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Champion Cynthia,2:04:17.83,14,12,81,7:40,1789813351.461,Psychic,Grass Knot,Swift,Shadow Ball
+Dawn,Espeon,Hall of Fame,2:04:17.83,14,12,82,7:42,1789813372.6,Psychic,Grass Knot,Swift,Shadow Ball

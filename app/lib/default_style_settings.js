@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-17T20:47:27.958Z
+ * Last updated: 2026-09-20T18:08:34.143Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3759,7 +3759,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Togetic": {},
     "Platinum_Ambipom": {},
     "Platinum_Primeape": {},
-    "Platinum_Ralts": {},
+    "Platinum_Ralts": {
+        "evolution": true,
+        "selected_evolution_species": "Ralts"
+    },
     "Platinum_Gallade-line-Ralts": {
         "imageFlip": true,
         "imageScale": "0.46",
@@ -3846,7 +3849,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Kirlia": {},
     "Platinum_Gallade": {},
     "Platinum_Gardevoir": {},
-    "Platinum_Eevee": {},
+    "Platinum_Eevee": {
+        "evolution": true,
+        "selected_evolution_species": "Eevee"
+    },
     "Platinum_Glaceon-line-Eevee": {
         "backgroundTexture": "Fighting",
         "backgroundContrast": "149",
@@ -3861,7 +3867,7 @@ const DEFAULT_STYLE_SETTINGS = {
         "ui_saturation": "1.2"
     },
     "Platinum_Glaceon-line": {
-        "pkmn_ability": "Water Absorb"
+        "pkmn_ability": "Snow Cloak"
     },
     "Platinum_Glaceon-line-Vaporeon": {
         "backgroundScale": "103",
