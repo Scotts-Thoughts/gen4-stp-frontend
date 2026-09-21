@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-20T18:08:34.143Z
+ * Last updated: 2026-09-21T23:19:26.138Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -3975,6 +3975,59 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundScale": "143",
         "backgroundContrast": "116",
         "backgroundBrightness": "84"
+    },
+    "Platinum_Spiritomb": {
+        "imageScale": "0.73",
+        "imageFlip": true,
+        "imageYOffset": "-12",
+        "imageXOffset": "-33",
+        "overlay_color": "#deaaba",
+        "ui_saturation": "1.1",
+        "backgroundScale": "115",
+        "backgroundContrast": "151",
+        "backgroundHue": "255"
+    },
+    "Platinum_Granbull": {},
+    "Platinum_Charizard": {},
+    "Platinum_Meditite": {},
+    "Platinum_Volbeat": {},
+    "Platinum_Bibarel-line-Bidoof": {
+        "imageFlip": true,
+        "imageScale": "0.6",
+        "imageYOffset": "-62",
+        "imageXOffset": "-40",
+        "overlay_color": "#bb8f63",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Dark Water",
+        "backgroundScale": "107",
+        "backgroundContrast": "133",
+        "backgroundBrightness": "89",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Bibarel-line-Bibarel": {
+        "overlay_color": "#c28f46",
+        "ui_saturation": "1.5",
+        "backgroundTexture": "Dark Water",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "107",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "89",
+        "backgroundContrast": "133",
+        "backgroundSaturation": 100,
+        "imageScale": "1.01",
+        "imageYOffset": "16"
     }
 };
 

@@ -4703,6 +4703,12 @@ const app = Vue.createApp({
             if (!newAbilities?.length) {
                 return previousAbilityName;
             }
+            // Already one of the new species' abilities (e.g. the queuer's /set-ability landed
+            // before /set-evolution switched the family from last run's species): keep it, as
+            // gen3's mapAbilityToSpecies does, rather than sliding it to slot 0.
+            if (newAbilities.includes(previousAbilityName)) {
+                return previousAbilityName;
+            }
             let slot = 0;
             if (oldAbilities?.length && previousAbilityName != null && previousAbilityName !== '') {
                 const idx = oldAbilities.indexOf(previousAbilityName);
@@ -9985,6 +9991,24 @@ const app = Vue.createApp({
                         res.end(JSON.stringify({ ok: false, error: 'Missing or invalid nature parameter' }));
                     }
                 }
+                else if (pathname === '/set-ability') {
+                    // Set the Pokémon's ability (the Abilities dropdown). Matched against the
+                    // current starter's abilities ignoring case and spacing ("Lightning Rod" ==
+                    // "Lightningrod") and stored under this overlay's own spelling, so the
+                    // per-starter settings and the evolution-line slot remap keep working.
+                    // Set it before /refresh, like the nature.
+                    // Usage: /set-ability?ability=Torrent
+                    const abilities = this.g4PokemonData?.[this.starter]?.abilities ?? [];
+                    const abilityKey = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+                    const ability = query.ability ? abilities.find((a) => abilityKey(a) === abilityKey(query.ability)) : undefined;
+                    if (ability) {
+                        this.pkmn_ability = ability;
+                        res.end(JSON.stringify({ ok: true, ability: this.pkmn_ability }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: `Missing or invalid ability parameter (${this.starter} has: ${abilities.join(', ') || 'no abilities listed'})` }));
+                    }
+                }
                 else if (pathname === '/set-splits') {
                     // Set the splits display mode
                     // Usage: /set-splits?mode=First  or  /set-splits?mode=Followup
@@ -10103,6 +10127,7 @@ const app = Vue.createApp({
                         right_ui: this.right_ui,
                         hidden_power_type: this.hidden_power_type,
                         nature: this.pkmnNature,
+                        ability: this.pkmn_ability,
                         splits: this.split_type,
                         shuckie_counters: this.shuckie_counters,
                         show_tutor_moves: this.show_tutor_moves,

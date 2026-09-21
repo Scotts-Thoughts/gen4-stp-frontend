@@ -1,0 +1,7 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Spiritomb,Rival 1,1:20.99,0,0,5,0:04,1790021228.197,Pursuit,Confuse Ray,Spite,Shadow Sneak
+Dawn,Spiritomb,Rival 2,6:47.60,0,0,9,0:26,1790021554.816,Faint Attack,Confuse Ray,Pursuit,Shadow Sneak
+Dawn,Spiritomb,Leader Roark,10:29.18,0,0,13,0:40,1790021776.394,Faint Attack,Hypnosis,Pursuit,Shadow Sneak
+Dawn,Spiritomb,Mars 1,15:17.08,0,0,17,1:00,1790022064.299,Faint Attack,Hypnosis,Pursuit,Shadow Sneak
+Dawn,Spiritomb,Leader Gardenia,21:05.88,0,0,23,1:23,1790022413.098,Faint Attack,Hypnosis,Dream Eater,Shadow Sneak
+Dawn,Spiritomb,Jupiter 1,23:29.00,0,0,24,1:32,1790022556.221,Faint Attack,Hypnosis,Dream Eater,Shadow Sneak
