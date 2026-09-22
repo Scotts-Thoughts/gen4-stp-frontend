@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-21T23:19:26.138Z
+ * Last updated: 2026-09-22T02:24:12.680Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -4028,7 +4028,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "backgroundSaturation": 100,
         "imageScale": "1.01",
         "imageYOffset": "16"
-    }
+    },
+    "Platinum_Bibarel": {}
 };
 
 // Export for use in the application

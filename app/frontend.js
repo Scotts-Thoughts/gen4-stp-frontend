@@ -3952,11 +3952,19 @@ const app = Vue.createApp({
                 const weather = this.mapper.properties.battle.field.weather.value
                 // const ability = this.mapper.properties.battle.player.active_pokemon.ability.value
 
-                const mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
-                const mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
-                const mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
-                const mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
-                const mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
+                // Simple doubles every stat stage, clamped to the -6..+6 range
+                function simple_stage(modifier) {
+                    let stage = Number(modifier) || 0
+                    if (ability == 'Simple') {
+                        stage = Math.max(-6, Math.min(6, stage * 2))
+                    }
+                    return stage
+                }
+                const mod_atk = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value)
+                const mod_def = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value)
+                const mod_spa = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value)
+                const mod_spd = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value)
+                const mod_spe = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value)
                 HP  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                 Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
                 Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
