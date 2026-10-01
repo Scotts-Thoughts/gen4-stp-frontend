@@ -1599,6 +1599,7 @@ const app = Vue.createApp({
             MyStorage['starter'] = newValue
 
             this.syncWormadamFormByte(newValue);
+            this.syncShayminFormByte(newValue);
 
             // Update evolution family list when starter changes
             this.updateEvolutionFamilyList();
@@ -3507,7 +3508,7 @@ const app = Vue.createApp({
             }, 150)
         },
         async update_rom_starter_and_intro_mon() {
-            let starter = this.starter
+            let starter = this.romSpeciesName(this.starter)
             let game = this.selected_game
             if (game == "Platinum") {
                 await Promise.all([
@@ -4875,7 +4876,23 @@ const app = Vue.createApp({
         },
         speciesNameAliases() {
             // Map from the ROM/legacy species name to the canonical pokedex key.
-            return { "Wormadam": "Wormadam (Plant)" };
+            // "Shaymin-land"/"Shaymin-sky" are the pre-rename pokedex keys, kept so a stored
+            // Solo Pokemon selection from an older version still resolves.
+            return {
+                "Wormadam":     "Wormadam (Plant)",
+                "Shaymin":      "Shaymin (Land)",
+                "Shaymin-land": "Shaymin (Land)",
+                "Shaymin-sky":  "Shaymin (Sky)",
+            };
+        },
+        romSpeciesName(species) {
+            // Inverse of the form aliases: the mapper's species glossary only knows the bare
+            // ROM name, so writing "Shaymin (Sky)" or "Wormadam (Sandy)" to a species
+            // property fails. The form itself lives in the alternate_forms byte.
+            if (species == null) return species;
+            if (species.startsWith("Wormadam (")) return "Wormadam";
+            if (species.startsWith("Shaymin (")) return "Shaymin";
+            return species;
         },
         normalizeSpeciesName(name) {
             if (name == null) return name;
@@ -4898,6 +4915,7 @@ const app = Vue.createApp({
             // readable, fall back to the user's Solo Pokemon selection if it's already a
             // Wormadam variant, otherwise Plant, and let the existing write paths sync the byte.
             if (rawName == null) return rawName;
+            if (rawName === "Shaymin") return this.shayminSpeciesFromFormByte() ?? this.shayminFallbackSpecies();
             if (rawName !== "Wormadam") return this.normalizeSpeciesName(rawName);
 
             const speciesFromByte = this.wormadamSpeciesFromFormByte();
@@ -4921,7 +4939,44 @@ const app = Vue.createApp({
             if (!(species in wormadam_forms)) return;
             const prop = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms;
             if (!prop?.set) return;
+            // Skip when the game already agrees: on evolution the byte can read Plant for a
+            // moment before the real cloak lands, and a redundant write here could clobber it.
+            if (prop.value === wormadam_forms[species]) return;
             prop.set(wormadam_forms[species], false);
+        },
+        shayminSpeciesFromFormByte() {
+            // Land and Sky Forme share species ID 492; the form lives in the alternate_forms
+            // flag on the lead party slot: 0 = Land, 1 = Sky. Unlike Wormadam's cloak this
+            // changes during play (Gracidea by day; reverts at night or when frozen), so the
+            // byte is the source of truth. Returns null when the byte isn't readable.
+            const shayminFormNames = ["Shaymin (Land)", "Shaymin (Sky)"];
+            const formByte = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms?.value;
+            const species = shayminFormNames[formByte];
+            if (!species) return null;
+            // Diamond/Pearl has no Sky Forme entry; never hand back a species the dex lacks.
+            return this.g4PokemonData?.[species] ? species : "Shaymin (Land)";
+        },
+        shayminFallbackSpecies() {
+            return this.isShayminForm(this.starter) ? this.starter : "Shaymin (Land)";
+        },
+        isShayminForm(species) {
+            return species === "Shaymin (Land)" || species === "Shaymin (Sky)";
+        },
+        syncShayminFormByte(species) {
+            // Push the selected Shaymin form to the emulator. Only writes when the lead is
+            // actually a Shaymin: the same byte means something else on other species
+            // (e.g. it would turn a Giratina into Origin Forme).
+            const shaymin_forms = {
+                "Shaymin (Land)": 0,
+                "Shaymin (Sky)":  1,
+            };
+            if (!(species in shaymin_forms)) return;
+            const lead = this.mapper?.properties?.player?.team?.[0];
+            if (lead?.species?.value !== "Shaymin") return;
+            const prop = lead?.flags?.alternate_forms;
+            if (!prop?.set) return;
+            if (prop.value === shaymin_forms[species]) return;
+            prop.set(shaymin_forms[species], false);
         },
         applySpeciesAliases() {
             // Make each pokedex resolve both the legacy/ROM name and the canonical name
@@ -8216,12 +8271,22 @@ const app = Vue.createApp({
             this.last_known_personality_value = newProp.value;
         });
 
-        // Species change handler - handles both normal species changes and evolution
-        this.mapper.properties.player.team[0].species.change(async (newProp, oldProp) => {
+        // Species change handler - handles both normal species changes and evolution.
+        // previousSpecies is only passed by the form-byte listener below, where the raw
+        // species name doesn't change and so can't tell us what the old form was.
+        const onLeadSpeciesChange = async (newProp, oldProp, previousSpecies) => {
             const currentPersonalityValue = this.mapper.properties.player.team[0].internals.personality_value.value;
             const state = this.mapper.properties.meta.state.value
-            const normalizedNew = this.resolveIncomingSpecies(newProp.value);
-            const normalizedOld = this.resolveIncomingSpecies(oldProp?.value);
+            let normalizedNew = this.resolveIncomingSpecies(newProp.value);
+            const normalizedOld = previousSpecies ?? this.resolveIncomingSpecies(oldProp?.value);
+
+            // A Shaymin arriving in the lead slot (e.g. the just-received starter) starts out
+            // in Land Forme; take the user's selected form and push it to the emulator rather
+            // than letting the fresh byte overwrite the selection.
+            if (previousSpecies === undefined && newProp.value === "Shaymin" && oldProp?.value !== "Shaymin" && this.isShayminForm(this.starter)) {
+                normalizedNew = this.starter;
+                this.syncShayminFormByte(this.starter);
+            }
 
             // Check if this is an evolution (same personality value, different species, evolution enabled)
             if (this.evolution == true && normalizedNew != normalizedOld &&
@@ -8348,11 +8413,26 @@ const app = Vue.createApp({
 
                 // Push the Wormadam cloak byte to the emulator on every Wormadam appearance,
                 // so a fresh Wormadam (e.g. just-received starter) reflects the user's variant
-                // even when this.starter didn't change.
-                if (newProp.value === "Wormadam") {
+                // even when this.starter didn't change. Not when the form byte itself changed
+                // (previousSpecies set): the game is the source there, and writing would revert it.
+                if (newProp.value === "Wormadam" && previousSpecies === undefined) {
                     this.syncWormadamFormByte(this.starter);
                 }
             }
+        }
+        this.mapper.properties.player.team[0].species.change(onLeadSpeciesChange)
+
+        // Shaymin changes form without changing species ID (Gracidea by day; back to Land
+        // Forme at night or when frozen), and Burmy evolves into Wormadam with the form byte
+        // reading Plant until the real cloak lands a moment later. Watch the form byte and
+        // treat a change as a species change from the last form we saw.
+        this.mapper.properties.player.team[0].flags.alternate_forms?.change(async () => {
+            const speciesProp = this.mapper.properties.player.team[0].species;
+            if (speciesProp.value !== "Shaymin" && speciesProp.value !== "Wormadam") return;
+            const previousSpecies = this.last_known_species;
+            if (this.resolveIncomingSpecies(speciesProp.value) === previousSpecies) return;
+            const current = { value: speciesProp.value, bytes: speciesProp.bytes };
+            await onLeadSpeciesChange(current, current, previousSpecies);
         })
         this.mapper.properties.player.team[0].level.change(async (newProp, oldProp) => {
             const map = this.mapper.properties.overworld.map_index.value
@@ -9117,7 +9197,16 @@ const app = Vue.createApp({
             }
             if (species == 'Shaymin' || species == 'Shaymin (Land)' || species == 'Shaymin (Sky)' || species == 'Mew' || species == 'Deoxys') {
                 await Promise.all([
-                    await this.mapper.properties.player.team[0].flags.fateful_encounter.set(true, false),
+                    await this.mapper.properties.player.team[0].flags.fateful_encounter?.set(true, false),
+                ])
+            }
+            const shaymin_forms = {
+                "Shaymin (Land)": 0,
+                "Shaymin (Sky)":  1,
+            }
+            if (species in shaymin_forms) {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].flags.alternate_forms?.set(shaymin_forms[species], false),
                 ])
             }
             const wormadam_forms = {

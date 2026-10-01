@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Bidoof,Rival 1,1:28.17,0,0,5,0:04,1790051783.97,Tackle,Growl,,
+Dawn,Bidoof,Rival 2,7:43.54,0,0,9,0:29,1790052159.346,Tackle,Growl,Defense Curl,
+Dawn,Bibarel,Leader Roark,14:59.53,0,1,15,0:58,1790052595.318,Water Gun,Rollout,Defense Curl,Tackle
+Dawn,Bibarel,Mars 1,19:46.57,0,1,18,1:18,1790052882.608,Water Gun,Rollout,Defense Curl,Headbutt
+Dawn,Bibarel,Leader Gardenia,26:59.22,0,1,26,1:47,1790053315.401,Hyper Fang,Rollout,Defense Curl,Headbutt
+Dawn,Bibarel,Jupiter 1,28:18.16,0,1,27,1:52,1790053394.364,Hyper Fang,Rollout,Defense Curl,Headbutt
+Dawn,Bibarel,Leader Fantina,33:29.78,0,1,29,2:13,1790053706.108,Hyper Fang,Rollout,Defense Curl,Substitute
+Dawn,Bibarel,Rival 3,34:19.79,0,1,30,2:16,1790053756.172,Hyper Fang,Rollout,Defense Curl,Substitute
+Dawn,Bibarel,Leader Maylene,47:44.37,3,1,37,3:02,1790054560.833,Hyper Fang,Rollout,Defense Curl,Substitute
+Dawn,Bibarel,Rival 4,49:49.68,3,1,38,3:11,1790054686.145,Hyper Fang,Rollout,Defense Curl,Substitute
+Dawn,Bibarel,Leader Wake,52:25.83,3,1,47,3:21,1790054842.429,Hyper Fang,Rollout,Defense Curl,Substitute
+Dawn,Bibarel,Cyrus 1,57:09.57,3,1,48,3:40,1790055126.246,Hyper Fang,Rollout,Defense Curl,Superpower
+Dawn,Bibarel,Rival 5,1:02:51.67,5,2,50,3:58,1790055468.471,Return,Surf,Shock Wave,Superpower
+Dawn,Bibarel,Leader Byron,1:05:09.43,5,2,52,4:07,1790055606.289,Return,Surf,Shock Wave,Superpower
+Dawn,Bibarel,Saturn 1,1:08:49.95,6,2,53,4:20,1790055826.91,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Mars 2,1:10:53.73,7,2,54,4:26,1790055950.701,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Leader Candice,1:16:25.63,8,2,62,4:47,1790056282.727,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Cyrus 2,1:21:20.65,8,2,63,5:07,1790056577.777,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Saturn 2,1:21:59.42,8,2,63,5:09,1790056616.555,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Mars 3,1:26:54.32,8,2,69,5:29,1790056911.48,Return,Surf,Shock Wave,Curse
+Dawn,Bibarel,Cyrus 3,1:30:55.29,8,2,69,5:45,1790057152.744,Return,Surf,Thunderbolt,Curse
+Dawn,Bibarel,Leader Volkner,1:35:39.66,8,2,71,6:04,1790057437.217,Return,Surf,Thunderbolt,Curse
+Dawn,Bibarel,Rival 6,1:41:39.04,8,2,74,6:28,1790057796.662,Return,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Elite Four Aaron,1:42:24.42,8,2,75,6:31,1790057842.04,Return,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Elite Four Bertha,1:42:59.32,8,2,75,6:33,1790057876.946,Return,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Elite Four Flint,1:43:46.64,8,2,78,6:37,1790057924.264,Return,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Elite Four Lucian,1:44:30.52,8,2,78,6:40,1790057968.144,Return,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Champion Cynthia,1:45:41.80,8,2,79,6:44,1790058039.44,Ice Beam,Surf,Thunderbolt,Charge Beam
+Dawn,Bibarel,Hall of Fame,1:45:41.81,8,2,80,6:46,1790058067.706,Ice Beam,Surf,Thunderbolt,Charge Beam

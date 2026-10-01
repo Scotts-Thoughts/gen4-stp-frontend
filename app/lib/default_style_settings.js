@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-09-22T02:24:12.680Z
+ * Last updated: 2026-10-01T23:55:46.023Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -693,7 +693,8 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "Platinum_Mothim-line": {
         "pkmn_ability": "Anticipation",
-        "pkmn_gender": "Female"
+        "pkmn_gender": "Female",
+        "hidden_power_type": "Dragon"
     },
     "Platinum_Lumineon-line": {
         "pkmn_gender": "Male"
@@ -3342,7 +3343,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Charmander": {},
     "Platinum_Sandshrew": {},
     "HeartGold and SoulSilver_Phione": {},
-    "Platinum_Turtwig": {},
+    "Platinum_Turtwig": {
+        "imageFlip": true,
+        "imageScale": "0.52"
+    },
     "Platinum_Sentret": {},
     "Platinum_Shaymin (Land)": {},
     "Platinum_Rotom": {
@@ -3563,7 +3567,10 @@ const DEFAULT_STYLE_SETTINGS = {
     "HeartGold and SoulSilver_Kricketune": {},
     "HeartGold and SoulSilver_Squirtle": {},
     "HeartGold and SoulSilver_Slowbro": {},
-    "Platinum_Bonsly": {},
+    "Platinum_Bonsly": {
+        "evolution": true,
+        "selected_evolution_species": "Bonsly"
+    },
     "Platinum_Bonsly-line-Bonsly": {
         "imageFlip": true,
         "imageScale": "0.58",
@@ -3662,7 +3669,10 @@ const DEFAULT_STYLE_SETTINGS = {
     },
     "Platinum_Bulbasaur": {},
     "Platinum_Psyduck": {},
-    "Platinum_Bidoof": {},
+    "Platinum_Bidoof": {
+        "evolution": true,
+        "selected_evolution_species": "Bidoof"
+    },
     "Platinum_Burmy": {
         "evolution": true,
         "selected_evolution_species": "Burmy"
@@ -3850,7 +3860,7 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Gallade": {},
     "Platinum_Gardevoir": {},
     "Platinum_Eevee": {
-        "evolution": true,
+        "evolution": false,
         "selected_evolution_species": "Eevee"
     },
     "Platinum_Glaceon-line-Eevee": {
@@ -3867,7 +3877,7 @@ const DEFAULT_STYLE_SETTINGS = {
         "ui_saturation": "1.2"
     },
     "Platinum_Glaceon-line": {
-        "pkmn_ability": "Snow Cloak"
+        "pkmn_ability": "Adaptability"
     },
     "Platinum_Glaceon-line-Vaporeon": {
         "backgroundScale": "103",
@@ -3985,7 +3995,8 @@ const DEFAULT_STYLE_SETTINGS = {
         "ui_saturation": "1.1",
         "backgroundScale": "115",
         "backgroundContrast": "151",
-        "backgroundHue": "255"
+        "backgroundHue": "255",
+        "evolution": false
     },
     "Platinum_Granbull": {},
     "Platinum_Charizard": {},
@@ -4029,7 +4040,119 @@ const DEFAULT_STYLE_SETTINGS = {
         "imageScale": "1.01",
         "imageYOffset": "16"
     },
-    "Platinum_Bibarel": {}
+    "Platinum_Bibarel": {},
+    "Platinum_Venusaur": {},
+    "Platinum_Nosepass": {},
+    "Platinum_Pidgey": {},
+    "Platinum_Skorupi": {
+        "evolution": true,
+        "selected_evolution_species": "Skorupi"
+    },
+    "Platinum_Drapion-line-Skorupi": {
+        "imageFlip": true,
+        "imageScale": "0.6",
+        "imageYOffset": "-62",
+        "imageXOffset": "-54",
+        "overlay_color": "#98a1c9",
+        "ui_saturation": "1.5",
+        "backgroundScale": "115",
+        "backgroundContrast": "119",
+        "backgroundBrightness": "63",
+        "backgroundSaturation": "0",
+        "backgroundFlip": false,
+        "backgroundBlur": "2",
+        "backgroundTexture": "Poison",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0
+    },
+    "Platinum_Drapion-line-Drapion": {
+        "overlay_color": "#b184b4",
+        "ui_saturation": "1.6",
+        "backgroundTexture": "Poison",
+        "backgroundBlur": "2",
+        "backgroundHue": 0,
+        "backgroundScale": "115",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "63",
+        "backgroundContrast": "119",
+        "backgroundSaturation": "0",
+        "imageFlip": true,
+        "imageScale": "1.21",
+        "imageYOffset": "-12",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Drapion": {},
+    "Platinum_Torterra-line-Turtwig": {
+        "imageFlip": true,
+        "imageScale": "0.52",
+        "imageYOffset": "-76",
+        "imageXOffset": "-54",
+        "backgroundTexture": "Ground",
+        "backgroundScale": "113",
+        "backgroundContrast": "137",
+        "backgroundBrightness": "41",
+        "backgroundBlur": "4",
+        "overlay_color": "#4db15b",
+        "ui_saturation": "1.4",
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Torterra-line-Grotle": {
+        "overlay_color": "#4db15b",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "4",
+        "backgroundHue": 0,
+        "backgroundScale": "113",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "41",
+        "backgroundContrast": "137",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.73",
+        "imageYOffset": "2",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Torterra-line-Torterra": {
+        "overlay_color": "#4db15b",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Ground",
+        "backgroundBlur": "4",
+        "backgroundHue": 0,
+        "backgroundScale": "113",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "41",
+        "backgroundContrast": "137",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageYOffset": "31",
+        "imageXOffset": "-12"
+    },
+    "Platinum_Grotle": {},
+    "Platinum_Torterra": {},
+    "Platinum_Caterpie": {},
+    "Platinum_Squirtle": {},
+    "Platinum_Anorith": {}
 };
 
 // Export for use in the application

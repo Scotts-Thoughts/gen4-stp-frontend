@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Skorupi,Rival 1,1:20.42,0,0,5,0:04,1790401020.388,Bite,Poison Sting,Leer,
+Dawn,Skorupi,Rival 2,7:09.93,0,0,9,0:27,1790401370.03,Bite,Poison Sting,Leer,Knock Off
+Dawn,Skorupi,Leader Roark,17:24.95,0,0,17,1:08,1790401985.31,Bite,Rock Smash,Acupressure,Pin Missile
+Dawn,Skorupi,Mars 1,22:10.88,0,0,19,1:27,1790402271.503,Bite,Rock Smash,Acupressure,Pin Missile
+Dawn,Skorupi,Leader Gardenia,30:33.75,0,0,25,2:01,1790402774.872,Bite,Rock Smash,Acupressure,Pin Missile
+Dawn,Skorupi,Jupiter 1,33:16.45,1,0,26,2:10,1790402937.705,Bite,Rock Smash,Acupressure,Pin Missile
+Dawn,Skorupi,Leader Fantina,42:51.42,2,1,29,2:47,1790403512.928,Bite,Rock Smash,Acupressure,Substitute
+Dawn,Skorupi,Rival 3,46:27.62,6,1,29,2:55,1790403729.466,Return,Rock Smash,Acupressure,Rock Tomb
+Dawn,Drapion,Leader Maylene,58:45.77,8,1,40,3:41,1790404471.782,Return,Rock Smash,Swords Dance,Earthquake
+Dawn,Drapion,Rival 4,1:00:36.41,8,1,40,3:48,1790404582.542,Return,Rock Smash,Swords Dance,Earthquake
+Dawn,Drapion,Leader Wake,1:02:27.06,8,1,42,3:55,1790404693.182,Return,Rock Smash,Swords Dance,Earthquake
+Dawn,Drapion,Cyrus 1,1:06:39.92,8,1,44,4:12,1790404946.626,Return,Rock Smash,Swords Dance,Earthquake
+Dawn,Drapion,Rival 5,1:09:24.42,8,1,44,4:23,1790405111.506,Return,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Leader Byron,1:11:29.49,8,1,46,4:32,1790405236.743,Return,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Saturn 1,1:13:51.64,8,1,47,4:41,1790405379.211,Return,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Mars 2,1:15:36.09,8,1,47,4:48,1790405483.673,Return,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Leader Candice,1:19:01.80,8,1,49,5:02,1790405689.994,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Cyrus 2,1:22:43.77,8,1,50,5:17,1790405912.129,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Saturn 2,1:23:30.05,8,1,50,5:20,1790405958.421,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Mars 3,1:28:04.91,8,1,60,5:38,1790406234.002,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Cyrus 3,1:32:01.80,8,1,60,5:54,1790406473.237,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Leader Volkner,1:36:56.06,8,1,62,6:14,1790406767.984,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Rival 6,1:42:57.96,8,1,68,6:38,1790407130.651,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Elite Four Aaron,1:43:41.37,8,1,69,6:41,1790407174.062,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Elite Four Bertha,1:44:25.61,8,1,69,6:44,1790407218.312,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Elite Four Flint,1:45:05.47,8,1,70,6:46,1790407258.17,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Elite Four Lucian,1:45:40.92,8,1,70,6:49,1790407293.609,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Champion Cynthia,1:46:35.96,8,1,71,6:52,1790407348.706,Crunch,Swords Dance,Earthquake,Brick Break
+Dawn,Drapion,Hall of Fame,1:46:35.98,8,1,72,6:54,1790407377.024,Crunch,Swords Dance,Earthquake,Brick Break
