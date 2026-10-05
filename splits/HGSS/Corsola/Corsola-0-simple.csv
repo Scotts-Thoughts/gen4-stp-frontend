@@ -1,0 +1,64 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Corsola,Passerby Boy,3:39.30,0,0,7,0:13,1778994376.147,Tackle,Harden,,
+Lyra,Corsola,Leader Falkner,13:02.59,0,1,14,0:51,1778994940.684,Tackle,Harden,Bubble,Recover
+Lyra,Corsola,Leader Bugsy,22:12.89,0,1,20,1:28,1778995492.557,Tackle,Rock Blast,Bubble,Recover
+Lyra,Corsola,Rival Silver,23:59.15,0,3,22,1:35,1778995599.192,Tackle,Rock Blast,Bubble,Recover
+Lyra,Corsola,Leader Whitney,30:44.19,0,3,24,2:02,1778996006.882,Headbutt,Rock Blast,Bubble,Recover
+Lyra,Corsola,Rival Silver,41:45.96,0,3,31,2:46,1778996674.974,Surf,Rock Blast,Headbutt,Recover
+Lyra,Corsola,Leader Morty,45:45.68,3,6,33,2:56,1778996915.287,Surf,AncientPower,Headbutt,Recover
+Lyra,Corsola,Leader Pryce,1:05:12.47,3,6,44,4:14,1778998088.433,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Leader Chuck,1:08:54.56,3,6,46,4:28,1778998313.701,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Leader Jasmine,1:11:49.44,3,6,46,4:40,1778998491.277,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Rival Silver,1:17:08.90,7,3,48,4:53,1778998814.234,Surf,AncientPower,Power Gem,Ice Beam
+Lyra,Corsola,Leader Clair,1:25:36.34,7,3,52,5:27,1778999328.197,Surf,AncientPower,Power Gem,Ice Beam
+Lyra,Corsola,Rival Silver,1:45:36.64,7,8,59,6:47,1779000537.702,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Will,1:47:29.28,7,9,61,6:55,1779000650.531,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Bruno,1:48:53.14,7,9,62,7:00,1779000734.832,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Karen,1:50:00.42,8,10,63,7:03,1779000802.536,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Champion Lance,1:50:51.57,8,10,64,7:06,1779000854.089,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Brock,2:00:53.18,0,0,67,7:46,1779001462.778,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Blaine,2:03:22.96,0,0,68,7:56,1779001613.973,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Janine,2:06:19.75,0,0,70,8:08,1779001792.711,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Lt. Surge,2:07:44.65,0,0,70,8:14,1779001879.311,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Erika,2:10:45.62,9,1,85,8:23,1779002062.75,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Sabrina,2:11:56.23,9,1,85,8:28,1779002134.65,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Misty,2:14:11.49,0,1,85,8:34,1779002271.335,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Blue,2:16:06.47,0,1,86,8:42,1779002387.277,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Will,2:23:34.63,0,12,92,9:12,1779002836.453,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Koga,2:24:32.38,0,12,92,9:16,1779002894.633,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Bruno,2:26:42.31,0,0,93,9:19,1779003025.48,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Elite Four Karen,2:27:44.60,0,0,93,9:23,1779003088.216,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Champion Lance,2:30:11.44,16,2,94,9:27,1779003235.487,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Pokemon Trainer Red,3:15:57.60,0,0,100,10:51,1779005997.914,Earthquake,Attract,AncientPower,Recover
+Lyra,Corsola,Passerby Boy,3:39.30,1,0,7,0:13,1779250988.33,Tackle,Harden,,
+Lyra,Corsola,Leader Falkner,13:02.60,1,2,14,0:51,1779251553.068,Tackle,Harden,Bubble,Recover
+Lyra,Corsola,Leader Bugsy,22:12.90,1,2,20,1:28,1779252105.365,Tackle,Rock Blast,Bubble,Recover
+Lyra,Corsola,Rival Silver,23:59.15,1,4,22,1:35,1779252212.189,Tackle,Rock Blast,Bubble,Recover
+Lyra,Corsola,Leader Whitney,30:44.20,1,4,24,2:02,1779252619.962,Headbutt,Rock Blast,Bubble,Recover
+Lyra,Corsola,Rival Silver,41:45.97,1,4,31,2:46,1779253287.384,Surf,Rock Blast,Headbutt,Recover
+Lyra,Corsola,Leader Morty,45:45.67,3,4,33,2:56,1779253527.717,Surf,AncientPower,Headbutt,Recover
+Lyra,Corsola,Leader Pryce,1:05:12.47,3,4,44,4:14,1779254699.402,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Leader Chuck,1:08:54.56,3,4,46,4:28,1779254923.605,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Leader Jasmine,1:11:49.43,3,4,46,4:40,1779255100.86,Surf,AncientPower,Power Gem,Recover
+Lyra,Corsola,Rival Silver,1:17:08.89,7,0,48,4:53,1779255423.512,Surf,AncientPower,Power Gem,Ice Beam
+Lyra,Corsola,Leader Clair,1:25:36.33,7,0,52,5:27,1779255936.037,Surf,AncientPower,Power Gem,Ice Beam
+Lyra,Corsola,Rival Silver,1:45:36.65,7,8,59,6:47,1779257143.049,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Will,1:47:29.28,7,9,61,6:55,1779257255.795,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Koga,1:48:01.37,7,9,62,6:57,1779257287.882,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Bruno,1:48:53.14,7,9,62,7:00,1779257339.999,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Karen,1:50:00.42,8,9,63,7:03,1779257407.672,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Champion Lance,1:50:51.56,8,9,64,7:06,1779257459.162,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Brock,2:00:53.18,0,0,67,7:46,1779258066.873,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Blaine,2:03:22.96,0,0,68,7:56,1779258217.935,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Janine,2:06:19.75,0,0,70,8:08,1779258396.438,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Lt. Surge,2:07:44.64,0,0,70,8:14,1779258483.12,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Erika,2:10:45.62,9,0,85,8:23,1779258666.069,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Sabrina,2:11:56.23,9,0,85,8:28,1779258737.599,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Misty,2:14:11.49,0,0,85,8:34,1779258874.246,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Leader Blue,2:16:06.47,0,0,86,8:42,1779258990.262,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Will,2:23:34.63,0,12,92,9:12,1779259439.032,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Koga,2:24:32.39,0,12,92,9:16,1779259497.195,Surf,AncientPower,Ice Beam,Earth Power
+Lyra,Corsola,Elite Four Bruno,2:26:42.30,0,0,93,9:19,1779259628.002,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Elite Four Karen,2:27:44.61,0,0,93,9:23,1779259690.732,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Champion Lance,2:30:11.45,16,0,94,9:27,1779259837.983,Surf,AncientPower,Ice Beam,Earthquake
+Lyra,Corsola,Pokemon Trainer Red,3:15:57.60,0,0,100,10:51,1779262597.11,Earthquake,Attract,AncientPower,Recover

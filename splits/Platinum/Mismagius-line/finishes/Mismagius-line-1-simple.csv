@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Misdreavus,Rival 1,1:23.69,0,0,5,0:04,1783823178.616,Growl,Psywave,Spite,
+Dawn,Misdreavus,Rival 2,7:14.42,0,0,9,0:27,1783823530.634,Return,Psywave,Spite,Growl
+Dawn,Misdreavus,Leader Roark,14:35.24,0,5,16,0:57,1783823972.786,Return,Psywave,Astonish,Confuse Ray
+Dawn,Misdreavus,Mars 1,21:19.76,1,5,21,1:22,1783824382.073,Return,Psywave,Astonish,Confuse Ray
+Dawn,Misdreavus,Leader Gardenia,27:30.16,1,5,25,1:46,1783824758.087,Return,Psybeam,Astonish,Confuse Ray
+Dawn,Misdreavus,Jupiter 1,34:46.31,8,5,28,2:02,1783825196.891,Return,Psybeam,Substitute,Confuse Ray
+Dawn,Mismagius,Leader Fantina,41:48.67,8,5,30,2:30,1783825629.957,Return,Psybeam,Substitute,Thief
+Dawn,Mismagius,Rival 3,42:55.28,8,5,31,2:34,1783825698.405,Return,Psybeam,Substitute,Thief
+Dawn,Mismagius,Leader Maylene,51:31.83,8,5,36,3:09,1783826233.593,Return,Psybeam,Substitute,Shock Wave
+Dawn,Mismagius,Rival 4,53:53.72,8,5,38,3:18,1783826381.277,Magical Leaf,Psybeam,Substitute,Shock Wave
+Dawn,Mismagius,Leader Wake,56:23.09,8,5,41,3:28,1783826531.62,Magical Leaf,Psybeam,Substitute,Shock Wave
+Dawn,Mismagius,Cyrus 1,1:01:41.49,8,5,49,3:50,1783826858.807,Magical Leaf,Psybeam,Thunder,Shadow Ball
+Dawn,Mismagius,Rival 5,1:04:14.95,8,5,50,4:00,1783827013.992,Magical Leaf,Psybeam,Thunderbolt,Shadow Ball
+Dawn,Mismagius,Leader Byron,1:06:43.85,8,5,52,4:10,1783827164.383,Magical Leaf,Psybeam,Thunderbolt,Shadow Ball
+Dawn,Mismagius,Saturn 1,1:09:03.36,8,5,53,4:19,1783827307.786,Magical Leaf,Psybeam,Thunderbolt,Shadow Ball
+Dawn,Mismagius,Mars 2,1:10:43.38,8,5,54,4:26,1783827408.609,Magical Leaf,Psybeam,Thunderbolt,Shadow Ball
+Dawn,Mismagius,Leader Candice,1:14:37.27,8,5,55,4:41,1783827646.024,Magical Leaf,Psybeam,Thunderbolt,Shadow Ball
+Dawn,Mismagius,Cyrus 2,1:19:15.00,8,5,58,5:00,1783827927.726,Thunderbolt,Psychic,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Saturn 2,1:19:59.37,8,5,58,5:03,1783827972.35,Thunderbolt,Psychic,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Mars 3,1:24:33.69,8,5,60,5:21,1783828249.332,Thunderbolt,Psychic,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Cyrus 3,1:28:47.19,8,5,69,5:38,1783828528.237,Thunderbolt,Psychic,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Leader Volkner,1:33:35.48,8,5,71,5:57,1783828820.836,Thunderbolt,Psychic,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Rival 6,1:40:45.71,8,5,76,6:26,1783829255.675,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Elite Four Aaron,1:41:33.29,8,5,77,6:29,1783829303.258,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Elite Four Bertha,1:42:28.74,8,5,78,6:33,1783829358.951,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Elite Four Flint,1:43:12.17,8,5,79,6:36,1783829402.657,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Elite Four Lucian,1:44:11.45,8,5,79,6:40,1783829462.204,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Champion Cynthia,1:45:18.38,8,5,80,6:44,1783829529.478,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf
+Dawn,Mismagius,Hall of Fame,1:45:18.38,8,5,81,6:45,1783829551.026,Thunderbolt,Charge Beam,Shadow Ball,Magical Leaf

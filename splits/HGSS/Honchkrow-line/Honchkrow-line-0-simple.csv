@@ -1,0 +1,48 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Murkrow,Leader Sabrina,2:03:04.01,26,7,70,7:00,1780706169.798,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Misty,2:08:46.78,26,7,72,7:23,1780717632.708,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Brock,2:11:34.37,26,7,72,7:34,1780717800.308,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Blaine,2:15:58.07,27,7,73,7:49,1780718064.018,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Janine,2:17:32.37,27,7,73,7:55,1780718158.325,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Lt. Surge,2:19:19.66,28,7,74,8:01,1780718265.612,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Blue,2:27:31.18,31,7,78,8:22,1780718757.159,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,2:31:20.76,31,7,78,8:37,1780718986.745,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Koga,2:32:54.44,32,7,83,8:42,1780719080.428,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Bruno,2:37:40.09,39,7,83,8:49,1780719366.088,Wing Attack,Swagger,Roost,Psych Up
+Lyra,Murkrow,Elite Four Karen,2:43:29.95,57,7,84,8:54,1780719715.963,Wing Attack,Swagger,Attract,Psych Up
+Lyra,Murkrow,Champion Lance,2:46:58.74,65,7,84,8:59,1780719924.755,Wing Attack,Swagger,Attract,Psych Up
+Lyra,Murkrow,Pokemon Trainer Red,2:54:00.38,72,7,85,9:20,1780720346.402,Return,Swagger,Attract,Psych Up
+Lyra,Murkrow,Passerby Boy,3:20.58,0,0,8,0:12,1780721565.481,Pursuit,Peck,Astonish,
+Lyra,Murkrow,Leader Falkner,8:55.72,0,0,15,0:35,1780721900.699,Wing Attack,Peck,Astonish,Pursuit
+Lyra,Murkrow,Leader Bugsy,14:23.86,0,0,19,0:56,1780722229.168,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Rival Silver,15:14.35,0,0,20,1:00,1780722280.01,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Leader Whitney,22:10.83,0,0,22,1:28,1780722697.376,Wing Attack,Peck,Roost,Pursuit
+Lyra,Murkrow,Rival Silver,31:59.47,2,0,29,2:03,1780723287.459,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Morty,34:19.39,2,0,32,2:13,1780723428.056,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Chuck,37:22.93,2,0,34,2:25,1780723612.4,Wing Attack,Substitute,Roost,Pursuit
+Lyra,Murkrow,Leader Pryce,46:50.57,2,1,38,3:03,1780724182.476,Wing Attack,Substitute,Roost,Faint Attack
+Lyra,Murkrow,Leader Jasmine,1:09:37.75,15,2,48,3:56,1780725556.276,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Rival Silver,1:13:29.38,15,2,49,4:11,1780725790.843,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Leader Clair,1:26:10.51,16,2,54,4:56,1780726556.138,Wing Attack,Substitute,Roost,Swagger
+Lyra,Murkrow,Rival Silver,1:44:51.12,20,5,58,6:04,1780727679.801,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:45:55.56,20,5,59,6:09,1780727744.254,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:47:08.25,20,6,60,6:13,1780727816.949,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,1:48:12.99,20,7,60,6:18,1780727881.69,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Koga,1:49:13.01,20,7,61,6:22,1780727942.035,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Bruno,1:50:15.24,20,7,68,6:26,1780728004.604,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Karen,1:51:06.29,20,7,68,6:29,1780728055.988,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Champion Lance,1:56:56.30,25,7,69,6:36,1780728407.01,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Erika,2:01:49.94,25,7,70,6:55,1780728704.228,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Sabrina,2:03:04.01,26,7,70,7:00,1780728778.443,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Misty,2:08:46.78,26,7,72,7:23,1780729123.654,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Brock,2:11:34.36,26,7,72,7:34,1780729292.771,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Blaine,2:15:58.07,27,7,73,7:49,1780729556.996,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Janine,2:17:32.36,27,7,73,7:55,1780729651.568,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Lt. Surge,2:19:19.66,28,7,74,8:01,1780729760.19,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Leader Blue,2:27:31.19,31,7,78,8:22,1780730254.063,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Will,2:31:20.77,31,7,78,8:37,1780730484.925,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Koga,2:32:54.44,32,7,83,8:42,1780730579.309,Wing Attack,Return,Roost,Dark Pulse
+Lyra,Murkrow,Elite Four Bruno,2:37:40.09,39,7,83,8:49,1780730866.093,Wing Attack,Swagger,Roost,Psych Up
+Lyra,Murkrow,Elite Four Karen,2:43:29.95,57,7,84,8:54,1780731217.23,Wing Attack,Swagger,Attract,Psych Up
+Lyra,Murkrow,Champion Lance,2:46:58.73,65,7,84,8:59,1780731426.495,Wing Attack,Swagger,Attract,Psych Up
+Lyra,Murkrow,Pokemon Trainer Red,2:54:00.37,72,7,85,9:20,1780731850.052,Return,Swagger,Attract,Psych Up

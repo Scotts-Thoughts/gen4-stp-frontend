@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Scott's Thoughts - Gen4 Frontend</title>
+    <!-- Silence Electron's dev-only insecure-CSP warning. The Vue dev build needs
+         `unsafe-eval`, so a strict CSP isn't viable; this never shows once packaged. -->
+    <script>window.ELECTRON_DISABLE_SECURITY_WARNINGS = true;</script>
     <link rel="stylesheet" href="style.css" id="cssStylesheet">
 </head>
 
@@ -10,47 +13,57 @@
     <div id="app-container">
         <div id="app">
         <div v-if="ready == false">
-            <select v-model="selected_game" class="dropdownMenu">
-                <option disabled value="">Select a species</option>
-                <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
-            </select>
+            <div class="gameToggle">
+                <img v-for="game in available_games"
+                     :key="game"
+                     :src="`images/box_art/${game_box_art[game]}`"
+                     :title="game"
+                     :class="['gameToggleImg', { selected: selected_game == game }]"
+                     @click="selected_game = game"/>
+            </div>
             Not receiving data...
         </div>
         <div v-else class="">
-            <img class="canvas" ref="background_texture" :src="textures[backgroundTexture]" 
-            :style="{ 
-                'filter': `blur(${backgroundBlur}px) hue-rotate(${backgroundHue}deg) brightness(${backgroundBrightness}%) contrast(${backgroundContrast}%) saturate(${backgroundSaturation}%)` ,
-                'transform': `scale(${backgroundScale}%) ${backgroundFlip ? 'rotateY(180deg)' : ''} translate(${backgroundXOffset}px, ${-backgroundYOffset}px)`
-            }"/>
+            <!-- Keyed by the texture path so swapping textures cross-fades old/new instead of popping -->
+            <transition name="styleFade">
+                <img class="canvas" ref="background_texture" :key="textures[backgroundTexture]" :src="textures[backgroundTexture]"
+                :style="{
+                    'filter': `blur(${backgroundBlur}px) hue-rotate(${backgroundHue}deg) brightness(${backgroundBrightness}%) contrast(${backgroundContrast}%) saturate(${backgroundSaturation}%)` ,
+                    'transform': `scale(${backgroundScale}%) ${backgroundFlip ? 'rotateY(180deg)' : ''} translate(${backgroundXOffset}px, ${-backgroundYOffset}px)`
+                }"/>
+            </transition>
             <img class="canvas" :src="`images/elements/pokeball.png`" />
-            <img class="pokemon_art" ref="pokemon_art"
-            :style="{
-                'transform': `scale(${imageScale}) ${imageFlip ? 'rotateY(180deg)' : ''} translate(${imageXOffset}px, ${-imageYOffset}px) rotate(${imageRotation}deg)`,
-                'filter': `saturate(${imageSat}%)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(0 0 0.4px #000)
-                drop-shadow(${imageFlip ? '-3px' : '3px'} 3px 3px #000)
-                `,
-                'opacity': pokemonArtOpacity,
-                'transition': pokemonArtTransition
-            }" 
-            :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
-            <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/heldItem.svg)"></div>
-            <div v-show="run_complete" class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/gametime.svg)"></div>
-            <img class="canvas colored-image ds" :src="`images/ui/stats_values.svg`" />
+            <!-- Keyed by the displayed species so starter changes, evolution-dropdown swaps and
+                 mid-run evolutions cross-fade old/new art. No inline opacity here: it would
+                 override the styleFade classes, so the fade is left entirely to the transition -->
+            <transition name="styleFade">
+                <img class="pokemon_art" ref="pokemon_art" :key="displayedPokemonSpecies"
+                :style="{
+                    'transform': `scale(${imageScale}) ${imageFlip ? 'rotateY(180deg)' : ''} translate(${imageXOffset}px, ${-imageYOffset}px) rotate(${imageRotation}deg)`,
+                    'filter': `saturate(${imageSat}%)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(0 0 0.4px #000)
+                    drop-shadow(${imageFlip ? '-3px' : '3px'} 3px 3px #000)
+                    `
+                }"
+                :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
+            </transition>
+            <img class="canvas colored-image ds" src="images/ui/game_area.png" />
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/heldItem.png)"></div>
+            <div v-show="run_complete" class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/gametime.png)"></div>
+            <img class="canvas colored-image ds" :src="`images/ui/stats_values.png`" />
             <div v-if="show_nature_changes == true && (stats_setting == 'Automatic' || stats_setting == 'Base Stats')">
-                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/raises/${natures[pkmnNature].raises}.svg`" />
-                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/lowers/${natures[pkmnNature].lowers}.svg`" />
+                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/raises/${natures[pkmnNature].raises}.png`" />
+                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/lowers/${natures[pkmnNature].lowers}.png`" />
             </div>
 
             <img class="canvas" :src="`images/ui/move_backgrounds.png`" />
@@ -58,30 +71,30 @@
             <!-- FAULTS COUNTERS -->
             <div style="position: absolute;">
                 <div v-show="blackouts_resets == 'None'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">faults</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Blackouts'">
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">blackouts</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{blackout_counter}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Resets'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">resets</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Both'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer_2.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer_2.png)"></div>
                     <div class="fault_label timer_2_reset_label">resets</div>
                     <div class="fault_label blackout_2_reset_label">blackouts</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="reset_counter"    class="faults_value timer_2_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="reset_counter"    class="faults_value timer_2_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter"    class="faults_value timer_2_reset_value">{{playerResets}}</div>
-                    <div v-if="shuckie_timer == true && shuckie_counters == true" id="blackout_counter" class="faults_value timer_2_blackout_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
+                    <div v-if="shuckie_counters == true" id="blackout_counter" class="faults_value timer_2_blackout_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
                     <div v-else id="blackout_counter" class="faults_value timer_2_blackout_value">{{blackout_counter}}</div>
                 </div>
             </div>
@@ -104,10 +117,14 @@
             <div>
                 <div class="ui1">
                     <div>Game:</div>
-                    <select v-model="selected_game" class="dropdownMenu">
-                        <option disabled value="">Select a species</option>
-                        <option v-for="game in available_games" :value="`${game}`">{{game}}</option>
-                    </select><br>
+                    <div class="gameToggle">
+                        <img v-for="game in available_games"
+                             :key="game"
+                             :src="`images/box_art/${game_box_art[game]}`"
+                             :title="game"
+                             :class="['gameToggleImg', { selected: selected_game == game }]"
+                             @click="selected_game = game"/>
+                    </div><br>
                     <br>
                     <button class="buttonStyle" @click="newRun">New Run</button><br>
                     <br>
@@ -115,19 +132,21 @@
                     <button class="buttonStyle" @click="set_timer">Set Timer</button><br>
                     <!-- <button class="buttonStyle set_button_style" @click="this.sendEmulatorStart()">Start Time</button><br> -->
                     <!-- <button class="buttonStyle set_button_style" @click="this.sendEmulatorEnd()">End Time</button><br> -->
-                    Start Time Offset: <input type="text" class="inputContainer" style="width: 169px; text-align: right;" v-model="timer_startTimeOffset" placeholder="00:00:00.00"/><br>
+                    Start Time Offset: <span class="timerOffsetControls">
+                        <input type="text" class="inputContainer" v-model="timer_startTimeOffset" placeholder="00:00:00.00"/>
+                        <button type="button" class="timerOffsetClearButton" @click="timer_startTimeOffset = '00:00:00.00'">Clear</button>
+                    </span><br>
                     <br>
                     <table>
                         <tr><td>Show Advanced Settings:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_advanced_settings"/></td></tr>
                         <tr><td>HP Banned for 1st run:</td><td><input class="checkBoxStyle" type="checkbox" v-model="banned_hidden_power"/></td></tr>
-                        <tr v-if="show_advanced_settings"><td>Test Run:</td><td><input class="checkBoxStyle" type="checkbox" v-model="testRun"/></td></tr>
+                        <!-- <tr v-if="show_advanced_settings"><td>Test Run:</td><td><input class="checkBoxStyle" type="checkbox" v-model="testRun"/></td></tr> -->
                         <tr v-if="show_advanced_settings"><td>Shuckie Timer</td><td><input class="checkBoxStyle" type="checkbox" v-model="shuckie_timer"/></td></tr>
                         <tr v-if="show_advanced_settings"><td>Shuckie Counters</td><td><input class="checkBoxStyle" type="checkbox" v-model="shuckie_counters"/></td></tr>
-                        <tr v-if="show_advanced_settings"><td>Refilming-Mode:</td><td><input class="checkBoxStyle" type="checkbox" v-model="refilming_mode"/></td></tr>
+                        <!-- <tr v-if="show_advanced_settings"><td>Refilming-Mode:</td><td><input class="checkBoxStyle" type="checkbox" v-model="refilming_mode"/></td></tr> -->
                         <tr v-if="show_advanced_settings"><td>Debugging-Mode:</td><td><input class="checkBoxStyle" type="checkbox" v-model="debugging_mode"/></td></tr>
                         <tr><td>Automatic Post Battle Splits:</td><td><input class="checkBoxStyle" type="checkbox" v-model="automatic_post_battle_splits"/></td></tr>
-                        <tr v-if="show_advanced_settings"><td>Legacy Starter Assignment:</td><td><input class="checkBoxStyle" type="checkbox" v-model="legacy_starter_assignment"/></td></tr>
-                        <tr v-if="show_advanced_settings"><td>Set Starter Automatically:</td><td><input class="checkBoxStyle" type="checkbox" v-model="set_rom_starter_automatically"/></td></tr>
+                        <!-- <tr v-if="show_advanced_settings"><td>Legacy Starter Assignment:</td><td><input class="checkBoxStyle" type="checkbox" v-model="legacy_starter_assignment"/></td></tr> -->
                     </table>
                     <br>
                     <button class="buttonStyle" @click="openCurrentSplitsFolder()">Open Splits Folder</button><br>
@@ -152,6 +171,23 @@
                         <button class="buttonStyle" @click="resetAllStyleSettingsToDefaults()" style="font-size: 11px; color: #f44;">
                             Reset ALL to Defaults
                         </button>
+                        <div v-if="isInDevMode" style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #333; font-size: 11px;" title="Dev only. Packaged builds always use enemy sprite styles.">
+                            <label>
+                                <input class="checkBoxStyle" type="checkbox" v-model="enemy_sprite_styles_enabled"/>
+                                Enemy Sprite Styles (scale/offset/flip)
+                            </label>
+                        </div>
+                        <div v-if="isInDevMode" style="margin-top: 6px;">
+                            <button v-if="!style_mode_active" class="buttonStyle" @click="enterStyleMode()" style="font-size: 11px;" title="Iterate every species: Enter saves + advances, Backspace discards + steps back, Escape exits.">
+                                Style Mode (iterate Pokedex)
+                            </button>
+                            <button v-else class="buttonStyle" @click="exitStyleMode()" style="font-size: 11px; color: #f44;">
+                                Exit Style Mode
+                            </button>
+                            <div v-if="style_mode_active" style="font-size: 11px; margin-top: 4px;">
+                                {{ style_mode_index + 1 }} / {{ style_mode_species_list.length }} — <strong>{{ styleModeCurrentSpecies() }}</strong>
+                            </div>
+                        </div>
                     </div>
                     
                     Pokemon Editor:<input class="checkBoxStyle" type="checkbox" v-model="editor"/>
@@ -229,13 +265,18 @@
                 </div>
                 <div class="ui2">
                     <div>Solo Pokemon:</div>
-                    <select v-model="starter" class="dropdownMenu">
-                        <option disabled value="">Select a species</option>
-                        <option v-for="key in filtered_pokemon_list" :value="`${key}`">{{key}}</option>
-                    </select>
-                    <div>Search Pokemon:</div>
-                    <input type="text" class="inputContainer" style="width: 280px;" v-model="search_term" placeholder="Search for a species">
-                    <button class="buttonStyle set_starter_button" @click="update_rom_starter_and_intro_mon">Set ROM Starter</button><br>
+                    <div class="starter_combobox">
+                        <input type="text" class="dropdownMenu" v-model="starter_input"
+                            @focus="starter_dropdown_open = true; $event.target.select()"
+                            @blur="close_starter_dropdown"
+                            @keydown.enter="commit_starter_input"
+                            @keydown.esc="starter_dropdown_open = false"
+                            placeholder="Type to filter species">
+                        <ul v-show="starter_dropdown_open && filtered_starter_options.length > 0" class="starter_dropdown_list">
+                            <li v-for="key in filtered_starter_options" :key="key"
+                                @mousedown.prevent="select_starter_option(key)">{{ key }}</li>
+                        </ul>
+                    </div>
                     <button class="buttonStyle comparison_button" @click="load_splits()">Load split file to compare splits</button><br>
                     <table>
                         <tr>
@@ -268,13 +309,6 @@
                         </tr>
                     </table>
                     <br>
-                    <table>
-                        <tr v-if="show_advanced_settings"><td>Catch Rate:</td><td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td></tr>
-                        <!-- <tr v-if="show_advanced_settings"><td>Display Wild Pokemon:</td><td><input class="checkBoxStyle" type="checkbox" v-model="wild_pokemon_display"/></td></tr> -->
-                        <!-- <tr v-if="show_advanced_settings"><td>Show nature arrows:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_nature_changes"/></td></tr> -->
-                        <tr><td>Show Tutor Moves:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_tutor_moves"/></td></tr>
-                    </table>
-                    <br>
                     <table v-if="hasMultipleEvolutionStages">
                         <tr>
                             <td>Evolution:</td>
@@ -301,43 +335,125 @@
                         <option v-for="(key, index) in hiddenpowers[hidden_power_type]" :value="`${index}`">{{key}}</option>
                     </select><br>
                     <table style="font-size: 11px; line-height: 14px;">
-                        <tr><td>HP: </td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][0]}}</td><td style="padding-left: 10px;">Spe:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][3]}}</td></tr>
-                        <tr><td>Atk:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][1]}}</td><td style="padding-left: 10px;">SpA:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][4]}}</td></tr>
-                        <tr><td>Def:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][2]}}</td><td style="padding-left: 10px;">SpD:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][5]}}</td></tr>
+                        <tr>
+                            <td>HP:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][0]}}</td>
+                            <td style="padding-left: 8px;">Atk:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][1]}}</td>
+                            <td style="padding-left: 8px;">Def:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][2]}}</td>
+                            <td style="padding-left: 8px;">SpA:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][4]}}</td>
+                            <td style="padding-left: 8px;">SpD:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][5]}}</td>
+                            <td style="padding-left: 8px;">Spe:</td><td>{{hiddenpowers[hidden_power_type][hidden_power_index][3]}}</td>
+                        </tr>
                     </table>
                     <br>
-                    <div>Abilities: ({{displayedPokemonSpecies}} has {{g4PokemonData[displayedPokemonSpecies]?.abilities?.length ?? 0}})</div>
-                    <select v-model="pkmn_ability" class="dropdownMenu dropdown_menu_column3">
-                        <option disabled value="">Select an ability</option>
-                        <option v-for="key in values_function(g4PokemonData[displayedPokemonSpecies]?.abilities ?? [])" :value="`${key}`">{{key}}</option>
-                    </select><br>
-                    <div style="font-size: 11px; line-height: 14px;">Ability: {{g4PokemonData[displayedPokemonSpecies]?.abilities?.indexOf(pkmn_ability) != null && g4PokemonData[displayedPokemonSpecies]?.abilities ? g4PokemonData[displayedPokemonSpecies].abilities.indexOf(pkmn_ability) + 1 : 0}}</div>
+                    <div style="display: flex; gap: 12px; align-items: flex-start;">
+                        <div>
+                            <div>Abilities: ({{displayedPokemonSpecies}} has {{g4PokemonData[displayedPokemonSpecies]?.abilities?.length ?? 0}})</div>
+                            <select v-model="pkmn_ability" class="dropdownMenu dropdown_menu_column3" style="width: 144px;">
+                                <option disabled value="">Select an ability</option>
+                                <option v-for="key in values_function(g4PokemonData[displayedPokemonSpecies]?.abilities ?? [])" :value="`${key}`">{{key}}</option>
+                            </select>
+                            <div style="font-size: 11px; line-height: 14px;">Ability: {{g4PokemonData[displayedPokemonSpecies]?.abilities?.indexOf(pkmn_ability) != null && g4PokemonData[displayedPokemonSpecies]?.abilities ? g4PokemonData[displayedPokemonSpecies].abilities.indexOf(pkmn_ability) + 1 : 0}}</div>
+                        </div>
+                        <div>
+                            <div>Gender:</div>
+                            <select v-model="pkmn_gender" class="dropdownMenu" style="width: 144px;">
+                                <option>Female</option>
+                                <option>Male</option>
+                            </select>
+                        </div>
+                    </div>
                     <br>
-                    <div>Nature:</div>
-                    <select v-model="pkmnNature" class="dropdownMenu dropdown_menu_column3">
-                        <option disabled value="">Select a Nature</option>
-                        <option v-for="key in values_function(simple_natures)" :value="`${key}`">{{natureLabels(`${key}`)}}</option>
-                    </select><br>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <div>
+                            <div>Nature:</div>
+                            <select v-model="pkmnNature" class="dropdownMenu dropdown_menu_column3" style="width: 144px;">
+                                <option disabled value="">Select a Nature</option>
+                                <option v-for="key in values_function(simple_natures)" :value="`${key}`">{{natureLabels(`${key}`)}}</option>
+                            </select>
+                        </div>
+                        <div class="nature_grid">
+                            <div class="nature_grid_row">
+                                <span class="nature_grid_label nature_grid_raise">+</span>
+                                <button v-for="stat in natureStats" :key="'raise-' + stat.key"
+                                    class="nature_grid_btn"
+                                    :class="{ 'nature_grid_raise_on': natureRaisedStat() === stat.key }"
+                                    @click="selectNatureRaise(stat.key)">{{stat.short}}</button>
+                            </div>
+                            <div class="nature_grid_row">
+                                <span class="nature_grid_label nature_grid_lower">&minus;</span>
+                                <button v-for="stat in natureStats" :key="'lower-' + stat.key"
+                                    class="nature_grid_btn"
+                                    :class="{ 'nature_grid_lower_on': natureLoweredStat() === stat.key }"
+                                    @click="selectNatureLower(stat.key)">{{stat.short}}</button>
+                            </div>
+                        </div>
+                    </div>
                     <br>
-                    <div>Gender:</div>
-                    <select v-model="pkmn_gender" class="dropdownMenu">
-                        <option>Female</option>
-                        <option>Male</option>
-                    </select>
-                    <br><br>
-                    <div>Encounters:</div>
-                    <table v-if="mapper.properties.meta.game_name.value == 'Platinum'" style="font-size: 11px; line-height: 14px;">
-                        <tr><td>Route 201</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_201"/></td></tr>
-                        <tr><td>Route 202</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_202"/></td></tr>
-                        <tr><td>Route 203</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_203"/></td></tr>
-                        <tr><td>Oreburgh Gate</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_gate"/></td></tr>
-                        <tr><td>Oreburgh Mine</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_mine"/></td></tr>
+                    <table v-if="show_advanced_settings">
+                        <tr>
+                            <td>Catch Rate:</td>
+                            <td><input class="checkBoxStyle" type="checkbox" v-model="catch_rate"/></td>
+                            <td v-if="(mapper?.properties?.meta?.game_name?.value || selected_game) == 'Platinum'"><button class="buttonStyle" style="margin-left: 8px; padding: 2px 10px; font-size: 12px;" @click="openRNGModal">RNG</button></td>
+                        </tr>
                     </table>
-                    <table v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" style="font-size: 11px; line-height: 14px;">
-                        <tr><td>Route 29</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_29"/></td></tr>
-                        <tr><td>Route 30</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_30"/></td></tr>
-                        <tr><td>Sprout Tower</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_sprout_tower"/></td></tr>
-                    </table>
+                    <div v-if="mapper.properties.meta.game_name.value == 'Platinum'" style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div>
+                            <div>Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 201</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_201"/></td></tr>
+                                <tr><td>Route 202</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_202"/></td></tr>
+                                <tr><td>Route 203</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_203"/></td></tr>
+                                <tr><td>Oreburgh Gate</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_gate"/></td></tr>
+                                <tr><td>Oreburgh Mine</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_oreburgh_mine"/></td></tr>
+                            </table>
+                        </div>
+                        <div>
+                            <div>HM Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 201 - Bidoof</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_201_bidoof"/></td></tr>
+                                <tr><td>Route 201 - Starly</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_201_starly"/></td></tr>
+                                <tr><td>Route 202 - Bidoof</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_202_bidoof"/></td></tr>
+                                <tr><td>Route 202 - Starly</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_202_starly"/></td></tr>
+                                <tr><td>Route 203 - Abra</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_203_abra"/></td></tr>
+                                <tr><td>Oreburgh Gate - Zubat</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_oreburgh_gate_zubat"/></td></tr>
+                                <tr><td>Oreburgh Gate - Geodude</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_oreburgh_gate_geodude"/></td></tr>
+                                <tr><td>Oreburgh Gate - Psyduck</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_oreburgh_gate_psyduck"/></td></tr>
+                                <tr><td>Route 207 - Machop</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_207_machop"/></td></tr>
+                                <tr><td>Route 207 - Geodude</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_207_geodude"/></td></tr>
+                                <tr><td>Oreburgh Mine - Geodude</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_oreburgh_mine_geodude"/></td></tr>
+                                <tr><td>Route 208 - Bibarel</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_208_bibarel"/></td></tr>
+                                <tr><td>Route 213 - Buizel</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_213_buizel"/></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'" style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div>
+                            <div>Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 29</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_29"/></td></tr>
+                                <tr><td>Route 30</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_route_30"/></td></tr>
+                                <tr><td>Sprout Tower</td><td><input class="checkBoxStyle" type="checkbox" v-model="encounters_sprout_tower"/></td></tr>
+                            </table>
+                        </div>
+                        <div>
+                            <div>HM Encounters:</div>
+                            <table style="font-size: 11px; line-height: 14px;">
+                                <tr><td>Route 29 - Sentret</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_sentret"/></td></tr>
+                                <tr><td>Route 29 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_rattata"/></td></tr>
+                                <tr><td>Route 29 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_29_pidgey"/></td></tr>
+                                <tr><td>Route 30 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_30_rattata"/></td></tr>
+                                <tr><td>Route 30 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_30_pidgey"/></td></tr>
+                                <tr><td>Route 31 - Bellsprout</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_bellsprout"/></td></tr>
+                                <tr><td>Route 31 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_rattata"/></td></tr>
+                                <tr><td>Route 31 - Pidgey</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_31_pidgey"/></td></tr>
+                                <tr><td>Route 32 - Rattata</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_32_rattata"/></td></tr>
+                                <tr><td>Route 32 - Wooper</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_32_wooper"/></td></tr>
+                                <tr><td>Union Cave - Sandshrew</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_union_cave_sandshrew"/></td></tr>
+                                <tr><td>Route 34 - Drowzee</td><td><input class="checkBoxStyle" type="checkbox" v-model="hm_route_34_drowzee"/></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div v-if="mapper.properties.meta.game_name.value != 'Platinum' && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'">Encounters:</div>
                     <br>
                     <div v-if="mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver' && show_advanced_settings && legacy_starter_assignment">
                         <br>
@@ -361,6 +477,10 @@
                     </div>
                 </div>
                 <div class="ui3">
+                    <table>
+                        <tr><td>Show Tutor Moves:</td><td><input class="checkBoxStyle" type="checkbox" v-model="show_tutor_moves"/></td></tr>
+                    </table>
+                    <br>
                     <div>Stat Display:</div>
                     <select v-model="stats_setting" class="dropdownMenu">
                         <option>Automatic</option>
@@ -624,27 +744,91 @@
 
             <!-- Right Hand Information Area -->
             <transition name="fadeBattle">
+                <!-- Style Mode (dev only): replaces the live right panel with a
+                     dummy slot-0 enemy graphic so every species can be styled.
+                     Layout mirrors the live "Enemy Team Display" block below
+                     (single slot) with dummy stats/moves so all surrounding
+                     graphics render. -->
+                <div v-if="isInDevMode && style_mode_active" style="position: absolute;" key="style_mode">
+                    <div class="trainerLabel">{{ styleModeCurrentSpecies() }} {{ style_mode_index + 1 }}/{{ style_mode_species_list.length }}</div>
+                    <div class="colored-image ds" :style="`height: 233px; filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/enemy.png)"></div>
+                    <div>
+                        <div>
+                            <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/0.png)`"></div>
+                        </div>
+                        <img class="enemyStatsArea eFaintTransition red-svg" :src="`images/new_ui/comp/0.png`"/>
+                        <img :src="`images/new_ui/stats/0.png`" class="enemyPng eFaintTransition">
+                    </div>
+                    <div class="enemyGraphic">
+                        <div class="eFaintTransition">
+                            <div class="border slots ePkmnStyle ePkmn0">
+                                <img class="ePkmnSprite ePkmnSpriteResizing"
+                                     :data-enemy-slot="0"
+                                     :data-enemy-species="styleModeCurrentSpecies()"
+                                     :style="{ transform: enemyTransformFor(styleModeCurrentSpecies()), filter: `drop-shadow(${getEnemySpriteFlipped(styleModeCurrentSpecies()) ? -2 : 2}px 2px 2px #000) saturate(1.1)` }"
+                                     :src="`images/pokemon/${speciesSpecialCharacters(styleModeCurrentSpecies())}.png`" />
+                                <div class="ePkmnLvlSpecies">{{ styleModeCurrentSpecies() }}</div>
+                                <div class="ePkmnLevel">Level: 50</div>
+                                <div class="ePkmnAbility">{{ g4PokemonData[styleModeCurrentSpecies()]?.abilities?.[0] ?? '' }}</div>
+                                <div style="left: 2px;" class="border ePkmnTyping">
+                                    <img class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[styleModeCurrentSpecies()]?.type_1?.toLowerCase()}.png`" />
+                                    <img v-show="g4PokemonData[styleModeCurrentSpecies()]?.type_1 != g4PokemonData[styleModeCurrentSpecies()]?.type_2"
+                                         class="icons moveIcon" :src="`images/type-icons-circular/${g4PokemonData[styleModeCurrentSpecies()]?.type_2?.toLowerCase()}.png`" />
+                                </div>
+                                <div class="border ePkmnStats">
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnHpLabel" >Hp:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnAtkLabel">Atk:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn1 ePkmnDefLabel">Def:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpeLabel">Spe:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpaLabel">SpA:</div>
+                                    <div class="ePkmnStatsLabelsStyle ePkmnStatsLabelColumn2 ePkmnSpdLabel">SpD:</div>
+
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnHp  opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_hp      ?? 100 }}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnAtk opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_atk     ?? 50 }}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn1 ePkmnDef opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_def     ?? 50 }}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpe opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_spd     ?? 50 }}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpa opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_spc_atk ?? 50 }}</div>
+                                    <div class="ePkmnStatsStyle ePkmnStatsLabelColumn2 ePkmnSpd opacityTransition">{{ g4PokemonData[styleModeCurrentSpecies()]?.base_spc_def ?? 50 }}</div>
+                                </div>
+                                <div class="border ePkmnMoves">
+                                    <table class="enemyMovesetTable">
+                                        <tr v-for="(dummy, i) in style_mode_dummy_moves">
+                                            <th><img class="icons moveIcon" :src="`images/type-icons-circular/${dummy.type}.png`" /></th>
+                                        </tr>
+                                    </table>
+                                    <div v-for="(dummy, i) in style_mode_dummy_moves" :class="`ePkmnMoveStyle ePkmnMove${i + 1}`">{{ dummy.name }}</div>
+                                </div>
+                                <div class="ePkmnSpeedComparison">Outsped</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Enemy Team Display -->
-                <div v-if="enemy_graphic == true" style="position: absolute;" key="1">
+                <div v-else-if="enemy_graphic == true" style="position: absolute;" key="1">
                     <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{get_trainer_name(mapper.properties.battle.opponent.trainer.value, mapper.properties.battle.opponent.id.value)}}</div>
                     <div v-else class="trainerLabel">Double Battle Team</div>
-                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/new_ui/enemy.svg)"></div>
+                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/new_ui/enemy.png)"></div>
                     <div v-for="x in pkmnSlots">
                         <div v-if="x < mapper.properties.battle.opponent.team_count.value" >
                             <div :style="enemyPkmnUI(mapper.properties.battle.opponent.team[x])">
-                                <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.svg)`"></div>
+                                <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.png)`"></div>
                             </div>
-                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, getEnemyStat('speed', enemy_mon_static[x]?.stats.speed, x)).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.svg`"/>
-                            <img :src="`images/new_ui/stats/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
+                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, getEnemyStat('speed', enemy_mon_static[x]?.stats.speed, x)).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.png`"/>
+                            <img :src="`images/new_ui/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                         </div>
                     </div>
                     <!-- <div v-for="x in pkmnSlots">
-                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :src="`images/enemy-area/stats/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
+                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :src="`images/enemy-area/stats/${x + mapper.properties.battle.opponent.team_count.value}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
                     </div> -->
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
                             <div v-if="x < mapper.properties.battle.opponent.team_count.value" :class="`border slots ePkmnStyle ePkmn${x}`">
-                                <img class="ePkmnSprite" :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
+                                <img class="ePkmnSprite"
+                                    :class="{ ePkmnSpriteResizing: enemyResize.slot === x }"
+                                    :data-enemy-slot="x"
+                                    :data-enemy-species="enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species"
+                                    :style="{ transform: enemyTransformFor(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species), filter: `drop-shadow(${getEnemySpriteFlipped(enemy_mon_static[x]?.species?.value || enemy_mon_static[x]?.species) ? -2 : 2}px 2px 2px #000) saturate(1.1)` }"
+                                    :src="`images/pokemon/${speciesSpecialCharacters(enemy_mon_static[x]?.species)}.png`" />
                                 <div class="ePkmnLvlSpecies">{{enemy_mon_static[x]?.species}}</div>
                                 <div class="ePkmnLevel">Level: {{enemy_mon_static[x]?.level}}</div>
                                 <div class="ePkmnAbility">{{enemy_mon_static[x]?.ability}}</div>
@@ -767,9 +951,9 @@
                 </div>
                 <div v-else-if="right_display == 'Trainer'" style="position: absolute;" key="2">
                     <div class="trainerLabel">{{examined_trainer_data.name}}</div>
-                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
+                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.png)"></div>
                     <div v-for="x in pkmnSlots">
-                        <img v-if="x < examined_trainer_data?.party?.length" :src="`images/enemy-area/stats/${x}.svg`" class="enemyPng eFaintTransition">
+                        <img v-if="x < examined_trainer_data?.party?.length" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" >
@@ -853,7 +1037,7 @@
                                 <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;" :style="split_diff_color(split.difference)">{{split.difference}}</td>
                             </tr>
                         </table>
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.png)"></div>
                     </div>
                     <!-- First -->
                     <div v-else-if="split_type == 'First'">
@@ -874,11 +1058,11 @@
                                 <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;">{{split.current_time}}</td>
                             </tr>
                         </table>
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.png)"></div>
                     </div>
                 </div>
                 <!-- Movepool - Only level up -->
-                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Level Up Moves'" key="6" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -900,10 +1084,10 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
-                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -926,10 +1110,10 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
-                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -951,10 +1135,10 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool -->
-                <div v-else key="7" :style="`filter: drop-shadow(0px 1px 1px); transition: ${movepoolTransition}`">
+                <div v-else key="7" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
                     <table class="movepoolDemo" cellspacing="0" :style="movepoolResize()">
                         <tr :style="{'background-color': `var(--${starting_type_fix})`, 'outline': '2px solid #000'}">
                             <th class="movepool_header movepool_way">Way</th>
@@ -995,7 +1179,7 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
             </transition>
 
@@ -1003,14 +1187,14 @@
             <div v-if="!not_valid_battle_state" style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/accuracy.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/accuracy.png)"></div>
                         <div class="genericLabels mod_label accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value }}</div>
                     </div>
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/evasion.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/evasion.png)"></div>
                         <div class="genericLabels mod_label evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.evasion.value }}</div>
                     </div>
@@ -1037,8 +1221,8 @@
             <div class="posAbs" v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
                 <transition name="fade1">
                     <div v-if="voltorb_flip == true">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/new_ui/voltorb_flip.svg)"></div>
-                        <!-- <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/coins.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/new_ui/voltorb_flip.png)"></div>
+                        <!-- <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/coins.png)"></div>
                         <div  class="genericLabels voltorb_flip_data coinsLabel">coins:</div>
                         <div  class="genericLabels voltorb_flip_data coinsValue">{{mapper.properties.bag.coins.value}}</div>
                         <div  class="genericLabels voltorb_flip_data roundLabel">round:</div>
@@ -1109,6 +1293,31 @@
                 </div>
             </div>
 
+            <!-- RNG Configuration Modal -->
+            <div v-if="showRNGModal" class="popup-overlay" @click="closeRNGModal">
+                <div class="popup-menu rng-modal" @click.stop>
+                    <div class="popup-header">
+                        <h3>RNG Configuration</h3>
+                        <button class="popup-close" @click="closeRNGModal">&times;</button>
+                    </div>
+                    <div class="rng-modal-body">
+                        <div v-for="npc in rng_npcs" :key="npc.key" class="rng-npc-block">
+                            <div class="rng-npc-header">
+                                <span class="rng-npc-title">{{ npc.label }}</span>
+                                <button class="smallButtonStyle increment" @click="addRNGTrip(npc.key)" title="Add trip">+</button>
+                            </div>
+                            <div v-for="(trip, idx) in rng_config[npc.key]" :key="idx" class="rng-trip-row">
+                                <span class="rng-trip-label">Trip {{ idx + 1 }}:</span>
+                                <select class="dropdownMenu rng-trip-select" v-model="rng_config[npc.key][idx]">
+                                    <option v-for="(val, name) in rngOptionsFor(npc.key)" :key="name" :value="name">{{ name }}</option>
+                                </select>
+                                <button v-if="idx > 0" class="smallButtonStyle2 decrement" @click="removeRNGTrip(npc.key, idx)" title="Remove trip">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Gametime -->
             <transition name="fade1">
                 <div v-show="run_complete">
@@ -1118,6 +1327,15 @@
                     </div>
                 </div>
             </transition>
+
+            <!-- Enemy sprite resize handle (dev mode only). Teleported to body. -->
+            <Teleport to="body" v-if="isInDevMode">
+                <div v-if="enemyResize.species && enemySpriteHandlePosition()"
+                    class="ePkmnSpriteResizeHandle"
+                    :style="enemySpriteHandlePosition()"
+                    @mousedown="onEnemyResizeHandleMouseDown($event)"
+                    title="Drag to resize. Arrows move (Shift = 10px). F1 flips. Enter saves, Escape cancels."></div>
+            </Teleport>
         </div>
     </div>
     </div>

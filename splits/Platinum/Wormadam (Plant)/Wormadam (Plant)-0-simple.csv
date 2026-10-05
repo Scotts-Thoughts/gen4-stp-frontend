@@ -1,0 +1,28 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Wormadam (Plant),Mars 1,50:47.06,28,4,22,2:53,1786209896.301,Bug Bite,Protect,Tackle,Hidden Power
+Dawn,Wormadam (Plant),Mars 1,52:59.29,29,4,22,2:53,1786210028.532,Bug Bite,Protect,Tackle,Hidden Power
+Dawn,Wormadam (Plant),Leader Gardenia,1:00:21.10,29,4,28,3:22,1786210470.355,Bug Bite,Razor Leaf,Tackle,Confusion
+Dawn,Wormadam (Plant),Jupiter 1,1:02:38.38,29,4,29,3:31,1786210607.639,Bug Bite,Razor Leaf,Growth,Confusion
+Dawn,Wormadam (Plant),Leader Fantina,1:13:53.20,29,4,38,4:16,1786211282.462,Bug Bite,Substitute,Growth,Psybeam
+Dawn,Wormadam (Plant),Rival 3,1:14:44.59,29,4,38,4:20,1786211333.851,Bug Bite,Substitute,Growth,Psybeam
+Dawn,Wormadam (Plant),Leader Maylene,1:26:30.96,29,4,45,5:07,1786212040.237,Bug Bite,Grass Knot,Growth,Psychic
+Dawn,Wormadam (Plant),Rival 4,1:44:08.36,29,4,49,6:18,1786213097.651,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Leader Wake,1:46:12.06,29,4,51,6:26,1786213221.349,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Cyrus 1,1:50:39.23,29,4,52,6:44,1786213488.523,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Rival 5,1:54:20.61,29,4,55,6:58,1786213709.912,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Leader Byron,1:57:42.10,31,4,56,7:10,1786213911.397,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Saturn 1,2:00:00.80,31,4,57,7:19,1786214050.107,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Mars 2,2:01:37.91,31,4,57,7:26,1786214147.213,Psychic,Grass Knot,Growth,Bug Bite
+Dawn,Wormadam (Plant),Leader Candice,2:07:32.97,33,4,68,7:46,1786214502.279,Psychic,Grass Knot,Growth,Shadow Ball
+Dawn,Wormadam (Plant),Cyrus 2,2:14:33.84,34,4,69,8:12,1786214923.152,Return,Grass Knot,Swagger,Psych Up
+Dawn,Wormadam (Plant),Saturn 2,2:15:15.34,34,4,69,8:15,1786214964.654,Return,Grass Knot,Swagger,Psych Up
+Dawn,Wormadam (Plant),Mars 3,2:20:17.87,34,4,70,8:35,1786215267.189,Return,Grass Knot,Swagger,Psych Up
+Dawn,Wormadam (Plant),Cyrus 3,2:28:12.51,38,4,73,9:01,1786215741.835,Return,Grass Knot,Swagger,Psych Up
+Dawn,Wormadam (Plant),Leader Volkner,2:35:35.25,39,4,74,9:28,1786216184.583,Return,Grass Knot,Growth,Psychic
+Dawn,Wormadam (Plant),Rival 6,2:43:28.56,39,4,77,9:59,1786216657.896,Return,Grass Knot,Growth,Psychic
+Dawn,Wormadam (Plant),Elite Four Aaron,2:44:34.15,39,4,78,10:04,1786216723.488,Return,Grass Knot,Growth,Psychic
+Dawn,Wormadam (Plant),Elite Four Bertha,2:45:27.99,39,4,78,10:07,1786216777.33,Return,Grass Knot,Growth,Psychic
+Dawn,Wormadam (Plant),Elite Four Flint,2:47:05.52,39,4,85,10:14,1786216874.861,Return,Skill Swap,Growth,Psychic
+Dawn,Wormadam (Plant),Elite Four Lucian,2:48:35.73,39,4,85,10:20,1786216965.078,Return,Giga Drain,Growth,Psychic
+Dawn,Wormadam (Plant),Champion Cynthia,2:49:56.35,39,4,86,10:25,1786217045.697,Return,Giga Drain,Growth,Psychic
+Dawn,Wormadam (Plant),Hall of Fame,2:49:56.37,39,4,86,10:27,1786217066.825,Return,Giga Drain,Growth,Psychic

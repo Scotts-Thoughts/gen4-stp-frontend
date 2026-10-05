@@ -282,7 +282,122 @@ body {
     filter: drop-shadow(0px 0px 2px #000000c5);
 }
 .dropdownMenu:hover {
-    background: #11ce18; 
+    background: #11ce18;
+}
+.nature_grid {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 144px;
+}
+.nature_grid_row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.nature_grid_label {
+    width: 12px;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: Play;
+    font-size: 13px;
+    font-weight: 700;
+}
+.nature_grid_raise { color: #d83a3a; }
+.nature_grid_lower { color: #3a6fd8; }
+.nature_grid_btn {
+    pointer-events: auto;
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 20px;
+    padding: 0;
+    font-size: 11px;
+    background: #72fd4f;
+    font-family: Play;
+    border: none;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 2px #000000c5);
+    cursor: pointer;
+}
+.nature_grid_btn:hover {
+    background: #14d61a;
+}
+.nature_grid_raise_on {
+    color: #fff;
+    background: #d83a3a;
+}
+.nature_grid_raise_on:hover {
+    background: #c43030;
+}
+.nature_grid_lower_on {
+    color: #fff;
+    background: #3a6fd8;
+}
+.nature_grid_lower_on:hover {
+    background: #3060c4;
+}
+.gameToggle {
+    pointer-events: auto;
+    position: relative;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    filter: drop-shadow(0px 0px 2px #000000c5);
+}
+.gameToggleImg {
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 6px;
+    opacity: 0.45;
+    filter: grayscale(70%);
+    transition: opacity 0.15s, filter 0.15s, transform 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+.gameToggleImg:hover {
+    opacity: 0.85;
+    filter: grayscale(20%);
+    transform: scale(1.05);
+}
+.gameToggleImg.selected {
+    opacity: 1;
+    filter: none;
+    border-color: #11ce18;
+    box-shadow: 0 0 6px #11ce18;
+    transform: scale(1.05);
+}
+.starter_combobox {
+    position: relative;
+    display: inline-block;
+}
+.starter_dropdown_list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    max-height: 220px;
+    overflow-y: auto;
+    background: #d8ffc9;
+    border: 1px solid #000;
+    border-radius: 6px;
+    margin: 2px 0 0 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+    font-family: Play;
+    font-size: 13px;
+    box-shadow: 0px 2px 6px #000000a0;
+}
+.starter_dropdown_list li {
+    padding: 3px 8px;
+    cursor: pointer;
+}
+.starter_dropdown_list li:hover {
+    background: #72fd4f;
 }
 .inputContainer {
     background-color: #d8ffc9;
@@ -290,6 +405,37 @@ body {
     font-family: play;
     padding-left: 4px;
     padding-right: 4px;
+}
+.timerOffsetControls {
+    display: inline-flex;
+    width: 169px;
+    vertical-align: middle;
+    gap: 2px;
+    align-items: stretch;
+}
+.timerOffsetControls .inputContainer {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    text-align: right;
+}
+.timerOffsetClearButton {
+    pointer-events: auto;
+    position: relative;
+    flex-shrink: 0;
+    width: 54px;
+    min-width: 54px;
+    height: 24px;
+    font-size: 13px;
+    background: #72fd4f;
+    font-family: Play;
+    border-radius: 4px;
+    padding: 0 4px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.timerOffsetClearButton:hover {
+    background: #14d61a;
 }
 .buttonStyle {
     pointer-events: auto; 
@@ -489,7 +635,7 @@ body {
     -webkit-mask-image: var(--url); /* fallback, just to be safe */
     mask-image: var(--url); /* use the alpha channel of provided image as a mask of this layer */
     mix-blend-mode: color; /* color blend mode, I'm not sure if 'color' is the right one - might need to be changed */
-    transition: background-color 1s ease-in-out;
+    transition: background-color 750ms ease-in-out; /* smooth overlay color changes (species swaps, evolutions, color picker) */
 }
 .ds {
     filter: drop-shadow(0px 0px 1px #000000c5);
@@ -2754,6 +2900,17 @@ img, span, div {
     }
 } 
 
+/* Background texture / Pokemon art swaps: old and new render together and cross-fade.
+   Keyed on the texture path and the displayed species, so picking a texture, changing
+   starter, switching the evolution-family styling dropdown, and evolving mid-run all
+   fade instead of popping. Matches the 750ms overlay-color fade on .colored-image::after. */
+.styleFade-enter-from { opacity: 0; }
+.styleFade-enter-to { opacity: 1; }
+.styleFade-enter-active { transition: opacity 750ms ease-in-out; }
+.styleFade-leave-from { opacity: 1; }
+.styleFade-leave-to { opacity: 0; }
+.styleFade-leave-active { transition: opacity 750ms ease-in-out; }
+
 .fadeBattle-enter-from { opacity: 0; }
 .fadeBattle-enter-to { opacity: 1; }
 .fadeBattle-enter-active { transition: opacity 300ms ease-in-out 50ms; }
@@ -2888,7 +3045,7 @@ img, span, div {
     transition: opacity 500ms ease-in-out, filter 500ms ease-in-out; */
     position: absolute;
     border: 1px solid rgba(255, 0, 0, 0);
-    transform-origin: top left;
+    transform-origin: 50% 50%;
     display: inline-block; /* to ensure it's treated as an inline-level element */
     vertical-align: middle; /* to align it with the text */
     width: 122px;
@@ -2896,6 +3053,22 @@ img, span, div {
     top: 18px;
     left: 0px;
     filter: drop-shadow(1px 1px 2px);
+}
+.ePkmnSpriteResizing {
+    outline: 2px dashed #00ffff;
+    outline-offset: 2px;
+}
+.ePkmnSpriteResizeHandle {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: #00ffff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: nwse-resize;
+    z-index: 2147483647;
+    pointer-events: auto;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }
 .ePkmnMoveStyle {
     position: absolute;
@@ -3637,4 +3810,50 @@ img, span, div {
 
 .popup-item:active {
     background-color: #d0e8f0;
+}
+
+/* RNG Modal Styles */
+.rng-modal {
+    min-width: 460px;
+    max-width: 640px;
+}
+.rng-modal-body {
+    padding: 12px 18px 18px 18px;
+    overflow-y: auto;
+    max-height: 70vh;
+    color: #222;
+}
+.rng-npc-block {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+}
+.rng-npc-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.rng-npc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.rng-npc-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+.rng-trip-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+.rng-trip-label {
+    font-size: 12px;
+    width: 60px;
+}
+.rng-trip-select {
+    flex: 1;
+    min-width: 0;
 }

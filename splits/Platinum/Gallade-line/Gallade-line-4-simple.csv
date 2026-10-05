@@ -1,0 +1,53 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Ralts,Rival 2,10:29.63,0,1,9,0:40,1788625197.465,Confusion,Growl,Return,
+Dawn,Ralts,Leader Roark,20:05.42,0,3,18,1:19,1788625780.795,Confusion,Growl,Return,Teleport
+Dawn,Kirlia,Mars 1,37:05.63,1,7,25,2:25,1788626820.208,Confusion,Magical Leaf,Return,Calm Mind
+Dawn,Kirlia,Leader Gardenia,41:11.74,1,7,27,2:42,1788627066.324,Confusion,Magical Leaf,Return,Calm Mind
+Dawn,Kirlia,Jupiter 1,1:00:11.71,6,7,33,3:48,1788628223.787,Confusion,Magical Leaf,Psychic,Calm Mind
+Dawn,Kirlia,Leader Fantina,1:04:50.18,6,7,33,4:06,1788628502.264,Substitute,Magical Leaf,Psychic,Calm Mind
+Dawn,Kirlia,Rival 3,1:06:25.97,6,7,34,4:13,1788628598.059,Substitute,Magical Leaf,Psychic,Calm Mind
+Dawn,Gallade,Leader Maylene,1:19:18.11,6,7,37,5:04,1788629991.788,Swords Dance,Leaf Blade,Psychic,Calm Mind
+Dawn,Gallade,Rival 4,1:22:00.81,6,7,38,5:15,1788630154.484,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Leader Wake,1:23:47.06,6,7,39,5:22,1788630260.733,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Cyrus 1,1:28:12.82,6,7,41,5:40,1788630526.501,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Rival 5,1:29:46.65,6,7,42,5:46,1788630620.329,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Leader Byron,1:32:13.34,6,7,44,5:56,1788630767.024,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Saturn 1,1:34:32.38,6,7,45,6:05,1788630913.808,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Mars 2,1:36:29.17,6,7,45,6:13,1788631030.601,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Leader Candice,1:40:50.56,6,7,47,6:31,1788631291.992,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Cyrus 2,1:45:16.45,7,7,48,6:47,1788631557.887,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Saturn 2,1:46:03.73,7,7,49,6:50,1788631605.165,Swords Dance,Leaf Blade,Night Slash,Drain Punch
+Dawn,Gallade,Mars 3,1:52:35.46,7,7,64,7:16,1788632017.809,Swords Dance,Close Combat,Night Slash,Drain Punch
+Dawn,Gallade,Cyrus 3,1:56:44.83,7,7,64,7:33,1788632361.107,Swords Dance,Close Combat,Night Slash,Drain Punch
+Dawn,Gallade,Leader Volkner,2:02:00.91,7,7,66,7:54,1788632677.201,Swords Dance,Close Combat,Night Slash,Drain Punch
+Dawn,Gallade,Rival 6,2:09:14.47,7,7,69,8:23,1788633110.767,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Elite Four Aaron,2:10:06.08,7,7,70,8:26,1788633162.377,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Elite Four Bertha,2:10:48.92,7,7,71,8:29,1788633205.216,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Elite Four Flint,2:11:33.74,7,7,71,8:32,1788633250.041,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Elite Four Lucian,2:12:18.23,7,7,72,8:35,1788633294.529,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Champion Cynthia,2:13:20.55,7,7,73,8:39,1788633356.845,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gallade,Hall of Fame,2:13:20.55,7,7,73,8:41,1788633385.354,Swords Dance,Close Combat,Night Slash,Psycho Cut
+Dawn,Gardevoir,Jupiter 1,48:02.90,2,7,30,3:07,1788634801.255,Confusion,Magical Leaf,Return,Calm Mind
+Dawn,Gardevoir,Leader Fantina,52:17.81,2,7,30,3:24,1788635056.162,Confusion,Magical Leaf,Substitute,Calm Mind
+Dawn,Gardevoir,Rival 3,53:27.89,2,7,33,3:29,1788635126.245,Psychic,Magical Leaf,Substitute,Calm Mind
+Dawn,Gardevoir,Leader Maylene,59:40.83,2,7,34,3:54,1788635499.191,Psychic,Magical Leaf,Shock Wave,Calm Mind
+Dawn,Gardevoir,Rival 4,1:03:39.42,2,7,37,4:10,1788635737.785,Psychic,Magical Leaf,Shock Wave,Calm Mind
+Dawn,Gardevoir,Leader Wake,1:05:34.53,2,7,39,4:17,1788635852.897,Psychic,Magical Leaf,Shock Wave,Calm Mind
+Dawn,Gardevoir,Cyrus 1,1:10:08.65,2,7,45,4:36,1788636127.021,Psychic,Magical Leaf,Shock Wave,Calm Mind
+Dawn,Gardevoir,Rival 5,1:12:27.30,2,7,45,4:45,1788636338.614,Psychic,Magical Leaf,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Leader Byron,1:16:08.56,6,7,47,4:55,1788636559.884,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Saturn 1,1:18:30.51,6,7,48,5:05,1788636701.837,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Mars 2,1:19:57.58,6,7,48,5:11,1788636788.913,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Leader Candice,1:23:29.73,6,7,49,5:25,1788637001.058,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Cyrus 2,1:28:39.22,9,7,52,5:41,1788637310.559,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Saturn 2,1:29:22.80,9,7,52,5:44,1788637354.137,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Mars 3,1:34:48.66,9,7,62,6:05,1788637687.933,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Cyrus 3,1:38:48.95,9,7,62,6:21,1788637928.235,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Leader Volkner,1:43:08.68,9,7,64,6:39,1788638187.963,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Rival 6,1:49:48.49,9,7,69,7:05,1788638587.778,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Elite Four Aaron,1:50:39.53,9,7,69,7:09,1788638638.825,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Elite Four Bertha,1:51:33.30,9,7,70,7:12,1788638692.596,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Elite Four Flint,1:52:20.55,9,7,70,7:15,1788638739.847,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Elite Four Lucian,1:53:09.98,9,7,71,7:19,1788638789.277,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Champion Cynthia,1:54:11.02,9,7,71,7:23,1788638850.315,Psychic,Focus Blast,Thunderbolt,Calm Mind
+Dawn,Gardevoir,Hall of Fame,1:54:11.03,9,7,72,7:25,1788638878.95,Psychic,Focus Blast,Thunderbolt,Calm Mind

@@ -56,8 +56,21 @@ class StyleSettingsManager {
             'hidden_power_index',
             'frame'
         ];
-        
-        console.log(`[StyleSettingsManager] Initialized in ${this.isDev ? 'DEVELOPMENT' : 'PRODUCTION'} mode`);
+
+        // The defaults as they are on disk, serialized the way _writeDefaultsFile writes them.
+        // A write that would not change them is skipped (the split save at the end of every key
+        // battle passes the same style values back in), and prod-mode user overrides are diffed
+        // against them rather than against the in-memory defaults, which callers can mutate
+        // through the object get() hands out.
+        this._persistedJson = this._serializeDefaults();
+        this._persistedDefaults = JSON.parse(this._persistedJson);
+
+        // Defaults-file writer state
+        this._writeTimer = null;
+        this._writeInFlight = null;
+        this._writeQueued = false;
+        this._unloadHandlerRegistered = false;
+        this._unloadFlushed = false;
     }
     
     /**
@@ -95,16 +108,7 @@ class StyleSettingsManager {
             // - Running from node_modules (dev mode) OR
             // - NOT in an asar archive (dev mode doesn't package to asar)
             const isDev = !isPackaged || nodeEnvDev || runningFromNodeModules || !inAsar;
-            
-            console.log('[StyleSettingsManager] Dev mode detection:', {
-                isPackaged,
-                nodeEnvDev,
-                runningFromNodeModules,
-                inAsar,
-                execPath: execPath.substring(0, 50) + '...',
-                result: isDev
-            });
-            
+
             return isDev;
         } catch (e) {
             // If we can't detect, default to production mode for safety
@@ -221,18 +225,52 @@ class StyleSettingsManager {
         if (value === undefined || value === null) {
             delete this.defaultSettings[key];
         } else {
-            // Merge with existing default to preserve other properties
+            // Only persist style fields — callers pass the whole game-state blob
+            // for a given key (including split_data, timers, counters), and
+            // letting that through bloats the defaults file into the megabytes.
+            const styleOnly = {};
+            for (const prop of this.stylePropertyKeys) {
+                if (prop in value) {
+                    styleOnly[prop] = value[prop];
+                }
+            }
             this.defaultSettings[key] = {
                 ...(this.defaultSettings[key] || {}),
-                ...value
+                ...styleOnly
             };
         }
-        
-        // Write to file
-        this._writeDefaultsFile();
-        
+
+        // Debounce the file write — the defaults file is huge and rewriting it
+        // on every slider tick blocks the main thread. Flush after idle instead.
+        this._scheduleWriteDefaultsFile();
+
         // Also update localStorage for immediate use (but as defaults, not user overrides)
         localStorage.setItem(key, JSON.stringify(this.defaultSettings[key]));
+    }
+
+    /**
+     * Debounced wrapper around _writeDefaultsFile.
+     * Coalesces rapid changes (e.g. slider drags) into a single disk write.
+     */
+    _scheduleWriteDefaultsFile() {
+        if (this._writeTimer) {
+            clearTimeout(this._writeTimer);
+        }
+        if (!this._unloadHandlerRegistered && typeof window !== 'undefined') {
+            // Flush synchronously on app close so we don't drop the last edits
+            window.addEventListener('beforeunload', () => {
+                if (this._writeTimer) {
+                    clearTimeout(this._writeTimer);
+                    this._writeTimer = null;
+                }
+                this._writeDefaultsFileSync();
+            });
+            this._unloadHandlerRegistered = true;
+        }
+        this._writeTimer = setTimeout(() => {
+            this._writeTimer = null;
+            this._writeDefaultsFile();
+        }, 500);
     }
     
     /**
@@ -242,8 +280,8 @@ class StyleSettingsManager {
         if (value === undefined || value === null) {
             localStorage.removeItem(`user_${key}`);
         } else {
-            // Only save the properties that differ from defaults
-            const defaultValue = this.defaultSettings[key] || {};
+            // Only save the properties that differ from the defaults as shipped
+            const defaultValue = this._persistedDefaults[key] || {};
             const userOverrides = {};
             
             // Find properties that differ from default
@@ -265,11 +303,12 @@ class StyleSettingsManager {
         localStorage.setItem(key, JSON.stringify(value));
     }
     
-    /**
-     * Write default settings to the JS file
-     */
-    _writeDefaultsFile() {
-        const content = `/**
+    _serializeDefaults() {
+        return JSON.stringify(this.defaultSettings, null, 4);
+    }
+
+    _renderDefaultsFile(json) {
+        return `/**
  * Default Style Settings
  * 
  * This file contains the default Pokemon art and background texture settings
@@ -289,19 +328,76 @@ class StyleSettingsManager {
  * Last updated: ${new Date().toISOString()}
  */
 
-const DEFAULT_STYLE_SETTINGS = ${JSON.stringify(this.defaultSettings, null, 4)};
+const DEFAULT_STYLE_SETTINGS = ${json};
 
 // Export for use in the application
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = DEFAULT_STYLE_SETTINGS;
 }
 `;
-        
+    }
+
+    _markPersisted(json) {
+        this._persistedJson = json;
+        this._persistedDefaults = JSON.parse(json);
+    }
+
+    /**
+     * Write default settings to the JS file: off the renderer thread, and never half-written
+     * (a temp file is renamed over the real one). Skipped when nothing changed since the last
+     * write. Overlapping requests coalesce into one follow-up write.
+     */
+    _writeDefaultsFile() {
+        if (this._writeInFlight) {
+            this._writeQueued = true;
+            return this._writeInFlight;
+        }
+
+        const json = this._serializeDefaults();
+        if (json === this._persistedJson) {
+            return Promise.resolve();
+        }
+
+        const tmpPath = `${this.defaultSettingsPath}.${process.pid}.tmp`;
+        this._writeInFlight = fs.promises.writeFile(tmpPath, this._renderDefaultsFile(json), 'utf8')
+            .then(() => {
+                // The unload flush already wrote newer content; don't rename this older copy over it.
+                if (this._unloadFlushed) return fs.promises.unlink(tmpPath);
+                return fs.promises.rename(tmpPath, this.defaultSettingsPath)
+                    .then(() => this._markPersisted(json));
+            })
+            .catch((e) => {
+                // The edits stay in memory and go out with the next write (or the unload flush).
+                console.error('[StyleSettingsManager] Failed to write default settings file:', e.message);
+                fs.promises.unlink(tmpPath).catch(() => {});
+            })
+            .then(() => {
+                this._writeInFlight = null;
+                if (this._writeQueued) {
+                    this._writeQueued = false;
+                    this._writeDefaultsFile();
+                }
+            });
+
+        return this._writeInFlight;
+    }
+
+    /** Synchronous variant for the unload flush, where an async write would never finish. */
+    _writeDefaultsFileSync() {
+        this._unloadFlushed = true;
+        const json = this._serializeDefaults();
+        if (json === this._persistedJson) {
+            return;
+        }
+
+        const tmpPath = `${this.defaultSettingsPath}.${process.pid}.sync.tmp`;
         try {
-            fs.writeFileSync(this.defaultSettingsPath, content, 'utf8');
-            console.log('[StyleSettingsManager] Saved default settings to file');
+            fs.writeFileSync(tmpPath, this._renderDefaultsFile(json), 'utf8');
+            fs.renameSync(tmpPath, this.defaultSettingsPath);
+            this._markPersisted(json);
         } catch (e) {
             console.error('[StyleSettingsManager] Failed to write default settings file:', e.message);
+            try { fs.unlinkSync(tmpPath); } catch (_) {}
         }
     }
     
@@ -338,8 +434,6 @@ if (typeof module !== 'undefined' && module.exports) {
         Object.keys(this.defaultSettings).forEach(key => {
             localStorage.setItem(key, JSON.stringify(this.defaultSettings[key]));
         });
-        
-        console.log('[StyleSettingsManager] Reset all style settings to defaults');
     }
     
     /**

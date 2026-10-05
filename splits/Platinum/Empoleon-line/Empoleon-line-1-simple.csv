@@ -1,0 +1,30 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Piplup,Rival 1,1:29.22,0,0,5,0:04,1778969593.632,Pound,Growl,,
+Dawn,Piplup,Rival 2,6:25.98,0,0,9,0:24,1778969890.391,Pound,Growl,Bubble,
+Dawn,Piplup,Leader Roark,11:24.75,0,4,17,0:44,1778970189.165,Bubble,Growl,Pound,Peck
+Dawn,Prinplup,Mars 1,16:03.43,0,4,20,1:03,1778970467.853,BubbleBeam,Bubble,Pound,Pluck
+Dawn,Prinplup,Leader Gardenia,25:17.92,0,7,28,1:40,1778971022.34,BubbleBeam,Bide,Return,Pluck
+Dawn,Prinplup,Jupiter 1,27:18.02,0,7,29,1:48,1778971142.452,BubbleBeam,Bide,Return,Pluck
+Dawn,Prinplup,Leader Fantina,32:08.78,0,7,33,2:07,1778971433.219,Substitute,Brine,Return,Pluck
+Dawn,Prinplup,Rival 3,32:55.87,0,7,33,2:10,1778971480.302,Substitute,Brine,Return,Pluck
+Dawn,Empoleon,Leader Maylene,40:25.50,0,7,40,2:40,1778971929.938,Aqua Jet,Swords Dance,Return,Pluck
+Dawn,Empoleon,Rival 4,42:20.28,0,7,40,2:48,1778972044.725,Aqua Jet,Swords Dance,Return,Pluck
+Dawn,Empoleon,Leader Wake,44:11.45,0,7,42,2:55,1778972155.891,Aqua Jet,Swords Dance,Return,Pluck
+Dawn,Empoleon,Cyrus 1,48:31.42,0,7,45,3:12,1778972415.863,Aqua Jet,Swords Dance,Return,Aerial Ace
+Dawn,Empoleon,Rival 5,50:22.15,0,7,45,3:20,1778972526.595,Surf,Swords Dance,Aqua Jet,Return
+Dawn,Empoleon,Leader Byron,52:00.08,0,7,48,3:26,1778972624.531,Surf,Swords Dance,Aqua Jet,Return
+Dawn,Empoleon,Saturn 1,54:14.80,0,7,48,3:35,1778972772.002,Surf,Swords Dance,Aqua Jet,Return
+Dawn,Empoleon,Mars 2,55:23.73,0,7,49,3:40,1778972840.927,Surf,Swords Dance,Aqua Jet,Return
+Dawn,Empoleon,Leader Candice,59:10.20,0,7,51,3:55,1778973067.407,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Cyrus 2,1:02:57.14,0,7,53,4:10,1778973294.357,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Saturn 2,1:03:34.70,0,7,53,4:13,1778973331.919,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Mars 3,1:08:00.23,0,7,55,4:31,1778973597.436,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Cyrus 3,1:12:40.55,2,7,64,4:46,1778973877.764,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Leader Volkner,1:17:03.41,2,7,66,5:04,1778974199.285,Surf,Swords Dance,Flash Cannon,Return
+Dawn,Empoleon,Rival 6,1:23:01.46,2,7,69,5:28,1778974557.343,Surf,Swords Dance,Waterfall,Return
+Dawn,Empoleon,Elite Four Aaron,1:24:25.44,2,7,72,5:34,1778974641.329,Surf,Swords Dance,Waterfall,Aqua Jet
+Dawn,Empoleon,Elite Four Bertha,1:24:59.00,2,7,72,5:36,1778974674.883,Surf,Swords Dance,Waterfall,Aqua Jet
+Dawn,Empoleon,Elite Four Flint,1:25:32.59,2,7,73,5:38,1778974708.473,Surf,Swords Dance,Waterfall,Aqua Jet
+Dawn,Empoleon,Elite Four Lucian,1:26:27.09,2,7,73,5:42,1778974762.99,Surf,Swords Dance,Waterfall,Aqua Jet
+Dawn,Empoleon,Champion Cynthia,1:27:24.99,2,7,74,5:45,1778974820.874,Surf,Swords Dance,Waterfall,Aqua Jet
+Dawn,Empoleon,Hall of Fame,1:27:24.99,2,7,75,5:47,1778974848.086,Surf,Swords Dance,Waterfall,Aqua Jet

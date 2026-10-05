@@ -1,5 +1,8 @@
 // Style Settings Manager for layered defaults + user overrides
 const styleSettingsManager = require('./lib/style_settings_manager.js');
+const enemySpriteScaleManager = require('./lib/enemy_sprite_scale_manager.js');
+// Keeps the PNG copies of the SVG UI art fresh in dev mode (see lib/ui_art_renderer.js).
+const uiArtRenderer = require('./lib/ui_art_renderer.js');
 
 const MyStorage = new Proxy({}, {
     set: (_, prop, value) => {
@@ -249,6 +252,11 @@ class KeyHook {
 
         // general logging
         // this.process.on("spawn", () => console.log("Keyboard hook started!"));
+        // Handle the process failing to start (e.g. keyhook.exe missing) so it
+        // doesn't surface as an uncaught exception and crash the renderer.
+        this.process.on("error", (err) => {
+            console.warn(`Keyboard hook unavailable (${err.code || err.message}); shortcuts disabled.`);
+        });
         this.process.stderr.on("data", (data) => console.error(`${data}`));
         
         // handle output of the keyboard hook
@@ -526,28 +534,32 @@ function logData(gameName, str, file_name, split_file_prefix, log_type, testStat
     );
 }
 
-function logCopy(gameName, file_name, splitFileName, finished_run_count, evolution, evolution_label) {
-    // Use splitFileName for directory paths and file names
+function logCopy(gameName, file_name, splitFileName, finished_run_count, finishFileName) {
+    // splitFileName names the attempts folder and its source files. finishFileName names the
+    // copies placed in finishes/ and is based on the species actually played to the end of the
+    // run, which can differ from splitFileName on a branching evolution line (see
+    // getFinishFileName). Fall back to splitFileName when no finish name was supplied.
+    const finishName = finishFileName || splitFileName;
     var dirPathAttempts = `./splits/${gameName}/${splitFileName}`;
     var dirPathFinishes = `./splits/${gameName}/${splitFileName}/finishes`;
     fs.mkdir(dirPathFinishes, { recursive: true }, (err) => {
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-simple.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-simple.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-simple.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
         });
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-full.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-full.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-full.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
         });
         fs.copyFile(
             path.join(dirPathAttempts, `${splitFileName}-${file_name}-deprecated.csv`), 
-            path.join(dirPathFinishes, `${splitFileName}-${finished_run_count}-deprecated.csv`), (err) => {
+            path.join(dirPathFinishes, `${finishName}-${finished_run_count}-deprecated.csv`), (err) => {
             if (err) {
                 console.error(err);
             }
@@ -573,9 +585,30 @@ const app = Vue.createApp({
         return {
             ready                        : false,
             isInDevMode                  : StyleSettingsUtils.isDevMode(), // Track if running in development mode
+            // Dev-only opt-out so footage stays congruent with content filmed before the resize feature shipped.
+            // Packaged builds ignore this flag and always apply the styles.
+            enemy_sprite_styles_enabled  : MyStorage['enemy_sprite_styles_enabled'] ?? true,
+
+            // Style Mode (dev only): iterate every species in g4PokemonData
+            // showing each in slot 0 with the resize handle active.
+            // Enter commits + advances; Backspace discards + steps back.
+            style_mode_active            : false,
+            style_mode_index             : 0,
+            style_mode_species_list      : [],
+            style_mode_dummy_moves       : [
+                { name: 'Tackle',     type: 'normal' },
+                { name: 'Water Gun',  type: 'water'  },
+                { name: 'Ember',      type: 'fire'   },
+                { name: 'Vine Whip',  type: 'grass'  },
+            ],
+
             mapper                       : null,
             state                        : "No Pokemon",
             editor                       : false,
+
+            // Enemy sprite resize tool (Ctrl+Click on an enemy sprite, dev-only)
+            enemyResize                  : { species: null, slot: null, baseSize: 108, spriteEl: null },
+            enemyScaleVersion            : 0,
             game_variables               : null,
             autosplitter_toggle          : true,
             evolution                    : false,
@@ -603,11 +636,15 @@ const app = Vue.createApp({
             frame                        : false,
             selected_game                : MyStorage['selected_game'] ?? "Platinum",
             available_games              : ["Platinum", "HeartGold and SoulSilver", "Diamond and Pearl"],
+            game_box_art                 : {
+                "Platinum"                : "4-Platinum.png",
+                "HeartGold and SoulSilver": "4-HeartGoldandSoulSilver.jpg",
+                "Diamond and Pearl"       : "4-DiamondandPearl.jpg",
+            },
             starter_choice               : "Turtwig",
             refilming_mode               : false,
             show_advanced_settings       : MyStorage['show_advanced_settings']        ?? false,
             legacy_starter_assignment    : MyStorage['legacy_starter_assignment']     ?? false,
-            set_rom_starter_automatically: MyStorage['set_rom_starter_automatically'] ?? true,
             catch_rate                   : MyStorage['catch_rate'] ?? false,
             previous_splits              : MyStorage['previous_splits']     ?? [],
             current_splits               : MyStorage['current_splits']      ?? [],
@@ -730,19 +767,139 @@ const app = Vue.createApp({
             },
             encounter_settings: [
             ],
-            encounters_route_201: MyStorage['encounters_route_201'] ?? true,
-            encounters_route_202: MyStorage['encounters_route_202'] ?? true,
-            encounters_route_203: MyStorage['encounters_route_203'] ?? true,
+            encounters_route_201:     MyStorage['encounters_route_201']     ?? true,
+            encounters_route_202:     MyStorage['encounters_route_202']     ?? true,
+            encounters_route_203:     MyStorage['encounters_route_203']     ?? true,
             encounters_oreburgh_gate: MyStorage['encounters_oreburgh_gate'] ?? true,
             encounters_oreburgh_mine: MyStorage['encounters_oreburgh_mine'] ?? true,
 
-            encounters_route_29: MyStorage['encounters_route_29'] ?? true,
-            encounters_route_30: MyStorage['encounters_route_30'] ?? true,
-            encounters_sprout_tower: MyStorage['encounters_sprout_tower'] ?? true,
+            // Platinum HM force flags
+            hm_route_201_bidoof:      MyStorage['hm_route_201_bidoof']        ?? true,
+            hm_route_201_starly:      MyStorage['hm_route_201_starly']        ?? false,
+            hm_route_202_bidoof:      MyStorage['hm_route_202_bidoof']        ?? false,
+            hm_route_202_starly:      MyStorage['hm_route_202_starly']        ?? false,
+            hm_route_203_abra:        MyStorage['hm_route_203_abra']          ?? false,
+            hm_oreburgh_gate_zubat:   MyStorage['hm_oreburgh_gate_zubat']     ?? true,
+            hm_oreburgh_gate_geodude: MyStorage['hm_oreburgh_gate_geodude']   ?? true,
+            hm_oreburgh_gate_psyduck: MyStorage['hm_oreburgh_gate_psyduck']   ?? true,
+            hm_route_207_machop:      MyStorage['hm_route_207_machop']        ?? true,
+            hm_route_207_geodude:     MyStorage['hm_route_207_geodude']       ?? false,
+            hm_oreburgh_mine_geodude: MyStorage['hm_oreburgh_mine_geodude']   ?? false,
+            hm_route_208_bibarel:     MyStorage['hm_route_208_bibarel']       ?? false,
+            hm_route_213_buizel:      MyStorage['hm_route_213_buizel']        ?? false,
 
-            pokemon_list: [],
-            
-            // USER CONFIG (components) ------------------------------------------------------------------------// 
+            // HeartGold HM force flags
+            hm_route_29_sentret:      MyStorage['hm_route_29_sentret']        ?? false,
+            hm_route_29_rattata:      MyStorage['hm_route_29_rattata']        ?? false,
+            hm_route_29_pidgey:       MyStorage['hm_route_29_pidgey']         ?? false,
+            hm_route_30_rattata:      MyStorage['hm_route_30_rattata']        ?? false,
+            hm_route_30_pidgey:       MyStorage['hm_route_30_pidgey']         ?? false,
+            hm_route_31_bellsprout:   MyStorage['hm_route_31_bellsprout']     ?? false,
+            hm_route_31_rattata:      MyStorage['hm_route_31_rattata']        ?? false,
+            hm_route_31_pidgey:       MyStorage['hm_route_31_pidgey']         ?? false,
+            hm_route_32_rattata:      MyStorage['hm_route_32_rattata']        ?? true,
+            hm_route_32_wooper:       MyStorage['hm_route_32_wooper']         ?? false,
+            hm_union_cave_sandshrew:  MyStorage['hm_union_cave_sandshrew']    ?? false,
+            hm_route_34_drowzee:      MyStorage['hm_route_34_drowzee']        ?? true,
+
+            encounters_route_29:      MyStorage['encounters_route_29']     ?? true,
+            encounters_route_30:      MyStorage['encounters_route_30']     ?? true,
+            encounters_sprout_tower:  MyStorage['encounters_sprout_tower'] ?? true,
+
+            shard_giver: {
+                "Random Shard": 0,
+                "Red Shard": 1,
+                "Blue Shard": 2,
+                "Yellow Shard": 3,
+                "Green Shard": 4,
+            },
+
+            floaroma_berry_girl: {
+                "Random Berry": 0,
+                "Cheri Berry": 1,
+                "Chesto Berry": 2,
+                "Pecha Berry": 3,
+                "Rawst Berry": 4,
+                "Aspear Berry": 5,
+            },
+
+            berry_master: {
+                "Random Berry": 0,
+                "Cheri Berry": 1,
+                "Chesto Berry": 2,
+                "Pecha Berry": 3,
+                "Rawst Berry": 4,
+                "Aspear Berry": 5,
+                "Leppa Berry": 6,
+                "Oran Berry": 7,
+                "Persim Berry": 8,
+                "Lum Berry": 9,
+                "Sitrus Berry": 10,
+                "Figy Berry": 11,
+                "Wiki Berry": 12,
+                "Mago Berry": 13,
+                "Aguav Berry": 14,
+                "Iapapa Berry": 15,
+                "Razz Berry": 16,
+                "Bluk Berry": 17,
+                "Nanab Berry": 18,
+                "Wepear Berry": 19,
+                "Pinap Berry": 20,
+                "Pomeg Berry": 21,
+                "Kelpsy Berry": 22,
+                "Qualot Berry": 23,
+                "Hondew Berry": 24,
+                "Grepa Berry": 25,
+                "Tamato Berry": 26,
+                "Cornn Berry": 27,
+                "Magost Berry": 28,
+                "Rabuta Berry": 29,
+                "Nomel Berry": 30,
+            },
+
+            pastoria_berry_woman: {
+                "Random Berry": 0, 
+                "Occa Berry": 1, 
+                "Passho Berry": 2, 
+                "Wacan Berry": 3, 
+                "Rindo Berry": 4, 
+                "Yache Berry": 5, 
+                "Chople Berry": 6, 
+                "Kebia Berry": 7, 
+                "Shuca Berry": 8, 
+                "Coba Berry": 9, 
+                "Payapa Berry": 10, 
+                "Tanga Berry": 11, 
+                "Charti Berry": 12, 
+                "Kasib Berry": 13, 
+                "Haban Berry": 14, 
+                "Colbur Berry": 15, 
+                "Babiri Berry": 16,
+                "Chilan Berry": 17,
+            },
+
+            // RNG modal state
+            showRNGModal: false,
+            rng_npcs: [
+                { key: "shard_giver",          label: "Shard Giver",          map: "Great Marsh - Map 6",   bagCategory: "items",   patchProp: "stpGreatMarshShard", defaultItem: "Random Shard" },
+                { key: "floaroma_berry_girl",  label: "Floaroma Berry Girl",  map: "Flower Shop - Map 1",   bagCategory: "berries", patchProp: "stpFloaromaBerry",   defaultItem: "Random Berry" },
+                { key: "berry_master",         label: "Berry Master",         map: "Route 208 - Map 3",     bagCategory: "berries", patchProp: "stpBerryMaster",     defaultItem: "Random Berry" },
+                { key: "pastoria_berry_woman", label: "Pastoria Berry Woman", map: "Pastoria City - Map 8", bagCategory: "berries", patchProp: "stpPastoriaBerry",   defaultItem: "Random Berry" },
+            ],
+            rng_config: MyStorage['rng_config'] ?? {
+                shard_giver:          ["Random Shard"],
+                floaroma_berry_girl:  ["Random Berry"],
+                berry_master:         ["Random Berry"],
+                pastoria_berry_woman: ["Random Berry"],
+            },
+            rng_trip_index: {
+                shard_giver:          0,
+                floaroma_berry_girl:  0,
+                berry_master:         0,
+                pastoria_berry_woman: 0,
+            },
+
+            // USER CONFIG (components) ------------------------------------------------------------------------//
             typeCalcs: true,
 
             //CSS styling values
@@ -766,6 +923,29 @@ const app = Vue.createApp({
             post_game_moves          : post_game_moves,
             auto_save_settings       : auto_save_settings,
             natures                  : natures,
+            // Button-grid nature selector (mirrors the dropdown). Order/labels match the natures' "raises"/"lowers" strings.
+            natureStats: [
+                { key: "Attack",          short: "Atk" },
+                { key: "Defense",         short: "Def" },
+                { key: "Special Attack",  short: "SpA" },
+                { key: "Special Defense", short: "SpD" },
+                { key: "Speed",           short: "Spe" },
+            ],
+            // Neutral natures don't store a stat, so map them onto the diagonal both ways.
+            neutralNatureByStat: {
+                "Attack": "Hardy",
+                "Defense": "Docile",
+                "Speed": "Serious",
+                "Special Attack": "Bashful",
+                "Special Defense": "Quirky",
+            },
+            neutralStatByNature: {
+                "Hardy": "Attack",
+                "Docile": "Defense",
+                "Serious": "Speed",
+                "Bashful": "Special Attack",
+                "Quirky": "Special Defense",
+            },
             hiddenpower_type_selector: hiddenpower_type_selector,
             game_variables           : game_variables,
             natural_gift             : natural_gift,
@@ -962,7 +1142,8 @@ const app = Vue.createApp({
             buffer_battle_special_defense: 0,
             buffer_battle_friendship     : 0,
 
-            search_term: MyStorage["search_term"] ?? "",
+            starter_input: MyStorage["starter"] ?? "Heatran",
+            starter_dropdown_open: false,
 
             track_TMHM_viability: false,
 
@@ -977,11 +1158,7 @@ const app = Vue.createApp({
         }
     },
     created() {
-        // Log the current mode for style settings
-        console.log(`[StyleSettings] App initialized in ${this.isInDevMode ? 'DEVELOPMENT' : 'PRODUCTION'} mode`);
-        console.log(`[StyleSettings] ${this.isInDevMode ? 'Style changes will be saved to the defaults file' : 'User style overrides will be saved locally'}`);
-        
-        if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {  
+        if (MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]) {
             this.overlay_color          = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].overlay_color           ?? this.default_colors[g4PokemonData[this.starter]?.type_1];
             this.imageXOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageXOffset            ?? 0;
             this.imageYOffset           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`].imageYOffset            ?? 0;
@@ -1002,27 +1179,44 @@ const app = Vue.createApp({
             this.finished_run_count     = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.finished_run_count     ?? 0
             this.playerResets           = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.playerResets           ?? 0
             this.blackout_counter       = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.blackout_counter       ?? 0
-            this.evolution              = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution              ?? 0
-            this.evolution_splits_label = MyStorage[`${this.mapper?.properties.meta.game_name.value}_${this.starter}`]?.evolution_splits_label ?? 0
+            // Evolution flags live in their own non-style key; fall back to the legacy base key
+            // for users whose data predates that change.
+            const evoStateKey = this.getEvolutionStateStorageKey()
+            const legacyKey = `${this.mapper?.properties.meta.game_name.value}_${this.starter}`
+            this.evolution              = MyStorage[evoStateKey]?.evolution              ?? MyStorage[legacyKey]?.evolution              ?? 0
+            this.evolution_splits_label = MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[legacyKey]?.evolution_splits_label ?? 0
         }
         for (let i = 0; i < this.pokemon_settings.length; i++) {
             let propName = this.pokemon_settings[i];
             this.$watch(
                 () => this[propName],
                 (newValue) => {
-                    // Skip saving if we're currently loading evolution styles to prevent overwriting
-                    if (this.is_loading_evolution_style) {
+                    // The evolution flag and its label are per-starter run settings, not per-species
+                    // styles. They get their own dedicated non-style storage key so the style layer
+                    // can't strip them in dev mode (which silently dropped the toggle, so it never
+                    // persisted across refreshes). See getEvolutionStateStorageKey().
+                    const baseStarterProperties = ['evolution', 'evolution_splits_label'];
+                    const isBaseStarterProperty = baseStarterProperties.includes(propName);
+
+                    // Skip saving if we're currently loading evolution styles to prevent overwriting.
+                    // The per-starter flags above are exempt: toggling evolution triggers a style load
+                    // (which sets is_loading_evolution_style) in the same flush as this save watcher,
+                    // so skipping them here would drop the very change the user just made.
+                    if (this.is_loading_evolution_style && !isBaseStarterProperty) {
                         return;
                     }
-                    
-                    // Shared evolution family properties (ability, nature, gender, hidden power) 
+
+                    // Shared evolution family properties (ability, nature, gender, hidden power)
                     // should be saved to the evolution family storage key when evolution is enabled
                     // These settings apply to all members of the evolution family
                     const sharedEvolutionFamilyProperties = ['pkmnNature', 'pkmn_ability', 'pkmn_gender', 'hidden_power_type', 'hidden_power_index'];
                     const isSharedFamilyProperty = sharedEvolutionFamilyProperties.includes(propName);
-                    
+
                     let storageKey;
-                    if (this.evolution && isSharedFamilyProperty) {
+                    if (isBaseStarterProperty) {
+                        // Dedicated non-style key (e.g., "evoState_Platinum_Chimchar")
+                        storageKey = this.getEvolutionStateStorageKey();
+                    } else if (this.evolution && isSharedFamilyProperty) {
                         // Use evolution family storage key for shared properties (e.g., "Black_Unfezant-line")
                         storageKey = this.getEvolutionFamilyStorageKey(this.starter);
                     } else {
@@ -1069,6 +1263,17 @@ const app = Vue.createApp({
         }
     },
     watch: {
+        iconGameName: {
+            immediate: true,
+            handler(newValue) {
+                // Update the taskbar/window icon to match the active game.
+                try {
+                    require('electron').ipcRenderer.send('set-game-icon', newValue)
+                } catch (e) {
+                    console.error('Failed to update game icon', e)
+                }
+            },
+        },
         encounters_route_201(newValue) {
             MyStorage['encounters_route_201'] = newValue;
             this.disable_encounters();
@@ -1100,6 +1305,106 @@ const app = Vue.createApp({
         encounters_sprout_tower(newValue) {
             MyStorage['encounters_sprout_tower'] = newValue;
             this.disable_encounters();
+        },
+        hm_route_201_bidoof(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_BIDOOF?.set(newValue, false);
+            MyStorage['hm_route_201_bidoof'] = newValue;
+        },
+        hm_route_201_starly(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_STARLY?.set(newValue, false);
+            MyStorage['hm_route_201_starly'] = newValue;
+        },
+        hm_route_202_bidoof(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_BIDOOF?.set(newValue, false);
+            MyStorage['hm_route_202_bidoof'] = newValue;
+        },
+        hm_route_202_starly(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_STARLY?.set(newValue, false);
+            MyStorage['hm_route_202_starly'] = newValue;
+        },
+        hm_route_203_abra(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_203_ABRA?.set(newValue, false);
+            MyStorage['hm_route_203_abra'] = newValue;
+        },
+        hm_oreburgh_gate_zubat(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_zubat'] = newValue;
+        },
+        hm_oreburgh_gate_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_geodude'] = newValue;
+        },
+        hm_oreburgh_gate_psyduck(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK?.set(newValue, false);
+            MyStorage['hm_oreburgh_gate_psyduck'] = newValue;
+        },
+        hm_route_207_machop(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_MACHOP?.set(newValue, false);
+            MyStorage['hm_route_207_machop'] = newValue;
+        },
+        hm_route_207_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_GEODUDE?.set(newValue, false);
+            MyStorage['hm_route_207_geodude'] = newValue;
+        },
+        hm_oreburgh_mine_geodude(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE?.set(newValue, false);
+            MyStorage['hm_oreburgh_mine_geodude'] = newValue;
+        },
+        hm_route_208_bibarel(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_208_BIBAREL?.set(newValue, false);
+            MyStorage['hm_route_208_bibarel'] = newValue;
+        },
+        hm_route_213_buizel(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_ROUTE_213_BUIZEL?.set(newValue, false);
+            MyStorage['hm_route_213_buizel'] = newValue;
+        },
+        hm_route_29_sentret(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_SENTRET?.set(newValue, false);
+            MyStorage['hm_route_29_sentret'] = newValue;
+        },
+        hm_route_29_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_29_rattata'] = newValue;
+        },
+        hm_route_29_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R29_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_29_pidgey'] = newValue;
+        },
+        hm_route_30_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R30_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_30_rattata'] = newValue;
+        },
+        hm_route_30_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R30_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_30_pidgey'] = newValue;
+        },
+        hm_route_31_bellsprout(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_BELLSPROUT?.set(newValue, false);
+            MyStorage['hm_route_31_bellsprout'] = newValue;
+        },
+        hm_route_31_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_31_rattata'] = newValue;
+        },
+        hm_route_31_pidgey(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R31_PIDGEY?.set(newValue, false);
+            MyStorage['hm_route_31_pidgey'] = newValue;
+        },
+        hm_route_32_rattata(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R32_RATTATA?.set(newValue, false);
+            MyStorage['hm_route_32_rattata'] = newValue;
+        },
+        hm_route_32_wooper(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R32_WOOPER?.set(newValue, false);
+            MyStorage['hm_route_32_wooper'] = newValue;
+        },
+        hm_union_cave_sandshrew(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_UNION_CAVE_SANDSHREW?.set(newValue, false);
+            MyStorage['hm_union_cave_sandshrew'] = newValue;
+        },
+        hm_route_34_drowzee(newValue) {
+            this.mapper.properties.patch.FLAG_FORCE_R34_DROWZEE?.set(newValue, false);
+            MyStorage['hm_route_34_drowzee'] = newValue;
         },
         current_splits: {
             handler: function (newVal, oldVal) {
@@ -1234,6 +1539,10 @@ const app = Vue.createApp({
             }
         },
         starter(newValue, oldValue) {
+            // Keep the filterable input in sync when starter is changed elsewhere (e.g. from game data)
+            if (newValue && this.starter_input !== newValue) {
+                this.starter_input = newValue
+            }
             // Prevent recursive updates
             if (this.is_validating_starter) {
                 return;
@@ -1251,7 +1560,9 @@ const app = Vue.createApp({
                 return;
             }
             
-            // this.update_rom_starter_and_intro_mon()
+            if (oldValue !== newValue) {
+                this.update_rom_starter_and_intro_mon()
+            }
 
             // IMPORTANT: When evolution is enabled, only block programmatic changes to species outside the evolution family
             // This prevents error data from game resets from changing the displayed Pokemon
@@ -1288,7 +1599,10 @@ const app = Vue.createApp({
             const game = this.mapper?.properties.meta.game_name.value
             const state = this.mapper?.properties.meta.state.value
             MyStorage['starter'] = newValue
-            
+
+            this.syncWormadamFormByte(newValue);
+            this.syncShayminFormByte(newValue);
+
             // Update evolution family list when starter changes
             this.updateEvolutionFamilyList();
             
@@ -1339,7 +1653,7 @@ const app = Vue.createApp({
             } else {
                 // Evolution is disabled, load from individual species storage
                 this.pkmnNature = MyStorage[`${game}_${starter}`]?.pkmnNature ?? "Hardy";
-                this.pkmn_ability = MyStorage[`${game}_${starter}`]?.pkmn_ability ?? null;
+                this.pkmn_ability = MyStorage[`${game}_${starter}`]?.pkmn_ability ?? (this.g4PokemonData?.[starter]?.abilities?.[0]) ?? null;
                 this.pkmn_gender = MyStorage[`${game}_${starter}`]?.pkmn_gender ?? "Female";
                 this.hidden_power_type = MyStorage[`${game}_${starter}`]?.hidden_power_type ?? "Dark";
                 this.hidden_power_index = MyStorage[`${game}_${starter}`]?.hidden_power_index ?? 0;
@@ -1352,8 +1666,10 @@ const app = Vue.createApp({
             
             // Evolution management
             if (this.evolution != true) {
-                this.evolution              = MyStorage[`${game}_${starter}`]?.evolution              ?? false
-                this.evolution_splits_label = MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
+                // Evolution flags live in their own non-style key; fall back to the legacy base key.
+                const evoStateKey = this.getEvolutionStateStorageKey()
+                this.evolution              = MyStorage[evoStateKey]?.evolution              ?? MyStorage[`${game}_${starter}`]?.evolution              ?? false
+                this.evolution_splits_label = MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[`${game}_${starter}`]?.evolution_splits_label ?? ""
 
                 this.attempt_number     = MyStorage[`${game}_${starter}`]?.attempt_number     ?? 0
                 this.finished_run_count = MyStorage[`${game}_${starter}`]?.finished_run_count ?? 0
@@ -1483,6 +1799,13 @@ const app = Vue.createApp({
         // },
     },
     computed: {
+        /**
+         * The game whose cartridge icon should be shown in the taskbar:
+         * the connected mapper's game if available, otherwise the manual selection.
+         */
+        iconGameName() {
+            return this.mapper?.properties?.meta?.game_name?.value || this.selected_game;
+        },
         /**
          * Check if the current Pokemon has multiple evolution stages
          * Returns true if evolution family has more than one species
@@ -1953,8 +2276,12 @@ const app = Vue.createApp({
             return result
         },
         blackouts_resets() {
-            const resets = this.playerResets
-            const blackouts = this.blackout_counter
+            const resets = this.shuckie_counters
+                ? (this.emulatorStats?.counters?.playerResets ?? 0)
+                : this.playerResets
+            const blackouts = this.shuckie_counters
+                ? (this.emulatorStats?.counters?.blackout_counter ?? 0)
+                : this.blackout_counter
             const allow_none = true // Toggle that allows for the UI to display no border if there are no faults
             if (allow_none == true && blackouts == 0 && resets == 0) {
                 return "None"
@@ -1986,6 +2313,10 @@ const app = Vue.createApp({
             }
         },
         faults() {
+            if (this.shuckie_counters) {
+                return (this.emulatorStats?.counters?.blackout_counter ?? 0)
+                     + (this.emulatorStats?.counters?.playerResets ?? 0)
+            }
             return this.blackout_counter + this.playerResets
         },
         voltorb_flip() {
@@ -2092,12 +2423,16 @@ const app = Vue.createApp({
         growth_rate() {
             return this.g4PokemonData[this.starter].growth_rate
         },
-        filtered_pokemon_list() {
-            if (this.search_term === '') {
-                return this.pokemon_list;
-            } else {
-                return this.pokemon_list.filter(pokemon => pokemon.toLowerCase().includes(this.search_term.toLowerCase()));
-            }
+        pokemon_list() {
+            // Build the dropdown list from the active pokedex (canonical names), excluding
+            // any legacy/ROM alias keys mirrored on by applySpeciesAliases.
+            const aliasNames = new Set(Object.keys(this.speciesNameAliases()));
+            return Object.keys(this.g4PokemonData || {}).filter(name => !aliasNames.has(name));
+        },
+        filtered_starter_options() {
+            const term = (this.starter_input || '').toLowerCase()
+            if (!term) return this.pokemon_list
+            return this.pokemon_list.filter(p => p.toLowerCase().includes(term))
         },
         filtered_trainer_list() {
             if (this.search_trainers === '') {
@@ -2503,6 +2838,12 @@ const app = Vue.createApp({
                 textures: Object.keys(this.textures)
             }
         },
+        // These two are no longer bound in the template: the art is keyed by
+        // displayedPokemonSpecies inside a <transition name="styleFade">, which cross-fades old
+        // and new together. They faded the old art out to 0 and let the new one pop back in, and
+        // an inline opacity would override the styleFade classes anyway. Left in place so this
+        // pair still matches gen3/gen5. movepoolOpacity / movepoolTransition below are
+        // unaffected and still drive the movepool fade.
         pokemonArtOpacity() {
             // Return opacity for Pokemon art during evolution transition
             if (this.evolution_transitioning) {
@@ -2956,6 +3297,16 @@ const app = Vue.createApp({
             const fullyEvolved = this.getFullyEvolvedSpecies(species);
             return `${this.mapper?.properties?.meta?.game_name?.value || this.selected_game}_${fullyEvolved}-line`;
         },
+        getEvolutionStateStorageKey() {
+            // Storage key for the per-starter evolution toggle + label.
+            // The leading "evoState_" prefix is deliberate: it keeps this key from matching
+            // isStyleSettingsKey() (which only matches "Game_..." or "...-line"), so these flags
+            // are written straight to localStorage instead of being routed through the style
+            // layering. The style layer strips any non-style property in dev mode (see
+            // style_settings_manager._saveToDefaults), which would otherwise drop the toggle.
+            const game = this.mapper?.properties?.meta?.game_name?.value || this.selected_game;
+            return `evoState_${game}_${this.starter}`;
+        },
         getSplitFileName() {
             // Get the filename for split files
             // If evolution is enabled, use "FullyEvolved-line" format
@@ -2965,6 +3316,25 @@ const app = Vue.createApp({
             }
             const fullyEvolved = this.getFullyEvolvedSpecies(this.starter);
             return `${fullyEvolved}-line`;
+        },
+        getFinishFileName() {
+            // Name used for the copies written into finishes/ at the end of a playthrough.
+            //
+            // getSplitFileName() names the shared attempts folder after the evolution family,
+            // and getFullyEvolvedSpecies() just takes the last member of that family. That is
+            // fine for a single-path line (Piplup -> "Empoleon-line"), but on a branching line
+            // it always picks the same branch regardless of what is actually being played: an
+            // Eevee run lands in "Glaceon-line" whether it ends as Vaporeon, Umbreon or Eevee.
+            //
+            // A finished run is no longer ambiguous, so name it after the species in hand.
+            // this.starter tracks the live team[0] species (it is updated on evolution), and
+            // is already validated against the evolution family, so it is the species the user
+            // actually finished with.
+            const finishedSpecies = this.starter;
+            if (!this.evolution) {
+                return finishedSpecies;
+            }
+            return `${finishedSpecies}-line`;
         },
         getCurrentStorageKey() {
             // Get the current storage key based on whether evolution is enabled and which species is selected
@@ -3000,22 +3370,32 @@ const app = Vue.createApp({
             // console.log(team_0, team_1, team_2, team_3, team_4, team_5)
             if (this.selected_game == 'Platinum') {
                 if (map == 'Route 201 - Map 1') {
-                    if (this.encounters_route_201) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_BIDOOF.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_201_STARLY.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_201) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
-                        const hasBidoof = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Bidoof')
-                        const hasStarly = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Starly')
-                        if (hasBidoof && hasStarly) {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
-                        }
-                        else {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
-                        }
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
                     }
                 }
                 else if (map == 'Route 202 - Map 1') {
-                    if (this.encounters_route_202) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_BIDOOF.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_202_STARLY.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_202) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    }
+                }
+                else if (map == 'Route 203 - Map 1') {
+                    if (this.mapper.properties.patch.FLAG_FORCE_ROUTE_203_ABRA.value) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_route_203) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
@@ -3024,23 +3404,33 @@ const app = Vue.createApp({
                 }
                 else if (map == 'Oreburgh Gate - Map 1') {
                     rate = 10
-                    if (this.encounters_oreburgh_gate) {
+                    if ((this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT.value || this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE.value || this.mapper.properties.patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK.value) && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_oreburgh_gate) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
-                        const hasGeodude = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Geodude')
-                        const hasPsyduck = [team_0, team_1, team_2, team_3, team_4, team_5].includes('Psyduck')
-                        if (hasGeodude && hasPsyduck) {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
-                        }
-                        else {
-                            this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
-                        }
+                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
                     }
+                }
+                else if (map == 'Route 207 - Map 1') {
+                    // if (this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_MACHOP.value || this.mapper.properties.patch.FLAG_FORCE_ROUTE_207_GEODUDE.value) {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    // }
+                    // else if (this.encounters_oreburgh_gate) {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    // }
+                    // else {
+                    //     this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                    // }
                 }
                 else if (map == 'Oreburgh Mine - Map 2' || map == 'Oreburgh Mine - Map 3') {
                     rate = 10
-                    if (this.encounters_oreburgh_mine) {
+                    if (this.mapper.properties.patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE.value && this.mapper.properties.flags.lab_scene_ended.value == true) {
+                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                    }
+                    else if (this.encounters_oreburgh_mine) {
                         this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
                     }
                     else {
@@ -3049,30 +3439,31 @@ const app = Vue.createApp({
                 }
             }
             else if (this.selected_game == 'HeartGold and SoulSilver') {
-                rate = 25
+                encounters_on = 0
+                encounters_off = 1
                 if (map == 'Route 29 - Map 1') {
                     if (this.encounters_route_29) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
                 else if (map == 'Route 30 - Map 1') {
                     if (this.encounters_route_30) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
                 else if (map == 'Sprout Tower - Map 2' || map == 'Sprout Tower - Map 3') {
                     rate = 5
                     if (this.encounters_sprout_tower) {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(rate, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_on, false)
                     }
                     else {
-                        this.mapper.properties.overworld.encounter_rates.walking.set(0, false)
+                        this.mapper.properties.patch.stpEncounterRate.set(encounters_off, false)
                     }
                 }
             }
@@ -3093,17 +3484,42 @@ const app = Vue.createApp({
                 default: return ""
             }
         },
+        commit_starter_input() {
+            const inPokemonList = this.pokemon_list.includes(this.starter_input)
+            const inPokedex = !!(this.g4PokemonData && this.g4PokemonData[this.starter_input])
+            if (inPokemonList || inPokedex) {
+                const canonical = this.normalizeSpeciesName(this.starter_input)
+                this.starter = canonical
+                this.starter_input = canonical
+            } else {
+                this.starter_input = this.starter
+            }
+            this.starter_dropdown_open = false
+        },
+        select_starter_option(key) {
+            const canonical = this.normalizeSpeciesName(key)
+            this.starter_input = canonical
+            this.starter = canonical
+            this.starter_dropdown_open = false
+        },
+        close_starter_dropdown() {
+            // Delay so a click on an option registers before the list hides
+            setTimeout(() => {
+                this.starter_dropdown_open = false
+                this.commit_starter_input()
+            }, 150)
+        },
         async update_rom_starter_and_intro_mon() {
-            let starter = this.starter
+            let starter = this.romSpeciesName(this.starter)
             let game = this.selected_game
             if (game == "Platinum") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true),
                 ])
             }
             if (game == "HeartGold and SoulSilver") {
                 await Promise.all([
-                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true), 
+                    this.mapper.properties.patch.stpStarterSpecies.set(starter, true),
                 ])
             }
         },
@@ -3326,6 +3742,35 @@ const app = Vue.createApp({
             }
             return output;
         },
+        // --- Button-grid nature selector (two-way synced with the pkmnNature dropdown) ---
+        // Stat currently raised by the selected nature (diagonal stat for neutral natures).
+        natureRaisedStat() {
+            const data = this.natures[this.pkmnNature];
+            if (!data) return null;
+            return data.raises === "Neutral" ? this.neutralStatByNature[this.pkmnNature] : data.raises;
+        },
+        // Stat currently lowered by the selected nature (diagonal stat for neutral natures).
+        natureLoweredStat() {
+            const data = this.natures[this.pkmnNature];
+            if (!data) return null;
+            return data.lowers === "Neutral" ? this.neutralStatByNature[this.pkmnNature] : data.lowers;
+        },
+        // Find the nature name matching a raised/lowered stat pair (same stat => neutral).
+        natureFromStats(raise, lower) {
+            if (raise === lower) return this.neutralNatureByStat[raise];
+            for (const [name, data] of Object.entries(this.natures)) {
+                if (data.raises === raise && data.lowers === lower) return name;
+            }
+            return this.pkmnNature;
+        },
+        // Clicking a "raises" button keeps the current lowered stat and updates the dropdown.
+        selectNatureRaise(stat) {
+            this.pkmnNature = this.natureFromStats(stat, this.natureLoweredStat());
+        },
+        // Clicking a "lowers" button keeps the current raised stat and updates the dropdown.
+        selectNatureLower(stat) {
+            this.pkmnNature = this.natureFromStats(this.natureRaisedStat(), stat);
+        },
         get_iv(stat_name) {
             const state = this.mapper.properties.meta.state.value
             let iv_hp  = this.mapper.properties.player.team[0].ivs.hp.value
@@ -3353,6 +3798,7 @@ const app = Vue.createApp({
             const logging = false
             const state = this.mapper.properties.meta.state.value
             const held_item = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.held_item.value : this.mapper.properties.player.team[0].held_item.value
+            const species = state == 'Battle' ? this.mapper.properties.battle.player.active_pokemon.species.value : this.mapper.properties.player.team[0].species.value
             var ability = this.pkmn_ability
             var status_condition = this.mapper.properties.player.team[0].status_condition.value
 
@@ -3376,9 +3822,20 @@ const app = Vue.createApp({
                 if (ability == 'Hustle') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+                else if (ability == 'Huge Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+                else if (ability == 'Pure Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
                 else {
                     Atk = this.mapper.properties.player.team[0].stats.attack.value
                 }
+
+                if (species == 'Marowak' && held_item == 'Thick Club') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
                 Def = this.mapper.properties.player.team[0].stats.defense.value
                 SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.player.team[0].stats.special_attack.value) : this.mapper.properties.player.team[0].stats.special_attack.value
                 SpD = this.mapper.properties.player.team[0].stats.special_defense.value
@@ -3498,11 +3955,19 @@ const app = Vue.createApp({
                 const weather = this.mapper.properties.battle.field.weather.value
                 // const ability = this.mapper.properties.battle.player.active_pokemon.ability.value
 
-                const mod_atk = this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value
-                const mod_def = this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value
-                const mod_spa = this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value
-                const mod_spd = this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value
-                const mod_spe = this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value
+                // Simple doubles every stat stage, clamped to the -6..+6 range
+                function simple_stage(modifier) {
+                    let stage = Number(modifier) || 0
+                    if (ability == 'Simple') {
+                        stage = Math.max(-6, Math.min(6, stage * 2))
+                    }
+                    return stage
+                }
+                const mod_atk = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.attack.value)
+                const mod_def = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.defense.value)
+                const mod_spa = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.special_attack.value)
+                const mod_spd = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.special_defense.value)
+                const mod_spe = simple_stage(this.mapper.properties.battle.player.active_pokemon.modifiers.speed.value)
                 HP  = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                 Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
                 Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
@@ -3517,15 +3982,30 @@ const app = Vue.createApp({
                     Atk = Math.floor(Atk * 0.5)
                     SpE = Math.floor(SpE * 0.5)
                 }
+                if (status_condition && ability == 'Quick Feet') {
+                    SpE = Math.floor(SpE * 1.5)
+                }
                 if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                     SpE = Math.floor(SpE / 4)
                 }
                 if ((status_condition == 'Paralyzed' || status_condition == 'Poisoned' || status_condition == 'Burned') && ability == 'Guts') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+
                 if (ability == 'Hustle') {
                     Atk = Math.floor(Atk * 1.5)
                 }
+                else if (ability == 'Huge Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+                else if (ability == 'Pure Power') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
+                if (species == 'Marowak' && held_item == 'Thick Club') {
+                    Atk = Math.floor(Atk * 2)
+                }
+
                 let battle_hp  = HP
                 let battle_atk = Math.floor(Atk * this.stageModifiersData.stats[mod_atk]) == 0 ? 1 : Math.floor(Atk * this.stageModifiersData.stats[mod_atk])
                 let battle_def = Math.floor(Def * this.stageModifiersData.stats[mod_def]) == 0 ? 1 : Math.floor(Def * this.stageModifiersData.stats[mod_def])
@@ -3564,6 +4044,20 @@ const app = Vue.createApp({
                     this.stat_fix_toggle = false
                     HP = this.mapper.properties.battle.player.active_pokemon.stats.hp_max.value
                     Atk = this.mapper.properties.battle.player.active_pokemon.stats.attack.value
+                    if (ability == 'Hustle') {
+                        Atk = Math.floor(Atk * 1.5)
+                    }
+                    else if (ability == 'Huge Power') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+                    else if (ability == 'Pure Power') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+
+                    if (species == 'Marowak' && held_item == 'Thick Club') {
+                        Atk = Math.floor(Atk * 2)
+                    }
+
                     Def = this.mapper.properties.battle.player.active_pokemon.stats.defense.value
                     SpA = held_item == 'Choice Specs' ? choice_specs(this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value) : this.mapper.properties.battle.player.active_pokemon.stats.special_attack.value
                     SpD = this.mapper.properties.battle.player.active_pokemon.stats.special_defense.value
@@ -3572,7 +4066,10 @@ const app = Vue.createApp({
                         SpE = Math.floor(SpE * 0.5)
                     }
                     
-                    if (status_condition == 'Paralyzed') {
+                    if (status_condition && ability == 'Quick Feet') {
+                        SpE = Math.floor(SpE * 1.5)
+                    }
+                    if (status_condition == 'Paralyzed' && ability != 'Quick Feet') {
                         SpE = Math.floor(SpE / 4)
                     }
                     if (ability == 'Slow Start') {
@@ -3629,6 +4126,38 @@ const app = Vue.createApp({
         },
         closePopup() {
             this.showPopup = false;
+        },
+        openRNGModal() {
+            for (const npc of this.rng_npcs) {
+                if (!Array.isArray(this.rng_config[npc.key]) || this.rng_config[npc.key].length === 0) {
+                    this.rng_config[npc.key] = [npc.defaultItem];
+                }
+            }
+            this.showRNGModal = true;
+        },
+        closeRNGModal() {
+            this.showRNGModal = false;
+            MyStorage['rng_config'] = this.rng_config;
+        },
+        addRNGTrip(npcKey) {
+            const npc = this.rng_npcs.find(n => n.key === npcKey);
+            if (!npc) return;
+            this.rng_config[npcKey].push(npc.defaultItem);
+        },
+        removeRNGTrip(npcKey, idx) {
+            if (idx <= 0) return;
+            this.rng_config[npcKey].splice(idx, 1);
+        },
+        rngPatchValueForTrip(npcKey, tripIdx) {
+            const npc = this.rng_npcs.find(n => n.key === npcKey);
+            if (!npc) return 0;
+            const itemName = this.rng_config[npcKey]?.[tripIdx];
+            if (itemName == null) return 0;
+            const lookup = this[npcKey];
+            return lookup?.[itemName] ?? 0;
+        },
+        rngOptionsFor(npcKey) {
+            return this[npcKey] ?? {};
         },
         calculate_ev_benefit(stat_name) {
             const state = this.mapper.properties.meta.state.value
@@ -3848,15 +4377,7 @@ const app = Vue.createApp({
                 // Overlay color and UI settings
                 'overlay_color',
                 'ui_saturation',
-                
-                // Pokemon image settings
-                'imageXOffset',
-                'imageYOffset',
-                'imageScale',
-                'imageFlip',
-                'imageSat',
-                'imageRotation',
-                
+
                 // Background texture settings
                 'backgroundTexture',
                 'backgroundBlur',
@@ -3926,8 +4447,15 @@ const app = Vue.createApp({
         load_all_settings() {
             // Set flag to prevent watchers from saving during loading
             this.is_loading_evolution_style = true;
-            
+
             const game_name                    = this.mapper.properties.meta.game_name.value
+            const storedStarter = MyStorage["starter"]
+            if (storedStarter != null) {
+                const canonical = this.normalizeSpeciesName(storedStarter)
+                if (canonical !== storedStarter) {
+                    MyStorage["starter"] = canonical
+                }
+            }
             this.starter                       = MyStorage["starter"]                ?? "Heatran"
             this.show_advanced_settings        = MyStorage['show_advanced_settings'] ?? false
             if (game_name == "HeartGold and SoulSilver") {
@@ -3987,10 +4515,13 @@ const app = Vue.createApp({
             this.right_ui =                   MyStorage['right_ui']                   ?? "Automatic"
             this.split_type =                 MyStorage['split_type']                 ?? "First"
             this.catch_rate =                 MyStorage['catch_rate']                 ?? false
+            this.rng_config =                 MyStorage['rng_config']                 ?? this.rng_config
 
             const evolution_family = (this.g4PokemonData && this.starter) ? (this.g4PokemonData[this.starter]?.evolution_family ?? [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]) : [ {species: null, method: null,}, {species: null, method: null,}, {species: null, method: null,}, ]
-            this.evolution =               MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
-            this.evolution_splits_label =  MyStorage[`${game_name}_${this.starter}`]?.evolution_splits_label ?? ""
+            // Evolution flags live in their own non-style key; fall back to the legacy base key.
+            const evoStateKey = this.getEvolutionStateStorageKey()
+            this.evolution =               MyStorage[evoStateKey]?.evolution              ?? MyStorage[`${game_name}_${this.starter}`]?.evolution              ?? false
+            this.evolution_splits_label =  MyStorage[evoStateKey]?.evolution_splits_label ?? MyStorage[`${game_name}_${this.starter}`]?.evolution_splits_label ?? ""
             this.copy_overlay_pokemon_from = MyStorage['copy_overlay_pokemon_from'] ?? ""
             this.copy_overlay_pokemon_to   = MyStorage['copy_overlay_pokemon_to']   ?? ""
 
@@ -4149,7 +4680,14 @@ const app = Vue.createApp({
         updateEvolutionFamilyList() {
             // Update the evolution family list when starter changes
             this.evolution_family_list = this.getEvolutionFamily(this.starter);
-            
+
+            // Preload the family's art so a mid-run evolution cross-fades into a decoded image
+            // instead of fading in a blank one. Only the family, never the full dex.
+            for (const family_species of this.evolution_family_list) {
+                const family_art = new Image();
+                family_art.src = `images/pokemon/${family_species}.png`;
+            }
+
             // If the evolution family has only one member (e.g., Registeel), disable evolution
             if (this.evolution_family_list.length <= 1) {
                 if (this.evolution) {
@@ -4174,6 +4712,12 @@ const app = Vue.createApp({
             const oldAbilities = this.g4PokemonData?.[oldSpecies]?.abilities;
             const newAbilities = this.g4PokemonData?.[newSpecies]?.abilities;
             if (!newAbilities?.length) {
+                return previousAbilityName;
+            }
+            // Already one of the new species' abilities (e.g. the queuer's /set-ability landed
+            // before /set-evolution switched the family from last run's species): keep it, as
+            // gen3's mapAbilityToSpecies does, rather than sliding it to slot 0.
+            if (newAbilities.includes(previousAbilityName)) {
                 return previousAbilityName;
             }
             let slot = 0;
@@ -4332,6 +4876,122 @@ const app = Vue.createApp({
         keys_function(object) {
             return Object.keys(object)
         },
+        speciesNameAliases() {
+            // Map from the ROM/legacy species name to the canonical pokedex key.
+            // "Shaymin-land"/"Shaymin-sky" are the pre-rename pokedex keys, kept so a stored
+            // Solo Pokemon selection from an older version still resolves.
+            return {
+                "Wormadam":     "Wormadam (Plant)",
+                "Shaymin":      "Shaymin (Land)",
+                "Shaymin-land": "Shaymin (Land)",
+                "Shaymin-sky":  "Shaymin (Sky)",
+            };
+        },
+        romSpeciesName(species) {
+            // Inverse of the form aliases: the mapper's species glossary only knows the bare
+            // ROM name, so writing "Shaymin (Sky)" or "Wormadam (Sandy)" to a species
+            // property fails. The form itself lives in the alternate_forms byte.
+            if (species == null) return species;
+            if (species.startsWith("Wormadam (")) return "Wormadam";
+            if (species.startsWith("Shaymin (")) return "Shaymin";
+            return species;
+        },
+        normalizeSpeciesName(name) {
+            if (name == null) return name;
+            const aliases = this.speciesNameAliases();
+            return aliases[name] || name;
+        },
+        wormadamSpeciesFromFormByte() {
+            // The in-game cloak lives in the alternate_forms flag on the lead party slot:
+            // 0 = Plant, 1 = Sandy, 2 = Trash. Returns null when the byte isn't readable
+            // (mapper not loaded, or the game doesn't expose the flag).
+            const wormadamFormNames = ["Wormadam (Plant)", "Wormadam (Sandy)", "Wormadam (Trash)"];
+            const formByte = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms?.value;
+            return wormadamFormNames[formByte] ?? null;
+        },
+        resolveIncomingSpecies(rawName) {
+            // The emulator can hand us an ambiguous bare name (e.g. "Wormadam") whose actual
+            // cloak isn't carried in the species name. The alternate_forms byte on the lead
+            // party slot is the source of truth (this matters when Burmy evolves under the
+            // evolution toggle, where this.starter is still "Burmy"). If the byte isn't
+            // readable, fall back to the user's Solo Pokemon selection if it's already a
+            // Wormadam variant, otherwise Plant, and let the existing write paths sync the byte.
+            if (rawName == null) return rawName;
+            if (rawName === "Shaymin") return this.shayminSpeciesFromFormByte() ?? this.shayminFallbackSpecies();
+            if (rawName !== "Wormadam") return this.normalizeSpeciesName(rawName);
+
+            const speciesFromByte = this.wormadamSpeciesFromFormByte();
+            if (speciesFromByte) return speciesFromByte;
+
+            const wormadamVariants = ["Wormadam (Plant)", "Wormadam (Sandy)", "Wormadam (Trash)"];
+            if (wormadamVariants.includes(this.starter)) {
+                return this.starter;
+            }
+            return "Wormadam (Plant)";
+        },
+        syncWormadamFormByte(species) {
+            // Whenever the user picks a Wormadam variant, push the matching cloak byte to the
+            // emulator so the in-game form follows the dropdown selection without waiting for
+            // setStartingStats (which only fires when level becomes 5 at the starter map).
+            const wormadam_forms = {
+                "Wormadam (Plant)": 0,
+                "Wormadam (Sandy)": 1,
+                "Wormadam (Trash)": 2,
+            };
+            if (!(species in wormadam_forms)) return;
+            const prop = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms;
+            if (!prop?.set) return;
+            // Skip when the game already agrees: on evolution the byte can read Plant for a
+            // moment before the real cloak lands, and a redundant write here could clobber it.
+            if (prop.value === wormadam_forms[species]) return;
+            prop.set(wormadam_forms[species], false);
+        },
+        shayminSpeciesFromFormByte() {
+            // Land and Sky Forme share species ID 492; the form lives in the alternate_forms
+            // flag on the lead party slot: 0 = Land, 1 = Sky. Unlike Wormadam's cloak this
+            // changes during play (Gracidea by day; reverts at night or when frozen), so the
+            // byte is the source of truth. Returns null when the byte isn't readable.
+            const shayminFormNames = ["Shaymin (Land)", "Shaymin (Sky)"];
+            const formByte = this.mapper?.properties?.player?.team?.[0]?.flags?.alternate_forms?.value;
+            const species = shayminFormNames[formByte];
+            if (!species) return null;
+            // Diamond/Pearl has no Sky Forme entry; never hand back a species the dex lacks.
+            return this.g4PokemonData?.[species] ? species : "Shaymin (Land)";
+        },
+        shayminFallbackSpecies() {
+            return this.isShayminForm(this.starter) ? this.starter : "Shaymin (Land)";
+        },
+        isShayminForm(species) {
+            return species === "Shaymin (Land)" || species === "Shaymin (Sky)";
+        },
+        syncShayminFormByte(species) {
+            // Push the selected Shaymin form to the emulator. Only writes when the lead is
+            // actually a Shaymin: the same byte means something else on other species
+            // (e.g. it would turn a Giratina into Origin Forme).
+            const shaymin_forms = {
+                "Shaymin (Land)": 0,
+                "Shaymin (Sky)":  1,
+            };
+            if (!(species in shaymin_forms)) return;
+            const lead = this.mapper?.properties?.player?.team?.[0];
+            if (lead?.species?.value !== "Shaymin") return;
+            const prop = lead?.flags?.alternate_forms;
+            if (!prop?.set) return;
+            if (prop.value === shaymin_forms[species]) return;
+            prop.set(shaymin_forms[species], false);
+        },
+        applySpeciesAliases() {
+            // Make each pokedex resolve both the legacy/ROM name and the canonical name
+            // to the same entry, so any incidental lookup by the legacy name still works.
+            const aliases = this.speciesNameAliases();
+            const dexes = [this.pokedex_plat, this.pokedex_dp, this.pokedex_hgss];
+            for (const dex of dexes) {
+                if (!dex) continue;
+                for (const [legacy, canonical] of Object.entries(aliases)) {
+                    if (dex[canonical] && !dex[legacy]) dex[legacy] = dex[canonical];
+                }
+            }
+        },
         values_function(object) {
             return Object.values(object)
         },
@@ -4485,7 +5145,7 @@ const app = Vue.createApp({
             this.previous_splits = []
 
             this.updateTime()
-            if (this.set_rom_starter_automatically && this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
+            if (this.timer_formatted_time[0] == "0" && this.timer_formatted_time[1] == ".00") {
                 console.log('Setting ROM starter automatically')
                 this.update_rom_starter_and_intro_mon()
             }
@@ -4586,21 +5246,33 @@ const app = Vue.createApp({
                 }
                 if (this.selected_game == `HeartGold and SoulSilver`) {
                     switch (trainer) {
-                        case "Leader Falkner":   graphic = `images/trainers/falkner.png`;      break;
-                        case "Leader Bugsy":     graphic = `images/trainers/bugsy.png`;        break;
-                        case "Leader Whitney":   graphic = `images/trainers/whitney.png`;      break;
-                        case "Leader Morty":     graphic = `images/trainers/morty.png`;        break;
-                        case "Leader Chuck":     graphic = `images/trainers/chuck.png`;        break;
-                        case "Leader Pryce":     graphic = `images/trainers/pryce.png`;        break;
-                        case "Leader Jasmine":   graphic = `images/trainers/jasmine.png`;      break;
-                        case "Leader Clair":     graphic = `images/trainers/clair.png`;        break;
-                        case "Leader Brock":     graphic = `images/trainers/brock.png`;        break;
-                        case "Leader Misty":     graphic = `images/trainers/misty.png`;        break;
-                        case "Leader Lt. Surge": graphic = `images/trainers/surge.png`;        break;
-                        case "Leader Erika":     graphic = `images/trainers/erika.png`;        break;
-                        case "Leader Sabrina":   graphic = `images/trainers/sabrina.png`;      break;
-                        case "Leader Janine":    graphic = `images/trainers/janine.png`;       break;
-                        case "Leader Blaine":    graphic = `images/trainers/blaine.png`;       break;
+                        case "Leader Falkner":    graphic = `images/trainers/falkner.png`; break;
+                        case "Leader Bugsy":      graphic = `images/trainers/bugsy.png`;   break;
+                        case "Leader Whitney":    graphic = `images/trainers/whitney.png`; break;
+                        case "Leader Morty":      graphic = `images/trainers/morty.png`;   break;
+                        case "Leader Chuck":      graphic = `images/trainers/chuck.png`;   break;
+                        case "Leader Pryce":      graphic = `images/trainers/pryce.png`;   break;
+                        case "Leader Jasmine":    graphic = `images/trainers/jasmine.png`; break;
+                        case "Leader Clair":      graphic = `images/trainers/clair.png`;   break;
+                        case "Leader Brock":      graphic = `images/trainers/brock.png`;   break;
+                        case "Leader Misty":      graphic = `images/trainers/misty.png`;   break;
+                        case "Leader Lt. Surge":  graphic = `images/trainers/surge.png`;   break;
+                        case "Leader Erika":      graphic = `images/trainers/erika.png`;   break;
+                        case "Leader Sabrina":    graphic = `images/trainers/sabrina.png`; break;
+                        case "Leader Janine":     graphic = `images/trainers/janine.png`;  break;
+                        case "Leader Blaine":     graphic = `images/trainers/blaine.png`;  break;
+                        case "Fisherman Ralph":   graphic = `images/trainers/ralph.png`;   break;
+                        case "Hiker Anthony":     graphic = `images/trainers/anthony.png`; break;
+                        case "Fisherman Justin":  graphic = `images/trainers/justin.png`;  break;
+                        case "Black Belt Yoshi":  graphic = `images/trainers/yoshi.png`;   break;
+                        case "Black Belt Lao":    graphic = `images/trainers/lao.png`;     break;
+                        case "Black Belt Nob":    graphic = `images/trainers/nob.png`;     break;
+                        case "School Kid Chad":   graphic = `images/trainers/chad.png`;    break;
+                        case "Kimono Girl Zuki":  graphic = `images/trainers/zuki.png`;    break;
+                        case "Kimono Girl Naoko": graphic = `images/trainers/naoko.png`;   break;
+                        case "Kimono Girl Miki":  graphic = `images/trainers/miki.png`;    break;
+                        case "Kimono Girl Sayo":  graphic = `images/trainers/sayo.png`;    break;
+                        case "Kimono Girl Kuni":  graphic = `images/trainers/kuni.png`;    break;
                         case "Elite Four Will": {
                             switch (this.mapper.properties.battle.opponent.trainer.bytes) {
                                 case 245: graphic = `images/trainers/will.png`; break;
@@ -4835,15 +5507,7 @@ const app = Vue.createApp({
                 }
             }
             else if (state == `No Pokemon`) {
-                var statName = ""
-                switch (stat) {
-                    case "attack":          statName = "base_atk";     break;
-                    case "defense":         statName = "base_def";     break;
-                    case "speed":           statName = "base_spd";     break;
-                    case "special_attack":  statName = "base_spc_atk"; break;
-                    case "special_defense": statName = "base_spc_def"; break;
-                }
-                return_value = this.g4PokemonData[starter][statName]
+                return_value = this.g4PokemonData[starter]?.base_stats?.[stat]
             }
             else if (state == `Overworld` || state == `To Battle`) {
                 return_value = this.mapper?.properties?.player?.team[0].stats[stat].value
@@ -4865,7 +5529,25 @@ const app = Vue.createApp({
                 currentStat = this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
                 
                 stageModification = this.stageModifiersData.stats[modifier]
-                calculated_stats = Math.floor(currentStat * stageModification)
+                let weatherMod = 1
+                if (statName == 'speed') {
+                    let ability = this.enemy_mon_static[slotIndex]?.ability
+                    if (this.mapper.properties.battle.field.weather.value == 'Sun' && ability == 'Chlorophyll') {
+                        weatherMod = 2
+                    }
+                    else if (this.mapper.properties.battle.field.weather.value == 'Rain' && ability == 'Swift Swim') {
+                        weatherMod = 2
+                    }
+                }
+                if (statName == 'special defense') {
+                    let type1 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_1
+                    let type2 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_2
+                    if (this.mapper.properties.battle.field.weather.value == 'Sandstorm' && (type1 == 'Rock' || type2 == 'Rock')) {
+                        weatherMod = 1.5
+                    }
+                }
+                calculated_stats = Math.floor(currentStat * stageModification * weatherMod)
+
                 if (calculated_stats == 0 || calculated_stats > 1500) { 
                     return statValue 
                 } 
@@ -4874,7 +5556,25 @@ const app = Vue.createApp({
                 }
             }
             else {
-                return this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value
+                let weatherMod = 1
+                if (statName == 'speed') {
+                    let ability = this.enemy_mon_static[slotIndex]?.ability
+                    if (this.mapper.properties.battle.field.weather.value == 'Sun' && ability == 'Chlorophyll') {
+                        weatherMod = 2
+                    }
+                    else if (this.mapper.properties.battle.field.weather.value == 'Rain' && ability == 'Swift Swim') {
+                        weatherMod = 2
+                    }
+                }
+                if (statName == 'special defense') {
+                    let type1 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_1
+                    let type2 = this.g4PokemonData[this.enemy_mon_static[slotIndex]?.species]?.type_2
+                    if (this.mapper.properties.battle.field.weather.value == 'Sandstorm' && (type1 == 'Rock' || type2 == 'Rock')) {
+                        weatherMod = 1.5
+                    }
+                }
+
+                return Math.floor(this.mapper?.properties?.battle?.opponent?.team[slotIndex].stats[statName].value * weatherMod)
             }
         },
         enemyMove(slot, moveNumber) {
@@ -5294,7 +5994,10 @@ const app = Vue.createApp({
             let correctedLineHeight = (this.movepoolDefaultContainerHeight - headerLineHeight - firstRowPadding) / visibleMoveRows;
             let fontShrinkFactor = 0.77; // make this bigger to shrink the font more. 0.5 was the default in gen1-3. 0 = no shrinking. 1 or above will be *tiny*
             // This is fairly arbitrary. This formula reduces the font size gradually based on the shrink factor
-            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor); 
+            let correctedFontSize = this.movepoolDefaultFontSize * Math.pow(correctedLineHeight / this.movepoolDefaultLineHeight, fontShrinkFactor);
+            // Never grow the font above default — at larger sizes, long move names (e.g. "Thunder Wave")
+            // wrap onto a second line, breaking the one-row-per-move height assumption and overflowing the container.
+            correctedFontSize = Math.min(correctedFontSize, this.movepoolDefaultFontSize);
             
             return "line-height: " + correctedLineHeight + "px; font-size: "+correctedFontSize+"px;";
         },
@@ -5395,7 +6098,9 @@ const app = Vue.createApp({
                 }
                 return calculated_accuracy
             }
-            else return accuracy
+            // Any other state (e.g. 'From Battle'): no battle modifiers apply, but still floor so
+            // an upstream decimal (e.g. Compound Eyes' 1.3x) never shows decimal places.
+            else return Math.floor(accuracy)
         },
         
         //DAMAGE CALCULATION
@@ -6889,8 +7594,10 @@ const app = Vue.createApp({
             return basePower
         },
         determineSTAB(x) { //x = move1.value
-            var pkmnType1 = this.g4PokemonData[this.starter].type_1
-            var pkmnType2 = this.g4PokemonData[this.starter].type_2
+            var pkmnData = this.g4PokemonData[this.starter]
+            if (!pkmnData) return 1
+            var pkmnType1 = pkmnData.type_1
+            var pkmnType2 = pkmnData.type_2
             if (this.starter == 'Arceus') {
                 pkmnType1 = this.arceus_plate_check()
             }
@@ -6899,7 +7606,7 @@ const app = Vue.createApp({
                 return 1.5
             else
                 return 1
-        }, 
+        },
         determineItemBoost(x, pkmn_object) { //x - move1.value
             if (pkmn_object.species.value == null) { return }
             if (pkmn_object.ability.value == 'Klutz') {
@@ -7237,6 +7944,9 @@ const app = Vue.createApp({
             else if (species == 'Mantyke' && player_item == 'Wave Incense' && attackingType == "Water") {
                 itemBoost = 1.2
             }
+            else if (species == 'Pikachu' && player_item == 'Light Ball') {
+                itemBoost = 2
+            }
             else if (player_item == null && x == 'Acrobatics') {
                 itemBoost = 2
             }
@@ -7256,6 +7966,17 @@ const app = Vue.createApp({
             if (power <= 60 && pkmn_ability == "Technician") {
                 power = power * 1.5
             }
+
+            // Metronome (item) - not implemented, no way to know what move was used previously. Also, the counter increments when your Pokemon uses the move, so we need to predictively assign power before the move is used.
+            // var metronome_counter = this.mapper.properties.battle.flags.player_active.metronome_item_turns.value
+            // console.log(metronome_counter)
+            // if (metronome_counter > 0 && state == 'Battle') {
+            //     itemBoost = 1 + (metronome_counter * 0.1)
+            //     if (itemBoost > 2) {
+            //         itemBoost = 2
+            //     }
+            // }
+
             // console.log("Recalculated:", defendingType2Effectiveness)
             if (this.typeCalcs == true && this.mapper.properties.meta.state.value == "Battle" && this.mapper.properties.meta.state_enemy.value != "Battle Finished") { //Handles type effectiveness calculations in battle
                 if (power == "—") { return "—" }
@@ -7319,12 +8040,184 @@ const app = Vue.createApp({
             }
             this.previous_splits = results;
         },
+
+        /* === Enemy sprite resize tool ============================================
+         * Ctrl+Click an enemy team sprite to enter resize mode. Drag the corner
+         * handle to scale, arrow keys to move (Shift+arrow = ±10px), F1 to flip.
+         * Enter commits to enemy_sprite_scales.js (dev mode); Escape cancels.
+         */
+        getEnemySpriteScale(species)   { this.enemyScaleVersion; return enemySpriteScaleManager.getScale(species); },
+        getEnemySpriteXOffset(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getXOffset(species); },
+        getEnemySpriteYOffset(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getYOffset(species); },
+        getEnemySpriteFlipped(species) { this.enemyScaleVersion; return enemySpriteScaleManager.getFlipped(species); },
+        enemyTransformFor(species) {
+            // Dev-mode escape hatch: when the styles toggle is off, render at native size/position
+            // so footage stays congruent with content filmed before the resize feature shipped.
+            // Packaged builds ignore the toggle and always apply styles. Style Mode also overrides
+            // the toggle so the user can see what they're editing.
+            if (this.isInDevMode && !this.enemy_sprite_styles_enabled && !this.style_mode_active) {
+                return 'none';
+            }
+            const s = this.getEnemySpriteScale(species);
+            const x = this.getEnemySpriteXOffset(species);
+            const y = this.getEnemySpriteYOffset(species);
+            const sx = this.getEnemySpriteFlipped(species) ? -s : s;
+            return `translate(${x}px, ${y}px) scale(${sx}, ${s})`;
+        },
+        nudgeEnemySpriteY(deltaPx) {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getYOffset(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { yOffset: cur + deltaPx });
+            this.enemyScaleVersion++;
+        },
+        nudgeEnemySpriteX(deltaPx) {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getXOffset(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { xOffset: cur + deltaPx });
+            this.enemyScaleVersion++;
+        },
+        toggleEnemySpriteFlip() {
+            if (!this.enemyResize.species) return;
+            const cur = enemySpriteScaleManager.getFlipped(this.enemyResize.species);
+            enemySpriteScaleManager.setLive(this.enemyResize.species, { flipped: !cur });
+            this.enemyScaleVersion++;
+        },
+        _getAppScale() {
+            const el = document.getElementById('app-container');
+            if (!el) return 1;
+            const t = getComputedStyle(el).transform;
+            if (!t || t === 'none') return 1;
+            const m = t.match(/matrix\(([^)]+)\)/);
+            if (m) {
+                const parts = m[1].split(',').map(s => parseFloat(s));
+                if (!Number.isNaN(parts[0]) && parts[0] > 0) return parts[0];
+            }
+            return 1;
+        },
+        enemySpriteHandlePosition() {
+            this.enemyScaleVersion;
+            const slot = this.enemyResize.slot;
+            if (slot == null) return null;
+            const sprite = document.querySelector(`.ePkmnSprite[data-enemy-slot="${slot}"]`);
+            if (!sprite) return null;
+            const rect = sprite.getBoundingClientRect();
+            return { left: (rect.right - 8) + 'px', top: (rect.bottom - 8) + 'px' };
+        },
+        onEnemyResizeHandleMouseDown(event) {
+            if (!this.enemyResize.species) return;
+            event.preventDefault();
+            event.stopPropagation();
+            const startX = event.clientX;
+            const startY = event.clientY;
+            const baseSize = this.enemyResize.baseSize;
+            const species = this.enemyResize.species;
+            const startScale = enemySpriteScaleManager.getScale(species);
+            const startWidth = baseSize * startScale;
+            const appScale = this._getAppScale();
+            const onMove = (ev) => {
+                const dx = ev.clientX - startX;
+                const dy = ev.clientY - startY;
+                const delta = (dx + dy) / 2;
+                const designDelta = appScale > 0 ? delta / appScale : delta;
+                const newWidth = Math.max(20, startWidth + designDelta);
+                const newScale = newWidth / baseSize;
+                enemySpriteScaleManager.setLive(species, { scale: newScale });
+                this.enemyScaleVersion++;
+            };
+            const onUp = () => {
+                window.removeEventListener('mousemove', onMove);
+                window.removeEventListener('mouseup', onUp);
+            };
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+        },
+        commitEnemySpriteResize() {
+            if (!this.enemyResize.species) return;
+            enemySpriteScaleManager.commit(this.enemyResize.species);
+            this.enemyResize = { species: null, slot: null, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
+        cancelEnemySpriteResize() {
+            if (!this.enemyResize.species) return;
+            if (typeof localStorage !== 'undefined') {
+                localStorage.removeItem(`enemyScale_${this.enemyResize.species}`);
+            }
+            this.enemyResize = { species: null, slot: null, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
+
+        /* === Style Mode (dev only) ==========================================
+         * See gen5/app/frontend.js for the reference implementation. Only
+         * difference here is the species data source: g4PokemonData (Gen 4
+         * Sinnoh/Johto pokédex) instead of g5PokemonData.
+         */
+        styleModeCurrentSpecies() {
+            if (!this.style_mode_active) return null;
+            return this.style_mode_species_list[this.style_mode_index] ?? null;
+        },
+        _styleModeBuildList() {
+            const all = Object.keys(this.g4PokemonData || {});
+            return all.filter((name) => name && name !== '—' && name !== 'Egg');
+        },
+        _styleModeFocusCurrent() {
+            const species = this.style_mode_species_list[this.style_mode_index];
+            if (!species) return;
+            this.enemyResize = { species, slot: 0, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
+        enterStyleMode() {
+            if (!this.isInDevMode) return;
+            const list = this._styleModeBuildList();
+            if (list.length === 0) return;
+            this.style_mode_species_list = list;
+            this.style_mode_index = 0;
+            this.style_mode_active = true;
+            this.$nextTick(() => this._styleModeFocusCurrent());
+        },
+        exitStyleMode() {
+            const species = this.styleModeCurrentSpecies();
+            if (species && typeof localStorage !== 'undefined') {
+                localStorage.removeItem(`enemyScale_${species}`);
+            }
+            this.style_mode_active = false;
+            this.style_mode_species_list = [];
+            this.style_mode_index = 0;
+            this.enemyResize = { species: null, slot: null, baseSize: 108, spriteEl: null };
+            this.enemyScaleVersion++;
+        },
+        styleModeAdvance() {
+            if (!this.style_mode_active) return;
+            const species = this.styleModeCurrentSpecies();
+            if (species) {
+                enemySpriteScaleManager.commit(species);
+            }
+            if (this.style_mode_index + 1 >= this.style_mode_species_list.length) {
+                this.exitStyleMode();
+                return;
+            }
+            this.style_mode_index++;
+            this.$nextTick(() => this._styleModeFocusCurrent());
+        },
+        styleModeBack() {
+            if (!this.style_mode_active) return;
+            const species = this.styleModeCurrentSpecies();
+            if (species && typeof localStorage !== 'undefined') {
+                localStorage.removeItem(`enemyScale_${species}`);
+            }
+            if (this.style_mode_index === 0) {
+                this._styleModeFocusCurrent();
+                return;
+            }
+            this.style_mode_index--;
+            this.$nextTick(() => this._styleModeFocusCurrent());
+        },
     },
-    
+
 
 //--------- PROGRAM MOUNTED ---------------------------------------------------------------------------------------------------------------//
     mounted: async function () {
         const that = this
+        window.addEventListener('load', () => { uiArtRenderer.renderUiArt().catch(() => {}) })
         this.mapper = new GameHookMapperClient()
         this.mapper.onMapperLoaded = (x) => {
             this.ready = true
@@ -7354,22 +8247,26 @@ const app = Vue.createApp({
         // In mounted hook (around line 6897)
         // Poll for emulator stats continuously
         this.emulatorStatsInterval = setInterval(async () => {
-            if (this.ready) { // Only poll when mapper is ready
+            if (this.ready && (this.shuckie_timer || this.shuckie_counters)) { // Only poll when mapper is ready and a shuckie feature is on
                 await this.fetchEmulatorStats();
             }
         }, 10); // 100ms = 10 times per second (adjust as needed)
 
         this.disable_encounters();
         this.updateTime()
+        this.applySpeciesAliases();
         this.load_all_settings()
-        this.pokemon_list = this.keys_function(g4PokemonData)
+        // pokemon_list now derives from the active pokedex (see computed); leave the data
+        // field empty so the computed takes over.
+
+        this.update_rom_starter_and_intro_mon()
 
         // Initialize evolution family list
         this.updateEvolutionFamilyList();
 
         // Initial tracking of personality value and species
         this.last_known_personality_value = this.mapper.properties.player.team[0].internals.personality_value.value;
-        this.last_known_species = this.mapper.properties.player.team[0].species.value;
+        this.last_known_species = this.resolveIncomingSpecies(this.mapper.properties.player.team[0].species.value);
         
         // Track personality value changes
         this.mapper.properties.player.team[0].internals.personality_value.change(async (newProp, oldProp) => {
@@ -7377,25 +8274,37 @@ const app = Vue.createApp({
             this.last_known_personality_value = newProp.value;
         });
 
-        // Species change handler - handles both normal species changes and evolution
-        this.mapper.properties.player.team[0].species.change(async (newProp, oldProp) => {
+        // Species change handler - handles both normal species changes and evolution.
+        // previousSpecies is only passed by the form-byte listener below, where the raw
+        // species name doesn't change and so can't tell us what the old form was.
+        const onLeadSpeciesChange = async (newProp, oldProp, previousSpecies) => {
             const currentPersonalityValue = this.mapper.properties.player.team[0].internals.personality_value.value;
             const state = this.mapper.properties.meta.state.value
-            
+            let normalizedNew = this.resolveIncomingSpecies(newProp.value);
+            const normalizedOld = previousSpecies ?? this.resolveIncomingSpecies(oldProp?.value);
+
+            // A Shaymin arriving in the lead slot (e.g. the just-received starter) starts out
+            // in Land Forme; take the user's selected form and push it to the emulator rather
+            // than letting the fresh byte overwrite the selection.
+            if (previousSpecies === undefined && newProp.value === "Shaymin" && oldProp?.value !== "Shaymin" && this.isShayminForm(this.starter)) {
+                normalizedNew = this.starter;
+                this.syncShayminFormByte(this.starter);
+            }
+
             // Check if this is an evolution (same personality value, different species, evolution enabled)
-            if (this.evolution == true && newProp.value != oldProp.value && 
+            if (this.evolution == true && normalizedNew != normalizedOld &&
                 currentPersonalityValue === this.last_known_personality_value &&
                 this.last_known_personality_value != null) {
-                
+
                 const evolution_family_raw = this.g4PokemonData?.[this.starter]?.evolution_family;
                 if (evolution_family_raw && evolution_family_raw.length > 0) {
                     const evolution_family = evolution_family_raw.map(obj => obj.species).filter(s => s != null);
-                    const evolved = evolution_family.includes(newProp.value);
-                    
+                    const evolved = evolution_family.includes(normalizedNew);
+
                     if (evolved == true) {
                         // Store old species for transition
                         const oldSpecies = this.starter;
-                        const newSpecies = newProp.value;
+                        const newSpecies = normalizedNew;
 
                         // Only proceed if both oldProp and newSpecies are valid
                         // Check that oldProp has a valid species (not 0x00 0x00 bytes)
@@ -7474,15 +8383,16 @@ const app = Vue.createApp({
             // Normal species change handling (not an evolution)
             // Only update if newProp.value is valid (not undefined/null)
             if (newProp.value && newProp.value !== undefined && newProp.value !== null) {
-                this.last_known_species = newProp.value;
+                const incomingSpecies = normalizedNew;
+                this.last_known_species = incomingSpecies;
                 this.last_known_personality_value = currentPersonalityValue;
-                
+
                 // IMPORTANT: When evolution is enabled, only update starter if new species is in the current evolution family
                 // This prevents error data from game resets from changing the displayed Pokemon
                 let shouldUpdateStarter = false;
                 if (this.evolution && this.evolution_family_list.length > 0) {
                     // Only allow update if new species is in the evolution family
-                    if (this.evolution_family_list.includes(newProp.value)) {
+                    if (this.evolution_family_list.includes(incomingSpecies)) {
                         shouldUpdateStarter = true;
                     }
                     // If not in family, don't update starter (prevents error data from slipping through)
@@ -7494,16 +8404,38 @@ const app = Vue.createApp({
                 // Only update starter if validation passed
                 if (shouldUpdateStarter) {
                     if ((state == "Battle" || state == "From Battle") && this.mapper.properties.battle.player.pkmn_ram?.pokemon_0_ram?.stats.hp.value != 0) {
-                        this.starter = newProp.value
+                        this.starter = incomingSpecies
                     }
-                    else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && newProp.value == 'Reshiram') {
+                    else if (state == "Overworld" && this.mapper.properties.overworld.map_index.value == 278 && incomingSpecies == 'Reshiram') {
                         // Special handling for Reshiram
                     }
                     else if (state == "Overworld") {
-                        this.starter = newProp.value
+                        this.starter = incomingSpecies
                     }
                 }
+
+                // Push the Wormadam cloak byte to the emulator on every Wormadam appearance,
+                // so a fresh Wormadam (e.g. just-received starter) reflects the user's variant
+                // even when this.starter didn't change. Not when the form byte itself changed
+                // (previousSpecies set): the game is the source there, and writing would revert it.
+                if (newProp.value === "Wormadam" && previousSpecies === undefined) {
+                    this.syncWormadamFormByte(this.starter);
+                }
             }
+        }
+        this.mapper.properties.player.team[0].species.change(onLeadSpeciesChange)
+
+        // Shaymin changes form without changing species ID (Gracidea by day; back to Land
+        // Forme at night or when frozen), and Burmy evolves into Wormadam with the form byte
+        // reading Plant until the real cloak lands a moment later. Watch the form byte and
+        // treat a change as a species change from the last form we saw.
+        this.mapper.properties.player.team[0].flags.alternate_forms?.change(async () => {
+            const speciesProp = this.mapper.properties.player.team[0].species;
+            if (speciesProp.value !== "Shaymin" && speciesProp.value !== "Wormadam") return;
+            const previousSpecies = this.last_known_species;
+            if (this.resolveIncomingSpecies(speciesProp.value) === previousSpecies) return;
+            const current = { value: speciesProp.value, bytes: speciesProp.bytes };
+            await onLeadSpeciesChange(current, current, previousSpecies);
         })
         this.mapper.properties.player.team[0].level.change(async (newProp, oldProp) => {
             const map = this.mapper.properties.overworld.map_index.value
@@ -7535,6 +8467,37 @@ const app = Vue.createApp({
             this.expBarState.expPoints = expPoints;
         }
 
+        // Vitamins Display (HGSS EV training areas)
+        const hgssEvBoxMaps = {
+            "Route 38 - Map 1":       { x_range: [344, 317], y_range: [170, 166] },
+            "Ecruteak City - Map 1":  { x_range: [405, 396], y_range: [160, 153] },
+            "Route 42 - Map 1":       { x_range: [482, 442], y_range: [1000, 0] },
+            "Route 43 - Map 1":       { x_range: [536, 526], y_range: [143, 104] },
+            "Route 35 - Map 1":       { x_range: [370, 360], y_range: [302, 291] },
+            "Route 44 - Map 1":       { x_range: [595, 583], y_range: [175, 172] },
+        }
+        const isInEvBox = (x, y, x_range, y_range) => {
+            const xMin = Math.min(x_range[0], x_range[1])
+            const xMax = Math.max(x_range[0], x_range[1])
+            const yMin = Math.min(y_range[0], y_range[1])
+            const yMax = Math.max(y_range[0], y_range[1])
+            return x >= xMin && x <= xMax && y >= yMin && y <= yMax
+        }
+        const updateHgssEvBoxStats = () => {
+            if (this.selected_game != "HeartGold and SoulSilver") { return }
+            const map = this.mapper.properties.overworld.map_name.value
+            const box = hgssEvBoxMaps[map]
+            if (!box) { return }
+            const x = this.mapper.properties.overworld.x.value
+            const y = this.mapper.properties.overworld.y.value
+            this.stats_setting = isInEvBox(x, y, box.x_range, box.y_range) ? "EVs" : "Automatic"
+        }
+        if (this.selected_game == "HeartGold and SoulSilver") {
+            this.mapper.properties.overworld.x.change(async () => { updateHgssEvBoxStats() })
+            this.mapper.properties.overworld.y.change(async () => { updateHgssEvBoxStats() })
+            updateHgssEvBoxStats()
+        }
+
         // Encounters
         this.mapper.properties.overworld.map_name.change(async (newProp) => {
             this.freezeEncounters();
@@ -7542,10 +8505,22 @@ const app = Vue.createApp({
             if (newProp.value == 'Veilstone Store - Map 1' || newProp.value == 'Veilstone Store - Map 2' || newProp.value == 'Veilstone Store - Map 3' || newProp.value == 'Veilstone Store - Map 4' || newProp.value == 'Veilstone Store - Map 5' || newProp.value == 'Veilstone Store - Map 6' || newProp.value == 'Veilstone Store - Map 7') {
                 this.stats_setting = "Vitamins";
             }
+            else if (this.selected_game == "HeartGold and SoulSilver" && hgssEvBoxMaps[newProp.value]) {
+                updateHgssEvBoxStats()
+            }
             else {
                 this.stats_setting = "Automatic";
             }
         });
+        // HeartGold and SoulSilver fix
+        // if (this.selected_game == "HeartGold and SoulSilver") {
+        //     this.mapper.properties.overworld.encounter_rates.walking.change(async (newProp) => {
+        //         const map = this.mapper.properties.overworld.map_name.value
+        //         if (map == 'Route 29 - Map 1' || map == 'Route 30 - Map 1' || map == 'Sprout Tower - Map 2' || map == 'Sprout Tower - Map 3') {
+        //             this.disable_encounters();
+        //         }
+        //     })
+        // }
 
         // Resets
         if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
@@ -7554,7 +8529,7 @@ const app = Vue.createApp({
                     if (newProp.value == true && this.emulatorStats.time_current == null) {
                         console.log("Sending emulator start")
                         this.sendEmulatorStart();
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7571,7 +8546,7 @@ const app = Vue.createApp({
                     if (newProp.value == true && parseInt(this.timer_formatted_time[0]) == 0) {
                         this.startTime()
                         // if (this.shuckie_timer == true) { this.sendEmulatorStart(); }
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7591,7 +8566,7 @@ const app = Vue.createApp({
                     if (newProp.value == 56150 && this.emulatorStats.time_current == null) {
                         console.log("Sending emulator start")
                         this.sendEmulatorStart();
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7606,7 +8581,7 @@ const app = Vue.createApp({
                 else {
                     if (newProp.value == 56150 && parseInt(this.timer_formatted_time[0]) == 0) {
                         this.startTime()
-                        if (this.set_rom_starter_automatically) { this.update_rom_starter_and_intro_mon(); }
+                        this.update_rom_starter_and_intro_mon();
                         this.blackout = false;
                         this.attempt_number++
                     }
@@ -7631,12 +8606,56 @@ const app = Vue.createApp({
             }
         })
 
-        this.mapper.properties.battle.opponent.trainer.change(async (newProp, oldProp) => { 
+        // Battle-entry markers. A wild battle and a trainer battle can both fire near-simultaneously
+        // (battle.mode flips to 'Wild' while battle.opponent.trainer also briefly transitions). We
+        // debounce IN markers through a short queue so a 'Wild' entry pre-empts any trainer IN that
+        // would otherwise overwrite it. OUT markers fire immediately — they don't conflict.
+        const BATTLE_IN_DEBOUNCE_MS = 250;
+        let pendingBattleIn = null; // { name, isWild, timer }
+        const queueBattleInMarker = (name, isWild) => {
+            if (pendingBattleIn) {
+                if (isWild) {
+                    clearTimeout(pendingBattleIn.timer);
+                } else if (pendingBattleIn.isWild) {
+                    // Wild already queued — trainer write loses.
+                    return;
+                } else {
+                    clearTimeout(pendingBattleIn.timer);
+                }
+            }
+            const entry = { name, isWild, timer: null };
+            entry.timer = setTimeout(() => {
+                pendingBattleIn = null;
+                this.sendObsChapterMarker(entry.name);
+            }, BATTLE_IN_DEBOUNCE_MS);
+            pendingBattleIn = entry;
+        };
+
+        this.mapper.properties.battle.opponent.trainer.change(async (newProp, oldProp) => {
             const trainer = newProp.value == null ? oldProp.value : newProp.value
-            const state = newProp.value == null ? "OUT" : "IN"
-            const stateName = state
-            this.sendObsChapterMarker(stateName + " - " + trainer)
+            if (newProp.value == null) {
+                // OUT — fire immediately, no conflict to resolve.
+                this.sendObsChapterMarker("OUT - " + trainer)
+            } 
+            else if (this.selected_game == "Platinum" || this.selected_game == "Diamond and Pearl") {
+                queueBattleInMarker("IN - " + trainer, false)
+            }
+            else if (this.selected_game == "HeartGold and SoulSilver" && this.mapper.properties.meta.menu.app_overlay_id.value === 12) {
+                queueBattleInMarker("IN - " + trainer, false)
+            }
         })
+
+        this.mapper.properties.battle.mode?.change?.((newProp, oldProp) => {
+            if (newProp?.value === 'Wild' && oldProp?.value !== 'Wild') {
+                queueBattleInMarker("IN - Wild", true)
+            }
+        })
+
+        if (this.selected_game == "HeartGold and SoulSilver") {
+            this.mapper.properties.meta.menu.app_overlay_id.change(async (newProp, oldProp) => {
+                this.sendObsChapterMarker("MENU - " + newProp.value)
+            })
+        }
 
         this.mapper.properties.meta.state.change((newProp, oldProp) => {
             // if (newProp.value == "Overworld" && oldProp.value == "From Battle") {
@@ -7651,6 +8670,10 @@ const app = Vue.createApp({
             //     const stateName = state + " - " + trainer
             //     this.sendObsChapterMarker(stateName)
             // }
+
+            if (newProp.value == "Overworld") {
+                this.freezeEncounters();
+            }
 
             const game = this.mapper.properties.meta.game_name.value
             if (this.blackout == true) {
@@ -7686,6 +8709,13 @@ const app = Vue.createApp({
                 this.evolved_species_for_stats = null;
             }
         });
+        // MAP CHANGE CHAPTER MARKER
+        // Fires "Map Change" whenever overworld.map_index changes value.
+        this.mapper.properties.overworld?.map_index?.change?.((newProp, oldProp) => {
+            if (newProp?.value === oldProp?.value) return;
+            this.sendObsChapterMarker(`Map Change - ${newProp.value}`);
+        });
+
         this.mapper.properties.battle.player.party_position.change(async (newProp, oldProp) => {
             const game = this.mapper.properties.meta.game_name.value
             // console.log(newProp.value, oldProp.value, this.blackout)
@@ -7781,66 +8811,15 @@ const app = Vue.createApp({
             this.mapper.properties.battle.player.active_pokemon?.moves?.[i]?.move?.change(() => scheduleMoveCheck());
         }
 
-        // CRITICAL ITEM CHAPTER MARKERS (ported from gen2, expanded for gen4)
-        // Fires "Item - <name>" when the player obtains a critical item across any of the six gen4
-        // bag pockets (items / medicine / balls / tmhm / berries / battle_items) or onto a team
-        // member's held slot. Uses the mapper's exact item casing.
-        const vitaminItems = new Set([
-            'HP Up', 'Protein', 'Iron', 'Carbos', 'Calcium', 'Zinc',
-            'PP Up', 'PP Max', 'Rare Candy'
-        ]);
-        // Type boosters (held-item damage multipliers). Sourced from typeBoostingItems with the
-        // mapper-correct casing already baked in.
-        const typeBoosterItems = new Set(Object.keys(typeBoostingItems));
-        // Power / battle held items that meaningfully change a run. Casing matches the gen4 mapper.
-        const powerHeldItems = new Set([
-            'Choice Band', 'Choice Scarf', 'Choice Specs',
-            'Life Orb', 'Expert Belt', 'Wise Glasses', 'Muscle Band',
-            'Macho Brace', 'Zoom Lens', 'Wide Lens', 'Scope Lens',
-            'Razor Claw', 'Razor Fang', 'Quick Claw', "King's Rock",
-            'Bright Powder', 'Light Ball', 'Lucky Punch', 'Stick',
-            'Thick Club', 'Metal Powder', 'Quick Powder',
-            'DeepSeaScale', 'DeepSeaTooth',
-            'Light Clay', 'Damp Rock', 'Heat Rock', 'Smooth Rock', 'Icy Rock',
-            'Toxic Orb', 'Flame Orb', 'Iron Ball', 'Lagging Tail', 'Sticky Barb',
-            'Black Sludge', 'Big Root', 'Shell Bell', 'Leftovers',
-            'Mental Herb', 'White Herb', 'Power Herb',
-            'Focus Sash', 'Focus Band',
-            'Lax Incense', 'Sea Incense', 'Wave Incense', 'Odd Incense',
-            'Rock Incense', 'Rose Incense', 'Full Incense', 'Pure Incense',
-            'Lucky Egg', 'Amulet Coin', 'Cleanse Tag', 'Soothe Bell',
-            'Metronome', 'Eviolite'
-        ]);
-        // EV-training held items.
-        const evBoosterItems = new Set([
-            'Power Weight', 'Power Bracer', 'Power Belt',
-            'Power Lens', 'Power Band', 'Power Anklet'
-        ]);
-        // Berries with battle effects (status cures, healing, pinch, type-resist, jaboca/rowap).
-        // Filler/contest/EV-reduction berries are intentionally omitted as they're not run-critical.
-        const berryItems = new Set([
-            'Cheri Berry', 'Chesto Berry', 'Pecha Berry', 'Rawst Berry', 'Aspear Berry',
-            'Leppa Berry', 'Oran Berry', 'Persim Berry', 'Lum Berry', 'Sitrus Berry',
-            'Figy Berry', 'Wiki Berry', 'Mago Berry', 'Aguav Berry', 'Iapapa Berry',
-            'Occa Berry', 'Passho Berry', 'Wacan Berry', 'Rindo Berry', 'Yache Berry',
-            'Chople Berry', 'Kebia Berry', 'Shuca Berry', 'Coba Berry', 'Payapa Berry',
-            'Tanga Berry', 'Charti Berry', 'Kasib Berry', 'Haban Berry', 'Colbur Berry',
-            'Babiri Berry', 'Chilan Berry',
-            'Liechi Berry', 'Ganlon Berry', 'Salac Berry', 'Petaya Berry', 'Apicot Berry',
-            'Lansat Berry', 'Starf Berry', 'Enigma Berry',
-            'Micle Berry', 'Custap Berry', 'Jaboca Berry', 'Rowap Berry'
-        ]);
-        // Pre-evolution stones / soft-evolution items that gate access to forms.
-        const evolutionItems = new Set([
-            'Fire Stone', 'Water Stone', 'Thunder Stone', 'Leaf Stone', 'Moon Stone',
-            'Sun Stone', 'Shiny Stone', 'Dusk Stone', 'Dawn Stone', 'Oval Stone',
-            'Everstone',
-            'Up-Grade', 'Dubious Disc', 'Reaper Cloth', 'Magmarizer', 'Electirizer',
-            'Protector', 'Dragon Scale'
-        ]);
-        // Any new entry into the tmhm pocket fires (TMs are always interesting). Of the HMs we
-        // only fire HM03 Surf — match gen2 spec. Detection is via name prefix because the gen4
-        // mapper might serve "HM01" or "HM01 Cut" or "Cut" depending on glossary configuration.
+        // ITEM ACQUISITION CHAPTER MARKERS
+        // Fires "Item - <name>" whenever the total owned quantity of an item name increases
+        // (across all six gen4 bag pockets and team-held slots). HMs other than HM03 Surf are
+        // suppressed. Bursts within ITEM_BURST_MS for the same name collapse to a single marker,
+        // so buying 5 Potions at once fires once; buying 1 then 5 more after the window fires twice.
+        // Slot reshuffles and held↔bag moves don't change totals, so they don't fire.
+        const allPockets = ['items', 'medicine', 'balls', 'tmhm', 'berries', 'battle_items'];
+        const ITEM_BURST_MS = 1500;
+
         const hmBlocklist = new Set([
             'HM01', 'HM02', 'HM04', 'HM05', 'HM06', 'HM07', 'HM08',
             'Cut', 'Fly', 'Strength', 'Defog', 'Rock Smash', 'Waterfall', 'Rock Climb'
@@ -7850,126 +8829,82 @@ const app = Vue.createApp({
             return /^HM(?!03)\d{2}\b/.test(String(name));
         };
 
-        const isCriticalGenericItem = (name) =>
-            vitaminItems.has(name) ||
-            typeBoosterItems.has(name) ||
-            powerHeldItems.has(name) ||
-            evBoosterItems.has(name) ||
-            berryItems.has(name) ||
-            evolutionItems.has(name);
-
-        // Pockets keyed by gen4 mapper structure. Each pocket is iterated by Object.keys to absorb
-        // size differences between Diamond/Pearl/Platinum/HGSS without hardcoding slot counts.
-        const allPockets = ['items', 'medicine', 'balls', 'tmhm', 'berries', 'battle_items'];
-        const tmhmPocket = 'tmhm';
-
-        // For each item name, decide whether a new acquisition is critical. tmhm pocket items
-        // are always critical (minus the blocked HMs).
-        const isCriticalForPocket = (name, pocket) => {
-            if (name == null || name === '') return false;
-            if (pocket === tmhmPocket) return !isBlockedHm(name);
-            if (pocket === 'berries') return true;
-            return isCriticalGenericItem(name);
-        };
-
-        // Combined ownership snapshot = all pocket item names ∪ team-held items. A "new acquisition"
-        // is a name that wasn't recently observed in either source. Pocket reshuffles caused by
-        // using/selling other items don't fire because the name was already in the set.
-        const readOwnedItems = () => {
-            // Map of name -> pocket where first observed (so we can apply pocket-specific filters).
-            const map = new Map();
+        const readItemTotals = () => {
+            const totals = new Map();
             const bag = this.mapper?.properties?.bag;
             if (bag) {
                 for (const pocket of allPockets) {
                     const slots = bag[pocket];
                     if (!slots) continue;
                     for (const k of Object.keys(slots)) {
-                        const v = slots[k]?.item?.value;
-                        if (v != null && v !== '' && !map.has(v)) map.set(v, pocket);
+                        const slot = slots[k];
+                        const name = slot?.item?.value;
+                        if (name == null || name === '') continue;
+                        const qty = slot?.quantity?.value ?? 1;
+                        totals.set(name, (totals.get(name) || 0) + qty);
                     }
                 }
             }
             const team = this.mapper?.properties?.player?.team;
             if (team) {
                 for (let i = 0; i < 6; i++) {
-                    const v = team[i]?.held_item?.value;
-                    if (v != null && v !== '' && !map.has(v)) map.set(v, 'held');
+                    const name = team[i]?.held_item?.value;
+                    if (name == null || name === '') continue;
+                    totals.set(name, (totals.get(name) || 0) + 1);
                 }
             }
-            return map;
+            return totals;
         };
 
-        // Per-item "last seen owned" timestamps. An item is treated as a new acquisition only if
-        // it hasn't been observed within OWNERSHIP_MEMORY_MS. A held↔bag move fires two property
-        // changes that can be spaced apart; the timestamp window bridges that gap.
-        const OWNERSHIP_MEMORY_MS = 2000;
-        const lastSeenOwned = new Map();
-        {
-            const now = Date.now();
-            for (const name of readOwnedItems().keys()) lastSeenOwned.set(name, now);
-        }
+        const lastItemTotals = readItemTotals();
+        // Per-item "last fired" timestamp. A new fire is gated on (now - lastFired) >= ITEM_BURST_MS,
+        // so a burst of quantity bumps for one name collapses to one marker.
+        const lastItemFiredAt = new Map();
+        let itemCheckTimer = null;
 
-        // Periodic tick keeps timestamps fresh for items the player is currently sitting on with
-        // no other activity. Without this, a long-held item taken off the Pokemon would look new.
-        setInterval(() => {
+        const checkItemDeltas = () => {
+            const current = readItemTotals();
             const now = Date.now();
-            for (const name of readOwnedItems().keys()) {
-                if (lastSeenOwned.has(name)) lastSeenOwned.set(name, now);
-            }
-        }, 500);
-
-        let ownedCheckTimer = null;
-        const checkForNewOwnedItems = () => {
-            const now = Date.now();
-            const current = readOwnedItems();
-            for (const [name, pocket] of current) {
-                if (!isCriticalForPocket(name, pocket)) continue;
-                const lastSeen = lastSeenOwned.get(name);
-                const isNewlyAcquired = (lastSeen == null) || ((now - lastSeen) > OWNERSHIP_MEMORY_MS);
-                if (isNewlyAcquired) {
-                    const chapterName = "Item - " + name;
-                    console.log("Chapter Detected: " + chapterName);
-                    this.sendObsChapterMarker(chapterName);
+            for (const [name, qty] of current) {
+                const prev = lastItemTotals.get(name) ?? 0;
+                if (qty > prev && !isBlockedHm(name)) {
+                    const last = lastItemFiredAt.get(name) ?? 0;
+                    if (now - last >= ITEM_BURST_MS) {
+                        const chapterName = "Item - " + name;
+                        console.log("Chapter Detected: " + chapterName);
+                        this.sendObsChapterMarker(chapterName);
+                    }
+                    lastItemFiredAt.set(name, now);
                 }
-                lastSeenOwned.set(name, now);
             }
+            lastItemTotals.clear();
+            for (const [k, v] of current) lastItemTotals.set(k, v);
         };
 
-        const scheduleOwnedCheck = () => {
-            // Refresh timestamps for items currently observed AND within the memory window.
-            // Stale entries are not refreshed so genuine re-acquisitions after a long absence fire.
-            const now = Date.now();
-            for (const name of readOwnedItems().keys()) {
-                const lastSeen = lastSeenOwned.get(name);
-                if (lastSeen != null && (now - lastSeen) <= OWNERSHIP_MEMORY_MS) {
-                    lastSeenOwned.set(name, now);
-                }
-            }
-            if (ownedCheckTimer) clearTimeout(ownedCheckTimer);
-            ownedCheckTimer = setTimeout(() => {
-                ownedCheckTimer = null;
-                checkForNewOwnedItems();
+        const scheduleItemCheck = () => {
+            if (itemCheckTimer) clearTimeout(itemCheckTimer);
+            itemCheckTimer = setTimeout(() => {
+                itemCheckTimer = null;
+                checkItemDeltas();
             }, 100);
         };
 
-        // Wire change watchers across every pocket slot the mapper exposes, plus held items.
         const bagRoot = this.mapper?.properties?.bag;
         if (bagRoot) {
             for (const pocket of allPockets) {
                 const slots = bagRoot[pocket];
                 if (!slots) continue;
                 for (const k of Object.keys(slots)) {
-                    const itemProp = slots[k]?.item;
-                    if (itemProp && typeof itemProp.change === 'function') {
-                        itemProp.change(() => scheduleOwnedCheck());
-                    }
+                    const slot = slots[k];
+                    if (slot?.item?.change) slot.item.change(() => scheduleItemCheck());
+                    if (slot?.quantity?.change) slot.quantity.change(() => scheduleItemCheck());
                 }
             }
         }
         for (let i = 0; i < 6; i++) {
             const heldProp = this.mapper.properties.player.team[i]?.held_item;
             if (heldProp && typeof heldProp.change === 'function') {
-                heldProp.change(() => scheduleOwnedCheck());
+                heldProp.change(() => scheduleItemCheck());
             }
         }
 
@@ -8046,6 +8981,66 @@ const app = Vue.createApp({
             }
         }
 
+        // RNG: watch bag.items (shards) and bag.berries (berries) for quantity increases.
+        // When the total quantity for a category grows while on a configured NPC's map,
+        // advance that NPC's trip and write the next trip's value to the PokeAByte property
+        // (or 0 when the configured trip list is exhausted).
+        const readBagCategoryTotal = (category) => {
+            let total = 0;
+            const root = this.mapper?.properties?.bag?.[category];
+            if (root) {
+                for (const k of Object.keys(root)) {
+                    total += root[k]?.quantity?.value ?? 0;
+                }
+            }
+            return total;
+        };
+
+        const lastBagTotals = {
+            items:   readBagCategoryTotal('items'),
+            berries: readBagCategoryTotal('berries'),
+        };
+
+        const advanceRNGForCategory = async (category) => {
+            const previous = lastBagTotals[category];
+            const current = readBagCategoryTotal(category);
+            lastBagTotals[category] = current;
+            if (current <= previous) return;
+            const currentMap = this.mapper?.properties?.overworld?.map_name?.value;
+            if (!currentMap) return;
+            for (const npc of this.rng_npcs) {
+                if (npc.bagCategory !== category) continue;
+                if (npc.map !== currentMap) continue;
+                this.rng_trip_index[npc.key] = (this.rng_trip_index[npc.key] ?? 0) + 1;
+                const nextValue = this.rng_trip_index[npc.key] < (this.rng_config[npc.key]?.length ?? 0)
+                    ? this.rngPatchValueForTrip(npc.key, this.rng_trip_index[npc.key])
+                    : 0;
+                const prop = this.mapper.properties.patch?.[npc.patchProp];
+                if (prop?.set) {
+                    await prop.set(nextValue, false);
+                }
+            }
+        };
+
+        const rngBagCheckTimers = { items: null, berries: null };
+        const scheduleRNGBagCheck = (category) => {
+            if (rngBagCheckTimers[category]) clearTimeout(rngBagCheckTimers[category]);
+            rngBagCheckTimers[category] = setTimeout(() => {
+                rngBagCheckTimers[category] = null;
+                advanceRNGForCategory(category);
+            }, 100);
+        };
+
+        for (const category of ['items', 'berries']) {
+            const root = this.mapper?.properties?.bag?.[category];
+            if (!root) continue;
+            for (const k of Object.keys(root)) {
+                const slot = root[k];
+                if (slot?.quantity?.change) slot.quantity.change(() => scheduleRNGBagCheck(category));
+                if (slot?.item?.change) slot.item.change(() => scheduleRNGBagCheck(category));
+            }
+        }
+
         // NEXT POKEMON CHAPTER MARKER (Battle only)
         // Fires "Next Pokemon" whenever battle.opponent.party_position changes during Battle.
         this.mapper.properties.battle.opponent.party_position?.change((newProp, oldProp) => {
@@ -8114,12 +9109,13 @@ const app = Vue.createApp({
             var ivSpD = hp_data[pkmn_hp][pkmn_hp_index][5]
 
             //Calculates the Pokemon's starting stats with the desired DVs
-            var hitpoints      = Math.floor((((2 * pkmnData.base_hp + ivHp + 0) * level)/100) + level + 10)
-            var attack         = Math.floor(Math.floor(((((2 * pkmnData.base_atk + ivAtk + 0) * level)/100) + 5)) * natures["nature_attack"])
-            var defense        = Math.floor(Math.floor(((((2 * pkmnData.base_def + ivDef + 0) * level)/100) + 5)) * natures["nature_defense"])
-            var specialAttack  = Math.floor(Math.floor(((((2 * pkmnData.base_spc_atk + ivSpA + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
-            var specialDefense = Math.floor(Math.floor(((((2 * pkmnData.base_spc_def + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
-            var speed          = Math.floor(Math.floor(((((2 * pkmnData.base_spd + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
+            var base_stats     = pkmnData.base_stats
+            var hitpoints      = Math.floor((((2 * base_stats.hp + ivHp + 0) * level)/100) + level + 10)
+            var attack         = Math.floor(Math.floor(((((2 * base_stats.attack + ivAtk + 0) * level)/100) + 5)) * natures["nature_attack"])
+            var defense        = Math.floor(Math.floor(((((2 * base_stats.defense + ivDef + 0) * level)/100) + 5)) * natures["nature_defense"])
+            var specialAttack  = Math.floor(Math.floor(((((2 * base_stats.special_attack + ivSpA + 0) * level)/100) + 5)) * natures["nature_specialAttack"])
+            var specialDefense = Math.floor(Math.floor(((((2 * base_stats.special_defense + ivSpD + 0) * level)/100) + 5)) * natures["nature_specialDefense"])
+            var speed          = Math.floor(Math.floor(((((2 * base_stats.speed + ivSpe + 0) * level)/100) + 5)) * natures["nature_speed"])
 
             if (this.legacy_starter_assignment) { 
                 this.mapper.properties.player.starter.set(player_starter, false) 
@@ -8144,14 +9140,86 @@ const app = Vue.createApp({
                     {path: 'player.team.0.ivs.special_defense', value: ivSpD, freeze: false},
                 ]),
             ])
+            if (this.mapper.properties.meta.game_name.value == "Platinum") {
+                await Promise.all([
+                    this.mapper.setBits([
+                        {path: 'patch.FLAG_FORCE_ROUTE_201_BIDOOF', value: this.hm_route_201_bidoof,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_201_STARLY', value: this.hm_route_201_starly,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_202_BIDOOF', value: this.hm_route_202_bidoof,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_202_STARLY', value: this.hm_route_202_starly,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_203_ABRA', value: this.hm_route_203_abra,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_ZUBAT', value: this.hm_oreburgh_gate_zubat,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_GEODUDE', value: this.hm_oreburgh_gate_geodude,  freeze: false},
+                    ]),
+                    this.mapper.setBits([
+                        {path: 'patch.FLAG_FORCE_OREBURGH_GATE_PSYDUCK', value: this.hm_oreburgh_gate_psyduck,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_207_MACHOP', value: this.hm_route_207_machop,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_207_GEODUDE', value: this.hm_route_207_geodude,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_OREBURGH_MINE_GEODUDE', value: this.hm_oreburgh_mine_geodude,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_208_BIBAREL', value: this.hm_route_208_bibarel,  freeze: false},
+                        {path: 'patch.FLAG_FORCE_ROUTE_213_BUIZEL', value: this.hm_route_213_buizel,  freeze: false},
+                    ]),
+                ])
+            }
+            if (this.mapper.properties.meta.game_name.value == "HeartGold and SoulSilver") {
+                await Promise.all([
+                    this.mapper.setBits([
+                        // byte 0x160 (flag IDs 0xB00-0xB07)
+                        {path: 'patch.FLAG_FORCE_R29_SENTRET',          value: this.hm_route_29_sentret,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R29_RATTATA',          value: this.hm_route_29_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R29_PIDGEY',           value: this.hm_route_29_pidgey,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_R30_RATTATA',          value: this.hm_route_30_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R30_PIDGEY',           value: this.hm_route_30_pidgey,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_BELLSPROUT',       value: this.hm_route_31_bellsprout, freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_RATTATA',          value: this.hm_route_31_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R31_PIDGEY',           value: this.hm_route_31_pidgey,     freeze: false},
+                    ]),
+                    this.mapper.setBits([
+                        // byte 0x161 (flag IDs 0xB08-0xB0B)
+                        {path: 'patch.FLAG_FORCE_R32_RATTATA',          value: this.hm_route_32_rattata,    freeze: false},
+                        {path: 'patch.FLAG_FORCE_R32_WOOPER',           value: this.hm_route_32_wooper,     freeze: false},
+                        {path: 'patch.FLAG_FORCE_UNION_CAVE_SANDSHREW', value: this.hm_union_cave_sandshrew,freeze: false},
+                        {path: 'patch.FLAG_FORCE_R34_DROWZEE',          value: this.hm_route_34_drowzee,    freeze: false},
+                    ]),
+                ])
+            }
+            // RNG: reset trip indices and write first-trip values to PokeAByte properties.
+            for (const npc of this.rng_npcs) {
+                this.rng_trip_index[npc.key] = 0;
+                const value = this.rngPatchValueForTrip(npc.key, 0);
+                const prop = this.mapper.properties.patch?.[npc.patchProp];
+                if (prop?.set) {
+                    await prop.set(value, false);
+                }
+            }
+
             if (species == 'Regirock' || species == 'Regice' || species == 'Registeel') {
                 await Promise.all([
                     await this.mapper.properties.player.team[0].moves[0].pp.set(0, false),
                 ])
             }
-            if (species == 'Shaymin') {
+            if (species == 'Shaymin' || species == 'Shaymin (Land)' || species == 'Shaymin (Sky)' || species == 'Mew' || species == 'Deoxys') {
                 await Promise.all([
-                    await this.mapper.properties.player.team[0].flags.fateful_encounter.set(true, false),
+                    await this.mapper.properties.player.team[0].flags.fateful_encounter?.set(true, false),
+                ])
+            }
+            const shaymin_forms = {
+                "Shaymin (Land)": 0,
+                "Shaymin (Sky)":  1,
+            }
+            if (species in shaymin_forms) {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].flags.alternate_forms?.set(shaymin_forms[species], false),
+                ])
+            }
+            const wormadam_forms = {
+                "Wormadam (Plant)": 0,
+                "Wormadam (Sandy)": 1, 
+                "Wormadam (Trash)": 2, 
+            }
+            if (species.includes('Wormadam')) {
+                await Promise.all([
+                    await this.mapper.properties.player.team[0].flags.alternate_forms.set(wormadam_forms[species], false),
                 ])
             }
         }
@@ -8237,9 +9305,11 @@ const app = Vue.createApp({
                 let real_time_total      = this.timer_formatted_time[0] + this.timer_formatted_time[1]
                 let real_time_hmmss      = this.timer_formatted_time[0]
                 let real_time_file_label = this.timer_formatted_time[2]
-                let resets               = this.playerResets.toString()
-                let blackouts            = this.blackout_counter.toString()
-                let failures             = this.playerResets + this.blackout_counter
+                let resets_value         = this.shuckie_counters ? (this.emulatorStats?.counters?.playerResets ?? 0)     : this.playerResets
+                let blackouts_value      = this.shuckie_counters ? (this.emulatorStats?.counters?.blackout_counter ?? 0) : this.blackout_counter
+                let resets               = resets_value.toString()
+                let blackouts            = blackouts_value.toString()
+                let failures             = resets_value + blackouts_value
                 let level                = this.mapper.properties.player.team[0].level.value.toString()
                 let game_time            = this.gametimeSplit.toString()
                 let battle_duration      = (battle_end - this.battle_start)/1000 
@@ -8424,7 +9494,7 @@ const app = Vue.createApp({
                         playerTurns, enemyTurns, itemsInBag, money, rivalTeam,
                         statusCondition, type1, type2, experience,
                         runIdentifier, this.starter, trainerName,
-                        startTime, realTime, gameTime, level, this.playerResets,
+                        startTime, realTime, gameTime, level, resets_value,
                         RTHours, RTMinutes, RTSeconds, RTMilliseconds,
                         move1, move2, move3, move4, move1pp, move2pp, move3pp, move4pp, move1ppUp, move2ppUp, move3ppUp, move4ppUp,
                         hp, maxHp, atk, def, spA, spD, spe,
@@ -8461,7 +9531,7 @@ const app = Vue.createApp({
                 if (this.scott_mode == true) {
                     deprecated_data = [
                         runIdentifier, this.starter, trainerName,
-                        startTime, realTime, gameTime, level, this.playerResets,
+                        startTime, realTime, gameTime, level, resets_value,
                         RTHours, RTMinutes, RTSeconds, RTMilliseconds,
                         move1, move2, move3, move4,
                         atk, def, spA, spD, spe,
@@ -8530,6 +9600,10 @@ const app = Vue.createApp({
                 if (this.mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver') {
                     gameName = 'HGSS'
                     game_name = 'HeartGold and SoulSilver'
+                }
+                if (this.mapper.properties.meta.game_name.value == 'Diamond and Pearl') {
+                    gameName = 'DP'
+                    game_name = 'Diamond and Pearl'
                 }
                 const splitFileName = this.getSplitFileName();
 
@@ -8639,7 +9713,10 @@ const app = Vue.createApp({
                 if(shouldWriteSplit(trainer_name) && !this.game.finalBattle.includes(trainer_name)) {
                     // console.log("Simple split attempted to be collected...")
                     simpleSplit();
-                    if (this.automatic_post_battle_splits == true && 
+                    // In HGSS, don't auto-show the splits panel after the Kanto gym leaders (Blue is excluded from this list so his panel still shows)
+                    const hgssKantoLeadersToSkip = ["Leader Brock", "Leader Lt. Surge", "Leader Misty", "Leader Erika", "Leader Blaine", "Leader Janine", "Leader Sabrina"]
+                    const skipForHGSSKantoLeader = this.selected_game == "HeartGold and SoulSilver" && hgssKantoLeadersToSkip.includes(trainer_name)
+                    if (this.automatic_post_battle_splits == true && !skipForHGSSKantoLeader &&
                         !trainer_name.startsWith("Rival") && !trainer_name.startsWith("Mars") && !trainer_name.startsWith("Jupiter") && !trainer_name.startsWith("Saturn") && !trainer_name.startsWith("Cyrus") && (trainer_name != "Passerby Boy")) {
                         this.right_ui = "Splits"
                     }
@@ -8667,8 +9744,11 @@ const app = Vue.createApp({
                     const splitFileName = this.getSplitFileName();
                     logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                     .then(() => {
-                            // console.log("Run complete - moving attempt files to finished folder.")
-                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.evolution, splitFileName);
+                            // DPP defers the finishes/ copy until after the Hall of Fame split is recorded
+                            // so the HoF entry is included. HGSS has no HoF flow, so copy now.
+                            if (gameName !== 'Platinum') {
+                                logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.getFinishFileName());
+                            }
                         })
                         .catch(error => {
                             console.error("Error:", error);
@@ -8709,6 +9789,7 @@ const app = Vue.createApp({
 
         this.mapper.properties.screen.menu.cursor.flag.change(async (newProp, oldProp) => {
             if (this.mapper.properties.overworld.map_name.value == "Pokemon League - Map 16" && newProp.value == 156) { //magic number for Hall of Fame, may need to be updated with new versions of the patch
+                console.log("Hall of Fame split.")
                 const splitFileName = this.getSplitFileName();
                 let gameName = 'Platinum'
                 let game_name = 'Platinum'
@@ -8719,13 +9800,14 @@ const app = Vue.createApp({
                 
                 autosplitter_process("Hall of Fame")
                     //write full split data
-                logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
-                logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                const fullP = logData(gameName, this.full_data_str, this.attempt_number, splitFileName, "Full", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                const deprecatedP = logData(gameName, this.deprecated_data_str, this.attempt_number, splitFileName, "Deprecated", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
 
                 //write simple split data
+                let simpleP;
                 const simpleSplit = () => {
                     log_split()
-                    logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
+                    simpleP = logData(gameName, this.simple_data_str, this.attempt_number, splitFileName, "Simple", this.testRun, this.scott_mode, this.evolution, splitFileName, this.refilming_mode)
                     this.split_data.push(this.simple_data)
                     MyStorage["split_data"] = this.split_data
                     MyStorage[`${this.mapper.properties.meta.game_name.value}_${this.starter}`] = {
@@ -8753,6 +9835,19 @@ const app = Vue.createApp({
                     }
                 }
                 simpleSplit()
+
+                // DPP: now that the HoF split has been written, copy the species folder into finishes/.
+                // (The final-battle handler intentionally skipped this for Platinum to wait for HoF.)
+                // HGSS already copied at the final battle and doesn't reach this branch with a copy step.
+                if (gameName === 'Platinum') {
+                    Promise.all([fullP, deprecatedP, simpleP])
+                        .then(() => {
+                            logCopy(gameName, this.attempt_number, splitFileName, this.finished_run_count, this.getFinishFileName());
+                        })
+                        .catch(error => {
+                            console.error("logCopy after Hall of Fame failed:", error);
+                        });
+                }
             }
         });
 
@@ -8985,6 +10080,35 @@ const app = Vue.createApp({
                         res.end(JSON.stringify({ ok: false, error: 'Missing type parameter' }));
                     }
                 }
+                else if (pathname === '/set-nature') {
+                    // Set the Pokémon's nature (the Nature dropdown)
+                    // Usage: /set-nature?nature=Adamant
+                    if (query.nature && Object.values(this.simple_natures).includes(query.nature)) {
+                        this.pkmnNature = query.nature;
+                        res.end(JSON.stringify({ ok: true, nature: this.pkmnNature }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing or invalid nature parameter' }));
+                    }
+                }
+                else if (pathname === '/set-ability') {
+                    // Set the Pokémon's ability (the Abilities dropdown). Matched against the
+                    // current starter's abilities ignoring case and spacing ("Lightning Rod" ==
+                    // "Lightningrod") and stored under this overlay's own spelling, so the
+                    // per-starter settings and the evolution-line slot remap keep working.
+                    // Set it before /refresh, like the nature.
+                    // Usage: /set-ability?ability=Torrent
+                    const abilities = this.g4PokemonData?.[this.starter]?.abilities ?? [];
+                    const abilityKey = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+                    const ability = query.ability ? abilities.find((a) => abilityKey(a) === abilityKey(query.ability)) : undefined;
+                    if (ability) {
+                        this.pkmn_ability = ability;
+                        res.end(JSON.stringify({ ok: true, ability: this.pkmn_ability }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: `Missing or invalid ability parameter (${this.starter} has: ${abilities.join(', ') || 'no abilities listed'})` }));
+                    }
+                }
                 else if (pathname === '/set-splits') {
                     // Set the splits display mode
                     // Usage: /set-splits?mode=First  or  /set-splits?mode=Followup
@@ -9024,6 +10148,17 @@ const app = Vue.createApp({
                     } else {
                         res.statusCode = 400;
                         res.end(JSON.stringify({ ok: false, error: 'Missing enabled parameter' }));
+                    }
+                }
+                else if (pathname === '/set-game') {
+                    // Set the selected game (the Game dropdown)
+                    // Usage: /set-game?game=Platinum
+                    if (query.game) {
+                        this.selected_game = query.game;
+                        res.end(JSON.stringify({ ok: true, selected_game: this.selected_game }));
+                    } else {
+                        res.statusCode = 400;
+                        res.end(JSON.stringify({ ok: false, error: 'Missing game parameter' }));
                     }
                 }
                 else if (pathname === '/set-show-tutor-moves') {
@@ -9068,6 +10203,15 @@ const app = Vue.createApp({
                         location.reload(true);
                     }, 200);
                 }
+                else if (pathname === '/quit') {
+                    // Gracefully close the overlay window. Electron's default
+                    // window-all-closed handler quits the app on Windows.
+                    // Usage: /quit
+                    res.end(JSON.stringify({ ok: true, message: 'Quitting overlay...' }));
+                    setTimeout(() => {
+                        window.close();
+                    }, 200);
+                }
                 else if (pathname === '/status') {
                     // Get current overlay state
                     // Usage: /status
@@ -9079,8 +10223,11 @@ const app = Vue.createApp({
                         evolution_splits_label: this.evolution_splits_label,
                         selected_evolution_species: this.selected_evolution_species,
                         gameName: this.mapper?.properties.meta.game_name.value,
+                        selected_game: this.selected_game,
                         right_ui: this.right_ui,
                         hidden_power_type: this.hidden_power_type,
+                        nature: this.pkmnNature,
+                        ability: this.pkmn_ability,
                         splits: this.split_type,
                         shuckie_counters: this.shuckie_counters,
                         show_tutor_moves: this.show_tutor_moves,
@@ -9097,9 +10244,7 @@ const app = Vue.createApp({
                 res.end(JSON.stringify({ ok: false, error: err.message }));
             }
         });
-        controlServer.listen(30159, '127.0.0.1', () => {
-            console.log('Overlay control server listening on http://127.0.0.1:30159');
-        });
+        controlServer.listen(30159, '127.0.0.1');
 
         // Cleanup on page reload/unload to prevent emulator crashes
         window.addEventListener('beforeunload', async () => {
@@ -9109,5 +10254,38 @@ const app = Vue.createApp({
                 await this.mapper.disconnect();
             }
         });
+
+        // Enemy sprite resize tool — dev mode only.
+        if (this.isInDevMode) {
+            window.addEventListener('keydown', (e) => {
+                // Style mode owns Enter/Backspace/Escape; arrows/F1 fall through to nudge/flip.
+                if (this.style_mode_active) {
+                    if (e.key === 'Enter')     { e.preventDefault(); this.styleModeAdvance(); return; }
+                    if (e.key === 'Backspace') { e.preventDefault(); this.styleModeBack();    return; }
+                    if (e.key === 'Escape')    { e.preventDefault(); this.exitStyleMode();   return; }
+                }
+                if (!this.enemyResize.species) return;
+                if (e.key === 'Enter')           { e.preventDefault(); this.commitEnemySpriteResize(); }
+                else if (e.key === 'Escape')     { e.preventDefault(); this.cancelEnemySpriteResize(); }
+                else if (e.key === 'ArrowUp')    { e.preventDefault(); this.nudgeEnemySpriteY(e.shiftKey ? -10 : -1); }
+                else if (e.key === 'ArrowDown')  { e.preventDefault(); this.nudgeEnemySpriteY(e.shiftKey ?  10 :  1); }
+                else if (e.key === 'ArrowLeft')  { e.preventDefault(); this.nudgeEnemySpriteX(e.shiftKey ? -10 : -1); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); this.nudgeEnemySpriteX(e.shiftKey ?  10 :  1); }
+                else if (e.key === 'F1')         { e.preventDefault(); this.toggleEnemySpriteFlip(); }
+            });
+            window.addEventListener('mousedown', (e) => {
+                if (!e.ctrlKey || e.button !== 0) return;
+                const els = document.elementsFromPoint(e.clientX, e.clientY);
+                const sprite = els.find((el) => el && el.classList && el.classList.contains('ePkmnSprite'));
+                if (!sprite) return;
+                const slot = parseInt(sprite.dataset.enemySlot, 10);
+                const species = sprite.dataset.enemySpecies;
+                if (!species || Number.isNaN(slot)) return;
+                e.preventDefault();
+                e.stopPropagation();
+                this.enemyResize = { species, slot, baseSize: 108, spriteEl: sprite };
+                this.enemyScaleVersion++;
+            }, true);
+        }
     },
 }).mount('#app')

@@ -1,0 +1,47 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Raikou,Leader Misty,1:17:52.34,2,1,52,5:07,1778964421.078,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Sabrina,1:19:40.10,2,1,53,5:14,1778964528.838,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Brock,1:23:52.23,5,1,53,5:25,1778964780.972,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Blaine,1:26:14.01,5,1,55,5:34,1778964922.759,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Janine,1:27:34.29,5,1,55,5:39,1778965022.63,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Lt. Surge,1:28:53.26,5,1,56,5:45,1778965101.602,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Erika,1:30:51.96,5,1,64,5:53,1778965220.301,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Leader Blue,1:34:18.11,6,1,64,6:05,1778965426.452,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Will,1:38:32.59,6,1,75,6:22,1778965680.941,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Koga,1:39:30.68,6,1,75,6:25,1778965739.027,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Bruno,1:40:08.87,6,1,76,6:28,1778965777.226,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Karen,1:40:57.80,6,1,76,6:31,1778965826.149,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Champion Lance,1:43:26.97,8,1,77,6:37,1778965975.316,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Pokemon Trainer Red,1:49:08.04,10,1,78,6:55,1778966337.596,Thunderbolt,Calm Mind,Extrasensory,Reflect
+Lyra,Raikou,Passerby Boy,3:16.96,0,0,6,0:12,1788163483.318,Bite,Leer,,
+Lyra,Raikou,Leader Falkner,8:34.26,0,0,11,0:33,1788163800.815,ThunderShock,Leer,Bite,
+Lyra,Raikou,Leader Bugsy,14:08.06,0,0,15,0:55,1788164136.875,ThunderShock,Leer,Bite,Roar
+Lyra,Raikou,Rival Silver,15:28.27,0,1,17,1:01,1788164217.248,ThunderShock,Leer,Bite,Roar
+Lyra,Raikou,Leader Whitney,21:44.65,0,1,18,1:26,1788164595.69,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Rival Silver,26:02.38,0,1,21,1:43,1788164856.037,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Leader Morty,27:58.53,0,1,24,1:51,1788164972.506,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Leader Chuck,32:01.87,0,1,28,2:07,1788165218.201,Thunderbolt,Charge Beam,Bite,Substitute
+Lyra,Raikou,Leader Pryce,39:30.75,0,1,33,2:37,1788165673.172,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Jasmine,41:04.36,0,1,34,2:43,1788165767.856,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Rival Silver,44:35.47,0,1,36,2:57,1788165982.242,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Clair,53:42.70,1,1,40,3:32,1788166533.614,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Rival Silver,1:04:33.89,1,1,44,4:16,1788167191.457,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Elite Four Will,1:05:27.87,1,1,45,4:19,1788167245.555,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Elite Four Koga,1:06:19.72,1,1,46,4:23,1788167297.81,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Elite Four Bruno,1:07:09.21,1,1,47,4:26,1788167347.661,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Elite Four Karen,1:08:15.02,1,1,47,4:30,1788167413.92,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Champion Lance,1:09:14.65,1,1,48,4:34,1788167473.935,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Misty,1:17:52.35,2,1,52,5:07,1788167997.656,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Sabrina,1:19:40.08,2,1,53,5:14,1788168106.476,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Brock,1:23:52.23,5,1,53,5:25,1788168362.542,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Blaine,1:26:14.00,5,1,55,5:34,1788168505.481,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Janine,1:27:34.29,5,1,55,5:39,1788168586.59,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Lt. Surge,1:28:53.27,5,1,56,5:45,1788168667.083,Thunderbolt,Charge Beam,Shadow Ball,Substitute
+Lyra,Raikou,Leader Erika,1:30:51.96,5,1,64,5:53,1788168788.29,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Leader Blue,1:34:18.11,6,1,64,6:05,1788168996.708,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Will,1:38:32.59,6,1,75,6:22,1788169252.748,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Koga,1:39:30.69,6,1,75,6:25,1788169311.268,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Bruno,1:40:08.88,6,1,76,6:28,1788169349.982,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Elite Four Karen,1:40:57.80,6,1,76,6:31,1788169399.275,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Champion Lance,1:43:26.96,8,1,77,6:37,1788169549.172,Thunderbolt,Charge Beam,Extrasensory,Substitute
+Lyra,Raikou,Pokemon Trainer Red,1:49:08.03,10,1,78,6:55,1788169892.328,Thunderbolt,Calm Mind,Extrasensory,Reflect

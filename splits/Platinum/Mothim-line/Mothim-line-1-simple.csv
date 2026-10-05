@@ -1,0 +1,24 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Wormadam (Plant),Leader Fantina,1:08:54.46,30,4,32,4:03,1784481245.544,Bug Bite,Substitute,Rock Blast,Earthquake
+Dawn,Wormadam (Plant),Rival 3,1:10:28.56,31,4,32,4:07,1784481339.645,Bug Bite,Substitute,Rock Blast,Earthquake
+Dawn,Wormadam (Plant),Leader Maylene,1:23:18.40,31,4,40,4:59,1784482109.5,Earthquake,Bug Bite,Rock Blast,Substitute
+Dawn,Wormadam (Plant),Rival 4,1:42:03.95,31,4,45,6:14,1784483235.073,Earthquake,Bug Bite,Rock Blast,Psychic
+Dawn,Wormadam (Plant),Leader Wake,1:44:16.61,31,4,48,6:23,1784483367.74,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 1,1:48:12.39,31,4,50,6:39,1784483603.522,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Rival 5,1:51:28.45,31,4,53,6:52,1784483799.587,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Leader Byron,1:53:40.35,31,4,54,7:01,1784483931.495,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Saturn 1,1:56:02.67,31,4,55,7:10,1784484073.812,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Mars 2,1:57:39.27,31,4,56,7:16,1784484170.416,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Leader Candice,2:02:41.15,33,4,65,7:32,1784484472.306,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 2,2:07:36.01,34,4,66,7:49,1784484767.172,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Saturn 2,2:08:19.18,34,4,66,7:52,1784484810.342,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Mars 3,2:13:06.34,34,4,67,8:11,1784485097.5,Earthquake,Bug Bite,Rock Blast,Natural Gift
+Dawn,Wormadam (Plant),Cyrus 3,2:19:09.55,37,4,68,8:29,1784485460.717,Earthquake,Psych Up,Rock Blast,Swagger
+Dawn,Wormadam (Plant),Leader Volkner,2:23:40.48,37,4,70,8:47,1784485731.648,Earthquake,Psych Up,Rock Blast,Swagger
+Dawn,Wormadam (Plant),Rival 6,2:31:52.03,37,4,80,9:20,1784486223.222,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Aaron,2:32:58.51,37,4,80,9:24,1784486289.687,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Bertha,2:34:04.45,37,4,81,9:29,1784486355.63,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Flint,2:34:53.08,37,4,81,9:32,1784486404.261,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Elite Four Lucian,2:35:55.81,37,4,82,9:36,1784486466.994,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Champion Cynthia,2:36:58.83,37,4,82,9:40,1784486530.011,Earthquake,Psych Up,Return,Swagger
+Dawn,Wormadam (Plant),Hall of Fame,2:36:58.84,37,4,83,9:42,1784486551.237,Earthquake,Psych Up,Return,Swagger

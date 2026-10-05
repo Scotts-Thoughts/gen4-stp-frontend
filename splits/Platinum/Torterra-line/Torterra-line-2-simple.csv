@@ -1,0 +1,42 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Turtwig,Rival 1,1:21.39,0,0,5,0:04,1790522758.425,Tackle,Withdraw,,
+Dawn,Turtwig,Rival 2,6:42.80,0,0,10,0:25,1790523147.894,Tackle,Withdraw,Return,Absorb
+Dawn,Turtwig,Leader Roark,9:15.70,0,0,14,0:35,1790523300.792,Tackle,Razor Leaf,Return,Absorb
+Dawn,Grotle,Mars 1,14:03.61,0,0,18,0:55,1790523588.707,Return,Razor Leaf,Curse,Absorb
+Dawn,Grotle,Leader Gardenia,19:57.42,0,0,25,1:18,1790523942.525,Return,Razor Leaf,Curse,Bite
+Dawn,Grotle,Jupiter 1,22:00.46,0,0,26,1:27,1790524065.566,Return,Razor Leaf,Curse,Bite
+Dawn,Grotle,Leader Fantina,27:31.89,1,0,29,1:47,1790524396.999,Return,Razor Leaf,Curse,Bite
+Dawn,Torterra,Rival 3,28:57.04,1,0,32,1:52,1790524482.154,Return,Earthquake,Curse,Bite
+Dawn,Torterra,Leader Maylene,34:32.51,1,0,35,2:15,1790524817.626,Return,Earthquake,Curse,Bite
+Dawn,Torterra,Rival 4,39:08.81,1,0,38,2:33,1790525093.929,Return,Earthquake,Swords Dance,Bite
+Dawn,Torterra,Leader Wake,41:41.67,1,0,40,2:43,1790525246.797,Return,Earthquake,Swords Dance,Synthesis
+Dawn,Torterra,Cyrus 1,48:23.88,5,0,44,3:06,1790525649.006,Return,Earthquake,Swords Dance,Substitute
+Dawn,Torterra,Rival 5,50:40.24,6,0,44,3:13,1790525785.37,Return,Earthquake,Swords Dance,Substitute
+Dawn,Torterra,Leader Byron,52:50.81,6,0,47,3:22,1790525915.937,Return,Earthquake,Swords Dance,Crunch
+Dawn,Torterra,Saturn 1,55:17.24,6,0,47,3:32,1790526062.371,Return,Earthquake,Swords Dance,Crunch
+Dawn,Torterra,Mars 2,56:45.89,6,0,48,3:38,1790526151.027,Return,Earthquake,Swords Dance,Crunch
+Dawn,Torterra,Leader Candice,1:01:19.49,6,0,55,3:56,1790526424.629,Return,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Cyrus 2,1:05:24.29,6,0,56,4:12,1790526669.43,Return,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Saturn 2,1:06:02.89,6,0,57,4:15,1790526708.03,Return,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Mars 3,1:10:40.18,6,0,58,4:34,1790526985.324,Rock Slide,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Cyrus 3,1:14:40.53,6,0,63,4:50,1790527225.678,Rock Slide,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Leader Volkner,1:18:50.03,6,0,65,5:06,1790527475.185,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Rival 6,1:24:44.76,6,0,68,5:30,1790527829.92,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Aaron,1:25:33.42,6,0,71,5:33,1790527878.577,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Bertha,1:26:20.15,6,0,71,5:36,1790527925.305,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Flint,1:27:19.00,7,0,72,5:39,1790527984.163,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Lucian,1:28:07.17,7,0,72,5:42,1790528032.334,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Champion Cynthia,1:29:04.70,7,0,73,5:46,1790528089.861,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Hall of Fame,1:29:04.71,7,0,74,5:48,1790528118.134,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Grotle,Leader Fantina,27:31.90,1,0,29,1:47,1790529105.568,Return,Razor Leaf,Curse,Bite
+Dawn,Torterra,Rival 3,28:57.05,1,0,32,1:52,1790529136.962,Return,Earthquake,Curse,Bite
+Dawn,Torterra,Leader Candice,1:01:19.49,6,0,55,3:56,1790529499.606,Return,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Cyrus 2,1:05:24.30,6,0,56,4:12,1790529559.268,Return,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Cyrus 3,1:14:40.53,6,0,63,4:50,1790529681.389,Rock Slide,Earthquake,Swords Dance,Rock Polish
+Dawn,Torterra,Rival 6,1:24:44.76,6,0,68,5:30,1790529886.499,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Aaron,1:25:33.43,6,0,71,5:33,1790529935.165,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Bertha,1:26:20.16,6,0,71,5:36,1790529981.894,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Flint,1:27:19.00,7,0,72,5:39,1790530040.779,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Elite Four Lucian,1:28:07.17,7,0,72,5:42,1790530088.98,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Champion Cynthia,1:29:04.71,7,0,73,5:46,1790530146.527,Earthquake,Rock Slide,Swords Dance,Rock Polish
+Dawn,Torterra,Hall of Fame,1:29:04.71,7,0,74,5:48,1790530174.792,Earthquake,Rock Slide,Swords Dance,Rock Polish

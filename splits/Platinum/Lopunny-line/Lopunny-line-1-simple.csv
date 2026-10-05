@@ -1,0 +1,5 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Buneary,Rival 1,1:18.73,0,0,5,0:04,1791041789.082,Splash,Pound,Defense Curl,Foresight
+Dawn,Buneary,Rival 2,7:02.57,0,0,9,0:27,1791042132.932,Pound,Splash,Defense Curl,Foresight
+Dawn,Buneary,Leader Roark,13:23.31,0,0,15,0:52,1791042513.688,Frustration,Rock Smash,Defense Curl,Foresight
+Dawn,Buneary,Mars 1,17:46.10,2,0,18,1:07,1791042781.762,Frustration,Rock Smash,Defense Curl,Foresight

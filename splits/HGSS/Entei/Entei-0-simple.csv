@@ -1,0 +1,57 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Entei,Leader Erika,1:54:46.65,5,6,73,7:23,1779480690.106,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Sabrina,1:55:43.13,5,6,73,7:27,1779480746.592,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Misty,2:01:28.63,6,6,74,7:47,1779481092.091,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Lt. Surge,2:03:47.70,6,6,75,7:56,1779481231.17,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Brock,2:05:45.03,6,6,75,8:04,1779481348.492,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Blaine,2:08:45.43,6,6,78,8:16,1779481528.904,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Leader Janine,2:10:22.20,6,6,78,8:23,1779481625.67,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Leader Blue,2:12:17.27,6,6,78,8:30,1779481740.746,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Will,2:15:01.08,6,6,79,8:41,1779481904.558,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Koga,2:16:02.39,6,6,79,8:45,1779481965.864,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Bruno,2:16:56.55,6,6,80,8:49,1779482020.029,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Karen,2:17:46.79,6,6,80,8:52,1779482070.266,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Champion Lance,2:20:24.59,7,6,81,9:00,1779482228.071,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Pokemon Trainer Red,2:24:25.43,7,6,84,9:16,1779482468.91,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Passerby Boy,3:22.53,0,0,7,0:12,1788170179.267,Bite,Leer,,
+Lyra,Entei,Leader Falkner,8:36.37,0,0,11,0:33,1788170493.247,Bite,Leer,Ember,
+Lyra,Entei,Leader Bugsy,13:54.75,0,0,15,0:55,1788170812.645,Bite,Leer,Ember,Roar
+Lyra,Entei,Rival Silver,14:39.19,0,0,16,0:58,1788170857.234,Bite,Leer,Ember,Roar
+Lyra,Entei,Leader Whitney,21:06.37,0,0,18,1:23,1788171246.515,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Rival Silver,25:30.94,0,0,21,1:41,1788171513.879,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Leader Morty,27:43.51,0,0,24,1:50,1788171646.644,Bite,Substitute,Flamethrower,Headbutt
+Lyra,Entei,Leader Chuck,54:55.04,0,0,37,3:39,1788173288.176,Headbutt,Substitute,Flamethrower,Bite
+Lyra,Entei,Leader Pryce,1:02:17.61,0,0,40,4:08,1788173738.363,Flamethrower,Bite,Headbutt,Substitute
+Lyra,Entei,Leader Jasmine,1:03:48.01,0,0,41,4:14,1788173829.902,Flamethrower,Bite,Headbutt,Substitute
+Lyra,Entei,Rival Silver,1:07:41.89,0,0,42,4:30,1788174067.152,Flamethrower,Bite,Return,Substitute
+Lyra,Entei,Leader Clair,1:22:00.73,2,2,47,5:23,1788174936.197,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Rival Silver,1:32:30.30,2,2,50,6:05,1788175575.281,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:33:49.40,2,2,51,6:11,1788175654.543,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:34:27.20,2,2,52,6:13,1788175692.34,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:35:21.29,2,3,52,6:17,1788175746.432,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:35:56.48,2,3,53,6:19,1788175781.616,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:36:45.98,2,3,54,6:22,1788175831.131,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:38:30.29,3,3,54,6:28,1788175936.225,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:41:29.68,4,5,55,6:34,1788176116.054,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:42:14.60,4,5,56,6:37,1788176160.97,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:42:55.29,4,5,57,6:40,1788176201.665,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:43:37.62,4,5,57,6:43,1788176243.988,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Will,1:44:39.26,4,6,58,6:47,1788176305.627,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Koga,1:45:16.10,4,6,59,6:49,1788176342.474,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Bruno,1:45:46.97,4,6,59,6:52,1788176373.352,Flamethrower,Hyper Beam,Return,Substitute
+Lyra,Entei,Elite Four Karen,1:47:16.11,4,6,72,6:57,1788176462.957,Flamethrower,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Champion Lance,1:49:54.26,5,6,72,7:04,1788176621.488,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Erika,1:54:46.62,5,6,73,7:23,1788176919.833,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Sabrina,1:55:43.14,5,6,73,7:27,1788176977.056,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Misty,2:01:28.62,6,6,74,7:47,1788177326.723,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Lt. Surge,2:03:47.70,6,6,75,7:56,1788177469.032,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Brock,2:05:45.03,6,6,75,8:04,1788177588.663,Substitute,Hyper Beam,Return,Extrasensory
+Lyra,Entei,Leader Blaine,2:08:45.43,6,6,78,8:16,1788177770.628,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Leader Janine,2:10:22.21,6,6,78,8:23,1788177868.749,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Leader Blue,2:12:17.27,6,6,78,8:30,1788177984.605,Substitute,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Will,2:15:01.09,6,6,79,8:41,1788178148.511,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Koga,2:16:02.39,6,6,79,8:45,1788178210.254,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Bruno,2:16:56.56,6,6,80,8:49,1788178264.822,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Elite Four Karen,2:17:46.79,6,6,80,8:52,1788178315.459,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Champion Lance,2:20:24.61,7,6,81,9:00,1788178473.713,Flamethrower,Hyper Beam,Calm Mind,Extrasensory
+Lyra,Entei,Pokemon Trainer Red,2:24:25.44,7,6,84,9:16,1788178716.273,Flamethrower,Hyper Beam,Calm Mind,Extrasensory

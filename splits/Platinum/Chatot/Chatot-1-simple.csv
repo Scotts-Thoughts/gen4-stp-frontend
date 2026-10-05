@@ -1,0 +1,32 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Chatot,Rival 1,1:23.86,0,0,5,0:04,1791127532.536,Peck,Growl,,
+Dawn,Chatot,Rival 2,6:56.76,0,0,11,0:26,1791127866.822,Peck,Growl,Return,Mirror Move
+Dawn,Chatot,Leader Roark,17:37.28,0,0,21,1:09,1791128604.314,Chatter,Peck,Return,Sing
+Dawn,Chatot,Mars 1,20:27.32,0,0,22,1:20,1791128812.91,Chatter,Peck,Return,Sing
+Dawn,Chatot,Leader Gardenia,24:16.51,0,0,26,1:36,1791129042.113,Chatter,Peck,Return,Taunt
+Dawn,Chatot,Jupiter 1,26:02.23,0,0,27,1:43,1791129147.826,Chatter,Peck,Return,Taunt
+Dawn,Chatot,Leader Fantina,31:25.94,0,1,29,2:04,1791129471.539,Chatter,Mimic,Return,Taunt
+Dawn,Chatot,Rival 3,32:13.57,0,1,30,2:07,1791129519.178,Chatter,Mimic,Return,Taunt
+Dawn,Chatot,Leader Maylene,39:09.01,1,1,35,2:33,1791129934.618,Chatter,Mimic,Return,Roost
+Dawn,Chatot,Rival 4,46:44.46,1,2,45,3:03,1791130390.076,Chatter,Mimic,Hyper Voice,Roost
+Dawn,Chatot,Leader Wake,48:31.08,1,2,46,3:11,1791130496.697,Hyper Voice,Mimic,Chatter,Roost
+Dawn,Chatot,Cyrus 1,53:06.00,1,2,48,3:29,1791130771.622,Hyper Voice,Taunt,Aerial Ace,Roost
+Dawn,Chatot,Rival 5,55:14.01,1,2,48,3:37,1791130899.631,Hyper Voice,Taunt,Aerial Ace,Roost
+Dawn,Chatot,Leader Byron,59:30.56,2,2,50,3:53,1791131156.188,Hyper Voice,Taunt,Aerial Ace,Roost
+Dawn,Chatot,Saturn 1,1:01:35.12,2,2,51,4:01,1791131280.75,Hyper Voice,Taunt,Aerial Ace,Roost
+Dawn,Chatot,Mars 2,1:02:58.67,2,2,52,4:06,1791131364.301,Hyper Voice,Taunt,Aerial Ace,Roost
+Dawn,Chatot,Leader Candice,1:07:54.88,2,2,60,4:26,1791131660.511,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Cyrus 2,1:11:36.05,2,2,61,4:41,1791131881.687,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Saturn 2,1:12:17.16,2,2,61,4:44,1791131922.797,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Mars 3,1:16:52.99,2,2,63,5:02,1791132198.63,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Cyrus 3,1:20:52.68,2,2,63,5:17,1791132438.323,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Leader Volkner,1:25:41.72,3,2,65,5:36,1791132727.369,Hyper Voice,Taunt,Fly,Roost
+Dawn,Chatot,Rival 6,1:33:45.90,4,2,69,6:05,1791133211.554,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Aaron,1:35:31.55,4,2,69,6:12,1791133317.202,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Bertha,1:37:01.25,4,2,70,6:18,1791133406.91,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Aaron,1:38:46.59,4,3,71,6:25,1791133512.248,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Bertha,1:39:59.40,4,3,77,6:30,1791133585.056,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Flint,1:41:53.78,6,3,77,6:33,1791133699.437,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Elite Four Lucian,1:43:02.77,6,3,78,6:38,1791133827.299,Hyper Voice,Mimic,Fly,Roost
+Dawn,Chatot,Champion Cynthia,1:45:47.85,7,3,78,6:45,1791134010.432,Hyper Voice,Captivate,Fly,Roost
+Dawn,Chatot,Hall of Fame,1:45:47.86,7,3,79,6:46,1791134031.381,Hyper Voice,Captivate,Fly,Roost

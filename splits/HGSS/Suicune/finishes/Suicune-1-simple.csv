@@ -1,0 +1,47 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Lyra,Suicune,Leader Erika,1:26:03.24,0,0,52,5:34,1779218288.719,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Brock,1:35:16.95,6,0,54,6:07,1779219166.736,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Blaine,1:37:47.01,6,0,56,6:17,1779219316.799,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Janine,1:40:32.07,6,0,57,6:28,1779219481.857,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Sabrina,1:41:49.08,6,0,58,6:33,1779219558.873,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Lt. Surge,1:43:02.01,6,0,58,6:38,1779219631.807,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Misty,1:44:01.77,6,0,59,6:42,1779219691.561,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Blue,1:47:42.06,6,0,74,6:56,1779219911.854,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Will,1:50:37.25,6,0,74,7:08,1779220087.045,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Koga,1:51:41.36,6,0,75,7:12,1779220151.164,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Bruno,1:52:49.41,6,0,75,7:17,1779220219.213,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Karen,1:53:58.42,6,0,78,7:21,1779220314.445,Surf,Ice Beam,Calm Mind,Shadow Ball
+Lyra,Suicune,Champion Lance,1:55:21.68,7,0,78,7:25,1779220397.71,Surf,Ice Beam,Calm Mind,Shadow Ball
+Lyra,Suicune,Pokemon Trainer Red,2:03:13.68,7,5,81,7:56,1779220933.727,Surf,Substitute,Calm Mind,Rest
+Lyra,Suicune,Passerby Boy,2:51.82,0,0,6,0:10,1788155913.42,Bite,Leer,,
+Lyra,Suicune,Leader Falkner,8:13.00,0,0,11,0:32,1788156234.731,Bite,Leer,BubbleBeam,
+Lyra,Suicune,Leader Bugsy,15:05.91,2,0,16,0:56,1788156650.189,Bite,Leer,BubbleBeam,Rain Dance
+Lyra,Suicune,Rival Silver,17:43.78,2,4,18,1:06,1788156808.433,Bite,Leer,BubbleBeam,Rain Dance
+Lyra,Suicune,Leader Whitney,25:32.00,2,4,20,1:38,1788157281.178,Bite,Ice Beam,BubbleBeam,Rain Dance
+Lyra,Suicune,Rival Silver,34:25.68,2,4,26,2:13,1788157819.657,Surf,Ice Beam,Rain Dance,Bite
+Lyra,Suicune,Leader Morty,36:53.22,2,4,28,2:23,1788157967.953,Surf,Ice Beam,Rain Dance,Bite
+Lyra,Suicune,Leader Chuck,40:42.69,3,4,30,2:36,1788158200.331,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Pryce,50:09.89,3,4,34,3:14,1788158775.719,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Jasmine,51:25.80,3,4,35,3:19,1788158852.219,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Rival Silver,55:28.81,3,4,37,3:35,1788159097.971,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Clair,1:03:38.70,3,4,42,4:08,1788159591.128,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Rival Silver,1:16:03.32,3,5,46,4:58,1788160346.608,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Will,1:17:22.06,3,5,47,5:03,1788160425.873,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Koga,1:18:02.84,3,5,48,5:06,1788160467.043,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Bruno,1:18:58.24,3,5,49,5:09,1788160522.74,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Elite Four Karen,1:20:39.72,4,5,49,5:13,1788160625.06,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Champion Lance,1:21:53.63,4,5,50,5:18,1788160699.4,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Erika,1:26:03.23,4,5,52,5:34,1788160951.761,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Brock,1:35:16.94,6,5,54,6:07,1788161514.369,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Blaine,1:37:47.02,6,5,56,6:17,1788161666.298,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Janine,1:40:32.06,6,5,57,6:28,1788161832.843,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Sabrina,1:41:49.08,6,5,58,6:33,1788161910.517,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Lt. Surge,1:43:02.02,6,5,58,6:38,1788161985.123,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Misty,1:44:01.77,6,5,59,6:42,1788162045.869,Surf,Ice Beam,Rain Dance,Shadow Ball
+Lyra,Suicune,Leader Blue,1:47:42.06,6,5,74,6:56,1788162268.079,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Will,1:50:37.25,6,5,74,7:08,1788162444.085,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Koga,1:51:41.36,6,5,75,7:12,1788162508.192,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Bruno,1:52:49.41,6,5,75,7:17,1788162576.7,Surf,Ice Beam,Extrasensory,Shadow Ball
+Lyra,Suicune,Elite Four Karen,1:53:58.41,6,5,78,7:21,1788162646.178,Surf,Ice Beam,Calm Mind,Shadow Ball
+Lyra,Suicune,Champion Lance,1:55:21.68,7,5,78,7:25,1788162729.869,Surf,Ice Beam,Calm Mind,Shadow Ball
+Lyra,Suicune,Pokemon Trainer Red,2:03:13.68,7,5,81,7:56,1788163204.611,Surf,Substitute,Calm Mind,Rest

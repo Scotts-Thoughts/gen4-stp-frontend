@@ -1,0 +1,5 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Budew,Rival 2,9:43.85,0,1,12,0:37,1791060957.117,Absorb,Growth,Return,Stun Spore
+Dawn,Budew,Leader Roark,16:10.47,0,6,20,1:03,1791061343.737,Mega Drain,Growth,Return,Stun Spore
+Dawn,Budew,Mars 1,20:49.08,0,6,22,1:22,1791061622.353,Mega Drain,Growth,Return,Stun Spore
+Dawn,Budew,Leader Gardenia,28:43.69,0,6,29,1:53,1791062096.971,Mega Drain,Growth,Return,Stun Spore

@@ -1,0 +1,10 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Roselia,Jupiter 1,42:43.47,0,14,36,2:49,1791065659.291,Mega Drain,Growth,Grass Knot,Return
+Dawn,Roselia,Leader Fantina,47:30.31,0,14,37,3:09,1791065946.141,Mega Drain,Growth,Substitute,Return
+Dawn,Roselia,Rival 3,48:38.73,0,14,37,3:13,1791066014.565,Mega Drain,Growth,Substitute,Return
+Dawn,Roselia,Leader Maylene,59:34.80,1,14,42,3:57,1791070345.305,Return,Swords Dance,Substitute,Petal Dance
+Dawn,Roselia,Rival 4,1:01:31.70,1,14,43,4:05,1791070462.203,Return,Swords Dance,Substitute,Petal Dance
+Dawn,Roselia,Leader Wake,1:03:45.28,1,14,45,4:14,1791070595.787,Return,Swords Dance,Substitute,Petal Dance
+Dawn,Roselia,Cyrus 1,1:08:13.97,1,14,51,4:31,1791070864.476,Return,Swords Dance,Substitute,Petal Dance
+Dawn,Roselia,Rival 5,1:11:34.95,1,14,52,4:45,1791071065.475,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roselia,Rival 5,1:12:35.51,2,14,52,4:48,1791071349.552,Return,Swords Dance,Natural Gift,Petal Dance
