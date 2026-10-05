@@ -1,0 +1,22 @@
+player_name,pokemon,trainer_name,real_time_hmmss,resets,blackouts,level,game_time,battle_duration,move1,move2,move3,move4,
+Dawn,Budew,Rival 1,1:30.51,0,0,5,0:04,1791091561.489,Absorb,Growth,,
+Dawn,Budew,Rival 2,8:32.93,0,0,12,0:33,1791091983.884,Absorb,Growth,Stun Spore,Return
+Dawn,Budew,Leader Roark,18:36.50,0,14,23,1:13,1791092587.475,Mega Drain,Growth,Stun Spore,Return
+Dawn,Budew,Mars 1,22:59.10,0,14,25,1:30,1791092850.578,Mega Drain,Growth,Stun Spore,Return
+Dawn,Budew,Leader Gardenia,31:13.52,0,14,31,2:03,1791093345.393,Mega Drain,Growth,Stun Spore,Return
+Dawn,Roserade,Leader Byron,1:20:29.14,2,15,57,5:19,1791096311.945,Return,Swords Dance,Natural Gift,Petal Dance
+Dawn,Roserade,Saturn 1,1:22:52.37,3,15,58,5:27,1791096455.652,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Mars 2,1:24:23.16,3,15,58,5:33,1791096546.496,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Leader Candice,1:28:07.98,3,15,59,5:48,1791096771.536,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Cyrus 2,1:31:31.28,3,15,61,6:02,1791096975.113,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Saturn 2,1:32:13.84,3,15,61,6:05,1791097017.791,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Mars 3,1:36:32.88,3,15,62,6:22,1791097276.991,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Cyrus 3,1:40:32.72,3,15,69,6:38,1791097522.894,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Leader Volkner,1:45:51.58,3,15,70,6:59,1791097842.043,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Rival 6,1:52:08.50,3,15,73,7:24,1791098219.838,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Elite Four Aaron,1:53:01.29,3,15,74,7:28,1791098272.723,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Elite Four Bertha,1:53:58.34,3,15,74,7:32,1791098329.861,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Elite Four Flint,1:54:44.56,3,15,77,7:35,1791098376.131,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Elite Four Lucian,1:55:29.78,3,15,77,7:38,1791098421.441,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Champion Cynthia,1:56:28.54,3,15,78,7:42,1791098480.323,Return,Swords Dance,Poison Jab,Petal Dance
+Dawn,Roserade,Hall of Fame,1:56:28.54,3,15,78,7:44,1791098508.594,Return,Swords Dance,Poison Jab,Petal Dance

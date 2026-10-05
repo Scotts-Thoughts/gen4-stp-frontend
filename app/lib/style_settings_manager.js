@@ -56,6 +56,21 @@ class StyleSettingsManager {
             'hidden_power_index',
             'frame'
         ];
+
+        // The defaults as they are on disk, serialized the way _writeDefaultsFile writes them.
+        // A write that would not change them is skipped (the split save at the end of every key
+        // battle passes the same style values back in), and prod-mode user overrides are diffed
+        // against them rather than against the in-memory defaults, which callers can mutate
+        // through the object get() hands out.
+        this._persistedJson = this._serializeDefaults();
+        this._persistedDefaults = JSON.parse(this._persistedJson);
+
+        // Defaults-file writer state
+        this._writeTimer = null;
+        this._writeInFlight = null;
+        this._writeQueued = false;
+        this._unloadHandlerRegistered = false;
+        this._unloadFlushed = false;
     }
     
     /**
@@ -247,8 +262,8 @@ class StyleSettingsManager {
                 if (this._writeTimer) {
                     clearTimeout(this._writeTimer);
                     this._writeTimer = null;
-                    this._writeDefaultsFile();
                 }
+                this._writeDefaultsFileSync();
             });
             this._unloadHandlerRegistered = true;
         }
@@ -265,8 +280,8 @@ class StyleSettingsManager {
         if (value === undefined || value === null) {
             localStorage.removeItem(`user_${key}`);
         } else {
-            // Only save the properties that differ from defaults
-            const defaultValue = this.defaultSettings[key] || {};
+            // Only save the properties that differ from the defaults as shipped
+            const defaultValue = this._persistedDefaults[key] || {};
             const userOverrides = {};
             
             // Find properties that differ from default
@@ -288,11 +303,12 @@ class StyleSettingsManager {
         localStorage.setItem(key, JSON.stringify(value));
     }
     
-    /**
-     * Write default settings to the JS file
-     */
-    _writeDefaultsFile() {
-        const content = `/**
+    _serializeDefaults() {
+        return JSON.stringify(this.defaultSettings, null, 4);
+    }
+
+    _renderDefaultsFile(json) {
+        return `/**
  * Default Style Settings
  * 
  * This file contains the default Pokemon art and background texture settings
@@ -312,18 +328,76 @@ class StyleSettingsManager {
  * Last updated: ${new Date().toISOString()}
  */
 
-const DEFAULT_STYLE_SETTINGS = ${JSON.stringify(this.defaultSettings, null, 4)};
+const DEFAULT_STYLE_SETTINGS = ${json};
 
 // Export for use in the application
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = DEFAULT_STYLE_SETTINGS;
 }
 `;
-        
+    }
+
+    _markPersisted(json) {
+        this._persistedJson = json;
+        this._persistedDefaults = JSON.parse(json);
+    }
+
+    /**
+     * Write default settings to the JS file: off the renderer thread, and never half-written
+     * (a temp file is renamed over the real one). Skipped when nothing changed since the last
+     * write. Overlapping requests coalesce into one follow-up write.
+     */
+    _writeDefaultsFile() {
+        if (this._writeInFlight) {
+            this._writeQueued = true;
+            return this._writeInFlight;
+        }
+
+        const json = this._serializeDefaults();
+        if (json === this._persistedJson) {
+            return Promise.resolve();
+        }
+
+        const tmpPath = `${this.defaultSettingsPath}.${process.pid}.tmp`;
+        this._writeInFlight = fs.promises.writeFile(tmpPath, this._renderDefaultsFile(json), 'utf8')
+            .then(() => {
+                // The unload flush already wrote newer content; don't rename this older copy over it.
+                if (this._unloadFlushed) return fs.promises.unlink(tmpPath);
+                return fs.promises.rename(tmpPath, this.defaultSettingsPath)
+                    .then(() => this._markPersisted(json));
+            })
+            .catch((e) => {
+                // The edits stay in memory and go out with the next write (or the unload flush).
+                console.error('[StyleSettingsManager] Failed to write default settings file:', e.message);
+                fs.promises.unlink(tmpPath).catch(() => {});
+            })
+            .then(() => {
+                this._writeInFlight = null;
+                if (this._writeQueued) {
+                    this._writeQueued = false;
+                    this._writeDefaultsFile();
+                }
+            });
+
+        return this._writeInFlight;
+    }
+
+    /** Synchronous variant for the unload flush, where an async write would never finish. */
+    _writeDefaultsFileSync() {
+        this._unloadFlushed = true;
+        const json = this._serializeDefaults();
+        if (json === this._persistedJson) {
+            return;
+        }
+
+        const tmpPath = `${this.defaultSettingsPath}.${process.pid}.sync.tmp`;
         try {
-            fs.writeFileSync(this.defaultSettingsPath, content, 'utf8');
+            fs.writeFileSync(tmpPath, this._renderDefaultsFile(json), 'utf8');
+            fs.renameSync(tmpPath, this.defaultSettingsPath);
+            this._markPersisted(json);
         } catch (e) {
             console.error('[StyleSettingsManager] Failed to write default settings file:', e.message);
+            try { fs.unlinkSync(tmpPath); } catch (_) {}
         }
     }
     

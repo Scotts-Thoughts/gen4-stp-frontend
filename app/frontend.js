@@ -1,6 +1,8 @@
 // Style Settings Manager for layered defaults + user overrides
 const styleSettingsManager = require('./lib/style_settings_manager.js');
 const enemySpriteScaleManager = require('./lib/enemy_sprite_scale_manager.js');
+// Keeps the PNG copies of the SVG UI art fresh in dev mode (see lib/ui_art_renderer.js).
+const uiArtRenderer = require('./lib/ui_art_renderer.js');
 
 const MyStorage = new Proxy({}, {
     set: (_, prop, value) => {
@@ -8215,6 +8217,7 @@ const app = Vue.createApp({
 //--------- PROGRAM MOUNTED ---------------------------------------------------------------------------------------------------------------//
     mounted: async function () {
         const that = this
+        window.addEventListener('load', () => { uiArtRenderer.renderUiArt().catch(() => {}) })
         this.mapper = new GameHookMapperClient()
         this.mapper.onMapperLoaded = (x) => {
             this.ready = true

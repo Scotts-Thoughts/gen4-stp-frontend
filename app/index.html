@@ -52,18 +52,18 @@
                 }"
                 :src="`images/pokemon/${displayedPokemonSpecies}.png`" />
             </transition>
-            <img class="canvas colored-image ds" src="images/ui/game_area.svg" />
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.svg)"></div>
-            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/heldItem.svg)"></div>
-            <div v-show="run_complete" class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/gametime.svg)"></div>
-            <img class="canvas colored-image ds" :src="`images/ui/stats_values.svg`" />
+            <img class="canvas colored-image ds" src="images/ui/game_area.png" />
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/timer.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/moveset.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/stats.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/ability.png)"></div>
+            <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/heldItem.png)"></div>
+            <div v-show="run_complete" class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/gametime.png)"></div>
+            <img class="canvas colored-image ds" :src="`images/ui/stats_values.png`" />
             <div v-if="show_nature_changes == true && (stats_setting == 'Automatic' || stats_setting == 'Base Stats')">
-                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/raises/${natures[pkmnNature].raises}.svg`" />
-                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/lowers/${natures[pkmnNature].lowers}.svg`" />
+                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/raises/${natures[pkmnNature].raises}.png`" />
+                <img class="canvas colored-image ds" :src="`images/ui/nature arrows/lowers/${natures[pkmnNature].lowers}.png`" />
             </div>
 
             <img class="canvas" :src="`images/ui/move_backgrounds.png`" />
@@ -71,25 +71,25 @@
             <!-- FAULTS COUNTERS -->
             <div style="position: absolute;">
                 <div v-show="blackouts_resets == 'None'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">faults</div>
                     <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Blackouts'">
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">blackouts</div>
                     <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.blackout_counter ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{blackout_counter}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Resets'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer.png)"></div>
                     <div class="fault_label timer_reset_label">resets</div>
                     <div v-if="shuckie_counters == true" id="reset_counter_single" class="faults_value timer_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
                     <div v-else id="reset_counter_single" class="faults_value timer_reset_value">{{playerResets}}</div>
                 </div>
                 <div v-show="blackouts_resets == 'Both'">   
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer_2.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/timer_2.png)"></div>
                     <div class="fault_label timer_2_reset_label">resets</div>
                     <div class="fault_label blackout_2_reset_label">blackouts</div>
                     <div v-if="shuckie_counters == true" id="reset_counter"    class="faults_value timer_2_reset_value">{{emulatorStats?.counters?.playerResets ?? 0}}</div>
@@ -751,13 +751,13 @@
                      graphics render. -->
                 <div v-if="isInDevMode && style_mode_active" style="position: absolute;" key="style_mode">
                     <div class="trainerLabel">{{ styleModeCurrentSpecies() }} {{ style_mode_index + 1 }}/{{ style_mode_species_list.length }}</div>
-                    <div class="colored-image ds" :style="`height: 233px; filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/enemy.svg)"></div>
+                    <div class="colored-image ds" :style="`height: 233px; filter: saturate(${ui_saturation}) drop-shadow(0px 0px 1px #000000)`" style="--url: url(images/new_ui/enemy.png)"></div>
                     <div>
                         <div>
-                            <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/0.svg)`"></div>
+                            <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/0.png)`"></div>
                         </div>
-                        <img class="enemyStatsArea eFaintTransition red-svg" :src="`images/new_ui/comp/0.svg`"/>
-                        <img :src="`images/new_ui/stats/0.svg`" class="enemyPng eFaintTransition">
+                        <img class="enemyStatsArea eFaintTransition red-svg" :src="`images/new_ui/comp/0.png`"/>
+                        <img :src="`images/new_ui/stats/0.png`" class="enemyPng eFaintTransition">
                     </div>
                     <div class="enemyGraphic">
                         <div class="eFaintTransition">
@@ -807,18 +807,18 @@
                 <div v-else-if="enemy_graphic == true" style="position: absolute;" key="1">
                     <div v-if="mapper.properties.battle.opponent_2.value == null" class="trainerLabel">{{get_trainer_name(mapper.properties.battle.opponent.trainer.value, mapper.properties.battle.opponent.id.value)}}</div>
                     <div v-else class="trainerLabel">Double Battle Team</div>
-                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/new_ui/enemy.svg)"></div>
+                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/new_ui/enemy.png)"></div>
                     <div v-for="x in pkmnSlots">
                         <div v-if="x < mapper.properties.battle.opponent.team_count.value" >
                             <div :style="enemyPkmnUI(mapper.properties.battle.opponent.team[x])">
-                                <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.svg)`"></div>
+                                <div class="enemyStatsArea colored-image" :style="`--overlay-color: ${overlay_color}; --url: url(images/new_ui/enemy_moves/${x}.png)`"></div>
                             </div>
-                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, getEnemyStat('speed', enemy_mon_static[x]?.stats.speed, x)).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.svg`"/>
-                            <img :src="`images/new_ui/stats/${x}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
+                            <img class="enemyStatsArea eFaintTransition" :class="svgColorClass(speed_comparison(x, getEnemyStat('speed', enemy_mon_static[x]?.stats.speed, x)).comparison, mapper.properties.battle.opponent.team[x])" :style="enemyFaint(x)" :src="`images/new_ui/comp/${x}.png`"/>
+                            <img :src="`images/new_ui/stats/${x}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x)">
                         </div>
                     </div>
                     <!-- <div v-for="x in pkmnSlots">
-                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :src="`images/enemy-area/stats/${x + mapper.properties.battle.opponent.team_count.value}.svg`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
+                        <img v-if="(x + mapper.properties.battle.opponent.team_count.value) < (mapper.properties.battle.opponent.team_count.value + mapper.properties.battle.opponent_2.team_count.value) && mapper.properties.battle.opponent_2.trainer.value != null && mapper.properties.meta.game_name.value != 'HeartGold and SoulSilver'" :src="`images/enemy-area/stats/${x + mapper.properties.battle.opponent.team_count.value}.png`" class="enemyPng eFaintTransition" :style="enemyFaint(x + 6)">
                     </div> -->
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" :style="enemyFaint(x)">
@@ -951,9 +951,9 @@
                 </div>
                 <div v-else-if="right_display == 'Trainer'" style="position: absolute;" key="2">
                     <div class="trainerLabel">{{examined_trainer_data.name}}</div>
-                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.svg)"></div>
+                    <div class="colored-image ds" :style="battlePokemonCrop" style="--url: url(images/ui/opponent.png)"></div>
                     <div v-for="x in pkmnSlots">
-                        <img v-if="x < examined_trainer_data?.party?.length" :src="`images/enemy-area/stats/${x}.svg`" class="enemyPng eFaintTransition">
+                        <img v-if="x < examined_trainer_data?.party?.length" :src="`images/enemy-area/stats/${x}.png`" class="enemyPng eFaintTransition">
                     </div>
                     <div class="enemyGraphic">
                         <div v-for="x in pkmnSlots" class="eFaintTransition" >
@@ -1037,7 +1037,7 @@
                                 <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;" :style="split_diff_color(split.difference)">{{split.difference}}</td>
                             </tr>
                         </table>
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.png)"></div>
                     </div>
                     <!-- First -->
                     <div v-else-if="split_type == 'First'">
@@ -1058,7 +1058,7 @@
                                 <td style="font-size: 15px; width: 63px;  text-align: right; padding-right: 8px;">{{split.current_time}}</td>
                             </tr>
                         </table>
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/splits.png)"></div>
                     </div>
                 </div>
                 <!-- Movepool - Only level up -->
@@ -1084,7 +1084,7 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool - TMHM -->
                 <div v-else-if="movepool_isolation == 'TMHM Moves'" key="4" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
@@ -1110,7 +1110,7 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool - Other (Tutor and Egg) -->
                 <div v-else-if="movepool_isolation == 'Tutor Moves'" key="5" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
@@ -1135,7 +1135,7 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
                 <!-- Movepool -->
                 <div v-else key="7" :style="evolution_transitioning ? `filter: drop-shadow(0px 1px 1px); opacity: ${movepoolOpacity}; transition: ${movepoolTransition};` : `filter: drop-shadow(0px 1px 1px);`">
@@ -1179,7 +1179,7 @@
                         </tr>
                         <div class="posAbs movepoolLabel">Movepool</div>
                     </table>
-                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.svg)"></div>
+                    <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/ui/movepool.png)"></div>
                 </div>
             </transition>
 
@@ -1187,14 +1187,14 @@
             <div v-if="!not_valid_battle_state" style="position: absolute;">
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/accuracy.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/accuracy.png)"></div>
                         <div class="genericLabels mod_label accuracyModLabel">accuracy:</div>
                         <div class="popUpsStyle accuracyMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.accuracy.value }}</div>
                     </div>
                 </transition>
                 <transition name="fade1">
                     <div v-show="mapper.properties.battle.player.active_pokemon.modifiers.evasion.value != 0 && mapper.properties.meta.state == `Battle`">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/evasion.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation})`" style="--url: url(images/new_ui/evasion.png)"></div>
                         <div class="genericLabels mod_label evasionModLabel">evasion:</div>
                         <div class="popUpsStyle evasionMod">{{ mapper.properties.battle.player.active_pokemon.modifiers.evasion.value }}</div>
                     </div>
@@ -1221,8 +1221,8 @@
             <div class="posAbs" v-if="mapper.properties.meta.game_name.value == 'HeartGold and SoulSilver'">
                 <transition name="fade1">
                     <div v-if="voltorb_flip == true">
-                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/new_ui/voltorb_flip.svg)"></div>
-                        <!-- <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/coins.svg)"></div>
+                        <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/new_ui/voltorb_flip.png)"></div>
+                        <!-- <div class="colored-image ds" :style="`filter: saturate(${ui_saturation}) drop-shadow(0px 1px 1px)`" style="--url: url(images/ui/coins.png)"></div>
                         <div  class="genericLabels voltorb_flip_data coinsLabel">coins:</div>
                         <div  class="genericLabels voltorb_flip_data coinsValue">{{mapper.properties.bag.coins.value}}</div>
                         <div  class="genericLabels voltorb_flip_data roundLabel">round:</div>

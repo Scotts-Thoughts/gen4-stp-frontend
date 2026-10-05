@@ -15,7 +15,7 @@
  *   - Users can reset to defaults by clearing their local overrides
  * 
  * AUTO-GENERATED - DO NOT EDIT MANUALLY (unless you know what you're doing)
- * Last updated: 2026-10-01T23:55:46.023Z
+ * Last updated: 2026-10-05T03:12:20.967Z
  */
 
 const DEFAULT_STYLE_SETTINGS = {
@@ -4152,7 +4152,190 @@ const DEFAULT_STYLE_SETTINGS = {
     "Platinum_Torterra": {},
     "Platinum_Caterpie": {},
     "Platinum_Squirtle": {},
-    "Platinum_Anorith": {}
+    "Platinum_Anorith": {},
+    "Platinum_Buneary": {
+        "evolution": true,
+        "selected_evolution_species": "Buneary"
+    },
+    "Platinum_Lopunny-line-Buneary": {
+        "imageFlip": true,
+        "imageScale": "0.71",
+        "imageYOffset": "-5",
+        "imageXOffset": "-33",
+        "overlay_color": "#ae795a",
+        "ui_saturation": "1.5",
+        "backgroundTexture": "Normal",
+        "backgroundContrast": "190",
+        "backgroundBrightness": "33",
+        "backgroundBlur": "3",
+        "backgroundHue": 0,
+        "backgroundScale": 100,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Lopunny-line-Lopunny": {
+        "overlay_color": "#ae795a",
+        "ui_saturation": "1.5",
+        "backgroundTexture": "Normal",
+        "backgroundBlur": "3",
+        "backgroundHue": 0,
+        "backgroundScale": 100,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": 0,
+        "backgroundBrightness": "33",
+        "backgroundContrast": "190",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageYOffset": "31",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Lopunny-line": {
+        "pkmn_ability": "Cute Charm"
+    },
+    "Platinum_Lopunny": {},
+    "Platinum_Budew": {
+        "pkmn_ability": "Poison Point",
+        "evolution": true,
+        "selected_evolution_species": "Budew"
+    },
+    "Platinum_Roserade-line-Budew": {
+        "imageScale": "0.4",
+        "imageFlip": true,
+        "imageYOffset": "-154",
+        "imageXOffset": "-62",
+        "backgroundTexture": "Dark Grass",
+        "backgroundContrast": "137",
+        "backgroundBrightness": "56",
+        "backgroundScale": "117",
+        "backgroundYOffset": "-42",
+        "overlay_color": "#78c850",
+        "ui_saturation": 0.6,
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Budew-line-Roselia": {
+        "overlay_color": "#78c850",
+        "ui_saturation": 0.6,
+        "backgroundTexture": "Dark Grass",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "117",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "-42",
+        "backgroundBrightness": "56",
+        "backgroundContrast": "137",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.68",
+        "imageYOffset": "-33",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Roserade-line-Roserade": {
+        "overlay_color": "#78c850",
+        "ui_saturation": 0.6,
+        "backgroundTexture": "Dark Grass",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "117",
+        "backgroundUrl": "",
+        "backgroundFlip": false,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "-42",
+        "backgroundBrightness": "56",
+        "backgroundContrast": "137",
+        "backgroundSaturation": 100,
+        "imageFlip": true,
+        "imageScale": "0.91",
+        "imageYOffset": "31",
+        "imageXOffset": "-26"
+    },
+    "Platinum_Roserade-line": {
+        "pkmn_ability": "Poison Point"
+    },
+    "Platinum_Roselia": {},
+    "Platinum_Budew-line": {
+        "pkmn_ability": "Poison Point"
+    },
+    "Platinum_Roserade": {},
+    "Platinum_Chatot": {
+        "imageFlip": true,
+        "imageScale": "0.71",
+        "imageYOffset": "-5",
+        "overlay_color": "#3e8abb",
+        "ui_saturation": "1.4",
+        "backgroundTexture": "Flying",
+        "backgroundHue": "223",
+        "backgroundFlip": false,
+        "backgroundScale": "122",
+        "backgroundYOffset": "-27",
+        "backgroundContrast": "155",
+        "backgroundBrightness": "105",
+        "backgroundSaturation": "52",
+        "backgroundBlur": "2",
+        "pkmn_gender": "Male",
+        "pkmn_ability": "Tangled Feet"
+    },
+    "Platinum_Sneasel": {},
+    "Platinum_Weavile-line-Sneasel": {
+        "imageFlip": true,
+        "imageScale": "0.73",
+        "imageYOffset": "23",
+        "imageXOffset": "-12",
+        "overlay_color": "#6695a1",
+        "ui_saturation": "1.9",
+        "backgroundFlip": true,
+        "backgroundScale": "122",
+        "backgroundYOffset": "64",
+        "backgroundContrast": "149",
+        "backgroundBrightness": "96",
+        "backgroundTexture": "Dark",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundUrl": "",
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundSaturation": 100
+    },
+    "Platinum_Weavile-line": {
+        "pkmn_ability": "Pressure"
+    },
+    "Platinum_Weavile-line-Weavile": {
+        "overlay_color": "#767193",
+        "ui_saturation": "1.9",
+        "backgroundTexture": "Dark",
+        "backgroundBlur": 0,
+        "backgroundHue": 0,
+        "backgroundScale": "122",
+        "backgroundUrl": "",
+        "backgroundFlip": true,
+        "use_custom_background": false,
+        "backgroundXOffset": 0,
+        "backgroundYOffset": "64",
+        "backgroundBrightness": "96",
+        "backgroundContrast": "149",
+        "backgroundSaturation": 100,
+        "imageFlip": false,
+        "imageYOffset": "23",
+        "imageXOffset": "31",
+        "imageScale": "0.91"
+    },
+    "Platinum_Weavile": {}
 };
 
 // Export for use in the application
